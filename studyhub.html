@@ -179,8 +179,9 @@
   }
 
   .card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    transform: translateY(-6px);
+    box-shadow: 0 24px 60px rgba(0,0,0,0.5), 0 0 40px color-mix(in srgb, var(--c) 15%, transparent);
+    border-color: var(--c);
   }
   .card:hover::before { opacity: 1; }
 
@@ -192,7 +193,7 @@
   .card[data-accent="master"] { --c: var(--accent-master); }
 
   .card:hover { border-color: var(--c); }
-  .card::before { background: radial-gradient(circle at 30% 0%, color-mix(in srgb, var(--c) 8%, transparent), transparent 60%); }
+  .card::before { background: radial-gradient(circle at 30% 0%, color-mix(in srgb, var(--c) 14%, transparent), transparent 65%); }
 
   /* Accent bar at top */
   .card-bar {
@@ -204,6 +205,7 @@
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 0.3s ease;
+    box-shadow: 0 0 12px var(--c);
   }
   .card:hover .card-bar { transform: scaleX(1); }
 
@@ -396,7 +398,7 @@
     <a class="card" data-accent="geo" href="GeoTest_PDF1_EarthRepresentation-1.html" target="_blank">
       <div class="card-bar"></div>
       <span class="card-icon">🌐</span>
-      <div class="card-tag">Geography · PDF 1</div>
+      <div class="card-tag">Geography · Earth & Representation</div>
       <div class="card-title">Earth & Its Representation</div>
       <div class="card-desc">Important Lines & Zones — Latitude, Longitude, Maps, Globe, Tropics, Equator and foundational earth concepts.</div>
       <div class="card-footer">
@@ -413,7 +415,7 @@
     <a class="card" data-accent="water" href="water_bodies_bpsc_upsc.html" target="_blank">
       <div class="card-bar"></div>
       <span class="card-icon">🏔️</span>
-      <div class="card-tag">Geography · PDF 2</div>
+      <div class="card-tag">Geography · Landforms & Water Bodies</div>
       <div class="card-title">Landforms & Water Bodies</div>
       <div class="card-desc">Mountains, Plains, Rivers, Oceans and Seas — complete coverage of physical landforms and water bodies for UPSC & BPSC.</div>
       <div class="card-footer">
@@ -430,7 +432,7 @@
     <a class="card" data-accent="energy" href="energy_sector_upsc.html" target="_blank">
       <div class="card-bar"></div>
       <span class="card-icon">🌿</span>
-      <div class="card-tag">Geography · PDF 3</div>
+      <div class="card-tag">Geography · Climate & Vegetation</div>
       <div class="card-title">Climate, Weather & Vegetation</div>
       <div class="card-desc">Monsoon, Seasons, Forests, Biomes and Ecosystems — climate patterns and vegetation zones across India and the world.</div>
       <div class="card-footer">
@@ -462,10 +464,7 @@
 
   </div>
 
-  <!-- Footer -->
-  <div class="footer">
-    <p class="footer-text">Keep all files in the <span>same folder</span> for links to work · Study Hub v1.0</p>
-  </div>
+  <!-- Footer removed -->
 
 </div>
 </body>
