@@ -1,0 +1,1514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Energy Sector — UPSC CSE Master Guide</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;400;600&display=swap');
+
+  :root {
+    --oil: #C17D0A;
+    --gas: #0A7DC1;
+    --refinery: #C10A2F;
+    --policy: #0AC17D;
+    --bg: #0A0E14;
+    --surface: #111722;
+    --card: #161D2B;
+    --border: #1E2A3D;
+    --text: #D4DCE8;
+    --muted: #6B7A8F;
+    --gold: #F0C040;
+    --white: #F0F4FA;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'IBM Plex Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, #0A0E14 0%, #0D1825 40%, #0A1520 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 48px 40px 36px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '⚡';
+    position: absolute;
+    font-size: 320px;
+    opacity: 0.03;
+    right: -40px;
+    top: -60px;
+  }
+  .hero-tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 5vw, 52px);
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1.1;
+    margin-bottom: 12px;
+  }
+  .hero h1 span { color: var(--gold); }
+  .hero-sub {
+    font-size: 14px;
+    color: var(--muted);
+    max-width: 600px;
+  }
+  .hero-pills {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+  .pill {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    padding: 4px 10px;
+    border-radius: 2px;
+    letter-spacing: 1px;
+    border: 1px solid;
+  }
+  .pill-oil { color: var(--oil); border-color: var(--oil); background: rgba(193,125,10,0.1); }
+  .pill-gas { color: var(--gas); border-color: var(--gas); background: rgba(10,125,193,0.1); }
+  .pill-ref { color: var(--refinery); border-color: var(--refinery); background: rgba(193,10,47,0.1); }
+  .pill-pol { color: var(--policy); border-color: var(--policy); background: rgba(10,193,125,0.1); }
+
+  /* NAV */
+  .nav {
+    display: flex;
+    gap: 0;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    overflow-x: auto;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .nav-btn {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 1px;
+    padding: 14px 20px;
+    border: none;
+    background: none;
+    color: var(--muted);
+    cursor: pointer;
+    white-space: nowrap;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+  }
+  .nav-btn:hover { color: var(--white); background: rgba(255,255,255,0.03); }
+  .nav-btn.active { color: var(--gold); border-bottom-color: var(--gold); }
+
+  /* SECTIONS */
+  .section { display: none; padding: 32px 40px; max-width: 1100px; margin: 0 auto; }
+  .section.active { display: block; }
+
+  /* SECTION HEADER */
+  .sec-header {
+    margin-bottom: 28px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+  }
+  .sec-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .sec-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    color: var(--white);
+  }
+  .sec-title span { color: var(--gold); }
+
+  /* CARDS */
+  .cards { display: grid; gap: 16px; }
+  .cards-2 { grid-template-columns: 1fr 1fr; }
+  .cards-3 { grid-template-columns: 1fr 1fr 1fr; }
+  @media(max-width: 700px) { .cards-2, .cards-3 { grid-template-columns: 1fr; } }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 20px;
+  }
+  .card-title {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+  .card-oil .card-title { color: var(--oil); }
+  .card-gas .card-title { color: var(--gas); }
+  .card-ref .card-title { color: var(--refinery); }
+  .card-pol .card-title { color: var(--policy); }
+  .card-gold .card-title { color: var(--gold); }
+
+  /* STAT BLOCKS */
+  .stat-row { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 20px; }
+  .stat {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 12px 16px;
+    flex: 1;
+    min-width: 120px;
+  }
+  .stat-val {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--gold);
+  }
+  .stat-label { font-size: 11px; color: var(--muted); margin-top: 2px; }
+
+  /* BAR CHARTS */
+  .bar-chart { margin: 8px 0; }
+  .bar-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+  .bar-label { font-size: 11px; color: var(--muted); width: 130px; flex-shrink: 0; font-family: 'IBM Plex Mono', monospace; }
+  .bar-track { flex: 1; background: var(--surface); border-radius: 1px; height: 18px; overflow: hidden; position: relative; }
+  .bar-fill { height: 100%; border-radius: 1px; transition: width 1s ease; display: flex; align-items: center; padding-left: 6px; }
+  .bar-val { font-size: 10px; font-family: 'IBM Plex Mono', monospace; color: rgba(255,255,255,0.85); }
+
+  /* FLOW CHART */
+  .flow { display: flex; flex-direction: column; align-items: center; gap: 0; }
+  .flow-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 10px 20px;
+    text-align: center;
+    width: 100%;
+    max-width: 340px;
+    font-size: 12px;
+  }
+  .flow-arrow { color: var(--muted); font-size: 18px; line-height: 1; }
+  .flow-split { display: flex; gap: 12px; width: 100%; justify-content: center; }
+  .flow-box-sm {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 8px 12px;
+    text-align: center;
+    flex: 1;
+    font-size: 11px;
+  }
+
+  /* TABLES */
+  .tbl { width: 100%; border-collapse: collapse; margin: 12px 0; }
+  .tbl th {
+    background: var(--surface);
+    color: var(--gold);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 10px 12px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+  .tbl td {
+    padding: 9px 12px;
+    font-size: 12px;
+    border-bottom: 1px solid rgba(30,42,61,0.6);
+    vertical-align: top;
+  }
+  .tbl tr:hover td { background: rgba(255,255,255,0.02); }
+
+  /* HIGHLIGHT BOXES */
+  .alert {
+    border-left: 3px solid;
+    padding: 12px 16px;
+    border-radius: 0 3px 3px 0;
+    margin: 12px 0;
+    font-size: 12px;
+    background: var(--surface);
+  }
+  .alert-warn { border-color: var(--oil); }
+  .alert-info { border-color: var(--gas); }
+  .alert-crit { border-color: var(--refinery); }
+  .alert-good { border-color: var(--policy); }
+  .alert-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .alert-warn .alert-label { color: var(--oil); }
+  .alert-info .alert-label { color: var(--gas); }
+  .alert-crit .alert-label { color: var(--refinery); }
+  .alert-good .alert-label { color: var(--policy); }
+
+  /* MEMORY TRICK */
+  .memory {
+    background: linear-gradient(135deg, #1A1600, #1A0D00);
+    border: 1px solid rgba(240,192,64,0.3);
+    border-radius: 4px;
+    padding: 16px 20px;
+    margin: 12px 0;
+  }
+  .memory-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+  .memory-text { font-size: 13px; color: #E8D080; font-style: italic; }
+  .memory-explain { font-size: 11px; color: var(--muted); margin-top: 6px; }
+
+  /* PYQ */
+  .pyq {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 16px;
+    margin: 12px 0;
+  }
+  .pyq-tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--refinery);
+    margin-bottom: 8px;
+  }
+  .pyq-q { font-size: 13px; color: var(--white); margin-bottom: 10px; }
+  .pyq-opts { font-size: 12px; color: var(--muted); }
+  .pyq-ans { margin-top: 10px; font-size: 12px; background: rgba(10,193,125,0.08); border: 1px solid rgba(10,193,125,0.2); border-radius: 3px; padding: 8px 12px; }
+  .pyq-ans strong { color: var(--policy); }
+
+  /* DONUT CHART */
+  .donut-wrap { display: flex; align-items: center; gap: 24px; }
+  .donut-legend { flex: 1; }
+  .legend-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; font-size: 12px; }
+  .legend-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+
+  /* TIMELINE */
+  .timeline { position: relative; padding-left: 24px; }
+  .timeline::before { content:''; position:absolute; left:6px; top:0; bottom:0; width:1px; background: var(--border); }
+  .tl-item { position: relative; margin-bottom: 16px; }
+  .tl-dot { position: absolute; left: -21px; top: 4px; width: 8px; height: 8px; border-radius: 50%; background: var(--gold); border: 2px solid var(--bg); }
+  .tl-year { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--gold); margin-bottom: 3px; }
+  .tl-text { font-size: 12px; }
+
+  /* CHOKEPOINTS MAP ASCII */
+  .map-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 16px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    line-height: 1.7;
+    overflow-x: auto;
+  }
+
+  /* SECTOR CARDS */
+  .sector-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+  .sector-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 14px;
+  }
+  .sector-icon { font-size: 24px; margin-bottom: 8px; }
+  .sector-name { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--gold); margin-bottom: 4px; }
+  .sector-val { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--white); }
+  .sector-sub { font-size: 11px; color: var(--muted); margin-top: 2px; }
+
+  /* UPSC ANGLE */
+  .upsc-angle {
+    background: linear-gradient(135deg, #001A10, #001510);
+    border: 1px solid rgba(10,193,125,0.3);
+    border-radius: 4px;
+    padding: 16px 20px;
+    margin: 12px 0;
+  }
+  .upsc-angle-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--policy);
+    margin-bottom: 8px;
+  }
+  .upsc-angle ul { padding-left: 16px; }
+  .upsc-angle li { font-size: 12px; margin-bottom: 4px; }
+
+  h3 { font-family: 'Playfair Display', serif; font-size: 18px; color: var(--white); margin: 20px 0 10px; }
+  h4 { font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 1px; color: var(--gold); margin: 14px 0 8px; }
+  p { font-size: 13px; margin-bottom: 10px; }
+  ul, ol { padding-left: 18px; }
+  li { font-size: 12px; margin-bottom: 4px; color: var(--text); }
+  strong { color: var(--white); }
+
+  .tag { display: inline-block; font-family: 'IBM Plex Mono', monospace; font-size: 9px; padding: 2px 6px; border-radius: 2px; letter-spacing: 1px; margin-right: 4px; }
+  .tag-hot { background: rgba(193,10,47,0.2); color: var(--refinery); border: 1px solid rgba(193,10,47,0.3); }
+  .tag-new { background: rgba(10,193,125,0.15); color: var(--policy); border: 1px solid rgba(10,193,125,0.25); }
+  .tag-imp { background: rgba(240,192,64,0.15); color: var(--gold); border: 1px solid rgba(240,192,64,0.25); }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-tag">UPSC CSE · GS-I/GS-III · Geography & Economy</div>
+  <h1>Energy Sector<br><span>Oil · Gas · Refinery</span></h1>
+  <p class="hero-sub">A complete visual learning system — from crude to policy, from Hormuz to hydrogen. Everything UPSC can ask, in one place.</p>
+  <div class="hero-pills">
+    <span class="pill pill-oil">🛢 CRUDE OIL</span>
+    <span class="pill pill-gas">⛽ NATURAL GAS</span>
+    <span class="pill pill-ref">🏭 REFINERIES</span>
+    <span class="pill pill-pol">📋 POLICY & SCHEMES</span>
+  </div>
+</div>
+
+<!-- NAV -->
+<div class="nav">
+  <button class="nav-btn active" onclick="show('s1',this)">01 · REFINERY PROCESS</button>
+  <button class="nav-btn" onclick="show('s2',this)">02 · GLOBAL OIL</button>
+  <button class="nav-btn" onclick="show('s3',this)">03 · INDIA'S OIL</button>
+  <button class="nav-btn" onclick="show('s4',this)">04 · NATURAL GAS</button>
+  <button class="nav-btn" onclick="show('s5',this)">05 · REFINERIES MAP</button>
+  <button class="nav-btn" onclick="show('s6',this)">06 · POLICY & SCHEMES</button>
+  <button class="nav-btn" onclick="show('s7',this)">07 · CHOKEPOINTS</button>
+  <button class="nav-btn" onclick="show('s8',this)">08 · PYQs & MNEMONICS</button>
+</div>
+
+<!-- ─── SECTION 1: REFINERY PROCESS ─── -->
+<div id="s1" class="section active">
+  <div class="sec-header">
+    <div class="sec-label">Section 01</div>
+    <div class="sec-title">Crude Oil Refinery — <span>How Crude Becomes Useful</span></div>
+  </div>
+
+  <div class="stat-row">
+    <div class="stat"><div class="stat-val">250</div><div class="stat-label">India refining capacity (MTPA)</div></div>
+    <div class="stat"><div class="stat-val">4th</div><div class="stat-label">Largest refining nation globally</div></div>
+    <div class="stat"><div class="stat-val">23</div><div class="stat-label">Refineries in India</div></div>
+    <div class="stat"><div class="stat-val">105%</div><div class="stat-label">Capacity utilization (above limit!)</div></div>
+  </div>
+
+  <div class="cards cards-2">
+    <div class="card card-oil">
+      <div class="card-title">🏭 The Distillation Tower — Visual</div>
+      <div class="flow">
+        <div class="flow-box" style="background:#1a1000;border-color:#C17D0A;color:#F0C040;font-weight:600;">
+          🛢 CRUDE OIL INPUT<br><span style="font-size:10px;color:#8B6020">Unprocessed petroleum (~100%)</span>
+        </div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-box" style="background:#1a1000;border-color:#C17D0A;">
+          🔥 ATMOSPHERIC DISTILLATION<br><span style="font-size:10px;color:#8B6020">Heated to 350–400°C in a furnace</span>
+        </div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-box" style="background:#0A1400;border-color:#444;">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;text-align:left;font-size:11px;">
+            <div style="border:1px solid #1E2A3D;padding:6px;border-radius:3px;">
+              <span style="color:#60A0FF">🔵 TOP (Cool &lt;40°C)</span><br>LPG · Petroleum Gas<br><span style="color:#555;font-size:10px">3–4%</span>
+            </div>
+            <div style="border:1px solid #1E2A3D;padding:6px;border-radius:3px;">
+              <span style="color:#A0E060">🟢 40–200°C</span><br>Petrol · Naphtha<br><span style="color:#555;font-size:10px">15–22%</span>
+            </div>
+            <div style="border:1px solid #1E2A3D;padding:6px;border-radius:3px;">
+              <span style="color:#FFD060">🟡 200–300°C</span><br>Kerosene · Jet Fuel<br><span style="color:#555;font-size:10px">8–12%</span>
+            </div>
+            <div style="border:1px solid #1E2A3D;padding:6px;border-radius:3px;">
+              <span style="color:#FF8040">🟠 300–400°C</span><br>Diesel · Fuel Oil<br><span style="color:#555;font-size:10px">35–40%</span>
+            </div>
+            <div style="border:1px solid #1E2A3D;padding:6px;border-radius:3px;grid-column:1/-1;">
+              <span style="color:#FF4040">🔴 BOTTOM (&gt;400°C)</span><br>Lubricants · Wax · Bitumen · Asphalt<br><span style="color:#555;font-size:10px">15–20%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card card-ref">
+      <div class="card-title">📊 Product Share — Bar Chart</div>
+      <div class="bar-chart">
+        <div class="bar-row">
+          <div class="bar-label">Diesel</div>
+          <div class="bar-track"><div class="bar-fill" style="width:40%;background:linear-gradient(90deg,#FF6020,#C14000)"><span class="bar-val">38–42%</span></div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">Petrol</div>
+          <div class="bar-track"><div class="bar-fill" style="width:14%;background:linear-gradient(90deg,#60C040,#40A020)"><span class="bar-val">12–15%</span></div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">Naphtha</div>
+          <div class="bar-track"><div class="bar-fill" style="width:8%;background:linear-gradient(90deg,#40A080,#208060)"><span class="bar-val">7–9%</span></div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">Kerosene/ATF</div>
+          <div class="bar-track"><div class="bar-fill" style="width:11%;background:linear-gradient(90deg,#FFD040,#C0A020)"><span class="bar-val">10–12%</span></div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">LPG</div>
+          <div class="bar-track"><div class="bar-fill" style="width:4%;background:linear-gradient(90deg,#6060FF,#4040C0)"><span class="bar-val">3–4%</span></div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">Bitumen/Wax</div>
+          <div class="bar-track"><div class="bar-fill" style="width:13%;background:linear-gradient(90deg,#808080,#606060)"><span class="bar-val">12–15%</span></div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">Lubricants</div>
+          <div class="bar-track"><div class="bar-fill" style="width:6%;background:linear-gradient(90deg,#C080FF,#A060C0)"><span class="bar-val">5–8%</span></div></div>
+        </div>
+      </div>
+      <div class="alert alert-warn" style="margin-top:12px;">
+        <div class="alert-label">⚠ Key UPSC Fact</div>
+        Diesel is the LARGEST single product (~40%). India is a DIESEL-dominated economy — this drives its energy security concerns.
+      </div>
+    </div>
+  </div>
+
+  <h3>Refinery Complexity — Nelson Complexity Index (NCI)</h3>
+  <div class="card card-gold">
+    <div class="card-title">📈 What is NCI and Why It Matters for UPSC</div>
+    <div class="bar-chart">
+      <div class="bar-row">
+        <div class="bar-label" style="width:160px">Simple Topping</div>
+        <div class="bar-track"><div class="bar-fill" style="width:33%;background:#444"><span class="bar-val">NCI 1–4</span></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label" style="width:160px">India Avg (PSU)</div>
+        <div class="bar-track"><div class="bar-fill" style="width:50%;background:linear-gradient(90deg,#C17D0A,#906010)"><span class="bar-val">NCI 6–7</span></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label" style="width:160px">Jamnagar (RIL)</div>
+        <div class="bar-track"><div class="bar-fill" style="width:80%;background:linear-gradient(90deg,#F0C040,#C09020)"><span class="bar-val">NCI 11–12</span></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label" style="width:160px">US/Singapore Best</div>
+        <div class="bar-track"><div class="bar-fill" style="width:93%;background:linear-gradient(90deg,#40C080,#208060)"><span class="bar-val">NCI 13–15</span></div></div>
+      </div>
+    </div>
+    <p style="margin-top:10px;font-size:12px;color:var(--muted)">Higher NCI = Refinery can process heavier, cheaper crude → Better margins. India's goal: raise PSU refinery NCI to 9–10 by 2030.</p>
+  </div>
+
+  <h3>Downstream vs Upstream vs Midstream</h3>
+  <div class="cards cards-3">
+    <div class="card">
+      <div class="card-title" style="color:#C17D0A;">⛏ UPSTREAM</div>
+      <ul>
+        <li>Exploration & Production (E&P)</li>
+        <li>Oil/gas well drilling</li>
+        <li>Key players: ONGC, OIL India, RIL</li>
+        <li>Governed by NELP / HELP / DSF</li>
+      </ul>
+      <div class="alert alert-info" style="margin-top:10px;">
+        <div class="alert-label">Mains Link</div>
+        "Why has India's upstream sector underperformed?" — Capital, geology, policy uncertainty
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title" style="color:#0A7DC1;">🚢 MIDSTREAM</div>
+      <ul>
+        <li>Pipelines, storage, LNG terminals</li>
+        <li>Crude transport: port → refinery</li>
+        <li>Key: GAIL (gas pipelines), HPCL</li>
+        <li>India gas pipeline network: ~22,000 km</li>
+      </ul>
+      <div class="alert alert-info" style="margin-top:10px;">
+        <div class="alert-label">Infra Gap</div>
+        India's gas pipeline penetration is low vs US/Europe — limits gas adoption
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title" style="color:#C10A2F;">🏭 DOWNSTREAM</div>
+      <ul>
+        <li>Refining, marketing, distribution</li>
+        <li>Petrol pumps, LPG distributors</li>
+        <li>Key: IOCL, BPCL, HPCL</li>
+        <li>India = Net EXPORTER of products</li>
+      </ul>
+      <div class="alert alert-good" style="margin-top:10px;">
+        <div class="alert-label">Competitive Edge</div>
+        India exports diesel, petrol to Africa/SE Asia — refining surplus is strategic
+      </div>
+    </div>
+  </div>
+
+  <div class="memory">
+    <div class="memory-label">🧠 MEMORY TRICK</div>
+    <div class="memory-text">"Uncle Makes Downstream Money" → Upstream · Midstream · Downstream</div>
+    <div class="memory-explain">Upstream = Find it · Midstream = Move it · Downstream = Sell it refined</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 2: GLOBAL OIL ─── -->
+<div id="s2" class="section">
+  <div class="sec-header">
+    <div class="sec-label">Section 02</div>
+    <div class="sec-title">Global Oil — <span>Production, Consumption & Trade</span></div>
+  </div>
+
+  <div class="stat-row">
+    <div class="stat"><div class="stat-val">~100</div><div class="stat-label">Mbd global production (million barrels/day)</div></div>
+    <div class="stat"><div class="stat-val">1.7T</div><div class="stat-label">Billion barrels proven world reserves</div></div>
+    <div class="stat"><div class="stat-val">48 yr</div><div class="stat-label">Proven reserves / current production ratio</div></div>
+    <div class="stat"><div class="stat-val">~$80</div><div class="stat-label">Approx. Brent crude price (2024 avg)</div></div>
+  </div>
+
+  <h3>World Oil Production — Regional Breakdown</h3>
+  <div class="card card-oil">
+    <div class="card-title">🌍 Production Chart (Million Barrels/Day)</div>
+    <div class="bar-chart">
+      <div class="bar-row">
+        <div class="bar-label" style="width:170px">🇺🇸 USA</div>
+        <div class="bar-track"><div class="bar-fill" style="width:85%;background:linear-gradient(90deg,#3050C0,#2040A0)"><span class="bar-val">~18 mbd — #1 Producer</span></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label" style="width:170px">🇸🇦 Saudi Arabia</div>
+        <div class="bar-track"><div class="bar-fill" style="width:55%;background:linear-gradient(90deg,#20A060,#108040)"><span class="bar-val">~11 mbd</span></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label" style="width:170px">🇷🇺 Russia</div>
+        <div class="bar-track"><div class="bar-fill" style="width:55%;background:linear-gradient(90deg,#C02020,#A01010)"><span class="bar-val">~11 mbd</span></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label" style="width:170px">🇨🇦 Canada</div>
+        <div class="bar-track"><div class="bar-fill" style="width:27%;background:linear-gradient(90deg,#C06020,#A04010)"><span class="bar-val">~5.5 mbd</span></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label" style="width:170px">🇮🇶 Iraq</div>
+        <div class="bar-track"><div class="bar-fill" style="width:22%;background:linear-gradient(90deg,#C0A020,#A08010)"><span class="bar-val">~4.5 mbd</span></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label" style="width:170px">🇨🇳 China</div>
+        <div class="bar-track"><div class="bar-fill" style="width:20%;background:linear-gradient(90deg,#A02020,#801010)"><span class="bar-val">~4 mbd</span></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label" style="width:170px">🇮🇷 Iran</div>
+        <div class="bar-track"><div class="bar-fill" style="width:19%;background:linear-gradient(90deg,#208060,#106040)"><span class="bar-val">~3.8 mbd</span></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label" style="width:170px">🇧🇷 Brazil</div>
+        <div class="bar-track"><div class="bar-fill" style="width:15%;background:linear-gradient(90deg,#206020,#104010)"><span class="bar-val">~3 mbd</span></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label" style="width:170px">🇮🇳 India</div>
+        <div class="bar-track"><div class="bar-fill" style="width:3.5%;background:linear-gradient(90deg,#FF8020,#C06000)"><span class="bar-val">~0.7 mbd</span></div></div>
+      </div>
+    </div>
+    <div class="alert alert-warn" style="margin-top:12px;">
+      <div class="alert-label">🎯 UPSC Insight</div>
+      USA became #1 producer via SHALE REVOLUTION (fracking) after 2010 — disrupted OPEC's pricing power. This is a major Prelims + Mains topic.
+    </div>
+  </div>
+
+  <h3>OPEC vs Non-OPEC — The Power Game</h3>
+  <div class="cards cards-2">
+    <div class="card card-oil">
+      <div class="card-title">🏛 OPEC (40% production, 70% reserves)</div>
+      <p style="font-size:12px">Founded 1960. HQ: Vienna, Austria. 13 members.</p>
+      <table class="tbl">
+        <tr><th>Country</th><th>mbd</th><th>Note</th></tr>
+        <tr><td>🇸🇦 Saudi Arabia</td><td>11</td><td>Swing producer</td></tr>
+        <tr><td>🇮🇶 Iraq</td><td>4.5</td><td>Growing</td></tr>
+        <tr><td>🇮🇷 Iran</td><td>3.8</td><td>Sanctioned</td></tr>
+        <tr><td>🇦🇪 UAE</td><td>3.7</td><td>Expanding</td></tr>
+        <tr><td>🇰🇼 Kuwait</td><td>3.0</td><td>—</td></tr>
+        <tr><td>🇳🇬 Nigeria</td><td>2.0</td><td>Declining</td></tr>
+        <tr><td>Others (7)</td><td>~12</td><td>Libya, Algeria…</td></tr>
+      </table>
+    </div>
+    <div class="card card-gas">
+      <div class="card-title">🌐 OPEC+ (adds Russia + allies)</div>
+      <div class="alert alert-info">
+        <div class="alert-label">What is OPEC+?</div>
+        OPEC plus 10 non-OPEC oil exporters (Russia, Kazakhstan, Mexico, etc.) — formed 2016 to control global supply. Controls ~55–60% of global exports.
+      </div>
+      <h4>How OPEC Controls Prices</h4>
+      <div class="flow">
+        <div class="flow-box" style="font-size:11px;">OPEC meets → decides production QUOTA</div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-split">
+          <div class="flow-box-sm" style="border-color:#C10A2F;color:#FF6060">Cut output → Price RISES ↑</div>
+          <div class="flow-box-sm" style="border-color:#0A7DC1;color:#60A0FF">Raise output → Price FALLS ↓</div>
+        </div>
+      </div>
+      <div class="alert alert-info" style="margin-top:12px;">
+        <div class="alert-label">India's Concern</div>
+        India = importer → OPEC cuts HURT India (higher crude bill). India lobbies OPEC to "ensure affordable prices."
+      </div>
+    </div>
+  </div>
+
+  <h3>World Oil Reserves — Where the Oil Lies</h3>
+  <div class="card card-gold">
+    <div class="card-title">💎 Proven Reserves by Country (Billion Barrels)</div>
+    <div class="bar-chart">
+      <div class="bar-row">
+        <div class="bar-label" style="width:170px">🇻🇪 Venezuela</div>
+        <div class="bar-track"><div class="bar-fill" style="width:95%;background:linear-gradient(90deg,#F0C040,#C09020)"><span class="bar-val">303 Bn — #1</span></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label" style="width:170px">🇸🇦 Saudi Arabia</div>
+        <div class="bar-track"><div class="bar-fill" style="width:88%;background:linear-gradient(90deg,#20A060,#108040)"><span class="bar-val">267 Bn</span></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label" style="width:170px">🇨🇦 Canada</div>
+        <div class="bar-track"><div class="bar-fill" style="width:56%;background:linear-gradient(90deg,#C06020,#A04010)"><span class="bar-val">170 Bn (tar sands)</span></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label" style="width:170px">🇮🇷 Iran</div>
+        <div class="bar-track"><div class="bar-fill" style="width:53%;background:linear-gradient(90deg,#208060,#106040)"><span class="bar-val">158 Bn</span></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label" style="width:170px">🇮🇶 Iraq</div>
+        <div class="bar-track"><div class="bar-fill" style="width:48%;background:linear-gradient(90deg,#C0A020,#A08010)"><span class="bar-val">145 Bn</span></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label" style="width:170px">🇷🇺 Russia</div>
+        <div class="bar-track"><div class="bar-fill" style="width:37%;background:linear-gradient(90deg,#C02020,#A01010)"><span class="bar-val">107 Bn</span></div></div>
+      </div>
+    </div>
+    <div class="memory" style="margin-top:12px;">
+      <div class="memory-label">🧠 RESERVE RANKING TRICK</div>
+      <div class="memory-text">"Very Smart Countries Invest In Resources"</div>
+      <div class="memory-explain">Venezuela → Saudi → Canada → Iran → Iraq → Russia (Top 6 reserves)</div>
+    </div>
+  </div>
+
+  <h3>Import Dependency — Key Countries</h3>
+  <div class="card card-ref">
+    <div class="card-title">📦 Oil Import Dependency (%)</div>
+    <div class="bar-chart">
+      <div class="bar-row">
+        <div class="bar-label" style="width:140px">🇯🇵 Japan</div>
+        <div class="bar-track"><div class="bar-fill" style="width:99%;background:#C10A2F"><span class="bar-val">99% — Near Total</span></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label" style="width:140px">🇰🇷 S. Korea</div>
+        <div class="bar-track"><div class="bar-fill" style="width:96%;background:#C10A2F"><span class="bar-val">96%</span></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label" style="width:140px">🇮🇳 India</div>
+        <div class="bar-track"><div class="bar-fill" style="width:87%;background:#C06000"><span class="bar-val">87% ← Our concern</span></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label" style="width:140px">🇨🇳 China</div>
+        <div class="bar-track"><div class="bar-fill" style="width:72%;background:#C08000"><span class="bar-val">72%</span></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label" style="width:140px">🇩🇪 Germany</div>
+        <div class="bar-track"><div class="bar-fill" style="width:65%;background:#A0A000"><span class="bar-val">65%</span></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label" style="width:140px">🇺🇸 USA</div>
+        <div class="bar-track"><div class="bar-fill" style="width:20%;background:#207020"><span class="bar-val">~20% (was 60% in 2000)</span></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="upsc-angle">
+    <div class="upsc-angle-label">🎯 UPSC MAINS ANGLE — "India's Energy Security Challenges"</div>
+    <ul>
+      <li>87% import dependence makes India vulnerable to price shocks and supply disruptions</li>
+      <li>Every $10/barrel rise in oil price costs India ~$12–15 billion extra annually</li>
+      <li>Oil price rise → widening Current Account Deficit → rupee depreciation → inflation</li>
+      <li>Geo-strategic: India must maintain good ties with OPEC nations (Gulf), Russia, USA</li>
+      <li>Solutions: Diversify sources, SPR (Strategic Petroleum Reserve), renewables transition</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ─── SECTION 3: INDIA'S OIL ─── -->
+<div id="s3" class="section">
+  <div class="sec-header">
+    <div class="sec-label">Section 03</div>
+    <div class="sec-title">India's Oil Sector — <span>Supply, Demand, Strategy</span></div>
+  </div>
+
+  <div class="stat-row">
+    <div class="stat"><div class="stat-val">3rd</div><div class="stat-label">Largest oil consumer globally</div></div>
+    <div class="stat"><div class="stat-val">87%</div><div class="stat-label">Import dependency (crude)</div></div>
+    <div class="stat"><div class="stat-val">~$100B</div><div class="stat-label">Annual crude import bill</div></div>
+    <div class="stat"><div class="stat-val">~5 mbd</div><div class="stat-label">Total oil demand</div></div>
+  </div>
+
+  <h3>India's Crude Supply-Demand Balance</h3>
+  <div class="card card-oil">
+    <div class="card-title">⚖ India's Oil Balance (Million Tonnes/Year)</div>
+    <div style="display:grid;grid-template-columns:1fr auto 1fr;gap:16px;align-items:center;margin:12px 0;">
+      <div style="background:#1A0A00;border:1px solid #C17D0A;border-radius:3px;padding:16px;text-align:center;">
+        <div style="font-family:'Playfair Display',serif;font-size:32px;color:#F0C040;">230 MT</div>
+        <div style="font-size:11px;color:#8B6020;margin-top:4px;">TOTAL DEMAND</div>
+        <div style="margin-top:12px;font-size:11px;text-align:left;color:var(--muted);">
+          Diesel: ~85 MT<br>Petrol: ~32 MT<br>LPG: ~27 MT<br>ATF: ~9 MT<br>Others: ~77 MT
+        </div>
+      </div>
+      <div style="font-size:28px;color:var(--refinery)">vs</div>
+      <div style="background:#001A00;border:1px solid #0AC17D;border-radius:3px;padding:16px;text-align:center;">
+        <div style="font-family:'Playfair Display',serif;font-size:32px;color:#0AC17D;">30 MT</div>
+        <div style="font-size:11px;color:#108060;margin-top:4px;">DOMESTIC PRODUCTION</div>
+        <div style="margin-top:12px;font-size:11px;text-align:left;color:var(--muted);">
+          ONGC: ~50%<br>OIL India: ~10%<br>RIL/Pvt: ~20%<br>Others: ~20%
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;background:#1A0000;border:1px solid var(--refinery);border-radius:3px;padding:12px;margin-top:8px;">
+      <span style="font-size:13px;color:#FF6060;">IMPORT GAP: <strong style="font-family:'Playfair Display',serif;font-size:22px;color:#FF4040">~200 MT (87%)</strong></span><br>
+      <span style="font-size:11px;color:var(--muted);margin-top:4px;display:block;">Mostly from Iraq, Saudi Arabia, UAE, USA (post-sanctions relief)</span>
+    </div>
+  </div>
+
+  <h3>India's Import Sources — Diversification Strategy</h3>
+  <div class="card card-gas">
+    <div class="card-title">🌍 Where India Buys Its Crude (2023-24)</div>
+    <div class="bar-chart">
+      <div class="bar-row">
+        <div class="bar-label" style="width:150px">🇷🇺 Russia</div>
+        <div class="bar-track"><div class="bar-fill" style="width:38%;background:linear-gradient(90deg,#C02020,#A01010)"><span class="bar-val">~35% ↑↑ (post Ukraine war)</span></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label" style="width:150px">🇮🇶 Iraq</div>
+        <div class="bar-track"><div class="bar-fill" style="width:22%;background:linear-gradient(90deg,#C0A020,#A08010)"><span class="bar-val">~20%</span></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label" style="width:150px">🇸🇦 Saudi Arabia</div>
+        <div class="bar-track"><div class="bar-fill" style="width:16%;background:linear-gradient(90deg,#20A060,#108040)"><span class="bar-val">~15%</span></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label" style="width:150px">🇦🇪 UAE</div>
+        <div class="bar-track"><div class="bar-fill" style="width:10%;background:linear-gradient(90deg,#C06020,#A04010)"><span class="bar-val">~9%</span></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label" style="width:150px">🇺🇸 USA</div>
+        <div class="bar-track"><div class="bar-fill" style="width:8%;background:linear-gradient(90deg,#3050C0,#2040A0)"><span class="bar-val">~7%</span></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label" style="width:150px">Others</div>
+        <div class="bar-track"><div class="bar-fill" style="width:14%;background:#444"><span class="bar-val">~14%</span></div></div>
+      </div>
+    </div>
+    <div class="alert alert-warn" style="margin-top:12px;">
+      <div class="alert-label">📰 UPSC CURRENT AFFAIRS 2022–24</div>
+      India dramatically increased Russian oil imports after Ukraine war (Feb 2022) — Russia offered heavy discounts (~$20-30/barrel). India's share of Russian oil went from ~2% (2021) to ~35% (2023). Western nations criticized India but India defended it as "national interest."
+    </div>
+  </div>
+
+  <h3>India's Major Oil Producing Basins</h3>
+  <div class="card card-ref">
+    <div class="card-title">🗺 Sedimentary Basins of India</div>
+    <table class="tbl">
+      <tr><th>Basin</th><th>Location</th><th>Share</th><th>Key Fact</th></tr>
+      <tr><td>Mumbai Offshore</td><td>West Coast (offshore)</td><td style="color:#F0C040">~40%</td><td>Mumbai High — India's largest oilfield, discovered 1974</td></tr>
+      <tr><td>Gujarat (Cambay)</td><td>Gujarat onshore</td><td style="color:#F0C040">~25%</td><td>Ankleshwar, Kalol fields. Also Mehsana area</td></tr>
+      <tr><td>Rajasthan</td><td>Barmer district</td><td style="color:#F0C040">~15%</td><td>Cairn India discovery 2004. Mangala oilfield — largest onshore</td></tr>
+      <tr><td>Assam-Arakan</td><td>NE India</td><td style="color:#F0C040">~8%</td><td>Digboi (1889) = India's FIRST oil well; OIL India HQ</td></tr>
+      <tr><td>KG Basin</td><td>Andhra/Odisha coast</td><td style="color:#F0C040">~5%</td><td>RIL KG-D6 = major gas; oil potential being explored</td></tr>
+      <tr><td>Others</td><td>Various</td><td style="color:var(--muted)">~7%</td><td>Including deepwater, ultra-deepwater potential</td></tr>
+    </table>
+    <div class="memory" style="margin-top:12px;">
+      <div class="memory-label">🧠 BASIN MEMORY TRICK</div>
+      <div class="memory-text">"Mumbai Gives Rajasthan's Assam's Kite"</div>
+      <div class="memory-explain">Mumbai Offshore → Gujarat → Rajasthan → Assam-Arakan → KG Basin (order of production share)</div>
+    </div>
+  </div>
+
+  <h3>Strategic Petroleum Reserve (SPR)</h3>
+  <div class="cards cards-2">
+    <div class="card card-pol">
+      <div class="card-title">🏗 India's SPR Programme</div>
+      <ul>
+        <li>Phase 1 complete: 3 underground caverns</li>
+        <li><strong>Visakhapatnam</strong> (AP): 1.33 MMT</li>
+        <li><strong>Mangaluru</strong> (Karnataka): 1.5 MMT</li>
+        <li><strong>Padur</strong> (Karnataka): 2.5 MMT</li>
+        <li>Total: ~5.33 MMT (~9-10 days of import)</li>
+        <li>Phase 2 planned: Chandikhol (Odisha), Padur expansion</li>
+      </ul>
+      <div class="alert alert-good" style="margin-top:10px;">
+        <div class="alert-label">Target</div>
+        India aims to build SPR to cover 90 days (IEA standard). Currently at ~9 days — huge gap.
+      </div>
+    </div>
+    <div class="card card-gold">
+      <div class="card-title">🌐 Global SPR Comparison</div>
+      <table class="tbl">
+        <tr><th>Country</th><th>SPR Days</th><th>Note</th></tr>
+        <tr><td>🇺🇸 USA</td><td>~70 days</td><td>Strategic Petroleum Reserve (est. 1975 after oil shock)</td></tr>
+        <tr><td>🇨🇳 China</td><td>~90 days</td><td>Rapidly built after 2000s</td></tr>
+        <tr><td>🇯🇵 Japan</td><td>~150 days</td><td>One of world's largest per consumption</td></tr>
+        <tr><td>🇩🇪 Germany</td><td>~90 days</td><td>IEA member obligation</td></tr>
+        <tr><td>🇮🇳 India</td><td>~9 days</td><td>⚠️ Far below IEA target</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ─── SECTION 4: NATURAL GAS ─── -->
+<div id="s4" class="section">
+  <div class="sec-header">
+    <div class="sec-label">Section 04</div>
+    <div class="sec-title">Natural Gas — <span>The Bridge Fuel to Clean Energy</span></div>
+  </div>
+
+  <div class="stat-row">
+    <div class="stat"><div class="stat-val">~140</div><div class="stat-label">MMSCMD India total gas availability</div></div>
+    <div class="stat"><div class="stat-val">6%</div><div class="stat-label">India's energy mix (vs 25% globally)</div></div>
+    <div class="stat"><div class="stat-val">15%</div><div class="stat-label">India's target share by 2030</div></div>
+    <div class="stat"><div class="stat-val">~22,000</div><div class="stat-label">km gas pipeline network (India)</div></div>
+  </div>
+
+  <h3>India's Gas Supply Chain</h3>
+  <div class="card card-gas">
+    <div class="card-title">⛽ Supply vs Demand (MMSCMD)</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+      <div>
+        <h4>SUPPLY (~140 MMSCMD)</h4>
+        <div class="bar-chart">
+          <div class="bar-row">
+            <div class="bar-label" style="width:130px">ONGC</div>
+            <div class="bar-track"><div class="bar-fill" style="width:50%;background:#0A7DC1"><span class="bar-val">50%</span></div></div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-label" style="width:130px">LNG Imports</div>
+            <div class="bar-track"><div class="bar-fill" style="width:38%;background:#0A5D91"><span class="bar-val">38%</span></div></div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-label" style="width:130px">OIL India+pvt</div>
+            <div class="bar-track"><div class="bar-fill" style="width:20%;background:#0A4D71"><span class="bar-val">20%</span></div></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h4>DEMAND SECTORS</h4>
+        <div class="bar-chart">
+          <div class="bar-row">
+            <div class="bar-label" style="width:130px">Power</div>
+            <div class="bar-track"><div class="bar-fill" style="width:24%;background:#C17D0A"><span class="bar-val">~24%</span></div></div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-label" style="width:130px">Fertilizers</div>
+            <div class="bar-track"><div class="bar-fill" style="width:22%;background:#C0A020"><span class="bar-val">~22%</span></div></div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-label" style="width:130px">City Gas (CNG)</div>
+            <div class="bar-track"><div class="bar-fill" style="width:15%;background:#20A060"><span class="bar-val">~15%</span></div></div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-label" style="width:130px">Industrial</div>
+            <div class="bar-track"><div class="bar-fill" style="width:20%;background:#804080"><span class="bar-val">~20%</span></div></div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-label" style="width:130px">Others</div>
+            <div class="bar-track"><div class="bar-fill" style="width:19%;background:#444"><span class="bar-val">~19%</span></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="alert alert-info" style="margin-top:12px;">
+      <div class="alert-label">Key Gap</div>
+      India faces chronic gas shortage: demand ~160–170 MMSCMD but supply ~140 MMSCMD. City Gas Distribution (CGD) expansion is bridging the gap.
+    </div>
+  </div>
+
+  <h3>LNG — Liquefied Natural Gas</h3>
+  <div class="cards cards-2">
+    <div class="card card-gas">
+      <div class="card-title">🚢 LNG Process Flow</div>
+      <div class="flow">
+        <div class="flow-box" style="font-size:11px">⛽ Natural Gas (gaseous)</div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-box" style="font-size:11px;background:#001A30;border-color:#0A7DC1">❄️ Liquefied at -162°C<br>(volume reduced 600 times!)</div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-box" style="font-size:11px">🚢 Loaded in LNG tankers</div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-box" style="font-size:11px">🏭 Regasification Terminal</div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-box" style="font-size:11px">🔥 Gas sent via pipeline to consumers</div>
+      </div>
+    </div>
+    <div class="card card-pol">
+      <div class="card-title">🏗 India's LNG Terminals</div>
+      <table class="tbl">
+        <tr><th>Terminal</th><th>Location</th><th>Capacity</th></tr>
+        <tr><td>Dahej</td><td>Gujarat</td><td>17.5 MMTPA — Largest</td></tr>
+        <tr><td>Hazira</td><td>Gujarat</td><td>5 MMTPA (Shell)</td></tr>
+        <tr><td>Dabhol</td><td>Maharashtra</td><td>5 MMTPA</td></tr>
+        <tr><td>Kochi</td><td>Kerala</td><td>5 MMTPA (PETRONET)</td></tr>
+        <tr><td>Ennore</td><td>Tamil Nadu</td><td>5 MMTPA</td></tr>
+        <tr><td>Jaigarh</td><td>Maharashtra</td><td>5 MMTPA (H-Energy)</td></tr>
+      </table>
+      <p style="font-size:11px;color:var(--muted);margin-top:8px">Petronet LNG is India's largest LNG importer. LNG sources: Qatar (largest), Australia, Nigeria, USA.</p>
+    </div>
+  </div>
+
+  <h3>Gas-based Fertilizer Plants — UPSC Specific</h3>
+  <div class="card card-gold">
+    <div class="card-title">🌾 Natural Gas → Urea (Critical Agriculture Link)</div>
+    <div class="flow" style="flex-direction:row;justify-content:center;flex-wrap:wrap;gap:8px;align-items:center;">
+      <div class="flow-box" style="font-size:11px;max-width:140px">⛽ Natural Gas (feedstock)</div>
+      <div style="color:var(--muted);font-size:18px">→</div>
+      <div class="flow-box" style="font-size:11px;max-width:140px;background:#001A00;border-color:#0AC17D">🏭 Ammonia synthesis</div>
+      <div style="color:var(--muted);font-size:18px">→</div>
+      <div class="flow-box" style="font-size:11px;max-width:140px">🌾 UREA (fertilizer)</div>
+    </div>
+    <div class="alert alert-warn" style="margin-top:12px;">
+      <div class="alert-label">Strategic Link</div>
+      Gas shortage → fertilizer production falls → farmer crisis. This is why India's gas sector policy directly impacts food security. UPSC loves this multi-dimensional link.
+    </div>
+    <p style="font-size:12px;margin-top:10px">India is world's 2nd largest urea consumer. To reduce import dependency, India is reviving closed urea plants (Gorakhpur, Barauni, Sindri) under New Investment Policy.</p>
+  </div>
+
+  <h3>City Gas Distribution (CGD) — One Nation One Grid</h3>
+  <div class="card card-pol">
+    <div class="card-title">🏙 CGD Network Expansion</div>
+    <div class="cards-2 cards" style="margin-bottom:12px">
+      <div>
+        <h4>CGD Components</h4>
+        <ul>
+          <li><strong>CNG</strong>: Compressed Natural Gas — vehicles</li>
+          <li><strong>PNG</strong>: Piped Natural Gas — households, industry</li>
+          <li>Regulated by PNGRB (Pipeline & Natural Gas Regulatory Board)</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Coverage (2024)</h4>
+        <ul>
+          <li>CGD networks authorized in 300+ districts</li>
+          <li>11th–12th CGD bidding rounds adding hundreds more</li>
+          <li>~14 million PNG household connections</li>
+          <li>~4,500 CNG stations across India</li>
+        </ul>
+      </div>
+    </div>
+    <div class="upsc-angle">
+      <div class="upsc-angle-label">🎯 MAINS ANGLE — Gas sector challenges</div>
+      <ul>
+        <li>High LNG import prices make gas uncompetitive vs coal for power</li>
+        <li>Pipeline infrastructure inadequate in eastern/NE India</li>
+        <li>Gas pricing disputes (APM price vs market price) deter investment</li>
+        <li>KG-D6 production decline — major setback for domestic gas</li>
+        <li>Solution: Uniform national gas grid (GAIL expanding), CGD expansion, LNG trucking</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ─── SECTION 5: REFINERIES MAP ─── -->
+<div id="s5" class="section">
+  <div class="sec-header">
+    <div class="sec-label">Section 05</div>
+    <div class="sec-title">India's Refineries — <span>Locations, Capacity & Companies</span></div>
+  </div>
+
+  <div class="stat-row">
+    <div class="stat"><div class="stat-val">23</div><div class="stat-label">Refineries in India</div></div>
+    <div class="stat"><div class="stat-val">250 MTPA</div><div class="stat-label">Total refining capacity</div></div>
+    <div class="stat"><div class="stat-val">2nd</div><div class="stat-label">Largest refiner in Asia</div></div>
+    <div class="stat"><div class="stat-val">4th</div><div class="stat-label">Globally by capacity</div></div>
+  </div>
+
+  <h3>India's Top Refineries — Complete List</h3>
+  <div class="card card-ref">
+    <div class="card-title">🏭 Refinery Rankings by Capacity (MTPA)</div>
+    <table class="tbl">
+      <tr><th>Rank</th><th>Refinery</th><th>State</th><th>Capacity</th><th>Owner</th><th>Special Note</th></tr>
+      <tr><td style="color:#F0C040">🥇 1</td><td><strong>Jamnagar (DTA+SEZ)</strong></td><td>Gujarat</td><td style="color:#F0C040">69 MTPA</td><td>Reliance (RIL)</td><td>🌍 World's LARGEST single-site refinery</td></tr>
+      <tr><td style="color:#C0C0C0">🥈 2</td><td>Vadinar (Nayara)</td><td>Gujarat</td><td>20 MTPA</td><td>Nayara Energy (Rosneft)</td><td>Russian-owned; important geopolitically</td></tr>
+      <tr><td style="color:#CD7F32">🥉 3</td><td>Paradip</td><td>Odisha</td><td>15 MTPA</td><td>IOCL</td><td>India's newest major refinery (2016)</td></tr>
+      <tr><td>4</td><td>Panipat</td><td>Haryana</td><td>15 MTPA</td><td>IOCL</td><td>Petrochemical complex attached</td></tr>
+      <tr><td>5</td><td>Koyali (Vadodara)</td><td>Gujarat</td><td>13.7 MTPA</td><td>IOCL</td><td>India's first inland refinery (1965)</td></tr>
+      <tr><td>6</td><td>Mathura</td><td>Uttar Pradesh</td><td>11 MTPA</td><td>IOCL</td><td>Controversial: near Taj Mahal, pollution concerns</td></tr>
+      <tr><td>7</td><td>Chennai (Manali)</td><td>Tamil Nadu</td><td>10.5 MTPA</td><td>CPCL (IOCL subsidiary)</td><td>South India's largest</td></tr>
+      <tr><td>8</td><td>Vishakhapatnam</td><td>Andhra Pradesh</td><td>8.3 MTPA</td><td>HPCL</td><td>Expanding to 15 MTPA</td></tr>
+      <tr><td>9</td><td>Mumbai (Mahul)</td><td>Maharashtra</td><td>7.5 MTPA</td><td>BPCL</td><td>Near Mumbai port</td></tr>
+      <tr><td>10</td><td>Barauni</td><td><strong>Bihar</strong></td><td>6+MTPA</td><td>IOCL</td><td>Being expanded; important for Bihar/BPSC</td></tr>
+      <tr><td>11</td><td>Haldia</td><td>West Bengal</td><td>8 MTPA</td><td>IOCL</td><td>Major refinery, serves eastern India</td></tr>
+      <tr><td>12</td><td>Bongaigaon</td><td>Assam</td><td>2.7 MTPA</td><td>IOCL</td><td>NE India refinery</td></tr>
+      <tr><td>13</td><td>Digboi</td><td>Assam</td><td>0.65 MTPA</td><td>IOCL</td><td>🏛 India's OLDEST refinery (1901)</td></tr>
+    </table>
+  </div>
+
+  <h3>IOCL — India's Largest PSU Oil Company</h3>
+  <div class="cards cards-2">
+    <div class="card card-oil">
+      <div class="card-title">🏢 Indian Oil Corporation Ltd (IOCL)</div>
+      <ul>
+        <li>India's largest company by revenue (often Fortune Global 100)</li>
+        <li>Controls ~30,000 km of petroleum product pipelines</li>
+        <li>Runs 55,000+ fuel retail outlets</li>
+        <li>Refineries: Panipat, Mathura, Koyali, Paradip, Barauni, Haldia, Guwahati, Digboi, Bongaigaon</li>
+        <li>R&D Centre: Faridabad (lubricants, petrochemicals)</li>
+      </ul>
+    </div>
+    <div class="card card-gas">
+      <div class="card-title">🏢 Other Major Oil PSUs</div>
+      <table class="tbl">
+        <tr><th>Company</th><th>Role</th><th>HQ</th></tr>
+        <tr><td><strong>ONGC</strong></td><td>E&P (upstream)</td><td>Dehradun</td></tr>
+        <tr><td><strong>BPCL</strong></td><td>Refining + retail</td><td>Mumbai</td></tr>
+        <tr><td><strong>HPCL</strong></td><td>Refining + retail</td><td>Mumbai</td></tr>
+        <tr><td><strong>GAIL</strong></td><td>Gas transmission</td><td>New Delhi</td></tr>
+        <tr><td><strong>OIL India</strong></td><td>E&P (NE India)</td><td>Duliajan, Assam</td></tr>
+        <tr><td><strong>Petronet LNG</strong></td><td>LNG import</td><td>New Delhi</td></tr>
+        <tr><td><strong>EIL</strong></td><td>Engineering consultancy</td><td>Gurgaon</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="memory">
+    <div class="memory-label">🧠 REFINERY MEMORY TRICK</div>
+    <div class="memory-text">"Just Very Perky Panthers Keep Making Big Victories Daily!"</div>
+    <div class="memory-explain">Jamnagar → Vadinar → Paradip → Panipat → Koyali → Mathura → Barauni → Visakhapatnam → Digboi (oldest!)</div>
+  </div>
+
+  <h3>Upcoming Mega Projects</h3>
+  <div class="card card-pol">
+    <div class="card-title">🔮 Future Refinery Plans</div>
+    <table class="tbl">
+      <tr><th>Project</th><th>Capacity</th><th>Location</th><th>Status</th></tr>
+      <tr><td>Ratnagiri Mega Refinery</td><td>60 MTPA</td><td>Maharashtra (Rajapur)</td><td>Planned — Saudi Aramco+ADNOC+India PSUs. Delayed due to land issues.</td></tr>
+      <tr><td>HPCL Rajasthan Refinery</td><td>9 MTPA</td><td>Barmer, Rajasthan</td><td>Under construction — India's first refinery in Rajasthan</td></tr>
+      <tr><td>BPCL Bina Expansion</td><td>7.8 MTPA</td><td>Bina, MP</td><td>Expansion ongoing</td></tr>
+      <tr><td>Nagarnar</td><td>3 MTPA</td><td>Chhattisgarh</td><td>NMDC-linked; under development</td></tr>
+    </table>
+    <div class="alert alert-warn" style="margin-top:12px;">
+      <div class="alert-label">🎯 UPSC Insight — Ratnagiri Refinery</div>
+      Originally planned with Saudi Aramco as world's largest refinery (60 MTPA). Multiple delays: farmers' protest, land acquisition issues, Maharashtra government pressures. Relocated site from Nanar to Rajapur. Still uncertain. Classic UPSC infrastructure challenge case study.
+    </div>
+  </div>
+</div>
+
+<!-- ─── SECTION 6: POLICY & SCHEMES ─── -->
+<div id="s6" class="section">
+  <div class="sec-header">
+    <div class="sec-label">Section 06</div>
+    <div class="sec-title">Policy & Schemes — <span>Regulatory Framework & Government Initiatives</span></div>
+  </div>
+
+  <h3>Exploration Licensing Policy Timeline</h3>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-year">1999</div>
+      <div class="tl-text"><strong>NELP (New Exploration Licensing Policy)</strong> — Replaced APM, brought PSCs (Production Sharing Contracts). Allowed 100% FDI in E&P. Multiple rounds (NELP I–IX) till 2012.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-year">2016</div>
+      <div class="tl-text"><strong>HELP (Hydrocarbon Exploration and Licensing Policy)</strong> — Replaced NELP. Single licence for all hydrocarbons (oil, gas, CBM, shale). Revenue Sharing Contract instead of PSC. Open Acreage Licensing Programme (OALP).</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-year">2016</div>
+      <div class="tl-text"><strong>DSF (Discovered Small Field) Policy</strong> — To monetize 69+ small/marginal fields left undeveloped by ONGC/OIL. Revenue sharing basis.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-year">2020</div>
+      <div class="tl-text"><strong>OALP (Open Acreage Licensing Programme)</strong> — Companies can select their own exploration blocks from national data repository. More flexible than previous rounds.</div>
+    </div>
+  </div>
+
+  <h3>Key Policy Initiatives</h3>
+  <div class="cards cards-2">
+    <div class="card card-pol">
+      <div class="card-title">🍳 Pradhan Mantri Ujjwala Yojana (PMUY)</div>
+      <div class="stat-row" style="margin-bottom:10px">
+        <div class="stat"><div class="stat-val">95M+</div><div class="stat-label">LPG connections given</div></div>
+        <div class="stat"><div class="stat-val">2016</div><div class="stat-label">Launch year</div></div>
+      </div>
+      <ul>
+        <li>Free LPG connection to BPL women</li>
+        <li>Target: Replace biomass cooking with clean fuel</li>
+        <li>Ujjwala 2.0: covers migrants without address proof</li>
+        <li>Link: Reduced indoor air pollution (GS-III + GS-I)</li>
+        <li>India now world's 2nd largest LPG consumer</li>
+      </ul>
+      <div class="alert alert-good" style="margin-top:10px">
+        <div class="alert-label">UPSC Mains</div>
+        "How has PMUY contributed to gender equality and health outcomes?" — multi-dimensional answer possible
+      </div>
+    </div>
+    <div class="card card-gas">
+      <div class="card-title">⛽ City Gas Distribution (CGD) Expansion</div>
+      <ul>
+        <li>PNGRB regulates; competitive bidding for geographical areas (GAs)</li>
+        <li>12 CGD bidding rounds — 300+ districts covered</li>
+        <li>Goal: CNG vehicles + PNG homes in every city</li>
+        <li>One Nation One Gas Grid: 17,000 km new pipeline planned</li>
+        <li>PM Urja Ganga: Gas pipeline for eastern India (UP, Bihar, Jharkhand, WB, Odisha)</li>
+      </ul>
+      <div class="alert alert-info" style="margin-top:10px">
+        <div class="alert-label">Bihar Specific</div>
+        PM Urja Ganga pipeline reaches Bihar — Patna, Varanasi, Ranchi area. Boosts gas in eastern India.
+      </div>
+    </div>
+    <div class="card card-oil">
+      <div class="card-title">🚗 Ethanol Blending Programme (EBP)</div>
+      <ul>
+        <li>Target: <strong>20% ethanol blend in petrol by 2025</strong> (E20)</li>
+        <li>Currently at ~12–13% blending (achieved ahead of schedule)</li>
+        <li>Reduces crude import bill + supports sugarcane farmers</li>
+        <li>States leading: UP, Maharashtra, Karnataka (sugar belt)</li>
+        <li>FAME II + EBP = flex fuel vehicles encouraged</li>
+      </ul>
+      <div class="alert alert-warn" style="margin-top:10px">
+        <div class="alert-label">UPSC Link</div>
+        Food vs Fuel debate: Using sugarcane for ethanol vs food — ethical/policy dimension
+      </div>
+    </div>
+    <div class="card card-ref">
+      <div class="card-title">🌿 National Green Hydrogen Mission</div>
+      <ul>
+        <li>Launched 2023; target: 5 MMTPA green hydrogen by 2030</li>
+        <li>Investment target: ₹8 lakh crore ($100 Bn)</li>
+        <li>Green H₂ uses renewable electricity to split water</li>
+        <li>Applications: Fertilizers, steel, refinery, shipping</li>
+        <li>India aims to become global green H₂ exporter</li>
+      </ul>
+      <div class="alert alert-good" style="margin-top:10px">
+        <div class="alert-label">Future Impact</div>
+        Refineries could use green H₂ instead of grey H₂ — decarbonizes refining itself
+      </div>
+    </div>
+  </div>
+
+  <h3>Fuel Subsidy Reforms</h3>
+  <div class="card card-gold">
+    <div class="card-title">📉 Subsidy Reform Timeline — UPSC Critical</div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot" style="background:#C10A2F"></div>
+        <div class="tl-year">2010</div>
+        <div class="tl-text">Petrol prices DECONTROLLED — linked to market. Diesel still subsidized.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot" style="background:#C17D0A"></div>
+        <div class="tl-year">2014</div>
+        <div class="tl-text">Diesel prices DECONTROLLED under Modi govt (falling crude prices helped). Major fiscal reform.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot" style="background:#0A7DC1"></div>
+        <div class="tl-year">2015</div>
+        <div class="tl-text">LPG DBT (Direct Benefit Transfer) — PAHAL scheme. Subsidy directly to Aadhaar-linked bank accounts. 200+ million beneficiaries. Reduced leakage dramatically.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot" style="background:#0AC17D"></div>
+        <div class="tl-year">2022</div>
+        <div class="tl-text">Kerosene subsidy largely eliminated — PDS kerosene phased out as LPG reaches rural areas via PMUY.</div>
+      </div>
+    </div>
+    <div class="upsc-angle">
+      <div class="upsc-angle-label">🎯 MAINS ANGLE — Fuel Subsidy Reform</div>
+      <ul>
+        <li>Subsidy reform freed fiscal space — reduced subsidy burden from 1.5% of GDP to 0.3%</li>
+        <li>DBT for LPG is world's largest DBT programme — cited as model by World Bank</li>
+        <li>Challenge: Price decontrol hurts poor when crude prices spike (2022 example)</li>
+        <li>Political economy: Fuel price hikes near elections become sensitive</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ─── SECTION 7: CHOKEPOINTS ─── -->
+<div id="s7" class="section">
+  <div class="sec-header">
+    <div class="sec-label">Section 07</div>
+    <div class="sec-title">Chokepoints & Trade Routes — <span>Energy Geopolitics</span></div>
+  </div>
+
+  <div class="stat-row">
+    <div class="stat"><div class="stat-val">5</div><div class="stat-label">Critical global oil chokepoints</div></div>
+    <div class="stat"><div class="stat-val">20%</div><div class="stat-label">Global oil through Hormuz daily</div></div>
+    <div class="stat"><div class="stat-val">90%</div><div class="stat-label">India's oil comes by sea</div></div>
+    <div class="stat"><div class="stat-val">$14T</div><div class="stat-label">Annual trade through these routes</div></div>
+  </div>
+
+  <h3>The 5 Critical Oil Chokepoints</h3>
+  <div class="cards cards-2">
+    <div class="card card-ref">
+      <div class="card-title">1. 🔴 Strait of Hormuz — MOST CRITICAL</div>
+      <ul>
+        <li>Between Iran and Oman/UAE</li>
+        <li><strong>21 million barrels/day = 20% of global oil</strong></li>
+        <li>All Gulf oil (Saudi, UAE, Iraq, Kuwait, Iran) passes here</li>
+        <li>Narrows to just 33 km at its narrowest</li>
+        <li>Iran repeatedly threatens to close it during tensions</li>
+      </ul>
+      <div class="alert alert-crit">
+        <div class="alert-label">India's Exposure</div>
+        ~65% of India's crude comes through Hormuz. Any disruption = crisis for India.
+      </div>
+    </div>
+    <div class="card card-oil">
+      <div class="card-title">2. 🟠 Strait of Malacca</div>
+      <ul>
+        <li>Between Malaysia, Singapore, Indonesia</li>
+        <li>~16 million barrels/day + massive LNG flows</li>
+        <li>Gateway for Middle East oil → China, Japan, South Korea</li>
+        <li>Narrows to 2.8 km at Philip Channel</li>
+        <li>Piracy concern; China's "Malacca Dilemma"</li>
+      </ul>
+      <div class="alert alert-warn">
+        <div class="alert-label">China's Dilemma</div>
+        China relies 80%+ on Malacca for energy imports → vulnerability. India's Andaman Islands flank this route → strategic advantage.
+      </div>
+    </div>
+    <div class="card card-gas">
+      <div class="card-title">3. 🔵 Suez Canal</div>
+      <ul>
+        <li>Connects Red Sea to Mediterranean</li>
+        <li>~5.5 million barrels/day + 8% global trade</li>
+        <li>Cuts distance Middle East → Europe by 7,000 km vs Cape route</li>
+        <li>2021: Ever Given blockage — disrupted global supply chains</li>
+        <li>Houthi attacks 2023-24 forced ships to reroute via Cape</li>
+      </ul>
+    </div>
+    <div class="card card-pol">
+      <div class="card-title">4. 🟡 Bab el-Mandeb Strait</div>
+      <ul>
+        <li>Between Yemen and Djibouti/Eritrea (Red Sea exit)</li>
+        <li>~6 million barrels/day</li>
+        <li>Houthi attacks 2023-24 made this zone dangerous</li>
+        <li>Ships now going Cape route → higher costs for India</li>
+        <li>India's Operation Sankalp (2019): Naval patrol here</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card card-gold" style="margin-top:16px">
+    <div class="card-title">5. ⚫ Turkish Straits (Bosphorus + Dardanelles)</div>
+    <ul style="display:grid;grid-template-columns:1fr 1fr;gap:4px">
+      <li>Connects Black Sea → Mediterranean</li>
+      <li>~3 million barrels/day (mostly Russian + Caspian oil)</li>
+      <li>Istanbul is on Bosphorus — highest density strait</li>
+      <li>Turkey controls access — geopolitical leverage</li>
+    </ul>
+  </div>
+
+  <h3>Chokepoints Visual Summary</h3>
+  <div class="map-box">
+    <div style="color:#F0C040;font-weight:600;margin-bottom:8px">GLOBAL OIL FLOW MAP (Schematic)</div>
+    <pre style="font-size:10px;line-height:1.6;color:var(--text)">
+ MIDDLE EAST (Production Hub) ─────────────────────────────────────────┐
+ [Saudi / Iraq / UAE / Kuwait / Iran]                                   │
+         │                                                              │
+         ▼ via HORMUZ STRAIT ⚠️ (20% global oil)                       │
+ ─────────────────────────────────────────────────────                  │
+ │ Indian Ocean ─────────────────────────────────────────────────────  │
+ │      │                              │                │              │
+ │      ▼ INDIA                        ▼ via MALACCA ⚠️│              │
+ │  [Ports: Mundra, Sikka,         [China/Japan/S.Korea]│              │
+ │   JNPT, Paradip, Vizag]                              │              │
+ │                                     │                               │
+ │ via BAB EL-MANDEB ⚠️──────────────► SUEZ CANAL ⚠️ ──► EUROPE      │
+ │ [Red Sea route]          [Mediterranean]                            │
+ │                                                                     │
+ RUSSIA (Black Sea oil) ─────────────► via BOSPHORUS ⚠️ ─► EUROPE   │
+                                        [Turkish Straits]              │
+                                                                       │
+ USA (Atlantic) ─────────────────────────────────────────────────────►│
+ [Shale oil / Gulf of Mexico]                                          │
+    </pre>
+    <div style="margin-top:8px;font-size:11px;color:var(--muted)">⚠️ = Chokepoint  •  Each disruption cascades to global oil prices within hours</div>
+  </div>
+
+  <div class="upsc-angle" style="margin-top:16px">
+    <div class="upsc-angle-label">🎯 MAINS ANGLE — Energy Security & Geopolitics</div>
+    <ul>
+      <li>Houthi attacks 2023-24 raised India's shipping costs — longer Cape route = +$200-400/container</li>
+      <li>India's response: Naval deployment, joining US-led maritime coalition (partly), diplomatic engagement</li>
+      <li>Iran-Israel tensions: Risk to Hormuz → India's core energy security concern</li>
+      <li>India's strategic assets: Andaman & Nicobar (flanks Malacca), Chabahar port (Iran, bypasses Pakistan)</li>
+      <li>Alternative corridors: IMEC (India-Middle East-Europe Corridor) announced G20 2023 — bypass Suez</li>
+    </ul>
+  </div>
+
+  <div class="memory">
+    <div class="memory-label">🧠 CHOKEPOINTS MEMORY TRICK</div>
+    <div class="memory-text">"Happy Men Buy Strong Tea"</div>
+    <div class="memory-explain">Hormuz → Malacca → Bab el-Mandeb → Suez → Turkish Straits (in order of oil volume)</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 8: PYQs & MNEMONICS ─── -->
+<div id="s8" class="section">
+  <div class="sec-header">
+    <div class="sec-label">Section 08</div>
+    <div class="sec-title">PYQs & <span>Master Mnemonics</span></div>
+  </div>
+
+  <h3>UPSC Prelims PYQs — Energy Sector</h3>
+
+  <div class="pyq">
+    <div class="pyq-tag">UPSC PRELIMS 2019</div>
+    <div class="pyq-q">With reference to India's oil sector, consider the following statements:<br>1. India is a net importer of petroleum products<br>2. The refining capacity of India exceeds its domestic demand for petroleum products<br>Which of the above is/are correct?</div>
+    <div class="pyq-opts">(a) 1 only &nbsp; (b) 2 only &nbsp; (c) Both 1 and 2 &nbsp; (d) Neither</div>
+    <div class="pyq-ans"><strong style="color:#0AC17D">Answer: (b) 2 only</strong><br>
+    Statement 1 is WRONG: India is a NET EXPORTER of petroleum products (refined goods). It imports crude oil, but refines more than it consumes → exports diesel, petrol, ATF.<br>
+    Statement 2 is CORRECT: India's refining capacity (~250 MTPA) exceeds domestic consumption (~230 MTPA).</div>
+  </div>
+
+  <div class="pyq">
+    <div class="pyq-tag">UPSC PRELIMS 2021</div>
+    <div class="pyq-q">Consider the following statements about OPEC+:<br>1. OPEC+ includes all OPEC members plus G20 oil producers<br>2. Russia is the key non-OPEC member in OPEC+<br>Select the correct answer:</div>
+    <div class="pyq-opts">(a) 1 only &nbsp; (b) 2 only &nbsp; (c) Both &nbsp; (d) Neither</div>
+    <div class="pyq-ans"><strong style="color:#0AC17D">Answer: (b) 2 only</strong><br>
+    Statement 1 is WRONG: OPEC+ includes OPEC + select non-OPEC oil exporters (Russia, Kazakhstan, Mexico, etc.) — NOT all G20 oil producers.<br>
+    Statement 2 is CORRECT: Russia is by far the most important non-OPEC member of OPEC+.</div>
+  </div>
+
+  <div class="pyq">
+    <div class="pyq-tag">UPSC PRELIMS 2018</div>
+    <div class="pyq-q">Which one of the following is NOT a petroleum product?</div>
+    <div class="pyq-opts">(a) Kerosene &nbsp; (b) Naphtha &nbsp; (c) Molasses &nbsp; (d) Asphalt</div>
+    <div class="pyq-ans"><strong style="color:#0AC17D">Answer: (c) Molasses</strong><br>
+    Molasses is a byproduct of sugar manufacturing — not from crude oil. Kerosene, Naphtha, and Asphalt are all crude oil fractions from the distillation tower.</div>
+  </div>
+
+  <div class="pyq">
+    <div class="pyq-tag">UPSC PRELIMS 2022</div>
+    <div class="pyq-q">The term "HELP" in the context of India's petroleum sector refers to:</div>
+    <div class="pyq-opts">(a) Hydrocarbon Exploration and Licensing Policy<br>(b) High Energy Licensing Programme<br>(c) Hydrocarbon Exploration and Leasing Plan<br>(d) High-yield Exploration Licensing Process</div>
+    <div class="pyq-ans"><strong style="color:#0AC17D">Answer: (a) Hydrocarbon Exploration and Licensing Policy</strong><br>
+    HELP (2016) replaced NELP. Key features: single licence for all hydrocarbons, revenue sharing contracts, open acreage licensing (OALP), 100% FDI allowed.</div>
+  </div>
+
+  <div class="pyq">
+    <div class="pyq-tag">UPSC PRELIMS 2023</div>
+    <div class="pyq-q">With reference to the Strait of Hormuz, which of the following is correct?</div>
+    <div class="pyq-opts">(a) It connects the Persian Gulf to the Red Sea<br>(b) It separates Iran from Saudi Arabia<br>(c) About one-fifth of global oil passes through it<br>(d) It is controlled by joint US-UAE naval forces</div>
+    <div class="pyq-ans"><strong style="color:#0AC17D">Answer: (c) About one-fifth of global oil passes through it</strong><br>
+    Hormuz connects the Persian Gulf to the Gulf of Oman (Arabian Sea), NOT Red Sea. It separates Iran (north) from Oman/UAE (south). ~20-21 million barrels/day (~20% global) pass through it.</div>
+  </div>
+
+  <div class="pyq">
+    <div class="pyq-tag">UPSC PRELIMS 2020</div>
+    <div class="pyq-q">What is the correct sequence of the following in terms of world oil reserves (highest to lowest)?</div>
+    <div class="pyq-opts">(a) Saudi Arabia, Venezuela, Iran, Canada<br>(b) Venezuela, Saudi Arabia, Canada, Iran<br>(c) Saudi Arabia, Iran, Venezuela, Canada<br>(d) Venezuela, Saudi Arabia, Iran, Canada</div>
+    <div class="pyq-ans"><strong style="color:#0AC17D">Answer: (b) Venezuela → Saudi Arabia → Canada → Iran</strong><br>
+    Use the mnemonic "Very Smart Countries Invest" → Venezuela(303Bn) → Saudi(267Bn) → Canada(170Bn) → Iran(158Bn). Venezuela overtook Saudi Arabia in 2011 with reclassification of Orinoco heavy oil.</div>
+  </div>
+
+  <h3>Master Mnemonics — All in One Place</h3>
+
+  <div class="memory">
+    <div class="memory-label">🧠 OPEC FOUNDING MEMBERS (1960)</div>
+    <div class="memory-text">"Iran's Saudi King Vows Independence"</div>
+    <div class="memory-explain">Iran · Saudi Arabia · Kuwait · Venezuela · Iraq (5 founding members, 1960, Baghdad)</div>
+  </div>
+
+  <div class="memory">
+    <div class="memory-label">🧠 WORLD OIL RESERVES TOP 6</div>
+    <div class="memory-text">"Very Smart Countries Invest In Resources"</div>
+    <div class="memory-explain">Venezuela → Saudi Arabia → Canada → Iran → Iraq → Russia</div>
+  </div>
+
+  <div class="memory">
+    <div class="memory-label">🧠 CHOKEPOINTS (By Volume)</div>
+    <div class="memory-text">"Happy Men Buy Strong Tea"</div>
+    <div class="memory-explain">Hormuz (~21mbd) → Malacca (~16mbd) → Bab el-Mandeb (~6mbd) → Suez (~5.5mbd) → Turkish Straits (~3mbd)</div>
+  </div>
+
+  <div class="memory">
+    <div class="memory-label">🧠 INDIA'S REFINERY RANKING</div>
+    <div class="memory-text">"Just Very Perky Panthers Keep Making Big Victories Daily!"</div>
+    <div class="memory-explain">Jamnagar(RIL) · Vadinar · Paradip · Panipat · Koyali · Mathura · Barauni · Visakhapatnam · Digboi(oldest)</div>
+  </div>
+
+  <div class="memory">
+    <div class="memory-label">🧠 INDIA'S OIL BASINS (By Production Share)</div>
+    <div class="memory-text">"Mumbai Gives Rajasthan's Assam's Kite"</div>
+    <div class="memory-explain">Mumbai Offshore(40%) → Gujarat(25%) → Rajasthan(15%) → Assam-Arakan(8%) → KG Basin(5%)</div>
+  </div>
+
+  <div class="memory">
+    <div class="memory-label">🧠 PETROLEUM PRODUCTS (Top → Bottom of Distillation Tower)</div>
+    <div class="memory-text">"Lucy Picked Naughty Kids Doing Laps Before Arriving"</div>
+    <div class="memory-explain">LPG → Petrol → Naphtha → Kerosene → Diesel → Lubricants → Bitumen → Asphalt</div>
+  </div>
+
+  <div class="memory">
+    <div class="memory-label">🧠 UPSTREAM-MIDSTREAM-DOWNSTREAM</div>
+    <div class="memory-text">"Uncle Makes Downstream Money"</div>
+    <div class="memory-explain">Upstream (find it) · Midstream (move it) · Downstream (sell it refined)</div>
+  </div>
+
+  <h3>Quick Revision Facts — Exam Day Checklist</h3>
+  <div class="card card-gold">
+    <div class="card-title">⚡ 30 Must-Know Facts</div>
+    <div class="cards cards-2">
+      <div>
+        <table class="tbl">
+          <tr><th>#</th><th>Fact</th></tr>
+          <tr><td>1</td><td>India = 3rd largest oil consumer globally</td></tr>
+          <tr><td>2</td><td>India = 87% crude import dependent</td></tr>
+          <tr><td>3</td><td>India = Net EXPORTER of petroleum products</td></tr>
+          <tr><td>4</td><td>Jamnagar = World's largest single-site refinery (69 MTPA)</td></tr>
+          <tr><td>5</td><td>Digboi (1889) = India's first oil well / oldest refinery (1901)</td></tr>
+          <tr><td>6</td><td>Mumbai High = India's largest oilfield (discovered 1974)</td></tr>
+          <tr><td>7</td><td>ONGC produces ~50% of India's domestic oil/gas</td></tr>
+          <tr><td>8</td><td>USA = World's #1 oil producer (shale revolution)</td></tr>
+          <tr><td>9</td><td>Venezuela = World's #1 oil reserves</td></tr>
+          <tr><td>10</td><td>Hormuz = 20% of global oil trade; between Iran & Oman</td></tr>
+          <tr><td>11</td><td>HELP replaced NELP in 2016</td></tr>
+          <tr><td>12</td><td>PMUY: 95M+ free LPG connections to BPL families</td></tr>
+          <tr><td>13</td><td>LPG DBT (PAHAL) = World's largest DBT programme</td></tr>
+          <tr><td>14</td><td>India's SPR: ~5.33 MMT (~9-10 days) at Vizag, Mangaluru, Padur</td></tr>
+          <tr><td>15</td><td>Petronet LNG's Dahej terminal = India's largest (17.5 MMTPA)</td></tr>
+        </table>
+      </div>
+      <div>
+        <table class="tbl">
+          <tr><th>#</th><th>Fact</th></tr>
+          <tr><td>16</td><td>OPEC founded 1960 in Baghdad; HQ Vienna; 13 members</td></tr>
+          <tr><td>17</td><td>OPEC+ formed 2016 (adds Russia, Kazakhstan etc.)</td></tr>
+          <tr><td>18</td><td>India's ethanol blending target: 20% (E20) by 2025</td></tr>
+          <tr><td>19</td><td>Green Hydrogen Mission: 5 MMTPA by 2030</td></tr>
+          <tr><td>20</td><td>Gas in India's energy mix: only 6% (vs 25% global average)</td></tr>
+          <tr><td>21</td><td>India's gas target: 15% of energy mix by 2030</td></tr>
+          <tr><td>22</td><td>PM Urja Ganga: Gas pipeline for eastern India (UP-Bihar-Jharkhand)</td></tr>
+          <tr><td>23</td><td>Malacca Strait = China's energy dilemma; India's Andaman Islands flank it</td></tr>
+          <tr><td>24</td><td>Russia = India's top crude source post-2022 (~35%)</td></tr>
+          <tr><td>25</td><td>IOCL = India's largest company by revenue</td></tr>
+          <tr><td>26</td><td>NCI: Jamnagar ~11-12; India PSU avg ~6-7; World best 13-15</td></tr>
+          <tr><td>27</td><td>Shale revolution: USA used horizontal drilling + fracking to unlock shale oil</td></tr>
+          <tr><td>28</td><td>IMEC (India-Middle East-Europe Corridor) = G20 2023 alternative to Suez</td></tr>
+          <tr><td>29</td><td>Ratnagiri Mega Refinery: 60 MTPA planned, multiple delays</td></tr>
+          <tr><td>30</td><td>Chabahar Port (Iran) = India's key bypass of Pakistan; accesses Afghanistan/Central Asia</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function show(id, btn) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+</script>
+</body>
+</html>

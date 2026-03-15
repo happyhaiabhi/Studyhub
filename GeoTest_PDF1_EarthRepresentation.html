@@ -1,0 +1,1315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Geography Foundation — PDF 1 Master Test</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap');
+
+  :root {
+    --navy: #1A237E;
+    --blue: #1565C0;
+    --sky: #E3F2FD;
+    --teal: #00695C;
+    --teal-lt: #E0F2F1;
+    --orange: #E65100;
+    --orange-lt: #FFF3E0;
+    --green: #2E7D32;
+    --green-lt: #E8F5E9;
+    --yellow: #F9A825;
+    --yellow-lt: #FFFDE7;
+    --red: #B71C1C;
+    --red-lt: #FFEBEE;
+    --purple: #4A148C;
+    --purple-lt: #F3E5F5;
+    --grey: #546E7A;
+    --grey-lt: #ECEFF1;
+    --bg: #0D1B2A;
+    --card: #162032;
+    --card2: #1E2D42;
+    --text: #E8F0FE;
+    --muted: #8BA3C7;
+    --accent: #4FC3F7;
+    --gold: #FFD54F;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ── HEADER ───────────────────────────────────────── */
+  .header {
+    background: linear-gradient(135deg, #0D1B2A 0%, #1A237E 60%, #0D47A1 100%);
+    padding: 28px 24px 20px;
+    text-align: center;
+    border-bottom: 2px solid rgba(79,195,247,0.3);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '🗺';
+    position: absolute;
+    font-size: 120px;
+    opacity: 0.06;
+    top: -20px; left: -20px;
+  }
+  .header h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--accent);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .header p {
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 4px;
+  }
+  .pdf-badge {
+    display: inline-block;
+    background: var(--yellow);
+    color: #000;
+    font-family: 'Syne', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-top: 8px;
+    letter-spacing: 1px;
+  }
+
+  /* ── SCORE BAR ────────────────────────────────────── */
+  .score-bar {
+    background: var(--card);
+    padding: 12px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    border-bottom: 1px solid rgba(79,195,247,0.15);
+    flex-wrap: wrap;
+  }
+  .score-item {
+    text-align: center;
+  }
+  .score-item .val {
+    font-family: 'Syne', sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--accent);
+  }
+  .score-item .lbl {
+    font-size: 10px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .progress-wrap {
+    flex: 1;
+    min-width: 120px;
+  }
+  .progress-track {
+    background: rgba(255,255,255,0.08);
+    border-radius: 20px;
+    height: 8px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent), var(--teal));
+    border-radius: 20px;
+    transition: width 0.5s ease;
+    width: 0%;
+  }
+  .progress-text {
+    font-size: 11px;
+    color: var(--muted);
+    text-align: center;
+    margin-top: 4px;
+  }
+
+  /* ── MODE SELECTOR ────────────────────────────────── */
+  .mode-selector {
+    padding: 16px 20px;
+    background: var(--card2);
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+    border-bottom: 1px solid rgba(79,195,247,0.1);
+  }
+  .mode-btn {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(79,195,247,0.2);
+    color: var(--muted);
+    font-family: 'Syne', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 7px 14px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.2s;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  .mode-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .mode-btn.active {
+    background: var(--accent);
+    color: #000;
+    border-color: var(--accent);
+  }
+
+  /* ── MAIN AREA ────────────────────────────────────── */
+  .main { padding: 20px; max-width: 760px; margin: 0 auto; }
+
+  /* ── QUESTION CARD ────────────────────────────────── */
+  .q-card {
+    background: var(--card);
+    border: 1px solid rgba(79,195,247,0.15);
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 16px;
+    animation: fadeUp 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .q-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--teal), var(--purple-lt));
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .q-meta {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 14px;
+  }
+  .q-tag {
+    font-size: 10px;
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  .tag-mcq    { background: #1565C0; color: #fff; }
+  .tag-tf     { background: #4A148C; color: #fff; }
+  .tag-fill   { background: #2E7D32; color: #fff; }
+  .tag-match  { background: #E65100; color: #fff; }
+  .tag-pyq    { background: #B71C1C; color: #fff; }
+  .tag-source { background: rgba(255,255,255,0.08); color: var(--muted); border: 1px solid rgba(255,255,255,0.12); }
+
+  .q-number {
+    font-size: 11px;
+    color: var(--muted);
+    font-family: 'Syne', sans-serif;
+  }
+
+  .q-text {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--text);
+    margin-bottom: 18px;
+    font-weight: 400;
+  }
+  .q-text strong { color: var(--accent); }
+
+  /* Statements block */
+  .statements {
+    background: rgba(79,195,247,0.06);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 8px 8px 0;
+    padding: 12px 14px;
+    margin-bottom: 16px;
+  }
+  .statements p {
+    font-size: 13.5px;
+    line-height: 1.7;
+    color: var(--text);
+  }
+
+  /* MCQ Options */
+  .options { display: flex; flex-direction: column; gap: 10px; }
+  .opt {
+    background: rgba(255,255,255,0.04);
+    border: 1.5px solid rgba(255,255,255,0.1);
+    border-radius: 10px;
+    padding: 13px 16px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 13.5px;
+    line-height: 1.5;
+    color: var(--text);
+  }
+  .opt:hover { border-color: var(--accent); background: rgba(79,195,247,0.08); }
+  .opt-key {
+    background: rgba(255,255,255,0.08);
+    border-radius: 6px;
+    min-width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .opt.correct { background: rgba(46,125,50,0.25); border-color: #4CAF50; }
+  .opt.wrong   { background: rgba(183,28,28,0.2);  border-color: #EF5350; }
+  .opt.correct .opt-key { background: #4CAF50; color: #000; }
+  .opt.wrong   .opt-key { background: #EF5350; color: #fff; }
+  .opt.revealed { pointer-events: none; }
+
+  /* Fill in blank */
+  .fill-wrap { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+  .fill-input {
+    background: rgba(255,255,255,0.06);
+    border: 1.5px solid rgba(79,195,247,0.3);
+    border-radius: 8px;
+    padding: 10px 14px;
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    flex: 1;
+    min-width: 180px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .fill-input:focus { border-color: var(--accent); }
+  .fill-input.correct { border-color: #4CAF50; background: rgba(46,125,50,0.15); }
+  .fill-input.wrong   { border-color: #EF5350; background: rgba(183,28,28,0.1); }
+
+  /* True/False */
+  .tf-options { display: flex; gap: 12px; }
+  .tf-btn {
+    flex: 1;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1.5px solid rgba(255,255,255,0.12);
+    background: rgba(255,255,255,0.04);
+    cursor: pointer;
+    font-family: 'Syne', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text);
+    transition: all 0.2s;
+    text-align: center;
+  }
+  .tf-btn:hover { border-color: var(--accent); }
+  .tf-btn.correct { background: rgba(46,125,50,0.25); border-color: #4CAF50; color: #4CAF50; }
+  .tf-btn.wrong   { background: rgba(183,28,28,0.2);  border-color: #EF5350; color: #EF5350; }
+
+  /* Submit btn */
+  .submit-btn {
+    background: var(--accent);
+    color: #000;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 24px;
+    font-family: 'Syne', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    letter-spacing: 0.5px;
+  }
+  .submit-btn:hover { background: #81D4FA; transform: translateY(-1px); }
+  .submit-btn:disabled { opacity: 0.4; cursor: default; transform: none; }
+
+  /* Explanation Box */
+  .explanation {
+    display: none;
+    margin-top: 14px;
+    border-radius: 10px;
+    padding: 14px 16px;
+    font-size: 13px;
+    line-height: 1.7;
+    animation: fadeUp 0.3s ease;
+  }
+  .explanation.show { display: block; }
+  .explanation.correct-exp {
+    background: rgba(46,125,50,0.12);
+    border: 1px solid rgba(76,175,80,0.3);
+  }
+  .explanation.wrong-exp {
+    background: rgba(183,28,28,0.1);
+    border: 1px solid rgba(239,83,80,0.3);
+  }
+  .exp-head {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+  }
+  .exp-head.correct-head { color: #4CAF50; }
+  .exp-head.wrong-head   { color: #EF5350; }
+  .correct-ans {
+    background: rgba(79,195,247,0.1);
+    border: 1px solid rgba(79,195,247,0.25);
+    border-radius: 6px;
+    padding: 8px 12px;
+    margin-top: 8px;
+    font-size: 12.5px;
+    color: var(--accent);
+  }
+  .trick-box {
+    background: rgba(249,168,37,0.1);
+    border: 1px solid rgba(249,168,37,0.3);
+    border-radius: 6px;
+    padding: 8px 12px;
+    margin-top: 8px;
+    font-size: 12.5px;
+    color: var(--gold);
+  }
+
+  /* ── NAV BUTTONS ──────────────────────────────────── */
+  .nav-row {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+    flex-wrap: wrap;
+  }
+  .nav-btn {
+    background: rgba(255,255,255,0.06);
+    border: 1.5px solid rgba(79,195,247,0.25);
+    color: var(--accent);
+    font-family: 'Syne', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    letter-spacing: 0.5px;
+  }
+  .nav-btn:hover { background: rgba(79,195,247,0.12); transform: translateY(-1px); }
+  .nav-btn.primary {
+    background: var(--accent);
+    color: #000;
+    border-color: var(--accent);
+  }
+  .nav-btn.primary:hover { background: #81D4FA; }
+
+  /* ── SECTION HEADER ───────────────────────────────── */
+  .section-banner {
+    background: linear-gradient(135deg, #1A237E, #0D47A1);
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border: 1px solid rgba(79,195,247,0.2);
+  }
+  .section-icon { font-size: 28px; }
+  .section-banner h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--accent);
+  }
+  .section-banner p { font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+  /* ── RESULTS SCREEN ───────────────────────────────── */
+  .results-screen {
+    display: none;
+    text-align: center;
+    padding: 30px 20px;
+  }
+  .results-screen.show { display: block; }
+  .big-score {
+    font-family: 'Syne', sans-serif;
+    font-size: 72px;
+    font-weight: 800;
+    line-height: 1;
+  }
+  .grade-badge {
+    display: inline-block;
+    font-family: 'Syne', sans-serif;
+    font-size: 18px;
+    font-weight: 800;
+    padding: 8px 24px;
+    border-radius: 30px;
+    margin: 12px 0;
+    letter-spacing: 2px;
+  }
+  .results-breakdown {
+    background: var(--card);
+    border-radius: 12px;
+    padding: 16px;
+    margin: 16px auto;
+    max-width: 500px;
+    text-align: left;
+  }
+  .breakdown-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    font-size: 13px;
+  }
+  .breakdown-row:last-child { border-bottom: none; }
+
+  /* ── FLASHCARD MODE ───────────────────────────────── */
+  .flashcard {
+    background: var(--card);
+    border: 1px solid rgba(79,195,247,0.2);
+    border-radius: 16px;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 24px;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .flashcard::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--yellow), var(--orange), var(--red));
+  }
+  .flashcard:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(79,195,247,0.1); }
+  .fc-front {
+    font-family: 'Syne', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 10px;
+  }
+  .fc-hint { font-size: 12px; color: var(--muted); }
+  .fc-back { display: none; }
+  .fc-back.show {
+    display: block;
+    animation: fadeUp 0.3s ease;
+  }
+  .fc-answer {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--text);
+    margin-bottom: 10px;
+  }
+  .fc-trick {
+    font-size: 12.5px;
+    color: var(--gold);
+    background: rgba(249,168,37,0.08);
+    border-radius: 8px;
+    padding: 8px 12px;
+    margin-top: 8px;
+  }
+
+  /* ── TOPIC SELECTOR ───────────────────────────────── */
+  .topic-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  .topic-chip {
+    background: var(--card2);
+    border: 1px solid rgba(79,195,247,0.15);
+    border-radius: 10px;
+    padding: 12px 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 11.5px;
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    color: var(--muted);
+  }
+  .topic-chip:hover, .topic-chip.active {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: rgba(79,195,247,0.08);
+  }
+  .topic-chip .t-icon { font-size: 20px; display: block; margin-bottom: 4px; }
+
+  /* Scrollable Q list for review */
+  .review-list { max-height: 500px; overflow-y: auto; }
+  .review-item {
+    background: var(--card);
+    border-radius: 10px;
+    padding: 14px;
+    margin-bottom: 10px;
+    border-left: 4px solid;
+    font-size: 13px;
+  }
+  .review-item.correct { border-color: #4CAF50; }
+  .review-item.wrong   { border-color: #EF5350; }
+  .review-item.skipped { border-color: var(--grey); }
+
+  /* Responsive */
+  @media (max-width: 500px) {
+    .q-text { font-size: 14px; }
+    .score-item .val { font-size: 18px; }
+    .header h1 { font-size: 17px; }
+    .big-score { font-size: 54px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>🗺 Geography Foundation — PDF 1 Test</h1>
+  <p>Earth & Its Representation · Important Lines & Zones</p>
+  <span class="pdf-badge">UPSC · BPSC · UPSC Mains GS-I</span>
+</div>
+
+<div class="score-bar">
+  <div class="score-item">
+    <div class="val" id="scoreVal">0</div>
+    <div class="lbl">Score</div>
+  </div>
+  <div class="score-item">
+    <div class="val" id="correctVal">0</div>
+    <div class="lbl">Correct</div>
+  </div>
+  <div class="score-item">
+    <div class="val" id="wrongVal">0</div>
+    <div class="lbl">Wrong</div>
+  </div>
+  <div class="progress-wrap">
+    <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+    <div class="progress-text" id="progressText">Q 0 of 0</div>
+  </div>
+  <div class="score-item">
+    <div class="val" id="streakVal">🔥0</div>
+    <div class="lbl">Streak</div>
+  </div>
+</div>
+
+<div class="mode-selector">
+  <button class="mode-btn active" onclick="setMode('mixed')">🎲 Mixed Test</button>
+  <button class="mode-btn" onclick="setMode('mcq')">🔵 MCQ Only</button>
+  <button class="mode-btn" onclick="setMode('fill')">✏️ Fill Blanks</button>
+  <button class="mode-btn" onclick="setMode('tf')">✅ True/False</button>
+  <button class="mode-btn" onclick="setMode('pyq')">📝 PYQs Only</button>
+  <button class="mode-btn" onclick="setMode('flash')">⚡ Flashcards</button>
+</div>
+
+<div class="main" id="mainArea">
+  <!-- Rendered by JS -->
+</div>
+
+<script>
+// ═══════════════════════════════════════════════════
+// QUESTION BANK — PDF 1
+// ═══════════════════════════════════════════════════
+const allQuestions = [
+
+  // ── GLOBE ──────────────────────────────────────
+  { id:1, topic:'Globe & Maps', type:'mcq', source:'Concept', isPYQ:false,
+    q: 'Which of the following is the MOST accurate representation of the Earth?',
+    opts:['A. Political Map','B. Topographic Map','C. Globe','D. Mercator Projection Map'],
+    ans: 2,
+    exp: 'A Globe is a 3D spherical model of Earth, preserving correct shape, size, direction, and distance — no distortion at all. Maps always involve some distortion because they flatten a curved surface.',
+    trick:'Football = Globe (round 3D). Squashed football = Map (flat, distorted)!'
+  },
+  { id:2, topic:'Globe & Maps', type:'tf', source:'Concept', isPYQ:false,
+    q: 'A map can show the whole Earth at once, but a globe can only show half the Earth at a time.',
+    ans: true,
+    exp: 'Correct! A globe is 3D — you can only see one hemisphere at a time. A flat map shows the entire Earth on one surface. However, the map has distortions while the globe does not.',
+    trick:'Globe = football, Map = flat photo of the football — you see it all but it\'s distorted!'
+  },
+  { id:3, topic:'Globe & Maps', type:'fill', source:'Concept', isPYQ:false,
+    q: 'A Globe is a ___-dimensional model of Earth, while a Map is ___-dimensional.',
+    ans: '3, 2',
+    alts:['three, two','3 2','3-dimensional, 2-dimensional'],
+    exp: 'Globe = 3D (three-dimensional sphere). Map = 2D (two-dimensional flat surface). The 3D-to-2D conversion causes distortion in maps.',
+    trick:'3D Globe → squash it flat → 2D Map (like SRK in Swades holding the globe!)'
+  },
+
+  // ── MAP SCALE ──────────────────────────────────
+  { id:4, topic:'Globe & Maps', type:'mcq', source:'Concept', isPYQ:false,
+    q: 'A map with scale 1:10,000 shows a _____ area with _____ detail compared to a 1:1,00,00,000 map.',
+    opts:['A. Larger area, more detail','B. Smaller area, more detail','C. Larger area, less detail','D. Smaller area, less detail'],
+    ans: 1,
+    exp: 'Scale 1:10,000 = Large Scale Map = shows SMALL area in GREAT detail (like zooming into a city). Scale 1:1,00,00,000 = Small Scale Map = shows LARGE area (like entire India) but with less detail.',
+    trick:'Instagram selfie = Large Scale (zoomed in, lots of detail of small area). Google Maps satellite = Small Scale (small details, huge area visible)!'
+  },
+  { id:5, topic:'Globe & Maps', type:'mcq', source:'Concept', isPYQ:false,
+    q: 'Which type of map shows property boundaries and land ownership records?',
+    opts:['A. Thematic Map','B. Cadastral Map','C. Political Map','D. Weather Map'],
+    ans: 1,
+    exp: 'Cadastral Maps show property boundaries and land ownership — used for revenue collection and land records. This is different from Political Maps (show country/state borders) or Thematic Maps (show specific topics like rainfall).',
+    trick:'CADASTRAL = CADASTRE = Revenue record. Think: "CAD" = CADastre = Collector\'s land data!'
+  },
+
+  // ── MAP PROJECTIONS ────────────────────────────
+  { id:6, topic:'Map Projections', type:'mcq', source:'UPSC Prelims 2016 (adapted)', isPYQ:true,
+    q: 'Which map projection is most commonly used for depicting world maps in atlases?',
+    opts:['A. Mercator Projection','B. Stereographic Projection','C. Robinson Projection','D. Lambert\'s Projection'],
+    ans: 2,
+    exp: 'Robinson Projection gives a visually balanced view of the world — it has slight distortion in both area and shape but looks natural. Mercator is used for NAVIGATION (ships, pilots), not for general world maps because it makes Greenland look as big as Africa!',
+    trick:'ROBINSON for Revision (atlases/general) | MERCATOR for Marine/Military (navigation)!'
+  },
+  { id:7, topic:'Map Projections', type:'tf', source:'Concept', isPYQ:false,
+    q: 'The Mercator projection accurately represents the relative areas of countries — for example, Greenland and Africa appear in correct proportion.',
+    ans: false,
+    exp: 'FALSE! Mercator projection grossly distorts AREA. Greenland (2.1 million km²) looks as large as Africa (30 million km²) on a Mercator map — Africa is actually 14 times bigger! Mercator only preserves shape/direction (angles), not area.',
+    trick:'Mercator = Marine Navigation = correct DIRECTION but WRONG AREA. Africa 14x bigger than Greenland in reality!'
+  },
+  { id:8, topic:'Map Projections', type:'mcq', source:'Concept', isPYQ:false,
+    q: 'Which projection should a cartographer use to accurately show the distribution of world rainfall patterns?',
+    opts:['A. Mercator (preserves direction)','B. Mollweide (preserves area)','C. Stereographic (preserves shape)','D. Robinson (visual balance)'],
+    ans: 1,
+    exp: 'Mollweide projection is an EQUAL AREA projection — it correctly shows the relative sizes of regions. For distribution maps (rainfall, vegetation, population density), equal area projections ensure you compare like with like.',
+    trick:'MOLLweide = MOLLasses spreading equally = Equal AREA projection. Use for distribution maps!'
+  },
+
+  // ── LATITUDE ───────────────────────────────────
+  { id:9, topic:'Latitude', type:'mcq', source:'UPSC Prelims 2014', isPYQ:true,
+    q: 'The Tropic of Cancer does NOT pass through which of the following?',
+    opts:['A. Rajasthan','B. Odisha','C. Chhattisgarh','D. Tripura'],
+    ans: 1,
+    exp: 'The Tropic of Cancer (23.5°N) passes through 8 Indian states: Gujarat, Rajasthan, MP, Chhattisgarh, Jharkhand, West Bengal, Tripura, Mizoram. ODISHA is NOT among them — it lies south of the Tropic of Cancer.',
+    trick:'G-R-M-C-J-W-T-M = "Gareeb Raja Mera Chutney Jhalkhand Waali Tripura Mizoram" 😄'
+  },
+  { id:10, topic:'Latitude', type:'fill', source:'Concept', isPYQ:false,
+    q: 'The latitude range of India is from _______°N (Kanyakumari) to _______°N (Kashmir).',
+    ans: "8°4', 37°6'",
+    alts:['8.4, 37.6','8, 37','8°4\' to 37°6\''],
+    exp: 'India\'s southern tip is Kanyakumari at 8°4\'N and northernmost point is in Kashmir at 37°6\'N. Total N-S extent = about 3,200 km.',
+    trick:'Remember: India spans roughly 8° to 37° North. Think "8 to 37" like 8am to 37 degrees heat in summer!'
+  },
+  { id:11, topic:'Latitude', type:'mcq', source:'Concept', isPYQ:false,
+    q: 'If two places are 1° of latitude apart, what is the approximate distance between them on the ground?',
+    opts:['A. 11 km','B. 55 km','C. 111 km','D. 444 km'],
+    ans: 2,
+    exp: '1° of latitude ≈ 111 km on the ground. This is because the Earth\'s circumference at the Equator is ~40,075 km, and 40,075 ÷ 360° = ~111.3 km per degree. This is a standard value to remember for UPSC.',
+    trick:'1 degree = 1-1-1 = 111 km! Easy to remember!'
+  },
+  { id:12, topic:'Latitude', type:'tf', source:'Concept', isPYQ:false,
+    q: 'Latitude lines are also called "meridians" and they run from North to South.',
+    ans: false,
+    exp: 'FALSE! Latitude lines are called PARALLELS (not meridians). They run EAST to WEST (horizontal). MERIDIANS are longitude lines that run NORTH to SOUTH (vertical). Classic confusion in exams!',
+    trick:'LAT = LATeral = Side to Side = Horizontal lines = PARALLELS. LONG = LONG way pole to pole = MERIDIANS.'
+  },
+
+  // ── LONGITUDE ──────────────────────────────────
+  { id:13, topic:'Longitude', type:'mcq', source:'UPSC Prelims 2013 (adapted)', isPYQ:true,
+    q: 'The Standard Meridian of India is 82°30\'E. Which of the following states does it NOT pass through?',
+    opts:['A. Uttar Pradesh','B. Odisha','C. Madhya Pradesh','D. Karnataka'],
+    ans: 3,
+    exp: 'The 82°30\'E meridian (IST line) passes through 5 states: Uttar Pradesh, Madhya Pradesh, Chhattisgarh, Odisha, and Andhra Pradesh. Karnataka is NOT among them — it lies to the west of this line.',
+    trick:'UMCOA = Uttar Madhya Chhattisgarh Odisha Andhra. Karnataka starts with K — not in UMCOA!'
+  },
+  { id:14, topic:'Longitude', type:'fill', source:'Concept', isPYQ:false,
+    q: 'Indian Standard Time (IST) is _______ hours ahead of Greenwich Mean Time (GMT).',
+    ans: '5:30',
+    alts:['5.5','5 hours 30 minutes','+5:30','5½'],
+    exp: 'India\'s standard meridian is 82°30\'E = 82.5°. Time calculation: 82.5° ÷ 15 = 5.5 hours = 5 hours 30 minutes ahead of GMT. So IST = GMT + 5:30.',
+    trick:'4-minute rule: every 1° = 4 minutes. 82.5° × 4 = 330 minutes = 5 hours 30 minutes!'
+  },
+  { id:15, topic:'Longitude', type:'mcq', source:'Concept', isPYQ:false,
+    q: 'If it is 12:00 noon at Prime Meridian (0°), what time is it at 90°E longitude?',
+    opts:['A. 6:00 AM','B. 12:00 noon','C. 6:00 PM','D. 3:00 PM (15:00)'],
+    ans: 2,  // 6 PM
+    exp: '90°E is 90° east of the Prime Meridian. Time difference = 90 ÷ 15 = 6 hours AHEAD (east = ahead). So 12:00 noon + 6 hours = 6:00 PM (18:00).',
+    trick:'East = Ahead in time. Every 15° = 1 hour. 90° = 6 hours ahead!'
+  },
+  { id:16, topic:'Longitude', type:'tf', source:'Concept', isPYQ:false,
+    q: 'Going EAST from any longitude means time goes FORWARD (becomes later).',
+    ans: true,
+    exp: 'TRUE! Earth rotates West to East. So as you move East, you\'re moving in the direction of Earth\'s rotation — time is "earlier" in the day further West. Going East = gaining time = clock moves forward.',
+    trick:'East = Earlier sunrise = Earlier time. Going East? Add hours. Going West? Subtract hours!'
+  },
+
+  // ── EQUATOR ────────────────────────────────────
+  { id:17, topic:'Equator & Hemispheres', type:'mcq', source:'Concept', isPYQ:false,
+    q: 'Which of these is correct about the Equator?',
+    opts:['A. It is 20,000 km long','B. Equatorial regions have four distinct seasons','C. Countries on Equator have equal day and night throughout the year','D. India is bisected by the Equator'],
+    ans: 2,
+    exp: 'Countries ON the Equator receive equal day and night throughout the year (each ≈12 hrs). The Equator is 40,075 km long (not 20,000). Equatorial regions have NO seasons — constant hot and humid climate. India does NOT touch the Equator — it lies entirely in the Northern Hemisphere.',
+    trick:'EQUATOR = EQUAL — equal day and night, equal distance from both poles!'
+  },
+  { id:18, topic:'Equator & Hemispheres', type:'mcq', source:'Concept', isPYQ:false,
+    q: 'Ecuador (a South American country) gets its name from which geographical line?',
+    opts:['A. Tropic of Cancer','B. International Date Line','C. Prime Meridian','D. Equator'],
+    ans: 3,
+    exp: '"Ecuador" literally means "Equator" in Spanish! The Equator passes through Ecuador, which is how the country got its name. This is one of the most memorable geography trivia facts.',
+    trick:'ECUAdor = ECUAtor = Equator in Spanish! Country named after the line!'
+  },
+  { id:19, topic:'Equator & Hemispheres', type:'tf', source:'Concept', isPYQ:false,
+    q: 'India lies in both the Northern and Eastern Hemispheres.',
+    ans: true,
+    exp: 'TRUE! India is entirely in the Northern Hemisphere (north of Equator) and in the Eastern Hemisphere (east of Prime Meridian). India\'s coordinates: 8°N to 37°N latitude, 68°E to 97°E longitude.',
+    trick:'India = North + East hemisphere. "India is in the NE corner of the globe!"'
+  },
+  { id:20, topic:'Equator & Hemispheres', type:'mcq', source:'Concept', isPYQ:false,
+    q: 'Which hemisphere has MORE land compared to water?',
+    opts:['A. Southern Hemisphere','B. Northern Hemisphere','C. Both have equal land','D. Western Hemisphere'],
+    ans: 1,
+    exp: 'The Northern Hemisphere has about 67% of Earth\'s total land area. It contains Europe, Asia, North America, and most of Africa. The Southern Hemisphere is mostly ocean with Australia, Antarctica, and southern parts of other continents.',
+    trick:'North = most Nations/countries. South = more Sea/water! N for Nation, S for Sea!'
+  },
+
+  // ── PRIME MERIDIAN ─────────────────────────────
+  { id:21, topic:'Prime Meridian & GMT', type:'mcq', source:'Concept', isPYQ:false,
+    q: 'In which year was the International Meridian Conference held that chose Greenwich as the Prime Meridian?',
+    opts:['A. 1750','B. 1884','C. 1947','D. 1900'],
+    ans: 1,
+    exp: '1884 — The International Meridian Conference in Washington D.C. chose Greenwich, London as the Prime Meridian because 72% of world shipping already used British (Greenwich-based) charts, and the Royal Observatory at Greenwich was the leading astronomical institution.',
+    trick:'1884 = 18+84 = 102 years before India\'s 1986... just remember 1884!'
+  },
+  { id:22, topic:'Prime Meridian & GMT', type:'fill', source:'Concept', isPYQ:false,
+    q: 'UTC stands for _______ and it is the modern replacement for _______.',
+    ans: 'Coordinated Universal Time, GMT',
+    alts:['coordinated universal time, greenwich mean time','UTC, GMT'],
+    exp: 'UTC = Coordinated Universal Time. It replaced GMT as the world time standard because UTC uses atomic clocks which are more precise. For practical purposes, UTC ≈ GMT for everyday use.',
+    trick:'UTC = Universal Time Coordinated (yes, reversed acronym in English — it\'s derived from French!)'
+  },
+
+  // ── IMPORTANT LINES ────────────────────────────
+  { id:23, topic:'Important Lines', type:'mcq', source:'UPSC Prelims 2019 (adapted)', isPYQ:true,
+    q: 'On which date is the Sun directly overhead at the Tropic of Cancer?',
+    opts:['A. March 21','B. June 21','C. September 23','D. December 22'],
+    ans: 1,
+    exp: 'June 21 = Summer Solstice. The Sun is directly overhead at the Tropic of Cancer (23.5°N). This is the longest day in the Northern Hemisphere. On Dec 22 (Winter Solstice), Sun is overhead at Tropic of Capricorn.',
+    trick:'June 21 = JUN = Cancer (the crab lives in warm Northern summer). Dec 22 = CAP = Capricorn (Southern hemisphere summer)!'
+  },
+  { id:24, topic:'Important Lines', type:'mcq', source:'UPSC Prelims 2015', isPYQ:true,
+    q: 'The International Date Line passes through which ocean?',
+    opts:['A. Atlantic Ocean','B. Indian Ocean','C. Pacific Ocean','D. Arctic Ocean'],
+    ans: 2,
+    exp: 'The International Date Line runs approximately along 180° longitude through the Pacific Ocean. It zigzags eastward near Russia and westward near Kiribati to avoid cutting through island nations.',
+    trick:'IDL = International Date Line = Pacific Ocean. The Pacific is the BIGGEST ocean — big enough for the IDL to zigzag!'
+  },
+  { id:25, topic:'Important Lines', type:'mcq', source:'Concept', isPYQ:false,
+    q: 'What is the significance of 66.5°N latitude?',
+    opts:['A. Tropic of Cancer','B. Equator','C. Arctic Circle','D. Prime Meridian'],
+    ans: 2,
+    exp: '66.5°N = Arctic Circle. Above this line, the Sun does not set on the longest day (Midnight Sun) and does not rise on the shortest day (Polar Night). This phenomenon occurs because of Earth\'s tilt of 23.5°. Note: 23.5 + 66.5 = 90 (the poles)!',
+    trick:'The magic formula: Tropic (23.5°) + Circle (66.5°) = 90° (the pole). Elegant!'
+  },
+  { id:26, topic:'Important Lines', type:'tf', source:'Concept', isPYQ:false,
+    q: 'The Torrid Zone lies between the Tropic of Cancer and the Arctic Circle.',
+    ans: false,
+    exp: 'FALSE! The Torrid Zone lies between the Tropic of Cancer (23.5°N) and the Tropic of Capricorn (23.5°S). The zone between Tropic of Cancer and Arctic Circle is the NORTH TEMPERATE ZONE.',
+    trick:'T-O-R-R-I-D = TOO HOT. Torrid = between the TWO TROPICS (Cancer + Capricorn). The Tropics trap the heat!'
+  },
+  { id:27, topic:'Important Lines', type:'mcq', source:'BPSC 2018 (adapted)', isPYQ:true,
+    q: 'Which of the following states does the Tropic of Cancer pass through?',
+    opts:['A. Bihar','B. Jharkhand','C. Uttar Pradesh','D. Maharashtra'],
+    ans: 1,
+    exp: 'Jharkhand is one of the 8 states through which the Tropic of Cancer passes. The 8 states are: Gujarat, Rajasthan, MP, Chhattisgarh, Jharkhand, West Bengal, Tripura, Mizoram. Bihar, UP, and Maharashtra are NOT on this line.',
+    trick:'G-R-M-C-J-W-T-M: Gujarat, Rajasthan, MP, Chhattisgarh, JHARKHAND, WB, Tripura, Mizoram!'
+  },
+  { id:28, topic:'Important Lines', type:'fill', source:'Concept', isPYQ:false,
+    q: 'On March 21 and September 23, the Sun is directly overhead at the _______, and day and night are equal everywhere — this is called the _______.',
+    ans: 'Equator, Equinox',
+    alts:['equator, equinox','0°, equinox'],
+    exp: 'Equinox occurs twice a year when the Sun is directly overhead at the Equator — March 21 (Vernal/Spring Equinox) and September 23 (Autumnal Equinox). On these dates, every place on Earth has exactly 12 hours of day and 12 hours of night.',
+    trick:'EQUI-NOX = EQUAL NIGHT (Latin: nox = night). Equal day + equal night = Equinox = Sun over Equator!'
+  },
+
+  // ── INTERNATIONAL DATE LINE ────────────────────
+  { id:29, topic:'International Date Line', type:'mcq', source:'Concept', isPYQ:false,
+    q: 'If you are flying from Japan (Asia) to Los Angeles (USA) and cross the International Date Line, what happens to the date?',
+    opts:['A. Date moves forward by 1 day','B. Date goes back by 1 day','C. Date stays the same','D. Time changes but date stays same'],
+    ans: 1,
+    exp: 'Flying from Japan to LA means crossing the IDL going EASTWARD. Crossing IDL eastward = date goes BACK by 1 day. So if it\'s Tuesday in Japan, it becomes Monday in LA (after crossing IDL eastward). This is why people often say they "gain a day" when flying from Asia to America.',
+    trick:'Going EAST across IDL = go BACK (past). Going WEST across IDL = go FORWARD (future). Ranveer Singh flying Mumbai → LA crosses IDL eastward = it\'s yesterday!'
+  },
+  { id:30, topic:'International Date Line', type:'tf', source:'Concept', isPYQ:false,
+    q: 'The International Date Line follows exactly the 180° meridian without any deviation.',
+    ans: false,
+    exp: 'FALSE! The IDL does NOT follow exactly 180°. It zigzags: it bends eastward near Russia (to keep all of Russia in one time zone) and westward near Kiribati and other island nations (to keep them in the same date zone). The country Kiribati even moved the IDL in 1995 for this reason!',
+    trick:'IDL zigzags like a snake to avoid cutting through island countries and Russia. Straight line = bad for island nations!'
+  },
+
+  // ── CLIMATE ZONES ──────────────────────────────
+  { id:31, topic:'Climate Zones', type:'mcq', source:'Concept', isPYQ:false,
+    q: 'India lies primarily in which climate zone?',
+    opts:['A. Frigid Zone only','B. Temperate Zone only','C. Torrid (Tropical) Zone only','D. Both Torrid and Temperate Zones'],
+    ans: 3,
+    exp: 'India spans from 8°N to 37°N. The Tropic of Cancer (23.5°N) divides India: southern part (below 23.5°N) is in the Torrid/Tropical Zone and northern part (above 23.5°N, including Punjab, UP, Bihar, Rajasthan, J&K) is in the North Temperate Zone.',
+    trick:'India is split by Tropic of Cancer — South India = Torrid zone; North India = Temperate zone!'
+  },
+  { id:32, topic:'Climate Zones', type:'mcq', source:'Concept', isPYQ:false,
+    q: 'Which zone experiences "Midnight Sun" (Sun visible at midnight) and "Polar Night" (Sun invisible for days)?',
+    opts:['A. Torrid Zone','B. North Temperate Zone','C. North Frigid Zone (above Arctic Circle)','D. South Temperate Zone'],
+    ans: 2,
+    exp: 'Midnight Sun and Polar Night occur above the Arctic Circle (66.5°N) — the North Frigid Zone. This is because Earth\'s axis is tilted 23.5°. In summer, the pole faces the Sun 24 hours; in winter, it faces away 24 hours. Countries like Norway, Sweden, Finland experience this.',
+    trick:'Above 66.5°N = Midnight Sun in summer, Polar Night in winter. Norway = "Land of Midnight Sun"!'
+  },
+  { id:33, topic:'Climate Zones', type:'fill', source:'Concept', isPYQ:false,
+    q: 'The 5 climate zones from North to South are: North Frigid → _______ Temperate → _______ → South Temperate → _______.',
+    ans: 'North, Torrid/Tropical, South Frigid',
+    alts:['north temperate, torrid, south frigid','north, torrid, south frigid'],
+    exp: 'The 5 zones (N to S): 1. North Frigid (above 66.5°N), 2. North Temperate (23.5°N–66.5°N), 3. Torrid/Tropical (23.5°N–23.5°S), 4. South Temperate (23.5°S–66.5°S), 5. South Frigid (below 66.5°S).',
+    trick:'Like layers of a sandwich from top: Frigid–Temperate–Torrid–Temperate–Frigid = F-T-T-T-F'
+  },
+
+  // ── MIXED CONCEPT ──────────────────────────────
+  { id:34, topic:'Mixed Concepts', type:'mcq', source:'Concept', isPYQ:false,
+    q: 'Which statement correctly describes the relationship between latitude and climate?',
+    opts:['A. Higher latitude → hotter climate','B. Higher latitude → colder climate (generally)','C. Latitude has no effect on climate','D. Lower latitude → colder climate'],
+    ans: 1,
+    exp: 'Higher latitude = further from Equator = less direct sunlight = colder. Lower latitude = closer to Equator = more direct sunlight = hotter. That\'s why the Equatorial region is hot, and the Poles are freezing. This is the PRIMARY reason for climate zones on Earth.',
+    trick:'High Lat = High altitude equivalent = Cold! Think: climbing a ladder UP = getting colder!'
+  },
+  { id:35, topic:'Mixed Concepts', type:'mcq', source:'Concept', isPYQ:false,
+    q: 'Which of the following PAIRS is correct?',
+    opts:['A. Latitude → Time zones; Longitude → Climate zones','B. Latitude → Climate zones; Longitude → Time zones','C. Both Latitude and Longitude → Climate zones','D. Both Latitude and Longitude → Time zones'],
+    ans: 1,
+    exp: 'LATITUDE determines CLIMATE ZONES (because it determines how much sunlight an area receives). LONGITUDE determines TIME ZONES (because Earth rotates on its axis, and time varies east-west based on longitude). This is a VERY commonly tested concept!',
+    trick:'LAT = CLIMAte (vertical zones, horizontal lines). LONG = TIME (horizontal coverage, vertical lines)!'
+  },
+
+  // ── STATEMENT-BASED ─────────────────────────────
+  { id:36, topic:'Important Lines', type:'mcq', source:'UPSC Pattern', isPYQ:true,
+    q: 'Consider the following statements about the Tropic of Cancer:\n1. It passes through 8 Indian states\n2. The Sun is directly overhead here on December 22\n3. It lies at 23.5°N latitude\n\nWhich of the above statements are CORRECT?',
+    opts:['A. 1 and 2 only','B. 1 and 3 only','C. 2 and 3 only','D. 1, 2 and 3'],
+    ans: 1,
+    exp: 'Statement 1: CORRECT — Tropic of Cancer passes through 8 Indian states (Gujarat, Rajasthan, MP, Chhattisgarh, Jharkhand, WB, Tripura, Mizoram). Statement 2: WRONG — Sun is overhead on June 21 (NOT December 22). December 22 = Tropic of Capricorn. Statement 3: CORRECT — 23.5°N is the Tropic of Cancer. So only 1 and 3 are correct.',
+    trick:'Statement-based: always check each statement independently. Statement 2 confuses Cancer with Capricorn — classic trap!'
+  },
+  { id:37, topic:'Prime Meridian & GMT', type:'mcq', source:'UPSC Pattern', isPYQ:true,
+    q: 'Consider the following statements about IST (Indian Standard Time):\n1. IST is based on 82.5°E (82°30\'E) meridian\n2. IST is 5 hours 30 minutes ahead of GMT\n3. The IST meridian passes through Mirzapur, Uttar Pradesh\n\nWhich statements are CORRECT?',
+    opts:['A. 1 only','B. 1 and 2 only','C. 1 and 3 only','D. 1, 2 and 3'],
+    ans: 3,
+    exp: 'All three statements are CORRECT! IST is based on 82°30\'E meridian. 82.5° ÷ 15 = 5.5 hours = IST is GMT+5:30. The reference city on the IST meridian is Mirzapur (Uttar Pradesh). India chose 82°30\'E as it is geographically central and avoids having multiple time zones.',
+    trick:'All three IST facts are TRUE! IST = 82.5°E = +5:30 = passes through Mirzapur, UP. Remember the triplet!'
+  },
+
+  // ── ASSERTION-REASON ───────────────────────────
+  { id:38, topic:'Latitude', type:'mcq', source:'UPSC Pattern', isPYQ:false,
+    q: 'Assertion (A): India experiences a wide variety of climates from tropical in the south to temperate in the north.\n\nReason (R): The Tropic of Cancer passes through the middle of India, placing northern India in the temperate zone and southern India in the tropical zone.\n\nWhich of the following is correct?',
+    opts:['A. Both A and R are true, and R is the correct explanation of A','B. Both A and R are true, but R is NOT the correct explanation of A','C. A is true but R is false','D. A is false but R is true'],
+    ans: 0,
+    exp: 'Both A and R are correct, and R correctly explains A. India spans from ~8°N to 37°N. The Tropic of Cancer (23.5°N) bisects India — southern India lies in the tropical zone (Torrid) while northern India lies in the temperate zone. This is exactly why India has such diverse climates.',
+    trick:'In A-R questions: First check if A is true, then if R is true, then if R actually explains A. Here all three conditions are YES!'
+  },
+
+  // ── MATCH THE FOLLOWING ─────────────────────────
+  { id:39, topic:'Important Lines', type:'mcq', source:'BPSC Pattern', isPYQ:true,
+    q: 'Match the following:\n\nColumn A: (1) June 21  (2) December 22  (3) March 21  (4) 66.5°N\n\nColumn B: (P) Equinox — Sun over Equator  (Q) Tropic of Capricorn — Sun overhead  (R) Tropic of Cancer — Sun overhead  (S) Arctic Circle',
+    opts:['A. 1-R, 2-Q, 3-P, 4-S','B. 1-Q, 2-R, 3-S, 4-P','C. 1-P, 2-S, 3-R, 4-Q','D. 1-R, 2-P, 3-Q, 4-S'],
+    ans: 0,
+    exp: '1 (June 21) = R (Tropic of Cancer, Sun overhead = Summer Solstice). 2 (December 22) = Q (Tropic of Capricorn, Sun overhead = Winter Solstice in N hemisphere). 3 (March 21) = P (Equinox, Sun over Equator). 4 (66.5°N) = S (Arctic Circle). Answer: 1-R, 2-Q, 3-P, 4-S.',
+    trick:'June = Cancer (JUN = JUNgle heat in North). Dec = CAP (CAPricorn = South\'s summer). March/Sept = Equinox = Equator!'
+  },
+
+  // ── CURRENT AFFAIRS ANGLE ──────────────────────
+  { id:40, topic:'Important Lines', type:'mcq', source:'Concept', isPYQ:false,
+    q: 'Country "Kiribati" made news related to the International Date Line. What did Kiribati do?',
+    opts:['A. It was the first country to start a new year in 2000','B. It moved the IDL westward in 1995 so all its islands share the same date','C. It protested the IDL passing through its territory','D. Both A and B are correct'],
+    ans: 3,
+    exp: 'Both A and B are correct! In 1995, Kiribati moved the IDL westward to ensure all its islands fall on the same side. As a result, Kiribati became the first country to enter the year 2000 (on January 1, 2000), gaining significant media attention. The IDL now bends sharply around Kiribati.',
+    trick:'Kiribati = the country that "manipulated" time! Moved the IDL to be first in the new millennium!'
+  },
+];
+
+// ══════════════════════════════════════════════════════
+// STATE
+// ══════════════════════════════════════════════════════
+let state = {
+  mode: 'mixed',
+  questions: [],
+  currentIndex: 0,
+  score: 0,
+  correct: 0,
+  wrong: 0,
+  streak: 0,
+  maxStreak: 0,
+  answered: {},  // {qId: {userAns, isCorrect}}
+  flashIndex: 0,
+  flashRevealed: false,
+  started: false,
+};
+
+const flashcards = [
+  { term:'GLOBE', ans:'3D spherical model of Earth. Most accurate — preserves shape, size, direction, distance. Cannot show whole Earth at once.', trick:'Football = Globe. Squashed football = Map!' },
+  { term:'LATITUDE', ans:'N-S angular distance from Equator. Ranges 0° (Equator) to 90° (Poles). Lines called PARALLELS. Determines CLIMATE zones.', trick:'LAT = LATeral = Horizontal lines. Ladder rungs!' },
+  { term:'LONGITUDE', ans:'E-W angular distance from Prime Meridian. Ranges 0° to 180°. Lines called MERIDIANS. Meet at poles. Determines TIME zones.', trick:'LONG = run North to SOUTH like tall poles. Orange slices!' },
+  { term:'EQUATOR', ans:'0° latitude. Divides N & S hemispheres. Longest circle — 40,075 km. No seasons, equal day-night all year. Hottest zone.', trick:'EQUAL-tor = EQUAL heat = Equal day & night all year!' },
+  { term:'PRIME MERIDIAN', ans:'0° longitude through Greenwich, London. Divides E & W hemispheres. Basis of GMT. Chosen in 1884.', trick:'PRIME = first = 0° = the boss of all longitudes!' },
+  { term:'IST (Indian Standard Time)', ans:'GMT + 5 hours 30 minutes. Based on 82°30\'E meridian. Passes through UP, MP, Chhattisgarh, Odisha, Andhra (UMCOA).', trick:'UMCOA = India\'s time lane!' },
+  { term:'TROPIC OF CANCER', ans:'23.5°N latitude. Sun overhead on June 21 (Summer Solstice). Passes through 8 Indian states: G-R-M-C-J-W-T-M.', trick:'"June brings Cancer (the sun moves north to the crab)!"' },
+  { term:'TROPIC OF CAPRICORN', ans:'23.5°S latitude. Sun overhead on December 22 (Winter Solstice for N hemisphere = Southern summer).', trick:'"December brings Capricorn (the sun moves south to the goat)!"' },
+  { term:'ARCTIC CIRCLE', ans:'66.5°N latitude. Above this = Midnight Sun in summer, Polar Night in winter. Norway, Sweden, Finland, Russia.', trick:'23.5 + 66.5 = 90 (pole). The magic formula!' },
+  { term:'INTERNATIONAL DATE LINE', ans:'~180° longitude through Pacific Ocean. Zigzags to avoid cutting island nations. Cross EAST = back 1 day. Cross WEST = forward 1 day.', trick:'Ranveer flies Mumbai → LA, crosses IDL east, it\'s YESTERDAY again! ⏰' },
+  { term:'MERCATOR PROJECTION', ans:'Preserves shape/direction (angles). Distorts AREA badly. Greenland looks = Africa (14x smaller in reality). Used for navigation.', trick:'MERCATOR = MARINE = Navigation (ships & aircraft)!' },
+  { term:'ROBINSON PROJECTION', ans:'Visual balance — slight distortion in both area and shape. Used for general world maps and atlases.', trick:'ROBINSON for Reference/Revision (atlases). Not for navigation!' },
+  { term:'LARGE SCALE MAP', ans:'Scale like 1:10,000. Shows SMALL area in GREAT detail. City maps, cadastral maps.', trick:'Insta selfie = large scale (zoomed in, lots of face detail)!' },
+  { term:'TORRID ZONE', ans:'Between Tropic of Cancer and Tropic of Capricorn (23.5°N to 23.5°S). Hot, high rainfall, no real seasons. Rainforests, mangroves.', trick:'TORRID = TOO HOT. Trapped between two tropics!' },
+  { term:'4-MINUTE TIME RULE', ans:'Earth rotates 360° in 24 hours = 15° per hour = 1° per 4 minutes. Every 15° longitude = 1 hour time difference.', trick:'15° = 1 hour. So 82.5° ÷ 15 = 5.5 hours = IST!' },
+];
+
+// ══════════════════════════════════════════════════════
+// INIT
+// ══════════════════════════════════════════════════════
+function setMode(m) {
+  state.mode = m;
+  document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+  resetTest();
+  if (m === 'flash') renderFlashcard();
+  else renderQuestion();
+}
+
+function resetTest() {
+  let qs = [...allQuestions];
+  if (state.mode === 'mcq') qs = qs.filter(q => q.type === 'mcq');
+  else if (state.mode === 'fill') qs = qs.filter(q => q.type === 'fill');
+  else if (state.mode === 'tf') qs = qs.filter(q => q.type === 'tf');
+  else if (state.mode === 'pyq') qs = qs.filter(q => q.isPYQ);
+  // Shuffle
+  qs = qs.sort(() => Math.random() - 0.5);
+  state.questions = qs;
+  state.currentIndex = 0;
+  state.score = 0; state.correct = 0; state.wrong = 0;
+  state.streak = 0; state.maxStreak = 0;
+  state.answered = {};
+  state.flashIndex = 0; state.flashRevealed = false;
+  updateScorebar();
+}
+
+// ══════════════════════════════════════════════════════
+// RENDER QUESTION
+// ══════════════════════════════════════════════════════
+function renderQuestion() {
+  const main = document.getElementById('mainArea');
+  if (state.mode === 'flash') { renderFlashcard(); return; }
+
+  if (state.currentIndex >= state.questions.length) {
+    renderResults(); return;
+  }
+
+  const q = state.questions[state.currentIndex];
+  const already = state.answered[q.id];
+
+  let html = `
+    <div class="section-banner">
+      <div class="section-icon">📖</div>
+      <div>
+        <h2>${topicIcon(q.topic)} ${q.topic}</h2>
+        <p>${state.currentIndex + 1} of ${state.questions.length} questions</p>
+      </div>
+    </div>
+    <div class="q-card">
+      <div class="q-meta">
+        <span class="q-tag ${typeClass(q.type)}">${typeLabel(q.type)}</span>
+        ${q.isPYQ ? '<span class="q-tag tag-pyq">📝 PYQ</span>' : ''}
+        <span class="q-tag tag-source">${q.source}</span>
+        <span class="q-number">Q${q.id}</span>
+      </div>
+      <div class="q-text">${formatQ(q.q)}</div>
+  `;
+
+  if (q.type === 'mcq') {
+    html += `<div class="options" id="opts">`;
+    q.opts.forEach((opt, i) => {
+      let cls = '';
+      if (already) {
+        if (i === q.ans) cls = 'correct revealed';
+        else if (i === already.userAns && !already.isCorrect) cls = 'wrong revealed';
+        else cls = 'revealed';
+      }
+      html += `<div class="opt ${cls}" onclick="answerMCQ(${q.id}, ${i})">
+        <span class="opt-key">${String.fromCharCode(65+i)}</span>
+        <span>${opt.replace(/^[A-D]\.\s*/,'')}</span>
+      </div>`;
+    });
+    html += `</div>`;
+  } else if (q.type === 'tf') {
+    const tfDone = already;
+    html += `<div class="tf-options">
+      <button class="tf-btn ${tfDone ? (true === q.ans ? 'correct' : already.userAns===true ? 'wrong':'') : ''}" 
+        onclick="answerTF(${q.id}, true)">✅ TRUE</button>
+      <button class="tf-btn ${tfDone ? (false === q.ans ? 'correct' : already.userAns===false ? 'wrong':'') : ''}" 
+        onclick="answerTF(${q.id}, false)">❌ FALSE</button>
+    </div>`;
+  } else if (q.type === 'fill') {
+    const fillDone = already;
+    html += `<div class="fill-wrap">
+      <input class="fill-input ${fillDone ? (fillDone.isCorrect?'correct':'wrong') : ''}" 
+        type="text" id="fillInp" placeholder="Type your answer here..."
+        value="${fillDone ? fillDone.userAns : ''}"
+        ${fillDone ? 'disabled' : ''}
+        onkeydown="if(event.key==='Enter')checkFill(${q.id})">
+      <button class="submit-btn" onclick="checkFill(${q.id})" ${fillDone?'disabled':''}>Check →</button>
+    </div>`;
+  }
+
+  // Explanation
+  if (already) {
+    const isC = already.isCorrect;
+    html += `<div class="explanation ${isC?'correct-exp':'wrong-exp'} show">
+      <div class="exp-head ${isC?'correct-head':'wrong-head'}">${isC?'✅ Correct!':'❌ Not quite...'}</div>
+      <div>${q.exp}</div>
+      ${!isC ? `<div class="correct-ans">✅ Correct Answer: <strong>${getCorrectAnsText(q)}</strong></div>` : ''}
+      ${q.trick ? `<div class="trick-box">🎯 Memory Trick: ${q.trick}</div>` : ''}
+    </div>`;
+  }
+  html += `</div>`;
+
+  // Nav
+  html += `<div class="nav-row">
+    <button class="nav-btn" onclick="goQ(-1)" ${state.currentIndex===0?'disabled':''}>← Prev</button>
+    <button class="nav-btn" onclick="resetTest(); renderQuestion()">🔄 Restart</button>
+    <button class="nav-btn primary" onclick="goQ(1)">${state.currentIndex >= state.questions.length-1 ? '🏆 Results' : 'Next →'}</button>
+  </div>`;
+
+  main.innerHTML = html;
+  updateScorebar();
+}
+
+function getCorrectAnsText(q) {
+  if (q.type === 'mcq') return q.opts[q.ans];
+  if (q.type === 'tf') return q.ans ? 'TRUE' : 'FALSE';
+  if (q.type === 'fill') return q.ans;
+  return '';
+}
+
+function formatQ(text) {
+  return text.replace(/\n/g,'<br>').replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>');
+}
+
+function typeClass(t) {
+  return {mcq:'tag-mcq',tf:'tag-tf',fill:'tag-fill',match:'tag-match'}[t]||'tag-mcq';
+}
+function typeLabel(t) {
+  return {mcq:'MCQ',tf:'True/False',fill:'Fill in Blank',match:'Match'}[t]||t.toUpperCase();
+}
+function topicIcon(t) {
+  const m = {'Globe & Maps':'🗺','Latitude':'📐','Longitude':'⏰','Equator & Hemispheres':'🌍',
+    'Prime Meridian & GMT':'🕰','Important Lines':'📏','International Date Line':'📅',
+    'Climate Zones':'🌡','Map Projections':'🖼','Mixed Concepts':'🎲'};
+  return m[t]||'📍';
+}
+
+// ══════════════════════════════════════════════════════
+// ANSWER HANDLERS
+// ══════════════════════════════════════════════════════
+function answerMCQ(qId, selected) {
+  if (state.answered[qId]) return;
+  const q = state.questions.find(x=>x.id===qId);
+  const isC = selected === q.ans;
+  recordAnswer(qId, selected, isC);
+  renderQuestion();
+}
+
+function answerTF(qId, val) {
+  if (state.answered[qId]) return;
+  const q = state.questions.find(x=>x.id===qId);
+  const isC = val === q.ans;
+  recordAnswer(qId, val, isC);
+  renderQuestion();
+}
+
+function checkFill(qId) {
+  if (state.answered[qId]) return;
+  const q = state.questions.find(x=>x.id===qId);
+  const val = (document.getElementById('fillInp').value||'').trim().toLowerCase();
+  const correct = q.ans.toLowerCase();
+  const alts = (q.alts||[]).map(a=>a.toLowerCase());
+  const isC = val === correct || alts.some(a => val.includes(a.split(',')[0]) || a.includes(val));
+  recordAnswer(qId, val, isC);
+  renderQuestion();
+}
+
+function recordAnswer(qId, userAns, isC) {
+  state.answered[qId] = {userAns, isCorrect: isC};
+  if (isC) {
+    state.correct++;
+    state.streak++;
+    state.score += 10 + (state.streak > 2 ? 5 : 0);
+    if (state.streak > state.maxStreak) state.maxStreak = state.streak;
+  } else {
+    state.wrong++;
+    state.streak = 0;
+    state.score = Math.max(0, state.score - 3);
+  }
+  updateScorebar();
+}
+
+function goQ(dir) {
+  state.currentIndex = Math.max(0, Math.min(state.questions.length, state.currentIndex + dir));
+  renderQuestion();
+}
+
+// ══════════════════════════════════════════════════════
+// SCOREBAR
+// ══════════════════════════════════════════════════════
+function updateScorebar() {
+  document.getElementById('scoreVal').textContent = state.score;
+  document.getElementById('correctVal').textContent = state.correct;
+  document.getElementById('wrongVal').textContent = state.wrong;
+  const streak = state.streak;
+  document.getElementById('streakVal').textContent = (streak>=3?'🔥':'') + streak;
+  const total = state.questions.length || 1;
+  const done = Object.keys(state.answered).length;
+  const pct = Math.round((done/total)*100);
+  document.getElementById('progressFill').style.width = pct+'%';
+  document.getElementById('progressText').textContent = `Q ${state.currentIndex+1} of ${total} · ${pct}% done`;
+}
+
+// ══════════════════════════════════════════════════════
+// RESULTS
+// ══════════════════════════════════════════════════════
+function renderResults() {
+  const main = document.getElementById('mainArea');
+  const total = state.questions.length;
+  const pct = Math.round((state.correct/total)*100);
+  let grade, color, emoji;
+  if (pct>=90) { grade='MASTER'; color='#FFD700'; emoji='🏆'; }
+  else if (pct>=70) { grade='READY'; color='#4CAF50'; emoji='✅'; }
+  else if (pct>=50) { grade='NEEDS WORK'; color='#FF9800'; emoji='⚠️'; }
+  else { grade='REVISE PDF 1'; color='#EF5350'; emoji='📚'; }
+
+  main.innerHTML = `
+    <div style="text-align:center; padding: 30px 20px;">
+      <div style="font-size:60px;">${emoji}</div>
+      <div class="big-score" style="color:${color};">${pct}%</div>
+      <div class="grade-badge" style="background:${color}20;color:${color};border:2px solid ${color};">${grade}</div>
+      <p style="color:var(--muted); margin:8px 0 20px; font-size:13px;">
+        ${state.correct} correct · ${state.wrong} wrong · Best streak: ${state.maxStreak}🔥 · Score: ${state.score}pts
+      </p>
+      ${pct>=70
+        ? `<div style="background:rgba(76,175,80,0.1);border:1px solid rgba(76,175,80,0.3);border-radius:10px;padding:14px;font-size:13px;color:#81C784;max-width:400px;margin:0 auto 20px;">
+            🎉 You cleared the 70% threshold — you're ready for PDF 2!
+           </div>`
+        : `<div style="background:rgba(239,83,80,0.1);border:1px solid rgba(239,83,80,0.3);border-radius:10px;padding:14px;font-size:13px;color:#EF9A9A;max-width:400px;margin:0 auto 20px;">
+            📚 Below 70% — re-read the weak areas in PDF 1 and try again!
+           </div>`
+      }
+      <div class="results-breakdown">
+        <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:13px;color:var(--accent);margin-bottom:8px;">📊 BREAKDOWN BY TOPIC</div>
+        ${getTopicBreakdown()}
+      </div>
+      <div class="nav-row" style="justify-content:center;">
+        <button class="nav-btn" onclick="reviewWrong()">🔍 Review Wrong Answers</button>
+        <button class="nav-btn primary" onclick="resetTest();renderQuestion()">🔄 Retake Test</button>
+      </div>
+    </div>
+  `;
+}
+
+function getTopicBreakdown() {
+  const topics = {};
+  state.questions.forEach(q => {
+    if (!topics[q.topic]) topics[q.topic] = {total:0, correct:0};
+    topics[q.topic].total++;
+    if (state.answered[q.id]?.isCorrect) topics[q.topic].correct++;
+  });
+  return Object.entries(topics).map(([t,v]) => {
+    const pct = v.total > 0 ? Math.round((v.correct/v.total)*100) : 0;
+    const col = pct>=70?'#4CAF50':pct>=50?'#FF9800':'#EF5350';
+    return `<div class="breakdown-row">
+      <span>${topicIcon(t)} ${t}</span>
+      <span style="color:${col};font-weight:700;">${v.correct}/${v.total} (${pct}%)</span>
+    </div>`;
+  }).join('');
+}
+
+function reviewWrong() {
+  const wrong = state.questions.filter(q => state.answered[q.id] && !state.answered[q.id].isCorrect);
+  if (!wrong.length) { alert('No wrong answers! 🎉'); return; }
+  state.questions = wrong;
+  state.currentIndex = 0;
+  renderQuestion();
+}
+
+// ══════════════════════════════════════════════════════
+// FLASHCARDS
+// ══════════════════════════════════════════════════════
+function renderFlashcard() {
+  const main = document.getElementById('mainArea');
+  const fc = flashcards[state.flashIndex];
+  const total = flashcards.length;
+
+  main.innerHTML = `
+    <div style="text-align:center;margin-bottom:16px;">
+      <span style="font-family:'Syne',sans-serif;font-size:13px;color:var(--muted);">
+        Flashcard ${state.flashIndex+1} of ${total} — Click card to reveal!
+      </span>
+    </div>
+    <div class="flashcard" onclick="toggleFlash()" id="fcCard">
+      <div class="fc-front">${fc.term}</div>
+      <div class="fc-hint" id="fcHint">👆 Click to reveal definition & memory trick</div>
+      <div class="fc-back ${state.flashRevealed?'show':''}" id="fcBack">
+        <div class="fc-answer">${fc.ans}</div>
+        <div class="fc-trick">🎯 ${fc.trick}</div>
+      </div>
+    </div>
+    <div class="nav-row">
+      <button class="nav-btn" onclick="flashNav(-1)" ${state.flashIndex===0?'disabled':''}>← Prev</button>
+      <button class="nav-btn" onclick="flashNav(0)">🔄 Shuffle</button>
+      <button class="nav-btn primary" onclick="flashNav(1)">${state.flashIndex>=total-1?'🏁 Done':'Next →'}</button>
+    </div>
+    <div style="margin-top:16px;">
+      <div class="topic-grid">
+        ${flashcards.map((f,i)=>`
+          <div class="topic-chip ${i===state.flashIndex?'active':''}" onclick="goFlash(${i})">
+            <span class="t-icon">📌</span>
+            ${f.term.length>15?f.term.substr(0,14)+'…':f.term}
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  `;
+}
+
+function toggleFlash() {
+  state.flashRevealed = !state.flashRevealed;
+  document.getElementById('fcBack').classList.toggle('show', state.flashRevealed);
+  document.getElementById('fcHint').style.display = state.flashRevealed ? 'none' : 'block';
+}
+
+function flashNav(dir) {
+  if (dir === 0) {
+    // shuffle
+    state.flashIndex = Math.floor(Math.random() * flashcards.length);
+  } else {
+    state.flashIndex = Math.max(0, Math.min(flashcards.length-1, state.flashIndex+dir));
+  }
+  state.flashRevealed = false;
+  renderFlashcard();
+}
+
+function goFlash(i) {
+  state.flashIndex = i;
+  state.flashRevealed = false;
+  renderFlashcard();
+}
+
+// ══════════════════════════════════════════════════════
+// BOOT
+// ══════════════════════════════════════════════════════
+resetTest();
+renderQuestion();
+</script>
+</body>
+</html>

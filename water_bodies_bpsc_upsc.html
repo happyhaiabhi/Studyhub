@@ -1,0 +1,1312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🌊 Water Bodies — BPSC & UPSC Complete Guide</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi&family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap');
+
+  :root {
+    --ocean:    #0A2342;
+    --sea:      #1B4F72;
+    --gulf:     #1A5276;
+    --strait:   #154360;
+    --bay:      #1F618D;
+    --lake:     #117A65;
+    --river:    #1D8348;
+    --gold:     #F0B400;
+    --saffron:  #E65100;
+    --cream:    #FFF9F0;
+    --text:     #1A1A2E;
+    --muted:    #5D6D7E;
+    --highlight:#FFF3CD;
+    --tip-bg:   #E8F8F5;
+    --warn-bg:  #FDEDEC;
+    --card-bg:  #FFFFFF;
+    --border:   #D5D8DC;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(135deg, var(--ocean) 0%, #0D47A1 50%, #1565C0 100%);
+    color: white;
+    padding: 48px 24px 36px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 30 Q15 20 30 30 Q45 40 60 30' stroke='rgba(255,255,255,0.08)' stroke-width='2' fill='none'/%3E%3Cpath d='M0 45 Q15 35 30 45 Q45 55 60 45' stroke='rgba(255,255,255,0.05)' stroke-width='2' fill='none'/%3E%3C/svg%3E") repeat;
+    animation: wave 8s linear infinite;
+  }
+  @keyframes wave { from { background-position: 0 0; } to { background-position: 60px 0; } }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 5vw, 3rem);
+    font-weight: 900;
+    position: relative;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  }
+  .hero p { font-size: 1rem; opacity: 0.85; margin-top: 8px; position: relative; }
+  .hero .badges { display: flex; gap: 10px; justify-content: center; margin-top: 16px; flex-wrap: wrap; position: relative; }
+  .badge { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); border-radius: 20px; padding: 4px 14px; font-size: 0.8rem; font-weight: 500; }
+
+  /* ── NAV TABS ── */
+  .nav-tabs {
+    position: sticky; top: 0; z-index: 100;
+    display: flex; gap: 4px; flex-wrap: wrap;
+    background: var(--ocean);
+    padding: 10px 16px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+  }
+  .tab-btn {
+    background: rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.8);
+    border: none; border-radius: 6px;
+    padding: 7px 14px; font-size: 0.82rem; font-weight: 500;
+    cursor: pointer; transition: all 0.2s;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .tab-btn:hover { background: rgba(255,255,255,0.2); color: white; }
+  .tab-btn.active { background: var(--gold); color: var(--ocean); font-weight: 700; }
+
+  /* ── SECTIONS ── */
+  .section { display: none; padding: 24px 16px; max-width: 1100px; margin: 0 auto; }
+  .section.active { display: block; }
+
+  /* ── SECTION HEADER ── */
+  .sec-header {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 20px; padding-bottom: 12px;
+    border-bottom: 3px solid var(--gold);
+  }
+  .sec-icon { font-size: 2rem; }
+  .sec-header h2 { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--ocean); }
+  .sec-header p { font-size: 0.85rem; color: var(--muted); margin-top: 2px; }
+
+  /* ── CARDS GRID ── */
+  .cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
+
+  .card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .card:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,0.12); }
+
+  .card-header {
+    padding: 12px 16px;
+    color: white;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .card-header h3 { font-size: 1rem; font-weight: 700; }
+  .card-header .tag {
+    margin-left: auto; background: rgba(255,255,255,0.25);
+    border-radius: 4px; padding: 2px 8px; font-size: 0.72rem; font-weight: 600;
+  }
+  .card-body { padding: 14px 16px; }
+
+  .info-row {
+    display: flex; gap: 8px; align-items: flex-start;
+    margin-bottom: 8px; font-size: 0.85rem;
+  }
+  .info-label { font-weight: 600; color: var(--sea); min-width: 80px; font-size: 0.8rem; }
+  .info-val { color: var(--text); flex: 1; }
+
+  .direction-box {
+    background: #EBF5FB;
+    border-left: 3px solid #2196F3;
+    border-radius: 0 6px 6px 0;
+    padding: 8px 12px;
+    margin: 10px 0;
+    font-size: 0.83rem;
+  }
+  .direction-box strong { color: var(--sea); }
+
+  .trick-box {
+    background: var(--highlight);
+    border-radius: 6px;
+    padding: 8px 12px;
+    margin: 10px 0;
+    font-size: 0.82rem;
+  }
+  .trick-box .trick-label { font-weight: 700; color: var(--saffron); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.5px; }
+
+  .pyq-box {
+    background: #F9EBEA;
+    border-radius: 6px;
+    padding: 8px 12px;
+    margin: 10px 0;
+    font-size: 0.8rem;
+    border-left: 3px solid #E74C3C;
+  }
+  .pyq-box .pyq-label { font-weight: 700; color: #C0392B; font-size: 0.72rem; text-transform: uppercase; }
+
+  /* Colours per type */
+  .c-ocean   { background: var(--ocean); }
+  .c-sea     { background: #1B6CA8; }
+  .c-gulf    { background: #148F77; }
+  .c-strait  { background: #6C3483; }
+  .c-bay     { background: #1F618D; }
+  .c-channel { background: #B7950B; }
+  .c-lake    { background: #117A65; }
+
+  /* ── ASCII MAP ── */
+  .ascii-map {
+    background: var(--ocean);
+    color: #A9CCE3;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    line-height: 1.4;
+    padding: 20px;
+    border-radius: 12px;
+    overflow-x: auto;
+    margin: 16px 0;
+    white-space: pre;
+  }
+  .ascii-map .highlight-text { color: var(--gold); font-weight: bold; }
+
+  /* ── TABLE ── */
+  .data-table { width: 100%; border-collapse: collapse; font-size: 0.83rem; margin: 16px 0; }
+  .data-table th {
+    background: var(--ocean); color: white;
+    padding: 10px 12px; text-align: left; font-weight: 600;
+  }
+  .data-table td { padding: 9px 12px; border-bottom: 1px solid var(--border); }
+  .data-table tr:nth-child(even) td { background: #EBF5FB; }
+  .data-table tr:hover td { background: #D6EAF8; }
+  .data-table .important { font-weight: 700; color: var(--saffron); }
+  .data-table .bpsc-tag { background: #E74C3C; color: white; border-radius: 4px; padding: 1px 6px; font-size: 0.7rem; }
+  .data-table .upsc-tag { background: #1A5276; color: white; border-radius: 4px; padding: 1px 6px; font-size: 0.7rem; }
+
+  /* ── MEMORY MASTER ── */
+  .memory-card {
+    background: linear-gradient(135deg, #1A237E, #283593);
+    color: white; border-radius: 12px;
+    padding: 20px; margin: 12px 0;
+  }
+  .memory-card h4 { font-size: 1rem; font-weight: 700; color: var(--gold); margin-bottom: 8px; }
+  .memory-card .mnemonic { font-family: 'DM Mono', monospace; font-size: 1rem; color: #E3F2FD; background: rgba(255,255,255,0.1); padding: 10px 14px; border-radius: 8px; margin: 10px 0; }
+  .memory-card .decode { font-size: 0.82rem; color: #B3C6E7; margin-top: 6px; }
+
+  /* ── TIPS ── */
+  .tip { background: var(--tip-bg); border-left: 4px solid #27AE60; padding: 12px 16px; border-radius: 0 8px 8px 0; margin: 12px 0; font-size: 0.85rem; }
+  .warn { background: var(--warn-bg); border-left: 4px solid #E74C3C; padding: 12px 16px; border-radius: 0 8px 8px 0; margin: 12px 0; font-size: 0.85rem; }
+  .tip strong, .warn strong { display: block; margin-bottom: 4px; }
+
+  /* ── WORLD MAP SVG ── */
+  .map-container { background: #0A2342; border-radius: 12px; padding: 20px; margin: 16px 0; }
+  .map-container h3 { color: var(--gold); font-family: 'Playfair Display', serif; margin-bottom: 14px; text-align: center; }
+
+  /* ── QUIZ ── */
+  .quiz-q { background: white; border-radius: 10px; padding: 16px; margin: 12px 0; box-shadow: 0 2px 8px rgba(0,0,0,0.07); }
+  .quiz-q .q-text { font-weight: 600; margin-bottom: 12px; font-size: 0.9rem; }
+  .quiz-option { display: block; background: #F4F6F7; border: 2px solid transparent; border-radius: 6px; padding: 8px 12px; margin: 6px 0; cursor: pointer; font-size: 0.85rem; transition: all 0.2s; }
+  .quiz-option:hover { border-color: #2196F3; background: #EBF5FB; }
+  .quiz-option.correct { background: #D5F5E3; border-color: #27AE60; color: #1E8449; font-weight: 600; }
+  .quiz-option.wrong { background: #FADBD8; border-color: #E74C3C; color: #C0392B; }
+  .quiz-explain { display: none; margin-top: 10px; padding: 10px; background: #EBF5FB; border-radius: 6px; font-size: 0.82rem; }
+  .quiz-explain.show { display: block; }
+
+  /* ── INDIA WATER BODIES MAP ── */
+  .india-map-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: start; }
+  @media (max-width: 700px) { .india-map-wrap { grid-template-columns: 1fr; } }
+
+  .compass { display: inline-block; text-align: center; font-size: 0.72rem; font-family: 'DM Mono', monospace; background: rgba(255,255,255,0.08); padding: 10px; border-radius: 8px; color: #A9CCE3; margin: 8px 0; }
+
+  /* ── SEARCH ── */
+  .search-bar { display: flex; gap: 10px; margin-bottom: 20px; }
+  .search-bar input { flex: 1; padding: 10px 16px; border-radius: 8px; border: 2px solid var(--border); font-size: 0.9rem; font-family: 'DM Sans', sans-serif; outline: none; }
+  .search-bar input:focus { border-color: #2196F3; }
+
+  /* ── SCROLLBAR ── */
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: #f1f1f1; }
+  ::-webkit-scrollbar-thumb { background: var(--sea); border-radius: 3px; }
+
+  .full-table-wrap { overflow-x: auto; }
+
+  .divider { border: none; border-top: 2px dashed var(--border); margin: 24px 0; }
+
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 600px) { .grid2 { grid-template-columns: 1fr; } }
+
+  .stat-pill { display: inline-block; background: var(--ocean); color: white; border-radius: 20px; padding: 3px 12px; font-size: 0.75rem; margin: 3px 2px; }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>🌊 Water Bodies Master Guide</h1>
+  <p>Oceans · Seas · Gulfs · Bays · Straits · Channels — BPSC & UPSC Complete Reference</p>
+  <div class="badges">
+    <span class="badge">📍 Directions Included</span>
+    <span class="badge">🧠 Memory Tricks</span>
+    <span class="badge">📝 PYQ Tags</span>
+    <span class="badge">🗺️ Visual Maps</span>
+    <span class="badge">🎯 Bihar Connect</span>
+  </div>
+</div>
+
+<!-- NAV -->
+<div class="nav-tabs">
+  <button class="tab-btn active" onclick="showTab('oceans')">🌏 Oceans</button>
+  <button class="tab-btn" onclick="showTab('seas')">🌊 Seas</button>
+  <button class="tab-btn" onclick="showTab('gulfs')">🏖️ Gulfs & Bays</button>
+  <button class="tab-btn" onclick="showTab('straits')">🚢 Straits & Channels</button>
+  <button class="tab-btn" onclick="showTab('india')">🇮🇳 India Water Bodies</button>
+  <button class="tab-btn" onclick="showTab('memory')">🧠 Memory Master</button>
+  <button class="tab-btn" onclick="showTab('quiz')">🎯 Quick Quiz</button>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     TAB 1 — OCEANS
+══════════════════════════════════════════════ -->
+<div id="tab-oceans" class="section active">
+  <div class="sec-header">
+    <span class="sec-icon">🌏</span>
+    <div>
+      <h2>The 5 Oceans</h2>
+      <p>Size order: Pacific > Atlantic > Indian > Southern > Arctic — memory trick: "Please Allow Indian Students Aboard"</p>
+    </div>
+  </div>
+
+  <div class="memory-card">
+    <h4>🧠 MASTER TRICK — 5 Oceans in Size Order</h4>
+    <div class="mnemonic">P A I S A = Pacific · Atlantic · Indian · Southern · Arctic</div>
+    <div class="decode">"Paisa" = Money in Hindi — the BIGGEST ocean to the SMALLEST, like counting paisa (small coins last!)</div>
+  </div>
+
+  <div class="ascii-map">
+     <span style="color:#F0B400">╔══════════════════════════════════════════════════════════════════════╗</span>
+     <span style="color:#F0B400">║               WORLD OCEANS — POSITION MAP (ASCII)                   ║</span>
+     <span style="color:#F0B400">╚══════════════════════════════════════════════════════════════════════╝</span>
+
+     <span style="color:#7FB3D3">ARCTIC OCEAN (North Pole region)</span>
+             ↓
+  ┌──────────────────────────────────────────────────────────┐
+  │  NORTH      │  EUROPE/  │      NORTH           │        │
+  │  AMERICA    │  AFRICA   │      PACIFIC         │ ASIA   │
+  │             │           │      OCEAN           │        │
+  │   ATLANTIC  │  ATLANTIC │  ←  Largest Ocean →  │        │
+  │   OCEAN     │  OCEAN    │      (165M km²)       │ INDIA  │
+  │  (West)     │  (East)   │                      │ OCEAN  │
+  │             │           │  SOUTH               │ (East) │
+  │  SOUTH      │  AFRICA   │  PACIFIC             │        │
+  │  AMERICA    │           │  OCEAN               │AUSTRAL.│
+  └──────────────────────────────────────────────────────────┘
+             ↓
+     <span style="color:#7FB3D3">SOUTHERN OCEAN (circling Antarctica — officially recognized 2000)</span>
+             ↓
+     <span style="color:#85C1E9">ANTARCTICA (South Pole)</span></div>
+
+  <div class="full-table-wrap">
+  <table class="data-table">
+    <thead>
+      <tr><th>Ocean</th><th>Area (km²)</th><th>Deepest Point</th><th>Key Direction Facts</th><th>Exam Tag</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="important">🌊 Pacific</td>
+        <td>165.25 million</td>
+        <td>Mariana Trench (11,034 m) — Challenger Deep</td>
+        <td>West of Americas; East of Asia/Australia; covers 1/3 of Earth</td>
+        <td><span class="upsc-tag">UPSC ★★★</span></td>
+      </tr>
+      <tr>
+        <td class="important">🌊 Atlantic</td>
+        <td>106.46 million</td>
+        <td>Puerto Rico Trench (8,376 m)</td>
+        <td>East of Americas; West of Europe & Africa; S-shaped</td>
+        <td><span class="upsc-tag">UPSC ★★★</span></td>
+      </tr>
+      <tr>
+        <td class="important">🌊 Indian</td>
+        <td>70.56 million</td>
+        <td>Java Trench / Sunda Trench (7,258 m)</td>
+        <td><strong>Surrounds India on 3 sides</strong>; only ocean named after a country</td>
+        <td><span class="bpsc-tag">BPSC ★★★</span> <span class="upsc-tag">UPSC ★★★</span></td>
+      </tr>
+      <tr>
+        <td>🌊 Southern</td>
+        <td>21.96 million</td>
+        <td>South Sandwich Trench (7,235 m)</td>
+        <td>Encircles Antarctica; officially recognized by IHO in 2000</td>
+        <td><span class="upsc-tag">UPSC ★★</span></td>
+      </tr>
+      <tr>
+        <td>🌊 Arctic</td>
+        <td>14.06 million</td>
+        <td>Molloy Hole (5,551 m)</td>
+        <td>Around North Pole; partly frozen; surrounds Greenland</td>
+        <td><span class="upsc-tag">UPSC ★★</span></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="tip"><strong>💡 BPSC/UPSC Key Fact:</strong> Indian Ocean is the ONLY ocean named after a country. This is asked frequently. Also note: Indian Ocean is bounded by Asia (N), Africa (W), Australia (E), Southern Ocean (S).</div>
+  <div class="warn"><strong>⚠️ Common Mistake:</strong> Southern Ocean was NOT officially recognized until 2000 by International Hydrographic Organization. Old textbooks show only 4 oceans!</div>
+
+  <div class="grid2">
+    <div class="card">
+      <div class="card-header c-ocean"><h3>🔵 Indian Ocean — BPSC Critical</h3></div>
+      <div class="card-body">
+        <div class="direction-box">
+          <strong>India's position in Indian Ocean:</strong><br>
+          🔼 North: Sub-continent (India, Pakistan, Bangladesh)<br>
+          ◀ West: Arabian Sea → Africa<br>
+          ▶ East: Bay of Bengal → Myanmar, Thailand<br>
+          🔽 South: Opens to Southern Ocean
+        </div>
+        <div class="trick-box">
+          <div class="trick-label">🧠 Memory Trick</div>
+          "India is the CROWN of Indian Ocean — it sits on top like a queen's crown!" — peninsular India juts south into the ocean.
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header c-ocean"><h3>🔵 Pacific Ocean — World's Largest</h3></div>
+      <div class="card-body">
+        <div class="direction-box">
+          <strong>Pacific's key neighbours:</strong><br>
+          ◀ West: Asia, Australia<br>
+          ▶ East: North & South America<br>
+          🔼 North: Arctic Ocean connection<br>
+          🔽 South: Southern Ocean
+        </div>
+        <div class="trick-box">
+          <div class="trick-label">🧠 Memory Trick</div>
+          "Pacific = Peaceful (from Spanish 'pacifico') — but contains most volcanoes! Ring of Fire = Pacific boundary."
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     TAB 2 — SEAS
+══════════════════════════════════════════════ -->
+<div id="tab-seas" class="section">
+  <div class="sec-header">
+    <span class="sec-icon">🌊</span>
+    <div>
+      <h2>Major Seas of the World</h2>
+      <p>Seas are smaller than oceans, usually enclosed/semi-enclosed by land. Directions are KEY for exams.</p>
+    </div>
+  </div>
+
+  <div class="memory-card">
+    <h4>🧠 India's Three Neighbouring Seas — Critical for BPSC</h4>
+    <div class="mnemonic">A-B-L = Arabian · Bay of Bengal · Lakshadweep Sea</div>
+    <div class="decode">West coast = Arabian Sea | East coast = Bay of Bengal | Southwest = Lakshadweep Sea<br>
+    Trick: "India has ABL blood type in the sea world 🩸"</div>
+  </div>
+
+  <div class="cards-grid">
+
+    <div class="card">
+      <div class="card-header c-sea"><h3>🌊 Arabian Sea</h3><span class="tag">BPSC ★★★</span></div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Location</span><span class="info-val">NW Indian Ocean</span></div>
+        <div class="direction-box">
+          🔼 N: Pakistan, Iran<br>◀ W: Arabian Peninsula, Somalia<br>▶ E: India (West Coast)<br>🔽 S: Indian Ocean
+        </div>
+        <div class="info-row"><span class="info-label">Key Ports</span><span class="info-val">Mumbai, Karachi, Kandla, Kochi</span></div>
+        <div class="info-row"><span class="info-label">Islands</span><span class="info-val">Lakshadweep (India), Socotra (Yemen)</span></div>
+        <div class="trick-box">
+          <div class="trick-label">🧠 Trick</div>
+          "Arabian = Arab countries to the WEST, India to the EAST"
+        </div>
+        <div class="pyq-box">
+          <div class="pyq-label">📝 PYQ Pattern</div>
+          "Which sea is on the west coast of India?" → Arabian Sea ✅
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header c-sea"><h3>🌊 Bay of Bengal</h3><span class="tag">BPSC ★★★</span></div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Location</span><span class="info-val">NE Indian Ocean</span></div>
+        <div class="direction-box">
+          🔼 N: Bangladesh, West Bengal (India)<br>◀ W: India (East Coast), Sri Lanka<br>▶ E: Myanmar, Thailand<br>🔽 S: Indian Ocean, Sri Lanka
+        </div>
+        <div class="info-row"><span class="info-label">Key Ports</span><span class="info-val">Chennai, Kolkata, Vishakhapatnam</span></div>
+        <div class="info-row"><span class="info-label">Islands</span><span class="info-val">Andaman & Nicobar (India)</span></div>
+        <div class="trick-box">
+          <div class="trick-label">🧠 Trick</div>
+          "Bay of Bengal = Bangladesh's backyard. Bangladesh is at the TOP (north) of the Bay"
+        </div>
+        <div class="pyq-box">
+          <div class="pyq-label">📝 PYQ Pattern</div>
+          "Andaman & Nicobar Islands are in which sea?" → Bay of Bengal ✅
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header c-sea"><h3>🌊 Red Sea</h3><span class="tag">UPSC ★★★</span></div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Location</span><span class="info-val">Between NE Africa & Arabian Peninsula</span></div>
+        <div class="direction-box">
+          🔼 N: Suez Canal → Mediterranean Sea<br>◀ W: Egypt, Sudan, Eritrea<br>▶ E: Saudi Arabia, Yemen<br>🔽 S: Gulf of Aden → Indian Ocean
+        </div>
+        <div class="info-row"><span class="info-label">Key Route</span><span class="info-val">Europe ↔ Asia via Suez Canal</span></div>
+        <div class="trick-box">
+          <div class="trick-label">🧠 Trick</div>
+          "RED Sea = Suez Canal connection. Think: 'Red alert — trade route!' India-Europe ships use this."
+        </div>
+        <div class="pyq-box">
+          <div class="pyq-label">📝 PYQ Pattern</div>
+          "Suez Canal connects Red Sea to which sea?" → Mediterranean Sea ✅
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header c-sea"><h3>🌊 Mediterranean Sea</h3><span class="tag">UPSC ★★★</span></div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Location</span><span class="info-val">Between Europe & Africa</span></div>
+        <div class="direction-box">
+          🔼 N: Southern Europe (Spain, France, Italy, Greece)<br>◀ W: Gibraltar Strait → Atlantic<br>▶ E: Turkey, Syria, Lebanon, Israel<br>🔽 S: North Africa (Morocco, Algeria, Tunisia, Libya, Egypt)
+        </div>
+        <div class="info-row"><span class="info-label">Meaning</span><span class="info-val">"Middle of the Earth" (Latin)</span></div>
+        <div class="trick-box">
+          <div class="trick-label">🧠 Trick</div>
+          "MEDI-terranean = MIDDLE sea. Surrounded by 3 continents: Europe (N), Africa (S), Asia (E)"
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header c-sea"><h3>🌊 Caspian Sea</h3><span class="tag">UPSC ★★★</span></div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Type</span><span class="info-val">World's LARGEST lake (technically landlocked)</span></div>
+        <div class="direction-box">
+          🔼 N: Russia, Kazakhstan<br>◀ W: Azerbaijan, Russia<br>▶ E: Kazakhstan, Turkmenistan<br>🔽 S: Iran
+        </div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">Largest enclosed water body; rich in oil & gas</span></div>
+        <div class="trick-box">
+          <div class="trick-label">🧠 Trick</div>
+          "Caspian SEEMS like a sea but IS a lake — India shares border with IRAN which touches Caspian's south"
+        </div>
+        <div class="warn" style="font-size:0.78rem;padding:6px 10px;">⚠️ Frequently asked: "Is Caspian Sea a sea or lake?" — It's a LAKE (landlocked salt water body)</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header c-sea"><h3>🌊 South China Sea</h3><span class="tag">UPSC ★★★</span></div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Location</span><span class="info-val">Western Pacific, Southeast Asia</span></div>
+        <div class="direction-box">
+          🔼 N: China, Taiwan<br>◀ W: Vietnam<br>▶ E: Philippines<br>🔽 S: Malaysia, Indonesia, Brunei
+        </div>
+        <div class="info-row"><span class="info-label">Why Important</span><span class="info-val">Most disputed sea; Spratly & Paracel Islands dispute</span></div>
+        <div class="trick-box">
+          <div class="trick-label">🧠 Trick</div>
+          "South China Sea → SOUTH of China, connects to Pacific. China disputes with 6 countries — current affairs hot spot!"
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header c-sea"><h3>🌊 Dead Sea</h3><span class="tag">UPSC ★★</span></div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Location</span><span class="info-val">Middle East (Jordan Valley)</span></div>
+        <div class="direction-box">
+          ◀ W: Israel, Palestine<br>▶ E: Jordan<br>(Landlocked — feeds from Jordan River)
+        </div>
+        <div class="info-row"><span class="info-label">Key Facts</span><span class="info-val">Saltiest water body; 430 m below sea level (lowest point on Earth's surface)</span></div>
+        <div class="trick-box">
+          <div class="trick-label">🧠 Trick</div>
+          "DEAD sea = so salty nothing lives → LOWEST point on Earth. Israel (W) + Jordan (E)"
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header c-sea"><h3>🌊 Black Sea</h3><span class="tag">UPSC ★★</span></div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Location</span><span class="info-val">Between Eastern Europe & Western Asia</span></div>
+        <div class="direction-box">
+          🔼 N: Ukraine, Russia<br>◀ W: Bulgaria, Romania<br>▶ E: Georgia, Russia<br>🔽 S: Turkey
+        </div>
+        <div class="info-row"><span class="info-label">Connects to</span><span class="info-val">Mediterranean via Bosphorus & Dardanelles Straits</span></div>
+        <div class="trick-box">
+          <div class="trick-label">🧠 Trick</div>
+          "Black Sea → Turkey is its southern gate → Bosphorus Strait = Istanbul"
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header c-sea"><h3>🌊 North Sea</h3><span class="tag">UPSC ★★</span></div>
+      <div class="card-body">
+        <div class="direction-box">
+          ◀ W: UK (Great Britain)<br>▶ E: Norway, Denmark, Germany, Netherlands<br>🔼 N: Norway Sea<br>🔽 S: English Channel
+        </div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">Major oil & gas reserves; UK-Norway offshore drilling</span></div>
+        <div class="trick-box">
+          <div class="trick-label">🧠 Trick</div>
+          "North Sea = UK's eastern neighbour. English Channel is its southern extension."
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     TAB 3 — GULFS & BAYS
+══════════════════════════════════════════════ -->
+<div id="tab-gulfs" class="section">
+  <div class="sec-header">
+    <span class="sec-icon">🏖️</span>
+    <div>
+      <h2>Gulfs, Bays & Lagoons</h2>
+      <p>Gulf = large indentation of sea; Bay = smaller; Lagoon = separated by reef/bar</p>
+    </div>
+  </div>
+
+  <div class="memory-card">
+    <h4>🧠 Gulf vs Bay — Quick Rule</h4>
+    <div class="mnemonic">Gulf = Grander (usually larger, more enclosed)<br>Bay = Broader opening (wider mouth)</div>
+    <div class="decode">Exception: Bay of Bengal is HUGE (almost ocean-sized)! So size rule has exceptions. Remember by location, not size.</div>
+  </div>
+
+  <div class="cards-grid">
+    <div class="card">
+      <div class="card-header c-gulf"><h3>🏖️ Persian Gulf</h3><span class="tag">BPSC ★★★</span></div>
+      <div class="card-body">
+        <div class="direction-box">
+          🔼 N+NW: Iraq, Kuwait<br>◀ W: Saudi Arabia, Bahrain, Qatar, UAE<br>▶ E: Iran<br>🔽 S: Oman (via Strait of Hormuz)
+        </div>
+        <div class="info-row"><span class="info-label">Connects via</span><span class="info-val">Strait of Hormuz → Arabian Sea</span></div>
+        <div class="info-row"><span class="info-label">Why Critical</span><span class="info-val">World's largest oil reserves region; India imports 65% crude from here</span></div>
+        <div class="trick-box">
+          <div class="trick-label">🧠 Trick</div>
+          "PERSIAN Gulf = IRAN (Persia) on east side. Strait of HORMUZ = HOR-muz = door to the oil world"
+        </div>
+        <div class="pyq-box">
+          <div class="pyq-label">📝 BPSC/UPSC Pattern</div>
+          "India's oil import route" → Persian Gulf → Strait of Hormuz → Arabian Sea ✅
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header c-gulf"><h3>🏖️ Gulf of Aden</h3><span class="tag">UPSC ★★★</span></div>
+      <div class="card-body">
+        <div class="direction-box">
+          🔼 N: Yemen (Arabian Peninsula)<br>🔽 S: Somalia (Horn of Africa)<br>◀ W: Red Sea (via Bab-el-Mandeb)<br>▶ E: Arabian Sea
+        </div>
+        <div class="info-row"><span class="info-label">Strategic</span><span class="info-val">Connects Red Sea to Indian Ocean; major shipping lane</span></div>
+        <div class="trick-box">
+          <div class="trick-label">🧠 Trick</div>
+          "Gulf of ADEN → A-D-E-N → 'A Door ENtering Indian Ocean from Red Sea'"
+        </div>
+        <div class="pyq-box">
+          <div class="pyq-label">📝 Pattern</div>
+          "Bab-el-Mandeb strait connects Gulf of Aden to" → Red Sea ✅
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header c-gulf"><h3>🏖️ Gulf of Mannar</h3><span class="tag">BPSC ★★★</span></div>
+      <div class="card-body">
+        <div class="direction-box">
+          🔼 N: Palk Strait (connects to Bay of Bengal)<br>◀ W: Tamil Nadu (South India)<br>▶ E: Sri Lanka<br>🔽 S: Indian Ocean
+        </div>
+        <div class="info-row"><span class="info-label">Key Feature</span><span class="info-val">Coral reefs; Biosphere Reserve; Pearl fishing</span></div>
+        <div class="info-row"><span class="info-label">Ram Setu</span><span class="info-val">Shallow ridge between India & Sri Lanka in this gulf</span></div>
+        <div class="trick-box">
+          <div class="trick-label">🧠 Trick</div>
+          "Gulf of MANNAR = MAN-NAR = between MANland (Tamil Nadu) and Sri Lanka's NARrow passage"
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header c-gulf"><h3>🏖️ Gulf of Khambhat (Cambay)</h3><span class="tag">BPSC ★★</span></div>
+      <div class="card-body">
+        <div class="direction-box">
+          🔼 N: Gujarat (India)<br>◀ W: Saurashtra (Kathiawar) Peninsula<br>▶ E: Gujarat mainland<br>🔽 S: Arabian Sea
+        </div>
+        <div class="info-row"><span class="info-label">Rivers</span><span class="info-val">Mahi, Sabarmati, Narmada, Tapti drain into it</span></div>
+        <div class="trick-box">
+          <div class="trick-label">🧠 Trick</div>
+          "Khambhat = KHAM (Gulf) of GUJARAT. 4 big rivers MAST = Mahi+Sabarmati+Tapti drains here"
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header c-gulf"><h3>🏖️ Gulf of Kutch</h3><span class="tag">BPSC ★★</span></div>
+      <div class="card-body">
+        <div class="direction-box">
+          🔼 N: Kutch district (Gujarat)<br>◀ W: Pakistan border<br>▶ E: Saurashtra Peninsula<br>🔽 S: Arabian Sea
+        </div>
+        <div class="info-row"><span class="info-label">Key Facts</span><span class="info-val">Kandla Port; Mundra Port (largest private port)</span></div>
+        <div class="trick-box">
+          <div class="trick-label">🧠 Trick</div>
+          "Gulf of KUTCH = to the WEST of Gujarat (near Pakistan). Gulf of Khambhat = EAST of Saurashtra. 'K-W-K-E' = Kutch-West, Khambhat-East"
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header c-gulf"><h3>🏖️ Gulf of Mexico</h3><span class="tag">UPSC ★★</span></div>
+      <div class="card-body">
+        <div class="direction-box">
+          🔼 N: USA (Gulf States: Texas, Louisiana, Mississippi, Alabama, Florida)<br>◀ W: Mexico<br>▶ E: Cuba, Florida<br>🔽 S: Mexico (Yucatan)
+        </div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">Major hurricane zone; BP oil spill 2010</span></div>
+        <div class="trick-box">
+          <div class="trick-label">🧠 Trick</div>
+          "Gulf of Mexico = Mexico's backyard + US southern coast. Hurricanes form here → hit USA"
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header c-bay"><h3>🏖️ Hudson Bay</h3><span class="tag">UPSC ★★</span></div>
+      <div class="card-body">
+        <div class="direction-box">
+          🔼 N: Nunavut (Canada)<br>◀ W: Manitoba (Canada)<br>▶ E: Quebec (Canada)<br>🔽 S: Ontario (Canada)
+        </div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">Largest bay in the world by area; in Canada</span></div>
+        <div class="trick-box">
+          <div class="trick-label">🧠 Trick</div>
+          "HUDSON Bay = HUGE bay in CANADA. Surrounded by Canada on all sides — it's a Canadian inland sea"
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header c-bay"><h3>🏖️ Bay of Biscay</h3><span class="tag">UPSC ★★</span></div>
+      <div class="card-body">
+        <div class="direction-box">
+          🔼 N: France (Atlantic coast)<br>🔽 S: Spain (northern coast)<br>◀ W: Atlantic Ocean<br>▶ E: France/Spain land
+        </div>
+        <div class="info-row"><span class="info-label">Key Fact</span><span class="info-val">Rough seas; between France and Spain</span></div>
+        <div class="trick-box">
+          <div class="trick-label">🧠 Trick</div>
+          "Bay of BiSCay = Between Spain & France, on their WEST side. 'BiSCay = B-Spain-C-France'"
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     TAB 4 — STRAITS & CHANNELS
+══════════════════════════════════════════════ -->
+<div id="tab-straits" class="section">
+  <div class="sec-header">
+    <span class="sec-icon">🚢</span>
+    <div>
+      <h2>Straits & Channels — Strategic Waterways</h2>
+      <p>Strait = narrow passage between two water bodies; Channel = wider passage. These are MOST ASKED in exams!</p>
+    </div>
+  </div>
+
+  <div class="memory-card">
+    <h4>🧠 India's Straits — "PPM" Trick</h4>
+    <div class="mnemonic">P-P-M = Palk · Pitt's (Ten Degree Channel) · Malacca</div>
+    <div class="decode">
+      Palk Strait = India & Sri Lanka (Tamil Nadu side)<br>
+      Eight/Ten Degree Channel = Between Andaman/Lakshadweep islands<br>
+      Malacca = Not India's, but India's ships use it most!
+    </div>
+  </div>
+
+  <div class="full-table-wrap">
+  <table class="data-table">
+    <thead>
+      <tr><th>Strait / Channel</th><th>Connects</th><th>Between (Countries/Bodies)</th><th>Strategic Importance</th><th>Exam</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="important">Strait of Hormuz</td>
+        <td>Persian Gulf ↔ Arabian Sea</td>
+        <td>Iran (N) & Oman (S)</td>
+        <td>~20% world's oil passes through; India's energy lifeline</td>
+        <td><span class="bpsc-tag">BPSC ★★★</span></td>
+      </tr>
+      <tr>
+        <td class="important">Palk Strait</td>
+        <td>Bay of Bengal ↔ Gulf of Mannar</td>
+        <td>India (Tamil Nadu) & Sri Lanka</td>
+        <td>Shallow; connects India to Sri Lanka; Ram Setu nearby</td>
+        <td><span class="bpsc-tag">BPSC ★★★</span></td>
+      </tr>
+      <tr>
+        <td class="important">Strait of Malacca</td>
+        <td>Pacific ↔ Indian Ocean</td>
+        <td>Malaysia & Indonesia (Sumatra)</td>
+        <td>World's busiest shipping lane; China-India trade route</td>
+        <td><span class="upsc-tag">UPSC ★★★</span></td>
+      </tr>
+      <tr>
+        <td>Bab-el-Mandeb</td>
+        <td>Red Sea ↔ Gulf of Aden</td>
+        <td>Yemen (N) & Djibouti/Eritrea (S)</td>
+        <td>Europe-Asia route via Suez; piracy zone</td>
+        <td><span class="upsc-tag">UPSC ★★★</span></td>
+      </tr>
+      <tr>
+        <td>Strait of Gibraltar</td>
+        <td>Mediterranean ↔ Atlantic</td>
+        <td>Spain (N) & Morocco (S)</td>
+        <td>UK controls via Gibraltar; entrance to Mediterranean</td>
+        <td><span class="upsc-tag">UPSC ★★★</span></td>
+      </tr>
+      <tr>
+        <td>Bosphorus Strait</td>
+        <td>Black Sea ↔ Sea of Marmara</td>
+        <td>Divides European & Asian Turkey</td>
+        <td>Istanbul city; Turkey controls Russian naval access</td>
+        <td><span class="upsc-tag">UPSC ★★★</span></td>
+      </tr>
+      <tr>
+        <td>Dardanelles</td>
+        <td>Sea of Marmara ↔ Aegean Sea</td>
+        <td>Turkey (both sides)</td>
+        <td>Along with Bosphorus = Black Sea's route to Med</td>
+        <td><span class="upsc-tag">UPSC ★★</span></td>
+      </tr>
+      <tr>
+        <td class="important">Ten Degree Channel</td>
+        <td>Andaman Sea ↔ Bay of Bengal</td>
+        <td>Andaman Islands (N) & Nicobar Islands (S)</td>
+        <td>Separates Andaman & Nicobar islands; 10°N latitude</td>
+        <td><span class="bpsc-tag">BPSC ★★★</span></td>
+      </tr>
+      <tr>
+        <td>Eight Degree Channel</td>
+        <td>Arabian Sea</td>
+        <td>Lakshadweep (N) & Maldives (S)</td>
+        <td>8°N latitude; separates India's Lakshadweep from Maldives</td>
+        <td><span class="bpsc-tag">BPSC ★★</span></td>
+      </tr>
+      <tr>
+        <td>Nine Degree Channel</td>
+        <td>Arabian Sea</td>
+        <td>Between Lakshadweep islands</td>
+        <td>9°N latitude; within Lakshadweep island group</td>
+        <td><span class="bpsc-tag">BPSC ★★</span></td>
+      </tr>
+      <tr>
+        <td>Drake Passage</td>
+        <td>Atlantic ↔ Pacific</td>
+        <td>South America (Cape Horn) & Antarctica</td>
+        <td>World's roughest waters; before Panama Canal was only route</td>
+        <td><span class="upsc-tag">UPSC ★★</span></td>
+      </tr>
+      <tr>
+        <td>English Channel</td>
+        <td>North Sea ↔ Atlantic</td>
+        <td>England (N) & France (S)</td>
+        <td>World War II D-Day landing; Channel Tunnel (Chunnel)</td>
+        <td><span class="upsc-tag">UPSC ★★</span></td>
+      </tr>
+      <tr>
+        <td>Sunda Strait</td>
+        <td>Java Sea ↔ Indian Ocean</td>
+        <td>Java (E) & Sumatra (W) — Indonesia</td>
+        <td>Krakatoa volcano island; alternative to Malacca</td>
+        <td><span class="upsc-tag">UPSC ★★</span></td>
+      </tr>
+      <tr>
+        <td>Lombok Strait</td>
+        <td>Java Sea ↔ Indian Ocean</td>
+        <td>Bali (W) & Lombok (E) — Indonesia</td>
+        <td>Deep water; used by large ships; alternative Malacca</td>
+        <td><span class="upsc-tag">UPSC ★</span></td>
+      </tr>
+      <tr>
+        <td>Mozambique Channel</td>
+        <td>Indian Ocean (internal)</td>
+        <td>Mozambique (W) & Madagascar (E)</td>
+        <td>Africa's eastern shipping route; separates Madagascar</td>
+        <td><span class="upsc-tag">UPSC ★★</span></td>
+      </tr>
+      <tr>
+        <td>Taiwan Strait</td>
+        <td>South China Sea ↔ East China Sea</td>
+        <td>China (W) & Taiwan (E)</td>
+        <td>Most geopolitically sensitive strait; China-Taiwan tension</td>
+        <td><span class="upsc-tag">UPSC ★★★</span></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <hr class="divider">
+  <h3 style="font-family:'Playfair Display',serif;color:var(--ocean);margin-bottom:12px;">🗺️ Major Canals (Man-Made Water Routes)</h3>
+  <div class="grid2">
+    <div class="card">
+      <div class="card-header" style="background:#8E44AD;"><h3>🚢 Suez Canal</h3><span class="tag">BPSC ★★★</span></div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Connects</span><span class="info-val">Red Sea (S) ↔ Mediterranean Sea (N)</span></div>
+        <div class="info-row"><span class="info-label">Country</span><span class="info-val">Egypt</span></div>
+        <div class="info-row"><span class="info-label">Opened</span><span class="info-val">1869; no locks needed (same water level)</span></div>
+        <div class="info-row"><span class="info-label">Route</span><span class="info-val">India/Asia → Europe (saves 7,000+ km vs Cape of Good Hope)</span></div>
+        <div class="trick-box">
+          <div class="trick-label">🧠 Trick</div>
+          "SUEZ = SUEd by Europe for Asian trade — it saved the world from going around Africa!"
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header" style="background:#8E44AD;"><h3>🚢 Panama Canal</h3><span class="tag">UPSC ★★★</span></div>
+      <div class="card-body">
+        <div class="info-row"><span class="info-label">Connects</span><span class="info-val">Atlantic Ocean ↔ Pacific Ocean</span></div>
+        <div class="info-row"><span class="info-label">Country</span><span class="info-val">Panama (Central America)</span></div>
+        <div class="info-row"><span class="info-label">Opened</span><span class="info-val">1914; has locks (elevation difference)</span></div>
+        <div class="info-row"><span class="info-label">Route</span><span class="info-val">East USA ↔ West USA/Asia (saves Drake Passage)</span></div>
+        <div class="trick-box">
+          <div class="trick-label">🧠 Trick</div>
+          "PANAMA = PLAN-AMA (American Plan) to cut through Central America. Atlantic↔Pacific."
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     TAB 5 — INDIA WATER BODIES
+══════════════════════════════════════════════ -->
+<div id="tab-india" class="section">
+  <div class="sec-header">
+    <span class="sec-icon">🇮🇳</span>
+    <div>
+      <h2>India's Water Bodies — BPSC Critical</h2>
+      <p>Coasts, seas, straits, channels, lakes — all from Indian geography perspective</p>
+    </div>
+  </div>
+
+  <div class="ascii-map">
+  <span style="color:#F0B400">═══════════════════════════════════════════════════════</span>
+  <span style="color:#F0B400">         INDIA — WATER BODIES POSITION MAP             </span>
+  <span style="color:#F0B400">═══════════════════════════════════════════════════════</span>
+
+                   NEPAL  BHUTAN
+  PAKISTAN    <span style="color:#85C1E9">┌─────────────────────┐</span>  MYANMAR
+              <span style="color:#85C1E9">│      INDIA          │</span>
+  ←ARABIAN    <span style="color:#85C1E9">│                     │</span>  BAY OF →
+    SEA       <span style="color:#85C1E9">│     Bihar ★         │</span>  BENGAL
+  (WEST COAST)<span style="color:#85C1E9">│                     │</span>  (EAST COAST)
+              <span style="color:#85C1E9">└──────────┬──────────┘</span>
+                         │
+               <span style="color:#F0B400">╔═══════╧═══════╗</span>
+               <span style="color:#F0B400">║  DECCAN PENI- ║</span>
+               <span style="color:#F0B400">║    NSULA      ║</span>
+               <span style="color:#F0B400">╚═══════╤═══════╝</span>
+                         │
+               <span style="color:#85C1E9">LAKSHADWEEP</span>          <span style="color:#85C1E9">SRI LANKA</span>
+               <span style="color:#85C1E9">SEA (SW)</span>      <span style="color:#85C1E9">PALK STRAIT</span>
+                         │         <span style="color:#85C1E9">GULF OF MANNAR</span>
+               <span style="color:#85C1E9">INDIAN OCEAN</span>
+                                   <span style="color:#85C1E9">ANDAMAN SEA</span>
+                              <span style="color:#85C1E9">ANDAMAN & NICOBAR</span>
+                              <span style="color:#85C1E9">← TEN DEGREE CHANNEL →</span>
+
+  <span style="color:#7FB3D3">WEST COAST (L→R going south): Gulf of Kutch → Gulf of Khambhat → Konkan → Malabar</span>
+  <span style="color:#7FB3D3">EAST COAST (L→R going south): Coromandel → Palk Strait → Gulf of Mannar</span>
+  </div>
+
+  <div class="memory-card">
+    <h4>🧠 India's Coasts — "KKKMCPC" Trick (North to South, West side)</h4>
+    <div class="mnemonic">Kutch → Khambhat → Konkan → Malabar (West Coast, N→S)</div>
+    <div class="decode">East Coast (N→S): Orissa → Andhra → Coromandel → Palk → Mannar<br>
+    "K-K-K-M for West; O-A-C-P-M for East"</div>
+  </div>
+
+  <div class="full-table-wrap">
+  <table class="data-table">
+    <thead>
+      <tr><th>Water Body</th><th>Location relative to India</th><th>Key States/Features</th><th>BPSC Importance</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="important">Arabian Sea</td>
+        <td>WEST of India</td>
+        <td>Gujarat, Maharashtra, Goa, Karnataka, Kerala coasts</td>
+        <td>Mumbai port, Kochi, Kandla, Monsoon entry (SW)</td>
+      </tr>
+      <tr>
+        <td class="important">Bay of Bengal</td>
+        <td>EAST of India</td>
+        <td>West Bengal, Odisha, Andhra, Tamil Nadu coasts</td>
+        <td>Cyclones hit east coast; Kolkata, Chennai ports</td>
+      </tr>
+      <tr>
+        <td>Lakshadweep Sea</td>
+        <td>SOUTHWEST of India</td>
+        <td>Kerala coast + Lakshadweep Islands</td>
+        <td>Coral islands; tourism; EEZ area</td>
+      </tr>
+      <tr>
+        <td class="important">Gulf of Kutch</td>
+        <td>NW Gujarat</td>
+        <td>Kutch district, Jamnagar</td>
+        <td>Kandla port; Mundra port; world's largest ship-breaking yard (Alang)</td>
+      </tr>
+      <tr>
+        <td class="important">Gulf of Khambhat</td>
+        <td>E Gujarat</td>
+        <td>Saurashtra vs mainland Gujarat</td>
+        <td>Sabarmati/Mahi/Narmada drainage; Lotus temple offshore</td>
+      </tr>
+      <tr>
+        <td class="important">Palk Strait</td>
+        <td>SE Tamil Nadu — Sri Lanka</td>
+        <td>Tamil Nadu & Northern Sri Lanka</td>
+        <td>India-Sri Lanka relations; shallow — not navigable by large ships</td>
+      </tr>
+      <tr>
+        <td class="important">Gulf of Mannar</td>
+        <td>SE Tamil Nadu — W Sri Lanka</td>
+        <td>Rameswaram, Tuticorin</td>
+        <td>Biosphere reserve; pearl oysters; Ram Setu (Adam's Bridge)</td>
+      </tr>
+      <tr>
+        <td class="important">Ten Degree Channel</td>
+        <td>Between Andaman & Nicobar</td>
+        <td>Divides two island groups at 10°N</td>
+        <td>Andaman Islands (N) vs Nicobar Islands (S)</td>
+      </tr>
+      <tr>
+        <td>Eight Degree Channel</td>
+        <td>Between Lakshadweep & Maldives</td>
+        <td>8°N latitude</td>
+        <td>India's EEZ boundary; separates Minicoy from Maldives</td>
+      </tr>
+      <tr>
+        <td>Nine Degree Channel</td>
+        <td>Within Lakshadweep</td>
+        <td>9°N latitude</td>
+        <td>Separates Minicoy island from rest of Lakshadweep</td>
+      </tr>
+      <tr>
+        <td>Andaman Sea</td>
+        <td>EAST of Andaman Islands</td>
+        <td>Myanmar to the North</td>
+        <td>ASEAN connectivity; strategic location near Malacca</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <hr class="divider">
+  <h3 style="font-family:'Playfair Display',serif;color:var(--ocean);margin-bottom:12px;">🏞️ Major Lakes of India</h3>
+  <div class="full-table-wrap">
+  <table class="data-table">
+    <thead>
+      <tr><th>Lake</th><th>State</th><th>Type</th><th>BPSC/UPSC Key Fact</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="important">Chilika Lake</td><td>Odisha</td><td>Saltwater lagoon (largest in India)</td><td>Largest coastal lagoon in Asia; Ramsar site; flamingos</td></tr>
+      <tr><td class="important">Loktak Lake</td><td>Manipur</td><td>Freshwater (floating islands = Phumdis)</td><td>Largest freshwater lake in NE India; Keibul Lamjao floating national park</td></tr>
+      <tr><td>Vembanad Lake</td><td>Kerala</td><td>Lagoon (backwaters)</td><td>Longest lake in India; Nehru Trophy Boat Race; Ramsar site</td></tr>
+      <tr><td>Dal Lake</td><td>J&K</td><td>Freshwater</td><td>Famous for houseboats; Srinagar tourism</td></tr>
+      <tr><td>Wular Lake</td><td>J&K</td><td>Freshwater (largest freshwater lake in India)</td><td>Fed by Jhelum River; Ramsar site</td></tr>
+      <tr><td>Pangong Tso</td><td>Ladakh</td><td>Saltwater</td><td>Straddles India-China border; 14,000 ft altitude</td></tr>
+      <tr><td class="important">Sambhar Lake</td><td>Rajasthan</td><td>Saltwater (largest saltwater lake in India)</td><td>Salt production; Ramsar site; flamingos</td></tr>
+      <tr><td>Kolleru Lake</td><td>Andhra Pradesh</td><td>Freshwater</td><td>Between Krishna & Godavari; Ramsar site</td></tr>
+      <tr><td>Lonar Lake</td><td>Maharashtra</td><td>Saltwater crater lake</td><td>Formed by meteor impact; only such lake in India; both saline & alkaline</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="tip"><strong>🎯 BPSC Exam Tip:</strong> Bihar has no major lake or seacoast. However, Bihar rivers (Ganga, Kosi) drain into Bay of Bengal eventually. Questions about Bihar's water resources focus on rivers and floods, NOT seas/lakes.</div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     TAB 6 — MEMORY MASTER
+══════════════════════════════════════════════ -->
+<div id="tab-memory" class="section">
+  <div class="sec-header">
+    <span class="sec-icon">🧠</span>
+    <div>
+      <h2>Memory Master — All Tricks in One Place</h2>
+      <p>Mnemonics, direction tricks, visual anchors — memorise these and never forget water bodies!</p>
+    </div>
+  </div>
+
+  <div class="memory-card">
+    <h4>🌊 OCEANS — Size Order</h4>
+    <div class="mnemonic">P A I S A</div>
+    <div class="decode">Pacific (165M) → Atlantic (106M) → Indian (70M) → Southern (22M) → Arctic (14M)<br>
+    Hindi word "Paisa" = coins. Remember: even small coins (Arctic) count!</div>
+  </div>
+
+  <div class="memory-card">
+    <h4>🏖️ SEAS AROUND INDIA</h4>
+    <div class="mnemonic">West = Arabian | East = Bay of Bengal | SW = Lakshadweep</div>
+    <div class="decode">Direction trick: India faces WEST toward Arabia (trade history). India's BACK (east) faces Bengal/Myanmar.<br>
+    "India shakes hands with Arabs on the LEFT, waves at Bangladesh on the RIGHT"</div>
+  </div>
+
+  <div class="memory-card">
+    <h4>🚢 CRITICAL STRAITS — "HORMUZ-MALACCA-PALK-GIBRALTAR"</h4>
+    <div class="mnemonic">H-M-P-G = Hormuz · Malacca · Palk · Gibraltar</div>
+    <div class="decode">
+    Hormuz = Persian Gulf gate (OIL)<br>
+    Malacca = Pacific↔Indian Ocean (TRADE)<br>
+    Palk = India↔Sri Lanka (REGIONAL)<br>
+    Gibraltar = Mediterranean gate (EUROPE)<br>
+    "Hungry Men Play Golf" 🏌️
+    </div>
+  </div>
+
+  <div class="memory-card">
+    <h4>🗺️ INDIA'S DEGREE CHANNELS</h4>
+    <div class="mnemonic">8° = Lakshadweep–Maldives | 9° = Within Lakshadweep | 10° = Andaman–Nicobar</div>
+    <div class="decode">
+    Trick: "Going EAST, numbers INCREASE"<br>
+    Lakshadweep (west islands) = 8° and 9° | Andaman-Nicobar (east islands) = 10°<br>
+    "8-9 for Laksha, 10 for Andaman" — L comes before A in alphabet, smaller number!
+    </div>
+  </div>
+
+  <div class="memory-card">
+    <h4>🏖️ INDIA'S GULFS — West Coast (N→S)</h4>
+    <div class="mnemonic">K K = Kutch (NW) then Khambhat (SE of Saurashtra)</div>
+    <div class="decode">
+    Gulf of KUTCH = Pakistan side (NW), flanked by Saurashtra on south<br>
+    Gulf of KHAMBHAT = further south, 4 rivers drain (Mahi+Sabarmati+Narmada+Tapti)<br>
+    "Two K's on West coast — Kutch is the cousin near Pakistan, Khambhat hugs Gujarat's heartland"
+    </div>
+  </div>
+
+  <div class="memory-card">
+    <h4>🔑 SUEZ vs PANAMA — Never Confuse</h4>
+    <div class="mnemonic">SUEZ = Red↔Med (in Egypt/Africa) | PANAMA = Atlantic↔Pacific (Americas)</div>
+    <div class="decode">
+    SUEZ → think "S = Short route from India to Europe"<br>
+    PANAMA → think "P = Pacific connection for Americas"<br>
+    "Suez saves India, Panama saves America"
+    </div>
+  </div>
+
+  <div class="memory-card">
+    <h4>⚠️ COMMON TRICKS (Traps Examiners Set)</h4>
+    <div class="mnemonic">Caspian = LAKE not Sea | Dead Sea = LAKE not Sea | Bay of Bengal = SEA-SIZE but called Bay</div>
+    <div class="decode">
+    Examiners LOVE asking "Is Caspian Sea a sea?" → Answer: It's a LAKE (landlocked)<br>
+    "Dead Sea = Dead because it's LAND-locked salt lake, not connected to open ocean"<br>
+    Bay of Bengal: Despite "Bay" in name, it's actually semi-enclosed — larger than most seas!
+    </div>
+  </div>
+
+  <hr class="divider">
+  <h3 style="font-family:'Playfair Display',serif;color:var(--ocean);margin:16px 0 12px;">📊 Direction Summary Table — Most Asked</h3>
+  <div class="full-table-wrap">
+  <table class="data-table">
+    <thead>
+      <tr><th>Country/Region</th><th>NORTH Water Body</th><th>SOUTH Water Body</th><th>EAST Water Body</th><th>WEST Water Body</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="important">🇮🇳 India</td>
+        <td>Himalayas (land)</td>
+        <td>Indian Ocean</td>
+        <td>Bay of Bengal</td>
+        <td>Arabian Sea</td>
+      </tr>
+      <tr>
+        <td>🇸🇦 Saudi Arabia</td>
+        <td>Jordan, Iraq (land)</td>
+        <td>Yemen, Gulf of Aden</td>
+        <td>Persian Gulf</td>
+        <td>Red Sea</td>
+      </tr>
+      <tr>
+        <td>🇪🇬 Egypt</td>
+        <td>Mediterranean Sea</td>
+        <td>Sudan (land)</td>
+        <td>Red Sea (Suez Canal)</td>
+        <td>Libya (land)</td>
+      </tr>
+      <tr>
+        <td>🇹🇷 Turkey</td>
+        <td>Black Sea</td>
+        <td>Mediterranean Sea</td>
+        <td>Georgia (land)</td>
+        <td>Aegean Sea</td>
+      </tr>
+      <tr>
+        <td>🇮🇷 Iran</td>
+        <td>Caspian Sea</td>
+        <td>Persian Gulf + Gulf of Oman</td>
+        <td>Afghanistan, Pakistan</td>
+        <td>Iraq, Turkey</td>
+      </tr>
+      <tr>
+        <td>🇲🇾 Malaysia</td>
+        <td>South China Sea (E Malaysia)</td>
+        <td>Strait of Malacca</td>
+        <td>Borneo Island</td>
+        <td>Strait of Malacca</td>
+      </tr>
+      <tr>
+        <td>🇱🇰 Sri Lanka</td>
+        <td>Palk Strait (India)</td>
+        <td>Indian Ocean</td>
+        <td>Bay of Bengal</td>
+        <td>Gulf of Mannar</td>
+      </tr>
+      <tr>
+        <td>🇧🇩 Bangladesh</td>
+        <td>India (land)</td>
+        <td>Bay of Bengal</td>
+        <td>Myanmar (land)</td>
+        <td>India (land)</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     TAB 7 — QUIZ
+══════════════════════════════════════════════ -->
+<div id="tab-quiz" class="section">
+  <div class="sec-header">
+    <span class="sec-icon">🎯</span>
+    <div>
+      <h2>Quick Quiz — BPSC PYQ Style</h2>
+      <p>Test yourself on water bodies. Click an option to check your answer.</p>
+    </div>
+  </div>
+
+  <div id="quiz-container"></div>
+</div>
+
+
+<script>
+// ── TAB SWITCHING ──
+function showTab(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  event.target.classList.add('active');
+}
+
+// ── QUIZ DATA ──
+const questions = [
+  {
+    q: "Which sea lies to the WEST of India?",
+    opts: ["Bay of Bengal","Arabian Sea","Red Sea","Lakshadweep Sea"],
+    ans: 1,
+    explain: "Arabian Sea is on India's WEST coast (Gujarat, Maharashtra, Goa, Kerala). Bay of Bengal is on EAST coast. Lakshadweep Sea is SW of India."
+  },
+  {
+    q: "The Strait of Hormuz connects the Persian Gulf to which water body?",
+    opts: ["Red Sea","Mediterranean Sea","Arabian Sea","Gulf of Aden"],
+    ans: 2,
+    explain: "Strait of Hormuz connects Persian Gulf (oil-rich) to the Arabian Sea. About 20% of world's oil transits here. Iran is on the north, Oman is on the south."
+  },
+  {
+    q: "Caspian Sea is technically classified as:",
+    opts: ["Sea","Ocean","Lake","Bay"],
+    ans: 2,
+    explain: "Caspian Sea is the world's LARGEST LAKE — it's landlocked (no connection to open ocean). Common exam trap! Iran is on its southern shore."
+  },
+  {
+    q: "Which channel separates the Andaman Islands from the Nicobar Islands?",
+    opts: ["Eight Degree Channel","Nine Degree Channel","Ten Degree Channel","Palk Strait"],
+    ans: 2,
+    explain: "Ten Degree Channel (10°N latitude) separates Andaman Islands (N) from Nicobar Islands (S). Eight Degree = Lakshadweep–Maldives. Nine Degree = within Lakshadweep."
+  },
+  {
+    q: "The Suez Canal connects which two water bodies?",
+    opts: ["Atlantic ↔ Pacific","Persian Gulf ↔ Arabian Sea","Red Sea ↔ Mediterranean Sea","Black Sea ↔ Caspian Sea"],
+    ans: 2,
+    explain: "Suez Canal (Egypt) connects Red Sea (S) to Mediterranean Sea (N). This saves India 7000+ km vs going around Africa. Opened in 1869."
+  },
+  {
+    q: "Palk Strait separates India from which country?",
+    opts: ["Bangladesh","Myanmar","Maldives","Sri Lanka"],
+    ans: 3,
+    explain: "Palk Strait separates Tamil Nadu (India) from Northern Sri Lanka. It's very shallow — large ships CANNOT navigate through it. Gulf of Mannar is to the south of Palk Strait."
+  },
+  {
+    q: "Which is the ONLY ocean named after a country?",
+    opts: ["Pacific Ocean","Atlantic Ocean","Indian Ocean","Arctic Ocean"],
+    ans: 2,
+    explain: "Indian Ocean is the only ocean named after a country (India). It's bounded by Asia (N), Africa (W), Australia (E). This is a very common UPSC/BPSC MCQ!"
+  },
+  {
+    q: "The Dead Sea is located between which two countries?",
+    opts: ["Egypt & Libya","Israel/Palestine & Jordan","Syria & Lebanon","Turkey & Greece"],
+    ans: 1,
+    explain: "Dead Sea has Israel/Palestine on its WEST and Jordan on its EAST. It's the LOWEST point on Earth's surface (~430m below sea level) and the saltiest water body."
+  },
+  {
+    q: "Which strait is the world's busiest shipping lane?",
+    opts: ["Strait of Hormuz","Strait of Gibraltar","Strait of Malacca","Palk Strait"],
+    ans: 2,
+    explain: "Strait of Malacca (between Malaysia & Indonesia/Sumatra) is world's busiest shipping lane. It connects Pacific Ocean to Indian Ocean and handles ~25% of world trade."
+  },
+  {
+    q: "Gulf of Mannar lies between India and Sri Lanka. On which SIDE of Sri Lanka is it?",
+    opts: ["North","East","West","South"],
+    ans: 2,
+    explain: "Gulf of Mannar is on the WEST side of Sri Lanka (and SE Tamil Nadu). The Bay of Bengal is on Sri Lanka's EAST side. Palk Strait is on Sri Lanka's NORTH."
+  }
+];
+
+function buildQuiz() {
+  const container = document.getElementById('quiz-container');
+  questions.forEach((q, i) => {
+    const div = document.createElement('div');
+    div.className = 'quiz-q';
+    div.innerHTML = `
+      <div class="q-text">Q${i+1}. ${q.q}</div>
+      ${q.opts.map((o, j) => `
+        <button class="quiz-option" onclick="checkAnswer(this, ${i}, ${j})">
+          ${String.fromCharCode(65+j)}. ${o}
+        </button>`).join('')}
+      <div class="quiz-explain" id="explain-${i}">✅ <strong>Correct Answer: ${q.opts[q.ans]}</strong><br>${q.explain}</div>
+    `;
+    container.appendChild(div);
+  });
+}
+
+function checkAnswer(btn, qIdx, selected) {
+  const q = questions[qIdx];
+  const parent = btn.parentElement;
+  const opts = parent.querySelectorAll('.quiz-option');
+  opts.forEach(o => o.style.pointerEvents = 'none');
+  if (selected === q.ans) {
+    btn.classList.add('correct');
+  } else {
+    btn.classList.add('wrong');
+    opts[q.ans].classList.add('correct');
+  }
+  document.getElementById('explain-' + qIdx).classList.add('show');
+}
+
+buildQuiz();
+</script>
+</body>
+</html>
