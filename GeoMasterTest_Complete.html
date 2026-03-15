@@ -23,6 +23,34 @@
 *{margin:0;padding:0;box-sizing:border-box;}
 body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min-height:100vh;overflow-x:hidden;}
 
+/* ── StudyHub grain texture ── */
+body::before {
+  content:'';position:fixed;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events:none;z-index:0;
+}
+/* ── Radial glow top ── */
+body::after {
+  content:'';position:fixed;top:-200px;left:50%;transform:translateX(-50%);
+  width:800px;height:400px;
+  background:radial-gradient(ellipse,rgba(79,195,247,0.06) 0%,transparent 70%);
+  pointer-events:none;z-index:0;
+}
+
+/* ── Animations ── */
+@keyframes fadeDown {
+  from{opacity:0;transform:translateY(-20px);}
+  to{opacity:1;transform:translateY(0);}
+}
+@keyframes fadeUp {
+  from{opacity:0;transform:translateY(24px);}
+  to{opacity:1;transform:translateY(0);}
+}
+@keyframes shimmer {
+  0%{background-position:-200% center;}
+  100%{background-position:200% center;}
+}
+
 /* NAV TABS */
 .main-tabs{display:flex;background:var(--card);border-bottom:2px solid rgba(79,195,247,.2);}
 .main-tab{flex:1;padding:11px 6px;text-align:center;cursor:pointer;font-family:'Syne',sans-serif;font-size:10px;font-weight:700;color:var(--muted);border-bottom:3px solid transparent;transition:all .2s;letter-spacing:.3px;text-transform:uppercase;}
@@ -31,7 +59,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min
 .main-tab .tab-icon{font-size:16px;display:block;margin-bottom:2px;}
 
 /* HEADER */
-.header{background:linear-gradient(135deg,#0a0d14,#111520 60%,#1a2030);padding:16px 18px 14px;text-align:center;border-bottom:2px solid rgba(79,195,247,.2);}
+.header{background:linear-gradient(135deg,#0a0d14,#111520 60%,#1a2030);padding:16px 18px 14px;text-align:center;border-bottom:2px solid rgba(79,195,247,.2);position:relative;z-index:1;animation:fadeDown 0.7s ease both;}
 .header h1{font-family:'Syne',sans-serif;font-size:18px;font-weight:800;color:var(--accent);letter-spacing:1px;text-transform:uppercase;}
 .header p{font-size:11px;color:var(--muted);margin-top:3px;}
 .series-badges{display:flex;gap:5px;justify-content:center;flex-wrap:wrap;margin-top:7px;}
@@ -49,17 +77,17 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min
 /* PDF TABS */
 .pdf-tabs{background:var(--card2);border-bottom:1px solid rgba(79,195,247,.1);padding:8px 14px;display:flex;gap:5px;flex-wrap:wrap;justify-content:center;}
 .pdf-tab{background:rgba(255,255,255,.04);border:1.5px solid rgba(79,195,247,.18);color:var(--muted);font-family:'Syne',sans-serif;font-size:9.5px;font-weight:700;padding:5px 11px;border-radius:20px;cursor:pointer;transition:all .2s;letter-spacing:.4px;text-transform:uppercase;}
-.pdf-tab:hover{border-color:var(--accent);color:var(--accent);}
+.pdf-tab:hover{border-color:var(--accent);color:var(--accent);box-shadow:0 0 12px rgba(79,195,247,0.2);transform:translateY(-1px);}
 .pdf-tab.active{background:var(--accent);color:#000;border-color:var(--accent);}
 
 /* MODE SELECTOR */
 .mode-selector{padding:8px 14px;background:var(--card);display:flex;gap:5px;flex-wrap:wrap;justify-content:center;border-bottom:1px solid rgba(79,195,247,.08);}
 .mode-btn{background:rgba(255,255,255,.05);border:1px solid rgba(79,195,247,.18);color:var(--muted);font-family:'Syne',sans-serif;font-size:9.5px;font-weight:600;padding:5px 11px;border-radius:20px;cursor:pointer;transition:all .2s;letter-spacing:.4px;text-transform:uppercase;}
-.mode-btn:hover{border-color:var(--accent);color:var(--accent);}
+.mode-btn:hover{border-color:var(--accent);color:var(--accent);box-shadow:0 0 14px rgba(79,195,247,0.25);transform:translateY(-2px);}
 .mode-btn.active{background:var(--accent);color:#000;border-color:var(--accent);}
 
 /* MAIN */
-.main{padding:14px;max-width:740px;margin:0 auto;}
+.main{padding:14px;max-width:740px;margin:0 auto;position:relative;z-index:1;}
 
 /* SECTION BANNER */
 .section-banner{background:linear-gradient(135deg,#1A237E,#0D47A1);border-radius:11px;padding:11px 16px;margin-bottom:14px;display:flex;align-items:center;gap:10px;border:1px solid rgba(79,195,247,.2);}
@@ -68,7 +96,8 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min
 .section-banner p{font-size:10px;color:var(--muted);margin-top:1px;}
 
 /* QUESTION CARD */
-.q-card{background:var(--card);border:1px solid rgba(79,195,247,.14);border-radius:13px;padding:18px;margin-bottom:12px;animation:fadeUp .28s ease;position:relative;overflow:hidden;}
+.q-card{background:var(--card);border:1px solid rgba(79,195,247,.14);border-radius:13px;padding:18px;margin-bottom:12px;animation:fadeUp .28s ease;position:relative;overflow:hidden;transition:border-color .25s ease, box-shadow .25s ease, transform .25s ease;}
+.q-card:hover{border-color:rgba(79,195,247,.35);box-shadow:0 8px 32px rgba(79,195,247,0.08);transform:translateY(-2px);}
 .q-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--teal),var(--purple-lt));}
 @keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
 
@@ -90,8 +119,8 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min
 
 /* OPTIONS */
 .options{display:flex;flex-direction:column;gap:8px;}
-.opt{background:rgba(255,255,255,.04);border:1.5px solid rgba(255,255,255,.1);border-radius:9px;padding:11px 13px;cursor:pointer;transition:all .2s;display:flex;align-items:flex-start;gap:10px;font-size:13px;line-height:1.5;color:var(--text);}
-.opt:hover{border-color:var(--accent);background:rgba(79,195,247,.08);}
+.opt{background:rgba(255,255,255,.04);border:1.5px solid rgba(255,255,255,.1);border-radius:9px;padding:11px 13px;cursor:pointer;transition:all .2s ease;display:flex;align-items:flex-start;gap:10px;font-size:13px;line-height:1.5;color:var(--text);}
+.opt:hover{border-color:var(--accent);background:rgba(79,195,247,.08);box-shadow:0 0 16px rgba(79,195,247,0.12);transform:translateX(4px);}
 .opt-key{background:rgba(255,255,255,.08);border-radius:5px;min-width:23px;height:23px;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:700;font-size:10px;flex-shrink:0;margin-top:1px;}
 .opt.correct{background:rgba(46,125,50,.25);border-color:#4CAF50;}
 .opt.wrong{background:rgba(183,28,28,.2);border-color:#EF5350;}
@@ -101,8 +130,8 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min
 
 /* TF */
 .tf-options{display:flex;gap:10px;}
-.tf-btn{flex:1;padding:10px;border-radius:9px;border:1.5px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04);cursor:pointer;font-family:'Syne',sans-serif;font-size:13px;font-weight:700;color:var(--text);transition:all .2s;text-align:center;}
-.tf-btn:hover{border-color:var(--accent);}
+.tf-btn{flex:1;padding:10px;border-radius:9px;border:1.5px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04);cursor:pointer;font-family:'Syne',sans-serif;font-size:13px;font-weight:700;color:var(--text);transition:all .2s ease;text-align:center;}
+.tf-btn:hover{border-color:var(--accent);color:var(--accent);box-shadow:0 0 16px rgba(79,195,247,0.2);transform:translateY(-2px);}
 .tf-btn.correct{background:rgba(46,125,50,.25);border-color:#4CAF50;color:#4CAF50;}
 .tf-btn.wrong{background:rgba(183,28,28,.2);border-color:#EF5350;color:#EF5350;}
 
@@ -113,7 +142,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min
 .fill-input.correct{border-color:#4CAF50;background:rgba(46,125,50,.15);}
 .fill-input.wrong{border-color:#EF5350;background:rgba(183,28,28,.1);}
 .submit-btn{background:var(--accent);color:#000;border:none;border-radius:8px;padding:9px 20px;font-family:'Syne',sans-serif;font-size:11px;font-weight:700;cursor:pointer;transition:all .2s;letter-spacing:.4px;}
-.submit-btn:hover{background:#81D4FA;transform:translateY(-1px);}
+.submit-btn:hover{background:#81D4FA;transform:translateY(-2px);box-shadow:0 0 18px rgba(79,195,247,0.35);}
 .submit-btn:disabled{opacity:.35;cursor:default;transform:none;}
 
 /* EXPLANATION */
@@ -130,7 +159,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min
 /* NAV */
 .nav-row{display:flex;gap:8px;justify-content:center;margin-top:16px;flex-wrap:wrap;}
 .nav-btn{background:rgba(255,255,255,.06);border:1.5px solid rgba(79,195,247,.22);color:var(--accent);font-family:'Syne',sans-serif;font-size:10px;font-weight:700;padding:8px 16px;border-radius:8px;cursor:pointer;transition:all .2s;letter-spacing:.4px;}
-.nav-btn:hover{background:rgba(79,195,247,.1);transform:translateY(-1px);}
+.nav-btn:hover{background:rgba(79,195,247,.1);transform:translateY(-2px);box-shadow:0 6px 20px rgba(79,195,247,0.15);}
 .nav-btn:disabled{opacity:.3;cursor:default;transform:none;}
 .nav-btn.primary{background:var(--accent);color:#000;border-color:var(--accent);}
 .nav-btn.primary:hover{background:#81D4FA;}
@@ -146,7 +175,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min
 /* FLASHCARD */
 .flashcard{background:var(--card);border:1px solid rgba(79,195,247,.2);border-radius:13px;min-height:170px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:22px 20px;cursor:pointer;transition:all .3s;text-align:center;position:relative;overflow:hidden;}
 .flashcard::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--yellow),var(--orange),var(--red-lt));}
-.flashcard:hover{border-color:var(--accent);transform:translateY(-2px);}
+.flashcard:hover{border-color:var(--accent);transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,0,0,0.3), 0 0 24px rgba(79,195,247,0.15);}
 .fc-front{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;color:var(--accent);margin-bottom:7px;}
 .fc-hint{font-size:11px;color:var(--muted);}
 .fc-back{display:none;}
@@ -217,6 +246,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min
 <div class="main-tabs">
   <div class="main-tab active" onclick="switchTab('learn',this)"><span class="tab-icon">📖</span>Ya Learn Hai</div>
   <div class="main-tab" onclick="switchTab('quiz',this)"><span class="tab-icon">🎯</span>Ya Win Hai</div>
+  <div class="main-tab" onclick="switchTab('howto',this)"><span class="tab-icon">✨</span>How It Works</div>
 </div>
 
 <!-- ═══════════════ QUIZ TAB ═══════════════ -->
@@ -268,6 +298,70 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min
 
 <!-- analytics tab kept for compat but hidden -->
 <div id="tab-analytics" style="display:none;"></div>
+
+<!-- ═══════════════ HOW IT WORKS TAB ═══════════════ -->
+<div id="tab-howto" style="display:none;">
+  <div class="main" style="max-width:500px;">
+
+    <div style="text-align:center;padding:20px 0 14px;">
+      <div style="font-family:'Syne',sans-serif;font-size:16px;font-weight:800;color:var(--accent);letter-spacing:1px;text-transform:uppercase;">Card Animations</div>
+      <div style="font-size:12px;color:var(--muted);margin-top:4px;">Hover the card to see transitions · Click replay for fade-in</div>
+    </div>
+
+    <!-- Demo Card -->
+    <div id="demoCard" style="
+      background:var(--card);
+      border:1.5px solid rgba(79,195,247,.2);
+      border-radius:13px;
+      padding:20px;
+      cursor:pointer;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+      animation: fadeUp 0.6s ease both;
+      position:relative;
+      overflow:hidden;
+      margin-bottom:16px;
+    ">
+      <div id="demoBar" style="position:absolute;top:0;left:0;right:0;height:3px;background:#4FC3F7;transform:scaleX(0);transform-origin:left;transition:transform 0.3s ease;border-radius:13px 13px 0 0;box-shadow:0 0 10px #4FC3F7;"></div>
+      <div style="font-family:'Syne',sans-serif;font-size:9px;color:#4FC3F7;letter-spacing:.15em;text-transform:uppercase;margin-bottom:6px;opacity:.85;">Geography · Earth & Representation</div>
+      <div style="font-family:'Syne',sans-serif;font-size:16px;font-weight:700;color:var(--text);margin-bottom:8px;">Earth & Its Representation</div>
+      <div style="font-size:12.5px;color:var(--muted);line-height:1.65;margin-bottom:14px;">Latitude, Longitude, Maps, Globe, Tropics and foundational earth concepts for UPSC GS-1.</div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;">
+        <span style="font-size:10px;padding:3px 10px;border-radius:99px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:var(--muted);">Lat/Long</span>
+        <span style="font-size:10px;padding:3px 10px;border-radius:99px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:var(--muted);">Maps</span>
+        <span style="font-size:10px;padding:3px 10px;border-radius:99px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:var(--muted);">Tropics</span>
+      </div>
+    </div>
+
+    <!-- Explainer boxes -->
+    <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:16px;">
+
+      <div id="box-transition" style="padding:12px 14px;border-radius:10px;background:rgba(255,255,255,.04);border:1px solid rgba(79,195,247,.15);transition:all .3s ease;">
+        <div style="font-family:'Syne',sans-serif;font-size:11px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px;">transition — fires on hover</div>
+        <div style="font-size:12px;color:var(--muted);line-height:1.8;">
+          <span style="color:#a78bfa;font-weight:600;">transform</span> — card lifts up (translateY -6px)<br>
+          <span style="color:#4ade80;font-weight:600;">box-shadow</span> — shadow glows beneath<br>
+          <span style="color:#f59e0b;font-weight:600;">border-color</span> — border lights up cyan<br>
+          <span style="color:var(--muted);">duration: 0.25s · timing: ease</span>
+        </div>
+      </div>
+
+      <div id="box-animation" style="padding:12px 14px;border-radius:10px;background:rgba(255,255,255,.04);border:1px solid rgba(79,195,247,.15);transition:all .3s ease;">
+        <div style="font-family:'Syne',sans-serif;font-size:11px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px;">animation — fires on page load</div>
+        <div style="font-size:12px;color:var(--muted);line-height:1.8;">
+          <span style="color:#4FC3F7;font-weight:600;">fadeUp</span> — slides in from below + fades in<br>
+          <span style="color:#4FC3F7;font-weight:600;">0.6s · ease · both</span> — holds start & end state
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Replay button -->
+    <div style="text-align:center;">
+      <button onclick="replayDemoAnim()" class="nav-btn primary" style="padding:10px 28px;font-size:11px;">▶ Replay Fade-in Animation</button>
+    </div>
+
+  </div>
+</div>
 
 <script>
 const QUESTIONS = [
@@ -3266,7 +3360,9 @@ function switchTab(tab, btn) {
   btn.classList.add('active');
   document.getElementById('tab-quiz').style.display = (tab==='quiz') ? '' : 'none';
   document.getElementById('tab-learn').style.display = (tab==='learn') ? '' : 'none';
+  document.getElementById('tab-howto').style.display = (tab==='howto') ? '' : 'none';
   if (tab==='learn') renderLearnHome();
+  if (tab==='howto') initDemoCard();
 }
 
 function toggleAnalytics() {
@@ -3714,8 +3810,8 @@ function renderLearnHome() {
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px;margin-bottom:16px;">
       ${[1,2,3,4,5].map(n=>`
-        <div style="background:var(--card);border:1.5px solid ${PDF_COLORS[n]}44;border-radius:12px;padding:14px 12px;text-align:center;cursor:pointer;transition:all .2s;position:relative;box-shadow:0 2px 8px rgba(0,0,0,0.06);"
-             onmouseover="this.style.borderColor='${PDF_COLORS[n]}'" onmouseout="this.style.borderColor='${PDF_COLORS[n]}44'">
+        <div style="background:var(--card);border:1.5px solid ${PDF_COLORS[n]}44;border-radius:12px;padding:14px 12px;text-align:center;cursor:pointer;transition:all .25s ease;position:relative;box-shadow:0 2px 8px rgba(0,0,0,0.2);"
+             onmouseover="this.style.borderColor='${PDF_COLORS[n]}';this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 32px rgba(0,0,0,0.3), 0 0 20px ${PDF_COLORS[n]}22';" onmouseout="this.style.borderColor='${PDF_COLORS[n]}44';this.style.transform='translateY(0)';this.style.boxShadow='0 2px 8px rgba(0,0,0,0.2)'">
           <div onclick="renderLearnPDF(${n})">
             <div style="font-family:'Syne',sans-serif;font-size:9px;font-weight:800;color:${PDF_COLORS[n]};margin-bottom:4px;text-transform:uppercase;letter-spacing:.5px;word-break:break-word;line-height:1.3;">${PDF_TOPIC_NAMES[n].short}</div>
             <div style="font-size:9.5px;color:var(--muted);line-height:1.4;margin-bottom:8px;">${PDF_TOPIC_NAMES[n].sub}</div>
@@ -3954,6 +4050,51 @@ function topicIcon(t){
     'Minerals':'💎','Industries':'🏭','Energy':'⚡',
   };
   return m[t]||'📍';
+}
+
+// ═══════════════════════════════════════════════
+// HOW IT WORKS — DEMO CARD
+// ═══════════════════════════════════════════════
+function initDemoCard() {
+  const card = document.getElementById('demoCard');
+  const bar  = document.getElementById('demoBar');
+  const boxT = document.getElementById('box-transition');
+  const boxA = document.getElementById('box-animation');
+  if (!card || card._inited) return;
+  card._inited = true;
+
+  card.addEventListener('mouseenter', () => {
+    card.style.transform = 'translateY(-6px)';
+    card.style.boxShadow = '0 20px 50px rgba(0,0,0,0.4), 0 0 30px rgba(79,195,247,0.15)';
+    card.style.borderColor = '#4FC3F7';
+    bar.style.transform = 'scaleX(1)';
+    boxT.style.borderColor = '#4FC3F7';
+    boxT.style.background = 'rgba(79,195,247,0.08)';
+  });
+
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = 'translateY(0)';
+    card.style.boxShadow = 'none';
+    card.style.borderColor = 'rgba(79,195,247,.2)';
+    bar.style.transform = 'scaleX(0)';
+    boxT.style.borderColor = 'rgba(79,195,247,.15)';
+    boxT.style.background = 'rgba(255,255,255,.04)';
+  });
+}
+
+function replayDemoAnim() {
+  const card = document.getElementById('demoCard');
+  const boxA = document.getElementById('box-animation');
+  if (!card) return;
+  card.style.animation = 'none';
+  card.offsetHeight;
+  card.style.animation = 'fadeUp 0.6s ease both';
+  boxA.style.borderColor = '#4FC3F7';
+  boxA.style.background = 'rgba(79,195,247,0.08)';
+  setTimeout(() => {
+    boxA.style.borderColor = 'rgba(79,195,247,.15)';
+    boxA.style.background = 'rgba(255,255,255,.04)';
+  }, 700);
 }
 
 // ═══════════════════════════════════════════════
