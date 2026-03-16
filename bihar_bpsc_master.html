@@ -503,6 +503,227 @@ table.qr-table tr:nth-child(even) td { background: var(--blue-pale); }
 .compare-table td:nth-child(3) { background:rgba(0,53,128,0.06); }
 @keyframes scorePop { 0%{transform:scale(0.5);opacity:0} 70%{transform:scale(1.1)} 100%{transform:scale(1);opacity:1} }
 .score-circle { animation:scorePop 0.6s cubic-bezier(0.4,0,0.2,1) both; }
+/* ===== REVISION TRACKER ===== */
+.revision-tracker {
+  background: var(--card-bg);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: var(--shadow);
+}
+.revision-tracker h3 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.95rem;
+  color: var(--blue);
+  margin-bottom: 14px;
+}
+.rt-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 8px;
+}
+.rt-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 9px 12px;
+  border: 1.5px solid var(--border);
+  border-radius: 9px;
+  font-size: 0.82rem;
+  background: var(--bg);
+  transition: all 0.2s;
+}
+.rt-item.done {
+  border-color: var(--correct);
+  background: #DCFCE7;
+}
+.rt-item.progress {
+  border-color: var(--saffron);
+  background: var(--saffron-pale);
+}
+[data-theme="dark"] .rt-item.done { background: #052e16; }
+[data-theme="dark"] .rt-item.progress { background: #2A1800; }
+.rt-item .rt-label { font-weight: 500; color: var(--text); flex: 1; }
+.rt-status-btn {
+  border: none;
+  border-radius: 6px;
+  padding: 3px 9px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+.rt-status-btn.not-started { background: var(--border); color: var(--text-muted); }
+.rt-status-btn.in-progress { background: #FEF3C7; color: #92400E; }
+.rt-status-btn.done { background: #DCFCE7; color: #166534; }
+
+/* ===== WEAK AREA IDENTIFIER ===== */
+.weak-area-panel {
+  background: var(--card-bg);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: var(--shadow);
+}
+.weak-area-panel h3 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.95rem;
+  color: var(--wrong);
+  margin-bottom: 14px;
+}
+.weak-list { list-style: none; padding: 0; }
+.weak-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+  border-radius: 9px;
+  margin-bottom: 7px;
+  font-size: 0.84rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+}
+.weak-bar-wrap {
+  flex: 1;
+  height: 7px;
+  background: var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.weak-bar { height: 100%; border-radius: 4px; background: linear-gradient(90deg, #DC2626, #F87171); }
+.weak-count { font-weight: 700; color: var(--wrong); font-size: 0.8rem; min-width: 32px; text-align: right; }
+
+/* ===== SPEED CARDS ===== */
+.speed-card-wrap {
+  background: var(--card-bg);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: var(--shadow);
+}
+.speed-card-wrap h3 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.95rem;
+  color: var(--blue);
+  margin-bottom: 6px;
+}
+.speed-card-wrap .sc-subtitle {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+}
+.speed-display {
+  background: linear-gradient(135deg, var(--blue), var(--blue-light));
+  border-radius: 12px;
+  padding: 28px 24px;
+  text-align: center;
+  color: white;
+  margin-bottom: 12px;
+  min-height: 110px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+.speed-display:hover { transform: scale(1.01); }
+.speed-display::before {
+  content: '';
+  position: absolute;
+  top: -30px; right: -30px;
+  width: 120px; height: 120px;
+  border-radius: 50%;
+  background: rgba(255,107,0,0.18);
+}
+.speed-display .sd-category {
+  font-size: 0.68rem;
+  opacity: 0.75;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+.speed-display .sd-fact {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+.speed-display .sd-value {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #FFD700;
+  margin-top: 6px;
+  font-family: 'Poppins', sans-serif;
+}
+.speed-controls {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.speed-counter {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-left: auto;
+}
+
+/* ===== COUNTDOWN TIMER ===== */
+.countdown-wrap {
+  background: linear-gradient(135deg, var(--blue) 0%, #001A40 100%);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  margin-bottom: 20px;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.countdown-wrap .cd-label {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+.countdown-wrap .cd-days {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+  color: #FFD700;
+  line-height: 1;
+}
+.countdown-wrap .cd-days span {
+  font-size: 0.75rem;
+  font-weight: 400;
+  opacity: 0.75;
+  display: block;
+}
+.cd-input-wrap { display: flex; align-items: center; gap: 8px; margin-left: auto; }
+.cd-input-wrap label { font-size: 0.75rem; opacity: 0.75; }
+.cd-input-wrap input[type="date"] {
+  padding: 5px 10px;
+  border-radius: 7px;
+  border: 1px solid rgba(255,255,255,0.25);
+  background: rgba(255,255,255,0.1);
+  color: white;
+  font-size: 0.8rem;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+}
+.cd-input-wrap input[type="date"]::-webkit-calendar-picker-indicator { filter: invert(1); }
+
+@media(max-width:600px) {
+  .rt-grid { grid-template-columns: 1fr 1fr; }
+  .countdown-wrap { flex-direction: column; align-items: flex-start; }
+  .cd-input-wrap { margin-left: 0; }
+}
 </style>
 </head>
 <body>
@@ -553,6 +774,45 @@ table.qr-table tr:nth-child(even) td { background: var(--blue-pale); }
 <!-- ============================================================
      SECTION 1 — BIHAR GEOGRAPHY
 ============================================================ -->
+<!-- ===== EXAM COUNTDOWN ===== -->
+<div class="countdown-wrap" id="countdown-wrap">
+  <div>
+    <div class="cd-label">⏳ Days until your exam</div>
+    <div class="cd-days" id="cd-days-num">--<span>days to go</span></div>
+  </div>
+  <div class="cd-input-wrap">
+    <label>Set exam date:</label>
+    <input type="date" id="cd-date-input" onchange="setExamDate(this.value)">
+  </div>
+</div>
+
+<!-- ===== SPEED CARDS ===== -->
+<div class="speed-card-wrap">
+  <h3>⚡ Speed Facts — 30-Second Revision</h3>
+  <div class="sc-subtitle">Click the card or press Next to drill key numbers. Perfect for last-minute revision.</div>
+  <div class="speed-display" id="speed-display" onclick="nextSpeedCard()">
+    <div class="sd-category" id="sd-cat">Click to start</div>
+    <div class="sd-fact" id="sd-fact">Tap to see a quick fact</div>
+    <div class="sd-value" id="sd-val"></div>
+  </div>
+  <div class="speed-controls">
+    <button class="btn-primary" onclick="nextSpeedCard()">Next ⚡</button>
+    <button class="btn-secondary" onclick="shuffleSpeedCards()">🔀 Shuffle</button>
+    <div class="speed-counter" id="speed-counter">0 / 0</div>
+  </div>
+</div>
+
+<!-- ===== WEAK AREA IDENTIFIER ===== -->
+<div class="weak-area-panel" id="weak-area-panel">
+  <h3>🎯 Your Weak Areas</h3>
+  <div id="weak-area-inner"><p style="font-size:0.83rem;color:var(--text-muted);">Complete some quizzes first — your weak topics will appear here automatically.</p></div>
+</div>
+
+<!-- ===== REVISION TRACKER ===== -->
+<div class="revision-tracker">
+  <h3>📋 Revision Tracker — Mark Your Progress</h3>
+  <div class="rt-grid" id="rt-grid"></div>
+</div>
 <div id="progress-dashboard" class="progress-dashboard">
   <h3>📊 Your Quiz Progress</h3>
   <div class="prog-grid" id="prog-grid-inner"></div>
@@ -1497,6 +1757,12 @@ function selectAnswer(secIdx, chosen, correct) {
     fbr.textContent = '❌ WRONG! Correct: ' + String.fromCharCode(65+correct) + '. ' + q.opts[correct];
     fbr.className = 'fb-result fail';
     state.wrong.push(idx);
+    // track weak topic for identifier
+   const _sn = sectionNames ? sectionNames[secIdx] : 'Section '+secIdx;
+   if(!weakTopicMap[_sn]) weakTopicMap[_sn] = 0;
+   weakTopicMap[_sn]++;
+   try { localStorage.setItem('bpsc_weak', JSON.stringify(weakTopicMap)); } catch(e){}
+   setTimeout(renderWeakAreas, 200);
     state.answered.push({idx, correct: false});
   }
   fbe.innerHTML = q.exp || '';
@@ -1655,6 +1921,235 @@ window.selectAnswer = function(secIdx, chosen, correct) {
 };
 
 renderProgressDashboard();
+// =========================================================
+// SPEED FACTS DATA
+// =========================================================
+const speedFacts = [
+  // GEOGRAPHY
+  {cat:'Geography',fact:'Total Districts in Bihar',val:'38'},
+  {cat:'Geography',fact:'Total Divisions in Bihar',val:'9'},
+  {cat:'Geography',fact:'Largest district by area',val:'West Champaran (5,228 km²)'},
+  {cat:'Geography',fact:'Smallest district by area',val:'Sheohar (443 km²)'},
+  {cat:'Geography',fact:'Only National Park in Bihar',val:'Valmiki NP — West Champaran'},
+  {cat:'Geography',fact:'River — "Sorrow of Bihar"',val:'Kosi'},
+  {cat:'Geography',fact:'Kosi joins Ganga at',val:'Kursela, Katihar'},
+  {cat:'Geography',fact:'Gandak joins Ganga at',val:'Hajipur / Sonepur'},
+  {cat:'Geography',fact:'Son River originates at',val:'Amarkantak, MP (south bank)'},
+  {cat:'Geography',fact:'Dolphin Sanctuary district',val:'Bhagalpur (60 km stretch)'},
+  // CENSUS
+  {cat:'Census 2011',fact:'Bihar Population Density',val:'1,106 / km²'},
+  {cat:'Census 2011',fact:'Bihar Sex Ratio',val:'918 females / 1000 males'},
+  {cat:'Census 2011',fact:'Bihar Literacy Rate',val:'61.8%'},
+  {cat:'Census 2011',fact:'Bihar Female Literacy',val:'51.5%'},
+  {cat:'Census 2011',fact:'Bihar Urban Population',val:'11.3% — Lowest in India'},
+  {cat:'Census 2011',fact:'Highest Sex Ratio District',val:'Gopalganj — 1,021'},
+  {cat:'Census 2011',fact:'Lowest Sex Ratio District',val:'Munger — 876'},
+  {cat:'Census 2011',fact:'Highest Literacy District',val:'Rohtas — ~73.4%'},
+  {cat:'Census 2011',fact:'Highest Density District',val:'Sheohar — ~1,882/km²'},
+  {cat:'Census 2011',fact:'Lowest Density District',val:'Kaimur'},
+  {cat:'Census 2011',fact:'Bihar Total Population',val:'10.38 crore (3rd in India)'},
+  {cat:'Census 2011',fact:'Decadal Growth Rate',val:'25.4% (India: 17.64%)'},
+  // ECONOMY
+  {cat:'Economy / GI',fact:'Mithila Makhana GI Tag year',val:'2022'},
+  {cat:'Economy / GI',fact:'Shahi Litchi GI Tag year',val:'2018 — Muzaffarpur'},
+  {cat:'Economy / GI',fact:'Jardalu Mango GI — district',val:'Bhagalpur'},
+  {cat:'Economy / GI',fact:'Madhubani Painting GI year',val:'2007'},
+  {cat:'Economy / GI',fact:'Katarni Rice — district',val:'Bhagalpur / Munger'},
+  {cat:'Economy / GI',fact:'Silk City of Bihar',val:'Bhagalpur (Tussar Silk)'},
+  {cat:'Economy / GI',fact:'Bihar\'s rank in Maize production',val:'2nd (after Karnataka)'},
+  {cat:'Economy / GI',fact:'Student Credit Card loan limit',val:'₹4 lakh at 4% interest'},
+  // POLITY
+  {cat:'Polity',fact:'Bihar Vidhan Sabha seats',val:'243'},
+  {cat:'Polity',fact:'Bihar Vidhan Parishad seats',val:'75'},
+  {cat:'Polity',fact:'Bihar Lok Sabha seats',val:'40 (4th highest)'},
+  {cat:'Polity',fact:'Bihar Rajya Sabha seats',val:'16'},
+  {cat:'Polity',fact:'BPSC established year',val:'1951 (Article 315)'},
+  {cat:'Polity',fact:'Language in 8th Schedule from Bihar',val:'Maithili (92nd Amendment, 2003)'},
+  {cat:'Polity',fact:'Jharkhand formed from Bihar on',val:'15 November 2000'},
+  {cat:'Polity',fact:'No. of states with bicameral legislature',val:'6 — UP, Bihar, Maha, KA, AP, TS'},
+  // HISTORY
+  {cat:'History',fact:'Champaran Satyagraha year',val:'1917 — Gandhi\'s 1st in India'},
+  {cat:'History',fact:'Maurya Empire founded by',val:'Chandragupta Maurya (~322 BCE)'},
+  {cat:'History',fact:'Nalanda destroyed by',val:'Bakhtiyar Khilji (~1200 CE)'},
+  {cat:'History',fact:'Sher Shah Suri\'s tomb location',val:'Sasaram, Rohtas district'},
+  {cat:'History',fact:'Bihar Earthquake year & magnitude',val:'1934 — 8.0 Richter'},
+  {cat:'History',fact:'Nalanda UNESCO WHS year',val:'2016'},
+  // SCHEMES
+  {cat:'Schemes',fact:'7 Nischay Part 1 launched',val:'2015 (for 2015–2020)'},
+  {cat:'Schemes',fact:'7 Nischay Part 2 launched',val:'2020 (for 2020–2025)'},
+  {cat:'Schemes',fact:'Women\'s job reservation in Bihar',val:'35% in state govt jobs'},
+  {cat:'Schemes',fact:'Mukhyamantri Gram Parivahan subsidy',val:'50% on 4-wheeler for SC/ST/EBC'},
+];
+
+let speedIdx = 0;
+let speedOrder = [...Array(speedFacts.length).keys()];
+
+function shuffleSpeedCards() {
+  for(let i=speedOrder.length-1;i>0;i--){
+    const j=Math.floor(Math.random()*(i+1));
+    [speedOrder[i],speedOrder[j]]=[speedOrder[j],speedOrder[i]];
+  }
+  speedIdx = 0;
+  showSpeedCard();
+}
+
+function showSpeedCard() {
+  const card = speedFacts[speedOrder[speedIdx]];
+  document.getElementById('sd-cat').textContent = card.cat;
+  document.getElementById('sd-fact').textContent = card.fact;
+  document.getElementById('sd-val').textContent = card.val;
+  document.getElementById('speed-counter').textContent = (speedIdx+1) + ' / ' + speedFacts.length;
+}
+
+function nextSpeedCard() {
+  speedIdx = (speedIdx + 1) % speedFacts.length;
+  showSpeedCard();
+}
+
+// Init speed cards
+showSpeedCard();
+
+// =========================================================
+// WEAK AREA IDENTIFIER
+// =========================================================
+const weakTopicMap = {};
+
+const origSelectAnswer2 = window.selectAnswer;
+window.selectAnswer = function(secIdx, chosen, correct) {
+  origSelectAnswer2(secIdx, chosen, correct);
+  if(chosen !== correct) {
+    const q = quizState[secIdx] && quizState[secIdx].questions[quizState[secIdx].current - 1 < 0 ? 0 : quizState[secIdx].current];
+    const secName = sectionNames[secIdx];
+    if(!weakTopicMap[secName]) weakTopicMap[secName] = 0;
+    weakTopicMap[secName]++;
+    try { localStorage.setItem('bpsc_weak', JSON.stringify(weakTopicMap)); } catch(e){}
+    renderWeakAreas();
+  }
+};
+
+// Load saved weak data
+try {
+  const saved = JSON.parse(localStorage.getItem('bpsc_weak') || '{}');
+  Object.assign(weakTopicMap, saved);
+} catch(e){}
+
+function renderWeakAreas() {
+  const container = document.getElementById('weak-area-inner');
+  if(!container) return;
+  const entries = Object.entries(weakTopicMap).sort((a,b) => b[1]-a[1]);
+  if(entries.length === 0) {
+    container.innerHTML = '<p style="font-size:0.83rem;color:var(--text-muted);">Complete some quizzes first — your weak topics will appear here automatically.</p>';
+    return;
+  }
+  const max = entries[0][1];
+  container.innerHTML = `
+    <ul class="weak-list">
+      ${entries.map(([sec, count]) => `
+        <li>
+          <span style="font-size:1rem">${sec.split(' ')[0]}</span>
+          <span style="flex:1;font-weight:600;">${sec.replace(/^[^ ]+ /,'')}</span>
+          <div class="weak-bar-wrap"><div class="weak-bar" style="width:${Math.round((count/max)*100)}%"></div></div>
+          <span class="weak-count">${count} wrong</span>
+        </li>
+      `).join('')}
+    </ul>
+    <p style="font-size:0.75rem;color:var(--text-muted);margin-top:8px;">Tip: Go to the section with most wrongs and use Learn Mode to revise.</p>
+    <button class="btn-secondary" style="font-size:0.75rem;padding:6px 14px;margin-top:8px;" onclick="clearWeakData()">🗑️ Reset Weak Data</button>
+  `;
+}
+
+function clearWeakData() {
+  if(!confirm('Reset all weak area data?')) return;
+  Object.keys(weakTopicMap).forEach(k => delete weakTopicMap[k]);
+  try { localStorage.removeItem('bpsc_weak'); } catch(e){}
+  renderWeakAreas();
+}
+
+renderWeakAreas();
+
+// =========================================================
+// REVISION TRACKER
+// =========================================================
+const revisionTopics = [
+  'Rivers of Bihar','Districts & Divisions','Protected Areas',
+  'Soil Types & Climate','Neighbouring States',
+  'GI Tagged Products','Bihar Industries','Bihar Budget 2025-26',
+  'Maize & Agriculture',
+  'Census 2011 — Key Numbers','District Extremes','Bihar vs India',
+  'Magadha & Maurya Empire','Nalanda & Vikramshila',
+  'Freedom Struggle & Gandhi','Post-Independence Bihar',
+  'Fairs & Festivals','Folk Arts & Languages',
+  'Bihar Legislature — Seats','BPSC & Article 315',
+  'Panchayati Raj','Bicameral States',
+  '7 Nischay Part 1','7 Nischay Part 2',
+  'Kanya Utthan & Gram Parivahan','Student Credit Card',
+  'Jal Jeevan Hariyali','Startup Bihar & RERA',
+  'Bihar Current Affairs 2024','Bihar Budget Schemes 2025'
+];
+
+const statusCycle = ['not-started','in-progress','done'];
+const statusLabel = {'not-started':'⬜ Not Started','in-progress':'🟡 In Progress','done':'✅ Done'};
+
+let revisionState = {};
+try { revisionState = JSON.parse(localStorage.getItem('bpsc_revision') || '{}'); } catch(e){}
+
+function renderRevisionTracker() {
+  const grid = document.getElementById('rt-grid');
+  if(!grid) return;
+  grid.innerHTML = revisionTopics.map((topic, i) => {
+    const status = revisionState[i] || 'not-started';
+    return `
+      <div class="rt-item ${status === 'done' ? 'done' : status === 'in-progress' ? 'progress' : ''}">
+        <span class="rt-label">${topic}</span>
+        <button class="rt-status-btn ${status}" onclick="cycleRevision(${i})">${statusLabel[status]}</button>
+      </div>
+    `;
+  }).join('');
+}
+
+function cycleRevision(i) {
+  const current = revisionState[i] || 'not-started';
+  const next = statusCycle[(statusCycle.indexOf(current) + 1) % statusCycle.length];
+  revisionState[i] = next;
+  try { localStorage.setItem('bpsc_revision', JSON.stringify(revisionState)); } catch(e){}
+  renderRevisionTracker();
+}
+
+renderRevisionTracker();
+
+// =========================================================
+// EXAM COUNTDOWN
+// =========================================================
+function setExamDate(val) {
+  try { localStorage.setItem('bpsc_examdate', val); } catch(e){}
+  updateCountdown(val);
+}
+
+function updateCountdown(val) {
+  if(!val) return;
+  const today = new Date();
+  today.setHours(0,0,0,0);
+  const exam = new Date(val);
+  exam.setHours(0,0,0,0);
+  const diff = Math.ceil((exam - today) / (1000*60*60*24));
+  const el = document.getElementById('cd-days-num');
+  if(diff > 0) {
+    el.innerHTML = `${diff}<span>days to go — stay consistent! 💪</span>`;
+  } else if(diff === 0) {
+    el.innerHTML = `Today!<span>Exam Day — You've got this! 🏆</span>`;
+  } else {
+    el.innerHTML = `${Math.abs(diff)}<span>days since exam 📋</span>`;
+  }
+}
+
+// Restore saved exam date
+try {
+  const saved = localStorage.getItem('bpsc_examdate');
+  if(saved) {
+    document.getElementById('cd-date-input').value = saved;
+    updateCountdown(saved);
+  }
+} catch(e){}
 
 // ADD QUIZ QUESTIONS TO SEARCH INDEX
 quizData.forEach((secQs,si) => {
