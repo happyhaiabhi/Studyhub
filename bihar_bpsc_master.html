@@ -484,6 +484,25 @@ table.qr-table tr:nth-child(even) td { background: var(--blue-pale); }
   body { font-size: 12px; }
   .card, .qr-table-wrap, .mnemonic-box, .pyq-box { page-break-inside: avoid; }
 }
+.progress-dashboard { background:var(--card-bg); border:1.5px solid var(--border); border-radius:var(--radius); padding:20px; margin-bottom:20px; box-shadow:var(--shadow); }
+.progress-dashboard h3 { font-size:0.95rem; color:var(--blue); margin-bottom:14px; font-family:'Poppins',sans-serif; }
+.prog-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(140px,1fr)); gap:10px; }
+.prog-card { background:var(--bg); border:1.5px solid var(--border); border-radius:10px; padding:12px; text-align:center; cursor:pointer; transition:all 0.2s; }
+.prog-card:hover { border-color:var(--saffron); transform:translateY(-2px); }
+.prog-card .pc-section { font-size:0.7rem; color:var(--text-muted); margin-bottom:4px; }
+.prog-card .pc-score { font-family:'Poppins',sans-serif; font-size:1.1rem; font-weight:700; }
+.prog-card .pc-bar-wrap { height:5px; background:var(--border); border-radius:3px; margin-top:6px; overflow:hidden; }
+.prog-card .pc-bar { height:100%; border-radius:3px; background:linear-gradient(90deg,var(--saffron),var(--saffron-light)); transition:width 0.6s; }
+.prog-card.no-data .pc-score { color:var(--text-muted); font-size:0.75rem; }
+.print-btn { background:transparent; border:1.5px solid rgba(255,255,255,0.3); color:white; padding:6px 14px; border-radius:8px; font-size:0.78rem; cursor:pointer; font-family:'Inter',sans-serif; transition:all 0.2s; }
+.print-btn:hover { background:rgba(255,255,255,0.15); }
+.trap-alert { background:#FFF7ED; border-left:4px solid var(--saffron); border-radius:var(--radius); padding:12px 16px; font-size:0.82rem; margin-bottom:14px; }
+[data-theme="dark"] .trap-alert { background:#2A1800; }
+.trap-alert .trap-title { font-weight:700; color:var(--saffron); margin-bottom:3px; }
+.compare-table td:nth-child(2) { background:rgba(255,107,0,0.06); }
+.compare-table td:nth-child(3) { background:rgba(0,53,128,0.06); }
+@keyframes scorePop { 0%{transform:scale(0.5);opacity:0} 70%{transform:scale(1.1)} 100%{transform:scale(1);opacity:1} }
+.score-circle { animation:scorePop 0.6s cubic-bezier(0.4,0,0.2,1) both; }
 </style>
 </head>
 <body>
@@ -507,6 +526,7 @@ table.qr-table tr:nth-child(even) td { background: var(--blue-pale); }
   </div>
   <div class="header-right">
     <button id="dark-toggle" onclick="toggleDark()">🌙 Dark</button>
+   <button class="print-btn" onclick="window.print()">🖨️ Print</button>
   </div>
 </header>
 
@@ -533,6 +553,10 @@ table.qr-table tr:nth-child(even) td { background: var(--blue-pale); }
 <!-- ============================================================
      SECTION 1 — BIHAR GEOGRAPHY
 ============================================================ -->
+<div id="progress-dashboard" class="progress-dashboard">
+  <h3>📊 Your Quiz Progress</h3>
+  <div class="prog-grid" id="prog-grid-inner"></div>
+</div>
 <div id="sec-0" class="section-panel active">
   <div class="section-header">
     <div class="sec-icon">🗺️</div>
@@ -551,6 +575,7 @@ table.qr-table tr:nth-child(even) td { background: var(--blue-pale); }
 
     <div class="sub-title">⚡ Flash Cards</div>
     <div class="fc-grid" id="fc-geo"></div>
+    <div class="trap-alert"><div class="trap-title">⚠️ Geography Traps</div>Kosi joins Ganga at <strong>Kursela (Katihar)</strong> — NOT Hajipur. Gandak joins at Hajipur/Sonepur. Bihar has <strong>40</strong> LS seats, WB has 42.</div>
 
     <div class="sub-title">📋 Quick Reference Tables</div>
     <div class="qr-table-wrap">
@@ -667,6 +692,7 @@ table.qr-table tr:nth-child(even) td { background: var(--blue-pale); }
 
     <div class="sub-title">⚡ Flash Cards</div>
     <div class="fc-grid" id="fc-eco"></div>
+    <div class="trap-alert"><div class="trap-title">⚠️ Economy Traps</div>Litchi = <strong>Muzaffarpur</strong>. Jardalu Mango = <strong>Bhagalpur</strong>. Bihar is <strong>2nd</strong> in maize (Karnataka is 1st). Madhubani GI tag = <strong>2007</strong>.</div>
 
     <div class="sub-title">📋 Quick Reference — GI Tagged Products of Bihar</div>
     <div class="qr-table-wrap">
@@ -785,6 +811,7 @@ table.qr-table tr:nth-child(even) td { background: var(--blue-pale); }
   <div class="learn-panel" id="sec-2-learn">
     <div class="sub-title">⚡ Flash Cards</div>
     <div class="fc-grid" id="fc-census"></div>
+    <div class="trap-alert"><div class="trap-title">⚠️ Census Traps</div>Gopalganj sex ratio = <strong>1,021</strong> (highest). Munger = <strong>876</strong> (lowest). Sheohar = smallest area but <strong>lowest total population</strong>. Urban pop = <strong>11.3%</strong> not 21%.</div>
 
     <div class="sub-title">📋 Census 2011 — Key Data</div>
     <div class="qr-table-wrap">
@@ -873,6 +900,22 @@ table.qr-table tr:nth-child(even) td { background: var(--blue-pale); }
     </div>
   </div>
 
+<div class="sub-title">📊 Bihar vs India — Comparison</div>
+<div class="qr-table-wrap">
+  <table class="qr-table compare-table">
+    <thead><tr><th>Parameter</th><th style="color:#FF6B00;">Bihar</th><th style="color:#0055CC;">India</th><th>Remark</th></tr></thead>
+    <tbody>
+      <tr><td>Population Density</td><td><strong>1,106/km²</strong></td><td>382/km²</td><td>Bihar = 2.9× national avg</td></tr>
+      <tr><td>Sex Ratio</td><td><strong>918</strong></td><td>943</td><td>Below national avg</td></tr>
+      <tr><td>Literacy Rate</td><td><strong>61.8%</strong></td><td>74.04%</td><td>~12 pts below India</td></tr>
+      <tr><td>Female Literacy</td><td><strong>51.5%</strong></td><td>65.46%</td><td>~14 pts below India</td></tr>
+      <tr><td>Urban Population</td><td><strong>11.3%</strong></td><td>31.16%</td><td>LOWEST in India</td></tr>
+      <tr><td>SC Population</td><td><strong>15.9%</strong></td><td>16.6%</td><td>Close to national avg</td></tr>
+      <tr><td>ST Population</td><td><strong>1.3%</strong></td><td>8.6%</td><td>Very low (lost Jharkhand)</td></tr>
+      <tr><td>Decadal Growth</td><td><strong>25.4%</strong></td><td>17.64%</td><td>Bihar growing much faster</td></tr>
+    </tbody>
+  </table>
+</div>
   <div class="quiz-panel" id="sec-2-quiz" style="display:none;">
     <div class="quiz-wrap" id="qwrap-2"></div>
   </div>
@@ -890,6 +933,7 @@ table.qr-table tr:nth-child(even) td { background: var(--blue-pale); }
   </div>
   <div class="learn-panel" id="sec-3-learn">
     <div class="sub-title">⚡ Flash Cards</div><div class="fc-grid" id="fc-hist"></div>
+    <div class="trap-alert"><div class="trap-title">⚠️ History Traps</div>Champaran = first Satyagraha in <strong>India</strong> (South Africa 1906 was the first ever). <strong>Bhojpuri NOT in 8th Schedule</strong> — Maithili is. Jharkhand = <strong>15 Nov</strong> 2000 (Chhattisgarh = 1 Nov).</div>
     <div class="sub-title">📋 Quick Reference — Bihar History</div>
     <div class="qr-table-wrap"><table class="qr-table">
       <thead><tr><th>Era/Event</th><th>Period</th><th>Key Facts</th></tr></thead>
@@ -937,6 +981,7 @@ table.qr-table tr:nth-child(even) td { background: var(--blue-pale); }
   </div>
   <div class="learn-panel" id="sec-4-learn">
     <div class="sub-title">⚡ Flash Cards</div><div class="fc-grid" id="fc-polity"></div>
+    <div class="trap-alert"><div class="trap-title">⚠️ Polity Traps</div>Bihar LS = <strong>40</strong> seats (4th, NOT 3rd — WB has 42). Vidhan Parishad is <strong>NOT dissolved</strong> with Vidhan Sabha. BPSC = Article <strong>315</strong>, established <strong>1951</strong>.</div>
     <div class="sub-title">📋 Quick Reference — Bihar Legislature</div>
     <div class="qr-table-wrap"><table class="qr-table">
       <thead><tr><th>Body</th><th>Seats</th><th>Key Facts</th></tr></thead>
@@ -979,6 +1024,7 @@ table.qr-table tr:nth-child(even) td { background: var(--blue-pale); }
   </div>
   <div class="learn-panel" id="sec-5-learn">
     <div class="sub-title">⚡ Flash Cards</div><div class="fc-grid" id="fc-schemes"></div>
+    <div class="trap-alert"><div class="trap-title">⚠️ Schemes Traps</div>"Shauchalay Nirman" = Part <strong>1</strong>. "Yuva Shakti" = Part <strong>2</strong>. Women's reservation = <strong>35%</strong> (not 33%). Student Credit Card = <strong>₹4 lakh</strong>.</div>
     <div class="sub-title">📋 Quick Reference — 7 Nischay (Sankalp)</div>
     <div class="qr-table-wrap"><table class="qr-table">
       <thead><tr><th>Pillar</th><th>Scheme Name</th><th>Focus Area</th></tr></thead>
@@ -1573,6 +1619,49 @@ function buildSearchIndex() {
   });
 }
 buildSearchIndex();
+// PROGRESS DASHBOARD
+const sectionNames = ['🗺️ Geography','💼 Economy','📊 Census','🏛️ History','⚖️ Polity','🏗️ Schemes','📰 Current'];
+
+function renderProgressDashboard() {
+  const grid = document.getElementById('prog-grid-inner');
+  if(!grid) return;
+  let saved = {};
+  try { saved = JSON.parse(localStorage.getItem('bpsc_progress') || '{}'); } catch(e){}
+  grid.innerHTML = sectionNames.map((name,i) => {
+    const data = saved['sec_'+i];
+    if(data && data.total) {
+      const pct = Math.round((data.score/data.total)*100);
+      const color = pct>=80?'#16A34A':pct>=60?'#D97706':'#DC2626';
+      return `<div class="prog-card" onclick="showSection(${i},document.querySelectorAll('.tab-btn')[${i}])">
+        <div class="pc-section">${name}</div>
+        <div class="pc-score" style="color:${color}">${pct}%</div>
+        <div style="font-size:0.7rem;color:var(--text-muted)">${data.score}/${data.total}</div>
+        <div class="pc-bar-wrap"><div class="pc-bar" style="width:${pct}%"></div></div>
+      </div>`;
+    } else {
+      return `<div class="prog-card no-data" onclick="showSection(${i},document.querySelectorAll('.tab-btn')[${i}])">
+        <div class="pc-section">${name}</div>
+        <div class="pc-score">Not started</div>
+        <div class="pc-bar-wrap"><div class="pc-bar" style="width:0%"></div></div>
+      </div>`;
+    }
+  }).join('');
+}
+
+const origSelectAnswer = selectAnswer;
+window.selectAnswer = function(secIdx, chosen, correct) {
+  origSelectAnswer(secIdx, chosen, correct);
+  setTimeout(renderProgressDashboard, 300);
+};
+
+renderProgressDashboard();
+
+// ADD QUIZ QUESTIONS TO SEARCH INDEX
+quizData.forEach((secQs,si) => {
+  secQs.forEach(q => {
+    searchIndex.push({ section: sectionNames[si], text: q.q+' '+q.opts.join(' ')+' '+q.exp, secId:'quiz' });
+  });
+});
 
 function doSearch(val) {
   const container = document.getElementById('search-results');
