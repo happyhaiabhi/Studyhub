@@ -179,9 +179,8 @@
   }
 
   .card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 24px 60px rgba(0,0,0,0.5), 0 0 40px color-mix(in srgb, var(--c) 15%, transparent);
-    border-color: var(--c);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
   }
   .card:hover::before { opacity: 1; }
 
@@ -193,7 +192,7 @@
   .card[data-accent="master"] { --c: var(--accent-master); }
 
   .card:hover { border-color: var(--c); }
-  .card::before { background: radial-gradient(circle at 30% 0%, color-mix(in srgb, var(--c) 14%, transparent), transparent 65%); }
+  .card::before { background: radial-gradient(circle at 30% 0%, color-mix(in srgb, var(--c) 8%, transparent), transparent 60%); }
 
   /* Accent bar at top */
   .card-bar {
@@ -205,7 +204,6 @@
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 0.3s ease;
-    box-shadow: 0 0 12px var(--c);
   }
   .card:hover .card-bar { transform: scaleX(1); }
 
@@ -354,7 +352,7 @@
 
     <div class="stats">
       <div class="stat">
-        <span class="stat-num">5</span>
+        <span class="stat-num">6</span>
         <span class="stat-label">Modules</span>
       </div>
       <div class="stat">
@@ -395,10 +393,10 @@
     </a>
 
     <!-- 2. PDF 1 — Earth & Its Representation -->
-    <a class="card" data-accent="geo" href="GeoTest_PDF1_EarthRepresentation-1.html">
+    <a class="card" data-accent="geo" href="GeoTest_PDF1_EarthRepresentation-1.html" target="_blank">
       <div class="card-bar"></div>
       <span class="card-icon">🌐</span>
-      <div class="card-tag">Geography · Earth & Representation</div>
+      <div class="card-tag">Geography · PDF 1</div>
       <div class="card-title">Earth & Its Representation</div>
       <div class="card-desc">Important Lines & Zones — Latitude, Longitude, Maps, Globe, Tropics, Equator and foundational earth concepts.</div>
       <div class="card-footer">
@@ -412,10 +410,10 @@
     </a>
 
     <!-- 3. PDF 2 — Landforms & Water Bodies -->
-    <a class="card" data-accent="water" href="water_bodies_bpsc_upsc.html">
+    <a class="card" data-accent="water" href="water_bodies_bpsc_upsc.html" target="_blank">
       <div class="card-bar"></div>
       <span class="card-icon">🏔️</span>
-      <div class="card-tag">Geography · Landforms & Water Bodies</div>
+      <div class="card-tag">Geography · PDF 2</div>
       <div class="card-title">Landforms & Water Bodies</div>
       <div class="card-desc">Mountains, Plains, Rivers, Oceans and Seas — complete coverage of physical landforms and water bodies for UPSC & BPSC.</div>
       <div class="card-footer">
@@ -429,10 +427,10 @@
     </a>
 
     <!-- 4. PDF 3 — Climate & Vegetation (Energy placeholder) -->
-    <a class="card" data-accent="energy" href="energy_sector_upsc.html">
+    <a class="card" data-accent="energy" href="energy_sector_upsc.html" target="_blank">
       <div class="card-bar"></div>
       <span class="card-icon">🌿</span>
-      <div class="card-tag">Geography · Climate & Vegetation</div>
+      <div class="card-tag">Geography · PDF 3</div>
       <div class="card-title">Climate, Weather & Vegetation</div>
       <div class="card-desc">Monsoon, Seasons, Forests, Biomes and Ecosystems — climate patterns and vegetation zones across India and the world.</div>
       <div class="card-footer">
@@ -446,7 +444,7 @@
     </a>
 
     <!-- 5. Bihar District Explorer -->
-    <a class="card" data-accent="bihar" href="bihar-district-explorer.html">
+    <a class="card" data-accent="bihar" href="bihar-district-explorer.html" target="_blank">
       <div class="card-bar"></div>
       <span class="card-icon">🏛️</span>
       <div class="card-tag">BPSC · State GK</div>
@@ -459,6 +457,30 @@
           <span class="chip">Districts</span>
         </div>
         <span class="open-btn">Open ↗</span>
+      </div>
+    </a>
+
+    <!-- 6. Bihar Special — BPSC Master -->
+    <a class="card featured" data-accent="bihar" href="bihar_bpsc_master.html" target="_blank">
+      <div class="card-bar"></div>
+      <div class="card-body">
+        <span class="card-icon">🌟</span>
+        <div class="card-tag">BPSC · Bihar Special · Complete Guide</div>
+        <div class="card-title">Bihar Special — BPSC Master</div>
+        <div class="card-desc">All-in-one BPSC prep — Geography · Economy · Census · History · Polity · Schemes · Current Affairs. Flashcards, Quiz, PYQs and mnemonics for every topic.</div>
+        <div class="card-footer">
+          <div class="card-chips">
+            <span class="chip">Geography</span>
+            <span class="chip">Economy</span>
+            <span class="chip">History</span>
+            <span class="chip">Polity</span>
+            <span class="chip">Schemes</span>
+          </div>
+          <span class="open-btn">Open ↗</span>
+        </div>
+      </div>
+      <div class="card-side">
+        <span class="featured-badge">★ BPSC Special</span>
       </div>
     </a>
 
