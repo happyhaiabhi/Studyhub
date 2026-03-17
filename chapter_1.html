@@ -103,6 +103,11 @@
             to { opacity: 1; }
         }
 
+        @keyframes flip {
+            from { transform: rotateY(0deg); }
+            to { transform: rotateY(180deg); }
+        }
+
         h1 {
             font-family: 'Playfair Display', serif;
             font-size: clamp(2rem, 5vw, 3rem);
@@ -331,6 +336,77 @@
             font-style: normal;
         }
 
+        .flashcard-container {
+            perspective: 1000px;
+            cursor: pointer;
+            margin-bottom: 2rem;
+            height: 280px;
+        }
+
+        .flashcard {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            transform-style: preserve-3d;
+        }
+
+        .flashcard.flipped {
+            transform: rotateY(180deg);
+        }
+
+        .flashcard-front,
+        .flashcard-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            border: 1px solid var(--border);
+        }
+
+        .flashcard-front {
+            background: linear-gradient(135deg, rgba(168, 213, 186, 0.1) 0%, rgba(169, 213, 186, 0.05) 100%);
+            color: var(--text);
+        }
+
+        .flashcard-back {
+            background: linear-gradient(135deg, rgba(201, 168, 213, 0.1) 0%, rgba(201, 168, 213, 0.05) 100%);
+            color: var(--text);
+            transform: rotateY(180deg);
+        }
+
+        .flashcard-label {
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            opacity: 0.8;
+            margin-bottom: 1rem;
+            color: var(--accent-primary);
+            font-family: 'DM Mono', monospace;
+        }
+
+        .flashcard-content {
+            font-size: 1.2rem;
+            font-weight: 600;
+            line-height: 1.5;
+        }
+
+        .flashcard-hint {
+            font-size: 0.75rem;
+            margin-top: 1.5rem;
+            opacity: 0.7;
+            letter-spacing: 0.5px;
+        }
+
         .boundary-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -455,7 +531,7 @@
             color: var(--text);
         }
 
-        .option:hover:not(.disabled) {
+        .option:hover {
             border-color: var(--accent-primary);
             background: rgba(168, 213, 186, 0.05);
             transform: translateX(4px);
@@ -474,11 +550,6 @@
         .option.incorrect {
             border-color: var(--danger);
             background: rgba(213, 168, 168, 0.1);
-        }
-
-        .option.disabled {
-            cursor: not-allowed;
-            opacity: 0.7;
         }
 
         .option-text {
@@ -542,46 +613,27 @@
             color: var(--muted);
         }
 
-        .feedback-box {
+        .explanation {
             background: var(--surface);
+            border-left: 4px solid var(--success);
             border: 1px solid var(--border);
             padding: 1.5rem;
             border-radius: 0.75rem;
             margin-top: 1.5rem;
-            animation: slideUp 0.3s ease-out;
+            display: none;
+            animation: slideDown 0.3s ease-out;
         }
 
-        .feedback-header {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-            font-size: 1.1rem;
-        }
-
-        .feedback-correct {
-            color: var(--success);
-        }
-
-        .feedback-incorrect {
-            color: var(--danger);
-        }
-
-        .explanation-section {
-            background: rgba(168, 213, 186, 0.05);
-            border-left: 4px solid var(--accent-primary);
-            padding: 1rem;
-            border-radius: 0.5rem;
-            margin: 1rem 0;
+        .explanation.show {
+            display: block;
         }
 
         .explanation-label {
-            font-size: 0.85rem;
+            font-size: 0.75rem;
             font-weight: 700;
-            color: var(--accent-primary);
+            color: var(--success);
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
             margin-bottom: 0.5rem;
             font-family: 'DM Mono', monospace;
         }
@@ -589,30 +641,7 @@
         .explanation-text {
             color: var(--text);
             line-height: 1.6;
-        }
-
-        .trivia-box {
-            background: rgba(201, 168, 213, 0.05);
-            border-left: 4px solid var(--memory-accent);
-            padding: 1rem;
-            border-radius: 0.5rem;
-            margin: 1rem 0;
-        }
-
-        .trivia-label {
-            font-size: 0.85rem;
-            font-weight: 700;
-            color: var(--memory-accent);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 0.5rem;
-            font-family: 'DM Mono', monospace;
-        }
-
-        .trivia-text {
-            color: var(--text);
-            line-height: 1.6;
-            font-style: italic;
+            margin-bottom: 1rem;
         }
 
         .results-container {
@@ -680,7 +709,6 @@
             padding: 1.5rem;
             border-radius: 0.75rem;
             margin: 2rem 0;
-            text-align: left;
         }
 
         .analysis-title {
@@ -688,34 +716,17 @@
             font-weight: 700;
             color: var(--accent-primary);
             margin-bottom: 1rem;
-            text-align: center;
         }
 
-        .category-stat {
-            padding: 0.75rem;
-            margin: 0.5rem 0;
-            background: rgba(168, 213, 186, 0.08);
-            border-left: 3px solid var(--accent-primary);
-            border-radius: 0.25rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .category-name {
-            text-transform: capitalize;
-            font-weight: 600;
+        .analysis-content {
             color: var(--text);
-        }
-
-        .category-score {
-            color: var(--accent-primary);
-            font-weight: 700;
+            line-height: 1.6;
+            margin-bottom: 1rem;
         }
 
         .wrong-questions {
-            margin-top: 1.5rem;
-            max-height: 500px;
+            margin-top: 2rem;
+            max-height: 400px;
             overflow-y: auto;
             padding: 1rem;
             background: var(--bg);
@@ -724,7 +735,7 @@
 
         .wrong-q-item {
             background: var(--surface);
-            padding: 1.25rem;
+            padding: 1rem;
             border-radius: 0.5rem;
             margin-bottom: 1rem;
             border-left: 4px solid var(--danger);
@@ -748,22 +759,7 @@
         .wrong-q-text {
             color: var(--text);
             font-weight: 600;
-            margin-bottom: 0.75rem;
-            line-height: 1.4;
-        }
-
-        .wrong-q-answer {
-            font-size: 0.9rem;
-            margin-top: 0.5rem;
-        }
-
-        .wrong-q-your {
-            color: var(--danger);
-            margin-bottom: 0.25rem;
-        }
-
-        .wrong-q-correct {
-            color: var(--success);
+            margin-bottom: 0.5rem;
         }
 
         .restart-btn {
@@ -780,6 +776,7 @@
             .admin-grid-2col { grid-template-columns: 1fr; }
             .score-display { font-size: 2.5rem; }
             .results-details { grid-template-columns: 1fr; }
+            .flashcard { height: 220px; }
         }
     </style>
 </head>
@@ -790,6 +787,7 @@
             <p class="subtitle">Complete Study Guide • Learn & Master with Interactive Tools</p>
             <div class="toggle-container">
                 <button class="toggle-btn active" onclick="switchMode('learn')">📚 Learn</button>
+                <button class="toggle-btn" onclick="switchMode('flashcard')">🎴 Flashcards</button>
                 <button class="toggle-btn" onclick="switchMode('quiz')">✍️ Quiz</button>
             </div>
         </header>
@@ -866,6 +864,13 @@
                 </div>
             </div>
 
+            <!-- FLASHCARD MODE -->
+            <div id="flashcard-mode" class="mode-section">
+                <h2 class="section-title" style="margin-bottom: 2rem;">🎴 Interactive Flashcards</h2>
+                <p style="color: var(--muted); margin-bottom: 2rem; text-align: center;">Click cards to flip • Learn at your own pace</p>
+                <div class="learn-grid" id="flashcard-grid"></div>
+            </div>
+
             <!-- QUIZ MODE -->
             <div id="quiz-mode" class="mode-section">
                 <div class="quiz-container">
@@ -881,92 +886,440 @@
         let score = 0;
         let selectedAnswers = [];
         let allQuestions = [];
-        let quizStarted = false;
+        let showedExplanation = false;
+        let quizResults = null;
         let wrongAnswers = [];
-        let answered = false;
 
-        // Enhanced data with trivia
-        const quizData = {
-            questions: [
-                { id: 1, cat: "geo", q: "What is the total area of Bihar?", opts: ["92,000 sq km", "94,163 sq km", "96,000 sq km", "98,000 sq km"], ans: 1, exp: "Bihar covers an area of 94,163 square kilometers, ranking 13th in India.", trivia: "This area is roughly equivalent to the size of Belgium or slightly larger than the state of Maine in the USA." },
-                { id: 2, cat: "geo", q: "What is the shape of Bihar?", opts: ["Circular", "Triangular", "Rectangular", "Irregular"], ans: 2, exp: "Bihar has a rectangular shape with an N-S length of 345 km and E-W breadth of 483 km.", trivia: "The rectangular shape makes Bihar unique among Indian states, resembling a large rectangle when viewed on a map." },
-                { id: 3, cat: "geo", q: "Which state borders Bihar to the North?", opts: ["Uttar Pradesh", "West Bengal", "Nepal", "Jharkhand"], ans: 2, exp: "Nepal forms the northern boundary of Bihar, making it the only Indian state with an international border to the north.", trivia: "This makes Bihar strategically important for India-Nepal relations and cross-border trade." },
-                { id: 4, cat: "geo", q: "What is the official language of Bihar?", opts: ["English", "Urdu", "Hindi", "Sanskrit"], ans: 2, exp: "Hindi is the official language, with Urdu as the second official language.", trivia: "Despite being a Hindi-speaking state, Bihar has a significant Urdu-speaking population, particularly in urban areas." },
-                { id: 5, cat: "geo", q: "What is the normal annual rainfall in Bihar?", opts: ["795 mm", "895 mm", "995 mm", "1095 mm"], ans: 2, exp: "Bihar receives an average annual rainfall of 995 mm.", trivia: "Most of this rainfall occurs during the monsoon season (June-September), which is critical for agriculture." },
-                { id: 6, cat: "admin", q: "How many districts does Bihar have?", opts: ["30", "34", "38", "42"], ans: 2, exp: "Bihar is divided into 38 districts.", trivia: "The number of districts increased after Jharkhand's separation in 2000. Before that, Bihar had 55 districts." },
-                { id: 7, cat: "admin", q: "How many Lok Sabha seats does Bihar have?", opts: ["30", "35", "40", "45"], ans: 2, exp: "Bihar has 40 Lok Sabha seats.", trivia: "Bihar's Lok Sabha seats represent about 6% of India's total 543 seats, making it politically significant." },
-                { id: 8, cat: "admin", q: "How many Legislative Assembly seats are there in Bihar?", opts: ["200", "220", "243", "260"], ans: 2, exp: "Bihar has 243 Legislative Assembly seats.", trivia: "243 is a perfect power of 3 (3^5 = 243), making Bihar's assembly size mathematically unique." },
-                { id: 9, cat: "admin", q: "How many divisions does Bihar have?", opts: ["7", "8", "9", "10"], ans: 2, exp: "Bihar is administratively divided into 9 divisions.", trivia: "These 9 divisions are: Patna, Tirhut, Darbhanga, Koshi, Munger, Bhagalpur, Magadh, Saran, and Khagaria." },
-                { id: 10, cat: "symbols", q: "What is the state animal of Bihar?", opts: ["Tiger", "Ox", "Elephant", "Lion"], ans: 1, exp: "The Ox is the state animal of Bihar.", trivia: "The Ox symbolizes strength, labour, and agricultural heritage—core values of Bihar's agrarian society." },
-                { id: 11, cat: "symbols", q: "What is the state bird of Bihar?", opts: ["Peacock", "Sparrow", "Parrot", "Hawk"], ans: 1, exp: "The Sparrow (Sparrow Day is March 20) is the state bird of Bihar.", trivia: "March 20 is observed as Sparrow Day in Bihar to raise awareness about this increasingly endangered bird." },
-                { id: 12, cat: "symbols", q: "What is the state flower of Bihar?", opts: ["Rose", "Lotus", "Marigold", "Sunflower"], ans: 2, exp: "The Marigold is the state flower of Bihar.", trivia: "Marigold is considered auspicious in Hindu tradition and is extensively cultivated in Bihar for religious ceremonies." },
-                { id: 13, cat: "symbols", q: "What is the state tree of Bihar?", opts: ["Neem", "Banyan", "Peepal", "Ashoka"], ans: 2, exp: "The Peepal is the state tree of Bihar.", trivia: "The Peepal tree has religious significance in Buddhism and Hinduism, connecting to Bihar's ancient spiritual heritage." },
-                { id: 14, cat: "census", q: "What is the total population of Bihar according to 2011 Census?", opts: ["94.0 million", "99.0 million", "104.1 million", "110.0 million"], ans: 2, exp: "Bihar's population is 104.1 million according to the 2011 Census.", trivia: "This makes Bihar the second-most populous state in India after Uttar Pradesh, with over 8% of India's population." },
-                { id: 15, cat: "census", q: "What is the sex ratio in Bihar?", opts: ["900 per 1000 males", "918 per 1000 males", "950 per 1000 males", "1000 per 1000 males"], ans: 1, exp: "The sex ratio is 918 females per 1000 males.", trivia: "This is lower than India's national average of 943, reflecting the state's gender imbalance issues." },
-                { id: 16, cat: "census", q: "What is the literacy rate of Bihar?", opts: ["51.5%", "57.5%", "61.8%", "71.2%"], ans: 2, exp: "Bihar's literacy rate is 61.8% according to Census 2011.", trivia: "This is significantly below India's national average of 74.04%, indicating educational challenges in Bihar." },
-                { id: 17, cat: "census", q: "What percentage of Bihar's population is urban?", opts: ["8.3%", "11.3%", "15.3%", "20.3%"], ans: 1, exp: "11.3% of Bihar's population is urban; 88.7% is rural.", trivia: "Bihar has one of India's lowest urbanization rates, making it primarily an agricultural state." },
-                { id: 18, cat: "census", q: "What is the population density of Bihar?", opts: ["900 per sq km", "1000 per sq km", "1106 per sq km", "1200 per sq km"], ans: 2, exp: "Bihar has a population density of 1106 per square kilometer.", trivia: "This is one of India's highest population densities, comparable to densely populated countries like Netherlands." },
-                { id: 19, cat: "census", q: "Which district has the highest population in Bihar?", opts: ["Muzaffarpur", "Darbhanga", "Patna", "Gaya"], ans: 2, exp: "Patna is the district with the highest population in Bihar.", trivia: "Patna district includes the state capital and is the economic hub of Bihar, contributing significantly to state GDP." },
-                { id: 20, cat: "census", q: "Which district has the highest sex ratio in Bihar?", opts: ["Siwan", "Vaishali", "Gopalganj", "Muzaffarpur"], ans: 2, exp: "Gopalganj has the highest sex ratio at 1021 females per 1000 males.", trivia: "This is one of the few districts in Bihar where females outnumber males, showing progress in gender balance." },
-                { id: 21, cat: "census", q: "Which district has the lowest sex ratio in Bihar?", opts: ["Patna", "Munger", "Bhagalpur", "Rohtas"], ans: 1, exp: "Munger has the lowest sex ratio at 876 females per 1000 males.", trivia: "Such low ratios indicate serious gender imbalance issues and skewed migration patterns in the district." },
-                { id: 22, cat: "firsts", q: "Who was the first Chief Minister of Bihar?", opts: ["Jai Prakash Narayan", "Dr. Rajendra Prasad", "Sri Krishna Singh", "Binodanand Jha"], ans: 2, exp: "Sri Krishna Singh was the first CM (1946–1961), also known as Bihar Kesri.", trivia: "Sri Krishna Singh served as CM for 15 years, the longest tenure among Bihar's chief ministers at that time." },
-                { id: 23, cat: "firsts", q: "Who was the first Governor of Bihar?", opts: ["Zakir Hussain", "Jai Ram Das Daulat Ram", "S.P. Sinha", "Rajendra Prasad"], ans: 1, exp: "Jai Ram Das Daulat Ram was the first Governor of Bihar.", trivia: "He served as Governor during the transition from British rule to independent India." },
-                { id: 24, cat: "firsts", q: "Who was Bihar's first woman Chief Minister?", opts: ["Sushma Swaraj", "Rabri Devi", "Sheila Dikshit", "Uma Bharti"], ans: 1, exp: "Rabri Devi was the first woman Chief Minister of Bihar.", trivia: "She served as CM for three separate terms and was known for welfare programs for women and children." },
-                { id: 25, cat: "firsts", q: "Where was Gandhi's first Satyagraha in India?", opts: ["Dandi", "Bardoli", "Champaran", "Kheda"], ans: 2, exp: "Gandhi's first Satyagraha was at Champaran, Bihar in 1917.", trivia: "The Champaran Satyagraha (Peasants' Movement) was about indigo plantation laborers' rights, marking Gandhi's entry into Indian politics." },
-                { id: 26, cat: "firsts", q: "What is the length of Mahatma Gandhi Setu?", opts: ["4.6 km", "5.2 km", "5.6 km", "6.0 km"], ans: 2, exp: "Mahatma Gandhi Setu is 5.6 km — the longest river bridge in India.", trivia: "This bridge connects Patna to Hajipur across the Ganga River and was previously known as Patna Bridge." },
-                { id: 27, cat: "firsts", q: "Where was the world's first democratic republic?", opts: ["Athens", "Rome", "Vajji Sangh (Vaishali)", "Pataliputra"], ans: 2, exp: "Vajji Sangh at Vaishali is the world's first democratic republic.", trivia: "The Vajji Sangh existed around 600 BCE, predating ancient Greek city-states and the Roman Republic." },
-                { id: 28, cat: "firsts", q: "Which is the first university in the world?", opts: ["Taxila", "Vikramshila", "Oxford", "Nalanda"], ans: 3, exp: "Nalanda University is considered the first university in the world.", trivia: "Founded around 500 CE, Nalanda had 10,000 students and 2,000 teachers from across Asia, making it a truly international institution." },
-                { id: 29, cat: "firsts", q: "Which city in Bihar has the first Yoga University?", opts: ["Patna", "Bodhgaya", "Munger", "Vaishali"], ans: 2, exp: "Munger has the first Yoga University in the world.", trivia: "The Bihar School of Yoga in Munger teaches yoga and meditation, attracting students from around the world." },
-                { id: 30, cat: "firsts", q: "Bihar was first state in India for women reservation in PRI at what %?", opts: ["33%", "40%", "50%", "60%"], ans: 2, exp: "Bihar was first state for 50% women reservation in Panchayati Raj.", trivia: "This was a groundbreaking reform that led to empowerment of women in village-level governance and served as a model for other states." },
-                { id: 31, cat: "persons", q: "What is the title of Ramdhari Singh Dinkar?", opts: ["Bihar Kesri", "Maithil Kokil", "Rashtra Kavi", "Loknayak"], ans: 2, exp: "Ramdhari Singh Dinkar is known as Rashtra Kavi (National Poet).", trivia: "His epic poem 'Rashmirathi' is considered one of the greatest works of Hindi literature." },
-                { id: 32, cat: "persons", q: "Jai Prakash Narayan is known by which title?", opts: ["Bihar Vibhuti", "Loknayak", "Babujee", "Bihar Kesri"], ans: 1, exp: "Jai Prakash Narayan is known as Loknayak.", trivia: "JP led the 1975 movement against corruption, known as the 'Total Revolution', which significantly influenced Indian politics." },
-                { id: 33, cat: "persons", q: "Where was Dr. Rajendra Prasad born?", opts: ["Patna", "Zeradai (Siwan)", "Simaria", "Barbigha"], ans: 1, exp: "Dr. Rajendra Prasad was born at Zeradai in Siwan.", trivia: "Despite humble origins, he became India's first President and was deeply involved in India's independence struggle." },
-                { id: 34, cat: "persons", q: "Guru Gobind Singh was born in which city of Bihar?", opts: ["Gaya", "Vaishali", "Patna City", "Nalanda"], ans: 2, exp: "Guru Gobind Singh, the 10th Sikh Guru, was born in Patna City.", trivia: "Patna Sahib gurdwara commemorates his birthplace and is one of the five most sacred Sikh pilgrimage sites." },
-                { id: 35, cat: "persons", q: "Vidyapati is associated with which district?", opts: ["Bhojpur", "Madhubani", "Siwan", "Darbhanga"], ans: 1, exp: "Vidyapati was born at Bisfi in Madhubani.", trivia: "Vidyapati (1352-1448) was a renowned medieval poet and scholar whose works influenced Maithili and Bengali literature." },
-                { id: 36, cat: "persons", q: "Who was the first Deputy PM of India from Bihar?", opts: ["Jai Prakash Narayan", "Jagjivan Ram", "Rajendra Prasad", "Sri Krishna Singh"], ans: 1, exp: "Jagjivan Ram from Bihar was the first Deputy Prime Minister of India.", trivia: "He served under PM Indira Gandhi and was a key figure in India's development and industrialization policies." },
-                { id: 37, cat: "persons", q: "Which Bihar personality got Bharat Ratna in 2001?", opts: ["Jai Prakash Narayan", "Dr. Zakir Hussain", "Ustad Bismillah Khan", "Maulana Azad"], ans: 2, exp: "Ustad Bismillah Khan received Bharat Ratna in 2001.", trivia: "Ustad Bismillah Khan was a legendary shehnai player who represented Indian classical music on the world stage." },
-                { id: 38, cat: "firsts", q: "Who was the first President of India?", opts: ["Dr. Zakir Hussain", "Dr. Rajendra Prasad", "Sardar Patel", "Sarvepalli Radhakrishnan"], ans: 1, exp: "Dr. Rajendra Prasad from Bihar was the first President of India.", trivia: "He served as President for two terms (1950-1962) and was affectionately called 'Rajen Babu' by the people." },
-                { id: 39, cat: "firsts", q: "Who was the first mathematician in India?", opts: ["Aryabhatta", "Bhaskara II", "Varahamihira", "Bhaskara I"], ans: 0, exp: "Aryabhatta from Bihar was the first mathematician in India.", trivia: "Aryabhatta invented the decimal system and calculated the value of Pi to 4 decimal places around 499 CE." },
-                { id: 40, cat: "firsts", q: "Who was the first Indian Governor during British period?", opts: ["S.P. Sinha", "Zakir Hussain", "Maulana Azad", "Rajendra Prasad"], ans: 0, exp: "S.P. Sinha was the first Indian Governor in 1921.", trivia: "S.P. Sinha served as Governor of Bihar and Orissa, breaking the colonial glass ceiling in British India." },
-                { id: 41, cat: "firsts", q: "Who was first women Lok Sabha Speaker?", opts: ["Indira Gandhi", "Pratibha Patil", "Meira Kumar", "Sheila Dikshit"], ans: 2, exp: "Meira Kumar from Bihar was the first women Lok Sabha Speaker in 2009.", trivia: "She served as Speaker for two years and worked for women's empowerment and education." },
-                { id: 42, cat: "geo", q: "What is the nomenclature of Bihar derived from?", opts: ["Mountain", "Buddhist monastery (Vihara)", "River", "Ancient kingdom"], ans: 1, exp: "Bihar's name is derived from 'Vihara', meaning Buddhist monastery.", trivia: "This reflects Bihar's rich Buddhist heritage, with numerous ancient monasteries and learning centers in the region." },
-                { id: 43, cat: "firsts", q: "Sonpur Fair is held at the confluence of which rivers?", opts: ["Ganga & Brahmaputra", "Ganga & Gandak", "Ganga & Sone", "Brahmaputra & Gandak"], ans: 1, exp: "Sonpur Fair, India's biggest animal fair, is held at Ganga & Gandak confluence.", trivia: "This fair has been held annually for over 500 years and attracts thousands of traders and tourists." }
+        // Memory tips dataset
+        const memoryTips = {
+            "94,163 sq km": "94K is Nine + Four → '94' area, closest to 100k makes it memorable",
+            "345 km": "345 = 3-4-5 triangle (Pythagorean) — easy to remember!",
+            "483 km": "4-8-3 looks like a code — 48 hour (2 days) to cross!",
+            "Ox": "Ox = Strength • Bihar is 'strong' state (Kesari = strong)",
+            "Sparrow": "Sparrow = tiny but everywhere • represents grassroots Bihar",
+            "Marigold": "Marigold = auspicious golden flower • like Bihar's prosperity",
+            "Peepal": "Peepal = ancient sacred tree • Bihar = ancient civilizations",
+            "104.1 million": "104M ≈ 100M + 4M • roughly equal to Japan's population",
+            "918": "9-1-8 descending numbers • sex ratio lower than national average",
+            "61.8%": "61.8% = just over 60% • below national average (74%)",
+            "1106": "1106 ≈ 1100 • highest in India after Kerala & Bengal",
+            "38 Districts": "38 = 30 + 8 • around 40 (Lok Sabha seats)",
+            "243 seats": "243 = 3³ × 3² = 243 • cube connection!",
+            "50% PRI": "First state for HALF (50%) women reservation — leading reform",
+            "Nalanda": "Na+landa = 'no waste' → Knowledge repository without waste",
+            "Ashoka": "Ashoka = famous emperor who LAID DOWN weapons",
+            "Vajji": "Vajji = world's FIRST republic (even before Athens!)",
+            "Champaran": "Champ+aran = first Satyagraha — championed non-violence"
+        };
+
+        // Complete Bihar GK Data from JSON
+        const biharData = {
+            quickFacts: [
+                { label: "State Name", value: "Bihar" },
+                { label: "Capital", value: "Patna" },
+                { label: "Foundation", value: "1912 (Bihar-Orissa Province)" },
+                { label: "Orissa Separation", value: "1936" },
+                { label: "Jharkhand Separation", value: "15 November 2000" },
+                { label: "State Day", value: "22 March" },
+                { label: "High Court", value: "Patna" },
+                { label: "Official Language", value: "Hindi" },
+                { label: "Second Official Language", value: "Urdu" },
+                { label: "Regional Languages", value: "Bhojpuri, Maithili, Angika, Magahi" },
+                { label: "Total Area", value: "94,163 sq km" },
+                { label: "Area Rank in India", value: "13th (after Telangana)" },
+                { label: "Area % of India", value: "2.86%" },
+                { label: "North-South Length", value: "345 km" },
+                { label: "East-West Breadth", value: "483 km" },
+                { label: "Shape", value: "Rectangular" },
+                { label: "Height Above Sea Level", value: "173 feet (53 m)" },
+                { label: "Normal Rainfall", value: "995 mm/year" },
+                { label: "Nomenclature", value: "From 'Vihara' (Buddhist monastery)" }
+            ],
+            boundaries: {
+                "North": "Nepal",
+                "South": "Jharkhand",
+                "East": "West Bengal",
+                "West": "Uttar Pradesh"
+            },
+            coordinates: {
+                lat: "24° 20' 10\" N to 27° 31' 15\" N",
+                lng: "83° 19' 50\" E to 88° 17' 40\" E"
+            },
+            symbols: [
+                { symbol: "State Animal", value: "Ox" },
+                { symbol: "State Bird", value: "Sparrow (Sparrow Day: 20 March)" },
+                { symbol: "State Flower", value: "Marigold" },
+                { symbol: "State Tree", value: "Peepal" }
+            ],
+            administration: {
+                "Divisions": 9,
+                "Districts": 38,
+                "Sub Divisions": 101,
+                "Lok Sabha Seats": 40,
+                "Rajya Sabha Seats": 16,
+                "Legislative Assembly": 243,
+                "Legislative Council": 75,
+                "SC Reserved LS": 6,
+                "SC Reserved Assembly": 40,
+                "Zila Parishad": 38,
+                "Panchayat Samiti": 534,
+                "Gram Panchayat": 8387,
+                "Revenue Villages": 44874,
+                "Statutory Towns": 139,
+                "Police Stations": 853,
+                "Municipal Corporations": 13
+            },
+            census: {
+                "Total Population": "104.1 Million",
+                "Male Population": "54.3 Million",
+                "Female Population": "49.8 Million",
+                "Urban Population": "11.3%",
+                "Rural Population": "88.7%",
+                "Decadal Growth (2001-11)": "25.4%",
+                "Population Density": "1106/sq km",
+                "Sex Ratio": "918 per 1000 males",
+                "Literacy Rate": "61.8%",
+                "Male Literacy": "71.2%",
+                "Female Literacy": "51.5%",
+                "Rural Literacy": "59.78%",
+                "Urban Literacy": "76.86%"
+            },
+            districts: [
+                { label: "Highest Population", value: "Patna" },
+                { label: "Lowest Population", value: "Sheikhpura" },
+                { label: "Highest Growth Rate", value: "Madhepura (31.12%)" },
+                { label: "Lowest Growth Rate", value: "Gopalganj (19.02%)" },
+                { label: "Highest Density", value: "Sheohar (1880)" },
+                { label: "Lowest Density", value: "Kaimur (488)" },
+                { label: "Highest Sex Ratio", value: "Gopalganj (1021)" },
+                { label: "Lowest Sex Ratio", value: "Munger (876)" }
+            ],
+            firstsInBihar: [
+                { achievement: "First Chief Minister", detail: "Sri Krishna Singh (1946–1961)" },
+                { achievement: "First Governor", detail: "Jai Ram Das Daulat Ram" },
+                { achievement: "First Woman CM", detail: "Rabri Devi" },
+                { achievement: "First Dalit CM", detail: "Bhola Paswan Shastri" },
+                { achievement: "First Muslim CM", detail: "Abdul Gaffoor" },
+                { achievement: "First Ancient University", detail: "Nalanda University (5th century)" },
+                { achievement: "First Modern University", detail: "Patna University (1917)" },
+                { achievement: "First Oil Refinery", detail: "Barauni" },
+                { achievement: "First Irrigation Project", detail: "Son Project" },
+                { achievement: "First Science Centre", detail: "Sri Krishna Science Centre, Patna" }
+            ],
+            firstsInIndia: [
+                { achievement: "First President of India", detail: "Dr. Rajendra Prasad" },
+                { achievement: "First Mathematician", detail: "Aryabhatta" },
+                { achievement: "First Satyagraha of Gandhi", detail: "Champaran (Bihar), 1917" },
+                { achievement: "First Women Lok Sabha Speaker", detail: "Meira Kumar (2009)" },
+                { achievement: "Longest River Bridge", detail: "Mahatma Gandhi Setu, 5.6 km" },
+                { achievement: "First State for BSNL Mobile", detail: "Bihar" },
+                { achievement: "First State 50% Women Reservation in PRI", detail: "Bihar" },
+                { achievement: "Biggest Animal Fair", detail: "Sonpur Fair (Ganga & Gandak)" }
+            ],
+            firstsInWorld: [
+                { achievement: "First Democratic Republic", detail: "Vajji Sangh, Vaishali" },
+                { achievement: "First University", detail: "Nalanda University" },
+                { achievement: "First Yoga University", detail: "Munger" },
+                { achievement: "World's Highest Buddha Stupa", detail: "Kesariya (Champaran)" },
+                { achievement: "Ancient City", detail: "Pataliputra" },
+                { achievement: "First Emperor to Lay Weapons", detail: "Emperor Ashoka" }
+            ],
+            heritage: [
+                { site: "Archaeological Site of Nalanda", location: "Nalanda", year: 2016 },
+                { site: "Mahabodhi Temple Complex", location: "Bodh Gaya", year: 2002 }
+            ],
+            bharat: [
+                { name: "Dr. Rajendra Prasad", year: 1962 },
+                { name: "Dr. Zakir Hussain", year: 1963 },
+                { name: "Maulana Abul Kalam Azad", year: 1992 },
+                { name: "J.R.D. Tata", year: 1992 },
+                { name: "Jai Prakash Narayan", year: 1999 },
+                { name: "Ustad Bismillah Khan", year: 2001 }
+            ],
+            personalities: [
+                { name: "Dr. Rajendra Prasad", titles: "Deshratna", birthplace: "Zeradai (Siwan)" },
+                { name: "Jai Prakash Narayan", titles: "Loknayak (JP)", birthplace: "Sitabadeyara (Chhapra)" },
+                { name: "Kunwar Singh", titles: "Babu", birthplace: "Jagdishpur (Bhojpur)" },
+                { name: "Dr. Sri Krishna Singh", titles: "Bihar Kesri", birthplace: "Barbigha (Munger)" },
+                { name: "Ramdhari Singh Dinkar", titles: "Rashtra Kavi", birthplace: "Simaria (Munger)" },
+                { name: "Babu Jagjivan Ram", titles: "First Deputy PM", birthplace: "Bihar" },
+                { name: "Vidyapati", titles: "Maithil Kokil", birthplace: "Bisfi (Madhubani)" },
+                { name: "Guru Gobind Singh", titles: "10th Sikh Guru", birthplace: "Patna City" }
             ]
         };
 
+        // Complete Quiz Questions from JSON (43 questions)
+        const quizQuestions = [
+            { id: 1, cat: "geo", q: "What is the total area of Bihar?", opts: ["92,000 sq km", "94,163 sq km", "96,000 sq km", "98,000 sq km"], ans: 1, exp: "Bihar covers an area of 94,163 square kilometers, ranking 13th in India." },
+            { id: 2, cat: "geo", q: "What is the shape of Bihar?", opts: ["Circular", "Triangular", "Rectangular", "Irregular"], ans: 2, exp: "Bihar has a rectangular shape with an N-S length of 345 km and E-W breadth of 483 km." },
+            { id: 3, cat: "geo", q: "Which state borders Bihar to the North?", opts: ["Uttar Pradesh", "West Bengal", "Nepal", "Jharkhand"], ans: 2, exp: "Nepal forms the northern boundary of Bihar." },
+            { id: 4, cat: "geo", q: "What is the official language of Bihar?", opts: ["English", "Urdu", "Hindi", "Sanskrit"], ans: 2, exp: "Hindi is the official language, with Urdu as the second official language." },
+            { id: 5, cat: "geo", q: "What is the normal annual rainfall in Bihar?", opts: ["795 mm", "895 mm", "995 mm", "1095 mm"], ans: 2, exp: "Bihar receives an average annual rainfall of 995 mm." },
+            { id: 6, cat: "admin", q: "How many districts does Bihar have?", opts: ["30", "34", "38", "42"], ans: 2, exp: "Bihar is divided into 38 districts." },
+            { id: 7, cat: "admin", q: "How many Lok Sabha seats does Bihar have?", opts: ["30", "35", "40", "45"], ans: 2, exp: "Bihar has 40 Lok Sabha seats." },
+            { id: 8, cat: "admin", q: "How many Legislative Assembly seats are there in Bihar?", opts: ["200", "220", "243", "260"], ans: 2, exp: "Bihar has 243 Legislative Assembly seats." },
+            { id: 9, cat: "admin", q: "How many divisions does Bihar have?", opts: ["7", "8", "9", "10"], ans: 2, exp: "Bihar is administratively divided into 9 divisions." },
+            { id: 10, cat: "symbols", q: "What is the state animal of Bihar?", opts: ["Tiger", "Ox", "Elephant", "Lion"], ans: 1, exp: "The Ox is the state animal of Bihar." },
+            { id: 11, cat: "symbols", q: "What is the state bird of Bihar?", opts: ["Peacock", "Sparrow", "Parrot", "Hawk"], ans: 1, exp: "The Sparrow (Sparrow Day is March 20) is the state bird of Bihar." },
+            { id: 12, cat: "symbols", q: "What is the state flower of Bihar?", opts: ["Rose", "Lotus", "Marigold", "Sunflower"], ans: 2, exp: "The Marigold is the state flower of Bihar." },
+            { id: 13, cat: "symbols", q: "What is the state tree of Bihar?", opts: ["Neem", "Banyan", "Peepal", "Ashoka"], ans: 2, exp: "The Peepal is the state tree of Bihar." },
+            { id: 14, cat: "census", q: "What is the total population of Bihar according to 2011 Census?", opts: ["94.0 million", "99.0 million", "104.1 million", "110.0 million"], ans: 2, exp: "Bihar's population is 104.1 million according to the 2011 Census." },
+            { id: 15, cat: "census", q: "What is the sex ratio in Bihar?", opts: ["900 per 1000 males", "918 per 1000 males", "950 per 1000 males", "1000 per 1000 males"], ans: 1, exp: "The sex ratio is 918 females per 1000 males." },
+            { id: 16, cat: "census", q: "What is the literacy rate of Bihar?", opts: ["51.5%", "57.5%", "61.8%", "71.2%"], ans: 2, exp: "Bihar's literacy rate is 61.8% according to Census 2011." },
+            { id: 17, cat: "census", q: "What percentage of Bihar's population is urban?", opts: ["8.3%", "11.3%", "15.3%", "20.3%"], ans: 1, exp: "11.3% of Bihar's population is urban; 88.7% is rural." },
+            { id: 18, cat: "census", q: "What is the population density of Bihar?", opts: ["900 per sq km", "1000 per sq km", "1106 per sq km", "1200 per sq km"], ans: 2, exp: "Bihar has a population density of 1106 per square kilometer." },
+            { id: 19, cat: "census", q: "Which district has the highest population in Bihar?", opts: ["Muzaffarpur", "Darbhanga", "Patna", "Gaya"], ans: 2, exp: "Patna is the district with the highest population in Bihar." },
+            { id: 20, cat: "census", q: "Which district has the highest sex ratio in Bihar?", opts: ["Siwan", "Vaishali", "Gopalganj", "Muzaffarpur"], ans: 2, exp: "Gopalganj has the highest sex ratio at 1021 females per 1000 males." },
+            { id: 21, cat: "census", q: "Which district has the lowest sex ratio in Bihar?", opts: ["Patna", "Munger", "Bhagalpur", "Rohtas"], ans: 1, exp: "Munger has the lowest sex ratio at 876 females per 1000 males." },
+            { id: 22, cat: "firsts", q: "Who was the first Chief Minister of Bihar?", opts: ["Jai Prakash Narayan", "Dr. Rajendra Prasad", "Sri Krishna Singh", "Binodanand Jha"], ans: 2, exp: "Sri Krishna Singh was the first CM (1946–1961), also known as Bihar Kesri." },
+            { id: 23, cat: "firsts", q: "Who was the first Governor of Bihar?", opts: ["Zakir Hussain", "Jai Ram Das Daulat Ram", "S.P. Sinha", "Rajendra Prasad"], ans: 1, exp: "Jai Ram Das Daulat Ram was the first Governor of Bihar." },
+            { id: 24, cat: "firsts", q: "Who was Bihar's first woman Chief Minister?", opts: ["Sushma Swaraj", "Rabri Devi", "Sheila Dikshit", "Uma Bharti"], ans: 1, exp: "Rabri Devi was the first woman Chief Minister of Bihar." },
+            { id: 25, cat: "firsts", q: "Where was Gandhi's first Satyagraha in India?", opts: ["Dandi", "Bardoli", "Champaran", "Kheda"], ans: 2, exp: "Gandhi's first Satyagraha was at Champaran, Bihar in 1917." },
+            { id: 26, cat: "firsts", q: "What is the length of Mahatma Gandhi Setu?", opts: ["4.6 km", "5.2 km", "5.6 km", "6.0 km"], ans: 2, exp: "Mahatma Gandhi Setu is 5.6 km — the longest river bridge in India." },
+            { id: 27, cat: "firsts", q: "Where was the world's first democratic republic?", opts: ["Athens", "Rome", "Vajji Sangh (Vaishali)", "Pataliputra"], ans: 2, exp: "Vajji Sangh at Vaishali is the world's first democratic republic." },
+            { id: 28, cat: "firsts", q: "Which is the first university in the world?", opts: ["Taxila", "Vikramshila", "Oxford", "Nalanda"], ans: 3, exp: "Nalanda University is considered the first university in the world." },
+            { id: 29, cat: "firsts", q: "Which city in Bihar has the first Yoga University?", opts: ["Patna", "Bodhgaya", "Munger", "Vaishali"], ans: 2, exp: "Munger has the first Yoga University in the world." },
+            { id: 30, cat: "firsts", q: "Bihar was first state in India for women reservation in PRI at what %?", opts: ["33%", "40%", "50%", "60%"], ans: 2, exp: "Bihar was first state for 50% women reservation in Panchayati Raj." },
+            { id: 31, cat: "persons", q: "What is the title of Ramdhari Singh Dinkar?", opts: ["Bihar Kesri", "Maithil Kokil", "Rashtra Kavi", "Loknayak"], ans: 2, exp: "Ramdhari Singh Dinkar is known as Rashtra Kavi (National Poet)." },
+            { id: 32, cat: "persons", q: "Jai Prakash Narayan is known by which title?", opts: ["Bihar Vibhuti", "Loknayak", "Babujee", "Bihar Kesri"], ans: 1, exp: "Jai Prakash Narayan is known as Loknayak." },
+            { id: 33, cat: "persons", q: "Where was Dr. Rajendra Prasad born?", opts: ["Patna", "Zeradai (Siwan)", "Simaria", "Barbigha"], ans: 1, exp: "Dr. Rajendra Prasad was born at Zeradai in Siwan." },
+            { id: 34, cat: "persons", q: "Guru Gobind Singh was born in which city of Bihar?", opts: ["Gaya", "Vaishali", "Patna City", "Nalanda"], ans: 2, exp: "Guru Gobind Singh, the 10th Sikh Guru, was born in Patna City." },
+            { id: 35, cat: "persons", q: "Vidyapati is associated with which district?", opts: ["Bhojpur", "Madhubani", "Siwan", "Darbhanga"], ans: 1, exp: "Vidyapati was born at Bisfi in Madhubani." },
+            { id: 36, cat: "persons", q: "Who was the first Deputy PM of India from Bihar?", opts: ["Jai Prakash Narayan", "Jagjivan Ram", "Rajendra Prasad", "Sri Krishna Singh"], ans: 1, exp: "Jagjivan Ram from Bihar was the first Deputy Prime Minister of India." },
+            { id: 37, cat: "persons", q: "Which Bihar personality got Bharat Ratna in 2001?", opts: ["Jai Prakash Narayan", "Dr. Zakir Hussain", "Ustad Bismillah Khan", "Maulana Azad"], ans: 2, exp: "Ustad Bismillah Khan received Bharat Ratna in 2001." },
+            { id: 38, cat: "firsts", q: "Who was the first President of India?", opts: ["Dr. Zakir Hussain", "Dr. Rajendra Prasad", "Sardar Patel", "Sarvepalli Radhakrishnan"], ans: 1, exp: "Dr. Rajendra Prasad from Bihar was the first President of India." },
+            { id: 39, cat: "firsts", q: "Who was the first mathematician in India?", opts: ["Aryabhatta", "Bhaskara II", "Varahamihira", "Bhaskara I"], ans: 0, exp: "Aryabhatta from Bihar was the first mathematician in India." },
+            { id: 40, cat: "firsts", q: "Who was the first Indian Governor during British period?", opts: ["S.P. Sinha", "Zakir Hussain", "Maulana Azad", "Rajendra Prasad"], ans: 0, exp: "S.P. Sinha was the first Indian Governor in 1921." },
+            { id: 41, cat: "firsts", q: "Who was first women Lok Sabha Speaker?", opts: ["Indira Gandhi", "Pratibha Patil", "Meira Kumar", "Sheila Dikshit"], ans: 2, exp: "Meira Kumar from Bihar was the first women Lok Sabha Speaker in 2009." },
+            { id: 42, cat: "geo", q: "What is the nomenclature of Bihar derived from?", opts: ["Mountain", "Buddhist monastery (Vihara)", "River", "Ancient kingdom"], ans: 1, exp: "Bihar's name is derived from 'Vihara', meaning Buddhist monastery." },
+            { id: 43, cat: "firsts", q: "Sonpur Fair is held at the confluence of which rivers?", opts: ["Ganga & Brahmaputra", "Ganga & Gandak", "Ganga & Sone", "Brahmaputra & Gandak"], ans: 1, exp: "Sonpur Fair, India's biggest animal fair, is held at Ganga & Gandak confluence." }
+        ];
+
         // Shuffle function
         function shuffleArray(array) {
-            const copy = [...array];
-            for (let i = copy.length - 1; i > 0; i--) {
+            for (let i = array.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
-                [copy[i], copy[j]] = [copy[j], copy[i]];
+                [array[i], array[j]] = [array[j], array[i]];
             }
-            return copy;
+            return array;
         }
 
         // Initialize Learn Mode
         function initializeLearnMode() {
-            // Load learning content from quiz data
-            populateLearningContent();
+            populateQuickFacts();
+            populateBoundaries();
+            populateCoordinates();
+            populateSymbols();
+            populateAdmin();
+            populateCensus();
+            populateDistricts();
+            populateFirsts();
+            populateHeritage();
+            populateBharat();
+            populatePersonalities();
+            initializeFlashcards();
         }
 
-        function populateLearningContent() {
-            // This creates learning sections from quiz questions
-            const geoQuestions = quizData.questions.filter(q => q.cat === 'geo');
-            const adminQuestions = quizData.questions.filter(q => q.cat === 'admin');
-            const symbolsQuestions = quizData.questions.filter(q => q.cat === 'symbols');
-            const censusQuestions = quizData.questions.filter(q => q.cat === 'census');
-            const firstsQuestions = quizData.questions.filter(q => q.cat === 'firsts');
-            const personsQuestions = quizData.questions.filter(q => q.cat === 'persons');
+        function populateQuickFacts() {
+            const grid = document.getElementById('quick-facts-grid');
+            grid.innerHTML = biharData.quickFacts.map(fact => {
+                const tip = memoryTips[fact.value];
+                return `
+                    <div class="card">
+                        <div class="fact-label">${fact.label}</div>
+                        <div class="fact-value">${fact.value}</div>
+                        ${tip ? `<div class="memory-tip">${tip}</div>` : ''}
+                    </div>
+                `;
+            }).join('');
+        }
 
-            // Populate geography
-            let geoHtml = '<div class="info-box"><h3>Key Facts</h3><div class="boundary-grid">';
-            geoQuestions.forEach(q => {
-                const correct = q.opts[q.ans];
-                geoHtml += `<div class="boundary-item"><div class="boundary-direction">${q.q}</div><div class="boundary-value">${correct}</div></div>`;
-            });
-            geoHtml += '</div></div>';
-            document.getElementById('coordinates-text').innerHTML = geoHtml;
+        function populateBoundaries() {
+            const grid = document.getElementById('boundaries-grid');
+            grid.innerHTML = Object.entries(biharData.boundaries).map(([direction, value]) => `
+                <div class="boundary-item">
+                    <div class="boundary-direction">${direction}</div>
+                    <div class="boundary-value">${value}</div>
+                </div>
+            `).join('');
+        }
+
+        function populateCoordinates() {
+            const container = document.getElementById('coordinates-text');
+            container.innerHTML = `
+                <div class="boundary-grid">
+                    <div class="boundary-item">
+                        <div class="boundary-direction">Latitude</div>
+                        <div class="boundary-value">${biharData.coordinates.lat}</div>
+                    </div>
+                    <div class="boundary-item">
+                        <div class="boundary-direction">Longitude</div>
+                        <div class="boundary-value">${biharData.coordinates.lng}</div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function populateSymbols() {
+            const grid = document.getElementById('symbols-grid');
+            grid.innerHTML = biharData.symbols.map(symbol => {
+                const tip = memoryTips[symbol.value];
+                return `
+                    <div class="card">
+                        <div class="fact-label">${symbol.symbol}</div>
+                        <div class="fact-value">${symbol.value}</div>
+                        ${tip ? `<div class="memory-tip">${tip}</div>` : ''}
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function populateAdmin() {
+            const grid = document.getElementById('admin-grid');
+            grid.innerHTML = Object.entries(biharData.administration).map(([label, value]) => {
+                const tip = memoryTips[value];
+                return `
+                    <div class="admin-item">
+                        <div class="admin-label">${label}</div>
+                        <div class="admin-value">${value}</div>
+                        ${tip ? `<div class="memory-tip">${tip}</div>` : ''}
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function populateCensus() {
+            const grid = document.getElementById('census-grid');
+            grid.innerHTML = Object.entries(biharData.census).map(([label, value]) => {
+                const tip = memoryTips[value];
+                return `
+                    <div class="admin-item">
+                        <div class="admin-label">${label}</div>
+                        <div class="admin-value">${value}</div>
+                        ${tip ? `<div class="memory-tip">${tip}</div>` : ''}
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function populateDistricts() {
+            const grid = document.getElementById('district-grid');
+            grid.innerHTML = biharData.districts.map(district => {
+                const tip = memoryTips[district.value];
+                return `
+                    <div class="card">
+                        <div class="fact-label">${district.label}</div>
+                        <div class="fact-value">${district.value}</div>
+                        ${tip ? `<div class="memory-tip">${tip}</div>` : ''}
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function populateFirsts() {
+            const biharGrid = document.getElementById('firsts-bihar-grid');
+            biharGrid.innerHTML = biharData.firstsInBihar.map(first => {
+                const tip = memoryTips[first.detail];
+                return `
+                    <div class="card">
+                        <div class="fact-label">${first.achievement}</div>
+                        <div class="fact-value">${first.detail}</div>
+                        ${tip ? `<div class="memory-tip">${tip}</div>` : ''}
+                    </div>
+                `;
+            }).join('');
+
+            const indiaGrid = document.getElementById('firsts-india-grid');
+            indiaGrid.innerHTML = biharData.firstsInIndia.map(first => {
+                const tip = memoryTips[first.detail];
+                return `
+                    <div class="card">
+                        <div class="fact-label">${first.achievement}</div>
+                        <div class="fact-value">${first.detail}</div>
+                        ${tip ? `<div class="memory-tip">${tip}</div>` : ''}
+                    </div>
+                `;
+            }).join('');
+
+            const worldGrid = document.getElementById('firsts-world-grid');
+            worldGrid.innerHTML = biharData.firstsInWorld.map(first => {
+                const tip = memoryTips[first.detail];
+                return `
+                    <div class="card">
+                        <div class="fact-label">${first.achievement}</div>
+                        <div class="fact-value">${first.detail}</div>
+                        ${tip ? `<div class="memory-tip">${tip}</div>` : ''}
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function populateHeritage() {
+            const grid = document.getElementById('heritage-grid');
+            grid.innerHTML = biharData.heritage.map(site => `
+                <div class="card">
+                    <div class="fact-label">${site.site}</div>
+                    <div class="fact-value">${site.location} (${site.year})</div>
+                </div>
+            `).join('');
+        }
+
+        function populateBharat() {
+            const grid = document.getElementById('bharat-grid');
+            grid.innerHTML = biharData.bharat.map(awardee => `
+                <div class="card">
+                    <div class="fact-label">${awardee.name}</div>
+                    <div class="fact-value">Awarded: ${awardee.year}</div>
+                </div>
+            `).join('');
+        }
+
+        function populatePersonalities() {
+            const grid = document.getElementById('personalities-grid');
+            grid.innerHTML = biharData.personalities.map(person => `
+                <div class="card">
+                    <div class="fact-label">${person.name}</div>
+                    <div class="fact-value">${person.titles}</div>
+                </div>
+            `).join('');
+        }
+
+        function initializeFlashcards() {
+            const grid = document.getElementById('flashcard-grid');
+            const flashcardData = [
+                { question: "What is the capital of Bihar?", answer: "Patna" },
+                { question: "What is the total area of Bihar?", answer: "94,163 sq km" },
+                { question: "State Animal of Bihar?", answer: "Ox" },
+                { question: "State Bird of Bihar?", answer: "Sparrow" },
+                { question: "What is the sex ratio in Bihar?", answer: "918 per 1000 males" },
+                { question: "Bihar's Literacy Rate?", answer: "61.8%" },
+                { question: "First President of India from Bihar?", answer: "Dr. Rajendra Prasad" },
+                { question: "First University in World?", answer: "Nalanda University" },
+                { question: "Where was Gandhi's First Satyagraha?", answer: "Champaran, Bihar" },
+                { question: "World's First Democratic Republic?", answer: "Vajji Sangh, Vaishali" }
+            ];
+
+            grid.innerHTML = flashcardData.map((card, idx) => `
+                <div class="flashcard-container" onclick="toggleFlashcard(this)">
+                    <div class="flashcard">
+                        <div class="flashcard-front">
+                            <div class="flashcard-label">Question</div>
+                            <div class="flashcard-content">${card.question}</div>
+                            <div class="flashcard-hint">Click to reveal answer</div>
+                        </div>
+                        <div class="flashcard-back">
+                            <div class="flashcard-label">Answer</div>
+                            <div class="flashcard-content">${card.answer}</div>
+                            <div class="flashcard-hint">Click to see question</div>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function toggleFlashcard(element) {
+            const card = element.querySelector('.flashcard');
+            card.classList.toggle('flipped');
         }
 
         function switchLearnTab(tabName) {
@@ -985,32 +1338,31 @@
             
             if (mode === 'learn') {
                 document.getElementById('learn-mode').classList.add('active');
+            } else if (mode === 'flashcard') {
+                document.getElementById('flashcard-mode').classList.add('active');
             } else if (mode === 'quiz') {
                 document.getElementById('quiz-mode').classList.add('active');
-                if (!quizStarted) {
+                if (!document.getElementById('quiz-content').innerHTML) {
                     loadQuiz();
-                    quizStarted = true;
                 }
             }
         }
 
         function loadQuiz() {
-            // Deep clone and shuffle questions
-            allQuestions = JSON.parse(JSON.stringify(quizData.questions));
-            allQuestions = shuffleArray(allQuestions);
+            allQuestions = [...quizQuestions].sort(() => Math.random() - 0.5);
             
-            // Shuffle options for EACH question
+            // Shuffle options for each question
             allQuestions.forEach(q => {
-                const correctOption = q.opts[q.ans];
-                q.opts = shuffleArray(q.opts);
-                q.ans = q.opts.indexOf(correctOption);
+                const correctAns = q.opts[q.ans];
+                const shuffled = shuffleArray([...q.opts]);
+                q.ans = shuffled.indexOf(correctAns);
+                q.opts = shuffled;
             });
             
             currentQuestion = 0;
             score = 0;
             selectedAnswers = [];
             wrongAnswers = [];
-            answered = false;
             displayQuestion();
         }
 
@@ -1046,95 +1398,63 @@
             
             html += `
                 </div>
-                <div id="feedback-container"></div>
+                <div id="explanation-container"></div>
                 <div class="quiz-buttons">
                     <button class="btn btn-secondary" onclick="previousQuestion()" ${currentQuestion === 0 ? 'disabled' : ''}>← Previous</button>
-                    <button class="btn btn-primary" onclick="nextQuestion()" id="next-btn" ${!answered ? 'disabled' : ''}>Next →</button>
+                    <button class="btn btn-primary" onclick="nextQuestion()" id="next-btn" disabled>Next →</button>
                 </div>
             `;
             
             quizContent.innerHTML = html;
-            answered = false;
+            showedExplanation = false;
         }
 
         function selectOption(index) {
-            if (answered) return;
-
             const options = document.querySelectorAll('.option');
-            const question = allQuestions[currentQuestion];
-            const isCorrect = index === question.ans;
-            
-            // Mark all options as disabled
-            options.forEach(opt => opt.classList.add('disabled'));
-            
-            // Show selected option
+            options.forEach(opt => opt.classList.remove('selected'));
             options[index].classList.add('selected');
             
-            // Show correct/incorrect styling
-            if (isCorrect) {
-                options[index].classList.add('correct');
-                score++;
-            } else {
-                options[index].classList.add('incorrect');
-                options[question.ans].classList.add('correct');
-                
-                // Track wrong answer
-                wrongAnswers.push({
-                    id: currentQuestion + 1,
-                    question: question.q,
-                    selected: question.opts[index],
-                    correct: question.opts[question.ans],
-                    explanation: question.exp,
-                    trivia: question.trivia
-                });
-            }
-            
             selectedAnswers[currentQuestion] = index;
-            
-            // Show feedback
-            showFeedback(isCorrect, question);
-            
-            answered = true;
             document.getElementById('next-btn').disabled = false;
+            
+            if (!showedExplanation) {
+                showExplanation(index);
+                showedExplanation = true;
+            }
         }
 
-        function showFeedback(isCorrect, question) {
-            const feedbackContainer = document.getElementById('feedback-container');
+        function showExplanation(selectedIndex) {
+            const question = allQuestions[currentQuestion];
+            const container = document.getElementById('explanation-container');
+            const isCorrect = selectedIndex === question.ans;
             
-            let feedbackHtml = `
-                <div class="feedback-box">
-                    <div class="feedback-header ${isCorrect ? 'feedback-correct' : 'feedback-incorrect'}">
-                        ${isCorrect ? '✓ CORRECT! Well Done!' : '✗ Wrong Answer'}
-                    </div>
-            `;
-            
-            if (!isCorrect) {
-                feedbackHtml += `
-                    <div style="margin-top: 1rem; padding: 1rem; background: rgba(213, 168, 168, 0.1); border-left: 4px solid var(--danger); border-radius: 0.5rem;">
-                        <div style="color: var(--danger); font-weight: 600; margin-bottom: 0.5rem;">❌ Your Answer: ${question.opts[selectedAnswers[currentQuestion]]}</div>
-                        <div style="color: var(--success); font-weight: 600;">✓ Correct Answer: ${question.opts[question.ans]}</div>
-                    </div>
-                `;
-            }
-            
-            feedbackHtml += `
-                <div class="explanation-section">
-                    <div class="explanation-label">📚 Explanation</div>
+            let html = `
+                <div class="explanation show">
+                    <div class="explanation-label">${isCorrect ? '✓ Correct!' : '✗ Review'}</div>
                     <div class="explanation-text">${question.exp}</div>
-                </div>
-                
-                <div class="trivia-box">
-                    <div class="trivia-label">🔍 Fun Fact / Trivia</div>
-                    <div class="trivia-text">${question.trivia}</div>
+                    ${isCorrect ? '' : '<div class="memory-tip">Try again next time — understanding the concept is key!</div>'}
                 </div>
             `;
             
-            feedbackHtml += `</div>`;
-            
-            feedbackContainer.innerHTML = feedbackHtml;
+            container.innerHTML = html;
         }
 
         function nextQuestion() {
+            const currentAnswer = selectedAnswers[currentQuestion];
+            const question = allQuestions[currentQuestion];
+            
+            if (currentAnswer !== undefined && question.ans === currentAnswer) {
+                score++;
+            } else {
+                wrongAnswers.push({
+                    id: currentQuestion + 1,
+                    question: question.q,
+                    selected: question.opts[currentAnswer] || 'Not answered',
+                    correct: question.opts[question.ans],
+                    explanation: question.exp
+                });
+            }
+            
             currentQuestion++;
             displayQuestion();
         }
@@ -1142,7 +1462,6 @@
         function previousQuestion() {
             if (currentQuestion > 0) {
                 currentQuestion--;
-                answered = selectedAnswers[currentQuestion] !== undefined;
                 displayQuestion();
             }
         }
@@ -1165,7 +1484,14 @@
             
             const resultsContent = document.getElementById('results-content');
             
-            let resultsHTML = `
+            let categoryHtml = '<div style="margin-top: 1rem;">';
+            Object.entries(categoryStats).forEach(([cat, stats]) => {
+                const catPercentage = Math.round((stats.correct / stats.total) * 100);
+                categoryHtml += `<div style="padding: 0.5rem; margin: 0.5rem 0; background: rgba(168, 213, 186, 0.05); border-left: 3px solid var(--accent-primary); border-radius: 0.25rem;"><strong style="text-transform: capitalize;">${cat}:</strong> ${stats.correct}/${stats.total} (${catPercentage}%)</div>`;
+            });
+            categoryHtml += '</div>';
+            
+            resultsContent.innerHTML = `
                 <div class="results-container">
                     <h2 style="font-size: 1.5rem; color: var(--text); margin-bottom: 1rem;">Quiz Complete!</h2>
                     <div class="score-display">${score}/${allQuestions.length}</div>
@@ -1187,82 +1513,45 @@
 
                     <div class="analysis-box">
                         <div class="analysis-title">📊 Performance by Category</div>
-                        <div style="margin-top: 1rem;">
-            `;
-            
-            Object.entries(categoryStats).forEach(([cat, stats]) => {
-                const catPercentage = Math.round((stats.correct / stats.total) * 100);
-                resultsHTML += `
-                    <div class="category-stat">
-                        <span class="category-name">${cat.toUpperCase()}</span>
-                        <span class="category-score">${stats.correct}/${stats.total} (${catPercentage}%)</span>
+                        ${categoryHtml}
                     </div>
-                `;
-            });
-            
-            resultsHTML += `
-                        </div>
-                    </div>
-            `;
-            
-            // Show wrong answers ONLY after quiz completion
-            if (wrongAnswers.length > 0) {
-                resultsHTML += `
+
+                    ${wrongAnswers.length > 0 ? `
                     <div class="analysis-box">
                         <div class="analysis-title">❌ Questions to Review (${wrongAnswers.length})</div>
-                        <p style="color: var(--muted); margin-bottom: 1rem; font-size: 0.9rem; text-align: center;">Click any question to practice again</p>
+                        <p style="color: var(--muted); margin-bottom: 1rem; font-size: 0.9rem;">Click any question to practice again</p>
                         <div class="wrong-questions">
-                            ${wrongAnswers.map((wa, idx) => `
+                            ${wrongAnswers.map(wa => `
                                 <div class="wrong-q-item" onclick="reviewWrongAnswer(${wa.id - 1})">
-                                    <div class="wrong-q-number">Q${wa.id}</div>
+                                    <div class="wrong-q-number">Question ${wa.id}</div>
                                     <div class="wrong-q-text">${wa.question}</div>
-                                    <div class="wrong-q-answer">
-                                        <div class="wrong-q-your">❌ Your answer: ${wa.selected}</div>
-                                        <div class="wrong-q-correct">✓ Correct: ${wa.correct}</div>
-                                    </div>
+                                    <div style="font-size: 0.85rem; color: var(--danger); margin-top: 0.5rem;">Your answer: ${wa.selected}</div>
+                                    <div style="font-size: 0.85rem; color: var(--success);">Correct: ${wa.correct}</div>
                                 </div>
                             `).join('')}
                         </div>
                     </div>
-                `;
-            } else {
-                resultsHTML += `
-                    <div class="analysis-box" style="background: rgba(168, 213, 186, 0.1); border-color: rgba(168, 213, 186, 0.3);">
-                        <p style="color: var(--success); text-align: center; font-weight: 600;">✓ Perfect! No questions to review!</p>
-                    </div>
-                `;
-            }
-            
-            resultsHTML += `
+                    ` : '<div class="analysis-box" style="background: rgba(168, 213, 186, 0.1); border-color: rgba(168, 213, 186, 0.3);"><p style="color: var(--success); text-align: center; font-weight: 600;">✓ Perfect! No questions to review!</p></div>'}
+
                     <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
                         <button class="btn btn-primary restart-btn" onclick="resetQuiz()">📚 Retake Quiz</button>
-                        <button class="btn btn-secondary restart-btn" onclick="switchToLearn()">📖 Return to Learn</button>
+                        <button class="btn btn-secondary restart-btn" onclick="switchMode('learn')" style="background: transparent; border: 2px solid var(--accent-primary);">📖 Return to Learn</button>
                     </div>
                 </div>
             `;
             
-            resultsContent.innerHTML = resultsHTML;
             document.getElementById('quiz-content').innerHTML = '';
         }
 
         function reviewWrongAnswer(qIndex) {
-            // Scroll to quiz
+            currentQuestion = qIndex;
+            displayQuestion();
             document.getElementById('quiz-mode').scrollIntoView({ behavior: 'smooth', block: 'start' });
-            // Show hint that these are practice questions from wrong answers
-            alert('Practice Mode: Answer this question to strengthen your understanding');
         }
 
         function resetQuiz() {
             document.getElementById('results-content').innerHTML = '';
-            quizStarted = false;
             loadQuiz();
-        }
-
-        function switchToLearn() {
-            document.querySelectorAll('.toggle-btn').forEach(btn => btn.classList.remove('active'));
-            document.querySelector('.toggle-btn').classList.add('active');
-            document.querySelectorAll('.mode-section').forEach(section => section.classList.remove('active'));
-            document.getElementById('learn-mode').classList.add('active');
         }
 
         // Initialize on page load
@@ -1270,3 +1559,5 @@
     </script>
 </body>
 </html>
+EOF
+cat /home/claude/chapter_1_enhanced.html | head -100
