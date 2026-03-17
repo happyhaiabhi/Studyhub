@@ -667,6 +667,16 @@
 
     <div class="categories-grid">
 
+      <!-- 0. Chapter 1: Introduction to Bihar -->
+      <a class="category-card" data-category="0" onclick="openChapter(0)">
+        <div class="card-content">
+          <span class="card-icon">📚</span>
+          <div class="card-number">Chapter 1</div>
+          <h2 class="card-title">Introduction to Bihar</h2>
+          <p class="card-description">Interactive learning with Learn & Quiz modes, flashcards, personalities, UNESCO sites, and comprehensive Bihar knowledge.</p>
+        </div>
+      </a>
+
       <!-- 1. Introduction of Bihar -->
       <a class="category-card" data-category="1" onclick="openChapter(1)">
         <div class="card-content">
@@ -821,6 +831,18 @@
   // ═══════════════════════════════════════════════════════════════════
   
   const chapters = {
+    0: {
+      title: "Chapter 1: Introduction to Bihar",
+      subtitle: "Interactive learning with Learn & Quiz modes",
+      learnDesc: "Explore Bihar through flashcards, info boxes, and interactive content",
+      quizDesc: "Test your knowledge with quiz questions",
+      accentColor: "#f59e0b",
+      isExternal: true,
+      externalFile: 'chapter_1.html',
+      learnContent: { sections: [], isEmpty: true },
+      quizContent: { questions: [], isEmpty: true }
+    },
+    
     1: {
       title: "An Introduction of Bihar",
       subtitle: "Overview, geography, demographics, and foundational knowledge",
@@ -1114,6 +1136,12 @@
   }
 
   async function openChapter(chapterNum) {
+    // Special handling for external Chapter 1
+    if (chapters[chapterNum].isExternal) {
+      openExternalChapter(chapterNum);
+      return;
+    }
+    
     // Load JSON data if configured and not yet loaded
     if (chapters[chapterNum].jsonFile && !chapters[chapterNum].isLoaded) {
       await loadJSONData(chapterNum);
@@ -1146,6 +1174,11 @@
     
     // Scroll to top
     window.scrollTo(0, 0);
+  }
+
+  function openExternalChapter(chapterNum) {
+    const chapter = chapters[chapterNum];
+    window.location.href = chapter.externalFile;
   }
 
   function closeChapter() {
