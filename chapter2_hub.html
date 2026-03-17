@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Chapter 2 — History of Bihar</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #0a0d14;
+    --surface: #111520;
+    --border: rgba(255,255,255,0.07);
+    --accent-ancient:  #f59e0b;   /* gold    — Section A */
+    --accent-medieval: #38bdf8;   /* sky     — Section B */
+    --accent-modern:   #4ade80;   /* green   — Section C */
+    --text: #e2e8f0;
+    --muted: #64748b;
+    --gold: #d4a853;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Grain overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Radial glow */
+  body::after {
+    content: '';
+    position: fixed;
+    top: -200px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 900px;
+    height: 420px;
+    background: radial-gradient(ellipse, rgba(212,168,83,0.07) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .wrapper {
+    position: relative;
+    z-index: 1;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 60px 24px 100px;
+  }
+
+  /* ── Breadcrumb ── */
+  .breadcrumb {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 48px;
+    animation: fadeDown 0.5s ease both;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .breadcrumb a {
+    color: var(--gold);
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+  .breadcrumb a:hover { opacity: 0.7; }
+  .breadcrumb span { opacity: 0.4; }
+
+  /* ── Header ── */
+  .header {
+    text-align: center;
+    margin-bottom: 64px;
+    animation: fadeDown 0.7s 0.05s ease both;
+  }
+
+  .eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+  }
+  .eyebrow::before, .eyebrow::after {
+    content: '';
+    width: 40px;
+    height: 1px;
+    background: var(--gold);
+    opacity: 0.4;
+  }
+
+  .chapter-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    color: var(--gold);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    opacity: 0.7;
+  }
+
+  .title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 6vw, 3.8rem);
+    font-weight: 900;
+    line-height: 1.1;
+    color: #fff;
+    margin-bottom: 14px;
+  }
+  .title span {
+    color: var(--gold);
+    display: block;
+  }
+
+  .subtitle {
+    font-size: 15px;
+    color: var(--muted);
+    font-weight: 300;
+    letter-spacing: 0.02em;
+  }
+
+  /* ── Stats ── */
+  .stats {
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+    margin-top: 36px;
+    padding-top: 36px;
+    border-top: 1px solid var(--border);
+    animation: fadeUp 0.8s 0.2s ease both;
+  }
+  .stat { text-align: center; }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--gold);
+    display: block;
+  }
+  .stat-label {
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-family: 'DM Mono', monospace;
+    margin-top: 4px;
+  }
+
+  /* ── Grid ── */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+    gap: 20px;
+  }
+
+  /* ── Card ── */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px 28px 24px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    animation: fadeUp 0.6s ease both;
+  }
+
+  .card:nth-child(1) { animation-delay: 0.15s; }
+  .card:nth-child(2) { animation-delay: 0.25s; }
+  .card:nth-child(3) { animation-delay: 0.35s; }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: inherit;
+  }
+
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  }
+  .card:hover::before { opacity: 1; }
+
+  /* Per-card accent */
+  .card[data-accent="ancient"]  { --c: var(--accent-ancient);  }
+  .card[data-accent="medieval"] { --c: var(--accent-medieval); }
+  .card[data-accent="modern"]   { --c: var(--accent-modern);   }
+
+  .card:hover { border-color: var(--c); }
+  .card::before { background: radial-gradient(circle at 30% 0%, color-mix(in srgb, var(--c) 8%, transparent), transparent 60%); }
+
+  /* Accent bar */
+  .card-bar {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--c);
+    border-radius: 16px 16px 0 0;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+  .card:hover .card-bar { transform: scaleX(1); }
+
+  /* Status dot — lights up green when file is detected */
+  .card-status {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--muted);
+    opacity: 0.35;
+    transition: background 0.3s, opacity 0.3s, box-shadow 0.3s;
+  }
+  .card.linked .card-status {
+    background: var(--c);
+    opacity: 1;
+    box-shadow: 0 0 8px var(--c);
+  }
+
+  .card-icon {
+    font-size: 2rem;
+    margin-bottom: 16px;
+    display: block;
+    line-height: 1;
+  }
+
+  .card-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--c);
+    margin-bottom: 8px;
+    opacity: 0.85;
+  }
+
+  .card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+
+  .card-desc {
+    font-size: 13.5px;
+    color: var(--muted);
+    line-height: 1.65;
+    font-weight: 300;
+  }
+
+  .card-footer {
+    margin-top: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .card-chips {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+
+  .chip {
+    font-size: 10px;
+    font-family: 'DM Mono', monospace;
+    padding: 3px 8px;
+    border-radius: 99px;
+    background: rgba(255,255,255,0.05);
+    color: var(--muted);
+    border: 1px solid rgba(255,255,255,0.07);
+  }
+
+  .open-btn {
+    font-size: 11px;
+    font-family: 'DM Mono', monospace;
+    color: var(--c);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    white-space: nowrap;
+  }
+  .card:hover .open-btn { opacity: 1; }
+
+  /* Locked state */
+  .card.locked {
+    pointer-events: none;
+    opacity: 0.45;
+  }
+  .card.locked .open-btn { display: none; }
+  .lock-label {
+    font-size: 10px;
+    font-family: 'DM Mono', monospace;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    opacity: 0.6;
+  }
+
+  /* Section letter badge */
+  .section-badge {
+    position: absolute;
+    bottom: 24px;
+    right: 24px;
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    font-weight: 900;
+    color: var(--c);
+    opacity: 0.05;
+    line-height: 1;
+    transition: opacity 0.3s;
+    pointer-events: none;
+    user-select: none;
+  }
+  .card:hover .section-badge { opacity: 0.09; }
+
+  /* ── Notice banner ── */
+  .notice {
+    background: rgba(212,168,83,0.06);
+    border: 1px solid rgba(212,168,83,0.15);
+    border-radius: 10px;
+    padding: 14px 20px;
+    margin-bottom: 36px;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--gold);
+    letter-spacing: 0.06em;
+    animation: fadeUp 0.6s 0.1s ease both;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .notice::before { content: 'ℹ'; font-size: 14px; }
+
+  /* ── Animations ── */
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 640px) {
+    .stats { gap: 24px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <a href="bihar_bpsc_master.html">← Bihar Special</a>
+    <span>/</span>
+    <a href="studyhub__5_.html">Study Hub</a>
+    <span>/</span>
+    <span>Chapter 2 — History</span>
+  </div>
+
+  <!-- Header -->
+  <div class="header">
+    <div class="eyebrow">BPSC · History · Bihar</div>
+    <div class="chapter-label">Chapter 2</div>
+    <h1 class="title">
+      History of Bihar
+      <span>बिहार का इतिहास</span>
+    </h1>
+    <p class="subtitle">Three eras · From ancient civilisations to the modern age.</p>
+
+    <div class="stats">
+      <div class="stat">
+        <span class="stat-num">3</span>
+        <span class="stat-label">Sections</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num" id="linked-count">0</span>
+        <span class="stat-label">Loaded</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">∞</span>
+        <span class="stat-label">Practice</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Notice -->
+  <div class="notice">
+    Save the section HTML files alongside this page — they auto-link instantly.
+  </div>
+
+  <!-- Cards -->
+  <div class="grid" id="card-grid">
+
+    <!-- Section A — Ancient History -->
+    <a class="card" data-accent="ancient" id="card-a"
+       href="chapter2_sectionA_ancient_history_bihar.html">
+      <div class="card-bar"></div>
+      <div class="card-status"></div>
+      <span class="card-icon">🏺</span>
+      <div class="card-tag">Section A · Ancient History</div>
+      <div class="card-title">Ancient History of Bihar</div>
+      <div class="card-desc">
+        From the Vedic age to the Maurya and Gupta empires — Magadha, Nalanda, Bodh Gaya, Vaishali
+        and the roots of Bihar's civilisational legacy.
+      </div>
+      <div class="card-footer">
+        <div class="card-chips">
+          <span class="chip">Magadha</span>
+          <span class="chip">Maurya</span>
+          <span class="chip">Gupta</span>
+          <span class="chip">Nalanda</span>
+        </div>
+        <span class="open-btn">Open ↗</span>
+      </div>
+      <div class="section-badge">A</div>
+    </a>
+
+    <!-- Section B — Medieval History -->
+    <a class="card" data-accent="medieval" id="card-b"
+       href="chapter2_sectionB_medieval_history_bihar.html">
+      <div class="card-bar"></div>
+      <div class="card-status"></div>
+      <span class="card-icon">🕌</span>
+      <div class="card-tag">Section B · Medieval History</div>
+      <div class="card-title">Medieval History of Bihar</div>
+      <div class="card-desc">
+        Pala dynasty, Sultanate period, Sher Shah Suri and the Mughal era —
+        the turbulent medieval centuries that shaped Bihar's culture and governance.
+      </div>
+      <div class="card-footer">
+        <div class="card-chips">
+          <span class="chip">Palas</span>
+          <span class="chip">Sultanate</span>
+          <span class="chip">Sher Shah</span>
+          <span class="chip">Mughals</span>
+        </div>
+        <span class="open-btn">Open ↗</span>
+      </div>
+      <div class="section-badge">B</div>
+    </a>
+
+    <!-- Section C — Modern History -->
+    <a class="card" data-accent="modern" id="card-c"
+       href="chapter2_sectionC_modern_history_bihar.html">
+      <div class="card-bar"></div>
+      <div class="card-status"></div>
+      <span class="card-icon">📜</span>
+      <div class="card-tag">Section C · Modern History</div>
+      <div class="card-title">Modern History of Bihar</div>
+      <div class="card-desc">
+        British rule, the 1857 revolt, Champaran Satyagraha, Bihar's role in the independence
+        movement and the events leading to statehood.
+      </div>
+      <div class="card-footer">
+        <div class="card-chips">
+          <span class="chip">British Era</span>
+          <span class="chip">1857</span>
+          <span class="chip">Champaran</span>
+          <span class="chip">Independence</span>
+        </div>
+        <span class="open-btn">Open ↗</span>
+      </div>
+      <div class="section-badge">C</div>
+    </a>
+
+  </div>
+
+</div>
+
+<script>
+  /**
+   * Auto-link detection
+   * -------------------
+   * For each card, we try to HEAD-fetch its href.
+   * If the file exists (status 200 / 304), we mark it "linked".
+   * Works when all files live in the same folder on a local server
+   * or any web host. Falls back gracefully when fetch is blocked.
+   */
+  const cards = [
+    { id: 'card-a', href: 'chapter2_sectionA_ancient_history_bihar.html' },
+    { id: 'card-b', href: 'chapter2_sectionB_medieval_history_bihar.html' },
+    { id: 'card-c', href: 'chapter2_sectionC_modern_history_bihar.html' },
+  ];
+
+  let linkedCount = 0;
+
+  async function checkFile(cardId, href) {
+    try {
+      const res = await fetch(href, { method: 'HEAD', cache: 'no-store' });
+      if (res.ok) {
+        const card = document.getElementById(cardId);
+        card.classList.add('linked');
+        card.classList.remove('locked');
+        linkedCount++;
+        document.getElementById('linked-count').textContent = linkedCount;
+      }
+    } catch (_) {
+      /* Network blocked or file missing — stays in default state */
+    }
+  }
+
+  // Run checks on load
+  cards.forEach(({ id, href }) => checkFile(id, href));
+
+  // Re-check every 5 s so newly saved files appear without a page reload
+  setInterval(() => {
+    linkedCount = 0;
+    document.getElementById('linked-count').textContent = '…';
+    document.querySelectorAll('.card').forEach(c => c.classList.remove('linked'));
+    cards.forEach(({ id, href }) => checkFile(id, href));
+  }, 5000);
+</script>
+</body>
+</html>
