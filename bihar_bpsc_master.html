@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Bihar Special — Complete Study Guide</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <style>
   :root {
     --bg: #0a0d14;
@@ -35,7 +35,6 @@
     overflow-x: hidden;
   }
 
-  /* Background grain & glow */
   body::before {
     content: '';
     position: fixed;
@@ -66,8 +65,26 @@
     padding: 60px 24px 80px;
   }
 
-  /* ── Header ── */
-  .header {
+  /* ── Categories View ── */
+  .categories-view {
+    display: block;
+  }
+
+  .categories-view.hidden {
+    display: none;
+  }
+
+  /* ── Chapter View ── */
+  .chapter-view {
+    display: none;
+  }
+
+  .chapter-view.active {
+    display: block;
+  }
+
+  /* ── Header Section ── */
+  .header-section {
     text-align: center;
     margin-bottom: 72px;
     animation: fadeDown 0.7s ease both;
@@ -110,7 +127,6 @@
     margin-top: 12px;
   }
 
-  /* ── Section Stats ── */
   .section-stats {
     display: flex;
     justify-content: center;
@@ -177,7 +193,6 @@
   .category-card:nth-child(7) { animation-delay: 0.48s; }
   .category-card:nth-child(8) { animation-delay: 0.54s; }
 
-  /* Accent colors per card */
   .category-card[data-category="1"]  { --accent: var(--accent-intro); }
   .category-card[data-category="2"]  { --accent: var(--accent-history); }
   .category-card[data-category="3"]  { --accent: var(--accent-geo); }
@@ -187,7 +202,6 @@
   .category-card[data-category="7"]  { --accent: var(--accent-culture); }
   .category-card[data-category="8"]  { --accent: var(--accent-other); }
 
-  /* Hover effects */
   .category-card:hover {
     transform: translateY(-6px);
     border-color: var(--accent);
@@ -213,7 +227,6 @@
     transform: scaleX(1);
   }
 
-  /* Glow background on hover */
   .category-card::after {
     content: '';
     position: absolute;
@@ -268,8 +281,150 @@
     color: var(--muted);
     line-height: 1.7;
     font-weight: 300;
-    margin-bottom: 16px;
     flex-grow: 1;
+  }
+
+  /* ── Chapter View Styles ── */
+  .chapter-header {
+    margin-bottom: 48px;
+    animation: fadeDown 0.7s ease both;
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--gold);
+    text-decoration: none;
+    margin-bottom: 20px;
+    transition: gap 0.2s ease;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+  }
+
+  .back-link:hover {
+    gap: 12px;
+  }
+
+  .chapter-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 6vw, 3.5rem);
+    font-weight: 900;
+    line-height: 1.1;
+    color: #fff;
+    margin-bottom: 16px;
+    letter-spacing: -0.02em;
+  }
+
+  .chapter-subtitle {
+    font-size: 14px;
+    color: var(--muted);
+    font-weight: 300;
+    letter-spacing: 0.02em;
+  }
+
+  .mode-toggle-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 48px;
+    animation: fadeUp 0.8s 0.2s ease both;
+  }
+
+  .mode-toggle {
+    display: flex;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 4px;
+    gap: 4px;
+  }
+
+  .mode-btn {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 12px 28px;
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .mode-btn.active {
+    background: var(--accent);
+    color: #fff;
+    box-shadow: 0 8px 24px rgba(245, 158, 11, 0.2);
+  }
+
+  .mode-btn:hover:not(.active) {
+    color: var(--text);
+  }
+
+  .content-section {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    animation: fadeUp 0.6s ease both;
+  }
+
+  .content-section.active {
+    display: block;
+    opacity: 1;
+  }
+
+  .learn-container, .quiz-container {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 40px;
+  }
+
+  .learn-header, .quiz-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+
+  .learn-icon, .quiz-icon {
+    font-size: 2.5rem;
+    line-height: 1;
+  }
+
+  .learn-header-text h2, .quiz-header-text h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+
+  .learn-header-text p, .quiz-header-text p {
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  .placeholder-text {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  .placeholder-text p {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+
+  .placeholder-text span {
+    font-weight: 500;
   }
 
   /* ── Footer ── */
@@ -346,8 +501,22 @@
       font-size: 12px;
     }
 
-    .topics-list {
-      font-size: 11px;
+    .chapter-title {
+      font-size: 2rem;
+    }
+
+    .learn-container, .quiz-container {
+      padding: 24px;
+    }
+
+    .learn-header, .quiz-header {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .mode-btn {
+      padding: 10px 20px;
+      font-size: 12px;
     }
   }
 
@@ -356,25 +525,21 @@
       font-size: 1.8rem;
     }
 
-    .section-stats {
-      gap: 24px;
-      margin-top: 28px;
+    .chapter-title {
+      font-size: 1.6rem;
     }
 
-    .section-stat-num {
-      font-size: 1.5rem;
+    .mode-toggle {
+      flex-direction: column;
+      width: 100%;
     }
 
-    .card-icon {
-      font-size: 2rem;
+    .mode-btn {
+      width: 100%;
     }
 
-    .card-title {
-      font-size: 1.05rem;
-    }
-
-    .card-description {
-      font-size: 11px;
+    .learn-container, .quiz-container {
+      padding: 20px;
     }
   }
 </style>
@@ -382,121 +547,291 @@
 <body>
 <div class="wrapper">
 
-  <!-- Header -->
-  <div class="header">
-    <div class="breadcrumb">Bihar Special Complete Guide</div>
-    <h1 class="main-title">
-      Bihar Special
-      <span>बिहार विशेष</span>
-    </h1>
-    <p class="main-subtitle">Complete study guide for BPSC & UPSC civil service examinations</p>
+  <!-- ═══════════════════════════════════ CATEGORIES VIEW ═══════════════════════════════════ -->
+  <div class="categories-view" id="categoriesView">
+    
+    <div class="header-section">
+      <div class="breadcrumb">Bihar Special Complete Guide</div>
+      <h1 class="main-title">
+        Bihar Special
+        <span>बिहार विशेष</span>
+      </h1>
+      <p class="main-subtitle">Complete study guide for BPSC & UPSC civil service examinations</p>
 
-    <div class="section-stats">
-      <div class="section-stat">
-        <span class="section-stat-num">8</span>
-        <span class="section-stat-label">Categories</span>
-      </div>
-      <div class="section-stat">
-        <span class="section-stat-num">454</span>
-        <span class="section-stat-label">Pages</span>
-      </div>
-      <div class="section-stat">
-        <span class="section-stat-num">50+</span>
-        <span class="section-stat-label">Topics</span>
+      <div class="section-stats">
+        <div class="section-stat">
+          <span class="section-stat-num">8</span>
+          <span class="section-stat-label">Categories</span>
+        </div>
+        <div class="section-stat">
+          <span class="section-stat-num">454</span>
+          <span class="section-stat-label">Pages</span>
+        </div>
+        <div class="section-stat">
+          <span class="section-stat-num">50+</span>
+          <span class="section-stat-label">Topics</span>
+        </div>
       </div>
     </div>
+
+    <div class="categories-grid">
+
+      <!-- 1. Introduction of Bihar -->
+      <a class="category-card" data-category="1" onclick="openChapter(1)">
+        <div class="card-content">
+          <span class="card-icon">🏛️</span>
+          <div class="card-number">Category 01</div>
+          <h2 class="card-title">An Introduction of Bihar</h2>
+          <p class="card-description">Overview and foundational knowledge about Bihar — geography, demographics, political structure, and socio-economic indicators.</p>
+        </div>
+      </a>
+
+      <!-- 2. History of Bihar -->
+      <a class="category-card" data-category="2" onclick="openChapter(2)">
+        <div class="card-content">
+          <span class="card-icon">📜</span>
+          <div class="card-number">Category 02</div>
+          <h2 class="card-title">History of Bihar</h2>
+          <p class="card-description">Comprehensive history from ancient times through independence — empires, dynasties, movements, and the freedom struggle.</p>
+        </div>
+      </a>
+
+      <!-- 3. Geography of Bihar -->
+      <a class="category-card" data-category="3" onclick="openChapter(3)">
+        <div class="card-content">
+          <span class="card-icon">🗺️</span>
+          <div class="card-number">Category 03</div>
+          <h2 class="card-title">Geography of Bihar</h2>
+          <p class="card-description">Physical and human geography — terrain, climate, natural resources, wildlife, and ecological characteristics of Bihar.</p>
+        </div>
+      </a>
+
+      <!-- 4. Census of Bihar: 2011 -->
+      <a class="category-card" data-category="4" onclick="openChapter(4)">
+        <div class="card-content">
+          <span class="card-icon">📊</span>
+          <div class="card-number">Category 04</div>
+          <h2 class="card-title">Census of Bihar: 2011</h2>
+          <p class="card-description">Demographic data, population statistics, literacy rates, sex ratio, and key census indicators for Bihar from the 2011 census.</p>
+        </div>
+      </a>
+
+      <!-- 5. Economy of Bihar -->
+      <a class="category-card" data-category="5" onclick="openChapter(5)">
+        <div class="card-content">
+          <span class="card-icon">💼</span>
+          <div class="card-number">Category 05</div>
+          <h2 class="card-title">Economy of Bihar</h2>
+          <p class="card-description">Economic structure, sectors, development — agriculture, industry, infrastructure, banking, and post-pandemic recovery initiatives.</p>
+        </div>
+      </a>
+
+      <!-- 6. Bihar Polity -->
+      <a class="category-card" data-category="6" onclick="openChapter(6)">
+        <div class="card-content">
+          <span class="card-icon">⚖️</span>
+          <div class="card-number">Category 06</div>
+          <h2 class="card-title">Bihar Polity</h2>
+          <p class="card-description">State administration, governance structure, executive, legislature, judiciary, BPSC, and local governance systems.</p>
+        </div>
+      </a>
+
+      <!-- 7. Art, Culture & Heritage -->
+      <a class="category-card" data-category="7" onclick="openChapter(7)">
+        <div class="card-content">
+          <span class="card-icon">🎭</span>
+          <div class="card-number">Category 07</div>
+          <h2 class="card-title">Art, Culture & Heritage of Bihar</h2>
+          <p class="card-description">Rich cultural heritage — visual arts, performing arts, traditions, and the artistic legacy that defines Bihar's identity.</p>
+        </div>
+      </a>
+
+      <!-- 8. Other Areas of Bihar -->
+      <a class="category-card" data-category="8" onclick="openChapter(8)">
+        <div class="card-content">
+          <span class="card-icon">🌐</span>
+          <div class="card-number">Category 08</div>
+          <h2 class="card-title">Other Areas of Bihar</h2>
+          <p class="card-description">Education, tourism, disaster management, sports, notable personalities, and important abbreviations for comprehensive BPSC prep.</p>
+        </div>
+      </a>
+
+    </div>
+
+    <div class="footer">
+      <p class="footer-text">Bihar Special — A comprehensive guide for <span>BPSC</span> & <span>UPSC</span> Civil Service Aspirants</p>
+    </div>
+
   </div>
 
-  <!-- Category Cards Grid -->
-  <div class="categories-grid">
+  <!-- ═══════════════════════════════════ CHAPTER VIEW ═══════════════════════════════════ -->
+  <div class="chapter-view" id="chapterView">
+    
+    <div class="chapter-header">
+      <button class="back-link" onclick="closeChapter()">← Back to Categories</button>
+      <h1 class="chapter-title" id="chapterTitle">Chapter Title</h1>
+      <p class="chapter-subtitle" id="chapterSubtitle">Chapter description</p>
+    </div>
 
-    <!-- 1. Introduction of Bihar -->
-    <a class="category-card" data-category="1" href="bihar_introduction.html">
-      <div class="card-content">
-        <span class="card-icon">🏛️</span>
-        <div class="card-number">Category 01</div>
-        <h2 class="card-title">An Introduction of Bihar</h2>
-        <p class="card-description">Overview and foundational knowledge about Bihar — geography, demographics, political structure, and socio-economic indicators.</p>
+    <div class="mode-toggle-section">
+      <div class="mode-toggle">
+        <button class="mode-btn active" data-mode="learn" onclick="switchMode('learn')">📚 Learn</button>
+        <button class="mode-btn" data-mode="quiz" onclick="switchMode('quiz')">❓ Quiz</button>
       </div>
-    </a>
+    </div>
 
-    <!-- 2. History of Bihar -->
-    <a class="category-card" data-category="2" href="bihar_history.html">
-      <div class="card-content">
-        <span class="card-icon">📜</span>
-        <div class="card-number">Category 02</div>
-        <h2 class="card-title">History of Bihar</h2>
-        <p class="card-description">Comprehensive history from ancient times through independence — empires, dynasties, movements, and the freedom struggle.</p>
+    <div class="content-section active" id="learnSection">
+      <div class="learn-container">
+        <div class="learn-header">
+          <div class="learn-icon">📚</div>
+          <div class="learn-header-text">
+            <h2>Learn Mode</h2>
+            <p id="learnDescription">Study the chapter content in detail</p>
+          </div>
+        </div>
+
+        <div class="learn-content">
+          <div class="placeholder-text">
+            <p id="learnPlaceholder">📖 <span>Chapter content coming soon</span></p>
+            <p style="font-size: 14px; margin-top: 12px;">The detailed learning material for this chapter will be added here</p>
+          </div>
+        </div>
       </div>
-    </a>
+    </div>
 
-    <!-- 3. Geography of Bihar -->
-    <a class="category-card" data-category="3" href="bihar_geography.html">
-      <div class="card-content">
-        <span class="card-icon">🗺️</span>
-        <div class="card-number">Category 03</div>
-        <h2 class="card-title">Geography of Bihar</h2>
-        <p class="card-description">Physical and human geography — terrain, climate, natural resources, wildlife, and ecological characteristics of Bihar.</p>
+    <div class="content-section" id="quizSection">
+      <div class="quiz-container">
+        <div class="quiz-header">
+          <div class="quiz-icon">❓</div>
+          <div class="quiz-header-text">
+            <h2>Quiz Mode</h2>
+            <p id="quizDescription">Test your knowledge with questions</p>
+          </div>
+        </div>
+
+        <div class="quiz-content">
+          <div class="placeholder-text">
+            <p id="quizPlaceholder">❓ <span>Quiz questions coming soon</span></p>
+            <p style="font-size: 14px; margin-top: 12px;">Interactive quiz questions for this chapter will be added here</p>
+          </div>
+        </div>
       </div>
-    </a>
+    </div>
 
-    <!-- 4. Census of Bihar: 2011 -->
-    <a class="category-card" data-category="4" href="bihar_census_2011.html">
-      <div class="card-content">
-        <span class="card-icon">📊</span>
-        <div class="card-number">Category 04</div>
-        <h2 class="card-title">Census of Bihar: 2011</h2>
-        <p class="card-description">Demographic data, population statistics, literacy rates, sex ratio, and key census indicators for Bihar from the 2011 census.</p>
-      </div>
-    </a>
-
-    <!-- 5. Economy of Bihar -->
-    <a class="category-card" data-category="5" href="bihar_economy.html">
-      <div class="card-content">
-        <span class="card-icon">💼</span>
-        <div class="card-number">Category 05</div>
-        <h2 class="card-title">Economy of Bihar</h2>
-        <p class="card-description">Economic structure, sectors, development — agriculture, industry, infrastructure, banking, and post-pandemic recovery initiatives.</p>
-      </div>
-    </a>
-
-    <!-- 6. Bihar Polity -->
-    <a class="category-card" data-category="6" href="bihar_polity.html">
-      <div class="card-content">
-        <span class="card-icon">⚖️</span>
-        <div class="card-number">Category 06</div>
-        <h2 class="card-title">Bihar Polity</h2>
-        <p class="card-description">State administration, governance structure, executive, legislature, judiciary, BPSC, and local governance systems.</p>
-      </div>
-    </a>
-
-    <!-- 7. Art, Culture & Heritage -->
-    <a class="category-card" data-category="7" href="bihar_culture.html">
-      <div class="card-content">
-        <span class="card-icon">🎭</span>
-        <div class="card-number">Category 07</div>
-        <h2 class="card-title">Art, Culture & Heritage of Bihar</h2>
-        <p class="card-description">Rich cultural heritage — visual arts, performing arts, traditions, and the artistic legacy that defines Bihar's identity.</p>
-      </div>
-    </a>
-
-    <!-- 8. Other Areas of Bihar -->
-    <a class="category-card" data-category="8" href="bihar_other_areas.html">
-      <div class="card-content">
-        <span class="card-icon">🌐</span>
-        <div class="card-number">Category 08</div>
-        <h2 class="card-title">Other Areas of Bihar</h2>
-        <p class="card-description">Education, tourism, disaster management, sports, notable personalities, and important abbreviations for comprehensive BPSC prep.</p>
-      </div>
-    </a>
-
-  </div>
-
-  <!-- Footer -->
-  <div class="footer">
-    <p class="footer-text">Bihar Special — A comprehensive guide for <span>BPSC</span> & <span>UPSC</span> Civil Service Aspirants</p>
   </div>
 
 </div>
+
+<script>
+  // Chapter Data
+  const chapters = {
+    1: {
+      title: "An Introduction of Bihar",
+      subtitle: "Overview, geography, demographics, and foundational knowledge",
+      learnDesc: "Study the detailed introduction to Bihar",
+      quizDesc: "Test your knowledge about Bihar's introduction",
+      accentColor: "#f59e0b"
+    },
+    2: {
+      title: "History of Bihar",
+      subtitle: "Ancient, Medieval, and Modern history covering empires, dynasties, and the freedom movement",
+      learnDesc: "Study Bihar's rich historical heritage",
+      quizDesc: "Test your historical knowledge",
+      accentColor: "#ef4444"
+    },
+    3: {
+      title: "Geography of Bihar",
+      subtitle: "Terrain, climate, natural resources, wildlife, and ecological characteristics",
+      learnDesc: "Explore Bihar's geographical features",
+      quizDesc: "Test your geographical knowledge",
+      accentColor: "#38bdf8"
+    },
+    4: {
+      title: "Census of Bihar: 2011",
+      subtitle: "Demographic data, population statistics, literacy rates, and key indicators",
+      learnDesc: "Study Bihar's census data and demographics",
+      quizDesc: "Test your knowledge of Bihar's census",
+      accentColor: "#8b5cf6"
+    },
+    5: {
+      title: "Economy of Bihar",
+      subtitle: "Economic structure, agriculture, industry, infrastructure, and development sectors",
+      learnDesc: "Understand Bihar's economic landscape",
+      quizDesc: "Test your economic knowledge",
+      accentColor: "#10b981"
+    },
+    6: {
+      title: "Bihar Polity",
+      subtitle: "State governance, executive, legislature, judiciary, and administrative systems",
+      learnDesc: "Study Bihar's political system and governance",
+      quizDesc: "Test your political knowledge",
+      accentColor: "#f97316"
+    },
+    7: {
+      title: "Art, Culture & Heritage of Bihar",
+      subtitle: "Visual arts, performing arts, traditions, and the cultural legacy",
+      learnDesc: "Explore Bihar's rich cultural heritage",
+      quizDesc: "Test your cultural knowledge",
+      accentColor: "#ec4899"
+    },
+    8: {
+      title: "Other Areas of Bihar",
+      subtitle: "Education, tourism, disaster management, sports, and notable personalities",
+      learnDesc: "Discover other important aspects of Bihar",
+      quizDesc: "Test your general knowledge",
+      accentColor: "#06b6d4"
+    }
+  };
+
+  function openChapter(chapterNum) {
+    const chapter = chapters[chapterNum];
+    
+    // Update chapter view content
+    document.getElementById('chapterTitle').textContent = chapter.title;
+    document.getElementById('chapterSubtitle').textContent = chapter.subtitle;
+    document.getElementById('learnDescription').textContent = chapter.learnDesc;
+    document.getElementById('quizDescription').textContent = chapter.quizDesc;
+    
+    // Set accent color
+    const root = document.documentElement;
+    root.style.setProperty('--accent', chapter.accentColor);
+    
+    // Update mode buttons color
+    document.querySelectorAll('.mode-btn').forEach(btn => {
+      btn.style.setProperty('--accent', chapter.accentColor);
+    });
+    
+    // Switch views
+    document.getElementById('categoriesView').classList.add('hidden');
+    document.getElementById('chapterView').classList.add('active');
+    
+    // Reset to learn mode
+    switchMode('learn');
+    
+    // Scroll to top
+    window.scrollTo(0, 0);
+  }
+
+  function closeChapter() {
+    document.getElementById('categoriesView').classList.remove('hidden');
+    document.getElementById('chapterView').classList.remove('active');
+    window.scrollTo(0, 0);
+  }
+
+  function switchMode(mode) {
+    document.getElementById('learnSection').classList.remove('active');
+    document.getElementById('quizSection').classList.remove('active');
+    document.querySelectorAll('.mode-btn').forEach(btn => btn.classList.remove('active'));
+
+    if (mode === 'learn') {
+      document.getElementById('learnSection').classList.add('active');
+      document.querySelector('[data-mode="learn"]').classList.add('active');
+    } else if (mode === 'quiz') {
+      document.getElementById('quizSection').classList.add('active');
+      document.querySelector('[data-mode="quiz"]').classList.add('active');
+    }
+  }
+</script>
+
 </body>
 </html>
