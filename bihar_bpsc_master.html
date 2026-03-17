@@ -427,6 +427,97 @@
     font-weight: 500;
   }
 
+  /* Learn Content Styles */
+  .learn-content {
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--text);
+  }
+
+  .learn-content h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    margin-top: 32px;
+    margin-bottom: 16px;
+    color: var(--accent);
+  }
+
+  .learn-content p {
+    margin-bottom: 16px;
+    color: var(--muted);
+  }
+
+  .learn-content ul {
+    margin-left: 24px;
+    margin-bottom: 16px;
+  }
+
+  .learn-content li {
+    margin-bottom: 12px;
+    color: var(--muted);
+  }
+
+  /* Quiz Content Styles */
+  .quiz-content {
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--text);
+  }
+
+  .quiz-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 24px;
+  }
+
+  .question-text {
+    font-weight: 500;
+    margin-bottom: 16px;
+    color: #fff;
+  }
+
+  .options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: transparent;
+  }
+
+  .option:hover {
+    border-color: var(--accent);
+    background: rgba(245, 158, 11, 0.05);
+  }
+
+  .option-radio {
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--border);
+    border-radius: 50%;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+  }
+
+  .option:hover .option-radio {
+    border-color: var(--accent);
+  }
+
+  .option-text {
+    font-size: 14px;
+  }
+
   /* ── Footer ── */
   .footer {
     margin-top: 64px;
@@ -680,6 +771,7 @@
       </div>
     </div>
 
+    <!-- LEARN SECTION -->
     <div class="content-section active" id="learnSection">
       <div class="learn-container">
         <div class="learn-header">
@@ -690,15 +782,16 @@
           </div>
         </div>
 
-        <div class="learn-content">
+        <div id="learnContentArea">
           <div class="placeholder-text">
-            <p id="learnPlaceholder">📖 <span>Chapter content coming soon</span></p>
+            <p>📖 <span>Content coming soon</span></p>
             <p style="font-size: 14px; margin-top: 12px;">The detailed learning material for this chapter will be added here</p>
           </div>
         </div>
       </div>
     </div>
 
+    <!-- QUIZ SECTION -->
     <div class="content-section" id="quizSection">
       <div class="quiz-container">
         <div class="quiz-header">
@@ -709,9 +802,9 @@
           </div>
         </div>
 
-        <div class="quiz-content">
+        <div id="quizContentArea">
           <div class="placeholder-text">
-            <p id="quizPlaceholder">❓ <span>Quiz questions coming soon</span></p>
+            <p>❓ <span>Quiz questions coming soon</span></p>
             <p style="font-size: 14px; margin-top: 12px;">Interactive quiz questions for this chapter will be added here</p>
           </div>
         </div>
@@ -723,67 +816,298 @@
 </div>
 
 <script>
-  // Chapter Data
+  // ═══════════════════════════════════════════════════════════════════
+  // CHAPTER DATA STRUCTURE - Add your content here
+  // ═══════════════════════════════════════════════════════════════════
+  
   const chapters = {
     1: {
       title: "An Introduction of Bihar",
       subtitle: "Overview, geography, demographics, and foundational knowledge",
       learnDesc: "Study the detailed introduction to Bihar",
       quizDesc: "Test your knowledge about Bihar's introduction",
-      accentColor: "#f59e0b"
+      accentColor: "#f59e0b",
+      
+      // Load from external JSON file (same folder as HTML)
+      jsonFile: 'bihar_gk_quiz.json',
+      isLoaded: false,
+      
+      learnContent: {
+        sections: [],
+        isEmpty: true
+      },
+      
+      quizContent: {
+        questions: [],
+        isEmpty: true
+      }
     },
+    
     2: {
       title: "History of Bihar",
       subtitle: "Ancient, Medieval, and Modern history covering empires, dynasties, and the freedom movement",
       learnDesc: "Study Bihar's rich historical heritage",
       quizDesc: "Test your historical knowledge",
-      accentColor: "#ef4444"
+      accentColor: "#ef4444",
+      learnContent: { sections: [], isEmpty: true },
+      quizContent: { questions: [], isEmpty: true }
     },
+    
     3: {
       title: "Geography of Bihar",
       subtitle: "Terrain, climate, natural resources, wildlife, and ecological characteristics",
       learnDesc: "Explore Bihar's geographical features",
       quizDesc: "Test your geographical knowledge",
-      accentColor: "#38bdf8"
+      accentColor: "#38bdf8",
+      learnContent: { sections: [], isEmpty: true },
+      quizContent: { questions: [], isEmpty: true }
     },
+    
     4: {
       title: "Census of Bihar: 2011",
       subtitle: "Demographic data, population statistics, literacy rates, and key indicators",
       learnDesc: "Study Bihar's census data and demographics",
       quizDesc: "Test your knowledge of Bihar's census",
-      accentColor: "#8b5cf6"
+      accentColor: "#8b5cf6",
+      learnContent: { sections: [], isEmpty: true },
+      quizContent: { questions: [], isEmpty: true }
     },
+    
     5: {
       title: "Economy of Bihar",
       subtitle: "Economic structure, agriculture, industry, infrastructure, and development sectors",
       learnDesc: "Understand Bihar's economic landscape",
       quizDesc: "Test your economic knowledge",
-      accentColor: "#10b981"
+      accentColor: "#10b981",
+      learnContent: { sections: [], isEmpty: true },
+      quizContent: { questions: [], isEmpty: true }
     },
+    
     6: {
       title: "Bihar Polity",
       subtitle: "State governance, executive, legislature, judiciary, and administrative systems",
       learnDesc: "Study Bihar's political system and governance",
       quizDesc: "Test your political knowledge",
-      accentColor: "#f97316"
+      accentColor: "#f97316",
+      learnContent: { sections: [], isEmpty: true },
+      quizContent: { questions: [], isEmpty: true }
     },
+    
     7: {
       title: "Art, Culture & Heritage of Bihar",
       subtitle: "Visual arts, performing arts, traditions, and the cultural legacy",
       learnDesc: "Explore Bihar's rich cultural heritage",
       quizDesc: "Test your cultural knowledge",
-      accentColor: "#ec4899"
+      accentColor: "#ec4899",
+      learnContent: { sections: [], isEmpty: true },
+      quizContent: { questions: [], isEmpty: true }
     },
+    
     8: {
       title: "Other Areas of Bihar",
       subtitle: "Education, tourism, disaster management, sports, and notable personalities",
       learnDesc: "Discover other important aspects of Bihar",
       quizDesc: "Test your general knowledge",
-      accentColor: "#06b6d4"
+      accentColor: "#06b6d4",
+      learnContent: { sections: [], isEmpty: true },
+      quizContent: { questions: [], isEmpty: true }
     }
   };
 
-  function openChapter(chapterNum) {
+  // ═══════════════════════════════════════════════════════════════════
+  // JSON LOADER - Load external JSON files
+  // ═══════════════════════════════════════════════════════════════════
+
+  async function loadJSONData(chapterNum) {
+    const chapter = chapters[chapterNum];
+    
+    if (!chapter.jsonFile) {
+      console.log(`No JSON file configured for chapter ${chapterNum}`);
+      return;
+    }
+
+    try {
+      const response = await fetch(chapter.jsonFile);
+      const data = await response.json();
+      
+      // Convert JSON learn data to format expected by renderer
+      if (data.learn) {
+        const learnSections = [];
+        
+        // Add Quick Facts section
+        if (data.learn.quick_facts) {
+          let factsContent = data.learn.quick_facts.map(fact => 
+            `<strong>${fact.label}:</strong> ${fact.value}`
+          ).join('<br>');
+          
+          learnSections.push({
+            heading: "Quick Facts",
+            content: factsContent,
+            isHTML: true
+          });
+        }
+        
+        // Add Boundaries section
+        if (data.learn.boundaries) {
+          let boundariesContent = Object.entries(data.learn.boundaries)
+            .map(([dir, val]) => `<strong>${dir}:</strong> ${val}`)
+            .join('<br>');
+          
+          learnSections.push({
+            heading: "State Boundaries",
+            content: boundariesContent,
+            isHTML: true
+          });
+        }
+        
+        // Add State Symbols section
+        if (data.learn.state_symbols) {
+          let symbolsContent = data.learn.state_symbols.map(sym =>
+            `<strong>${sym.symbol}:</strong> ${sym.value}`
+          ).join('<br>');
+          
+          learnSections.push({
+            heading: "State Symbols",
+            content: symbolsContent,
+            isHTML: true
+          });
+        }
+        
+        // Add Administrative Units section
+        if (data.learn.administrative_units) {
+          let adminContent = Object.entries(data.learn.administrative_units)
+            .map(([key, val]) => `<strong>${key.replace(/_/g, ' ')}:</strong> ${val}`)
+            .join('<br>');
+          
+          learnSections.push({
+            heading: "Administrative Units",
+            content: adminContent,
+            isHTML: true
+          });
+        }
+        
+        // Add Census 2011 section
+        if (data.learn.census_2011) {
+          let censusContent = Object.entries(data.learn.census_2011)
+            .map(([key, val]) => `<strong>${key.replace(/_/g, ' ')}:</strong> ${val}`)
+            .join('<br>');
+          
+          learnSections.push({
+            heading: "Census 2011 Data",
+            content: censusContent,
+            isHTML: true
+          });
+        }
+        
+        chapter.learnContent = {
+          sections: learnSections,
+          isEmpty: false
+        };
+      }
+      
+      // Convert JSON quiz data to format expected by renderer
+      if (data.quiz) {
+        const questions = data.quiz.map(q => ({
+          id: q.id,
+          question: q.q,
+          options: q.opts,
+          correct: q.ans,
+          explanation: q.exp
+        }));
+        
+        chapter.quizContent = {
+          questions: questions,
+          isEmpty: false
+        };
+      }
+      
+      chapter.isLoaded = true;
+      console.log(`✅ JSON data loaded for Chapter ${chapterNum}`);
+      
+    } catch (error) {
+      console.error(`❌ Error loading JSON for chapter ${chapterNum}:`, error);
+    }
+  }
+
+  // ═══════════════════════════════════════════════════════════════════
+  // RENDER FUNCTIONS
+  // ═══════════════════════════════════════════════════════════════════
+
+  function renderLearnContent(learnData) {
+    if (learnData.isEmpty) {
+      return `
+        <div class="placeholder-text">
+          <p>📖 <span>Content coming soon</span></p>
+          <p style="font-size: 14px; margin-top: 12px;">The detailed learning material for this chapter will be added here</p>
+        </div>
+      `;
+    }
+
+    let html = '<div class="learn-content">';
+    
+    learnData.sections.forEach((section, index) => {
+      html += `<h3>${section.heading}</h3>`;
+      
+      // If section content is HTML, render it directly; otherwise escape it
+      if (section.isHTML) {
+        html += `<p>${section.content}</p>`;
+      } else {
+        html += `<p>${section.content}</p>`;
+      }
+      
+      if (section.points && section.points.length > 0) {
+        html += '<ul>';
+        section.points.forEach(point => {
+          html += `<li>${point}</li>`;
+        });
+        html += '</ul>';
+      }
+    });
+    
+    html += '</div>';
+    return html;
+  }
+
+  function renderQuizContent(quizData) {
+    if (quizData.isEmpty) {
+      return `
+        <div class="placeholder-text">
+          <p>❓ <span>Quiz questions coming soon</span></p>
+          <p style="font-size: 14px; margin-top: 12px;">Interactive quiz questions for this chapter will be added here</p>
+        </div>
+      `;
+    }
+
+    let html = '<div class="quiz-content">';
+    
+    quizData.questions.forEach((q, index) => {
+      html += `
+        <div class="quiz-card">
+          <div class="question-text">Q${index + 1}. ${q.question}</div>
+          <div class="options">
+      `;
+      
+      q.options.forEach((option, optionIndex) => {
+        html += `<label class="option">
+          <input type="radio" name="q${q.id}" value="${optionIndex}" style="display: none;">
+          <div class="option-radio"></div>
+          <span class="option-text">${option}</span>
+        </label>`;
+      });
+      
+      html += `</div></div>`;
+    });
+    
+    html += '</div>';
+    return html;
+  }
+
+  async function openChapter(chapterNum) {
+    // Load JSON data if configured and not yet loaded
+    if (chapters[chapterNum].jsonFile && !chapters[chapterNum].isLoaded) {
+      await loadJSONData(chapterNum);
+    }
+    
     const chapter = chapters[chapterNum];
     
     // Update chapter view content
@@ -792,14 +1116,15 @@
     document.getElementById('learnDescription').textContent = chapter.learnDesc;
     document.getElementById('quizDescription').textContent = chapter.quizDesc;
     
+    // Render Learn content
+    document.getElementById('learnContentArea').innerHTML = renderLearnContent(chapter.learnContent);
+    
+    // Render Quiz content
+    document.getElementById('quizContentArea').innerHTML = renderQuizContent(chapter.quizContent);
+    
     // Set accent color
     const root = document.documentElement;
     root.style.setProperty('--accent', chapter.accentColor);
-    
-    // Update mode buttons color
-    document.querySelectorAll('.mode-btn').forEach(btn => {
-      btn.style.setProperty('--accent', chapter.accentColor);
-    });
     
     // Switch views
     document.getElementById('categoriesView').classList.add('hidden');
