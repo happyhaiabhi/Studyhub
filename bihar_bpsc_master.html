@@ -284,6 +284,40 @@
     flex-grow: 1;
   }
 
+  /* ── Linked File Indicator ── */
+  .card-link-dot {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--muted);
+    opacity: 0.25;
+    transition: background 0.4s ease, opacity 0.4s ease, box-shadow 0.4s ease;
+    z-index: 3;
+  }
+  .category-card.linked .card-link-dot {
+    background: var(--accent);
+    opacity: 1;
+    box-shadow: 0 0 10px var(--accent);
+  }
+  .card-link-badge {
+    display: none;
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: color-mix(in srgb, var(--accent) 10%, transparent);
+    border: 1px solid color-mix(in srgb, var(--accent) 25%, transparent);
+    padding: 3px 9px;
+    border-radius: 99px;
+    margin-top: 14px;
+    width: fit-content;
+  }
+  .category-card.linked .card-link-badge { display: block; }
+
   /* ── Chapter View Styles ── */
   .chapter-header {
     margin-bottom: 48px;
@@ -669,11 +703,13 @@
 
       <!-- 0. Chapter 1: Introduction to Bihar -->
       <a class="category-card" data-category="0" onclick="openChapter(0)">
+        <div class="card-link-dot"></div>
         <div class="card-content">
           <span class="card-icon">📚</span>
           <div class="card-number">Chapter 1</div>
           <h2 class="card-title">Introduction to Bihar</h2>
           <p class="card-description">Interactive learning with Learn & Quiz modes, flashcards, personalities, UNESCO sites, and comprehensive Bihar knowledge.</p>
+          <span class="card-link-badge">✓ File Linked</span>
         </div>
       </a>
 
@@ -1178,6 +1214,12 @@
 
   function openExternalChapter(chapterNum) {
     const chapter = chapters[chapterNum];
+    // Find the card and check if it's been confirmed as linked
+    const card = document.querySelector(`.category-card[data-extfile="${chapter.externalFile}"]`);
+    if (card && card.classList.contains('external-pending')) {
+      // File not found yet — the click handler on the card will flash the dot
+      return;
+    }
     window.location.href = chapter.externalFile;
   }
 
@@ -1200,6 +1242,63 @@
       document.querySelector('[data-mode="quiz"]').classList.add('active');
     }
   }
+
+  // ═══════════════════════════════════════════════════════════════════
+  // AUTO-LINK DETECTION
+  // Polls for external HTML files every 5 s.
+  // When a file is found: removes dim class, adds file-linked dot glow,
+  // re-enables click. When file disappears: reverts.
+  // ═══════════════════════════════════════════════════════════════════
+
+  async function checkExternalFile(card) {
+    const file = card.dataset.extfile;
+    if (!file) return;
+    try {
+      const res = await fetch(file, { method: 'HEAD', cache: 'no-store' });
+      if (res.ok) {
+        card.classList.add('file-linked');
+        card.classList.remove('external-pending');
+        card.style.pointerEvents = '';
+        card.style.cursor = 'pointer';
+      } else {
+        card.classList.remove('file-linked');
+        card.classList.add('external-pending');
+      }
+    } catch (_) {
+      card.classList.remove('file-linked');
+      card.classList.add('external-pending');
+    }
+  }
+
+  function runAllChecks() {
+    document.querySelectorAll('.category-card[data-extfile]').forEach(checkExternalFile);
+  }
+
+  // Run immediately on load, then every 5 seconds
+  runAllChecks();
+  setInterval(runAllChecks, 5000);
+
+  // Also intercept clicks on pending external cards to show friendly message
+  document.querySelectorAll('.category-card[data-extfile]').forEach(card => {
+    card.addEventListener('click', function(e) {
+      if (card.classList.contains('external-pending')) {
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        // brief flash on the dot to signal "not ready"
+        const dot = card.querySelector('.card-link-dot');
+        if (dot) {
+          dot.style.background = '#f59e0b';
+          dot.style.opacity = '1';
+          dot.style.boxShadow = '0 0 10px #f59e0b';
+          setTimeout(() => {
+            dot.style.background = '';
+            dot.style.opacity = '';
+            dot.style.boxShadow = '';
+          }, 800);
+        }
+      }
+    }, true);
+  });
 </script>
 
 </body>
