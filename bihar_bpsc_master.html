@@ -1088,14 +1088,25 @@
       `;
       
       q.options.forEach((option, optionIndex) => {
-        html += `<label class="option">
+        const isCorrect = optionIndex === q.correct ? 'correct' : '';
+        html += `<label class="option ${isCorrect}">
           <input type="radio" name="q${q.id}" value="${optionIndex}" style="display: none;">
           <div class="option-radio"></div>
           <span class="option-text">${option}</span>
         </label>`;
       });
       
-      html += `</div></div>`;
+      html += `</div>`;
+      
+      // Add explanation if available
+      if (q.explanation) {
+        html += `<div style="margin-top: 12px; padding: 10px; background: rgba(16,185,129,0.1); border-left: 3px solid #10b981; border-radius: 4px;">
+          <strong style="color: #10b981; font-size: 12px;">📌 Explanation:</strong>
+          <p style="margin: 6px 0 0 0; font-size: 13px; color: var(--muted);">${q.explanation}</p>
+        </div>`;
+      }
+      
+      html += `</div>`;
     });
     
     html += '</div>';
