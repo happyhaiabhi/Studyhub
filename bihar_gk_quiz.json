@@ -1,0 +1,568 @@
+{
+  "meta": {
+    "title": "Bihar GK — Learn & Quiz",
+    "source": "Introduction to Bihar",
+    "total_questions": 43,
+    "categories": ["geo", "admin", "symbols", "census", "firsts", "persons"]
+  },
+  "learn": {
+    "quick_facts": [
+      { "label": "State Name", "value": "Bihar" },
+      { "label": "Capital", "value": "Patna" },
+      { "label": "Foundation", "value": "1912 (as Bihar-Orissa Province)" },
+      { "label": "First Division", "value": "1936 (Orissa)" },
+      { "label": "Second Division", "value": "15 November 2000 (Jharkhand)" },
+      { "label": "State Day", "value": "22 March" },
+      { "label": "High Court", "value": "Patna" },
+      { "label": "Official Language", "value": "Hindi" },
+      { "label": "Second Official Language", "value": "Urdu" },
+      { "label": "Other Languages", "value": "Bhojpuri, Maithili, Angika, Magahi" },
+      { "label": "Max Spoken Regional Language", "value": "Maithili" },
+      { "label": "Total Area", "value": "94,163 sq km" },
+      { "label": "Area Rank in India", "value": "13th (after Telangana)" },
+      { "label": "Area % of India", "value": "2.86%" },
+      { "label": "Length (N-S)", "value": "345 km" },
+      { "label": "Breadth (E-W)", "value": "483 km" },
+      { "label": "Shape", "value": "Rectangular" },
+      { "label": "Height Above Sea Level", "value": "173 feet (53 m)" },
+      { "label": "Normal Rainfall", "value": "995 mm/year" },
+      { "label": "Nomenclature", "value": "Derived from 'Vihara' meaning Buddhist monasteries" }
+    ],
+    "boundaries": {
+      "North": "Nepal",
+      "South": "Jharkhand",
+      "East": "West Bengal",
+      "West": "Uttar Pradesh",
+      "International_Boundary": "Nepal"
+    },
+    "coordinates": {
+      "Latitudinal_Extension": "24° 20' 10\" N to 27° 31' 15\" N",
+      "Longitudinal_Extension": "83° 19' 50\" E to 88° 17' 40\" E"
+    },
+    "state_symbols": [
+      { "symbol": "State Animal", "value": "Ox" },
+      { "symbol": "State Bird", "value": "Sparrow (Sparrow Day: March 20)" },
+      { "symbol": "State Flower", "value": "Marigold" },
+      { "symbol": "State Tree", "value": "Peepal" }
+    ],
+    "administrative_units": {
+      "Divisions": 9,
+      "Districts": 38,
+      "Sub_Divisions": 101,
+      "Lok_Sabha_Seats": 40,
+      "Rajya_Sabha_Seats": 16,
+      "Legislative_Assembly_Seats": 243,
+      "Legislative_Council_Seats": 75,
+      "SC_Reserved_Lok_Sabha": 6,
+      "SC_Reserved_Assembly": 40,
+      "Zila_Parishad": 38,
+      "Panchayat_Samiti": 534,
+      "Gram_Panchayat": 8387,
+      "Revenue_Villages": 44874,
+      "Towns": 199,
+      "Statutory_Towns": 139,
+      "Non_Statutory_Towns": 60,
+      "Police_Stations": 853,
+      "Municipal_Corporations": 13,
+      "Nagar_Parishad": 49,
+      "Nagar_Panchayats": 81
+    },
+    "census_2011": {
+      "Population": 104099452,
+      "Male_Population": 54278157,
+      "Female_Population": 49821295,
+      "Urban_Population_Percent": 11.3,
+      "Rural_Population_Percent": 88.7,
+      "Decadal_Growth_Rate_2001_2011": "25.4%",
+      "Population_Density": "1106 per sq km",
+      "Sex_Ratio": "918 females per 1000 males",
+      "Literacy_Rate": "61.8%",
+      "Male_Literacy": "71.2%",
+      "Female_Literacy": "51.5%",
+      "Rural_Literacy": "59.78%",
+      "Urban_Literacy": "76.86%",
+      "District_Highest_Population": "Patna",
+      "District_Lowest_Population": "Sheikhpura",
+      "District_Highest_Decadal_Growth": "Madhepura (31.12%)",
+      "District_Lowest_Decadal_Growth": "Gopalganj (19.02%)",
+      "District_Highest_Density": "Sheohar (1880)",
+      "District_Lowest_Density": "Kaimur (488)",
+      "District_Highest_Sex_Ratio": "Gopalganj (1021)",
+      "District_Lowest_Sex_Ratio": "Munger (876)",
+      "District_Highest_Literacy": "Rohtas (73.4%)",
+      "District_Lowest_Literacy": "Purnia (51.1%)",
+      "Largest_City": "Patna"
+    },
+    "firsts_in_bihar": [
+      { "achievement": "First Chief Minister", "detail": "Sri Krishna Singh (1946–1961)" },
+      { "achievement": "First Governor", "detail": "Jai Ram Das Daulat Ram" },
+      { "achievement": "First Woman CM", "detail": "Rabri Devi" },
+      { "achievement": "First Dalit CM", "detail": "Bhola Paswan Shastri" },
+      { "achievement": "First Muslim CM", "detail": "Abdul Gaffoor" },
+      { "achievement": "First Muslim Governor", "detail": "Zakir Hussain" },
+      { "achievement": "First Independent CM", "detail": "Mahamaya Prasad Sinha" },
+      { "achievement": "First TV Relay Centre", "detail": "Muzaffarpur (1978)" },
+      { "achievement": "First Oil Refinery", "detail": "Barauni" },
+      { "achievement": "First Irrigation Project", "detail": "Son Project" },
+      { "achievement": "First Science Centre", "detail": "Sri Krishna Science Centre, Patna" },
+      { "achievement": "First Sugar Mill", "detail": "Marhaura (1904)" },
+      { "achievement": "First Ancient University", "detail": "Nalanda University (5th century)" },
+      { "achievement": "First Modern University", "detail": "Patna University (1917)" },
+      { "achievement": "First Bhojpuri Film", "detail": "Ganga Maiya Tohe Piyari Chadhaibo" },
+      { "achievement": "First Maithili Film", "detail": "Kanyadan" },
+      { "achievement": "First Hindi Film from Bihar", "detail": "Kal Hamara Hai (Dir. Girish Ranjan)" },
+      { "achievement": "First Daily Hindi Newspaper", "detail": "Sarvahitaisi (1882)" },
+      { "achievement": "First Weekly Hindi Newspaper", "detail": "Bihar Bandhu (1874)" },
+      { "achievement": "First English Daily", "detail": "The Searchlight" },
+      { "achievement": "First English Weekly", "detail": "The Bihar Herald (1875)" },
+      { "achievement": "Historic Earthquake", "detail": "1934" },
+      { "achievement": "First Neolithic Age Ornaments", "detail": "Chirand (Chhapra)" },
+      { "achievement": "First E-Shakti Project", "detail": "Paliganj, Bihar" }
+    ],
+    "firsts_in_india": [
+      { "achievement": "First President of India", "detail": "Dr. Rajendra Prasad" },
+      { "achievement": "First Mathematician", "detail": "Aryabhatta" },
+      { "achievement": "First Chairman of Constituent Assembly (Temp)", "detail": "Dr. Sachchidanand Sinha" },
+      { "achievement": "First Chairman of Constituent Assembly (Perm)", "detail": "Dr. Rajendra Prasad" },
+      { "achievement": "First Indian Governor (British period)", "detail": "S.P. Sinha (1921)" },
+      { "achievement": "First Satyagraha of Mahatma Gandhi", "detail": "Champaran (Bihar), 1917" },
+      { "achievement": "First Women Lok Sabha Speaker", "detail": "Meira Kumar (2009)" },
+      { "achievement": "Longest River Bridge", "detail": "Mahatma Gandhi Setu, 5.6 km (Patna–Hajipur)" },
+      { "achievement": "First State for BSNL Mobile Services", "detail": "Bihar" },
+      { "achievement": "First State for 50% Women Reservation in PRI", "detail": "Bihar" },
+      { "achievement": "Biggest Animal Fair", "detail": "Sonpur Fair (confluence of Ganga & Gandak)" },
+      { "achievement": "Biggest Railway Bridge", "detail": "Abdul Bari Bridge, Koilwar on Son River" },
+      { "achievement": "First LA Chairman", "detail": "Ram Dayalu Singh (1937)" }
+    ],
+    "firsts_in_world": [
+      { "achievement": "First Democratic Republic", "detail": "Vajji Sangh, Vaishali" },
+      { "achievement": "First University", "detail": "Nalanda University" },
+      { "achievement": "First Emperor to Lay Down Weapons", "detail": "Emperor Ashoka" },
+      { "achievement": "First Mathematician", "detail": "Aryabhatta" },
+      { "achievement": "Oldest/Ancient City", "detail": "Pataliputra" },
+      { "achievement": "First Yoga University", "detail": "Munger" },
+      { "achievement": "World's Highest Buddha Stupa", "detail": "Kesariya (Champaran)" }
+    ],
+    "unesco_heritage_sites": [
+      { "site": "Archaeological Site of Nalanda Mahavihara", "location": "Nalanda", "year": 2016 },
+      { "site": "Mahabodhi Temple Complex", "location": "Bodh Gaya", "year": 2002 }
+    ],
+    "bharat_ratna_awardees": [
+      { "name": "Dr. Rajendra Prasad", "year": 1962 },
+      { "name": "Dr. Zakir Hussain", "year": 1963 },
+      { "name": "Maulana Abul Kalam Azad", "year": 1992 },
+      { "name": "J. R. D. Tata", "year": 1992 },
+      { "name": "Jai Prakash Narayan", "year": 1999 },
+      { "name": "Ustad Bismillah Khan", "year": 2001 }
+    ],
+    "important_persons": [
+      { "name": "Dr. Rajendra Prasad", "titles": "Deshratna, Ajatshatru", "birthplace": "Zeradai (Siwan)" },
+      { "name": "Jai Prakash Narayan", "titles": "Loknayak, JP", "birthplace": "Sitabadeyara (Chhapra)" },
+      { "name": "Kunwar Singh", "titles": "Babu", "birthplace": "Jagdishpur (Bhojpur)" },
+      { "name": "Dr. Sri Krishna Singh", "titles": "Bihar Kesri", "birthplace": "Barbigha (Munger)" },
+      { "name": "Ramdhari Singh Dinkar", "titles": "Rashtra Kavi (National Poet)", "birthplace": "Simaria (Munger)" },
+      { "name": "Babu Jagjivan Ram", "titles": "Babujee", "birthplace": "" },
+      { "name": "Dr. Anugraha Narayan Sinha", "titles": "Bihar Bibhuti", "birthplace": "" },
+      { "name": "Vidyapati", "titles": "Maithil Kokil, Mahakavi", "birthplace": "Bisfi (Madhubani)" },
+      { "name": "Guru Gobind Singh", "titles": "10th Sikh Guru", "birthplace": "Patna City (Patna)" },
+      { "name": "Sher Shah Suri", "titles": "First to ascend Delhi throne (1540)", "birthplace": "Sasaram" }
+    ],
+    "places_associated": [
+      { "person": "Mahavira", "place": "Kundagrama" },
+      { "person": "Kautilya", "place": "Pataliputra" },
+      { "person": "Sher Shah Suri", "place": "Sasaram" },
+      { "person": "Ashvaghosa", "place": "Pataliputra" },
+      { "person": "Chandragupta Maurya", "place": "Pataliputra" },
+      { "person": "Aryabhatta", "place": "Pataliputra" }
+    ]
+  },
+  "questions": [
+    {
+      "id": 1,
+      "cat": "geo",
+      "cat_label": "Geography",
+      "q": "What is the meaning of the word 'Bihar'?",
+      "opts": ["Land of rivers", "Buddhist monasteries", "Eastern frontier", "Ancient kingdom"],
+      "ans": 1,
+      "exp": "Bihar is derived from 'Vihara' meaning Buddhist monasteries, as the region was an abode of Buddhist monks in ancient and medieval periods."
+    },
+    {
+      "id": 2,
+      "cat": "geo",
+      "cat_label": "Geography",
+      "q": "Which river divides the Bihar plain into two halves?",
+      "opts": ["Gandak", "Kosi", "Ganga", "Son"],
+      "ans": 2,
+      "exp": "The Ganga flows through the middle of Bihar from west to east, dividing the plain into two unequal halves."
+    },
+    {
+      "id": 3,
+      "cat": "geo",
+      "cat_label": "Geography",
+      "q": "What is the total area of Bihar?",
+      "opts": ["84,163 sq km", "94,163 sq km", "1,04,000 sq km", "74,500 sq km"],
+      "ans": 1,
+      "exp": "Bihar has a total area of 94,163 sq km, ranking 13th in India (2.86% of India's total area)."
+    },
+    {
+      "id": 4,
+      "cat": "geo",
+      "cat_label": "Geography",
+      "q": "Bihar shares its international boundary with which country?",
+      "opts": ["China", "Bhutan", "Bangladesh", "Nepal"],
+      "ans": 3,
+      "exp": "Bihar is bounded by Nepal in the north — it is the only international boundary of Bihar."
+    },
+    {
+      "id": 5,
+      "cat": "geo",
+      "cat_label": "Geography",
+      "q": "Which state lies to the east of Bihar?",
+      "opts": ["Jharkhand", "Odisha", "West Bengal", "Assam"],
+      "ans": 2,
+      "exp": "West Bengal lies to the east of Bihar. Jharkhand is to the south, UP to the west, and Nepal to the north."
+    },
+    {
+      "id": 6,
+      "cat": "geo",
+      "cat_label": "Geography",
+      "q": "What is the shape of Bihar as a state?",
+      "opts": ["Triangular", "Circular", "Rectangular", "Irregular"],
+      "ans": 2,
+      "exp": "Bihar is described as rectangular in shape."
+    },
+    {
+      "id": 7,
+      "cat": "geo",
+      "cat_label": "Geography",
+      "q": "When was Jharkhand carved out of Bihar?",
+      "opts": ["1 November 2000", "15 November 2000", "26 January 2001", "1 April 2000"],
+      "ans": 1,
+      "exp": "Jharkhand was carved out of Bihar on 15 November 2000 — the second division of Bihar."
+    },
+    {
+      "id": 8,
+      "cat": "admin",
+      "cat_label": "Administration",
+      "q": "How many districts are there in Bihar?",
+      "opts": ["36", "37", "38", "40"],
+      "ans": 2,
+      "exp": "Bihar has 38 districts."
+    },
+    {
+      "id": 9,
+      "cat": "admin",
+      "cat_label": "Administration",
+      "q": "How many Lok Sabha seats does Bihar have?",
+      "opts": ["36", "38", "40", "42"],
+      "ans": 2,
+      "exp": "Bihar has 40 Lok Sabha seats."
+    },
+    {
+      "id": 10,
+      "cat": "admin",
+      "cat_label": "Administration",
+      "q": "How many seats are in the Bihar Legislative Assembly?",
+      "opts": ["225", "243", "250", "260"],
+      "ans": 1,
+      "exp": "The Bihar Legislative Assembly has 243 seats."
+    },
+    {
+      "id": 11,
+      "cat": "admin",
+      "cat_label": "Administration",
+      "q": "How many seats are reserved for SC in Bihar Legislative Assembly?",
+      "opts": ["36", "40", "45", "50"],
+      "ans": 1,
+      "exp": "40 seats are reserved for SC in the Bihar Legislative Assembly."
+    },
+    {
+      "id": 12,
+      "cat": "admin",
+      "cat_label": "Administration",
+      "q": "How many Municipal Corporations are there in Bihar?",
+      "opts": ["10", "11", "13", "15"],
+      "ans": 2,
+      "exp": "There are 13 Municipal Corporations in Bihar."
+    },
+    {
+      "id": 13,
+      "cat": "admin",
+      "cat_label": "Administration",
+      "q": "Where is the High Court of Bihar located?",
+      "opts": ["Gaya", "Muzaffarpur", "Patna", "Bhagalpur"],
+      "ans": 2,
+      "exp": "The High Court of Bihar is located in Patna."
+    },
+    {
+      "id": 14,
+      "cat": "symbols",
+      "cat_label": "Symbols",
+      "q": "What is the state animal of Bihar?",
+      "opts": ["Tiger", "Elephant", "Ox", "Deer"],
+      "ans": 2,
+      "exp": "The state animal of Bihar is the Ox."
+    },
+    {
+      "id": 15,
+      "cat": "symbols",
+      "cat_label": "Symbols",
+      "q": "What is the state bird of Bihar?",
+      "opts": ["Peacock", "Sparrow", "Crane", "Kingfisher"],
+      "ans": 1,
+      "exp": "Sparrow is the state bird of Bihar. Bihar celebrates March 20 as Sparrow Day."
+    },
+    {
+      "id": 16,
+      "cat": "symbols",
+      "cat_label": "Symbols",
+      "q": "What is the state flower of Bihar?",
+      "opts": ["Lotus", "Rose", "Marigold", "Jasmine"],
+      "ans": 2,
+      "exp": "Marigold is the state flower of Bihar."
+    },
+    {
+      "id": 17,
+      "cat": "symbols",
+      "cat_label": "Symbols",
+      "q": "What is the state tree of Bihar?",
+      "opts": ["Banyan", "Neem", "Peepal", "Mango"],
+      "ans": 2,
+      "exp": "Peepal is the state tree of Bihar."
+    },
+    {
+      "id": 18,
+      "cat": "symbols",
+      "cat_label": "Symbols",
+      "q": "What is the second official language of Bihar?",
+      "opts": ["Maithili", "Bhojpuri", "Urdu", "Angika"],
+      "ans": 2,
+      "exp": "Urdu is the second official language of Bihar after Hindi."
+    },
+    {
+      "id": 19,
+      "cat": "symbols",
+      "cat_label": "Symbols",
+      "q": "Which is the most spoken regional language in Bihar?",
+      "opts": ["Bhojpuri", "Magahi", "Angika", "Maithili"],
+      "ans": 3,
+      "exp": "Maithili is the maximum spoken regional language in Bihar."
+    },
+    {
+      "id": 20,
+      "cat": "census",
+      "cat_label": "Census",
+      "q": "What is the population density of Bihar as per 2011 Census?",
+      "opts": ["906", "1006", "1106", "1206"],
+      "ans": 2,
+      "exp": "The population density of Bihar is 1106 persons per sq km (2011 Census)."
+    },
+    {
+      "id": 21,
+      "cat": "census",
+      "cat_label": "Census",
+      "q": "What is the sex ratio of Bihar (2011)?",
+      "opts": ["908", "918", "928", "938"],
+      "ans": 1,
+      "exp": "Bihar's sex ratio is 918 females per 1000 males (2011 Census)."
+    },
+    {
+      "id": 22,
+      "cat": "census",
+      "cat_label": "Census",
+      "q": "What was the decadal growth rate of Bihar (2001-2011)?",
+      "opts": ["20.4%", "22.4%", "25.4%", "28.4%"],
+      "ans": 2,
+      "exp": "Bihar's decadal growth rate for 2001-2011 was 25.4%."
+    },
+    {
+      "id": 23,
+      "cat": "census",
+      "cat_label": "Census",
+      "q": "Which district has the highest literacy rate in Bihar?",
+      "opts": ["Patna", "Nalanda", "Rohtas", "Bhojpur"],
+      "ans": 2,
+      "exp": "Rohtas has the highest literacy rate in Bihar at 73.4%."
+    },
+    {
+      "id": 24,
+      "cat": "census",
+      "cat_label": "Census",
+      "q": "Which district has the lowest literacy rate in Bihar?",
+      "opts": ["Kishanganj", "Purnia", "Araria", "Sitamarhi"],
+      "ans": 1,
+      "exp": "Purnia has the lowest literacy rate in Bihar at 51.1%."
+    },
+    {
+      "id": 25,
+      "cat": "census",
+      "cat_label": "Census",
+      "q": "Which district has the highest sex ratio in Bihar?",
+      "opts": ["Siwan", "Vaishali", "Gopalganj", "Muzaffarpur"],
+      "ans": 2,
+      "exp": "Gopalganj has the highest sex ratio in Bihar at 1021 females per 1000 males."
+    },
+    {
+      "id": 26,
+      "cat": "census",
+      "cat_label": "Census",
+      "q": "Which district has the lowest sex ratio in Bihar?",
+      "opts": ["Patna", "Munger", "Bhagalpur", "Rohtas"],
+      "ans": 1,
+      "exp": "Munger has the lowest sex ratio in Bihar at 876 females per 1000 males."
+    },
+    {
+      "id": 27,
+      "cat": "firsts",
+      "cat_label": "Firsts",
+      "q": "Who was the first Chief Minister of Bihar?",
+      "opts": ["Jai Prakash Narayan", "Dr. Rajendra Prasad", "Sri Krishna Singh", "Binodanand Jha"],
+      "ans": 2,
+      "exp": "Sri Krishna Singh was the first Chief Minister of Bihar (1946–1961), also known as Bihar Kesri."
+    },
+    {
+      "id": 28,
+      "cat": "firsts",
+      "cat_label": "Firsts",
+      "q": "Who was the first Governor of Bihar?",
+      "opts": ["Zakir Hussain", "Jai Ram Das Daulat Ram", "S.P. Sinha", "Rajendra Prasad"],
+      "ans": 1,
+      "exp": "Jai Ram Das Daulat Ram was the first Governor of Bihar."
+    },
+    {
+      "id": 29,
+      "cat": "firsts",
+      "cat_label": "Firsts",
+      "q": "Who was Bihar's first woman Chief Minister?",
+      "opts": ["Sushma Swaraj", "Rabri Devi", "Sheila Dikshit", "Uma Bharti"],
+      "ans": 1,
+      "exp": "Rabri Devi was the first woman Chief Minister of Bihar."
+    },
+    {
+      "id": 30,
+      "cat": "firsts",
+      "cat_label": "Firsts",
+      "q": "Where was Gandhi's first Satyagraha in India?",
+      "opts": ["Dandi", "Bardoli", "Champaran", "Kheda"],
+      "ans": 2,
+      "exp": "Gandhi's first Satyagraha in India was at Champaran, Bihar in 1917."
+    },
+    {
+      "id": 31,
+      "cat": "firsts",
+      "cat_label": "Firsts",
+      "q": "What is the length of Mahatma Gandhi Setu?",
+      "opts": ["4.6 km", "5.2 km", "5.6 km", "6.0 km"],
+      "ans": 2,
+      "exp": "Mahatma Gandhi Setu (Patna to Hajipur) is 5.6 km — the longest river bridge in India."
+    },
+    {
+      "id": 32,
+      "cat": "firsts",
+      "cat_label": "Firsts",
+      "q": "Where was the world's first democratic republic?",
+      "opts": ["Athens (Greece)", "Rome (Italy)", "Vajji Sangh (Vaishali)", "Pataliputra"],
+      "ans": 2,
+      "exp": "Vajji Sangh at Vaishali (Bihar) is considered the world's first democratic republic."
+    },
+    {
+      "id": 33,
+      "cat": "firsts",
+      "cat_label": "Firsts",
+      "q": "Which is considered the first university in the world?",
+      "opts": ["Taxila", "Vikramshila", "Oxford", "Nalanda"],
+      "ans": 3,
+      "exp": "Nalanda University is considered the first university in the world."
+    },
+    {
+      "id": 34,
+      "cat": "firsts",
+      "cat_label": "Firsts",
+      "q": "Which city in Bihar has the first Yoga University in the world?",
+      "opts": ["Patna", "Bodhgaya", "Munger", "Vaishali"],
+      "ans": 2,
+      "exp": "Munger in Bihar has the first Yoga University in the world."
+    },
+    {
+      "id": 35,
+      "cat": "firsts",
+      "cat_label": "Firsts",
+      "q": "In which year was the first TV relay centre in Bihar established, and where?",
+      "opts": ["Patna, 1975", "Muzaffarpur, 1978", "Gaya, 1980", "Bhagalpur, 1976"],
+      "ans": 1,
+      "exp": "The first TV relay centre in Bihar was established in Muzaffarpur in 1978."
+    },
+    {
+      "id": 36,
+      "cat": "firsts",
+      "cat_label": "Firsts",
+      "q": "Bihar was the first state in India to provide women reservation in Panchayati Raj at what percentage?",
+      "opts": ["33%", "40%", "50%", "60%"],
+      "ans": 2,
+      "exp": "Bihar was the first state to provide 50% women reservation in Panchayati Raj institutions."
+    },
+    {
+      "id": 37,
+      "cat": "persons",
+      "cat_label": "Personalities",
+      "q": "What is the title/nickname of Ramdhari Singh Dinkar?",
+      "opts": ["Bihar Kesri", "Maithil Kokil", "Rashtra Kavi", "Loknayak"],
+      "ans": 2,
+      "exp": "Ramdhari Singh Dinkar is known as Rashtra Kavi (National Poet). He received Jnanpith Puraskar for 'Urvashi' in 1972."
+    },
+    {
+      "id": 38,
+      "cat": "persons",
+      "cat_label": "Personalities",
+      "q": "Jai Prakash Narayan is known by which title?",
+      "opts": ["Bihar Vibhuti", "Loknayak", "Babujee", "Bihar Kesri"],
+      "ans": 1,
+      "exp": "Jai Prakash Narayan is known as Loknayak. He received Bharat Ratna in 1999."
+    },
+    {
+      "id": 39,
+      "cat": "persons",
+      "cat_label": "Personalities",
+      "q": "Where was Dr. Rajendra Prasad born?",
+      "opts": ["Patna", "Zeradai (Siwan)", "Simaria (Munger)", "Barbigha (Munger)"],
+      "ans": 1,
+      "exp": "Dr. Rajendra Prasad was born at Zeradai in Siwan district. He received Bharat Ratna in 1962."
+    },
+    {
+      "id": 40,
+      "cat": "persons",
+      "cat_label": "Personalities",
+      "q": "Guru Gobind Singh was born in which city of Bihar?",
+      "opts": ["Gaya", "Vaishali", "Patna City", "Nalanda"],
+      "ans": 2,
+      "exp": "Guru Gobind Singh, the 10th Sikh Guru, was born in Patna City (Patna)."
+    },
+    {
+      "id": 41,
+      "cat": "persons",
+      "cat_label": "Personalities",
+      "q": "Vidyapati is associated with which district of Bihar?",
+      "opts": ["Bhojpur", "Madhubani (Bisfi)", "Siwan", "Darbhanga"],
+      "ans": 1,
+      "exp": "Vidyapati was born at Bisfi in Madhubani. He is known as Maithil Kokil and Mahakavi."
+    },
+    {
+      "id": 42,
+      "cat": "persons",
+      "cat_label": "Personalities",
+      "q": "Who was the first Deputy Prime Minister of India, connected to Bihar?",
+      "opts": ["Jai Prakash Narayan", "Jagjivan Ram", "Rajendra Prasad", "Sri Krishna Singh"],
+      "ans": 1,
+      "exp": "Jagjivan Ram (Babujee) from Bihar was the first Deputy Prime Minister of India."
+    },
+    {
+      "id": 43,
+      "cat": "persons",
+      "cat_label": "Personalities",
+      "q": "Which Bihar personality received Bharat Ratna in 2001?",
+      "opts": ["Jai Prakash Narayan", "Dr. Zakir Hussain", "Ustad Bismillah Khan", "Maulana Abul Kalam Azad"],
+      "ans": 2,
+      "exp": "Ustad Bismillah Khan received Bharat Ratna in 2001."
+    }
+  ]
+}
