@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 1: Introduction to Bihar</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1e40af;
+            --primary-light: #3b82f6;
+            --primary-dark: #1e3a8a;
+            --accent: #f59e0b;
+            --accent-light: #fbbf24;
+            --success: #10b981;
+            --danger: #ef4444;
+            --bg: #f8fafc;
+            --bg-card: #ffffff;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
+            color: var(--text-dark);
+            min-height: 100vh;
+            padding: 1rem;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 2.5rem 2rem;
+            border-radius: 1rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(30, 64, 175, 0.2);
+            animation: slideDown 0.6s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.5px;
+        }
+
+        .subtitle {
+            font-size: 1rem;
+            opacity: 0.95;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+        }
+
+        .toggle-container {
+            display: flex;
+            gap: 0.75rem;
+            margin-top: 1.5rem;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 0.4rem;
+            border-radius: 0.75rem;
+            width: fit-content;
+            backdrop-filter: blur(10px);
+        }
+
+        .toggle-btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            background: transparent;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .toggle-btn.active {
+            background: white;
+            color: var(--primary);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .toggle-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .mode-section {
+            display: none;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .mode-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* LEARN MODE */
+        .learn-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            border-left: 4px solid var(--primary);
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            cursor: pointer;
+            animation: slideUp 0.6s ease-out forwards;
+            opacity: 0;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .card:nth-child(1) { animation-delay: 0.05s; }
+        .card:nth-child(2) { animation-delay: 0.1s; }
+        .card:nth-child(3) { animation-delay: 0.15s; }
+        .card:nth-child(4) { animation-delay: 0.2s; }
+        .card:nth-child(n+5) { animation-delay: 0.25s; }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(30, 64, 175, 0.15);
+            border-left-color: var(--accent);
+        }
+
+        .fact-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: var(--primary);
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .fact-value {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            line-height: 1.4;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 2rem 0 1.5rem 0;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--accent);
+            display: inline-block;
+        }
+
+        .info-box {
+            background: linear-gradient(135deg, #f0f4ff 0%, #e0e7ff 100%);
+            border-left: 4px solid var(--primary);
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .info-box h3 {
+            color: var(--primary);
+            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+        }
+
+        .boundary-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .boundary-item {
+            background: white;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            border: 1px solid var(--border);
+        }
+
+        .boundary-direction {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .boundary-value {
+            color: var(--text-dark);
+            margin-top: 0.25rem;
+            font-size: 0.95rem;
+        }
+
+        /* QUIZ MODE */
+        .quiz-container {
+            background: white;
+            border-radius: 1rem;
+            padding: 2.5rem;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            animation: slideUp 0.5s ease-out;
+        }
+
+        .quiz-header {
+            margin-bottom: 2rem;
+        }
+
+        .question-number {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .progress-bar {
+            height: 6px;
+            background: var(--border);
+            border-radius: 3px;
+            margin-top: 1rem;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--primary-light) 100%);
+            transition: width 0.3s ease;
+            border-radius: 3px;
+        }
+
+        .quiz-question {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin: 1rem 0 2rem 0;
+            line-height: 1.5;
+        }
+
+        .options {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .option {
+            background: white;
+            border: 2px solid var(--border);
+            padding: 1.25rem;
+            border-radius: 0.75rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .option::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, var(--primary-light) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .option:hover {
+            border-color: var(--primary);
+            background: rgba(30, 64, 175, 0.02);
+            transform: translateX(4px);
+        }
+
+        .option.selected {
+            border-color: var(--primary);
+            background: rgba(30, 64, 175, 0.08);
+        }
+
+        .option.correct {
+            border-color: var(--success);
+            background: rgba(16, 185, 129, 0.1);
+        }
+
+        .option.incorrect {
+            border-color: var(--danger);
+            background: rgba(239, 68, 68, 0.1);
+        }
+
+        .option-text {
+            font-weight: 500;
+            color: var(--text-dark);
+            position: relative;
+            z-index: 1;
+        }
+
+        .quiz-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            padding: 0.875rem 1.75rem;
+            border: none;
+            border-radius: 0.75rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+        }
+
+        .btn-primary:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(30, 64, 175, 0.3);
+        }
+
+        .btn-primary:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .explanation {
+            background: linear-gradient(135deg, #f0fdf4 0%, #e0fdf4 100%);
+            border-left: 4px solid var(--success);
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            margin-top: 1.5rem;
+            display: none;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        .explanation.show {
+            display: block;
+        }
+
+        .explanation-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--success);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .explanation-text {
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* RESULTS */
+        .results-container {
+            background: white;
+            border-radius: 1rem;
+            padding: 3rem 2rem;
+            text-align: center;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            animation: slideUp 0.5s ease-out;
+        }
+
+        .score-display {
+            font-size: 4rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 1rem 0;
+        }
+
+        .results-message {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+        }
+
+        .results-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .result-stat {
+            background: linear-gradient(135deg, #f0f4ff 0%, #e0e7ff 100%);
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            border-left: 4px solid var(--primary);
+        }
+
+        .result-stat-label {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.5rem;
+        }
+
+        .result-stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .restart-btn {
+            margin-top: 2rem;
+        }
+
+        .category-filter {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .category-btn {
+            padding: 0.5rem 1rem;
+            border: 2px solid var(--border);
+            background: white;
+            border-radius: 2rem;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            color: var(--text-light);
+        }
+
+        .category-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .category-btn:hover {
+            border-color: var(--primary);
+        }
+
+        .learn-tabs {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 1rem;
+        }
+
+        .learn-tab {
+            padding: 0.75rem 1.25rem;
+            border: none;
+            background: white;
+            color: var(--text-light);
+            cursor: pointer;
+            border-radius: 0.5rem 0.5rem 0 0;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+            margin-bottom: -2px;
+        }
+
+        .learn-tab.active {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+            background: transparent;
+        }
+
+        .learn-tab:hover {
+            background: rgba(30, 64, 175, 0.05);
+        }
+
+        .learn-content {
+            display: none;
+        }
+
+        .learn-content.active {
+            display: block;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        /* FLASHCARD STYLES */
+        .flashcard-container {
+            perspective: 1000px;
+            cursor: pointer;
+            margin-bottom: 1.5rem;
+        }
+
+        .flashcard {
+            position: relative;
+            width: 100%;
+            height: 280px;
+            transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            transform-style: preserve-3d;
+            animation: slideUp 0.6s ease-out forwards;
+            opacity: 0;
+        }
+
+        .flashcard-container:nth-child(1) .flashcard { animation-delay: 0.05s; }
+        .flashcard-container:nth-child(2) .flashcard { animation-delay: 0.1s; }
+        .flashcard-container:nth-child(3) .flashcard { animation-delay: 0.15s; }
+        .flashcard-container:nth-child(4) .flashcard { animation-delay: 0.2s; }
+        .flashcard-container:nth-child(n+5) .flashcard { animation-delay: 0.25s; }
+
+        .flashcard.flipped {
+            transform: rotateY(180deg);
+        }
+
+        .flashcard-front,
+        .flashcard-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .flashcard-front {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+        }
+
+        .flashcard-back {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+            color: white;
+            transform: rotateY(180deg);
+        }
+
+        .flashcard-label {
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            opacity: 0.9;
+            margin-bottom: 1rem;
+        }
+
+        .flashcard-question {
+            font-size: 1.3rem;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        .flashcard-answer {
+            font-size: 1.1rem;
+            font-weight: 500;
+            line-height: 1.5;
+        }
+
+        .flashcard-tip {
+            font-size: 0.85rem;
+            font-style: italic;
+            margin-top: 1rem;
+            opacity: 0.95;
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+            padding-top: 0.75rem;
+        }
+
+        .flashcard-hint {
+            font-size: 0.75rem;
+            margin-top: 1.5rem;
+            opacity: 0.8;
+            letter-spacing: 0.5px;
+        }
+
+        @media (max-width: 768px) {
+            .flashcard {
+                height: 220px;
+            }
+
+            .flashcard-front,
+            .flashcard-back {
+                padding: 1.5rem;
+            }
+
+            .flashcard-question {
+                font-size: 1.1rem;
+            }
+
+            .flashcard-answer {
+                font-size: 0.95rem;
+            }
+        }
+
+        /* Grid for flashcard mode */
+        .flashcard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .quiz-container {
+                padding: 1.5rem;
+            }
+
+            .toggle-container {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .toggle-btn {
+                width: 100%;
+            }
+
+            .learn-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .boundary-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .score-display {
+                font-size: 2.5rem;
+            }
+
+            .results-details {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>📖 Chapter 1: Introduction to Bihar</h1>
+            <p class="subtitle">Learn & Master State Fundamentals with Flashcards & Memory Tips</p>
+            <div class="toggle-container">
+                <button class="toggle-btn active" onclick="switchMode('learn')">📚 Learn</button>
+                <button class="toggle-btn" onclick="switchMode('quiz')">✍️ Quiz</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- LEARN MODE -->
+        <div id="learn-mode" class="mode-section active">
+            <div class="learn-tabs">
+                <button class="learn-tab active" onclick="switchLearnTab('quick-facts')">Quick Facts</button>
+                <button class="learn-tab" onclick="switchLearnTab('geography')">Geography</button>
+                <button class="learn-tab" onclick="switchLearnTab('administration')">Administration</button>
+                <button class="learn-tab" onclick="switchLearnTab('census')">Census 2011</button>
+                <button class="learn-tab" onclick="switchLearnTab('firsts')">Firsts & Heritage</button>
+                <button class="learn-tab" onclick="switchLearnTab('personalities')">Personalities</button>
+            </div>
+
+            <!-- Quick Facts -->
+            <div id="quick-facts" class="learn-content active">
+                <h2 class="section-title">🌟 Quick Facts About Bihar</h2>
+                <div class="learn-grid" id="quick-facts-grid"></div>
+            </div>
+
+            <!-- Geography -->
+            <div id="geography" class="learn-content">
+                <h2 class="section-title">🗺️ Geography</h2>
+                <div class="info-box">
+                    <h3>Boundaries</h3>
+                    <div class="boundary-grid" id="boundaries-grid"></div>
+                </div>
+                <div class="info-box">
+                    <h3>Coordinates</h3>
+                    <p id="coordinates-text"></p>
+                </div>
+                <h3 class="section-title" style="margin-top: 1.5rem;">State Symbols</h3>
+                <div class="learn-grid" id="symbols-grid"></div>
+            </div>
+
+            <!-- Administration -->
+            <div id="administration" class="learn-content">
+                <h2 class="section-title">⚙️ Administrative Division</h2>
+                <div class="learn-grid" id="admin-grid"></div>
+            </div>
+
+            <!-- Census 2011 -->
+            <div id="census" class="learn-content">
+                <h2 class="section-title">📊 Census 2011 Highlights</h2>
+                <div class="learn-grid" id="census-grid"></div>
+            </div>
+
+            <!-- Firsts & Heritage -->
+            <div id="firsts" class="learn-content">
+                <h2 class="section-title">🏆 Firsts in Bihar</h2>
+                <div class="learn-grid" id="firsts-bihar-grid"></div>
+                <h3 class="section-title" style="margin-top: 2rem;">🇮🇳 Firsts in India</h3>
+                <div class="learn-grid" id="firsts-india-grid"></div>
+                <h3 class="section-title" style="margin-top: 2rem;">🌍 Firsts in World</h3>
+                <div class="learn-grid" id="firsts-world-grid"></div>
+                <h3 class="section-title" style="margin-top: 2rem;">🏛️ UNESCO Heritage Sites</h3>
+                <div class="learn-grid" id="heritage-grid"></div>
+                <h3 class="section-title" style="margin-top: 2rem;">🎖️ Bharat Ratna Awardees</h3>
+                <div class="learn-grid" id="bharat-grid"></div>
+            </div>
+
+            <!-- Personalities -->
+            <div id="personalities" class="learn-content">
+                <h2 class="section-title">👥 Important Personalities</h2>
+                <div class="learn-grid" id="personalities-grid"></div>
+            </div>
+        </div>
+
+        <!-- QUIZ MODE -->
+        <div id="quiz-mode" class="mode-section">
+            <div class="quiz-container">
+                <div id="quiz-content"></div>
+                <div id="results-content"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let quizData = null;
+        let currentQuestion = 0;
+        let score = 0;
+        let selectedAnswers = [];
+        let allQuestions = [];
+        let filteredQuestions = [];
+        let currentCategory = 'all';
+
+        // Embedded Bihar GK Data
+        const biharGKData = {"meta":{"title":"Bihar GK — Learn & Quiz","source":"Introduction to Bihar","total_questions":43,"categories":["geo","admin","symbols","census","firsts","persons"]},"learn":{"quick_facts":[{"label":"State Name","value":"Bihar"},{"label":"Capital","value":"Patna"},{"label":"Foundation","value":"1912 (as Bihar-Orissa Province)"},{"label":"First Division","value":"1936 (Orissa)"},{"label":"Second Division","value":"15 November 2000 (Jharkhand)"},{"label":"State Day","value":"22 March"},{"label":"High Court","value":"Patna"},{"label":"Official Language","value":"Hindi"},{"label":"Second Official Language","value":"Urdu"},{"label":"Other Languages","value":"Bhojpuri, Maithili, Angika, Magahi"},{"label":"Max Spoken Regional Language","value":"Maithili"},{"label":"Total Area","value":"94,163 sq km"},{"label":"Area Rank in India","value":"13th (after Telangana)"},{"label":"Area % of India","value":"2.86%"},{"label":"Length (N-S)","value":"345 km"},{"label":"Breadth (E-W)","value":"483 km"},{"label":"Shape","value":"Rectangular"},{"label":"Height Above Sea Level","value":"173 feet (53 m)"},{"label":"Normal Rainfall","value":"995 mm/year"},{"label":"Nomenclature","value":"Derived from 'Vihara' meaning Buddhist monasteries"}],"boundaries":{"North":"Nepal","South":"Jharkhand","East":"West Bengal","West":"Uttar Pradesh","International_Boundary":"Nepal"},"coordinates":{"Latitudinal_Extension":"24° 20' 10\" N to 27° 31' 15\" N","Longitudinal_Extension":"83° 19' 50\" E to 88° 17' 40\" E"},"state_symbols":[{"symbol":"State Animal","value":"Ox"},{"symbol":"State Bird","value":"Sparrow (Sparrow Day: March 20)"},{"symbol":"State Flower","value":"Marigold"},{"symbol":"State Tree","value":"Peepal"}],"administrative_units":{"Divisions":9,"Districts":38,"Sub_Divisions":101,"Lok_Sabha_Seats":40,"Rajya_Sabha_Seats":16,"Legislative_Assembly_Seats":243,"Legislative_Council_Seats":75,"SC_Reserved_Lok_Sabha":6,"SC_Reserved_Assembly":40,"Zila_Parishad":38,"Panchayat_Samiti":534,"Gram_Panchayat":8387,"Revenue_Villages":44874,"Towns":199,"Statutory_Towns":139,"Non_Statutory_Towns":60,"Police_Stations":853,"Municipal_Corporations":13,"Nagar_Parishad":49,"Nagar_Panchayats":81},"census_2011":{"Population":104099452,"Male_Population":54278157,"Female_Population":49821295,"Urban_Population_Percent":11.3,"Rural_Population_Percent":88.7,"Decadal_Growth_Rate_2001_2011":"25.4%","Population_Density":"1106 per sq km","Sex_Ratio":"918 females per 1000 males","Literacy_Rate":"61.8%","Male_Literacy":"71.2%","Female_Literacy":"51.5%","Rural_Literacy":"59.78%","Urban_Literacy":"76.86%","District_Highest_Population":"Patna","District_Lowest_Population":"Sheikhpura","District_Highest_Decadal_Growth":"Madhepura (31.12%)","District_Lowest_Decadal_Growth":"Gopalganj (19.02%)","District_Highest_Density":"Sheohar (1880)","District_Lowest_Density":"Kaimur (488)","District_Highest_Sex_Ratio":"Gopalganj (1021)","District_Lowest_Sex_Ratio":"Munger (876)","District_Highest_Literacy":"Rohtas (73.4%)","District_Lowest_Literacy":"Purnia (51.1%)","Largest_City":"Patna"},"firsts_in_bihar":[{"achievement":"First Chief Minister","detail":"Sri Krishna Singh (1946–1961)"},{"achievement":"First Governor","detail":"Jai Ram Das Daulat Ram"},{"achievement":"First Woman CM","detail":"Rabri Devi"},{"achievement":"First Dalit CM","detail":"Bhola Paswan Shastri"},{"achievement":"First Muslim CM","detail":"Abdul Gaffoor"},{"achievement":"First Muslim Governor","detail":"Zakir Hussain"},{"achievement":"First Independent CM","detail":"Mahamaya Prasad Sinha"},{"achievement":"First TV Relay Centre","detail":"Muzaffarpur (1978)"},{"achievement":"First Oil Refinery","detail":"Barauni"},{"achievement":"First Irrigation Project","detail":"Son Project"},{"achievement":"First Science Centre","detail":"Sri Krishna Science Centre, Patna"},{"achievement":"First Sugar Mill","detail":"Marhaura (1904)"},{"achievement":"First Ancient University","detail":"Nalanda University (5th century)"},{"achievement":"First Modern University","detail":"Patna University (1917)"},{"achievement":"First Bhojpuri Film","detail":"Ganga Maiya Tohe Piyari Chadhaibo"},{"achievement":"First Maithili Film","detail":"Kanyadan"},{"achievement":"First Hindi Film from Bihar","detail":"Kal Hamara Hai (Dir. Girish Ranjan)"},{"achievement":"First Daily Hindi Newspaper","detail":"Sarvahitaisi (1882)"},{"achievement":"First Weekly Hindi Newspaper","detail":"Bihar Bandhu (1874)"},{"achievement":"First English Daily","detail":"The Searchlight"},{"achievement":"First English Weekly","detail":"The Bihar Herald (1875)"},{"achievement":"Historic Earthquake","detail":"1934"},{"achievement":"First Neolithic Age Ornaments","detail":"Chirand (Chhapra)"},{"achievement":"First E-Shakti Project","detail":"Paliganj, Bihar"}],"firsts_in_india":[{"achievement":"First President of India","detail":"Dr. Rajendra Prasad"},{"achievement":"First Mathematician","detail":"Aryabhatta"},{"achievement":"First Chairman of Constituent Assembly (Temp)","detail":"Dr. Sachchidanand Sinha"},{"achievement":"First Chairman of Constituent Assembly (Perm)","detail":"Dr. Rajendra Prasad"},{"achievement":"First Indian Governor (British period)","detail":"S.P. Sinha (1921)"},{"achievement":"First Satyagraha of Mahatma Gandhi","detail":"Champaran (Bihar), 1917"},{"achievement":"First Women Lok Sabha Speaker","detail":"Meira Kumar (2009)"},{"achievement":"Longest River Bridge","detail":"Mahatma Gandhi Setu, 5.6 km (Patna–Hajipur)"},{"achievement":"First State for BSNL Mobile Services","detail":"Bihar"},{"achievement":"First State for 50% Women Reservation in PRI","detail":"Bihar"},{"achievement":"Biggest Animal Fair","detail":"Sonpur Fair (confluence of Ganga & Gandak)"},{"achievement":"Biggest Railway Bridge","detail":"Abdul Bari Bridge, Koilwar on Son River"},{"achievement":"First LA Chairman","detail":"Ram Dayalu Singh (1937)"}],"firsts_in_world":[{"achievement":"First Democratic Republic","detail":"Vajji Sangh, Vaishali"},{"achievement":"First University","detail":"Nalanda University"},{"achievement":"First Emperor to Lay Down Weapons","detail":"Emperor Ashoka"},{"achievement":"First Mathematician","detail":"Aryabhatta"},{"achievement":"Oldest/Ancient City","detail":"Pataliputra"},{"achievement":"First Yoga University","detail":"Munger"},{"achievement":"World's Highest Buddha Stupa","detail":"Kesariya (Champaran)"}],"unesco_heritage_sites":[{"site":"Archaeological Site of Nalanda Mahavihara","location":"Nalanda","year":2016},{"site":"Mahabodhi Temple Complex","location":"Bodh Gaya","year":2002}],"bharat_ratna_awardees":[{"name":"Dr. Rajendra Prasad","year":1962},{"name":"Dr. Zakir Hussain","year":1963},{"name":"Maulana Abul Kalam Azad","year":1992},{"name":"J. R. D. Tata","year":1992},{"name":"Jai Prakash Narayan","year":1999},{"name":"Ustad Bismillah Khan","year":2001}],"important_persons":[{"name":"Dr. Rajendra Prasad","titles":"Deshratna, Ajatshatru","birthplace":"Zeradai (Siwan)"},{"name":"Jai Prakash Narayan","titles":"Loknayak, JP","birthplace":"Sitabadeyara (Chhapra)"},{"name":"Kunwar Singh","titles":"Babu","birthplace":"Jagdishpur (Bhojpur)"},{"name":"Dr. Sri Krishna Singh","titles":"Bihar Kesri","birthplace":"Barbigha (Munger)"},{"name":"Ramdhari Singh Dinkar","titles":"Rashtra Kavi (National Poet)","birthplace":"Simaria (Munger)"},{"name":"Babu Jagjivan Ram","titles":"Babujee","birthplace":""},{"name":"Dr. Anugraha Narayan Sinha","titles":"Bihar Bibhuti","birthplace":""},{"name":"Vidyapati","titles":"Maithil Kokil, Mahakavi","birthplace":"Bisfi (Madhubani)"},{"name":"Guru Gobind Singh","titles":"10th Sikh Guru","birthplace":"Patna City (Patna)"},{"name":"Sher Shah Suri","titles":"First to ascend Delhi throne (1540)","birthplace":"Sasaram"}]},"questions":[{"id":1,"cat":"geo","cat_label":"Geography","q":"What is the total area of Bihar?","opts":["84,163 sq km","94,163 sq km","104,163 sq km","114,163 sq km"],"ans":1,"exp":"Bihar has a total area of 94,163 sq km, making it the 13th largest state in India (after Telangana)."},{"id":2,"cat":"geo","cat_label":"Geography","q":"Which state borders Bihar to the North?","opts":["Jharkhand","Uttar Pradesh","Nepal","West Bengal"],"ans":2,"exp":"Nepal is to the North of Bihar. This is Bihar's only international boundary."},{"id":3,"cat":"geo","cat_label":"Geography","q":"What is the shape of Bihar?","opts":["Triangular","Rectangular","Circular","Irregular"],"ans":1,"exp":"Bihar has a rectangular shape with an N-S length of 345 km and an E-W breadth of 483 km."},{"id":4,"cat":"geo","cat_label":"Geography","q":"What is the normal annual rainfall in Bihar?","opts":["795 mm","895 mm","995 mm","1095 mm"],"ans":2,"exp":"Bihar receives a normal annual rainfall of 995 mm per year."},{"id":5,"cat":"geo","cat_label":"Geography","q":"What does the name 'Bihar' derive from?","opts":["A Sanskrit king","'Vihara' meaning Buddhist monasteries","The River Ganga","Ancient kingdom of Magadha"],"ans":1,"exp":"The name Bihar is derived from 'Vihara', which means Buddhist monasteries, reflecting its rich Buddhist heritage."},{"id":6,"cat":"admin","cat_label":"Administration","q":"How many Lok Sabha seats does Bihar have?","opts":["30","35","40","45"],"ans":2,"exp":"Bihar has 40 Lok Sabha seats and 16 Rajya Sabha seats."},{"id":7,"cat":"admin","cat_label":"Administration","q":"How many districts are there in Bihar?","opts":["30","36","38","40"],"ans":2,"exp":"Bihar is divided into 38 districts organized across 9 administrative divisions."},{"id":8,"cat":"admin","cat_label":"Administration","q":"How many Legislative Assembly seats does Bihar have?","opts":["200","225","243","260"],"ans":2,"exp":"Bihar has 243 Legislative Assembly seats and a Legislative Council of 75 seats."},{"id":9,"cat":"admin","cat_label":"Administration","q":"How many Gram Panchayats are there in Bihar?","opts":["4000","6387","8387","10000"],"ans":2,"exp":"Bihar has 8,387 Gram Panchayats, 534 Panchayat Samitis, and 38 Zila Parishads."},{"id":10,"cat":"admin","cat_label":"Administration","q":"How many subdivisions does Bihar have?","opts":["78","89","101","120"],"ans":2,"exp":"Bihar is organized into 101 sub-divisions for administrative purposes."},{"id":11,"cat":"symbols","cat_label":"Symbols","q":"What is the state animal of Bihar?","opts":["Tiger","Leopard","Ox","Elephant"],"ans":2,"exp":"The Ox (Gaur) is the state animal of Bihar."},{"id":12,"cat":"symbols","cat_label":"Symbols","q":"What is the state bird of Bihar?","opts":["Peacock","Sparrow","Pigeon","Parrot"],"ans":1,"exp":"The Sparrow is the state bird of Bihar. Sparrow Day is celebrated on March 20."},{"id":13,"cat":"symbols","cat_label":"Symbols","q":"What is the state flower of Bihar?","opts":["Rose","Tulip","Marigold","Lotus"],"ans":2,"exp":"Marigold is the state flower of Bihar."},{"id":14,"cat":"symbols","cat_label":"Symbols","q":"What is the state tree of Bihar?","opts":["Neem","Peepal","Banyan","Teak"],"ans":1,"exp":"The Peepal tree is the state tree of Bihar and holds significance in Indian culture and spirituality."},{"id":15,"cat":"symbols","cat_label":"Symbols","q":"When is Bihar State Day celebrated?","opts":["January 26","March 22","November 15","December 25"],"ans":1,"exp":"Bihar State Day is celebrated on March 22 every year, commemorating the state's formation."},{"id":16,"cat":"census","cat_label":"Census","q":"What is the population of Bihar according to the 2011 Census?","opts":["94.1 million","99.7 million","104.1 million","114.5 million"],"ans":2,"exp":"Bihar has a population of 104,099,452 according to the 2011 Census."},{"id":17,"cat":"census","cat_label":"Census","q":"What is the literacy rate in Bihar (2011 Census)?","opts":["51.8%","56.8%","61.8%","71.8%"],"ans":2,"exp":"The overall literacy rate in Bihar is 61.8%, with male literacy at 71.2% and female literacy at 51.5%."},{"id":18,"cat":"census","cat_label":"Census","q":"What is the sex ratio in Bihar (2011 Census)?","opts":["856 females per 1000 males","888 females per 1000 males","918 females per 1000 males","948 females per 1000 males"],"ans":2,"exp":"Bihar has a sex ratio of 918 females per 1000 males according to the 2011 Census."},{"id":19,"cat":"census","cat_label":"Census","q":"What percentage of Bihar's population is rural?","opts":["68.7%","78.7%","88.7%","98.7%"],"ans":2,"exp":"88.7% of Bihar's population is rural, while only 11.3% is urban, as per the 2011 Census."},{"id":20,"cat":"census","cat_label":"Census","q":"Which district has the highest population in Bihar?","opts":["Bhagalpur","Madhubani","Patna","Muzaffarpur"],"ans":2,"exp":"Patna is the district with the highest population in Bihar."},{"id":21,"cat":"census","cat_label":"Census","q":"Which district has the lowest population in Bihar?","opts":["Kaimur","Sheikhpura","Araria","Pashchim Champaran"],"ans":1,"exp":"Sheikhpura has the lowest population among all Bihar districts."},{"id":22,"cat":"census","cat_label":"Census","q":"What is the population density of Bihar per sq km?","opts":["806","906","1006","1106"],"ans":3,"exp":"Bihar has a population density of 1,106 persons per sq km, making it one of the most densely populated states."},{"id":23,"cat":"census","cat_label":"Census","q":"Which district has the highest decadal growth rate in Bihar?","opts":["Araria","Vaishali","Madhepura","Munger"],"ans":2,"exp":"Madhepura has the highest decadal growth rate (2001-2011) at 31.12%."},{"id":24,"cat":"census","cat_label":"Census","q":"Which district has the lowest decadal growth rate in Bihar?","opts":["Gaya","Gopalganj","Nalanda","Bhojpur"],"ans":1,"exp":"Gopalganj has the lowest decadal growth rate at 19.02%."},{"id":25,"cat":"census","cat_label":"Census","q":"Which district has the highest sex ratio in Bihar?","opts":["Siwan","Vaishali","Gopalganj","Muzaffarpur"],"ans":2,"exp":"Gopalganj has the highest sex ratio in Bihar at 1021 females per 1000 males."},{"id":26,"cat":"census","cat_label":"Census","q":"Which district has the lowest sex ratio in Bihar?","opts":["Patna","Munger","Bhagalpur","Rohtas"],"ans":1,"exp":"Munger has the lowest sex ratio in Bihar at 876 females per 1000 males."},{"id":27,"cat":"firsts","cat_label":"Firsts","q":"Who was the first Chief Minister of Bihar?","opts":["Jai Prakash Narayan","Dr. Rajendra Prasad","Sri Krishna Singh","Binodanand Jha"],"ans":2,"exp":"Sri Krishna Singh was the first Chief Minister of Bihar (1946–1961), also known as Bihar Kesri."},{"id":28,"cat":"firsts","cat_label":"Firsts","q":"Who was the first Governor of Bihar?","opts":["Zakir Hussain","Jai Ram Das Daulat Ram","S.P. Sinha","Rajendra Prasad"],"ans":1,"exp":"Jai Ram Das Daulat Ram was the first Governor of Bihar."},{"id":29,"cat":"firsts","cat_label":"Firsts","q":"Who was Bihar's first woman Chief Minister?","opts":["Sushma Swaraj","Rabri Devi","Sheila Dikshit","Uma Bharti"],"ans":1,"exp":"Rabri Devi was the first woman Chief Minister of Bihar."},{"id":30,"cat":"firsts","cat_label":"Firsts","q":"Where was Gandhi's first Satyagraha in India?","opts":["Dandi","Bardoli","Champaran","Kheda"],"ans":2,"exp":"Gandhi's first Satyagraha in India was at Champaran, Bihar in 1917."},{"id":31,"cat":"firsts","cat_label":"Firsts","q":"What is the length of Mahatma Gandhi Setu?","opts":["4.6 km","5.2 km","5.6 km","6.0 km"],"ans":2,"exp":"Mahatma Gandhi Setu (Patna to Hajipur) is 5.6 km — the longest river bridge in India."},{"id":32,"cat":"firsts","cat_label":"Firsts","q":"Where was the world's first democratic republic?","opts":["Athens (Greece)","Rome (Italy)","Vajji Sangh (Vaishali)","Pataliputra"],"ans":2,"exp":"Vajji Sangh at Vaishali (Bihar) is considered the world's first democratic republic."},{"id":33,"cat":"firsts","cat_label":"Firsts","q":"Which is considered the first university in the world?","opts":["Taxila","Vikramshila","Oxford","Nalanda"],"ans":3,"exp":"Nalanda University is considered the first university in the world."},{"id":34,"cat":"firsts","cat_label":"Firsts","q":"Which city in Bihar has the first Yoga University in the world?","opts":["Patna","Bodhgaya","Munger","Vaishali"],"ans":2,"exp":"Munger in Bihar has the first Yoga University in the world."},{"id":35,"cat":"firsts","cat_label":"Firsts","q":"In which year was the first TV relay centre in Bihar established, and where?","opts":["Patna, 1975","Muzaffarpur, 1978","Gaya, 1980","Bhagalpur, 1976"],"ans":1,"exp":"The first TV relay centre in Bihar was established in Muzaffarpur in 1978."},{"id":36,"cat":"firsts","cat_label":"Firsts","q":"Bihar was the first state in India to provide women reservation in Panchayati Raj at what percentage?","opts":["33%","40%","50%","60%"],"ans":2,"exp":"Bihar was the first state to provide 50% women reservation in Panchayati Raj institutions."},{"id":37,"cat":"persons","cat_label":"Personalities","q":"What is the title/nickname of Ramdhari Singh Dinkar?","opts":["Bihar Kesri","Maithil Kokil","Rashtra Kavi","Loknayak"],"ans":2,"exp":"Ramdhari Singh Dinkar is known as Rashtra Kavi (National Poet). He received Jnanpith Puraskar for 'Urvashi' in 1972."},{"id":38,"cat":"persons","cat_label":"Personalities","q":"Jai Prakash Narayan is known by which title?","opts":["Bihar Vibhuti","Loknayak","Babujee","Bihar Kesri"],"ans":1,"exp":"Jai Prakash Narayan is known as Loknayak. He received Bharat Ratna in 1999."},{"id":39,"cat":"persons","cat_label":"Personalities","q":"Where was Dr. Rajendra Prasad born?","opts":["Patna","Zeradai (Siwan)","Simaria (Munger)","Barbigha (Munger)"],"ans":1,"exp":"Dr. Rajendra Prasad was born at Zeradai in Siwan district. He received Bharat Ratna in 1962."},{"id":40,"cat":"persons","cat_label":"Personalities","q":"Guru Gobind Singh was born in which city of Bihar?","opts":["Gaya","Vaishali","Patna City","Nalanda"],"ans":2,"exp":"Guru Gobind Singh, the 10th Sikh Guru, was born in Patna City (Patna)."},{"id":41,"cat":"persons","cat_label":"Personalities","q":"Vidyapati is associated with which district of Bihar?","opts":["Bhojpur","Madhubani (Bisfi)","Siwan","Darbhanga"],"ans":1,"exp":"Vidyapati was born at Bisfi in Madhubani. He is known as Maithil Kokil and Mahakavi."},{"id":42,"cat":"persons","cat_label":"Personalities","q":"Who was the first Deputy Prime Minister of India, connected to Bihar?","opts":["Jai Prakash Narayan","Jagjivan Ram","Rajendra Prasad","Sri Krishna Singh"],"ans":1,"exp":"Jagjivan Ram (Babujee) from Bihar was the first Deputy Prime Minister of India."},{"id":43,"cat":"persons","cat_label":"Personalities","q":"Which Bihar personality received Bharat Ratna in 2001?","opts":["Jai Prakash Narayan","Dr. Zakir Hussain","Ustad Bismillah Khan","Maulana Abul Kalam Azad"],"ans":2,"exp":"Ustad Bismillah Khan received Bharat Ratna in 2001."}]};
+
+        // Load data
+        function loadData() {
+            quizData = biharGKData;
+            initializeLearnMode();
+            initializeQuiz();
+        }
+
+        function initializeLearnMode() {
+            if (!quizData) return;
+
+            const learn = quizData.learn;
+
+            // Quick Facts - as Flashcards
+            const quickFactsFlashcards = [
+                { category: 'Geography', question: 'What is Bihar?', answer: 'Bihar', tip: 'Derived from "Vihara" (Buddhist monasteries) — remember: Vihara → Bihar' },
+                { category: 'Capital', question: 'What is the capital of Bihar?', answer: 'Patna', tip: 'Patna = Ancient Pataliputra, once seat of Mauryan Empire' },
+                { category: 'Area', question: 'Total area of Bihar?', answer: '94,163 sq km (13th largest state)', tip: '94k ≈ 94,163 — 13th after Telangana' },
+                { category: 'Area %', question: 'Bihar is what % of India?', answer: '2.86%', tip: '2.86% — Less than 3% of total India' },
+                { category: 'Dimensions', question: 'Shape and dimensions?', answer: 'Rectangular: 345 km (N-S) × 483 km (E-W)', tip: 'Rectangular = Wider East-West (483) than North-South (345)' },
+                { category: 'Foundation', question: 'When did Bihar form as a state?', answer: '1912 (as Bihar-Orissa Province)', tip: '1912 + Orissa till 1936, then Jharkhand till 2000' },
+                { category: 'Borders', question: 'Which country borders Bihar?', answer: 'Nepal (North)', tip: 'Only international border is with Nepal in North' },
+                { category: 'Language', question: 'Official languages of Bihar?', answer: 'Hindi (Primary) & Urdu (Secondary)', tip: 'Hindi #1, Urdu #2 — also Bhojpuri, Maithili spoken' },
+                { category: 'Day', question: 'What is Bihar State Day?', answer: '22 March', tip: '22/3 — Mark it: March 22' },
+                { category: 'Rainfall', question: 'Annual rainfall in Bihar?', answer: '995 mm/year', tip: '~1000 mm ≈ 1 meter of rain annually' }
+            ];
+            renderFlashcards('quick-facts-grid', quickFactsFlashcards);
+
+            // Boundaries
+            renderBoundaries();
+
+            // Coordinates
+            const coords = learn.coordinates;
+            document.getElementById('coordinates-text').innerHTML = `
+                <strong>Latitude:</strong> ${coords.Latitudinal_Extension}<br>
+                <strong>Longitude:</strong> ${coords.Longitudinal_Extension}
+            `;
+
+            // Symbols - as Flashcards
+            const symbolsFlashcards = [
+                { category: 'State Animal', question: 'State animal of Bihar?', answer: 'Ox (Gaur)', tip: 'Ox = Strong, powerful — symbolizes strength & agriculture' },
+                { category: 'State Bird', question: 'State bird of Bihar?', answer: 'Sparrow', tip: 'Sparrow Day = March 20 (remember: House sparrow, common bird)' },
+                { category: 'State Flower', question: 'State flower of Bihar?', answer: 'Marigold', tip: 'Marigold = Golden yellow — auspicious in Indian culture' },
+                { category: 'State Tree', question: 'State tree of Bihar?', answer: 'Peepal', tip: 'Peepal = Sacred tree in Buddhism/Hinduism — Bodhi tree' }
+            ];
+            renderFlashcards('symbols-grid', symbolsFlashcards);
+
+            // Administration
+            renderFactsGrid('admin-grid', Object.entries(learn.administrative_units).map(([k, v]) => ({
+                label: k.replace(/_/g, ' '),
+                value: v
+            })));
+
+        function renderCensusGrid() {
+            const grid = document.getElementById('census-grid');
+            const census = quizData.learn.census_2011;
+            const tips = {
+                'Population': '104 crore ≈ population of entire Russia!',
+                'Sex_Ratio': '918 females/1000 males — below national avg of 943',
+                'Literacy_Rate': '61.8% — below national avg of 74%',
+                'Urban_Population_Percent': 'Only 11.3% urban — mostly rural state',
+                'Population_Density': '1106/sq km — 2nd most densely populated after Bihar itself!',
+                'Largest_City': 'Patna is largest city and most populous district'
+            };
+            
+            const censusFacts = Object.entries(census).map(([k, v]) => ({
+                label: k.replace(/_/g, ' '),
+                value: v,
+                tip: tips[k]
+            }));
+            
+            grid.innerHTML = censusFacts.map(fact => `
+                <div class="card">
+                    <div class="fact-label">${fact.label}</div>
+                    <div class="fact-value">${fact.value}</div>
+                    ${fact.tip ? `<div style="font-size: 0.85rem; color: var(--primary); margin-top: 0.75rem; font-style: italic; padding-top: 0.75rem; border-top: 1px solid var(--border);">💡 ${fact.tip}</div>` : ''}
+                </div>
+            `).join('');
+        }
+
+            // Firsts
+            renderAchievementGrid('firsts-bihar-grid', learn.firsts_in_bihar);
+            renderAchievementGrid('firsts-india-grid', learn.firsts_in_india);
+            renderAchievementGrid('firsts-world-grid', learn.firsts_in_world);
+
+            // Heritage
+            renderHeritageGrid();
+
+            // Bharat Ratna
+            renderBharatRatnaGrid();
+
+            // Personalities
+            renderPersonalitiesGrid();
+        }
+
+        function renderFactsGrid(elementId, facts) {
+            const grid = document.getElementById(elementId);
+            if (!grid) return;
+            grid.innerHTML = facts.map(fact => `
+                <div class="card">
+                    <div class="fact-label">${fact.label}</div>
+                    <div class="fact-value">${fact.value}</div>
+                    ${fact.tip ? `<div style="font-size: 0.85rem; color: var(--primary); margin-top: 0.75rem; font-style: italic; padding-top: 0.75rem; border-top: 1px solid var(--border);">💡 ${fact.tip}</div>` : ''}
+                </div>
+            `).join('');
+        }
+
+        function renderFlashcards(elementId, flashcards) {
+            const container = document.getElementById(elementId);
+            if (!container) return;
+            
+            container.className = 'flashcard-grid';
+            container.innerHTML = flashcards.map((card, idx) => `
+                <div class="flashcard-container">
+                    <div class="flashcard">
+                        <div class="flashcard-front">
+                            <div class="flashcard-label">${card.category || 'Fact'}</div>
+                            <div class="flashcard-question">${card.question}</div>
+                            <div class="flashcard-hint">👆 Click to reveal</div>
+                        </div>
+                        <div class="flashcard-back">
+                            <div class="flashcard-answer">${card.answer}</div>
+                            ${card.tip ? `<div class="flashcard-tip">💡 ${card.tip}</div>` : ''}
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+            
+            // Add click handlers after rendering
+            setTimeout(() => {
+                document.querySelectorAll('.flashcard-container').forEach(container => {
+                    container.addEventListener('click', function(e) {
+                        const card = this.querySelector('.flashcard');
+                        if (card) {
+                            card.classList.toggle('flipped');
+                        }
+                    });
+                });
+            }, 100);
+        }
+
+        function renderBoundaries() {
+            const grid = document.getElementById('boundaries-grid');
+            const boundaries = quizData.learn.boundaries;
+            const tips = {
+                'North': 'Only international boundary',
+                'South': 'Part of erstwhile Magadha empire',
+                'East': 'Shares Brahmaputra plains',
+                'West': 'Ganga valley plains',
+                'International_Boundary': 'Nepal = only international border'
+            };
+            grid.innerHTML = Object.entries(boundaries).map(([direction, value]) => `
+                <div class="boundary-item">
+                    <div class="boundary-direction">${direction.replace(/_/g, ' ')}</div>
+                    <div class="boundary-value">${value}</div>
+                    ${tips[direction] ? `<div style="font-size: 0.8rem; color: var(--primary); margin-top: 0.5rem; font-style: italic;">💡 ${tips[direction]}</div>` : ''}
+                </div>
+            `).join('');
+        }
+
+        function renderAchievementGrid(elementId, achievements) {
+            const grid = document.getElementById(elementId);
+            const tips = getAchievementTips(elementId);
+            
+            grid.innerHTML = achievements.map(item => `
+                <div class="card">
+                    <div class="fact-label">${item.achievement}</div>
+                    <div class="fact-value">${item.detail}</div>
+                    ${tips[item.achievement] ? `<div style="font-size: 0.85rem; color: var(--primary); margin-top: 0.75rem; font-style: italic; padding-top: 0.75rem; border-top: 1px solid var(--border);">💡 ${tips[item.achievement]}</div>` : ''}
+                </div>
+            `).join('');
+        }
+
+        function getAchievementTips(gridId) {
+            const tipsMap = {
+                'firsts-bihar-grid': {
+                    'First Chief Minister': 'Sri Krishna Singh = Bihar Kesri (1946-61)',
+                    'First Ancient University': 'Nalanda = Birthplace of higher education',
+                    'First Oil Refinery': 'Barauni refinery — major petroleum hub',
+                    'First Sugar Mill': 'Marhaura (1904) — started sugar industry',
+                    'First Yoga University': 'Munger has world\'s first yoga university',
+                    'Historic Earthquake': '1934 Bihar earthquake = 8.3 magnitude'
+                },
+                'firsts-india-grid': {
+                    'First President of India': 'Dr. Rajendra Prasad from Bihar',
+                    'First Mathematician': 'Aryabhatta from Nalanda (born ~476 CE)',
+                    'First Satyagraha of Mahatma Gandhi': 'Champaran 1917 = Gandhi\'s 1st mass protest',
+                    'Longest River Bridge': 'Mahatma Gandhi Setu = 5.6 km bridge',
+                    'First State for 50% Women Reservation in PRI': 'Bihar pioneered gender equality in local government'
+                },
+                'firsts-world-grid': {
+                    'First Democratic Republic': 'Vajji Sangh in Vaishali (6th century BCE)',
+                    'First University': 'Nalanda = World\'s first university (5th century)',
+                    'First Emperor to Lay Down Weapons': 'Ashoka renounced violence after Kalinga war',
+                    'First Yoga University': 'Munger on Ganga banks'
+                }
+            };
+            return tipsMap[gridId] || {};
+        }
+
+        function renderHeritageGrid() {
+            const grid = document.getElementById('heritage-grid');
+            const sites = quizData.learn.unesco_heritage_sites;
+            grid.innerHTML = sites.map(site => `
+                <div class="card">
+                    <div class="fact-label">📍 ${site.location}</div>
+                    <div class="fact-value">${site.site}</div>
+                    <div style="font-size: 0.9rem; color: var(--text-light); margin-top: 0.5rem;">UNESCO: ${site.year}</div>
+                </div>
+            `).join('');
+        }
+
+        function renderBharatRatnaGrid() {
+            const grid = document.getElementById('bharat-grid');
+            const awardees = quizData.learn.bharat_ratna_awardees;
+            grid.innerHTML = awardees.map(person => `
+                <div class="card">
+                    <div class="fact-label">🎖️ ${person.year}</div>
+                    <div class="fact-value">${person.name}</div>
+                </div>
+            `).join('');
+        }
+
+        function renderPersonalitiesGrid() {
+            const grid = document.getElementById('personalities-grid');
+            const persons = quizData.learn.important_persons;
+            
+            const personalitiesFlashcards = persons.map(person => ({
+                category: person.titles || 'Important Figure',
+                question: person.name,
+                answer: `${person.titles || ''}${person.birthplace ? ' • ' + person.birthplace : ''}`,
+                tip: getPersonalityTip(person.name)
+            }));
+            
+            renderFlashcards('personalities-grid', personalitiesFlashcards);
+        }
+
+        function getPersonalityTip(name) {
+            const tips = {
+                'Dr. Rajendra Prasad': 'First President of India, Bharat Ratna 1962',
+                'Jai Prakash Narayan': 'Loknayak = "Leader of the People", 1999 Bharat Ratna',
+                'Kunwar Singh': 'Freedom fighter from Jagdishpur (1857 revolt)',
+                'Dr. Sri Krishna Singh': 'Bihar Kesri = "Bihar Lion", 1st CM (1946-61)',
+                'Ramdhari Singh Dinkar': 'Rashtra Kavi (National Poet), Jnanpith award',
+                'Babu Jagjivan Ram': 'First Deputy PM of India — Babujee',
+                'Vidyapati': 'Maithil Kokil (Cuckoo of Mithila) — Madhubani poet',
+                'Guru Gobind Singh': '10th Sikh Guru, born in Patna 1666',
+                'Sher Shah Suri': 'First to rule Delhi from Sasaram (1540)'
+            };
+            return tips[name] || '';
+        }
+
+        function initializeQuiz() {
+            if (!quizData) return;
+            allQuestions = quizData.questions || [];
+            filteredQuestions = allQuestions;
+            selectedAnswers = new Array(allQuestions.length).fill(-1);
+            renderQuizUI();
+        }
+
+        function renderQuizUI() {
+            if (currentQuestion >= filteredQuestions.length) {
+                showResults();
+                return;
+            }
+
+            const q = filteredQuestions[currentQuestion];
+            const progress = ((currentQuestion + 1) / filteredQuestions.length) * 100;
+
+            let html = `
+                <div class="quiz-header">
+                    <div class="question-number">Question ${currentQuestion + 1} of ${filteredQuestions.length} • Category: ${q.cat_label}</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: ${progress}%"></div>
+                    </div>
+                </div>
+                <div class="quiz-question">${q.q}</div>
+                <div class="options">
+            `;
+
+            q.opts.forEach((opt, idx) => {
+                const isSelected = selectedAnswers[currentQuestion] === idx;
+                const isAnswered = selectedAnswers[currentQuestion] !== -1;
+                let className = 'option';
+                if (isSelected) className += ' selected';
+                if (isAnswered) {
+                    if (idx === q.ans) className += ' correct';
+                    else if (isSelected && idx !== q.ans) className += ' incorrect';
+                }
+
+                html += `<div class="${className}" onclick="selectOption(${idx})" ${isAnswered ? 'style="pointer-events: none;"' : ''}>
+                    <div class="option-text">${opt}</div>
+                </div>`;
+            });
+
+            html += `</div>`;
+
+            if (selectedAnswers[currentQuestion] !== -1) {
+                const isCorrect = selectedAnswers[currentQuestion] === q.ans;
+                html += `
+                    <div class="explanation show">
+                        <div class="explanation-label">${isCorrect ? '✓ Correct!' : '✗ Incorrect'}</div>
+                        <div class="explanation-text">${q.exp}</div>
+                    </div>
+                `;
+            }
+
+            html += `
+                <div class="quiz-buttons">
+                    <button class="btn btn-secondary" onclick="prevQuestion()" ${currentQuestion === 0 ? 'disabled' : ''}>← Previous</button>
+                    <button class="btn btn-primary" onclick="nextQuestion()" ${selectedAnswers[currentQuestion] === -1 ? 'disabled' : ''}>
+                        ${currentQuestion === filteredQuestions.length - 1 ? 'Submit' : 'Next'}
+                    </button>
+                </div>
+            `;
+
+            document.getElementById('quiz-content').innerHTML = html;
+        }
+
+        function selectOption(idx) {
+            selectedAnswers[currentQuestion] = idx;
+            const q = filteredQuestions[currentQuestion];
+            if (idx === q.ans) {
+                score++;
+            }
+            renderQuizUI();
+        }
+
+        function nextQuestion() {
+            if (selectedAnswers[currentQuestion] !== -1) {
+                currentQuestion++;
+                renderQuizUI();
+            }
+        }
+
+        function prevQuestion() {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                renderQuizUI();
+            }
+        }
+
+        function showResults() {
+            const percentage = Math.round((score / filteredQuestions.length) * 100);
+            let message = '';
+            if (percentage >= 80) message = '🎉 Excellent! You are a Bihar GK master!';
+            else if (percentage >= 60) message = '👍 Good job! Keep learning for even better results.';
+            else if (percentage >= 40) message = '📚 Not bad! Review the topics and try again.';
+            else message = '💪 Keep practicing! You\'ll improve with more study.';
+
+            const html = `
+                <div class="results-container">
+                    <h2>Quiz Completed!</h2>
+                    <div class="score-display">${percentage}%</div>
+                    <div class="results-message">${message}</div>
+                    <div class="results-details">
+                        <div class="result-stat">
+                            <div class="result-stat-label">Score</div>
+                            <div class="result-stat-value">${score}/${filteredQuestions.length}</div>
+                        </div>
+                        <div class="result-stat">
+                            <div class="result-stat-label">Accuracy</div>
+                            <div class="result-stat-value">${percentage}%</div>
+                        </div>
+                        <div class="result-stat">
+                            <div class="result-stat-label">Category</div>
+                            <div class="result-stat-value">${currentCategory === 'all' ? 'All' : currentCategory}</div>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary restart-btn" onclick="restartQuiz()">🔄 Try Again</button>
+                    <button class="btn btn-secondary restart-btn" onclick="switchMode('learn')" style="margin-left: 1rem;">📚 Back to Learn</button>
+                </div>
+            `;
+
+            document.getElementById('results-content').innerHTML = html;
+            document.getElementById('quiz-content').innerHTML = '';
+        }
+
+        function restartQuiz() {
+            currentQuestion = 0;
+            score = 0;
+            selectedAnswers = new Array(filteredQuestions.length).fill(-1);
+            document.getElementById('results-content').innerHTML = '';
+            renderQuizUI();
+        }
+
+        function switchMode(mode) {
+            const learnMode = document.getElementById('learn-mode');
+            const quizMode = document.getElementById('quiz-mode');
+            const toggleBtns = document.querySelectorAll('.toggle-btn');
+
+            if (mode === 'learn') {
+                learnMode.classList.add('active');
+                quizMode.classList.remove('active');
+                toggleBtns[0].classList.add('active');
+                toggleBtns[1].classList.remove('active');
+            } else {
+                learnMode.classList.remove('active');
+                quizMode.classList.add('active');
+                toggleBtns[0].classList.remove('active');
+                toggleBtns[1].classList.add('active');
+                if (currentQuestion === 0 && score === 0) {
+                    renderQuizUI();
+                }
+            }
+        }
+
+        function switchLearnTab(tab) {
+            // Hide all content
+            const contents = document.querySelectorAll('.learn-content');
+            contents.forEach(c => c.classList.remove('active'));
+
+            // Remove active from all tabs
+            const tabs = document.querySelectorAll('.learn-tab');
+            tabs.forEach(t => t.classList.remove('active'));
+
+            // Show selected content and tab
+            const selectedContent = document.getElementById(tab);
+            const selectedTab = event.target;
+
+            if (selectedContent) {
+                selectedContent.classList.add('active');
+                selectedTab.classList.add('active');
+            }
+        }
+
+        // Initialize on page load
+        window.addEventListener('DOMContentLoaded', loadData);
+
+        // Fallback: Try loading from a data URL or embedded JSON
+        // This allows the page to work even if the file isn't found
+    </script>
+</body>
+</html>
