@@ -3,737 +3,714 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bihar Special — BPSC CSE</title>
-<link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi&family=Playfair+Display:wght@700;900&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<title>Bihar Complete — Learn, Quiz & Analytics</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root {
   --bg:#0a0a0f; --surface:#111118; --card:#16161f; --border:#252535;
-  --accent:#e8a838; --accent2:#c9563a; --accent3:#4a9eda;
-  --text:#e8e6df; --muted:#8884a0;
-  --correct:#2ecc71; --wrong:#e74c3c; --partial:#f39c12;
+  --accent:#ff9500; --accent2:#4a9eda; --text:#e8e6df; --muted:#8884a0;
+  --correct:#2ecc71; --wrong:#e74c3c;
 }
+
+body.light-mode {
+  --bg: #f5f5f5;
+  --surface: #ffffff;
+  --card: #f9f9f9;
+  --border: #e0e0e0;
+  --text: #1a1a1a;
+  --muted: #666666;
+}
+
 *{box-sizing:border-box;margin:0;padding:0;}
-body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-serif;min-height:100vh;overflow-x:hidden;}
+body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-serif;min-height:100vh;transition:all 0.3s ease;}
 
-/* HEADER */
-header{position:relative;padding:50px 40px 36px;border-bottom:1px solid var(--border);background:linear-gradient(180deg,#0e0e1a 0%,var(--bg) 100%);overflow:hidden;}
-header::before{content:'बिहार';position:absolute;right:-20px;top:50%;transform:translateY(-50%);font-family:'Tiro Devanagari Hindi',serif;font-size:180px;color:rgba(232,168,56,0.04);pointer-events:none;white-space:nowrap;}
-.header-badge{display:inline-block;background:var(--accent);color:#000;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;padding:4px 12px;border-radius:2px;margin-bottom:14px;}
-header h1{font-family:'Playfair Display',serif;font-size:clamp(32px,5vw,60px);font-weight:900;line-height:1;letter-spacing:-1px;color:#fff;}
-header h1 span{color:var(--accent);}
-header p{margin-top:10px;color:var(--muted);font-size:13px;max-width:500px;line-height:1.6;}
+header{padding:40px;border-bottom:1px solid var(--border);background:linear-gradient(180deg,rgba(14,14,26,0.8) 0%,var(--bg) 100%));display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;}
+header h1{font-family:'Playfair Display',serif;font-size:42px;color:var(--accent);margin-bottom:8px;}
+header p{color:var(--muted);font-size:13px;flex:1;}
 
-/* LAYOUT: sidebar + content */
-.app-layout{display:flex;min-height:calc(100vh - 160px);}
+.header-controls{display:flex;gap:15px;align-items:center;}
+.theme-toggle{background:var(--surface);border:1px solid var(--border);padding:8px 16px;border-radius:6px;cursor:pointer;font-size:13px;font-weight:600;color:var(--text);transition:all 0.3s;display:flex;align-items:center;gap:8px;}
+.theme-toggle:hover{background:var(--accent);color:#000;}
 
-/* SIDEBAR NAV */
-.sidebar{width:230px;flex-shrink:0;background:var(--surface);border-right:1px solid var(--border);position:sticky;top:0;height:100vh;overflow-y:auto;padding:24px 0;}
-.sidebar-title{font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--muted);padding:0 20px 12px;}
-.nav-item{display:flex;align-items:center;gap:10px;padding:11px 20px;cursor:pointer;border-left:3px solid transparent;transition:all 0.2s;text-decoration:none;}
-.nav-item:hover{background:rgba(232,168,56,0.05);color:var(--text);}
-.nav-item.active{border-left-color:var(--accent);background:rgba(232,168,56,0.08);color:var(--accent);}
-.nav-item .nav-icon{font-size:16px;flex-shrink:0;}
-.nav-item .nav-label{font-size:12px;font-weight:500;line-height:1.3;color:inherit;}
-.nav-item .nav-num{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--muted);margin-left:auto;}
+.app-layout{display:flex;min-height:calc(100vh - 140px);}
+.sidebar{width:280px;background:var(--surface);border-right:1px solid var(--border);padding:20px;overflow-y:auto;position:sticky;top:0;height:calc(100vh - 140px);}
+.sidebar-title{font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:16px;margin-top:16px;}
+.sidebar-title:first-child{margin-top:0;}
 
-/* MAIN CONTENT */
-.content-area{flex:1;padding:36px 40px;max-width:900px;}
+.nav-item{display:flex;align-items:center;gap:10px;padding:12px 16px;cursor:pointer;border-radius:6px;border-left:3px solid transparent;transition:all 0.2s;text-decoration:none;color:inherit;margin-bottom:8px;}
+.nav-item:hover{background:rgba(255,149,0,0.05);}
+.nav-item.active{border-left-color:var(--accent);background:rgba(255,149,0,0.1);color:var(--accent);}
+.nav-icon{font-size:18px;}
+.nav-label{font-size:13px;flex:1;font-weight:500;}
+.nav-num{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--muted);}
 
-/* SECTION PANEL — only one visible at a time */
+.custom-btn{background:var(--accent);color:#000;padding:12px;border:none;border-radius:6px;width:100%;font-weight:600;cursor:pointer;margin-top:12px;font-size:13px;transition:all 0.3s;}
+.custom-btn:hover{background:#ffb84d;transform:translateY(-2px);}
+
+.content-area{flex:1;padding:40px;overflow-y:auto;}
+.section-header{margin-bottom:32px;}
+.section-num{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--accent);background:rgba(255,149,0,0.1);border:1px solid rgba(255,149,0,0.3);padding:6px 12px;border-radius:4px;display:inline-block;margin-bottom:12px;}
+.section-title{font-family:'Playfair Display',serif;font-size:42px;color:var(--text);margin-bottom:8px;}
+.section-desc{color:var(--muted);font-size:14px;}
+
+.mode-toggle-bar{display:flex;gap:10px;width:fit-content;margin-bottom:32px;background:rgba(0,0,0,0.2);padding:8px;border-radius:40px;}
+.mode-btn{padding:12px 32px;border:2px solid transparent;border-radius:30px;font-size:14px;font-weight:600;cursor:pointer;background:transparent;color:var(--muted);transition:all 0.3s ease;letter-spacing:0.5px;}
+.mode-btn.active{background:var(--accent);color:#000;border-color:var(--accent);}
+
 .section-panel{display:none;}
 .section-panel.active{display:block;}
+.mode-content{display:none;}
+.mode-content.active{display:block;}
 
-.section-header{margin-bottom:24px;}
-.section-num-badge{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--accent);background:rgba(232,168,56,0.1);border:1px solid rgba(232,168,56,0.3);padding:3px 10px;border-radius:4px;display:inline-block;margin-bottom:10px;}
-.section-title{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:#fff;line-height:1.1;}
-.section-desc{color:var(--muted);font-size:13px;margin-top:6px;}
+.chapter-container{display:grid;gap:20px;}
+.chapter-card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:20px;transition:all 0.3s;}
+.chapter-card:hover{border-color:var(--accent);box-shadow:0 4px 12px rgba(255,149,0,0.1);}
+.chapter-card h3{color:var(--accent2);font-size:16px;margin-bottom:12px;font-weight:600;}
+.chapter-card p{color:var(--text);line-height:1.8;margin-bottom:8px;font-size:14px;}
+.chapter-card ul{margin-left:20px;color:var(--text);}
+.chapter-card li{margin:8px 0;font-size:14px;line-height:1.7;}
 
-/* MODE TOGGLE */
-.mode-toggle-bar{display:flex;align-items:center;background:#1a1a26;border:1px solid var(--border);border-radius:40px;padding:5px;gap:4px;width:fit-content;margin-bottom:24px;}
-.mode-btn{font-size:13px;font-weight:600;padding:9px 24px;border:none;border-radius:30px;cursor:pointer;background:transparent;color:var(--muted);transition:all 0.25s ease;letter-spacing:0.3px;}
-.mode-btn.active{background:#f47c20;color:#fff;box-shadow:0 2px 14px rgba(244,124,32,0.35);}
-.mode-btn:hover:not(.active){color:var(--text);}
+.kv-grid{display:grid;grid-template-columns:auto 1fr;gap:8px 20px;margin-bottom:12px;}
+.kv-key{color:var(--muted);font-size:12px;font-weight:500;white-space:nowrap;}
+.kv-val{color:var(--text);font-size:14px;}
 
-/* MODE PANELS */
-.mode-panel{display:none;}
-.mode-panel.active{display:block;}
+.badge{display:inline-block;padding:4px 10px;border-radius:3px;font-size:11px;font-weight:600;margin:2px 3px 2px 0;}
+.badge-accent{background:rgba(255,149,0,0.15);color:#ffb84d;border:1px solid rgba(255,149,0,0.3);}
+.badge-blue{background:rgba(74,158,218,0.12);color:#7ec8f5;border:1px solid rgba(74,158,218,0.2);}
 
-/* LEARN CONTENT */
-.learn-section{margin-bottom:22px;padding-bottom:22px;border-bottom:1px solid var(--border);}
-.learn-section:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
-.learn-section h4{font-size:12px;font-weight:600;color:var(--accent3);letter-spacing:0.5px;margin-bottom:10px;text-transform:uppercase;}
-.learn-section p,.learn-section li{font-size:13.5px;line-height:1.75;color:#ccc9e0;margin-bottom:6px;}
-.learn-section ul{padding-left:16px;}
-.kv-grid{display:grid;grid-template-columns:auto 1fr;gap:7px 18px;font-size:13px;}
-.kv-key{color:var(--muted);font-size:11px;white-space:nowrap;padding-top:3px;}
-.kv-val{color:var(--text);line-height:1.6;}
-.tag{display:inline-block;font-size:11px;font-weight:600;padding:2px 8px;border-radius:3px;margin:2px 3px 2px 0;}
-.tag-r{background:rgba(201,86,58,0.15);color:#e8836e;border:1px solid rgba(201,86,58,0.3);}
-.tag-b{background:rgba(74,158,218,0.12);color:#7ec8f5;border:1px solid rgba(74,158,218,0.2);}
-.tag-g{background:rgba(46,204,113,0.1);color:#6ee09a;border:1px solid rgba(46,204,113,0.2);}
-.tag-y{background:rgba(232,168,56,0.1);color:var(--accent);border:1px solid rgba(232,168,56,0.2);}
+/* QUIZ MODAL */
+.modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.8);z-index:1000;align-items:center;justify-content:center;}
+.modal.active{display:flex;}
+.modal-content{background:var(--surface);border-radius:12px;padding:40px;max-width:600px;width:90%;max-height:80vh;overflow-y:auto;border:1px solid var(--border);}
+.modal-header{font-size:24px;font-weight:700;color:var(--text);margin-bottom:20px;}
+.close-btn{float:right;font-size:24px;cursor:pointer;color:var(--muted);transition:all 0.2s;}
+.close-btn:hover{color:var(--accent);}
 
-/* QUIZ */
-.quiz-progress-bar{height:3px;background:var(--border);border-radius:2px;margin-bottom:16px;overflow:hidden;}
-.quiz-progress-fill{height:100%;background:var(--accent);border-radius:2px;transition:width 0.4s ease;}
-.quiz-meta{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-bottom:14px;}
-.streak-row{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:14px;}
-.streak-dot{width:10px;height:10px;border-radius:3px;background:var(--border);}
-.streak-dot.c{background:var(--correct);}
-.streak-dot.w{background:var(--wrong);}
-.q-type-badge{display:inline-block;font-size:10px;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:2px 8px;border-radius:3px;margin-bottom:10px;}
-.q-easy{background:rgba(46,204,113,0.1);color:#6ee09a;border:1px solid rgba(46,204,113,0.25);}
-.q-medium{background:rgba(232,168,56,0.1);color:var(--accent);border:1px solid rgba(232,168,56,0.25);}
-.q-hard{background:rgba(201,86,58,0.12);color:#e8836e;border:1px solid rgba(201,86,58,0.3);}
-.q-text{font-size:15px;font-weight:500;color:#fff;line-height:1.7;margin-bottom:16px;}
-.q-options{display:flex;flex-direction:column;gap:8px;}
-.q-opt{background:#1a1a26;border:1px solid var(--border);border-radius:8px;padding:11px 16px;font-size:13px;color:#ccc;cursor:pointer;transition:all 0.15s;text-align:left;width:100%;}
-.q-opt:hover:not(:disabled){border-color:var(--accent);color:#fff;background:rgba(232,168,56,0.06);}
-.q-opt.correct{border-color:var(--correct);background:rgba(46,204,113,0.1);color:#6ee09a;}
-.q-opt.selected-wrong{border-color:var(--wrong);background:rgba(231,76,60,0.15);color:#e8836e;font-weight:600;}
-.q-explanation{display:none;margin-top:12px;padding:12px 16px;background:rgba(74,158,218,0.07);border-left:3px solid var(--accent3);border-radius:0 6px 6px 0;font-size:13px;color:#b0c8e0;line-height:1.7;}
-.q-explanation.show{display:block;}
-.quiz-nav{display:flex;justify-content:space-between;align-items:center;margin-top:18px;gap:10px;}
-.btn{font-size:12px;font-weight:600;padding:9px 20px;border:none;border-radius:6px;cursor:pointer;transition:all 0.15s;letter-spacing:0.5px;}
+.quiz-option{background:var(--card);border:1px solid var(--border);padding:16px;border-radius:8px;margin-bottom:12px;cursor:pointer;transition:all 0.3s;}
+.quiz-option:hover{border-color:var(--accent);background:rgba(255,149,0,0.05);}
+.quiz-option input[type="checkbox"]{margin-right:10px;}
+.quiz-option label{cursor:pointer;display:flex;align-items:center;font-weight:500;}
+
+.btn-group{display:flex;gap:10px;margin-top:24px;}
+.btn{padding:10px 20px;border:none;border-radius:6px;font-size:13px;font-weight:600;cursor:pointer;transition:all 0.2s;flex:1;}
+.btn-primary{background:var(--accent);color:#000;}
+.btn-primary:hover{background:#ffb84d;}
+.btn-secondary{background:transparent;border:1px solid var(--border);color:var(--text);}
+.btn-secondary:hover{border-color:var(--accent);color:var(--accent);}
+
+/* QUIZ INTERFACE */
+.quiz-container{padding:20px;}
+.quiz-progress{height:4px;background:var(--border);border-radius:2px;margin-bottom:16px;overflow:hidden;}
+.quiz-progress-fill{height:100%;background:var(--accent);transition:width 0.4s;}
+.quiz-meta{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-bottom:16px;}
+.quiz-q{font-size:18px;color:var(--text);font-weight:500;margin-bottom:20px;line-height:1.6;}
+.quiz-opts{display:flex;flex-direction:column;gap:10px;margin-bottom:20px;}
+.quiz-opt{padding:14px 16px;background:var(--card);border:1px solid var(--border);border-radius:6px;cursor:pointer;font-size:14px;color:var(--text);transition:all 0.15s;text-align:left;}
+.quiz-opt:hover{border-color:var(--accent);color:var(--accent);}
+.quiz-opt.selected{border-color:var(--accent);background:rgba(255,149,0,0.1);}
+.quiz-opt.correct{border-color:var(--correct);background:rgba(46,204,113,0.1);color:var(--correct);}
+.quiz-opt.wrong{border-color:var(--wrong);background:rgba(231,76,60,0.15);color:var(--wrong);}
+.quiz-explanation{display:none;padding:12px;background:rgba(74,158,218,0.1);border-left:3px solid var(--accent2);border-radius:4px;font-size:13px;color:#b0c8e0;margin-bottom:16px;line-height:1.6;}
+.quiz-explanation.show{display:block;}
+.q-type{display:inline-block;padding:3px 8px;border-radius:3px;font-size:10px;font-weight:600;text-transform:uppercase;margin-bottom:10px;}
+.q-easy{background:rgba(46,204,113,0.15);color:#6ee09a;}
+.q-medium{background:rgba(255,149,0,0.15);color:#ffb84d;}
+.q-hard{background:rgba(231,76,60,0.15);color:#ff9999;}
+.quiz-nav{display:flex;gap:10px;margin-top:20px;justify-content:space-between;}
 .btn-outline{background:transparent;border:1px solid var(--border);color:var(--muted);}
 .btn-outline:hover{border-color:var(--accent);color:var(--accent);}
-.btn-primary{background:var(--accent);color:#000;}
-.btn-primary:hover{background:#f0b840;}
-.quiz-score-panel{text-align:center;padding:24px 10px;}
-.score-ring{width:110px;height:110px;border-radius:50%;border:6px solid var(--border);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-family:'IBM Plex Mono',monospace;font-size:24px;font-weight:600;}
-.score-label{font-size:12px;color:var(--muted);margin-bottom:16px;}
-.score-breakdown{display:flex;justify-content:center;gap:30px;margin-bottom:20px;font-size:12px;}
-.score-breakdown div{text-align:center;}
-.score-breakdown .num{font-size:22px;font-weight:700;display:block;}
-.score-breakdown .lbl{color:var(--muted);}
-.num-c{color:var(--correct);}.num-w{color:var(--wrong);}.num-s{color:var(--accent);}
-.ai-analysis{margin-top:18px;background:rgba(74,158,218,0.05);border:1px solid rgba(74,158,218,0.15);border-radius:8px;padding:16px;text-align:left;font-size:13px;color:#b0c8e0;line-height:1.75;min-height:60px;}
-.ai-label{font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent3);display:flex;align-items:center;gap:6px;margin-bottom:10px;}
-.ai-dot{width:6px;height:6px;border-radius:50%;background:var(--accent3);animation:pulse 1.5s infinite;}
-@keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.3;}}
-.typing::after{content:'▋';animation:blink 0.7s infinite;}
-@keyframes blink{0%,100%{opacity:1;}50%{opacity:0;}}
 
-footer{text-align:center;padding:24px;border-top:1px solid var(--border);color:var(--muted);font-size:12px;}
-::-webkit-scrollbar{width:5px;}
+.streak{display:flex;gap:4px;margin-bottom:12px;flex-wrap:wrap;}
+.dot{width:10px;height:10px;border-radius:2px;background:var(--border);}
+.dot.correct{background:var(--correct);}
+.dot.wrong{background:var(--wrong);}
+
+/* ANALYTICS */
+.analytics-container{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:24px;}
+.analytics-card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:20px;}
+.analytics-card h3{color:var(--accent2);font-size:14px;font-weight:600;margin-bottom:12px;text-transform:uppercase;letter-spacing:0.5px;}
+.score-ring{width:120px;height:120px;border-radius:50%;border:6px solid var(--border);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:32px;font-weight:700;color:var(--accent);}
+.analytics-stat{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--border);font-size:13px;}
+.analytics-stat:last-child{border-bottom:none;}
+.stat-label{color:var(--muted);}
+.stat-value{color:var(--text);font-weight:600;}
+
+.chapter-breakdown{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:20px;margin-bottom:24px;}
+.breakdown-item{padding:12px 0;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;}
+.breakdown-item:last-child{border-bottom:none;}
+.breakdown-chapter{color:var(--text);font-weight:500;font-size:13px;}
+.breakdown-stats{display:flex;gap:16px;font-size:12px;}
+.stats-correct{color:var(--correct);}
+.stats-wrong{color:var(--wrong);}
+.stats-score{color:var(--accent);font-weight:600;}
+
+.history-table{width:100%;border-collapse:collapse;font-size:12px;}
+.history-table th{background:rgba(255,149,0,0.1);padding:10px;text-align:left;color:var(--text);font-weight:600;}
+.history-table td{padding:10px;border-bottom:1px solid var(--border);color:var(--muted);}
+.history-table tr:hover{background:rgba(255,149,0,0.05);}
+
+footer{padding:24px;text-align:center;border-top:1px solid var(--border);color:var(--muted);font-size:12px;}
+
+::-webkit-scrollbar{width:6px;}
 ::-webkit-scrollbar-track{background:var(--bg);}
 ::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px;}
 
 @media(max-width:768px){
   .app-layout{flex-direction:column;}
-  .sidebar{width:100%;height:auto;position:static;display:flex;flex-wrap:wrap;gap:4px;padding:12px;}
-  .sidebar-title{display:none;}
-  .nav-item{border-left:none;border-bottom:2px solid transparent;padding:8px 12px;border-radius:8px;}
-  .nav-item.active{border-left:none;border-bottom-color:var(--accent);}
-  .nav-item .nav-num{display:none;}
+  .sidebar{width:100%;height:auto;position:static;}
   .content-area{padding:20px;}
+  .analytics-container{grid-template-columns:1fr;}
+  .section-title{font-size:28px;}
+  header{flex-direction:column;align-items:flex-start;}
+  .header-controls{width:100%;margin-top:12px;}
 }
 </style>
 </head>
 <body>
 
 <header>
-  <div class="header-badge">BPSC CSE Prep — PYQ Based</div>
-  <h1>Bihar <span>Special</span></h1>
-  <p>Concept-first study material from BPSC Preview 2025 (1992–2024). Click a section → Learn → Quiz → AI Analysis.</p>
+  <div>
+    <h1>Bihar <span style="color:var(--accent);">Complete</span></h1>
+    <p>Learn, Quiz, Analyze & Master Bihar for BPSC CSE</p>
+  </div>
+  <div class="header-controls">
+    <button class="theme-toggle" onclick="toggleTheme()">
+      <span id="theme-icon">🌙</span>
+      <span id="theme-text">Dark</span>
+    </button>
+  </div>
 </header>
 
 <div class="app-layout">
-
-  <!-- SIDEBAR -->
   <aside class="sidebar">
-    <div class="sidebar-title">Sections</div>
-    <a class="nav-item active" onclick="showSection('s1')" href="#">
-      <span class="nav-icon">⚔️</span>
-      <span class="nav-label">Historical Scenario</span>
+    <div class="sidebar-title">Chapters</div>
+    <a class="nav-item active" onclick="switchSection('s1')" href="#">
+      <span class="nav-icon">📖</span>
+      <span class="nav-label">Introduction</span>
       <span class="nav-num">01</span>
     </a>
-    <a class="nav-item" onclick="showSection('s2')" href="#">
-      <span class="nav-icon">🗺️</span>
-      <span class="nav-label">Bihar's Formation</span>
+    <a class="nav-item" onclick="switchSection('s2')" href="#">
+      <span class="nav-icon">⚔️</span>
+      <span class="nav-label">History</span>
       <span class="nav-num">02</span>
     </a>
-    <a class="nav-item" onclick="showSection('s3')" href="#">
-      <span class="nav-icon">🏛️</span>
-      <span class="nav-label">Political Scenario</span>
+    <a class="nav-item" onclick="switchSection('s3')" href="#">
+      <span class="nav-icon">🗺️</span>
+      <span class="nav-label">Geography</span>
       <span class="nav-num">03</span>
     </a>
-    <a class="nav-item" onclick="showSection('s4')" href="#">
-      <span class="nav-icon">🌍</span>
-      <span class="nav-label">Geographical Scenario</span>
+    <a class="nav-item" onclick="switchSection('s4')" href="#">
+      <span class="nav-icon">👥</span>
+      <span class="nav-label">Census 2011</span>
       <span class="nav-num">04</span>
     </a>
-    <a class="nav-item" onclick="showSection('s5')" href="#">
-      <span class="nav-icon">🌾</span>
-      <span class="nav-label">Agriculture & Minerals</span>
+    <a class="nav-item" onclick="switchSection('s5')" href="#">
+      <span class="nav-icon">💼</span>
+      <span class="nav-label">Economy</span>
       <span class="nav-num">05</span>
     </a>
-    <a class="nav-item" onclick="showSection('s6')" href="#">
-      <span class="nav-icon">🎭</span>
-      <span class="nav-label">Art, Culture & Misc</span>
+    <a class="nav-item" onclick="switchSection('s6')" href="#">
+      <span class="nav-icon">🏛️</span>
+      <span class="nav-label">Polity</span>
       <span class="nav-num">06</span>
     </a>
+    <a class="nav-item" onclick="switchSection('s7')" href="#">
+      <span class="nav-icon">🎭</span>
+      <span class="nav-label">Culture</span>
+      <span class="nav-num">07</span>
+    </a>
+    <a class="nav-item" onclick="switchSection('s8')" href="#">
+      <span class="nav-icon">✨</span>
+      <span class="nav-label">Other Areas</span>
+      <span class="nav-num">08</span>
+    </a>
+    
+    <div class="sidebar-title">Tools</div>
+    <button class="custom-btn" onclick="openCustomQuizModal()">🎯 Custom Quiz</button>
+    <button class="custom-btn" style="background:#4a9eda;" onclick="openAnalyticsModal()">📊 Analytics</button>
   </aside>
 
-  <!-- CONTENT -->
   <div class="content-area">
-
-    <!-- ===== SECTION 1 ===== -->
+    <!-- SECTION 1 -->
     <div class="section-panel active" id="panel-s1">
       <div class="section-header">
-        <div class="section-num-badge">01 / 06</div>
-        <h2 class="section-title">Historical Scenario</h2>
-        <p class="section-desc">Revolts, movements, personalities & organisations in Bihar's history</p>
+        <div class="section-num">01 / 08</div>
+        <h2 class="section-title">Introduction to Bihar</h2>
+        <p class="section-desc">Overview, location, significance, and basic profile</p>
       </div>
       <div class="mode-toggle-bar">
-        <button class="mode-btn active" id="btn-learn-s1" onclick="switchMode('s1','learn')">📖 Learn Mode</button>
-        <button class="mode-btn" id="btn-quiz-s1" onclick="switchMode('s1','quiz')">🎯 Quiz Mode</button>
+        <button class="mode-btn active" onclick="switchMode('s1','learn')">📖 Learn Mode</button>
+        <button class="mode-btn" onclick="switchMode('s1','quiz')">✓ Quiz Mode</button>
       </div>
-      <div class="mode-panel active" id="mode-learn-s1">
-        <div class="learn-section">
-          <h4>🏛️ Origin of Bihar & Bihar Sharif</h4>
-          <p>The word <strong>Bihar</strong> derives from <strong>"Vihara"</strong> (Buddhist monastery). The region was filled with Buddhist monasteries. <strong>Bihar Sharif</strong> served as a centre of education, trade, administration and religion in medieval times. <strong>Odantapuri University</strong> was established here by <strong>Pala Emperor Gopala</strong>. The Sufi saint <strong>Sharfuddin Yahya Maneri</strong> (Firdausi order, 1262–1380 AD) is buried here — famous work: <em>Maktoobat-e-Sadi</em>.</p>
-        </div>
-        <div class="learn-section">
-          <h4>🏙️ Patna (Pataliputra) — Historical Capital</h4>
-          <div class="kv-grid">
-            <span class="kv-key">Founded by</span><span class="kv-val"><strong>Ajatashatru</strong> (Haryanka dynasty)</span>
-            <span class="kv-key">Made capital by</span><span class="kv-val"><strong>Udayin</strong> (Ajatashatru's successor)</span>
-            <span class="kv-key">Dynasties ruled from here</span><span class="kv-val"><span class="tag tag-b">Haryanka</span><span class="tag tag-b">Shishunaga</span><span class="tag tag-b">Nanda</span><span class="tag tag-b">Maurya</span><span class="tag tag-b">Shunga</span><span class="tag tag-b">Gupta</span></span>
-            <span class="kv-key">Medieval capital</span><span class="kv-val"><strong>Sher Shah Suri</strong> rebuilt Patna as capital in <strong>1541 AD</strong> (from Tarikh-i-Daudi)</span>
+      <div class="mode-content active" id="learn-s1">
+        <div class="chapter-container">
+          <div class="chapter-card">
+            <h3>📍 Bihar: Location & Overview</h3>
+            <p><strong>Name Origin:</strong> Derived from "Vihara" (Buddhist monasteries)</p>
+            <p><strong>Location:</strong> Eastern India; bordered by UP, Jharkhand, West Bengal, and Nepal</p>
+            <p><strong>Area:</strong> 94,163 sq km — 12th largest state, 2.86% of India</p>
+            <p><strong>Capital:</strong> Patna</p>
+            <p><strong>Bihar Diwas:</strong> 22 March — celebrates separation from Bengal (1912)</p>
           </div>
-        </div>
-        <div class="learn-section">
-          <h4>⚔️ First Muslim Conquest of Bihar</h4>
-          <p><strong>Bakhtiyar Khalji</strong> was Bihar's first Muslim conqueror. His invasion destroyed the great Buddhist universities of <strong>Odantpuri, Nalanda</strong> and <strong>Vikramshila</strong>, effectively ending Buddhist scholarship in India. <span class="tag tag-r">Most Asked</span></p>
-        </div>
-        <div class="learn-section">
-          <h4>🔥 Revolt of 1857 in Bihar</h4>
-          <div class="kv-grid">
-            <span class="kv-key">Sequence</span><span class="kv-val"><strong>Rohini → Patna (3 Jul) → Muzaffarpur (25 Jul) → Arah/Jagdishpur (27 Jul)</strong></span>
-            <span class="kv-key">Hero</span><span class="kv-val"><strong>Kunwar Singh</strong> — Zamindar of Jagdishpur (Bhojpur), Ujjainiya Rajput clan</span>
-            <span class="kv-key">Key Battle</span><span class="kv-val">Fought Brigadier Douglas on <strong>21 April 1858</strong></span>
-            <span class="kv-key">Entered Jagdishpur</span><span class="kv-val"><strong>22 April 1858</strong></span>
-            <span class="kv-key">Death</span><span class="kv-val"><strong>9 May 1858</strong> (some sources: 26 Apr 1858)</span>
-            <span class="kv-key">Commissioner, Patna</span><span class="kv-val"><strong>William Tayler</strong></span>
-            <span class="kv-key">Bihar Allies of British</span><span class="kv-val">Maharajas of <strong>Darbhanga, Dumrao & Hatwa</strong> — gave both men & money</span>
-            <span class="kv-key">Biography of Kunwar Singh</span><span class="kv-val">Written by <strong>Kalikinkar Datta</strong></span>
-          </div>
-        </div>
-        <div class="learn-section">
-          <h4>🌿 Tribal Revolts</h4>
-          <p><strong>Santhal Rebellion (1855–56):</strong> Santhals declared their government in <strong>Bhagalpur–Rajmahal</strong> region (Daman-e-Koh). Leaders: Sidhu, Kanhu, Chand, Bhairava. Assembly of 10,000+ at Bhognadih village on 30 June 1855.</p>
-          <p><strong>Munda Rebellion / Ulgulan (1899–1900):</strong> Led by <strong>Birsa Munda</strong> (born 1875, Ulihatu village, Khunti). Mentor: <strong>Anand Pandey</strong>. Captured at <strong>Chakradharpur, 3 February 1900</strong>.</p>
-          <p><strong>Chhotanagpur Tenancy Act 1908:</strong> Abolished <strong>Beth-Begari</strong> (forced labour), protected Khutkatti rights of tribals.</p>
-        </div>
-        <div class="learn-section">
-          <h4>📰 Newspapers & Education</h4>
-          <div class="kv-grid">
-            <span class="kv-key">Bihar Herald (1872)</span><span class="kv-val">First English newspaper of Bihar — by <strong>Babu Guru Prasad Sen</strong>. Published every Saturday.</span>
-            <span class="kv-key">First Zila School</span><span class="kv-val">Patna, <strong>1835</strong> (Patna High School)</span>
-            <span class="kv-key">Patna College</span><span class="kv-val">Founded <strong>1863</strong> (originally Dutch East India Co. factory, 1632)</span>
-            <span class="kv-key">Patna Women's College</span><span class="kv-val">Founded 1940 by <strong>Sisters of the Apostolic Carmel</strong></span>
-            <span class="kv-key">Hunkar</span><span class="kv-val">Hindi weekly by <strong>Swami Sahajanand Saraswati</strong>, 1940 — agrarian movement mouthpiece</span>
-            <span class="kv-key">Oldest Church in Bihar</span><span class="kv-val"><strong>Padri Ki Haveli</strong> (St. Mary's Church, Patna) — built 1713, rebuilt 1772</span>
-          </div>
-        </div>
-        <div class="learn-section">
-          <h4>🌾 Champaran Satyagraha (1917)</h4>
-          <ul>
-            <li>Indigo farmers oppressed under the <strong>Tinkathia System</strong> (3/20th land forced for indigo)</li>
-            <li><strong>Rajkumar Shukla</strong> (Murali Bharahwa village, West Champaran) → convinced Gandhi to visit</li>
-            <li>Gandhi arrived Champaran: <strong>10 April 1917</strong></li>
-            <li><strong>Pir Mohammad Munis</strong> wrote as <em>Dukhi / Dukhi Aatma / Dukhi Hriday</em> (3 Apr 1916)</li>
-          </ul>
-        </div>
-        <div class="learn-section">
-          <h4>✊ Peasant Movement in Bihar</h4>
-          <div class="kv-grid">
-            <span class="kv-key">Father of Peasant Movement</span><span class="kv-val"><strong>Swami Sahajanand Saraswati</strong> (1889–1950)</span>
-            <span class="kv-key">Bihar Prantiya Kisan Sabha</span><span class="kv-val">Founded <strong>1929</strong> (at Sonepur Mela, Saran)</span>
-            <span class="kv-key">Darbhanga Raj Movement</span><span class="kv-val">Led by <strong>Swami Vidyanand</strong> — against Darbhanga Zamindari</span>
-            <span class="kv-key">Left-wing populariser</span><span class="kv-val"><strong>Karyanand Sharma</strong></span>
-            <span class="kv-key">Kisan Sabha, Munger</span><span class="kv-val">1922–23 by <strong>Mohammed Jubair & Sri Krishna Singh</strong></span>
-          </div>
-        </div>
-        <div class="learn-section">
-          <h4>🏛️ Political Organisations in Bihar</h4>
-          <div class="kv-grid">
-            <span class="kv-key">Bihar Samajwadi Party</span><span class="kv-val"><strong>1931</strong> — JP Narayan, Phulan Prasad Verma, Rahul Sankrityayan, Abdul Bari</span>
-            <span class="kv-key">Bihar Congress Socialist Party</span><span class="kv-val"><strong>May 1934</strong>, Patna — Chairman: Acharya Narendra Dev, Secretary: JP Narayan</span>
-            <span class="kv-key">Swaraj Dal (Bihar branch)</span><span class="kv-val">Established by <strong>Sri Krishna Singh</strong></span>
-            <span class="kv-key">Anushilan Samiti Patna branch</span><span class="kv-val"><strong>1913</strong> by <strong>Sachindra Nath Sanyal</strong></span>
-            <span class="kv-key">Ramakrishna Mission Society, Patna</span><span class="kv-val"><strong>1906–07</strong> by <strong>Baba Thakur Das</strong></span>
-            <span class="kv-key">Ravidas Sabha</span><span class="kv-val">Formed <strong>1928</strong> by <strong>Jagjivan Ram</strong></span>
-          </div>
-        </div>
-        <div class="learn-section">
-          <h4>🚫 Civil Disobedience & Quit India</h4>
-          <ul>
-            <li><strong>Salt Satyagraha 1930:</strong> Bihar farmers refused <strong>Chowkidari Tax</strong> (village watchmen) — uniquely Bihar's contribution</li>
-            <li><strong>August Revolution 1942:</strong> Linlithgow ordered firing on Patna mobs on <strong>11 August 1942</strong>. 7 students killed near Bihar Legislative Assembly.</li>
-            <li><strong>Non-Cooperation 1920–22:</strong> JP Narayan left Patna College with 20 days to go for exams; joined Bihar Vidyapeeth.</li>
-          </ul>
-        </div>
-        <div class="learn-section">
-          <h4>👑 Key Personalities</h4>
-          <div class="kv-grid">
-            <span class="kv-key">Bihar Vibhuti</span><span class="kv-val"><strong>Dr. Anugrah Narayan Sinha</strong> — first Deputy CM & Finance Minister</span>
-            <span class="kv-key">Gandhi of Bihar</span><span class="kv-val"><strong>Dr. Rajendra Prasad</strong> — first President of India; Chairman, Patna Municipality (1923)</span>
-            <span class="kv-key">Book: Gandhi & Bihar</span><span class="kv-val">Written by <strong>Dr. Rajendra Prasad</strong></span>
-            <span class="kv-key">Chanakya of Bihar</span><span class="kv-val"><strong>Nitish Kumar</strong></span>
-            <span class="kv-key">INC Session, Gaya 1922</span><span class="kv-val">Presided by <strong>C.R. Das (Deshbandhu)</strong></span>
-            <span class="kv-key">1st INC Session in Bihar</span><span class="kv-val">27th Session at <strong>Bankipore</strong>, December 1912</span>
-            <span class="kv-key">Wahabi Movement</span><span class="kv-val"><strong>Patna</strong> became main centre in the 1830s (Saiyad Ahmad's tour, 1830)</span>
+          <div class="chapter-card">
+            <h3>🌍 Key Statistics</h3>
+            <div class="kv-grid">
+              <span class="kv-key">Population</span><span class="kv-val">~104 million (2011 Census)</span>
+              <span class="kv-key">Literacy Rate</span><span class="kv-val">~63.8%</span>
+              <span class="kv-key">Density</span><span class="kv-val">~1,102 per sq km</span>
+              <span class="kv-key">Sex Ratio</span><span class="kv-val">~918 per 1000 males</span>
+            </div>
           </div>
         </div>
       </div>
-      <div class="mode-panel" id="mode-quiz-s1">
-        <div id="quiz-s1-inner"></div>
+      <div class="mode-content" id="quiz-s1">
+        <div class="quiz-container" id="quiz-s1-inner"></div>
       </div>
     </div>
 
-    <!-- ===== SECTION 2 ===== -->
+    <!-- SECTION 2 -->
     <div class="section-panel" id="panel-s2">
       <div class="section-header">
-        <div class="section-num-badge">02 / 06</div>
-        <h2 class="section-title">Bihar's Formation</h2>
-        <p class="section-desc">Key dates, acts, governors, districts & institutions</p>
+        <div class="section-num">02 / 08</div>
+        <h2 class="section-title">History of Bihar</h2>
+        <p class="section-desc">Ancient, medieval, colonial periods and freedom movement</p>
       </div>
       <div class="mode-toggle-bar">
-        <button class="mode-btn active" id="btn-learn-s2" onclick="switchMode('s2','learn')">📖 Learn Mode</button>
-        <button class="mode-btn" id="btn-quiz-s2" onclick="switchMode('s2','quiz')">🎯 Quiz Mode</button>
+        <button class="mode-btn active" onclick="switchMode('s2','learn')">📖 Learn Mode</button>
+        <button class="mode-btn" onclick="switchMode('s2','quiz')">✓ Quiz Mode</button>
       </div>
-      <div class="mode-panel active" id="mode-learn-s2">
-        <div class="learn-section">
-          <h4>📅 Key Dates of Bihar's Formation</h4>
-          <div class="kv-grid">
-            <span class="kv-key">1733 AD</span><span class="kv-val">Bihar merged into Bengal province under Nawab Shuja-ud-Daula</span>
-            <span class="kv-key">12 Dec 1911</span><span class="kv-val">Demand accepted at Imperial Court, Delhi — Bihar to be carved from Bengal</span>
-            <span class="kv-key">22 Mar 1912</span><span class="kv-val"><strong>Bihar Diwas</strong> — Bihar + Odisha province proclaimed (separated from Bengal Presidency)</span>
-            <span class="kv-key">1 Apr 1912</span><span class="kv-val">Bihar & Odisha province came into existence with <strong>Patna as capital</strong></span>
-            <span class="kv-key">1 Apr 1936</span><span class="kv-val">Odisha separated from Bihar (under Govt. of India Act 1935)</span>
-            <span class="kv-key">15 Nov 2000</span><span class="kv-val"><strong>Jharkhand</strong> carved out of Bihar as 28th state; <strong>Ranchi</strong> as capital</span>
+      <div class="mode-content active" id="learn-s2">
+        <div class="chapter-container">
+          <div class="chapter-card">
+            <h3>⚔️ Ancient Bihar & Dynasties</h3>
+            <ul>
+              <li><strong>Pataliputra (Patna):</strong> Founded by Ajatashatru; capital under Udayin</li>
+              <li><strong>Mauryan Empire (322-185 BC):</strong> Ashoka — greatest emperor</li>
+              <li><strong>Gupta Period (320-550 AD):</strong> Golden age; Samudragupta, Chandragupta II</li>
+            </ul>
           </div>
-          <p style="margin-top:10px;"><span class="tag tag-r">Bihar Diwas</span> 22 March every year — 2024 was 112th Foundation Day.</p>
-        </div>
-        <div class="learn-section">
-          <h4>📜 Legal Acts Governing Bihar</h4>
-          <ul>
-            <li><strong>Indian Councils Act 1861</strong> (amended 1912): Bihar Legislative Council formed</li>
-            <li>First sitting of Bihar Legislative Council: <strong>20 January 1913</strong>, Bankipore</li>
-            <li><strong>Govt. of India Act 1935</strong>: Bihar became a fully separate province</li>
-          </ul>
-        </div>
-        <div class="learn-section">
-          <h4>👤 Leaders of Formation Movement</h4>
-          <div class="kv-grid">
-            <span class="kv-key">Led Separate Bihar Movement</span><span class="kv-val"><strong>Sachidanand Sinha</strong> (after Mahesh Narayan, editor of Bihar Times, died 1907)</span>
-            <span class="kv-key">First Governor of Bihar</span><span class="kv-val"><strong>Sir James David Sifton</strong> (1 Apr 1936 – 10 Mar 1937)</span>
-            <span class="kv-key">First Indian Governor (Bihar-Odisha)</span><span class="kv-val"><strong>Satyendra Prasanna Sinha</strong> (1920–21) — first Indian in a high British office</span>
-            <span class="kv-key">First Governor after Independence</span><span class="kv-val"><strong>Jairamdas Daulatram</strong> (15 Aug 1947 – 11 Jan 1948)</span>
+          <div class="chapter-card">
+            <h3>🕌 Medieval Period</h3>
+            <p><strong>Bakhtiyar Khalji (1193 AD):</strong> Destroyed Nalanda, Odantpuri, Vikramshila</p>
+            <p><strong>Sher Shah Suri:</strong> Rebuilt Patna as capital in 1541 AD</p>
           </div>
-        </div>
-        <div class="learn-section">
-          <h4>🗂️ Districts: Then and Now</h4>
-          <ul>
-            <li>End of 1995: <strong>55 districts</strong> in Bihar</li>
-            <li>After Jharkhand formed (Nov 2000): <strong>37 districts</strong> left</li>
-            <li>After Arwal district created: <strong>38 districts</strong> currently</li>
-            <li>Jharkhand comprises <strong>45.84%</strong> of old Bihar's area (79,714 sq km)</li>
-            <li>Current Bihar area: <strong>94,163 sq km</strong> (2.86% of India) — 12th largest state</li>
-          </ul>
-        </div>
-        <div class="learn-section">
-          <h4>🏦 Key Institutions</h4>
-          <div class="kv-grid">
-            <span class="kv-key">Bihar State Finance Corporation</span><span class="kv-val">Established <strong>1954</strong> (under SFC Act 1951) — main industrial finance institution</span>
-            <span class="kv-key">Dutch East India Company</span><span class="kv-val">Established factory at Patna in <strong>1632 AD</strong> (now Patna College) — traded in saltpetre & textiles</span>
-            <span class="kv-key">Bihar Panchayati Raj Act</span><span class="kv-val"><strong>2006</strong> — 50% reservation for women in Panchayat bodies</span>
+          <div class="chapter-card">
+            <h3>🔥 Revolts & Independence</h3>
+            <p><strong>Kunwar Singh:</strong> 1857 Revolt hero; Zamindar of Jagdishpur</p>
+            <p><strong>Champaran Satyagraha (1917):</strong> Gandhi's campaign against indigo taxation</p>
           </div>
         </div>
       </div>
-      <div class="mode-panel" id="mode-quiz-s2">
-        <div id="quiz-s2-inner"></div>
+      <div class="mode-content" id="quiz-s2">
+        <div class="quiz-container" id="quiz-s2-inner"></div>
       </div>
     </div>
 
-    <!-- ===== SECTION 3 ===== -->
+    <!-- SECTION 3 -->
     <div class="section-panel" id="panel-s3">
       <div class="section-header">
-        <div class="section-num-badge">03 / 06</div>
-        <h2 class="section-title">Political Scenario</h2>
-        <p class="section-desc">Legislature, Chief Ministers, Governors, Elections & Panchayati Raj</p>
+        <div class="section-num">03 / 08</div>
+        <h2 class="section-title">Geography of Bihar</h2>
+        <p class="section-desc">Physical features, rivers, climate, soils, and minerals</p>
       </div>
       <div class="mode-toggle-bar">
-        <button class="mode-btn active" id="btn-learn-s3" onclick="switchMode('s3','learn')">📖 Learn Mode</button>
-        <button class="mode-btn" id="btn-quiz-s3" onclick="switchMode('s3','quiz')">🎯 Quiz Mode</button>
+        <button class="mode-btn active" onclick="switchMode('s3','learn')">📖 Learn Mode</button>
+        <button class="mode-btn" onclick="switchMode('s3','quiz')">✓ Quiz Mode</button>
       </div>
-      <div class="mode-panel active" id="mode-learn-s3">
-        <div class="learn-section">
-          <h4>🏛️ Bihar Legislature</h4>
-          <div class="kv-grid">
-            <span class="kv-key">Total LA Seats</span><span class="kv-val"><strong>243</strong> (203 General + 38 SC + 2 ST)</span>
-            <span class="kv-key">Lok Sabha Seats</span><span class="kv-val"><strong>40</strong> (was 54 before Jharkhand formation)</span>
-            <span class="kv-key">Rajya Sabha Seats</span><span class="kv-val"><strong>16</strong> (was 22 before Jharkhand)</span>
-            <span class="kv-key">SC Reserved LA seats</span><span class="kv-val"><strong>38</strong></span>
-            <span class="kv-key">Patna Municipal Corporation</span><span class="kv-val"><strong>75 wards</strong> (earlier 57)</span>
+      <div class="mode-content active" id="learn-s3">
+        <div class="chapter-container">
+          <div class="chapter-card">
+            <h3>🌍 Location & Area</h3>
+            <div class="kv-grid">
+              <span class="kv-key">Latitude</span><span class="kv-val">23°48'N to 28°2'N</span>
+              <span class="kv-key">Longitude</span><span class="kv-val">83°19'50"E to 88°17'40"E</span>
+              <span class="kv-key">Area</span><span class="kv-val">94,163 sq km</span>
+            </div>
           </div>
-        </div>
-        <div class="learn-section">
-          <h4>👑 Chief Ministers of Bihar</h4>
-          <div class="kv-grid">
-            <span class="kv-key">First CM (1937 ministry)</span><span class="kv-val"><strong>Mohammad Yunus</strong> — first PM of Bihar Province under British India</span>
-            <span class="kv-key">First Congress Ministry Leader</span><span class="kv-val"><strong>Sri Krishna Sinha (Shri Babu)</strong> — PM from 20 July 1937</span>
-            <span class="kv-key">First CM after Independence</span><span class="kv-val"><strong>Shri Krishna Singh</strong> — served till death on 31 January 1961</span>
-            <span class="kv-key">First Non-Congress CM</span><span class="kv-val"><strong>Mahamaya Prasad Sinha</strong> (1967–68)</span>
-            <span class="kv-key">Total CMs since 26 Jan 1950</span><span class="kv-val"><strong>23 individuals</strong> (as of 2024)</span>
-            <span class="kv-key">Current CM</span><span class="kv-val"><strong>Nitish Kumar</strong> (JD-U) — "Chanakya of Bihar"</span>
+          <div class="chapter-card">
+            <h3>⛰️ Physical Features</h3>
+            <ul>
+              <li><strong>Someshwar Hills:</strong> NW Bihar; Shivalik range</li>
+              <li><strong>Kaimur Plateau:</strong> Famous for limestone</li>
+              <li><strong>Rajgir:</strong> Surrounded by 5 hills</li>
+            </ul>
           </div>
-        </div>
-        <div class="learn-section">
-          <h4>📊 Bihar Assembly Election 2020</h4>
-          <div class="kv-grid">
-            <span class="kv-key">Phases</span><span class="kv-val">3 phases: 28 Oct (71 seats), 3 Nov (94), 7 Nov (78)</span>
-            <span class="kv-key">RJD</span><span class="kv-val">75 seats</span>
-            <span class="kv-key">BJP</span><span class="kv-val">74 seats</span>
-            <span class="kv-key">JD(U)</span><span class="kv-val">43 seats</span>
-            <span class="kv-key">INC</span><span class="kv-val">19 seats</span>
-            <span class="kv-key">CPI(ML)L</span><span class="kv-val">12 seats</span>
+          <div class="chapter-card">
+            <h3>🌊 Rivers</h3>
+            <p><strong>Ganga:</strong> Main river, longest stretch in Patna district (~99 km)</p>
+            <p><strong>Tributaries:</strong> Gandak, Kosi, Son, Karmnasa, Falgu</p>
           </div>
-        </div>
-        <div class="learn-section">
-          <h4>👤 Governors of Bihar (Key)</h4>
-          <div class="kv-grid">
-            <span class="kv-key">First Governor post-1936</span><span class="kv-val">Sir James David Sifton</span>
-            <span class="kv-key">First Indian Governor (Bihar-Odisha)</span><span class="kv-val">Satyendra Prasanna Sinha (1920–21)</span>
-            <span class="kv-key">First Governor post-Independence</span><span class="kv-val">Jairamdas Daulatram</span>
-            <span class="kv-key">Common Governor (Bihar & Jharkhand)</span><span class="kv-val">Vinod Chandra Pandey</span>
+          <div class="chapter-card">
+            <h3>⛏️ Minerals</h3>
+            <p><span class="badge badge-accent">Pyrite:</span> Bihar has monopoly in India</p>
+            <p><span class="badge badge-accent">Gold:</span> Largest reserves in Jamui district</p>
+            <p><span class="badge badge-accent">Limestone:</span> Kaimur, Munger, Rohtas</p>
           </div>
-        </div>
-        <div class="learn-section">
-          <h4>⚖️ Panchayati Raj in Bihar</h4>
-          <ul>
-            <li><strong>Bihar Panchayati Raj Act 2006</strong> — 50% women reservation from April 2006</li>
-            <li>Three-tier: <strong>Gram Panchayat → Panchayat Samiti (block) → Zila Parishad (district)</strong></li>
-            <li>Flows from 73rd Constitutional Amendment Act, 1992</li>
-          </ul>
         </div>
       </div>
-      <div class="mode-panel" id="mode-quiz-s3">
-        <div id="quiz-s3-inner"></div>
+      <div class="mode-content" id="quiz-s3">
+        <div class="quiz-container" id="quiz-s3-inner"></div>
       </div>
     </div>
 
-    <!-- ===== SECTION 4 ===== -->
+    <!-- SECTION 4 -->
     <div class="section-panel" id="panel-s4">
       <div class="section-header">
-        <div class="section-num-badge">04 / 06</div>
-        <h2 class="section-title">Geographical Scenario</h2>
-        <p class="section-desc">Location, rivers, hills, climate, soils & agro-climatic zones</p>
+        <div class="section-num">04 / 08</div>
+        <h2 class="section-title">Census of Bihar 2011</h2>
+        <p class="section-desc">Demographic data and population statistics</p>
       </div>
       <div class="mode-toggle-bar">
-        <button class="mode-btn active" id="btn-learn-s4" onclick="switchMode('s4','learn')">📖 Learn Mode</button>
-        <button class="mode-btn" id="btn-quiz-s4" onclick="switchMode('s4','quiz')">🎯 Quiz Mode</button>
+        <button class="mode-btn active" onclick="switchMode('s4','learn')">📖 Learn Mode</button>
+        <button class="mode-btn" onclick="switchMode('s4','quiz')">✓ Quiz Mode</button>
       </div>
-      <div class="mode-panel active" id="mode-learn-s4">
-        <div class="learn-section">
-          <h4>🌍 Location & Basics</h4>
-          <div class="kv-grid">
-            <span class="kv-key">Longitude</span><span class="kv-val">83°19'50"E to 88°17'40"E</span>
-            <span class="kv-key">Area</span><span class="kv-val"><strong>94,163 sq km</strong> — 12th largest state, 2.86% of India</span>
-            <span class="kv-key">Climate (Köppen)</span><span class="kv-val"><strong>Cwg</strong> — Monsoon with dry winter</span>
-            <span class="kv-key">Standard Time</span><span class="kv-val">Same as IST (82°30'E longitude)</span>
-            <span class="kv-key">Borders</span><span class="kv-val">UP (8 districts), Jharkhand (8 districts), West Bengal, Nepal</span>
+      <div class="mode-content active" id="learn-s4">
+        <div class="chapter-container">
+          <div class="chapter-card">
+            <h3>👥 Demographic Profile</h3>
+            <div class="kv-grid">
+              <span class="kv-key">Population</span><span class="kv-val">~104 million</span>
+              <span class="kv-key">Rank</span><span class="kv-val">3rd most populous</span>
+              <span class="kv-key">Sex Ratio</span><span class="kv-val">~918 per 1000</span>
+              <span class="kv-key">Literacy</span><span class="kv-val">~63.8%</span>
+            </div>
           </div>
-        </div>
-        <div class="learn-section">
-          <h4>🏔️ Physical Features</h4>
-          <ul>
-            <li><strong>Someshwar Hills</strong> — NW Bihar (West Champaran); youngest (Pleistocene age); part of Shivalik ranges</li>
-            <li><strong>Kaimur Plateau</strong> — famous for <strong>Limestone</strong>; part of Vindhyan range</li>
-            <li><strong>Kharagpur Hills</strong> — geologically oldest (Dharwar range)</li>
-            <li><strong>Rajgir</strong> — surrounded by 5 hills: Ratnagiri, Vipalachal, Vaibhagiri, Songiri, Udaygiri</li>
-            <li><strong>Brahmayoni Hill</strong> — Gaya district; mentioned in Mahabharata & Buddhist records</li>
-            <li><strong>Rohtas district</strong> altitude: 107.78 metres above sea level</li>
-          </ul>
-        </div>
-        <div class="learn-section">
-          <h4>🌊 Rivers of Bihar</h4>
-          <div class="kv-grid">
-            <span class="kv-key">Main river</span><span class="kv-val"><strong>Ganga</strong> — longest stretch in <strong>Patna district (~99 km)</strong></span>
-            <span class="kv-key">North-bank tributaries</span><span class="kv-val">Ghaghra, Gandak, Burhi-Gandak, Kamla-Balan, Bagmati, Kosi, Mahananda</span>
-            <span class="kv-key">South-bank tributaries</span><span class="kv-val">Karmnasa, Son, Punpun, Kiul-Harohar, Badua, Chandan</span>
-            <span class="kv-key">Falgu River</span><span class="kv-val">Ancient name: <strong>Niranjana</strong>. Flows east of Gaya; seasonal (monsoon only)</span>
-            <span class="kv-key">Gandak Project</span><span class="kv-val">Joint Bihar & UP; barrage at <strong>Valmikinagar</strong>. Tirhut Canal (W) + Saran Canal (E)</span>
-          </div>
-        </div>
-        <div class="learn-section">
-          <h4>☁️ Climate & Rainfall</h4>
-          <ul>
-            <li>Highest average annual rainfall: <strong>Kishanganj district</strong></li>
-            <li>Tarai region: parallel to <strong>India–Nepal border</strong> (7 districts: W.Champaran, E.Champaran, Sitamarhi, Madhubani, Supaul, Araria, Kishanganj)</li>
-          </ul>
-        </div>
-        <div class="learn-section">
-          <h4>🌿 Agro-Climatic Zones & Physiography</h4>
-          <div class="kv-grid">
-            <span class="kv-key">Zone with most districts</span><span class="kv-val"><strong>North-West alluvial plain</strong> (12 districts)</span>
-            <span class="kv-key">Makhana zone</span><span class="kv-val"><strong>North-East alluvial plain</strong>; Bihar produces ~90% of India's Makhana</span>
-            <span class="kv-key">No Jharkhand border</span><span class="kv-val"><strong>Mithila Plain</strong> does not share border with Jharkhand</span>
-            <span class="kv-key">Forest cover</span><span class="kv-val"><strong>7.84%</strong> (7380.79 sq km) — ISFR 2021</span>
-            <span class="kv-key">Bihar's plain type</span><span class="kv-val"><strong>Middle Ganga Plain</strong> (not Upper or Lower)</span>
+          <div class="chapter-card">
+            <h3>🏙️ Urban vs Rural</h3>
+            <p><strong>Urban:</strong> ~11% | <strong>Rural:</strong> ~89%</p>
+            <p><strong>Major Cities:</strong> Patna, Gaya, Bhagalpur, Muzaffarpur</p>
           </div>
         </div>
       </div>
-      <div class="mode-panel" id="mode-quiz-s4">
-        <div id="quiz-s4-inner"></div>
+      <div class="mode-content" id="quiz-s4">
+        <div class="quiz-container" id="quiz-s4-inner"></div>
       </div>
     </div>
 
-    <!-- ===== SECTION 5 ===== -->
+    <!-- SECTION 5 -->
     <div class="section-panel" id="panel-s5">
       <div class="section-header">
-        <div class="section-num-badge">05 / 06</div>
-        <h2 class="section-title">Agriculture, Minerals & Economy</h2>
-        <p class="section-desc">Crops, soils, minerals, irrigation & economic data</p>
+        <div class="section-num">05 / 08</div>
+        <h2 class="section-title">Economy of Bihar</h2>
+        <p class="section-desc">Agriculture, industries, energy, and economic development</p>
       </div>
       <div class="mode-toggle-bar">
-        <button class="mode-btn active" id="btn-learn-s5" onclick="switchMode('s5','learn')">📖 Learn Mode</button>
-        <button class="mode-btn" id="btn-quiz-s5" onclick="switchMode('s5','quiz')">🎯 Quiz Mode</button>
+        <button class="mode-btn active" onclick="switchMode('s5','learn')">📖 Learn Mode</button>
+        <button class="mode-btn" onclick="switchMode('s5','quiz')">✓ Quiz Mode</button>
       </div>
-      <div class="mode-panel active" id="mode-learn-s5">
-        <div class="learn-section">
-          <h4>🌾 Agriculture Key Facts</h4>
-          <div class="kv-grid">
-            <span class="kv-key">Main food crops</span><span class="kv-val">Rice, Wheat, Maize</span>
-            <span class="kv-key">Main cash crop</span><span class="kv-val"><strong>Sugarcane</strong> — largest producer: West Champaran</span>
-            <span class="kv-key">Litchi production</span><span class="kv-val">Bihar ~<strong>45%</strong> of India's litchi. Muzaffarpur: 48% of Bihar's share</span>
-            <span class="kv-key">Makhana (Foxnut)</span><span class="kv-val">Bihar: ~<strong>90%</strong> of India's production — from North-East agro zone</span>
-            <span class="kv-key">Jute rank</span><span class="kv-val"><strong>2nd</strong> in India (after West Bengal)</span>
-            <span class="kv-key">Top pulses</span><span class="kv-val">Moong & Masoor (Lentil)</span>
-            <span class="kv-key">Net cultivated area</span><span class="kv-val">~<strong>60%</strong> of total area; crop density 145% (2021–22)</span>
-            <span class="kv-key">Road density</span><span class="kv-val"><strong>Second lowest</strong> per lakh population in India</span>
+      <div class="mode-content active" id="learn-s5">
+        <div class="chapter-container">
+          <div class="chapter-card">
+            <h3>🌾 Agriculture & Crops</h3>
+            <p><strong>Main Cash Crop:</strong> Sugarcane</p>
+            <p><strong>Specialty Crops:</strong> Litchi (45% of India), Makhana (90%)</p>
+            <p><strong>Pulses:</strong> Moong, Masoor (lentil)</p>
           </div>
-        </div>
-        <div class="learn-section">
-          <h4>🪨 Soils of Bihar</h4>
-          <div class="kv-grid">
-            <span class="kv-key">Dominant soil</span><span class="kv-val"><strong>Alluvial soil</strong> (maximum area)</span>
-            <span class="kv-key">Karail-Kewal</span><span class="kv-val">Heavy clay (wet paddy lands) — Rohtas, Gaya, Aurangabad</span>
-            <span class="kv-key">Tal soil</span><span class="kv-val">Backwater belt of Ganga: Buxar to Banka</span>
-            <span class="kv-key">Balthar</span><span class="kv-val">Kaimur — sandy, less fertile; maize, jowar, gram</span>
-            <span class="kv-key">Piedmont Swamp Soil</span><span class="kv-val">Only in <strong>West Champaran</strong> (northwestern part)</span>
+          <div class="chapter-card">
+            <h3>🏭 Industries</h3>
+            <ul>
+              <li><strong>Sugar Industry:</strong> West Champaran</li>
+              <li><strong>Silk:</strong> Bhagalpur; 150,000+ artisans</li>
+              <li><strong>Cement:</strong> Based on limestone</li>
+            </ul>
           </div>
-        </div>
-        <div class="learn-section">
-          <h4>⛏️ Minerals of Bihar</h4>
-          <div class="kv-grid">
-            <span class="kv-key">Monopoly</span><span class="kv-val"><strong>Pyrite</strong> — Bihar has monopoly in India; highest deposit in <strong>Rohtas</strong></span>
-            <span class="kv-key">Gold</span><span class="kv-val">Largest reserves: <strong>Jamui</strong> district (43% of India's gold ore — IMYB 2022)</span>
-            <span class="kv-key">Mica</span><span class="kv-val">Deposits in <strong>Nawada</strong> district; Bihar holds 2% nationally</span>
-            <span class="kv-key">Limestone</span><span class="kv-val">Found in Kaimur, Munger, Rohtas</span>
-            <span class="kv-key">Coal</span><span class="kv-val">Estimated 4437 million tonnes (IMYB 2022) — largely in Jharkhand now</span>
-          </div>
-        </div>
-        <div class="learn-section">
-          <h4>💡 Economy Key Data</h4>
-          <div class="kv-grid">
-            <span class="kv-key">Growth rate 2018-19</span><span class="kv-val">10.53% at constant prices</span>
-            <span class="kv-key">Growth rate 2022-23</span><span class="kv-val">10.6% (Bihar Economic Survey 2023-24)</span>
-            <span class="kv-key">Population in agriculture</span><span class="kv-val">47.8% (2021-22) — above national average</span>
-            <span class="kv-key">Per capita energy</span><span class="kv-val">203 kWh (2014-15) — highest growth (~40%) in country</span>
-            <span class="kv-key">Irrigation (Gross)</span><span class="kv-val">55.98 lakh hectares (2021-22); 63.1% by tubewells</span>
+          <div class="chapter-card">
+            <h3>📊 Economic Data</h3>
+            <p><strong>Growth Rate 2022-23:</strong> 10.6%</p>
+            <p><strong>Agriculture Share:</strong> 47.8% population</p>
           </div>
         </div>
       </div>
-      <div class="mode-panel" id="mode-quiz-s5">
-        <div id="quiz-s5-inner"></div>
+      <div class="mode-content" id="quiz-s5">
+        <div class="quiz-container" id="quiz-s5-inner"></div>
       </div>
     </div>
 
-    <!-- ===== SECTION 6 ===== -->
+    <!-- SECTION 6 -->
     <div class="section-panel" id="panel-s6">
       <div class="section-header">
-        <div class="section-num-badge">06 / 06</div>
-        <h2 class="section-title">Art, Culture & Miscellaneous</h2>
-        <p class="section-desc">Language, heritage sites, wildlife & quick recall facts</p>
+        <div class="section-num">06 / 08</div>
+        <h2 class="section-title">Bihar Polity</h2>
+        <p class="section-desc">Executive, legislature, judiciary, and administration</p>
       </div>
       <div class="mode-toggle-bar">
-        <button class="mode-btn active" id="btn-learn-s6" onclick="switchMode('s6','learn')">📖 Learn Mode</button>
-        <button class="mode-btn" id="btn-quiz-s6" onclick="switchMode('s6','quiz')">🎯 Quiz Mode</button>
+        <button class="mode-btn active" onclick="switchMode('s6','learn')">📖 Learn Mode</button>
+        <button class="mode-btn" onclick="switchMode('s6','quiz')">✓ Quiz Mode</button>
       </div>
-      <div class="mode-panel active" id="mode-learn-s6">
-        <div class="learn-section">
-          <h4>🎭 Language & Culture</h4>
-          <div class="kv-grid">
-            <span class="kv-key">Maithili Language</span><span class="kv-val">Developed during <strong>Karnata Dynasty</strong> (est. by Nanyadev 1097/98 AD). Golden period of Mithila.</span>
-            <span class="kv-key">Bihar Sharif (medieval)</span><span class="kv-val">Centre of education, trade, administration, religion</span>
-            <span class="kv-key">Valmiki Tiger Reserve</span><span class="kv-val">India-Nepal border, West Champaran</span>
-            <span class="kv-key">Bhagalpur</span><span class="kv-val">One of three known breeding sites of Gangetic dolphins; famous for silk</span>
+      <div class="mode-content active" id="learn-s6">
+        <div class="chapter-container">
+          <div class="chapter-card">
+            <h3>🏛️ State Legislature</h3>
+            <div class="kv-grid">
+              <span class="kv-key">Assembly Seats</span><span class="kv-val">243 (203+38+2)</span>
+              <span class="kv-key">Lok Sabha</span><span class="kv-val">40 seats</span>
+              <span class="kv-key">Rajya Sabha</span><span class="kv-val">16 seats</span>
+            </div>
+          </div>
+          <div class="chapter-card">
+            <h3>👨‍🏛️ Chief Ministers</h3>
+            <p><strong>First CM:</strong> Shri Krishna Singh (1947-1961)</p>
+            <p><strong>Current:</strong> Nitish Kumar (JD-U)</p>
+          </div>
+          <div class="chapter-card">
+            <h3>📅 Key Dates</h3>
+            <p><strong>22 Mar 1912:</strong> Bihar separated from Bengal</p>
+            <p><strong>15 Nov 2000:</strong> Jharkhand created</p>
           </div>
         </div>
-        <div class="learn-section">
-          <h4>🏛️ Notable Sites for BPSC</h4>
-          <ul>
-            <li><strong>Patna Sahib</strong> — birthplace of Guru Gobind Singh</li>
-            <li><strong>Bodh Gaya</strong> — place of Buddha's enlightenment; under Gaya district</li>
-            <li><strong>Nalanda</strong> — ancient international university; destroyed by Bakhtiyar Khalji</li>
-            <li><strong>Rajgir</strong> — first capital of Magadha Empire; surrounded by 5 hills</li>
-            <li><strong>Vaishali</strong> — world's first republic; Lichchhavi clan; associated with Lord Mahavira</li>
-            <li><strong>Kosi</strong> — "Sorrow of Bihar" for frequent floods</li>
-            <li><strong>Bihar Silk Industry</strong> — self-employment to over 1,50,000 people</li>
-          </ul>
-        </div>
-        <div class="learn-section">
-          <h4>🌳 Wildlife & Environment</h4>
-          <div class="kv-grid">
-            <span class="kv-key">Valmiki National Park</span><span class="kv-val">India-Nepal border, West Champaran</span>
-            <span class="kv-key">Forest cover (ISFR 2021)</span><span class="kv-val">7.84% of state area</span>
-            <span class="kv-key">Undivided Bihar forest</span><span class="kv-val">~17% of geographical area</span>
-            <span class="kv-key">Sudha Cooperative</span><span class="kv-val">Founded by IAS officer Ram Chandra — Bihar's milk cooperative</span>
-          </div>
-        </div>
-        <div class="learn-section">
-          <h4>📌 Quick Recall</h4>
-          <ul>
-            <li><span class="tag tag-r">Bihar Diwas</span> — <strong>22 March</strong></li>
-            <li><span class="tag tag-b">Capital</span> — <strong>Patna</strong></li>
-            <li><span class="tag tag-g">Jharkhand capital</span> — <strong>Ranchi</strong> (was Bihar's summer capital under British)</li>
-            <li><span class="tag tag-y">Bihar-UP border</span> — 8 districts: W.Champaran, Gopalganj, Siwan, Saran, Buxar, Bhojpur, Rohtas, Kaimur</li>
-            <li>Bihar ranks <strong>3rd in population</strong>, <strong>12th in area</strong></li>
-          </ul>
-        </div>
       </div>
-      <div class="mode-panel" id="mode-quiz-s6">
-        <div id="quiz-s6-inner"></div>
+      <div class="mode-content" id="quiz-s6">
+        <div class="quiz-container" id="quiz-s6-inner"></div>
       </div>
     </div>
 
-  </div><!-- end content-area -->
-</div><!-- end app-layout -->
+    <!-- SECTION 7 -->
+    <div class="section-panel" id="panel-s7">
+      <div class="section-header">
+        <div class="section-num">07 / 08</div>
+        <h2 class="section-title">Art, Culture & Heritage</h2>
+        <p class="section-desc">Performing arts, visual arts, and heritage sites</p>
+      </div>
+      <div class="mode-toggle-bar">
+        <button class="mode-btn active" onclick="switchMode('s7','learn')">📖 Learn Mode</button>
+        <button class="mode-btn" onclick="switchMode('s7','quiz')">✓ Quiz Mode</button>
+      </div>
+      <div class="mode-content active" id="learn-s7">
+        <div class="chapter-container">
+          <div class="chapter-card">
+            <h3>🎭 Performing Arts</h3>
+            <ul>
+              <li><strong>Chhau Dance:</strong> Masked form; UNESCO recognized</li>
+              <li><strong>Kathak:</strong> Classical dance tradition</li>
+              <li><strong>Ramlila:</strong> Strong in Mithila region</li>
+            </ul>
+          </div>
+          <div class="chapter-card">
+            <h3>🖼️ Visual Arts</h3>
+            <p><strong>Mithila (Madhubani Art):</strong> UNESCO Intangible Heritage</p>
+            <p><strong>Silk:</strong> Bhagalpur Tussar silk</p>
+          </div>
+          <div class="chapter-card">
+            <h3>🏛️ Heritage Sites</h3>
+            <p><span class="badge badge-blue">Bodh Gaya:</span> Buddha's enlightenment site</p>
+            <p><span class="badge badge-blue">Nalanda:</span> Ancient university</p>
+            <p><span class="badge badge-blue">Rajgir:</span> Magadha capital</p>
+          </div>
+        </div>
+      </div>
+      <div class="mode-content" id="quiz-s7">
+        <div class="quiz-container" id="quiz-s7-inner"></div>
+      </div>
+    </div>
 
-<footer>Bihar Special — BPSC CSE | Data sourced from BPSC Preview 2025 (1992–2024) | AI-powered quiz analysis by Claude</footer>
+    <!-- SECTION 8 -->
+    <div class="section-panel" id="panel-s8">
+      <div class="section-header">
+        <div class="section-num">08 / 08</div>
+        <h2 class="section-title">Other Areas of Bihar</h2>
+        <p class="section-desc">Education, tourism, disaster management, and personalities</p>
+      </div>
+      <div class="mode-toggle-bar">
+        <button class="mode-btn active" onclick="switchMode('s8','learn')">📖 Learn Mode</button>
+        <button class="mode-btn" onclick="switchMode('s8','quiz')">✓ Quiz Mode</button>
+      </div>
+      <div class="mode-content active" id="learn-s8">
+        <div class="chapter-container">
+          <div class="chapter-card">
+            <h3>📚 Education</h3>
+            <p><strong>Patna High School (1835):</strong> First district school</p>
+            <p><strong>Patna College (1863):</strong> Oldest institution</p>
+            <p><strong>Literacy:</strong> 63.8% (M: 73.4%, F: 53.3%)</p>
+          </div>
+          <div class="chapter-card">
+            <h3>✈️ Tourism</h3>
+            <ul>
+              <li>Bodh Gaya - Enlightenment site</li>
+              <li>Nalanda - Ancient university</li>
+              <li>Rajgir - Magadha capital</li>
+              <li>Gaya - Pilgrimage center</li>
+            </ul>
+          </div>
+          <div class="chapter-card">
+            <h3>👥 Leaders</h3>
+            <p><span class="badge badge-accent">Rajendra Prasad:</span> First President</p>
+            <p><span class="badge badge-accent">Birsa Munda:</span> Tribal leader</p>
+          </div>
+        </div>
+      </div>
+      <div class="mode-content" id="quiz-s8">
+        <div class="quiz-container" id="quiz-s8-inner"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CUSTOM QUIZ MODAL -->
+<div id="customQuizModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeModal('customQuizModal')">&times;</span>
+    <div class="modal-header">🎯 Custom Quiz Builder</div>
+    <p style="color:var(--muted);margin-bottom:16px;">Select chapters to create your custom quiz</p>
+    
+    <div id="quizOptions"></div>
+    
+    <label style="display:flex;align-items:center;gap:8px;padding:12px;cursor:pointer;font-weight:500;margin-bottom:16px;">
+      <input type="checkbox" id="selectAll" onchange="toggleSelectAll(this)"> Select All
+    </label>
+    
+    <div class="btn-group">
+      <button class="btn btn-primary" onclick="startCustomQuiz()">Start Custom Quiz</button>
+      <button class="btn btn-secondary" onclick="closeModal('customQuizModal')">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<!-- ANALYTICS MODAL -->
+<div id="analyticsModal" class="modal">
+  <div class="modal-content" style="max-width:800px;">
+    <span class="close-btn" onclick="closeModal('analyticsModal')">&times;</span>
+    <div class="modal-header">📊 Quiz Analytics & History</div>
+    
+    <div id="analyticsContent"></div>
+  </div>
+</div>
+
+<footer>Bihar Complete Guide | Learn, Quiz, Analyze | Master Bihar for BPSC CSE 2025</footer>
 
 <script>
-// ===== SECTION SWITCHING =====
-function showSection(id) {
-  document.querySelectorAll('.section-panel').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
-  document.getElementById('panel-' + id).classList.add('active');
-  // highlight nav
-  document.querySelectorAll('.nav-item').forEach(n => {
-    if(n.getAttribute('onclick') && n.getAttribute('onclick').includes("'"+id+"'")) n.classList.add('active');
-  });
-  window.scrollTo({top:0,behavior:'smooth'});
-}
+// Quiz Data
+const CHAPTER_NAMES = {
+  's1': 'Introduction to Bihar',
+  's2': 'History of Bihar',
+  's3': 'Geography of Bihar',
+  's4': 'Census 2011',
+  's5': 'Economy of Bihar',
+  's6': 'Bihar Polity',
+  's7': 'Art, Culture & Heritage',
+  's8': 'Other Areas of Bihar'
+};
 
-// ===== MODE TOGGLE =====
-function switchMode(sectionId, mode) {
-  document.getElementById('mode-learn-' + sectionId).classList.toggle('active', mode === 'learn');
-  document.getElementById('mode-quiz-' + sectionId).classList.toggle('active', mode === 'quiz');
-  document.getElementById('btn-learn-' + sectionId).classList.toggle('active', mode === 'learn');
-  document.getElementById('btn-quiz-' + sectionId).classList.toggle('active', mode === 'quiz');
-}
-
-// ===== QUIZ DATA =====
 const QUIZZES = {
   's1': [
-    {q:"What does the word 'Bihar' originally mean?",opts:["Land of Greenery","Buddhist Monastery","Arya Pradesh","Land of Angels"],ans:1,diff:"easy",exp:"Bihar derives from 'Vihara' meaning Buddhist monastery. The region was filled with Buddhist monasteries."},
-    {q:"Who built the fort at Patna in 1541 making it Bihar's capital?",opts:["Babur","Humayun","Sher Shah Suri","Akbar"],ans:2,diff:"easy",exp:"According to Tarikh-i-Daudi, Sher Shah Suri built a strong fort at Patna in 1541 recognising its strategic importance."},
-    {q:"Who was the first Muslim conqueror of Bihar?",opts:["Malik Ibrahim","Iltutmish","Bakhtiyar Khalji","Ali Mardan Khalji"],ans:2,diff:"easy",exp:"Bakhtiyar Khalji was the first Muslim conqueror of Bihar. He destroyed Odantpuri, Nalanda and Vikramshila universities."},
-    {q:"The Santhal Rebellion of 1855–56 occurred in which region?",opts:["Munger–Bhagalpur","Bhagalpur–Rajmahal","Gaya–Munger","Shahabad–Gaya"],ans:1,diff:"easy",exp:"Santhals declared their government in Bhagalpur-Rajmahal (Daman-e-Koh) in 1855-56."},
-    {q:"Birsa Munda was captured while asleep on which date?",opts:["1 February 1900","2 February 1900","3 February 1900","4 February 1900"],ans:2,diff:"medium",exp:"Birsa Munda was captured while asleep at forest in Chakradharpur on 3 February 1900."},
-    {q:"The correct sequence of 1857 Revolt towns in Bihar is:",opts:["Patna→Muzaffarpur→Rohini→Jagdishpur","Rohini→Patna→Muzaffarpur→Jagdishpur","Muzaffarpur→Patna→Jagdishpur→Rohini","Jagdishpur→Patna→Rohini→Muzaffarpur"],ans:1,diff:"medium",exp:"Rohini (June 1857)→Patna (3 Jul)→Muzaffarpur (25 Jul)→Arah/Jagdishpur (27 Jul)."},
-    {q:"Who was Commissioner of Patna Division during the Revolt of 1857?",opts:["Brigadier Douglas","William Tayler","H.C. Wake","Capt. R.P. Harrison"],ans:1,diff:"medium",exp:"William Tayler was the Commissioner of Patna Division during the Revolt of 1857."},
-    {q:"Rajkumar Shukla was a resident of which village?",opts:["Murali Bheet","Murali Bharahwa","Murali Dhir","Mural Kher"],ans:1,diff:"medium",exp:"Rajkumar Shukla was from Murali Bharahwa village, West Champaran. He convinced Gandhi to visit Champaran."},
-    {q:"Who wrote as 'Dukhi', 'Dukhi Aatma', 'Dukhi Hriday' about Champaran farmers?",opts:["Rajendra Prasad","Sahjanand Saraswati","Pir Mohammad Munis","S.N. Sinha"],ans:2,diff:"medium",exp:"Pir Mohammad Munis wrote on 3 April 1916 under these pseudonyms about the plight of Champaran farmers."},
-    {q:"Bihar Provincial Kisan Sabha was founded in which year?",opts:["1927","1929","1931","1934"],ans:1,diff:"medium",exp:"Bihar Provincial Kisan Sabha was founded in 1929 at Sonepur Mela in Saran district by Swami Sahajanand Saraswati."},
-    {q:"Bihar Congress Socialist Party was founded in:",opts:["1930","1931","1934","1939"],ans:2,diff:"medium",exp:"Bihar Congress Socialist Party was founded in Patna in May 1934 under Acharya Narendra Dev (Chairman) and JP Narayan (Secretary)."},
-    {q:"Who was the mentor of Birsa Munda?",opts:["Swami Sahajanand","Anand Pandey","Jatra Bhagat","M.N. Roy"],ans:1,diff:"medium",exp:"Anand Pandey was the mentor of Birsa Munda."},
-    {q:"The Bihar Herald (1872) was started by whom?",opts:["Munahi Surajmal","Rai Roshan Lal","Babu Guru Prasad Sen","Krishan Bhatt"],ans:2,diff:"hard",exp:"Bihar Herald was started by Babu Guru Prasad Sen in collaboration with others. Published every Saturday — first English newspaper of Bihar."},
-    {q:"In the 1830s, Patna city was the centre of which movement?",opts:["Sanyasi Revolt","Godkhari Revolt","Munda Revolt","Wahabi Movement"],ans:3,diff:"hard",exp:"Patna became a major centre of the Wahabi Movement in the 1830s following Saiyad Ahmad's tour of Patna in 1830."},
-    {q:"The Chhotanagpur Tenancy Act 1908 abolished which system?",opts:["Khutkatti rights","Beth-Begari","Zamindari","Ryotwari"],ans:1,diff:"hard",exp:"The Act abolished Beth-Begari (forced labour system) and approved Khutkatti rights of tribals."},
-    {q:"During Salt Satyagraha in Bihar, people also opposed which tax?",opts:["Malba tax","Haathi tax","Chowkidari tax","Development tax"],ans:2,diff:"hard",exp:"In 1930, Bihar farmers broke salt law and also refused to pay Chowkidari tax (village watchmen). Highly successful in Bihar."},
-    {q:"Who is known as 'Bihar Vibhuti'?",opts:["Jai Prakash Narayan","Anugrah Narayan Sinha","Rajendra Prasad","Sri Krishna Singh"],ans:1,diff:"hard",exp:"Dr. Anugrah Narayan Sinha is Bihar Vibhuti (Jewel of Bihar). He was the first Deputy CM and Finance Minister."},
-    {q:"Who established Ramakrishna Mission Society at Patna?",opts:["Swami Sahajanand","Jagjivan Ram","Baba Thakur Das","Sachindra Nath Sanyal"],ans:2,diff:"hard",exp:"Baba Thakur Das established Ramakrishna Mission Society at Patna in 1906–07."},
-    {q:"Bihar Samajwadi Party (1931) was primarily formed by:",opts:["Rajkumar Shukla & Rajendra Prasad","JP Narayan & Phulan Prasad Verma","Acharya Narendra Dev & JP Narayan","Swami Sahajanand & Abdul Bari"],ans:1,diff:"hard",exp:"Bihar Samajwadi Party was formed by JP Narayan, Phulan Prasad Verma, Rahul Sankrityayan, Abdul Bari and others in July 1931."},
-    {q:"Sharfuddin Yahya Maneri of Bihar Sharif belonged to which Sufi order?",opts:["Chisti","Suhrawardi","Firdausi","Kubrawi"],ans:2,diff:"hard",exp:"Sharfuddin Yahya Maneri (1262–1380 AD) belonged to the Firdausi order. Famous work: Maktoobat-e-Sadi."}
+    {q: "What does 'Bihar' originally mean?", opts: ["Land of Greenery", "Buddhist Monastery", "Arya Pradesh", "Land of Saints"], ans: 1, diff: "easy", exp: "Bihar derives from 'Vihara' meaning Buddhist monastery."},
+    {q: "What is the area of Bihar?", opts: ["90,000 sq km", "94,163 sq km", "100,000 sq km", "85,000 sq km"], ans: 1, diff: "easy", exp: "Bihar's area is 94,163 sq km."},
+    {q: "Bihar Diwas is celebrated on?", opts: ["1 April", "22 March", "15 November", "1 January"], ans: 1, diff: "easy", exp: "Bihar Diwas is 22 March."},
+    {q: "What is Bihar's population rank?", opts: ["1st", "2nd", "3rd", "4th"], ans: 2, diff: "medium", exp: "Bihar is 3rd most populous."},
+    {q: "Bihar's literacy rate is?", opts: ["75%", "63.8%", "85%", "55%"], ans: 1, diff: "medium", exp: "Bihar's literacy is ~63.8%."}
   ],
   's2': [
-    {q:"Bihar Diwas is celebrated on:",opts:["1 April","22 March","15 November","12 December"],ans:1,diff:"easy",exp:"Bihar Diwas is celebrated on 22 March every year to commemorate Bihar's separation from Bengal Presidency in 1912."},
-    {q:"Bihar first became a separate province (from Bengal) in:",opts:["1910","1912","1936","1947"],ans:1,diff:"easy",exp:"Bihar and Odisha province came into existence on 1 April 1912 after the proclamation on 22 March 1912."},
-    {q:"Jharkhand was carved out of Bihar in which year?",opts:["1997","1998","1999","2000"],ans:3,diff:"easy",exp:"Jharkhand was formed as the 28th state of India on 15 November 2000, with Ranchi as capital."},
-    {q:"Who led the movement for a separate Bihar province?",opts:["J.B. Kripalani","Birsa Munda","Sachidanand Sinha","Anugrah Narayan Sinha"],ans:2,diff:"medium",exp:"Dr. Sachidanand Sinha led the movement after Mahesh Narayan (editor, Bihar Times) died in 1907."},
-    {q:"By which Act did Bihar become a fully separate province?",opts:["Govt. of India Act 1919","Indian Councils Act 1909","Govt. of India Act 1935","Indian Independence Act 1947"],ans:2,diff:"medium",exp:"Bihar became a fully separate province under the Government of India Act 1935 from April 1936."},
-    {q:"Odisha was separated from Bihar in:",opts:["1930","1936","1947","2000"],ans:1,diff:"medium",exp:"Odisha was separated from Bihar on 1 April 1936 under the Government of India Act 1935."},
-    {q:"First sitting of Bihar Legislative Council was held at:",opts:["Patna","Bankipore","Gaya","Bhagalpur"],ans:1,diff:"medium",exp:"The first meeting of Bihar Legislative Council was held on 20 January 1913 at Bankipore (Patna)."},
-    {q:"Who was the first Indian Governor of Bihar-Odisha?",opts:["Jairamdas Daulatram","Vinod Chandra Pandey","Satyendra Prasanna Sinha","Sir James David Sifton"],ans:2,diff:"medium",exp:"Satyendra Prasanna Sinha was Governor of Bihar-Odisha in 1920–21 — first Indian in such a high British office."},
-    {q:"Jharkhand comprises what percentage of old undivided Bihar's area?",opts:["38.40%","45.85%","42.35%","51.72%"],ans:1,diff:"hard",exp:"Jharkhand comprises 45.84% of undivided Bihar's area (79,714 sq km out of 173,877 sq km)."},
-    {q:"Bihar State Finance Corporation was established in:",opts:["1948","1952","1954","1960"],ans:2,diff:"hard",exp:"Bihar State Finance Corporation was established in 1954 under SFC Act 1951 to promote small and medium industries."},
-    {q:"Dutch East India Company established its factory at Patna in:",opts:["1600 AD","1615 AD","1632 AD","1640 AD"],ans:2,diff:"hard",exp:"Dutch East India Company established its factory at Patna in 1632 AD. This location is now known as Patna College. They traded in Saltpetre and cotton textiles."},
-    {q:"In 1733 AD, Bihar was merged into Bengal province by:",opts:["Alivardi Khan","Shuja-ud-Daula","Siraj-ud-Daula","Mir Jafar"],ans:1,diff:"hard",exp:"In 1733 AD, Nawab Shuja-ud-Daula merged Bihar into the Bengal province."}
+    {q: "Who founded Pataliputra?", opts: ["Udayin", "Ajatashatru", "Chandragupta", "Ashoka"], ans: 1, diff: "easy", exp: "Founded by Ajatashatru."},
+    {q: "Ashoka ruled in?", opts: ["300-268 BC", "268-232 BC", "250-215 BC", "240-200 BC"], ans: 1, diff: "medium", exp: "Ashoka: 268-232 BC."},
+    {q: "1857 Revolt hero of Bihar?", opts: ["Tatya Tope", "Kunwar Singh", "Rani Lakshmi Bai", "Bhagat Singh"], ans: 1, diff: "easy", exp: "Kunwar Singh was Bihar's hero."},
+    {q: "Bakhtiyar Khalji destroyed?", opts: ["Takshashila", "Nalanda", "Valabhi", "Ujjain"], ans: 1, diff: "medium", exp: "Destroyed Nalanda."},
+    {q: "'Gandhi of Bihar' is?", opts: ["JP Narayan", "Rajendra Prasad", "Anugrah Sinha", "Swami"], ans: 1, diff: "easy", exp: "Rajendra Prasad."}
   ],
   's3': [
-    {q:"Bihar Legislative Assembly has how many total seats?",opts:["250","243","240","230"],ans:1,diff:"easy",exp:"Bihar Legislative Assembly has 243 total seats (203 General + 38 SC + 2 ST)."},
-    {q:"Who was the first Chief Minister of Bihar after Independence?",opts:["Mohammad Yunus","Sri Krishna Singh","Mahamaya Prasad Sinha","Rabri Devi"],ans:1,diff:"easy",exp:"Shri Krishna Singh (Shri Babu) was the first CM of Bihar after Independence. He served till 31 January 1961."},
-    {q:"Ranchi (capital of Jharkhand) was earlier the _____ of Bihar under British rule:",opts:["Capital","Winter capital","Summer capital","Administrative HQ"],ans:2,diff:"easy",exp:"Ranchi was the summer capital of Bihar during the British period."},
-    {q:"Bihar has how many Lok Sabha seats currently?",opts:["54","48","40","44"],ans:2,diff:"medium",exp:"After Jharkhand formation in 2000, Bihar has 40 Lok Sabha seats (was 54 before)."},
-    {q:"How many seats are reserved for SC candidates in Bihar LA?",opts:["40","38","42","36"],ans:1,diff:"medium",exp:"38 seats are reserved for Scheduled Castes in Bihar Legislative Assembly."},
-    {q:"Who was the first non-Congress Chief Minister of Bihar?",opts:["Karpoori Thakur","Mahamaya Prasad Sinha","Lalu Prasad Yadav","Ram Sundar Das"],ans:1,diff:"medium",exp:"Mahamaya Prasad Sinha was the 5th CM of Bihar and first non-Congress CM (1967–68)."},
-    {q:"50% reservation for women in Panchayat bodies in Bihar was under which Act?",opts:["Bihar PR Act 2000","Bihar PR Act 2004","Bihar PR Act 2006","Bihar PR Act 2009"],ans:2,diff:"medium",exp:"Bihar Panchayati Raj Act 2006 (applicable from April 2006) provides 50% reservation for women."},
-    {q:"The block-level body in Bihar's three-tier Panchayati Raj is:",opts:["Gram Panchayat","Panchayat Samiti","Zila Parishad","Nyaya Panchayat"],ans:1,diff:"medium",exp:"Panchayat Samiti is block-level; Gram Panchayat is village-level; Zila Parishad is district-level."},
-    {q:"Who is known as 'Chanakya of Bihar'?",opts:["Lalu Prasad Yadav","Ram Vilas Paswan","Nitish Kumar","Tejashwi Yadav"],ans:2,diff:"medium",exp:"Nitish Kumar has been given the nickname 'Chanakya of Bihar'."},
-    {q:"The first Indian Ministry in Bihar (1937) was under whose leadership?",opts:["Sri Krishna Singh","Md. Yunus","G.S. Lal","Wahab Ali"],ans:1,diff:"hard",exp:"Mohammad Yunus led the first Indian Ministry in Bihar in 1937. He was the first PM of Bihar Province under British India."},
-    {q:"Ram Vilas Paswan started his political career from which party?",opts:["Janata Party","Bharatiya Lok Dal","Samyukta Socialist Party","Praja Socialist Party"],ans:2,diff:"hard",exp:"Ram Vilas Paswan started with Samyukta Socialist Party and was elected to Bihar Legislative Assembly in 1969."},
-    {q:"Bihar's elected government resigned in February 1938 for which reason?",opts:["Participation in World War II","Satyagraha against British","For release of political prisoners","High taxes imposed by British"],ans:2,diff:"hard",exp:"The government of Sri Krishna Singh resigned in February 1938 for release of political prisoners. Governor conceded in March 1938."}
+    {q: "Bihar's rank by area?", opts: ["8th", "10th", "12th", "15th"], ans: 2, diff: "easy", exp: "Bihar is 12th largest."},
+    {q: "Longest river stretch in Bihar?", opts: ["Kosi", "Gandak", "Ganga", "Son"], ans: 2, diff: "easy", exp: "Ganga - 99 km in Patna."},
+    {q: "Bihar has monopoly in?", opts: ["Coal", "Pyrite", "Copper", "Limestone"], ans: 1, diff: "medium", exp: "Pyrite monopoly in India."},
+    {q: "Largest gold reserves in?", opts: ["Munger", "Jamui", "Gaya", "Banka"], ans: 1, diff: "medium", exp: "Jamui district."},
+    {q: "Forest cover (ISFR 2021)?", opts: ["5%", "7.84%", "10%", "12%"], ans: 1, diff: "hard", exp: "7.84% forest cover."}
   ],
   's4': [
-    {q:"Bihar falls in which Köppen climate classification?",opts:["Dfc","Cwg","Aw","BSh"],ans:1,diff:"easy",exp:"Bihar and UP are classified as 'Cwg' type — Monsoon with dry winter."},
-    {q:"Which district of Bihar has the highest average annual rainfall?",opts:["Gaya","Patna","Kishanganj","Aurangabad"],ans:2,diff:"easy",exp:"Kishanganj district has the highest average annual rainfall in Bihar's plains."},
-    {q:"The Tarai region of Bihar is spread parallel to:",opts:["North bank of Chotanagpur plateau","India-Nepal boundary","East bank of Rohtas plateau","West boundary of Rajmahal mountains"],ans:1,diff:"easy",exp:"The Tarai region of Bihar is spread parallel to the India-Nepal border across 7 districts."},
-    {q:"Which physiographic division of Bihar does NOT share boundary with Jharkhand?",opts:["Ganga-Son Divide","Anga Plain","Magadha Plain","Mithila Plain"],ans:3,diff:"medium",exp:"Mithila Plain does not share its boundary with Jharkhand. Mithila is largely flat alluvial plain crossed by Himalayan rivers."},
-    {q:"The longest stretch of Ganga in Bihar is in which district?",opts:["Bhagalpur","Katihar","Patna","Begusarai"],ans:2,diff:"medium",exp:"Patna district has the longest stretch of Ganga River (~99 km)."},
-    {q:"The Gandak Project is a joint venture between Bihar and:",opts:["West Bengal","Jharkhand","Uttar Pradesh","Nepal"],ans:2,diff:"medium",exp:"Gandak Project is a joint venture of Bihar and UP. Barrage at Valmikinagar. Tirhut Canal (W) + Saran Canal (E)."},
-    {q:"Kaimur Plateau is famous for which mineral?",opts:["Copper","Limestone","Lithium","Bauxite"],ans:1,diff:"medium",exp:"Kaimur Plateau is famous for limestone. It is in the eastern portion of the Vindhyan Range."},
-    {q:"Rajgir is surrounded by how many hills?",opts:["Three","Four","Five","Six"],ans:2,diff:"medium",exp:"Rajgir is surrounded by 5 hills: Ratnagiri, Vipalachal, Vaibhagiri, Songiri and Udaygiri."},
-    {q:"Which agro-climatic zone of Bihar has the maximum number of districts?",opts:["North-East","North-West","South-East","South-West"],ans:1,diff:"hard",exp:"North-West alluvial plain zone has the maximum 12 districts. North-East has 8."},
-    {q:"The Falgu river was anciently known as:",opts:["Karmanasa","Niranjana","Sone","Punpun"],ans:1,diff:"hard",exp:"The Falgu River (east of Gaya) was anciently known as Niranjana. It carries water only during monsoon."},
-    {q:"Piedmont Swamp Soil is found only in which district of Bihar?",opts:["Madhubani","Bhagalpur","West Champaran","Sitamarhi"],ans:2,diff:"hard",exp:"Piedmont Swamp soil is found only in the northwestern part of West Champaran district."},
-    {q:"Bihar's forest cover as per ISFR 2021 is approximately:",opts:["17%","12%","7.84%","3.21%"],ans:2,diff:"hard",exp:"According to ISFR 2021, Bihar's forest cover is 7380.79 sq km which is 7.84% of state's geographical area."}
+    {q: "Bihar's population (2011)?", opts: ["90 M", "104 M", "120 M", "80 M"], ans: 1, diff: "easy", exp: "~104 million."},
+    {q: "Sex ratio of Bihar?", opts: ["850", "900", "918", "950"], ans: 2, diff: "medium", exp: "~918 per 1000."},
+    {q: "Percentage urban?", opts: ["25%", "15%", "11%", "30%"], ans: 2, diff: "medium", exp: "~11% urban."},
+    {q: "Male literacy rate?", opts: ["63.8%", "53.3%", "73.4%", "80%"], ans: 2, diff: "medium", exp: "~73.4%."},
+    {q: "Percentage rural?", opts: ["75%", "80%", "89%", "95%"], ans: 2, diff: "easy", exp: "~89% rural."}
   ],
   's5': [
-    {q:"What is the main cash crop of Bihar?",opts:["Tea","Rubber","Sugarcane","Jute"],ans:2,diff:"easy",exp:"Sugarcane is the main cash crop of Bihar. West Champaran is the leading producer."},
-    {q:"Bihar produces approximately what percentage of India's Makhana?",opts:["50%","65%","75%","90%"],ans:3,diff:"easy",exp:"Bihar produces approximately 90% of India's total Makhana production from the North-East zone."},
-    {q:"Which soil type covers most of Bihar?",opts:["Mountainous soil","Alluvial soil","Regur soil","Terai soil"],ans:1,diff:"easy",exp:"Most of the area in Bihar is covered by alluvial soil (Indo-Gangetic region)."},
-    {q:"Bihar has monopoly in India in production of which mineral?",opts:["Coal","Pyrite","Graphite","Limestone"],ans:1,diff:"medium",exp:"Bihar has a monopoly in Pyrite production in India. The highest deposit is in Rohtas district."},
-    {q:"Which district of Bihar has the largest gold reserves?",opts:["Munger","Banka","Gaya","Jamui"],ans:3,diff:"medium",exp:"Jamui district has the largest gold reserves in Bihar. Bihar has 43% of India's gold ore resources (IMYB 2022)."},
-    {q:"Bihar ranks which in India in Jute production?",opts:["First","Second","Third","Fourth"],ans:1,diff:"medium",exp:"Bihar ranks 2nd in India in Jute production after West Bengal. Both states plus Assam account for ~98% of India's production."},
-    {q:"Bihar's Litchi production is approximately what percent of India's total?",opts:["60%","45%","74%","80%"],ans:1,diff:"medium",exp:"Bihar produces approximately 45% of India's litchi. Muzaffarpur accounts for 48% of Bihar's litchi production."},
-    {q:"The top-ranking pulses in terms of acreage in Bihar are:",opts:["Masoor and Gram","Gram and Urad","Moong and Masoor","Masoor and Khesari"],ans:2,diff:"hard",exp:"Moong and Masoor (Lentil) are top-ranking pulses. Masoor production: 131.7 thousand tonnes (Bihar Economic Survey 2023-24)."},
-    {q:"Mica deposits in current Bihar are found in which district?",opts:["Rohtas","Patna","Gaya","Nawada"],ans:3,diff:"hard",exp:"According to Indian Minerals Yearbook 2021, Nawada district of Bihar has mica deposits."},
-    {q:"Which agro-climatic zone of Bihar produces maximum Makhana?",opts:["North-West alluvial plain","North-East alluvial plain","South-West alluvial plain","South-East alluvial plain"],ans:1,diff:"hard",exp:"North-East alluvial plain zone is where Makhana is predominantly grown in Bihar."},
-    {q:"Piedmont Swamp soil is found in which part of West Champaran?",opts:["Southeastern","Northwestern","Northeastern","Southwestern"],ans:1,diff:"hard",exp:"Piedmont Swamp soil is found only in the northwestern part of West Champaran district."},
-    {q:"Bihar's road density per lakh of population is:",opts:["Lowest in India","Second lowest in India","Highest in India","Second highest in India"],ans:1,diff:"medium",exp:"Bihar has the second lowest road density — 181 km per lakh population vs 386 km national average."}
+    {q: "Main cash crop?", opts: ["Jute", "Tea", "Sugarcane", "Cotton"], ans: 2, diff: "easy", exp: "Sugarcane."},
+    {q: "Makhana production %?", opts: ["50%", "75%", "90%", "100%"], ans: 2, diff: "easy", exp: "~90%."},
+    {q: "Litchi production %?", opts: ["30%", "45%", "60%", "75%"], ans: 1, diff: "medium", exp: "~45%."},
+    {q: "Growth rate 2022-23?", opts: ["8%", "10.6%", "12%", "7.5%"], ans: 1, diff: "medium", exp: "10.6%."},
+    {q: "Agricultural employment %?", opts: ["35%", "47.8%", "60%", "55%"], ans: 1, diff: "hard", exp: "47.8%."}
   ],
   's6': [
-    {q:"The Kosi River is known as 'Sorrow of' which state?",opts:["Bihar","West Bengal","Assam","Uttar Pradesh"],ans:0,diff:"easy",exp:"The Kosi River is known as the 'Sorrow of Bihar' due to its frequent devastating floods."},
-    {q:"Which city in Bihar is associated with birthplace of Guru Gobind Singh?",opts:["Gaya","Patna Sahib","Nalanda","Vaishali"],ans:1,diff:"easy",exp:"Patna Sahib (Patna) is the birthplace of Guru Gobind Singh, the 10th Sikh Guru."},
-    {q:"Nalanda University was destroyed by:",opts:["Iltutmish","Bakhtiyar Khalji","Alauddin Khalji","Muhammad bin Tughluq"],ans:1,diff:"easy",exp:"Nalanda University was destroyed by Bakhtiyar Khalji's invasion along with Odantpuri and Vikramshila."},
-    {q:"Vaishali is considered the world's first:",opts:["University","Republic","Buddhist centre","Muslim settlement"],ans:1,diff:"medium",exp:"Vaishali is considered the world's first republic, governed by the Lichchhavi clan. Also associated with Lord Mahavira's last teaching."},
-    {q:"Maithili language developed during the reign of which dynasty?",opts:["Chero dynasty","Oiniwar dynasty","Karnata dynasty","Pithipatis"],ans:2,diff:"medium",exp:"Maithili language flourished during the Karnata Dynasty (established by Nanyadev in 1097/98 AD). Golden period of Mithila."},
-    {q:"Valmiki National Park is located at:",opts:["India-Bangladesh border, East Champaran","India-Nepal border, West Champaran","India-UP border, Kaimur","India-Jharkhand border, Gaya"],ans:1,diff:"medium",exp:"Valmiki National Park (Valmiki Tiger Reserve) is located at the India-Nepal border in West Champaran district."},
-    {q:"Bihar ranks what in India in terms of population?",opts:["1st","2nd","3rd","4th"],ans:2,diff:"easy",exp:"Bihar is the 3rd most populous state in India (104 million+, Census 2011). 12th largest by area."},
-    {q:"Bihar is the largest producer in India of which among these?",opts:["Lead","Manganese","Pyrite","Limestone"],ans:2,diff:"hard",exp:"Bihar has a monopoly in Pyrite production in India. Highest deposit in Rohtas district."}
+    {q: "Assembly seats total?", opts: ["230", "243", "250", "260"], ans: 1, diff: "easy", exp: "243 seats."},
+    {q: "Lok Sabha seats?", opts: ["54", "48", "40", "42"], ans: 2, diff: "easy", exp: "40 seats."},
+    {q: "First CM?", opts: ["Mohammad Yunus", "Shri Krishna Singh", "Mahamaya Sinha", "Sri K"], ans: 1, diff: "easy", exp: "Shri Krishna Singh."},
+    {q: "Bihar separated in?", opts: ["1 Apr 1912", "22 Mar 1912", "15 Nov 2000", "1 Apr 1936"], ans: 0, diff: "medium", exp: "1 April 1912."},
+    {q: "Current CM?", opts: ["Lalu", "Tejashwi", "Nitish Kumar", "Paswan"], ans: 2, diff: "easy", exp: "Nitish Kumar."}
+  ],
+  's7': [
+    {q: "Mithila Painting also called?", opts: ["Gond", "Madhubani", "Warli", "Pattachitra"], ans: 1, diff: "easy", exp: "Madhubani Art."},
+    {q: "Bodh Gaya in?", opts: ["Patna", "Gaya", "Nalanda", "Rajgir"], ans: 1, diff: "easy", exp: "Gaya district."},
+    {q: "Vaishali was capital of?", opts: ["Mauryan", "Lichchhavi", "Nanda", "Shunga"], ans: 1, diff: "medium", exp: "Lichchhavi republic."},
+    {q: "Bhagalpur famous for?", opts: ["Mulberry", "Tussar", "Pat", "Eri"], ans: 1, diff: "medium", exp: "Tussar silk."},
+    {q: "Nalanda established by?", opts: ["Ashoka", "Samudra", "Pala", "Chandra"], ans: 2, diff: "hard", exp: "Pala emperors."}
+  ],
+  's8': [
+    {q: "Patna High School (year)?", opts: ["1820", "1835", "1850", "1863"], ans: 1, diff: "easy", exp: "1835."},
+    {q: "Patna College founded?", opts: ["1840", "1850", "1863", "1875"], ans: 2, diff: "easy", exp: "1863."},
+    {q: "Kosi called 'Sorrow of'?", opts: ["UP", "WB", "Bihar", "Assam"], ans: 2, diff: "easy", exp: "Bihar."},
+    {q: "Jharkhand formed?", opts: ["1996", "1998", "2000", "2002"], ans: 2, diff: "easy", exp: "2000."},
+    {q: "Ulgulan led by?", opts: ["Kunwar", "Birsa", "Sidhu", "Kanhu"], ans: 1, diff: "medium", exp: "Birsa Munda."}
   ]
 };
 
-// ===== QUIZ ENGINE =====
+// State
+let darkMode = true;
+let quizHistory = JSON.parse(localStorage.getItem('quizHistory')) || [];
+
+// Theme Toggle
+function toggleTheme() {
+  darkMode = !darkMode;
+  document.body.classList.toggle('light-mode');
+  document.getElementById('theme-icon').textContent = darkMode ? '🌙' : '☀️';
+  document.getElementById('theme-text').textContent = darkMode ? 'Dark' : 'Light';
+  localStorage.setItem('darkMode', darkMode);
+}
+
+// Initialize theme from storage
+if (!localStorage.getItem('darkMode')) {
+  darkMode = true;
+} else {
+  darkMode = JSON.parse(localStorage.getItem('darkMode'));
+  if (!darkMode) {
+    document.body.classList.add('light-mode');
+    document.getElementById('theme-icon').textContent = '☀️';
+    document.getElementById('theme-text').textContent = 'Light';
+  }
+}
+
+// Section Navigation
+function switchSection(id) {
+  document.querySelectorAll('.section-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  document.getElementById('panel-' + id).classList.add('active');
+  document.querySelector(`[onclick="switchSection('${id}')"]`).classList.add('active');
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+// Mode Toggle
+function switchMode(sectionId, mode) {
+  const learnMode = document.getElementById('learn-' + sectionId);
+  const quizMode = document.getElementById('quiz-' + sectionId);
+  const buttons = document.querySelectorAll(`#panel-${sectionId} .mode-btn`);
+  
+  if (mode === 'learn') {
+    learnMode.classList.add('active');
+    quizMode.classList.remove('active');
+    buttons[0].classList.add('active');
+    buttons[1].classList.remove('active');
+  } else {
+    learnMode.classList.remove('active');
+    quizMode.classList.add('active');
+    buttons[0].classList.remove('active');
+    buttons[1].classList.add('active');
+    renderQuiz(sectionId);
+  }
+}
+
+// Quiz Rendering
 function renderQuiz(sectionId) {
-  const questions = QUIZZES[sectionId];
   const container = document.getElementById('quiz-' + sectionId + '-inner');
-  if (!container) return;
-  const state = { current: 0, answers: new Array(questions.length).fill(null) };
+  if (!container || container._rendered) return;
+  container._rendered = true;
+  
+  const questions = QUIZZES[sectionId];
+  const state = { current: 0, answers: new Array(questions.length).fill(null), chapter: sectionId };
   container._state = state;
   container._questions = questions;
   drawQuestion(sectionId);
@@ -745,14 +722,13 @@ function drawQuestion(sectionId) {
   const questions = container._questions;
   const q = questions[state.current];
   const answered = state.answers[state.current] !== null;
-  const progress = (state.current / questions.length) * 100;
-  const correctSoFar = state.answers.filter((a,i) => a === questions[i].ans).length;
-  const attemptedSoFar = state.answers.filter(a => a !== null).length;
+  const progress = ((state.current + 1) / questions.length) * 100;
+  const correctSoFar = state.answers.filter((a, i) => a === questions[i].ans).length;
 
-  let streak = '<div class="streak-row">';
+  let streak = '<div class="streak">';
   for (let i = 0; i < questions.length; i++) {
-    let cls = state.answers[i] !== null ? (state.answers[i] === questions[i].ans ? 'c' : 'w') : '';
-    streak += `<div class="streak-dot ${cls}"></div>`;
+    const cls = state.answers[i] !== null ? (state.answers[i] === questions[i].ans ? 'correct' : 'wrong') : '';
+    streak += `<div class="dot ${cls}"></div>`;
   }
   streak += '</div>';
 
@@ -761,104 +737,365 @@ function drawQuestion(sectionId) {
     let cls = '';
     if (answered) {
       if (i === q.ans) cls = 'correct';
-      else if (i === state.answers[state.current] && i !== q.ans) cls = 'selected-wrong';
+      else if (i === state.answers[state.current] && i !== q.ans) cls = 'wrong';
     }
-    opts += `<button class="q-opt ${cls}" onclick="selectAns('${sectionId}',${i})" ${answered?'disabled':''}>${String.fromCharCode(65+i)}. ${opt}</button>`;
+    opts += `<div class="quiz-opt ${cls}" onclick="selectAns('${sectionId}',${i})" ${answered ? 'style="cursor:default"' : ''}>${String.fromCharCode(65+i)}. ${opt}</div>`;
   });
 
   container.innerHTML = `
-    <div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width:${progress}%"></div></div>
-    <div class="quiz-meta"><span>Question ${state.current+1} of ${questions.length}</span><span style="color:var(--accent)">Score: ${correctSoFar}/${attemptedSoFar||0}</span></div>
+    <div class="quiz-progress"><div class="quiz-progress-fill" style="width:${progress}%"></div></div>
+    <div class="quiz-meta"><span>Q${state.current+1}/${questions.length}</span><span>Score: ${correctSoFar}/${state.current}</span></div>
     ${streak}
-    <span class="q-type-badge q-${q.diff}">${q.diff.toUpperCase()}</span>
-    <div class="q-text">${q.q}</div>
-    <div class="q-options">${opts}</div>
-    <div class="q-explanation ${answered?'show':''}">💡 ${q.exp}</div>
+    <span class="q-type q-${q.diff}">${q.diff}</span>
+    <div class="quiz-q">${q.q}</div>
+    <div class="quiz-opts">${opts}</div>
+    <div class="quiz-explanation ${answered ? 'show' : ''}">${q.exp}</div>
     <div class="quiz-nav">
-      <button class="btn btn-outline" onclick="navQ('${sectionId}',-1)" ${state.current===0?'disabled':''}>← Prev</button>
+      <button class="btn btn-outline" onclick="navQ('${sectionId}',-1)" ${state.current === 0 ? 'disabled' : ''}>← Prev</button>
       ${state.current < questions.length-1
         ? `<button class="btn btn-primary" onclick="navQ('${sectionId}',1)">Next →</button>`
-        : `<button class="btn btn-primary" onclick="showScore('${sectionId}')">See Results ✦</button>`}
+        : `<button class="btn btn-primary" onclick="finishQuiz('${sectionId}')">Finish ✓</button>`}
     </div>`;
 }
 
 function selectAns(sectionId, idx) {
-  const container = document.getElementById('quiz-'+sectionId+'-inner');
+  const container = document.getElementById('quiz-' + sectionId + '-inner');
   const state = container._state;
   if (state.answers[state.current] !== null) return;
   state.answers[state.current] = idx;
-  const q = container._questions[state.current];
-  container.querySelectorAll('.q-opt').forEach((btn,i) => {
-    btn.disabled = true;
-    if (i === q.ans) btn.classList.add('correct');
-    else if (i === idx && i !== q.ans) btn.classList.add('selected-wrong');
-  });
-  container.querySelector('.q-explanation').classList.add('show');
-}
-
-function navQ(sectionId, dir) {
-  const container = document.getElementById('quiz-'+sectionId+'-inner');
-  container._state.current = Math.max(0, Math.min(container._questions.length-1, container._state.current+dir));
   drawQuestion(sectionId);
 }
 
-async function showScore(sectionId) {
-  const container = document.getElementById('quiz-'+sectionId+'-inner');
+function navQ(sectionId, dir) {
+  const container = document.getElementById('quiz-' + sectionId + '-inner');
+  const newPos = Math.max(0, Math.min(container._questions.length-1, container._state.current + dir));
+  container._state.current = newPos;
+  drawQuestion(sectionId);
+}
+
+function finishQuiz(sectionId) {
+  const container = document.getElementById('quiz-' + sectionId + '-inner');
   const state = container._state;
   const questions = container._questions;
-  const correct = state.answers.filter((a,i) => a === questions[i].ans).length;
-  const wrong = state.answers.filter((a,i) => a !== null && a !== questions[i].ans).length;
-  const skipped = questions.length - correct - wrong;
-  const pct = Math.round((correct / questions.length) * 100);
-  const ringColor = pct >= 70 ? 'var(--correct)' : pct >= 40 ? 'var(--partial)' : 'var(--wrong)';
-  const wrongTopics = questions.filter((q,i) => state.answers[i] !== null && state.answers[i] !== q.ans).map(q => q.q.substring(0,55));
+  const correct = state.answers.filter((a, i) => a === questions[i].ans).length;
+  const wrong = state.answers.filter((a, i) => a !== null && a !== questions[i].ans).length;
+  const percentage = Math.round((correct / questions.length) * 100);
+  
+  // Save result
+  const result = {
+    id: Date.now(),
+    chapter: CHAPTER_NAMES[sectionId],
+    chapterId: sectionId,
+    date: new Date().toLocaleString(),
+    totalQuestions: questions.length,
+    correct: correct,
+    wrong: wrong,
+    percentage: percentage,
+    answers: state.answers,
+    questions: questions
+  };
+  
+  quizHistory.push(result);
+  localStorage.setItem('quizHistory', JSON.stringify(quizHistory));
+  
+  // Show result
+  const resultHTML = `
+    <div style="text-align:center;padding:20px;">
+      <div class="score-ring">${percentage}%</div>
+      <h3 style="color:var(--text);margin-bottom:10px;">Quiz Complete!</h3>
+      <p style="color:var(--muted);margin-bottom:20px;">You scored <strong>${correct}</strong> out of <strong>${questions.length}</strong></p>
+      <div style="display:flex;justify-content:center;gap:30px;margin-bottom:20px;font-size:13px;">
+        <div><span style="color:var(--correct);font-size:20px;font-weight:700;display:block;">${correct}</span><span style="color:var(--muted);">Correct</span></div>
+        <div><span style="color:var(--wrong);font-size:20px;font-weight:700;display:block;">${wrong}</span><span style="color:var(--muted);">Wrong</span></div>
+      </div>
+      <button class="btn btn-primary" onclick="switchMode('${sectionId}','learn')">Back to Learn</button>
+    </div>
+  `;
+  
+  container.innerHTML = resultHTML;
+}
 
-  container.innerHTML = `
-    <div class="quiz-score-panel">
-      <div class="score-ring" style="border-color:${ringColor};color:${ringColor}">${pct}%</div>
-      <div class="score-label">You scored ${correct} out of ${questions.length}</div>
-      <div class="score-breakdown">
-        <div><span class="num num-c">${correct}</span><span class="lbl">Correct</span></div>
-        <div><span class="num num-w">${wrong}</span><span class="lbl">Wrong</span></div>
-        <div><span class="num num-s">${skipped}</span><span class="lbl">Skipped</span></div>
-      </div>
-      <div class="ai-analysis" id="ai-out-${sectionId}">
-        <div class="ai-label"><span class="ai-dot"></span> AI Analysis</div>
-        <span class="typing">Analysing your performance...</span>
-      </div>
-      <div style="margin-top:16px;display:flex;gap:10px;justify-content:center">
-        <button class="btn btn-outline" onclick="renderQuiz('${sectionId}')">↺ Restart Quiz</button>
-        <button class="btn btn-primary" onclick="switchMode('${sectionId}','learn')">📖 Back to Learn</button>
-      </div>
-    </div>`;
+// Custom Quiz
+function openCustomQuizModal() {
+  const modal = document.getElementById('customQuizModal');
+  const optionsDiv = document.getElementById('quizOptions');
+  
+  optionsDiv.innerHTML = Object.entries(CHAPTER_NAMES).map(([id, name]) => `
+    <div class="quiz-option">
+      <label>
+        <input type="checkbox" value="${id}" class="chapter-checkbox"> ${name}
+      </label>
+    </div>
+  `).join('');
+  
+  modal.classList.add('active');
+}
 
-  try {
-    const wrongList = wrongTopics.length > 0 ? 'Weak topics: ' + wrongTopics.join('; ') : 'Perfect score!';
-    const res = await fetch("https://api.anthropic.com/v1/messages", {
-      method:"POST",
-      headers:{"Content-Type":"application/json"},
-      body:JSON.stringify({
-        model:"claude-sonnet-4-20250514",
-        max_tokens:1000,
-        system:"You are a BPSC CSE exam coach. Give concise, exam-focused feedback in 3-4 sentences. Point out weak topics and give 1-2 targeted revision tips. Be encouraging but direct.",
-        messages:[{role:"user",content:`BPSC Bihar Special — Section: ${sectionId}. Score: ${correct}/${questions.length} (${pct}%). ${wrongList}. Give personalised analysis and revision advice.`}]
-      })
+function toggleSelectAll(checkbox) {
+  document.querySelectorAll('.chapter-checkbox').forEach(cb => cb.checked = checkbox.checked);
+}
+
+function startCustomQuiz() {
+  const selected = Array.from(document.querySelectorAll('.chapter-checkbox:checked')).map(cb => cb.value);
+  
+  if (selected.length === 0) {
+    alert('Please select at least one chapter');
+    return;
+  }
+  
+  closeModal('customQuizModal');
+  
+  // Combine quizzes
+  let allQuestions = [];
+  selected.forEach(chapterId => {
+    QUIZZES[chapterId].forEach(q => {
+      allQuestions.push({...q, chapterId: chapterId, chapterName: CHAPTER_NAMES[chapterId]});
     });
-    const data = await res.json();
-    const text = data.content?.[0]?.text || "Keep revising! Review explanations for wrong answers.";
-    const el = document.getElementById('ai-out-'+sectionId);
-    if (el) el.innerHTML = `<div class="ai-label"><span class="ai-dot" style="animation:none;background:var(--correct)"></span> AI Analysis</div>${text}`;
-  } catch(e) {
-    const el = document.getElementById('ai-out-'+sectionId);
-    if (el) {
-      const msg = pct>=70 ? 'Strong performance! Push harder on the hard-level questions.' : pct>=40 ? 'Good attempt — review explanations for wrong answers before moving on.' : 'Go back to Learn Mode and revise thoroughly before attempting again.';
-      el.innerHTML = `<div class="ai-label">AI Analysis</div>${msg}`;
+  });
+  
+  // Shuffle
+  allQuestions.sort(() => Math.random() - 0.5);
+  
+  // Create custom quiz container
+  const customContainer = document.createElement('div');
+  customContainer.innerHTML = `
+    <div class="section-panel active" style="display:block;">
+      <div class="section-header">
+        <div class="section-num">CUSTOM</div>
+        <h2 class="section-title">Custom Quiz</h2>
+        <p class="section-desc">${selected.length} chapter(s) • ${allQuestions.length} questions</p>
+      </div>
+      <div class="quiz-container" id="custom-quiz-inner"></div>
+    </div>
+  `;
+  
+  const mainContent = document.querySelector('.content-area');
+  mainContent.innerHTML = '';
+  mainContent.appendChild(customContainer);
+  
+  const state = { current: 0, answers: new Array(allQuestions.length).fill(null), selected };
+  const container = document.getElementById('custom-quiz-inner');
+  container._state = state;
+  container._questions = allQuestions;
+  
+  function drawCustomQuestion() {
+    const questions = allQuestions;
+    const q = questions[state.current];
+    const answered = state.answers[state.current] !== null;
+    const progress = ((state.current + 1) / questions.length) * 100;
+    const correctSoFar = state.answers.filter((a, i) => a === questions[i].ans).length;
+
+    let streak = '<div class="streak">';
+    for (let i = 0; i < questions.length; i++) {
+      const cls = state.answers[i] !== null ? (state.answers[i] === questions[i].ans ? 'correct' : 'wrong') : '';
+      streak += `<div class="dot ${cls}"></div>`;
     }
+    streak += '</div>';
+
+    let opts = '';
+    q.opts.forEach((opt, i) => {
+      let cls = '';
+      if (answered) {
+        if (i === q.ans) cls = 'correct';
+        else if (i === state.answers[state.current] && i !== q.ans) cls = 'wrong';
+      }
+      opts += `<div class="quiz-opt ${cls}" onclick="selectCustomAns(${i})" ${answered ? 'style="cursor:default"' : ''}>${String.fromCharCode(65+i)}. ${opt}</div>`;
+    });
+
+    container.innerHTML = `
+      <div class="quiz-progress"><div class="quiz-progress-fill" style="width:${progress}%"></div></div>
+      <div class="quiz-meta"><span>Q${state.current+1}/${questions.length} • ${q.chapterName}</span><span>Score: ${correctSoFar}/${state.current}</span></div>
+      ${streak}
+      <span class="q-type q-${q.diff}">${q.diff}</span>
+      <div class="quiz-q">${q.q}</div>
+      <div class="quiz-opts">${opts}</div>
+      <div class="quiz-explanation ${answered ? 'show' : ''}">${q.exp}</div>
+      <div class="quiz-nav">
+        <button class="btn btn-outline" onclick="navCustom(-1)" ${state.current === 0 ? 'disabled' : ''}>← Prev</button>
+        ${state.current < questions.length-1
+          ? `<button class="btn btn-primary" onclick="navCustom(1)">Next →</button>`
+          : `<button class="btn btn-primary" onclick="finishCustomQuiz()">Finish ✓</button>`}
+      </div>
+    `;
+  }
+  
+  window.selectCustomAns = function(idx) {
+    if (state.answers[state.current] !== null) return;
+    state.answers[state.current] = idx;
+    drawCustomQuestion();
+  };
+  
+  window.navCustom = function(dir) {
+    const newPos = Math.max(0, Math.min(allQuestions.length-1, state.current + dir));
+    state.current = newPos;
+    drawCustomQuestion();
+  };
+  
+  window.finishCustomQuiz = function() {
+    const correct = state.answers.filter((a, i) => a === allQuestions[i].ans).length;
+    const wrong = state.answers.filter((a, i) => a !== null && a !== allQuestions[i].ans).length;
+    const percentage = Math.round((correct / allQuestions.length) * 100);
+    
+    // Save custom quiz result
+    const result = {
+      id: Date.now(),
+      chapter: `Custom Quiz (${selected.length} chapters)`,
+      chapterId: 'custom',
+      date: new Date().toLocaleString(),
+      totalQuestions: allQuestions.length,
+      correct: correct,
+      wrong: wrong,
+      percentage: percentage,
+      answers: state.answers,
+      questions: allQuestions,
+      selectedChapters: selected
+    };
+    
+    quizHistory.push(result);
+    localStorage.setItem('quizHistory', JSON.stringify(quizHistory));
+    
+    container.innerHTML = `
+      <div style="text-align:center;padding:20px;">
+        <div class="score-ring">${percentage}%</div>
+        <h3 style="color:var(--text);margin-bottom:10px;">Custom Quiz Complete!</h3>
+        <p style="color:var(--muted);margin-bottom:20px;">You scored <strong>${correct}</strong> out of <strong>${allQuestions.length}</strong></p>
+        <div style="display:flex;justify-content:center;gap:30px;margin-bottom:20px;font-size:13px;">
+          <div><span style="color:var(--correct);font-size:20px;font-weight:700;display:block;">${correct}</span><span style="color:var(--muted);">Correct</span></div>
+          <div><span style="color:var(--wrong);font-size:20px;font-weight:700;display:block;">${wrong}</span><span style="color:var(--muted);">Wrong</span></div>
+        </div>
+        <button class="btn btn-primary" onclick="location.reload()">Return Home</button>
+      </div>
+    `;
+  };
+  
+  drawCustomQuestion();
+}
+
+// Analytics
+function openAnalyticsModal() {
+  const modal = document.getElementById('analyticsModal');
+  const content = document.getElementById('analyticsContent');
+  
+  if (quizHistory.length === 0) {
+    content.innerHTML = `<p style="color:var(--muted);padding:20px;text-align:center;">No quiz history yet. Start taking quizzes!</p>`;
+    modal.classList.add('active');
+    return;
+  }
+  
+  // Overall Stats
+  const totalQuizzes = quizHistory.length;
+  const totalQuestions = quizHistory.reduce((sum, r) => sum + r.totalQuestions, 0);
+  const totalCorrect = quizHistory.reduce((sum, r) => sum + r.correct, 0);
+  const avgPercentage = Math.round((totalCorrect / totalQuestions) * 100);
+  
+  // Chapter-wise breakdown
+  const chapterStats = {};
+  quizHistory.forEach(result => {
+    if (result.chapterId !== 'custom') {
+      if (!chapterStats[result.chapterId]) {
+        chapterStats[result.chapterId] = { correct: 0, wrong: 0, attempts: 0, chapter: result.chapter };
+      }
+      chapterStats[result.chapterId].correct += result.correct;
+      chapterStats[result.chapterId].wrong += result.wrong;
+      chapterStats[result.chapterId].attempts++;
+    }
+  });
+  
+  let breakdownHTML = '';
+  Object.values(chapterStats).forEach(stat => {
+    const percentage = Math.round((stat.correct / (stat.correct + stat.wrong)) * 100);
+    breakdownHTML += `
+      <div class="breakdown-item">
+        <span class="breakdown-chapter">${stat.chapter}</span>
+        <div class="breakdown-stats">
+          <span class="stats-correct">${stat.correct}✓</span>
+          <span class="stats-wrong">${stat.wrong}✗</span>
+          <span class="stats-score">${percentage}%</span>
+        </div>
+      </div>
+    `;
+  });
+  
+  // History table
+  let historyHTML = '<table class="history-table"><tr><th>Date</th><th>Test</th><th>Score</th><th>Results</th></tr>';
+  quizHistory.slice().reverse().forEach(result => {
+    historyHTML += `<tr>
+      <td>${result.date}</td>
+      <td>${result.chapter}</td>
+      <td>${result.percentage}%</td>
+      <td>${result.correct}/${result.totalQuestions}</td>
+    </tr>`;
+  });
+  historyHTML += '</table>';
+  
+  content.innerHTML = `
+    <div class="analytics-container">
+      <div class="analytics-card">
+        <h3>Overall Performance</h3>
+        <div class="score-ring">${avgPercentage}%</div>
+        <div class="analytics-stat">
+          <span class="stat-label">Total Quizzes</span>
+          <span class="stat-value">${totalQuizzes}</span>
+        </div>
+        <div class="analytics-stat">
+          <span class="stat-label">Total Questions</span>
+          <span class="stat-value">${totalQuestions}</span>
+        </div>
+        <div class="analytics-stat">
+          <span class="stat-label">Correct Answers</span>
+          <span class="stat-value" style="color:var(--correct);">${totalCorrect}</span>
+        </div>
+      </div>
+      <div class="analytics-card">
+        <h3>Quick Stats</h3>
+        <div class="analytics-stat">
+          <span class="stat-label">Wrong Answers</span>
+          <span class="stat-value" style="color:var(--wrong);">${totalQuestions - totalCorrect}</span>
+        </div>
+        <div class="analytics-stat">
+          <span class="stat-label">Success Rate</span>
+          <span class="stat-value">${avgPercentage}%</span>
+        </div>
+        <div class="analytics-stat">
+          <span class="stat-label">Last Quiz</span>
+          <span class="stat-value">${quizHistory[quizHistory.length-1].date.split(',')[0]}</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="chapter-breakdown">
+      <h3 style="color:var(--accent2);margin-bottom:16px;text-transform:uppercase;font-size:13px;letter-spacing:0.5px;">Chapter-wise Performance</h3>
+      ${breakdownHTML}
+    </div>
+    
+    <div style="margin-top:20px;">
+      <h3 style="color:var(--accent2);margin-bottom:16px;text-transform:uppercase;font-size:13px;letter-spacing:0.5px;">Quiz History</h3>
+      ${historyHTML}
+    </div>
+    
+    <button class="btn btn-primary" style="width:100%;margin-top:20px;" onclick="clearHistory()">Clear All History</button>
+  `;
+  
+  modal.classList.add('active');
+}
+
+function clearHistory() {
+  if (confirm('Are you sure? This will delete all quiz history!')) {
+    quizHistory = [];
+    localStorage.setItem('quizHistory', JSON.stringify(quizHistory));
+    openAnalyticsModal();
   }
 }
 
-// ===== INIT =====
-Object.keys(QUIZZES).forEach(renderQuiz);
+// Modal Functions
+function closeModal(modalId) {
+  document.getElementById(modalId).classList.remove('active');
+}
+
+// Initialize
+document.addEventListener('DOMContentLoaded', () => {
+  Object.keys(QUIZZES).forEach(renderQuiz);
+});
 </script>
 </body>
 </html>
