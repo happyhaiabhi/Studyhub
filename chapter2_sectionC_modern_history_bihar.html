@@ -186,6 +186,52 @@ h1{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.8rem);font-
 .skip-review-num{font-family:'DM Mono',monospace;font-size:.72rem;color:#f59e0b;margin-bottom:.3rem;font-weight:700;}
 .skip-review-q{color:var(--text);font-size:.88rem;font-weight:600;}
 
+
+/* ── QUIZ CONTROLS BAR ── */
+.quiz-controls-bar{display:flex;gap:.6rem;align-items:center;flex-wrap:wrap;margin-bottom:1rem;padding:.75rem 1rem;background:var(--surface);border:1px solid var(--border);border-radius:.65rem;}
+.qcb-label{font-family:'DM Mono',monospace;font-size:.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;white-space:nowrap;}
+.qcb-select{background:var(--bg);border:1px solid var(--border);color:var(--text);border-radius:.4rem;padding:.3rem .55rem;font-size:.8rem;font-family:'DM Mono',monospace;cursor:pointer;}
+.qcb-select:focus{outline:none;border-color:var(--accent-primary);}
+.qcb-divider{width:1px;height:20px;background:var(--border);flex-shrink:0;}
+/* ── BOOKMARK ── */
+.bookmark-btn{background:transparent;border:none;cursor:pointer;font-size:1.1rem;padding:2px 6px;border-radius:.3rem;transition:transform .15s;line-height:1;color:var(--muted);}
+.bookmark-btn:hover{transform:scale(1.2);}
+.bookmark-btn.active{color:#f59e0b;}
+/* ── CONFIDENCE ── */
+.confidence-row{display:flex;gap:.5rem;margin-top:.9rem;align-items:center;}
+.conf-label{font-family:'DM Mono',monospace;font-size:.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;}
+.conf-btn{padding:.3rem .75rem;border-radius:99px;border:1px solid var(--border);background:transparent;cursor:pointer;font-size:.75rem;font-family:'DM Mono',monospace;transition:all .2s;}
+.conf-btn.easy{color:#4ade80;border-color:#4ade80;}
+.conf-btn.easy:hover,.conf-btn.easy.picked{background:rgba(74,222,128,.12);}
+.conf-btn.hard{color:#ef4444;border-color:#ef4444;}
+.conf-btn.hard:hover,.conf-btn.hard.picked{background:rgba(239,68,68,.12);}
+.conf-btn.medium{color:#f59e0b;border-color:#f59e0b;}
+.conf-btn.medium:hover,.conf-btn.medium.picked{background:rgba(245,158,11,.12);}
+/* ── SEARCH ── */
+.learn-search-wrap{position:relative;margin-bottom:1.2rem;}
+.learn-search{width:100%;padding:.6rem 1rem .6rem 2.2rem;background:var(--surface);border:1px solid var(--border);border-radius:.5rem;color:var(--text);font-size:.9rem;font-family:'DM Sans',sans-serif;}
+.learn-search:focus{outline:none;border-color:var(--accent-primary);}
+.learn-search-icon{position:absolute;left:.7rem;top:50%;transform:translateY(-50%);font-size:.9rem;pointer-events:none;opacity:.4;}
+.search-highlight{background:rgba(168,213,186,.25);border-radius:2px;}
+/* ── SESSION HISTORY CHART ── */
+.history-section{margin-top:2rem;text-align:left;}
+.history-section h3{font-family:'Playfair Display',serif;font-size:1.1rem;color:#fff;margin-bottom:.85rem;}
+.history-bars{display:flex;align-items:flex-end;gap:4px;height:80px;margin-bottom:.4rem;}
+.h-bar{flex:1;border-radius:3px 3px 0 0;min-width:8px;transition:height .5s;cursor:pointer;position:relative;}
+.h-bar:hover::after{content:attr(data-tip);position:absolute;bottom:calc(100% + 4px);left:50%;transform:translateX(-50%);background:var(--surface);border:1px solid var(--border);border-radius:.3rem;padding:3px 7px;font-size:.68rem;font-family:'DM Mono',monospace;white-space:nowrap;color:var(--text);pointer-events:none;}
+.history-dates{display:flex;gap:4px;}
+.h-date{flex:1;font-size:.6rem;font-family:'DM Mono',monospace;color:var(--muted);text-align:center;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+/* ── BOOKMARKED FILTER ── */
+.bookmarked-empty{text-align:center;padding:2rem;color:var(--muted);font-family:'DM Mono',monospace;font-size:.8rem;}
+/* ── EXAM MODE ── */
+.exam-mode-banner{background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.3);border-radius:.5rem;padding:.5rem 1rem;font-family:'DM Mono',monospace;font-size:.75rem;color:#ef4444;text-transform:uppercase;letter-spacing:.1em;margin-bottom:.8rem;display:none;}
+.exam-mode-banner.show{display:block;}
+/* ── FONT SIZE ── */
+body.fs-small .question-text{font-size:.88rem;}
+body.fs-large .question-text{font-size:1.12rem;}
+body.fs-small .option{font-size:.82rem;}
+body.fs-large .option{font-size:1rem;}
+
 </style>
 </head>
 <body>
@@ -225,7 +271,11 @@ h1{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.8rem);font-
     <div class="progress-tab-dots" id="tab-dots"></div>
     <span id="progress-count" style="font-size:.85rem;color:var(--accent-primary);font-weight:700;margin-left:auto;"></span>
   </div>
-  <div class="learn-tabs">
+  <div class="learn-search-wrap">
+    <span class="learn-search-icon">🔍</span>
+    <input class="learn-search" id="learn-search" type="text" placeholder="Search across all sections..." oninput="searchLearn(this.value)">
+  </div>
+  <div class="learn-tabs" id="learn-tabs-div">
     <button class="learn-tab active" onclick="switchLearnTab('t18th')">18th Century</button>
     <button class="learn-tab" onclick="switchLearnTab('tbuxar')">Buxar &amp; Dyarchy</button>
     <button class="learn-tab" onclick="switchLearnTab('trebel')">Rebellions</button>
@@ -600,9 +650,41 @@ h1{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.8rem);font-
     <div id="quiz-prog-dots" style="display:flex;gap:.4rem;"></div>
     <span id="quiz-prog-text" style="font-size:.82rem;color:var(--accent-primary);font-weight:700;margin-left:auto;"></span>
   </div>
+
+  <!-- Quiz controls bar -->
+  <div class="quiz-controls-bar">
+    <span class="qcb-label">Timer</span>
+    <select class="qcb-select" id="timer-select" onchange="setTimerSec(this.value)">
+      <option value="30">30s</option>
+      <option value="60" selected>60s</option>
+      <option value="90">90s</option>
+      <option value="0">Off</option>
+    </select>
+    <div class="qcb-divider"></div>
+    <span class="qcb-label">Questions</span>
+    <select class="qcb-select" id="qsize-select" onchange="setQuizSize(this.value)">
+      <option value="10">10</option>
+      <option value="25">25</option>
+      <option value="50">50</option>
+      <option value="0" selected>All</option>
+    </select>
+    <div class="qcb-divider"></div>
+    <span class="qcb-label">Mode</span>
+    <select class="qcb-select" id="mode-select" onchange="setExamMode(this.value)">
+      <option value="practice">Practice</option>
+      <option value="exam">Exam</option>
+    </select>
+    <div class="qcb-divider"></div>
+    <button class="filter-btn" onclick="filterBookmarked(event)" id="bookmark-filter-btn">⭐ Starred</button>
+    <div class="qcb-divider"></div>
+    <span class="qcb-label">Text</span>
+    <button class="qcb-select" onclick="cycleFontSize()" id="font-btn" style="cursor:pointer;">A</button>
+  </div>
+  <div class="exam-mode-banner" id="exam-banner">⚠ Exam mode — no hints, no skip, strict timer</div>
   <div class="quiz-filter" id="quiz-filter"></div>
   <div id="quiz-area"></div>
   <div class="results-box" id="results-box">
+    <div class="history-section" id="history-section"></div>
     <div class="score-display" id="score-display"></div>
     <div class="score-label" id="score-label"></div>
     <div class="results-details">
@@ -711,7 +793,10 @@ function renderQuizFilters(){
 function filterQuiz(cat, e){
   document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
   if(e && e.target) e.target.classList.add('active');
-  quizFiltered=cat==='all'?[...quizData]:quizData.filter(q=>q.cat===cat);
+  let base=cat==='all'?[...quizData]:quizData.filter(q=>q.cat===cat);
+  // shuffle then limit
+  for(let i=base.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[base[i],base[j]]=[base[j],base[i]];}
+  quizFiltered=quizSizeLimit>0?base.slice(0,quizSizeLimit):base;
   currentQ=0; score=0; answered=false; wrongAnswers=[]; qTimes=[]; catTimes={}; skippedQs=[];
   clearInterval(timerIv);
   document.getElementById('results-box').classList.remove('visible');
@@ -950,14 +1035,67 @@ const quizData=[
 let quizFiltered=[...quizData],currentQ=0,answered=false,score=0,wrongAnswers=[];
 let qTimes=[],catTimes={},timerIv=null,qStart=0;
 let skippedQs=[];
-const TIMER_SEC=60;
+let TIMER_SEC=60;
+let quizSizeLimit=0;
+let examMode=false;
+let bookmarked=new Set(JSON.parse(localStorage.getItem('secC_bookmarks')||'[]'));
+let confidenceMap=JSON.parse(localStorage.getItem('secC_confidence')||'{}');
+let fontSizeState=0; // 0=normal,1=large,2=small
+const fontClasses=['','fs-large','fs-small'];
 
+// ── SETTINGS ──
+function setTimerSec(v){ TIMER_SEC=parseInt(v); }
+function setQuizSize(v){ quizSizeLimit=parseInt(v); }
+function setExamMode(v){
+  examMode=(v==='exam');
+  document.getElementById('exam-banner').classList.toggle('show',examMode);
+}
+function cycleFontSize(){
+  document.body.classList.remove(fontClasses[fontSizeState]);
+  fontSizeState=(fontSizeState+1)%3;
+  document.body.classList.add(fontClasses[fontSizeState]);
+  const btn=document.getElementById('font-btn');
+  if(btn) btn.textContent=fontSizeState===0?'A':fontSizeState===1?'A+':'A-';
+}
+
+// ── BOOKMARKS ──
+function toggleBookmark(idx){
+  const key=quizFiltered[idx]?quizFiltered[idx].q.substring(0,40):'';
+  if(!key) return;
+  if(bookmarked.has(key)) bookmarked.delete(key);
+  else bookmarked.add(key);
+  localStorage.setItem('secC_bookmarks',JSON.stringify([...bookmarked]));
+  // update star button face
+  const btn=document.getElementById('star-btn');
+  if(btn) btn.classList.toggle('active', bookmarked.has(key));
+}
+function isBookmarked(q){
+  return bookmarked.has((q.q||'').substring(0,40));
+}
+function filterBookmarked(e){
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  if(e&&e.target) e.target.classList.add('active');
+  const bqs=quizData.filter(q=>isBookmarked(q));
+  if(!bqs.length){
+    document.getElementById('quiz-area').innerHTML=`<div class="bookmarked-empty">No starred questions yet.<br>Star any question during the quiz to find it here.</div>`;
+    document.getElementById('results-box').classList.remove('visible');
+    return;
+  }
+  quizFiltered=bqs;
+  currentQ=0;score=0;answered=false;wrongAnswers=[];qTimes=[];catTimes={};skippedQs=[];
+  clearInterval(timerIv);
+  document.getElementById('results-box').classList.remove('visible');
+  renderQuiz();
+}
+
+// ── SHUFFLE OPTIONS ──
 function shuffleOpts(q){
   const pairs=q.opts.map((o,i)=>({text:o,orig:i}));
   for(let i=pairs.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[pairs[i],pairs[j]]=[pairs[j],pairs[i]];}
   return{opts:pairs.map(p=>p.text),ans:pairs.findIndex(p=>p.orig===q.ans)};
 }
 
+// ── RENDER QUIZ ──
 function renderQuiz(){
   updateProgress();
   document.getElementById('results-box').classList.remove('visible');
@@ -966,21 +1104,25 @@ function renderQuiz(){
   const {opts,ans}=shuffleOpts(raw);
   const L=['A','B','C','D'];
   const nextLabel=currentQ+1>=quizFiltered.length?'🏁 See Results':'Next ▶';
+  const isStarred=isBookmarked(raw);
+  const timerInfo=TIMER_SEC>0?`${TIMER_SEC}s`:'∞';
   document.getElementById('quiz-area').innerHTML=`
     <div class="quiz-above">
       <span class="quiz-above-left">Q${currentQ+1} of ${quizFiltered.length} &nbsp;|&nbsp; Score: <strong>${score}</strong> / ${currentQ}</span>
-      <span class="quiz-above-right">
-        <button class="skip-btn" id="skip-btn" onclick="skipQ()">⏭ Skip</button>
+      <span class="quiz-above-right" style="display:flex;align-items:center;gap:.4rem;">
+        <button class="bookmark-btn${isStarred?' active':''}" id="star-btn" onclick="toggleBookmark(${currentQ})" title="Star this question">${isStarred?'⭐':'☆'}</button>
+        ${!examMode?`<button class="skip-btn" id="skip-btn" onclick="skipQ()">⏭ Skip</button>`:''}
         <button class="quiz-nav-btn primary" id="nxt" onclick="nextQ()" style="display:none">${nextLabel}</button>
       </span>
     </div>
+    ${TIMER_SEC>0?`
     <div class="timer-wrap">
       <div class="timer-top">
-        <span class="timer-label" id="tlbl">${TIMER_SEC}s</span>
+        <span class="timer-label" id="tlbl">${timerInfo}</span>
         <span class="timer-label" id="tcat">${catLabel(raw.cat)}</span>
       </div>
       <div class="timer-track"><div class="timer-fill" id="tfill" style="width:100%"></div></div>
-    </div>
+    </div>`:''}
     <div class="quiz-box">
       <div class="question-header">
         <span class="question-num">Q${currentQ+1} / ${quizFiltered.length}</span>
@@ -990,16 +1132,36 @@ function renderQuiz(){
       <div class="options" id="opts">
         ${opts.map((o,i)=>`<div class="option" id="o${i}" onclick="pick(${i},${ans},'${raw.cat}')"><span class="option-letter">${L[i]}</span><span>${o}</span></div>`).join('')}
       </div>
-      <div class="explanation" id="exp"><strong>📌 Explanation:</strong> ${raw.exp}</div>
+      <div class="explanation" id="exp"><strong>📌 Explanation:</strong> ${raw.exp}
+        <div class="confidence-row" id="conf-row" style="display:none">
+          <span class="conf-label">How was that?</span>
+          <button class="conf-btn easy" onclick="rateConfidence('easy',${currentQ})">😊 Easy</button>
+          <button class="conf-btn medium" onclick="rateConfidence('medium',${currentQ})">😐 OK</button>
+          <button class="conf-btn hard" onclick="rateConfidence('hard',${currentQ})">😓 Hard</button>
+        </div>
+      </div>
       <div class="quiz-nav">
         <div class="score-bar">Score: <span>${score}</span></div>
         <button class="quiz-nav-btn primary" id="nxt2" onclick="nextQ()" style="display:none">${nextLabel}</button>
       </div>
     </div>`;
   answered=false;
-  startTimer();
+  if(TIMER_SEC>0) startTimer();
 }
 
+// ── CONFIDENCE ──
+function rateConfidence(level, idx){
+  const raw=quizFiltered[idx];
+  if(!raw) return;
+  const key=raw.q.substring(0,40);
+  confidenceMap[key]=level;
+  localStorage.setItem('secC_confidence',JSON.stringify(confidenceMap));
+  document.querySelectorAll('.conf-btn').forEach(b=>b.classList.remove('picked'));
+  const btn=document.querySelector(`.conf-btn.${level}`);
+  if(btn) btn.classList.add('picked');
+}
+
+// ── TIMER ──
 function startTimer(){
   clearInterval(timerIv);
   qStart=Date.now();
@@ -1021,7 +1183,7 @@ function autoTimeOut(){
   const raw=quizFiltered[currentQ];
   recTime(TIMER_SEC,raw.cat);
   document.querySelectorAll('.option').forEach(o=>o.style.pointerEvents='none');
-  const exp=document.getElementById('exp');if(exp)exp.classList.add('visible');
+  const exp=document.getElementById('exp');if(exp){exp.classList.add('visible');const cr=document.getElementById('conf-row');if(cr)cr.style.display='flex';}
   const nb=document.getElementById('nxt');if(nb)nb.style.display='';
   const nb2=document.getElementById('nxt2');if(nb2)nb2.style.display='';
   wrongAnswers.push({n:currentQ+1,q:raw.q,correct:raw.opts[raw.ans],yours:'⏰ Timed Out',time:TIMER_SEC,cat:raw.cat});
@@ -1033,12 +1195,13 @@ function recTime(t,cat){
   catTimes[cat].total+=t;catTimes[cat].count++;
 }
 
+// ── PICK ──
 function pick(i,ans,cat){
   if(answered)return;
   answered=true;
   clearInterval(timerIv);
-  const elapsed=Math.max(1,Math.round((Date.now()-qStart)/1000));
-  recTime(elapsed,cat||quizFiltered[currentQ].cat);
+  const elapsed=TIMER_SEC>0?Math.max(1,Math.round((Date.now()-qStart)/1000)):0;
+  if(TIMER_SEC>0) recTime(elapsed,cat||quizFiltered[currentQ].cat);
   const raw=quizFiltered[currentQ];
   const opts=document.querySelectorAll('.option');
   opts[i].classList.add(i===ans?'correct':'wrong');
@@ -1050,112 +1213,135 @@ function pick(i,ans,cat){
     const corrText=document.getElementById('o'+ans).querySelector('span:last-child').textContent;
     wrongAnswers.push({n:currentQ+1,q:raw.q,correct:corrText,yours:yourText,time:elapsed,cat:raw.cat});
   }
-  document.getElementById('exp').classList.add('visible');
+  const exp=document.getElementById('exp');
+  if(exp){
+    exp.classList.add('visible');
+    if(!examMode){const cr=document.getElementById('conf-row');if(cr)cr.style.display='flex';}
+  }
   const nb=document.getElementById('nxt');if(nb)nb.style.display='';
   const nb2=document.getElementById('nxt2');if(nb2)nb2.style.display='';
-  const lbl=document.getElementById('tlbl');
-  const fill=document.getElementById('tfill');
-  if(lbl){lbl.textContent='✓ '+elapsed+'s';lbl.style.color='var(--accent-primary)';}
-  if(fill){fill.style.transition='none';fill.style.width='100%';fill.classList.remove('warn','danger');fill.style.background='var(--accent-primary)';}
+  if(TIMER_SEC>0){
+    const lbl=document.getElementById('tlbl');const fill=document.getElementById('tfill');
+    if(lbl){lbl.textContent='✓ '+elapsed+'s';lbl.style.color='var(--accent-primary)';}
+    if(fill){fill.style.transition='none';fill.style.width='100%';fill.classList.remove('warn','danger');fill.style.background='var(--accent-primary)';}
+  }
 }
 
+function nextQ(){currentQ++;renderQuiz();}
+
+// ── SKIP ──
 function skipQ(){
-  if(answered) return;
+  if(answered||examMode) return;
   clearInterval(timerIv);
   const raw=quizFiltered[currentQ];
-  skippedQs.push({n:currentQ+1, q:raw.q, cat:raw.cat, origIdx:currentQ});
-  // hide skip button
-  const sb=document.getElementById('skip-btn');
-  if(sb) sb.style.display='none';
-  // move to next without counting
+  skippedQs.push({n:currentQ+1,q:raw.q,cat:raw.cat,origIdx:currentQ});
   currentQ++;
   renderQuiz();
 }
 
-
-function nextQ(){currentQ++;renderQuiz();}
-
+// ── SHOW RESULTS ──
 function showResults(){
   clearInterval(timerIv);
   document.getElementById('quiz-area').innerHTML='';
   const t=quizFiltered.length,pct=t>0?Math.round(score/t*100):0;
   const totalT=qTimes.reduce((a,b)=>a+b.t,0);
-  const avgT=t>0?Math.round(totalT/t):0;
+  const avgT=TIMER_SEC>0&&t>0?Math.round(totalT/t):0;
   document.getElementById('score-display').textContent=pct+'%';
   document.getElementById('score-label').textContent=score+' correct out of '+t+' questions';
   document.getElementById('res-correct').textContent=score;
   document.getElementById('res-wrong').textContent=t-score;
   document.getElementById('res-total').textContent=t;
-  const maxAvg=Math.max(...Object.values(catTimes).map(c=>c.total/c.count),1);
-  let taHtml='<h3>⏱️ Time Analysis by Category</h3><p style="font-size:.76rem;color:var(--muted);font-family:DM Mono,monospace;margin-bottom:.85rem;">Slow categories need most revision</p>';
-  Object.entries(catTimes).sort((a,b)=>(b[1].total/b[1].count)-(a[1].total/a[1].count)).forEach(([cat,d])=>{
-    const avg=Math.round(d.total/d.count);
-    const pct2=Math.round((avg/maxAvg)*100);
-    const spd=avg>30?'slow':avg>15?'med':'';
-    const badge=avg>30?'<span class="ta-badge">Needs Work</span>':'';
-    taHtml+=`<div class="ta-row"><span class="ta-cat">${catLabel(cat)}</span><div class="ta-bar-bg"><div class="ta-bar-fill ${spd}" style="width:${pct2}%"></div></div><span class="ta-val">${avg}s avg</span>${badge}</div>`;
-  });
-  if(qTimes.length){
-    const slow=[...qTimes].sort((a,b)=>b.t-a.t).slice(0,3);
-    taHtml+='<div class="slow-q-list"><p style="font-size:.72rem;color:var(--muted);font-family:DM Mono,monospace;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.4rem;">Slowest Questions</p>';
-    slow.forEach(qt=>{const q=quizFiltered[qt.q-1];taHtml+=`<div class="slow-q-item"><span class="slow-q-time">${qt.t}s</span><span>${q?q.q.substring(0,65)+'...':''}</span></div>`;});
-    taHtml+='</div>';
+
+  // SESSION HISTORY CHART
+  let history=[];
+  try{history=JSON.parse(localStorage.getItem('secC_history')||'[]');}catch(e){}
+  history.push({date:new Date().toLocaleDateString('en-IN',{day:'numeric',month:'short'}),score,total:t,pct,avgTime:avgT,catTimes:JSON.parse(JSON.stringify(catTimes))});
+  if(history.length>15)history.shift();
+  try{localStorage.setItem('secC_history',JSON.stringify(history));}catch(e){}
+  const hs=document.getElementById('history-section');
+  if(hs&&history.length>1){
+    const maxPct=Math.max(...history.map(h=>h.pct),1);
+    const bars=history.map(h=>{
+      const ht=Math.round((h.pct/100)*64)+4;
+      const col=h.pct>=75?'var(--accent-primary)':h.pct>=50?'#f59e0b':'#ef4444';
+      return `<div class="h-bar" style="height:${ht}px;background:${col};opacity:.85;" data-tip="${h.date}: ${h.pct}%"></div>`;
+    }).join('');
+    const dates=history.map(h=>`<div class="h-date">${h.date}</div>`).join('');
+    hs.innerHTML=`<h3>📈 Score History</h3><div class="history-bars">${bars}</div><div class="history-dates">${dates}</div>`;
+  } else if(hs){hs.innerHTML='';}
+
+  // TIME ANALYSIS
+  if(TIMER_SEC>0&&Object.keys(catTimes).length){
+    const maxAvg=Math.max(...Object.values(catTimes).map(c=>c.total/c.count),1);
+    let taHtml='<h3>⏱️ Time by Category</h3><p style="font-size:.76rem;color:var(--muted);font-family:DM Mono,monospace;margin-bottom:.85rem;">Slow = needs more revision</p>';
+    Object.entries(catTimes).sort((a,b)=>(b[1].total/b[1].count)-(a[1].total/a[1].count)).forEach(([cat,d])=>{
+      const avg=Math.round(d.total/d.count);
+      const pct2=Math.round((avg/maxAvg)*100);
+      const spd=avg>30?'slow':avg>15?'med':'';
+      const badge=avg>30?'<span class="ta-badge">Needs Work</span>':'';
+      taHtml+=`<div class="ta-row"><span class="ta-cat">${catLabel(cat)}</span><div class="ta-bar-bg"><div class="ta-bar-fill ${spd}" style="width:${pct2}%"></div></div><span class="ta-val">${avg}s avg</span>${badge}</div>`;
+    });
+    if(qTimes.length){
+      const slow=[...qTimes].sort((a,b)=>b.t-a.t).slice(0,3);
+      taHtml+='<div class="slow-q-list"><p style="font-size:.72rem;color:var(--muted);font-family:DM Mono,monospace;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.4rem;">Slowest Questions</p>';
+      slow.forEach(qt=>{const q=quizFiltered[qt.q-1];taHtml+=`<div class="slow-q-item"><span class="slow-q-time">${qt.t}s</span><span>${q?q.q.substring(0,65)+'...':''}</span></div>`;});
+      taHtml+='</div>';
+    }
+    let taEl=document.getElementById('time-analysis-area');
+    if(!taEl){
+      const rb=document.getElementById('results-box');
+      taEl=document.createElement('div');taEl.id='time-analysis-area';taEl.className='time-analysis';
+      const wl=rb.querySelector('#wrong-list-area');
+      if(wl) rb.insertBefore(taEl,wl); else rb.appendChild(taEl);
+    }
+    taEl.innerHTML=taHtml;
   }
-  let taEl=document.getElementById('time-analysis-area');
-  if(!taEl){
-    const rb=document.getElementById('results-box');
-    taEl=document.createElement('div');
-    taEl.id='time-analysis-area';taEl.className='time-analysis';
-    rb.insertBefore(taEl,rb.querySelector('#wrong-list-area'));
+
+  // WEAK TOPICS BUTTON
+  const weakCats=Object.entries(catTimes).filter(([c,d])=>(d.total/d.count)>25).map(([c])=>c);
+  let weakBtn='';
+  if(weakCats.length){
+    weakBtn=`<button class="quiz-nav-btn" onclick="drillWeak(${JSON.stringify(weakCats).replace(/"/g,"'")})" style="margin-top:.6rem;width:100%;display:block;text-align:center;">🎯 Drill Weak Topics (${weakCats.map(catLabel).join(', ')})</button>`;
   }
-  taEl.innerHTML=taHtml;
+
+  // WRONG ANSWERS
   const wa=document.getElementById('wrong-list-area');
-  wa.innerHTML=wrongAnswers.length
+  wa.innerHTML=(wrongAnswers.length
     ?'<div style="font-family:DM Mono,monospace;font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.75rem;">Review Wrong Answers</div>'+
-      wrongAnswers.map(w=>`<div class="wrong-item"><div class="wrong-num">Q${w.n} · ${catLabel(w.cat||'')}</div><div class="wrong-q">${w.q}</div><div style="font-size:.8rem;color:var(--danger);margin-bottom:2px;">Your answer: ${w.yours}</div><div class="wrong-correct">✓ Correct: ${w.correct}</div><div class="wrong-time">⏱ ${w.time}s taken</div></div>`).join('')
-    :'<div style="text-align:center;color:#4ade80;font-family:DM Mono,monospace;padding:1rem;">🎉 Perfect Score!</div>';
-  // SKIPPED QUESTIONS
+      wrongAnswers.map(w=>`<div class="wrong-item"><div class="wrong-num">Q${w.n} · ${catLabel(w.cat||'')}</div><div class="wrong-q">${w.q}</div><div style="font-size:.8rem;color:var(--danger);margin-bottom:2px;">Your answer: ${w.yours}</div><div class="wrong-correct">✓ Correct: ${w.correct}</div><div class="wrong-time">⏱ ${w.time}s</div></div>`).join('')
+    :'<div style="text-align:center;color:#4ade80;font-family:DM Mono,monospace;padding:1rem;">🎉 Perfect Score!</div>')+weakBtn;
+
+  // SKIPPED
   let skipEl=document.getElementById('skipped-area');
-  if(!skipEl){
-    const rb=document.getElementById('results-box');
-    skipEl=document.createElement('div');
-    skipEl.id='skipped-area';
-    rb.appendChild(skipEl);
-  }
-  if(skippedQs.length>0){
-    skipEl.innerHTML='<div style="margin-top:1.5rem;"><div style="font-family:DM Mono,monospace;font-size:.72rem;color:#f59e0b;text-transform:uppercase;letter-spacing:.1em;margin-bottom:.75rem;">⏭ Skipped Questions ('+skippedQs.length+')</div>'+
-      skippedQs.map(s=>`<div class="skip-review-item" onclick="jumpToSkipped(${s.origIdx})"><div class="skip-review-num">Q${s.n} · ${catLabel(s.cat)}</div><div class="skip-review-q">${s.q}</div></div>`).join('')+
-      '<button class="quiz-nav-btn" onclick="reviewSkipped()" style="margin-top:.9rem;width:100%;justify-content:center;display:flex;">↩ Attempt Skipped Questions</button></div>';
-  } else {
-    skipEl.innerHTML='';
-  }
+  if(!skipEl){const rb=document.getElementById('results-box');skipEl=document.createElement('div');skipEl.id='skipped-area';rb.appendChild(skipEl);}
+  if(skippedQs.length){
+    skipEl.innerHTML='<div style="margin-top:1.5rem;"><div style="font-family:DM Mono,monospace;font-size:.72rem;color:#f59e0b;text-transform:uppercase;letter-spacing:.1em;margin-bottom:.75rem;">⏭ Skipped ('+skippedQs.length+')</div>'+
+      skippedQs.map(s=>`<div class="skip-review-item"><div class="skip-review-num">Q${s.n} · ${catLabel(s.cat)}</div><div class="skip-review-q">${s.q}</div></div>`).join('')+
+      '<button class="quiz-nav-btn" onclick="reviewSkipped()" style="margin-top:.9rem;width:100%;display:block;text-align:center;">↩ Attempt Skipped</button></div>';
+  } else {skipEl.innerHTML='';}
+
   document.getElementById('results-box').classList.add('visible');
-  try{
-    const saved=JSON.parse(localStorage.getItem('secC_history')||'[]');
-    saved.push({date:new Date().toLocaleDateString(),score,total:t,pct,avgTime:avgT});
-    if(saved.length>20)saved.shift();
-    localStorage.setItem('secC_history',JSON.stringify(saved));
-  }catch(e){}
+}
+
+// ── WEAK DRILL ──
+function drillWeak(cats){
+  quizFiltered=quizData.filter(q=>cats.includes(q.cat));
+  if(quizSizeLimit>0) quizFiltered=quizFiltered.slice(0,quizSizeLimit);
+  currentQ=0;score=0;answered=false;wrongAnswers=[];qTimes=[];catTimes={};skippedQs=[];
+  clearInterval(timerIv);
+  document.getElementById('results-box').classList.remove('visible');
+  renderQuiz();
 }
 
 function reviewSkipped(){
   if(!skippedQs.length) return;
-  // rebuild quizFiltered with only skipped questions
-  quizFiltered = skippedQs.map(s => quizFiltered[s.origIdx] || quizData[s.origIdx]).filter(Boolean);
-  skippedQs=[];
-  currentQ=0; score=0; answered=false; wrongAnswers=[]; qTimes=[]; catTimes={};
+  const origIdxs=skippedQs.map(s=>s.origIdx);
+  quizFiltered=origIdxs.map(i=>quizFiltered[i]||quizData[i]).filter(Boolean);
+  skippedQs=[];currentQ=0;score=0;answered=false;wrongAnswers=[];qTimes=[];catTimes={};
   clearInterval(timerIv);
   document.getElementById('results-box').classList.remove('visible');
   renderQuiz();
 }
-function jumpToSkipped(idx){
-  // just close results and go to that question index
-  document.getElementById('results-box').classList.remove('visible');
-  currentQ=idx; answered=false;
-  clearInterval(timerIv);
-  renderQuiz();
-}
-
 
 function restartQuiz(){
   currentQ=0;score=0;answered=false;wrongAnswers=[];qTimes=[];catTimes={};skippedQs=[];
@@ -1163,6 +1349,42 @@ function restartQuiz(){
   document.getElementById('results-box').classList.remove('visible');
   renderQuiz();
 }
+
+// ── SEARCH LEARN ──
+function searchLearn(term){
+  const t=term.trim().toLowerCase();
+  const tabsDiv=document.getElementById('learn-tabs-div');
+  if(!t){
+    // restore all tabs
+    document.querySelectorAll('.learn-tab').forEach(b=>b.style.display='');
+    document.querySelectorAll('.learn-content').forEach(c=>{
+      c.innerHTML=c.innerHTML.replace(/<mark class="search-highlight">([^<]+)<\/mark>/g,'$1');
+    });
+    return;
+  }
+  let firstFound=false;
+  document.querySelectorAll('.learn-content').forEach(c=>{
+    // remove previous highlights
+    c.innerHTML=c.innerHTML.replace(/<mark class="search-highlight">([^<]+)<\/mark>/g,'$1');
+    const text=c.innerText||c.textContent||'';
+    if(text.toLowerCase().includes(t)){
+      // highlight matches
+      c.innerHTML=c.innerHTML.replace(
+        new RegExp(`(${term.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')})`, 'gi'),
+        '<mark class="search-highlight">$1</mark>'
+      );
+      if(!firstFound){
+        // activate this tab
+        const id=c.id;
+        const tabIdx=['t18th','tbuxar','trebel','t1857','tfreedom','tdates'].indexOf(id);
+        if(tabIdx>=0) switchLearnTab(id);
+        firstFound=true;
+      }
+    }
+  });
+}
+
+
 
 // ══════════ SIBLING DETECTION ══════════
 async function checkSib(id, href){
