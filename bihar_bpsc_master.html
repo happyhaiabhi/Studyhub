@@ -3,24 +3,29 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>अध्ययन केंद्र — Study Hub</title>
+<title>Bihar Special — Complete Study Guide</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <style>
   :root {
     --bg: #0a0d14;
     --surface: #111520;
     --border: rgba(255,255,255,0.07);
-    --accent-geo: #f59e0b;
-    --accent-water: #38bdf8;
-    --accent-energy: #f97316;
-    --accent-bihar: #4ade80;
-    --accent-master: #a78bfa;
+    --accent-intro: #f59e0b;
+    --accent-history: #ef4444;
+    --accent-geo: #38bdf8;
+    --accent-census: #8b5cf6;
+    --accent-economy: #10b981;
+    --accent-polity: #f97316;
+    --accent-culture: #ec4899;
+    --accent-other: #06b6d4;
     --text: #e2e8f0;
     --muted: #64748b;
     --gold: #d4a853;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
 
   body {
     background: var(--bg);
@@ -30,7 +35,6 @@
     overflow-x: hidden;
   }
 
-  /* Background grain */
   body::before {
     content: '';
     position: fixed;
@@ -40,16 +44,15 @@
     z-index: 0;
   }
 
-  /* Radial glow top */
   body::after {
     content: '';
     position: fixed;
-    top: -200px;
+    top: -250px;
     left: 50%;
     transform: translateX(-50%);
-    width: 800px;
-    height: 400px;
-    background: radial-gradient(ellipse, rgba(167,139,250,0.08) 0%, transparent 70%);
+    width: 900px;
+    height: 500px;
+    background: radial-gradient(ellipse, rgba(236,72,153,0.06) 0%, transparent 70%);
     pointer-events: none;
     z-index: 0;
   }
@@ -57,439 +60,1219 @@
   .wrapper {
     position: relative;
     z-index: 1;
-    max-width: 1100px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 60px 24px 80px;
   }
 
-  /* ── Header ── */
-  .header {
-    text-align: center;
-    margin-bottom: 64px;
-    animation: fadeDown 0.7s ease both;
-  }
-
-  .eyebrow {
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-  }
-  .eyebrow::before, .eyebrow::after {
-    content: '';
-    width: 40px;
-    height: 1px;
-    background: var(--gold);
-    opacity: 0.4;
-  }
-
-  .title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2.4rem, 6vw, 4rem);
-    font-weight: 900;
-    line-height: 1.1;
-    color: #fff;
-    margin-bottom: 16px;
-  }
-
-  .title span {
-    color: var(--gold);
+  /* ── Categories View ── */
+  .categories-view {
     display: block;
   }
 
-  .subtitle {
+  .categories-view.hidden {
+    display: none;
+  }
+
+  /* ── Chapter View ── */
+  .chapter-view {
+    display: none;
+  }
+
+  .chapter-view.active {
+    display: block;
+  }
+
+  /* ── Header Section ── */
+  .header-section {
+    text-align: center;
+    margin-bottom: 72px;
+    animation: fadeDown 0.7s ease both;
+  }
+
+  .breadcrumb {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+    opacity: 0.8;
+  }
+
+  .main-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 7vw, 4.5rem);
+    font-weight: 900;
+    line-height: 1.05;
+    color: #fff;
+    margin-bottom: 8px;
+    letter-spacing: -0.02em;
+  }
+
+  .main-title span {
+    display: block;
+    font-size: 0.5em;
+    color: var(--gold);
+    margin-top: 8px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+  }
+
+  .main-subtitle {
     font-size: 15px;
     color: var(--muted);
     font-weight: 300;
     letter-spacing: 0.02em;
+    margin-top: 12px;
   }
 
-  /* ── Stats bar ── */
-  .stats {
+  .section-stats {
     display: flex;
     justify-content: center;
-    gap: 48px;
-    margin-top: 36px;
-    padding-top: 36px;
+    gap: 56px;
+    margin-top: 44px;
+    padding-top: 44px;
     border-top: 1px solid var(--border);
     animation: fadeUp 0.8s 0.2s ease both;
   }
 
-  .stat {
+  .section-stat {
     text-align: center;
   }
-  .stat-num {
+
+  .section-stat-num {
     font-family: 'Playfair Display', serif;
-    font-size: 1.8rem;
-    font-weight: 700;
+    font-size: 2rem;
+    font-weight: 900;
     color: var(--gold);
     display: block;
   }
-  .stat-label {
-    font-size: 11px;
+
+  .section-stat-label {
+    font-size: 10px;
     color: var(--muted);
-    letter-spacing: 0.1em;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
     font-family: 'DM Mono', monospace;
-    margin-top: 4px;
+    margin-top: 6px;
   }
 
-  /* ── Grid ── */
-  .grid {
+  /* ── Grid Layout ── */
+  .categories-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+    margin-top: 48px;
   }
 
-  /* ── Card ── */
-  .card {
+  /* ── Category Card ── */
+  .category-card {
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 16px;
-    padding: 28px 28px 24px;
+    padding: 32px 28px 28px;
     cursor: pointer;
     position: relative;
     overflow: hidden;
     text-decoration: none;
     color: inherit;
-    display: block;
-    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
     animation: fadeUp 0.6s ease both;
+    height: 100%;
   }
 
-  .card:nth-child(1) { animation-delay: 0.15s; }
-  .card:nth-child(2) { animation-delay: 0.22s; }
-  .card:nth-child(3) { animation-delay: 0.29s; }
-  .card:nth-child(4) { animation-delay: 0.36s; }
-  .card:nth-child(5) { animation-delay: 0.43s; }
+  .category-card:nth-child(1) { animation-delay: 0.12s; }
+  .category-card:nth-child(2) { animation-delay: 0.18s; }
+  .category-card:nth-child(3) { animation-delay: 0.24s; }
+  .category-card:nth-child(4) { animation-delay: 0.30s; }
+  .category-card:nth-child(5) { animation-delay: 0.36s; }
+  .category-card:nth-child(6) { animation-delay: 0.42s; }
+  .category-card:nth-child(7) { animation-delay: 0.48s; }
+  .category-card:nth-child(8) { animation-delay: 0.54s; }
 
-  .card::before {
+  .category-card[data-category="1"]  { --accent: var(--accent-intro); }
+  .category-card[data-category="2"]  { --accent: var(--accent-history); }
+  .category-card[data-category="3"]  { --accent: var(--accent-geo); }
+  .category-card[data-category="4"]  { --accent: var(--accent-census); }
+  .category-card[data-category="5"]  { --accent: var(--accent-economy); }
+  .category-card[data-category="6"]  { --accent: var(--accent-polity); }
+  .category-card[data-category="7"]  { --accent: var(--accent-culture); }
+  .category-card[data-category="8"]  { --accent: var(--accent-other); }
+
+  .category-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--accent);
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.3),
+                0 0 40px rgba(0, 0, 0, 0.2);
+  }
+
+  .category-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    border-radius: 16px 0 0 16px;
+  }
+
+  .category-card:hover::before {
+    transform: scaleX(1);
+  }
+
+  .category-card::after {
     content: '';
     position: absolute;
     inset: 0;
+    background: radial-gradient(circle at 30% 0%, color-mix(in srgb, var(--accent) 6%, transparent), transparent 70%);
     opacity: 0;
     transition: opacity 0.3s ease;
     border-radius: inherit;
   }
 
-  .card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  .category-card:hover::after {
+    opacity: 1;
   }
-  .card:hover::before { opacity: 1; }
 
-  /* Per-card accent colours */
-  .card[data-accent="geo"]    { --c: var(--accent-geo); }
-  .card[data-accent="water"]  { --c: var(--accent-water); }
-  .card[data-accent="energy"] { --c: var(--accent-energy); }
-  .card[data-accent="bihar"]  { --c: var(--accent-bihar); }
-  .card[data-accent="master"] { --c: var(--accent-master); }
-
-  .card:hover { border-color: var(--c); }
-  .card::before { background: radial-gradient(circle at 30% 0%, color-mix(in srgb, var(--c) 8%, transparent), transparent 60%); }
-
-  /* Accent bar at top */
-  .card-bar {
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 3px;
-    background: var(--c);
-    border-radius: 16px 16px 0 0;
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.3s ease;
+  .card-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
   }
-  .card:hover .card-bar { transform: scaleX(1); }
 
   .card-icon {
-    font-size: 2rem;
+    font-size: 2.4rem;
     margin-bottom: 16px;
     display: block;
     line-height: 1;
   }
 
-  .card-tag {
+  .card-number {
     font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.15em;
+    font-size: 9px;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: var(--c);
+    color: var(--accent);
     margin-bottom: 8px;
-    opacity: 0.85;
+    opacity: 0.75;
   }
 
   .card-title {
     font-family: 'Playfair Display', serif;
-    font-size: 1.2rem;
+    font-size: 1.35rem;
     font-weight: 700;
     color: #fff;
-    margin-bottom: 10px;
-    line-height: 1.3;
+    margin-bottom: 12px;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
   }
 
-  .card-desc {
-    font-size: 13.5px;
+  .card-description {
+    font-size: 13px;
     color: var(--muted);
-    line-height: 1.65;
+    line-height: 1.7;
     font-weight: 300;
+    flex-grow: 1;
   }
 
-  .card-footer {
-    margin-top: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  /* ── Linked File Indicator ── */
+  .card-link-dot {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--muted);
+    opacity: 0.25;
+    transition: background 0.4s ease, opacity 0.4s ease, box-shadow 0.4s ease;
+    z-index: 3;
   }
-
-  .card-chips {
-    display: flex;
-    gap: 6px;
-    flex-wrap: wrap;
+  .category-card.linked .card-link-dot {
+    background: var(--accent);
+    opacity: 1;
+    box-shadow: 0 0 10px var(--accent);
   }
-
-  .chip {
-    font-size: 10px;
+  .card-link-badge {
+    display: none;
     font-family: 'DM Mono', monospace;
-    padding: 3px 8px;
-    border-radius: 99px;
-    background: rgba(255,255,255,0.05);
-    color: var(--muted);
-    border: 1px solid rgba(255,255,255,0.07);
-  }
-
-  .open-btn {
-    font-size: 11px;
-    font-family: 'DM Mono', monospace;
-    color: var(--c);
-    opacity: 0;
-    transition: opacity 0.2s ease;
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    white-space: nowrap;
-  }
-  .card:hover .open-btn { opacity: 1; }
-
-  /* ── Featured card (spans 2 cols) ── */
-  .card.featured {
-    grid-column: 1 / -1;
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 0 28px;
-    align-items: start;
-  }
-  .card.featured .card-body { }
-  .card.featured .card-side {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    justify-content: space-between;
-    height: 100%;
-    min-width: 140px;
-  }
-  .featured-badge {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
+    font-size: 9px;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--c);
-    background: color-mix(in srgb, var(--c) 12%, transparent);
-    border: 1px solid color-mix(in srgb, var(--c) 30%, transparent);
-    padding: 5px 12px;
+    color: var(--accent);
+    background: color-mix(in srgb, var(--accent) 10%, transparent);
+    border: 1px solid color-mix(in srgb, var(--accent) 25%, transparent);
+    padding: 3px 9px;
     border-radius: 99px;
+    margin-top: 14px;
+    width: fit-content;
+  }
+  .category-card.linked .card-link-badge { display: block; }
+
+  /* ── Chapter View Styles ── */
+  .chapter-header {
+    margin-bottom: 48px;
+    animation: fadeDown 0.7s ease both;
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--gold);
+    text-decoration: none;
+    margin-bottom: 20px;
+    transition: gap 0.2s ease;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+  }
+
+  .back-link:hover {
+    gap: 12px;
+  }
+
+  .chapter-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 6vw, 3.5rem);
+    font-weight: 900;
+    line-height: 1.1;
+    color: #fff;
     margin-bottom: 16px;
+    letter-spacing: -0.02em;
+  }
+
+  .chapter-subtitle {
+    font-size: 14px;
+    color: var(--muted);
+    font-weight: 300;
+    letter-spacing: 0.02em;
+  }
+
+  .mode-toggle-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 48px;
+    animation: fadeUp 0.8s 0.2s ease both;
+  }
+
+  .mode-toggle {
+    display: flex;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 4px;
+    gap: 4px;
+  }
+
+  .mode-btn {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 12px 28px;
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .mode-btn.active {
+    background: var(--accent);
+    color: #fff;
+    box-shadow: 0 8px 24px rgba(245, 158, 11, 0.2);
+  }
+
+  .mode-btn:hover:not(.active) {
+    color: var(--text);
+  }
+
+  .content-section {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    animation: fadeUp 0.6s ease both;
+  }
+
+  .content-section.active {
+    display: block;
+    opacity: 1;
+  }
+
+  .learn-container, .quiz-container {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 40px;
+  }
+
+  .learn-header, .quiz-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+
+  .learn-icon, .quiz-icon {
+    font-size: 2.5rem;
+    line-height: 1;
+  }
+
+  .learn-header-text h2, .quiz-header-text h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+
+  .learn-header-text p, .quiz-header-text p {
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  .placeholder-text {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  .placeholder-text p {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+
+  .placeholder-text span {
+    font-weight: 500;
+  }
+
+  /* Learn Content Styles */
+  .learn-content {
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--text);
+  }
+
+  .learn-content h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    margin-top: 32px;
+    margin-bottom: 16px;
+    color: var(--accent);
+  }
+
+  .learn-content p {
+    margin-bottom: 16px;
+    color: var(--muted);
+  }
+
+  .learn-content ul {
+    margin-left: 24px;
+    margin-bottom: 16px;
+  }
+
+  .learn-content li {
+    margin-bottom: 12px;
+    color: var(--muted);
+  }
+
+  /* Quiz Content Styles */
+  .quiz-content {
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--text);
+  }
+
+  .quiz-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 24px;
+  }
+
+  .question-text {
+    font-weight: 500;
+    margin-bottom: 16px;
+    color: #fff;
+  }
+
+  .options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: transparent;
+  }
+
+  .option:hover {
+    border-color: var(--accent);
+    background: rgba(245, 158, 11, 0.05);
+  }
+
+  .option-radio {
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--border);
+    border-radius: 50%;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+  }
+
+  .option:hover .option-radio {
+    border-color: var(--accent);
+  }
+
+  .option-text {
+    font-size: 14px;
   }
 
   /* ── Footer ── */
   .footer {
-    margin-top: 56px;
+    margin-top: 64px;
     text-align: center;
-    animation: fadeUp 0.8s 0.5s ease both;
+    padding-top: 32px;
+    border-top: 1px solid var(--border);
+    animation: fadeUp 0.8s 0.6s ease both;
   }
+
   .footer-text {
     font-family: 'DM Mono', monospace;
-    font-size: 11px;
+    font-size: 10px;
     color: var(--muted);
     letter-spacing: 0.1em;
   }
-  .footer-text span { color: var(--gold); }
+
+  .footer-text span {
+    color: var(--gold);
+  }
 
   /* ── Animations ── */
   @keyframes fadeDown {
-    from { opacity: 0; transform: translateY(-20px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(24px); }
-    to   { opacity: 1; transform: translateY(0); }
+    from {
+      opacity: 0;
+      transform: translateY(-24px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
-  /* ── Responsive ── */
-  @media (max-width: 640px) {
-    .stats { gap: 24px; }
-    .card.featured { grid-template-columns: 1fr; }
-    .card.featured .card-side { align-items: flex-start; margin-top: 16px; }
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* ── Responsive Design ── */
+  @media (max-width: 768px) {
+    .wrapper {
+      padding: 40px 16px 60px;
+    }
+
+    .main-title {
+      font-size: 2.2rem;
+    }
+
+    .section-stats {
+      gap: 32px;
+    }
+
+    .categories-grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .category-card {
+      padding: 24px 20px 20px;
+    }
+
+    .card-title {
+      font-size: 1.2rem;
+    }
+
+    .card-description {
+      font-size: 12px;
+    }
+
+    .chapter-title {
+      font-size: 2rem;
+    }
+
+    .learn-container, .quiz-container {
+      padding: 24px;
+    }
+
+    .learn-header, .quiz-header {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .mode-btn {
+      padding: 10px 20px;
+      font-size: 12px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .main-title {
+      font-size: 1.8rem;
+    }
+
+    .chapter-title {
+      font-size: 1.6rem;
+    }
+
+    .mode-toggle {
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .mode-btn {
+      width: 100%;
+    }
+
+    .learn-container, .quiz-container {
+      padding: 20px;
+    }
   }
 </style>
 </head>
 <body>
 <div class="wrapper">
 
-  <!-- Header -->
-  <div class="header">
-    <div class="eyebrow">UPSC · BPSC · Civil Services</div>
-    <h1 class="title">
-      Study Hub
-      <span>अध्ययन केंद्र</span>
-    </h1>
-    <p class="subtitle">All your preparation tools, in one place.</p>
+  <!-- ═══════════════════════════════════ CATEGORIES VIEW ═══════════════════════════════════ -->
+  <div class="categories-view" id="categoriesView">
+    
+    <div class="header-section">
+      <div class="breadcrumb">Bihar Special Complete Guide</div>
+      <h1 class="main-title">
+        Bihar Special
+        <span>बिहार विशेष</span>
+      </h1>
+      <p class="main-subtitle">Complete study guide for BPSC & UPSC civil service examinations</p>
 
-    <div class="stats">
-      <div class="stat">
-        <span class="stat-num">6</span>
-        <span class="stat-label">Modules</span>
-      </div>
-      <div class="stat">
-        <span class="stat-num">3+</span>
-        <span class="stat-label">Subjects</span>
-      </div>
-      <div class="stat">
-        <span class="stat-num">∞</span>
-        <span class="stat-label">Practice</span>
+      <div class="section-stats">
+        <div class="section-stat">
+          <span class="section-stat-num">8</span>
+          <span class="section-stat-label">Categories</span>
+        </div>
+        <div class="section-stat">
+          <span class="section-stat-num">454</span>
+          <span class="section-stat-label">Pages</span>
+        </div>
+        <div class="section-stat">
+          <span class="section-stat-num">50+</span>
+          <span class="section-stat-label">Topics</span>
+        </div>
       </div>
     </div>
-  </div>
 
-  <!-- Cards -->
-  <div class="grid">
+    <div class="categories-grid">
 
-    <!-- 1. Geography Master Test (featured) -->
-    <a class="card featured" data-accent="master" href="GeoMasterTest_Complete.html">
-      <div class="card-bar"></div>
-      <div class="card-body">
-        <span class="card-icon">🗺️</span>
-        <div class="card-tag">Geography · All 5 Topics</div>
-        <div class="card-title">Geography Basics</div>
-        <div class="card-desc">All 5 topics in one place — Earth & Maps · Landforms & Water Bodies · Climate & Vegetation · Geology & Scale · Human Geography & Agriculture. 150 questions, master level.</div>
-        <div class="card-footer">
-          <div class="card-chips">
-            <span class="chip">GS-1</span>
-            <span class="chip">Physical Geo</span>
-            <span class="chip">5 PDFs</span>
-            <span class="chip">Master Level</span>
-          </div>
-          <span class="open-btn">Open ↗</span>
+      <!-- 0. Chapter 1: Introduction to Bihar -->
+      <a class="category-card" data-category="0" onclick="openChapter(0)">
+        <div class="card-link-dot"></div>
+        <div class="card-content">
+          <span class="card-icon">📚</span>
+          <div class="card-number">Chapter 1</div>
+          <h2 class="card-title">Introduction to Bihar</h2>
+          <p class="card-description">Interactive learning with Learn & Quiz modes, flashcards, personalities, UNESCO sites, and comprehensive Bihar knowledge.</p>
+          <span class="card-link-badge">✓ File Linked</span>
         </div>
-      </div>
-      <div class="card-side">
-        <span class="featured-badge">★ Complete Suite</span>
-      </div>
-    </a>
+      </a>
 
-    <!-- 2. PDF 1 — Earth & Its Representation -->
-    <a class="card" data-accent="geo" href="GeoTest_PDF1_EarthRepresentation-1.html">
-      <div class="card-bar"></div>
-      <div class="card-body">
-      <span class="card-icon">🌐</span>
-      <div class="card-tag">Geography · PDF 1</div>
-      <div class="card-title">Earth & Its Representation</div>
-      <div class="card-desc">Important Lines & Zones — Latitude, Longitude, Maps, Globe, Tropics, Equator and foundational earth concepts.</div>
-      <div class="card-footer">
-        <div class="card-chips">
-          <span class="chip">Lat/Long</span>
-          <span class="chip">Maps</span>
-          <span class="chip">Tropics</span>
-          </div>
-        </div>
-        <span class="featured-badge">★ Complete Suite</span>
-      </div>
-    </a>
 
-    <!-- 3. PDF 2 — Landforms & Water Bodies -->
-    <a class="card" data-accent="water" href="water_bodies_bpsc_upsc.html">
-      <div class="card-bar"></div>
-      <span class="card-icon">🏔️</span>
-      <div class="card-tag">Geography · PDF 2</div>
-      <div class="card-title">Landforms & Water Bodies</div>
-      <div class="card-desc">Mountains, Plains, Rivers, Oceans and Seas — complete coverage of physical landforms and water bodies for UPSC & BPSC.</div>
-      <div class="card-footer">
-        <div class="card-chips">
-          <span class="chip">Mountains</span>
-          <span class="chip">Rivers</span>
-          <span class="chip">Oceans</span>
+      <!-- 2. History of Bihar -->
+      <a class="category-card" data-category="2" onclick="openChapter(2)">
+        <div class="card-link-dot"></div>
+        <div class="card-content">
+          <span class="card-icon">📜</span>
+          <div class="card-number">Category 02</div>
+          <h2 class="card-title">History of Bihar</h2>
+          <p class="card-description">Comprehensive history from ancient times through independence — empires, dynasties, movements, and the freedom struggle.</p>
+          <span class="card-link-badge">✓ File Linked</span>
         </div>
-        <span class="open-btn">Open ↗</span>
-      </div>
-    </a>
+      </a>
 
-    <!-- 4. PDF 3 — Climate & Vegetation (Energy placeholder) -->
-    <a class="card" data-accent="energy" href="energy_sector_upsc.html">
-      <div class="card-bar"></div>
-      <span class="card-icon">🌿</span>
-      <div class="card-tag">Geography · PDF 3</div>
-      <div class="card-title">Climate, Weather & Vegetation</div>
-      <div class="card-desc">Monsoon, Seasons, Forests, Biomes and Ecosystems — climate patterns and vegetation zones across India and the world.</div>
-      <div class="card-footer">
-        <div class="card-chips">
-          <span class="chip">Monsoon</span>
-          <span class="chip">Forests</span>
-          <span class="chip">Biomes</span>
+      <!-- 3. Geography of Bihar -->
+      <a class="category-card" data-category="3" onclick="openChapter(3)">
+        <div class="card-content">
+          <span class="card-icon">🗺️</span>
+          <div class="card-number">Category 03</div>
+          <h2 class="card-title">Geography of Bihar</h2>
+          <p class="card-description">Physical and human geography — terrain, climate, natural resources, wildlife, and ecological characteristics of Bihar.</p>
         </div>
-        <span class="open-btn">Open ↗</span>
-      </div>
-    </a>
+      </a>
 
-    <!-- 5. Bihar District Explorer -->
-    <a class="card" data-accent="bihar" href="bihar-district-explorer.html">
-      <div class="card-bar"></div>
-      <span class="card-icon">🏛️</span>
-      <div class="card-tag">BPSC · State GK</div>
-      <div class="card-title">Bihar District Explorer</div>
-      <div class="card-desc">Interactive explorer of Bihar's districts — geography, history, economy, and key facts essential for BPSC mains and prelims.</div>
-      <div class="card-footer">
-        <div class="card-chips">
-          <span class="chip">BPSC</span>
-          <span class="chip">Bihar GK</span>
-          <span class="chip">Districts</span>
+      <!-- 4. Census of Bihar: 2011 -->
+      <a class="category-card" data-category="4" onclick="openChapter(4)">
+        <div class="card-content">
+          <span class="card-icon">📊</span>
+          <div class="card-number">Category 04</div>
+          <h2 class="card-title">Census of Bihar: 2011</h2>
+          <p class="card-description">Demographic data, population statistics, literacy rates, sex ratio, and key census indicators for Bihar from the 2011 census.</p>
         </div>
-        <span class="open-btn">Open ↗</span>
-      </div>
-    </a>
+      </a>
 
-    <!-- 6. Bihar Special — BPSC Master -->
-    <a class="card featured" data-accent="bihar" href="bihar_bpsc_master.html">
-      <div class="card-bar"></div>
-      <div class="card-body">
-        <span class="card-icon">🌟</span>
-        <div class="card-tag">BPSC · Bihar Special · Complete Guide</div>
-        <div class="card-title">Bihar Special — BPSC Master</div>
-        <div class="card-desc">All-in-one BPSC prep — Geography · Economy · Census · History · Polity · Schemes · Current Affairs. Flashcards, Quiz, PYQs and mnemonics for every topic.</div>
-        <div class="card-footer">
-          <div class="card-chips">
-            <span class="chip">Geography</span>
-            <span class="chip">Economy</span>
-            <span class="chip">History</span>
-            <span class="chip">Polity</span>
-            <span class="chip">Schemes</span>
-          </div>
-          <span class="open-btn">Open ↗</span>
+      <!-- 5. Economy of Bihar -->
+      <a class="category-card" data-category="5" onclick="openChapter(5)">
+        <div class="card-content">
+          <span class="card-icon">💼</span>
+          <div class="card-number">Category 05</div>
+          <h2 class="card-title">Economy of Bihar</h2>
+          <p class="card-description">Economic structure, sectors, development — agriculture, industry, infrastructure, banking, and post-pandemic recovery initiatives.</p>
         </div>
-      </div>
-      <div class="card-side">
-        <span class="featured-badge">★ BPSC Special</span>
-      </div>
-    </a>
+      </a>
+
+      <!-- 6. Bihar Polity -->
+      <a class="category-card" data-category="6" onclick="openChapter(6)">
+        <div class="card-content">
+          <span class="card-icon">⚖️</span>
+          <div class="card-number">Category 06</div>
+          <h2 class="card-title">Bihar Polity</h2>
+          <p class="card-description">State administration, governance structure, executive, legislature, judiciary, BPSC, and local governance systems.</p>
+        </div>
+      </a>
+
+      <!-- 7. Art, Culture & Heritage -->
+      <a class="category-card" data-category="7" onclick="openChapter(7)">
+        <div class="card-content">
+          <span class="card-icon">🎭</span>
+          <div class="card-number">Category 07</div>
+          <h2 class="card-title">Art, Culture & Heritage of Bihar</h2>
+          <p class="card-description">Rich cultural heritage — visual arts, performing arts, traditions, and the artistic legacy that defines Bihar's identity.</p>
+        </div>
+      </a>
+
+      <!-- 8. Other Areas of Bihar -->
+      <a class="category-card" data-category="8" onclick="openChapter(8)">
+        <div class="card-content">
+          <span class="card-icon">🌐</span>
+          <div class="card-number">Category 08</div>
+          <h2 class="card-title">Other Areas of Bihar</h2>
+          <p class="card-description">Education, tourism, disaster management, sports, notable personalities, and important abbreviations for comprehensive BPSC prep.</p>
+        </div>
+      </a>
+
+    </div>
+
+    <div class="footer">
+      <p class="footer-text">Bihar Special — A comprehensive guide for <span>BPSC</span> & <span>UPSC</span> Civil Service Aspirants</p>
+    </div>
 
   </div>
 
-  <!-- Footer removed -->
+  <!-- ═══════════════════════════════════ CHAPTER VIEW ═══════════════════════════════════ -->
+  <div class="chapter-view" id="chapterView">
+    
+    <div class="chapter-header">
+      <button class="back-link" onclick="closeChapter()">← Back to Categories</button>
+      <h1 class="chapter-title" id="chapterTitle">Chapter Title</h1>
+      <p class="chapter-subtitle" id="chapterSubtitle">Chapter description</p>
+    </div>
+
+    <div class="mode-toggle-section">
+      <div class="mode-toggle">
+        <button class="mode-btn active" data-mode="learn" onclick="switchMode('learn')">📚 Learn</button>
+        <button class="mode-btn" data-mode="quiz" onclick="switchMode('quiz')">❓ Quiz</button>
+      </div>
+    </div>
+
+    <!-- LEARN SECTION -->
+    <div class="content-section active" id="learnSection">
+      <div class="learn-container">
+        <div class="learn-header">
+          <div class="learn-icon">📚</div>
+          <div class="learn-header-text">
+            <h2>Learn Mode</h2>
+            <p id="learnDescription">Study the chapter content in detail</p>
+          </div>
+        </div>
+
+        <div id="learnContentArea">
+          <div class="placeholder-text">
+            <p>📖 <span>Content coming soon</span></p>
+            <p style="font-size: 14px; margin-top: 12px;">The detailed learning material for this chapter will be added here</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUIZ SECTION -->
+    <div class="content-section" id="quizSection">
+      <div class="quiz-container">
+        <div class="quiz-header">
+          <div class="quiz-icon">❓</div>
+          <div class="quiz-header-text">
+            <h2>Quiz Mode</h2>
+            <p id="quizDescription">Test your knowledge with questions</p>
+          </div>
+        </div>
+
+        <div id="quizContentArea">
+          <div class="placeholder-text">
+            <p>❓ <span>Quiz questions coming soon</span></p>
+            <p style="font-size: 14px; margin-top: 12px;">Interactive quiz questions for this chapter will be added here</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
 
 </div>
+
+<script>
+  // ═══════════════════════════════════════════════════════════════════
+  // CHAPTER DATA STRUCTURE - Add your content here
+  // ═══════════════════════════════════════════════════════════════════
+  
+  const chapters = {
+    0: {
+      title: "Chapter 1: Introduction to Bihar",
+      subtitle: "Interactive learning with Learn & Quiz modes",
+      learnDesc: "Explore Bihar through flashcards, info boxes, and interactive content",
+      quizDesc: "Test your knowledge with quiz questions",
+      accentColor: "#f59e0b",
+      isExternal: true,
+      externalFile: 'chapter_1.html',
+      learnContent: { sections: [], isEmpty: true },
+      quizContent: { questions: [], isEmpty: true }
+    },
+    
+    2: {
+      title: "History of Bihar",
+      subtitle: "Ancient, Medieval, and Modern history covering empires, dynasties, and the freedom movement",
+      learnDesc: "Study Bihar's rich historical heritage",
+      quizDesc: "Test your historical knowledge",
+      accentColor: "#ef4444",
+      isExternal: true,
+      externalFile: 'chapter_2.html',
+      learnContent: { sections: [], isEmpty: true },
+      quizContent: { questions: [], isEmpty: true }
+    },
+    
+    3: {
+      title: "Geography of Bihar",
+      subtitle: "Terrain, climate, natural resources, wildlife, and ecological characteristics",
+      learnDesc: "Explore Bihar's geographical features",
+      quizDesc: "Test your geographical knowledge",
+      accentColor: "#38bdf8",
+      learnContent: { sections: [], isEmpty: true },
+      quizContent: { questions: [], isEmpty: true }
+    },
+    
+    4: {
+      title: "Census of Bihar: 2011",
+      subtitle: "Demographic data, population statistics, literacy rates, and key indicators",
+      learnDesc: "Study Bihar's census data and demographics",
+      quizDesc: "Test your knowledge of Bihar's census",
+      accentColor: "#8b5cf6",
+      learnContent: { sections: [], isEmpty: true },
+      quizContent: { questions: [], isEmpty: true }
+    },
+    
+    5: {
+      title: "Economy of Bihar",
+      subtitle: "Economic structure, agriculture, industry, infrastructure, and development sectors",
+      learnDesc: "Understand Bihar's economic landscape",
+      quizDesc: "Test your economic knowledge",
+      accentColor: "#10b981",
+      learnContent: { sections: [], isEmpty: true },
+      quizContent: { questions: [], isEmpty: true }
+    },
+    
+    6: {
+      title: "Bihar Polity",
+      subtitle: "State governance, executive, legislature, judiciary, and administrative systems",
+      learnDesc: "Study Bihar's political system and governance",
+      quizDesc: "Test your political knowledge",
+      accentColor: "#f97316",
+      learnContent: { sections: [], isEmpty: true },
+      quizContent: { questions: [], isEmpty: true }
+    },
+    
+    7: {
+      title: "Art, Culture & Heritage of Bihar",
+      subtitle: "Visual arts, performing arts, traditions, and the cultural legacy",
+      learnDesc: "Explore Bihar's rich cultural heritage",
+      quizDesc: "Test your cultural knowledge",
+      accentColor: "#ec4899",
+      learnContent: { sections: [], isEmpty: true },
+      quizContent: { questions: [], isEmpty: true }
+    },
+    
+    8: {
+      title: "Other Areas of Bihar",
+      subtitle: "Education, tourism, disaster management, sports, and notable personalities",
+      learnDesc: "Discover other important aspects of Bihar",
+      quizDesc: "Test your general knowledge",
+      accentColor: "#06b6d4",
+      learnContent: { sections: [], isEmpty: true },
+      quizContent: { questions: [], isEmpty: true }
+    }
+  };
+
+  // ═══════════════════════════════════════════════════════════════════
+  // JSON LOADER - Load external JSON files
+  // ═══════════════════════════════════════════════════════════════════
+
+  async function loadJSONData(chapterNum) {
+    const chapter = chapters[chapterNum];
+    
+    if (!chapter.jsonFile) {
+      console.log(`No JSON file configured for chapter ${chapterNum}`);
+      return;
+    }
+
+    try {
+      const response = await fetch(chapter.jsonFile);
+      const data = await response.json();
+      
+      // Convert JSON learn data to format expected by renderer
+      if (data.learn) {
+        const learnSections = [];
+        
+        // Add Quick Facts section
+        if (data.learn.quick_facts) {
+          let factsContent = data.learn.quick_facts.map(fact => 
+            `<strong>${fact.label}:</strong> ${fact.value}`
+          ).join('<br>');
+          
+          learnSections.push({
+            heading: "Quick Facts",
+            content: factsContent,
+            isHTML: true
+          });
+        }
+        
+        // Add Boundaries section
+        if (data.learn.boundaries) {
+          let boundariesContent = Object.entries(data.learn.boundaries)
+            .map(([dir, val]) => `<strong>${dir}:</strong> ${val}`)
+            .join('<br>');
+          
+          learnSections.push({
+            heading: "State Boundaries",
+            content: boundariesContent,
+            isHTML: true
+          });
+        }
+        
+        // Add State Symbols section
+        if (data.learn.state_symbols) {
+          let symbolsContent = data.learn.state_symbols.map(sym =>
+            `<strong>${sym.symbol}:</strong> ${sym.value}`
+          ).join('<br>');
+          
+          learnSections.push({
+            heading: "State Symbols",
+            content: symbolsContent,
+            isHTML: true
+          });
+        }
+        
+        // Add Administrative Units section
+        if (data.learn.administrative_units) {
+          let adminContent = Object.entries(data.learn.administrative_units)
+            .map(([key, val]) => `<strong>${key.replace(/_/g, ' ')}:</strong> ${val}`)
+            .join('<br>');
+          
+          learnSections.push({
+            heading: "Administrative Units",
+            content: adminContent,
+            isHTML: true
+          });
+        }
+        
+        // Add Census 2011 section
+        if (data.learn.census_2011) {
+          let censusContent = Object.entries(data.learn.census_2011)
+            .map(([key, val]) => `<strong>${key.replace(/_/g, ' ')}:</strong> ${val}`)
+            .join('<br>');
+          
+          learnSections.push({
+            heading: "Census 2011 Data",
+            content: censusContent,
+            isHTML: true
+          });
+        }
+        
+        chapter.learnContent = {
+          sections: learnSections,
+          isEmpty: false
+        };
+      }
+      
+      // Convert JSON quiz data to format expected by renderer
+      if (data.quiz) {
+        const questions = data.quiz.map(q => ({
+          id: q.id,
+          question: q.q,
+          options: q.opts,
+          correct: q.ans,
+          explanation: q.exp
+        }));
+        
+        chapter.quizContent = {
+          questions: questions,
+          isEmpty: false
+        };
+      }
+      
+      chapter.isLoaded = true;
+      console.log(`✅ JSON data loaded for Chapter ${chapterNum}`);
+      
+    } catch (error) {
+      console.error(`❌ Error loading JSON for chapter ${chapterNum}:`, error);
+    }
+  }
+
+  // ═══════════════════════════════════════════════════════════════════
+  // RENDER FUNCTIONS
+  // ═══════════════════════════════════════════════════════════════════
+
+  function renderLearnContent(learnData) {
+    if (learnData.isEmpty) {
+      return `
+        <div class="placeholder-text">
+          <p>📖 <span>Content coming soon</span></p>
+          <p style="font-size: 14px; margin-top: 12px;">The detailed learning material for this chapter will be added here</p>
+        </div>
+      `;
+    }
+
+    let html = '<div class="learn-content">';
+    
+    learnData.sections.forEach((section, index) => {
+      html += `<h3>${section.heading}</h3>`;
+      
+      // If section content is HTML, render it directly; otherwise escape it
+      if (section.isHTML) {
+        html += `<p>${section.content}</p>`;
+      } else {
+        html += `<p>${section.content}</p>`;
+      }
+      
+      if (section.points && section.points.length > 0) {
+        html += '<ul>';
+        section.points.forEach(point => {
+          html += `<li>${point}</li>`;
+        });
+        html += '</ul>';
+      }
+    });
+    
+    html += '</div>';
+    return html;
+  }
+
+  function renderQuizContent(quizData) {
+    if (quizData.isEmpty) {
+      return `
+        <div class="placeholder-text">
+          <p>❓ <span>Quiz questions coming soon</span></p>
+          <p style="font-size: 14px; margin-top: 12px;">Interactive quiz questions for this chapter will be added here</p>
+        </div>
+      `;
+    }
+
+    let html = '<div class="quiz-content">';
+    
+    quizData.questions.forEach((q, index) => {
+      html += `
+        <div class="quiz-card">
+          <div class="question-text">Q${index + 1}. ${q.question}</div>
+          <div class="options">
+      `;
+      
+      q.options.forEach((option, optionIndex) => {
+        const isCorrect = optionIndex === q.correct ? 'correct' : '';
+        html += `<label class="option ${isCorrect}">
+          <input type="radio" name="q${q.id}" value="${optionIndex}" style="display: none;">
+          <div class="option-radio"></div>
+          <span class="option-text">${option}</span>
+        </label>`;
+      });
+      
+      html += `</div>`;
+      
+      // Add explanation if available
+      if (q.explanation) {
+        html += `<div style="margin-top: 12px; padding: 10px; background: rgba(16,185,129,0.1); border-left: 3px solid #10b981; border-radius: 4px;">
+          <strong style="color: #10b981; font-size: 12px;">📌 Explanation:</strong>
+          <p style="margin: 6px 0 0 0; font-size: 13px; color: var(--muted);">${q.explanation}</p>
+        </div>`;
+      }
+      
+      html += `</div>`;
+    });
+    
+    html += '</div>';
+    return html;
+  }
+
+  async function openChapter(chapterNum) {
+    // Special handling for external Chapter 1
+    if (chapters[chapterNum].isExternal) {
+      openExternalChapter(chapterNum);
+      return;
+    }
+    
+    // Load JSON data if configured and not yet loaded
+    if (chapters[chapterNum].jsonFile && !chapters[chapterNum].isLoaded) {
+      await loadJSONData(chapterNum);
+    }
+    
+    const chapter = chapters[chapterNum];
+    
+    // Update chapter view content
+    document.getElementById('chapterTitle').textContent = chapter.title;
+    document.getElementById('chapterSubtitle').textContent = chapter.subtitle;
+    document.getElementById('learnDescription').textContent = chapter.learnDesc;
+    document.getElementById('quizDescription').textContent = chapter.quizDesc;
+    
+    // Render Learn content
+    document.getElementById('learnContentArea').innerHTML = renderLearnContent(chapter.learnContent);
+    
+    // Render Quiz content
+    document.getElementById('quizContentArea').innerHTML = renderQuizContent(chapter.quizContent);
+    
+    // Set accent color
+    const root = document.documentElement;
+    root.style.setProperty('--accent', chapter.accentColor);
+    
+    // Switch views
+    document.getElementById('categoriesView').classList.add('hidden');
+    document.getElementById('chapterView').classList.add('active');
+    
+    // Reset to learn mode
+    switchMode('learn');
+    
+    // Scroll to top
+    window.scrollTo(0, 0);
+  }
+
+  function openExternalChapter(chapterNum) {
+    const chapter = chapters[chapterNum];
+    // Find the card and check if it's been confirmed as linked
+    const card = document.querySelector(`.category-card[data-extfile="${chapter.externalFile}"]`);
+    if (card && card.classList.contains('external-pending')) {
+      // File not found yet — the click handler on the card will flash the dot
+      return;
+    }
+    window.location.href = chapter.externalFile;
+  }
+
+  function closeChapter() {
+    document.getElementById('categoriesView').classList.remove('hidden');
+    document.getElementById('chapterView').classList.remove('active');
+    window.scrollTo(0, 0);
+  }
+
+  function switchMode(mode) {
+    document.getElementById('learnSection').classList.remove('active');
+    document.getElementById('quizSection').classList.remove('active');
+    document.querySelectorAll('.mode-btn').forEach(btn => btn.classList.remove('active'));
+
+    if (mode === 'learn') {
+      document.getElementById('learnSection').classList.add('active');
+      document.querySelector('[data-mode="learn"]').classList.add('active');
+    } else if (mode === 'quiz') {
+      document.getElementById('quizSection').classList.add('active');
+      document.querySelector('[data-mode="quiz"]').classList.add('active');
+    }
+  }
+
+  // ═══════════════════════════════════════════════════════════════════
+  // AUTO-LINK DETECTION
+  // Polls for external HTML files every 5 s.
+  // When a file is found: removes dim class, adds file-linked dot glow,
+  // re-enables click. When file disappears: reverts.
+  // ═══════════════════════════════════════════════════════════════════
+
+  async function checkExternalFile(card) {
+    const file = card.dataset.extfile;
+    if (!file) return;
+    try {
+      const res = await fetch(file, { method: 'HEAD', cache: 'no-store' });
+      if (res.ok) {
+        card.classList.add('file-linked');
+        card.classList.remove('external-pending');
+        card.style.pointerEvents = '';
+        card.style.cursor = 'pointer';
+      } else {
+        card.classList.remove('file-linked');
+        card.classList.add('external-pending');
+      }
+    } catch (_) {
+      card.classList.remove('file-linked');
+      card.classList.add('external-pending');
+    }
+  }
+
+  function runAllChecks() {
+    document.querySelectorAll('.category-card[data-extfile]').forEach(checkExternalFile);
+  }
+
+  // Run immediately on load, then every 5 seconds
+  runAllChecks();
+  setInterval(runAllChecks, 5000);
+
+  // Also intercept clicks on pending external cards to show friendly message
+  document.querySelectorAll('.category-card[data-extfile]').forEach(card => {
+    card.addEventListener('click', function(e) {
+      if (card.classList.contains('external-pending')) {
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        // brief flash on the dot to signal "not ready"
+        const dot = card.querySelector('.card-link-dot');
+        if (dot) {
+          dot.style.background = '#f59e0b';
+          dot.style.opacity = '1';
+          dot.style.boxShadow = '0 0 10px #f59e0b';
+          setTimeout(() => {
+            dot.style.background = '';
+            dot.style.opacity = '';
+            dot.style.boxShadow = '';
+          }, 800);
+        }
+      }
+    }, true);
+  });
+</script>
+
 </body>
 </html>
