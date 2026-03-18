@@ -254,9 +254,9 @@ body.fs-large .option{font-size:1rem;}
   <h1>🕌 Chapter 2 (Section B): Medieval History of Bihar</h1>
   <p class="subtitle">BPSC Complete Study Guide • Learn, Flashcards &amp; Quiz</p>
   <div class="toggle-container">
-    <button class="toggle-btn active" onclick="switchMode('learn')">📚 Learn</button>
-    <button class="toggle-btn" onclick="switchMode('flashcard')">🎴 Flashcards</button>
-    <button class="toggle-btn" onclick="switchMode('quiz')">✍️ Quiz</button>
+    <button class="toggle-btn active" data-mode="learn">📚 Learn</button>
+    <button class="toggle-btn" data-mode="flashcard">🎴 Flashcards</button>
+    <button class="toggle-btn" data-mode="quiz">✍️ Quiz</button>
   </div>
 </header>
 <div class="container">
@@ -273,12 +273,12 @@ body.fs-large .option{font-size:1rem;}
     <input class="learn-search" id="learn-search" type="text" placeholder="Search across all sections..." oninput="searchLearn(this.value)">
   </div>
   <div class="learn-tabs" id="learn-tabs-div">
-    <button class="learn-tab active" onclick="switchLearnTab('tsources')">Sources</button>
-    <button class="learn-tab" onclick="switchLearnTab('tearly')">Early Medieval</button>
-    <button class="learn-tab" onclick="switchLearnTab('tsultanate')">Delhi Sultanate</button>
-    <button class="learn-tab" onclick="switchLearnTab('tafghans')">Afghan Rule</button>
-    <button class="learn-tab" onclick="switchLearnTab('tmughals')">Mughal Rule</button>
-    <button class="learn-tab" onclick="switchLearnTab('tdates')">Key Dates</button>
+    <button class="learn-tab active" data-tab="tsources">Sources</button>
+    <button class="learn-tab" data-tab="tearly">Early Medieval</button>
+    <button class="learn-tab" data-tab="tsultanate">Delhi Sultanate</button>
+    <button class="learn-tab" data-tab="tafghans">Afghan Rule</button>
+    <button class="learn-tab" data-tab="tmughals">Mughal Rule</button>
+    <button class="learn-tab" data-tab="tdates">Key Dates</button>
   </div>
 
   <!-- TAB: SOURCES -->
@@ -679,10 +679,7 @@ function shuffleCards(){
 }
 
 // ══════════ QUIZ FILTER ENGINE ══════════
-function catLabel(cat){
-  const map={'Sources':'Sources','EarlyMedieval':'Early Medieval','Sultanate':'Delhi Sultanate','Afghans':'Afghan Rule','Mughals':'Mughal Rule'};
-  return map[cat]||cat;
-}
+function catLabel(cat){const map={'Sources':'Sources','EarlyMedieval':'Early Medieval','Sultanate':'Delhi Sultanate','Afghans':'Afghan Rule','Mughals':'Mughal Rule'};return map[cat]||cat;}
 
 function renderQuizFilters(){
   const el=document.getElementById('quiz-filter');
@@ -706,6 +703,22 @@ function filterQuiz(cat, e){
 
 // ══════════ INIT ══════════
 document.addEventListener('DOMContentLoaded',()=>{
+  // Mode toggle button listeners
+  document.querySelectorAll('.toggle-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const mode = this.dataset.mode;
+      if(mode) switchMode(mode);
+    });
+  });
+  
+  // Learn tab button listeners
+  document.querySelectorAll('.learn-tab').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const tabId = this.dataset.tab;
+      if(tabId) switchLearnTab(tabId);
+    });
+  });
+  
   initFlashcards();
   renderFlashcard();
   renderQuizFilters();
@@ -742,6 +755,27 @@ const flashcards=[
 ];
 
 // ══════════ QUIZ DATA (60 questions) ══════════
+const TRIVIA={
+  'Which of the following authors stayed ':`📚 Minhas-us-Siraj actually LIVED in Bihar — not just read about it. Primary source!`,
+  'Who founded the famous Odantapura Viha':`🏛️ Gopala = Odantapura (Bihar Sharif). Dharmapala = Vikramshila (Bhagalpur). Don\'t mix!`,
+  'Who founded the independent Karnata dy':`🎵 Nanyadeva 1097 AD → Simraon (Champaran). He was also a musician — wrote Bharatabhashya!`,
+  'Who was the last great king of Karnata':`🏔️ Harisimhadeva fled to Nepal → his dynasty\'s blood lives on in Nepal royal family!`,
+  'Who destroyed the Nalanda University -':`🔥 Bakhtiyar Khalji thought monks were soldiers — mistook library for a fort! All books burned.`,
+  'Who established Turkish rule in Bihar?':`⚔️ Bakhtiyar = B for Bihar\'s destroyer. He looted in 1199 — just one year before 1200!`,
+  'Which ruler established a mint-town at':`🪙 Tughlaqabad-urf-Tirhut = Ghiyasuddin\'s stamp on Bihar. First mint in Bihar!`,
+  'The Sur dynasty was established by':`🦁 Sher Shah founded Sur dynasty. SUR = his tribe name. Shah = king. Sher = lion!`,
+  'Sher Shah defeated Humayun in which of':`⚔️ Chausa (1539) THEN Kanauj (1540). Two C\'s then K — Chausa, Kanauj! Both Bihar region battles.`,
+  'The tomb of Sher Shah is situated in':`🕌 Sher Shah born in Sasaram, died at Kalinjar, buried back in Sasaram. Full circle!`,
+  'Akbar merged Bihar and Bengal in Mugha':`🗓️ 1576 Battle of Rajmahal — after 50 years of Afghan resistance, Bihar finally Mughal!`,
+  'Guru Gobind Singh born at Patna in 166':`🙏 Takht Sri Patna Sahib = one of 5 Takhts (thrones) of Sikhism. Bihar has a Sikh holy site!`,
+  'Who was the first Mughal Prince to be ':`👑 Prince Parvez 1621 = first royal governor. Before him all governors were nobles.`,
+};
+
+function getTip(q){
+  const key=Object.keys(TRIVIA).find(k=>q.startsWith(k));
+  return key?TRIVIA[key]:'';
+}
+
 const quizData=[
   {q:`Which of the following authors stayed in Bihar and provided first hand information about the attacks of Bakhtiyar Khalji?`,opts:[`Minhas-us-Siraj`, `Ziauddin Barani`, `Mullah Taqia`, `Rizquallah`],ans:0,exp:`Correct: Minhas-us-Siraj`,cat:`Sources`},
   {q:`Name the author of Akbarnama`,opts:[`Barani`, `Minhas`, `Muhammad Qasim`, `Abul Fazal`],ans:3,exp:`Correct: Abul Fazal`,cat:`Sources`},
@@ -844,21 +878,40 @@ function cycleFontSize(){
 
 // ── BOOKMARKS ──
 function toggleBookmark(idx){
-  const key=quizFiltered[idx]?quizFiltered[idx].q.substring(0,40):'';
-  if(!key) return;
+  const raw=quizFiltered[idx];
+  if(!raw) return;
+  const key=raw.q.substring(0,40);
   if(bookmarked.has(key)) bookmarked.delete(key);
   else bookmarked.add(key);
   localStorage.setItem('secB_bookmarks',JSON.stringify([...bookmarked]));
-  // update star button face
+  const isNowStarred=bookmarked.has(key);
   const btn=document.getElementById('star-btn');
-  if(btn) btn.classList.toggle('active', bookmarked.has(key));
+  if(btn){
+    btn.textContent=isNowStarred?'⭐':'☆';
+    btn.classList.toggle('active',isNowStarred);
+  }
 }
 function isBookmarked(q){
   return bookmarked.has((q.q||'').substring(0,40));
 }
 function filterBookmarked(e){
   document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
-  if(e&&e.target) e.target.classList.add('active');
+  const btn=e&&e.target?e.target:document.getElementById('bookmark-filter-btn');
+  if(btn){
+    const isActive=btn.classList.contains('active');
+    if(isActive){
+      // toggle off — go back to all
+      btn.classList.remove('active');
+      quizFiltered=[...quizData];
+      currentQ=0;score=0;answered=false;wrongAnswers=[];qTimes=[];catTimes={};skippedQs=[];
+      clearInterval(timerIv);
+      document.getElementById('results-box').classList.remove('visible');
+      document.querySelectorAll('.filter-btn')[0].classList.add('active');
+      renderQuiz();
+      return;
+    }
+    btn.classList.add('active');
+  }
   const bqs=quizData.filter(q=>isBookmarked(q));
   if(!bqs.length){
     document.getElementById('quiz-area').innerHTML=`<div class="bookmarked-empty">No starred questions yet.<br>Star any question during the quiz to find it here.</div>`;
@@ -917,12 +970,7 @@ function renderQuiz(){
         ${opts.map((o,i)=>`<div class="option" id="o${i}" onclick="pick(${i},${ans},'${raw.cat}')"><span class="option-letter">${L[i]}</span><span>${o}</span></div>`).join('')}
       </div>
       <div class="explanation" id="exp"><strong>📌 Explanation:</strong> ${raw.exp}
-        <div class="confidence-row" id="conf-row" style="display:none">
-          <span class="conf-label">How was that?</span>
-          <button class="conf-btn easy" onclick="rateConfidence('easy',${currentQ})">😊 Easy</button>
-          <button class="conf-btn medium" onclick="rateConfidence('medium',${currentQ})">😐 OK</button>
-          <button class="conf-btn hard" onclick="rateConfidence('hard',${currentQ})">😓 Hard</button>
-        </div>
+        <div id="trivia-tip" style="display:none;margin-top:.75rem;padding:.65rem .9rem;background:rgba(255,255,255,0.04);border-radius:.4rem;font-size:.83rem;color:var(--muted);line-height:1.5;font-style:italic;border-left:3px solid var(--accent-primary);"></div>
       </div>
       <div class="quiz-nav">
         <div class="score-bar">Score: <span>${score}</span></div>
@@ -967,7 +1015,7 @@ function autoTimeOut(){
   const raw=quizFiltered[currentQ];
   recTime(TIMER_SEC,raw.cat);
   document.querySelectorAll('.option').forEach(o=>o.style.pointerEvents='none');
-  const exp=document.getElementById('exp');if(exp){exp.classList.add('visible');const cr=document.getElementById('conf-row');if(cr)cr.style.display='flex';}
+  const exp=document.getElementById('exp');if(exp){exp.classList.add('visible');const tip=getTip(raw.q);const tipEl=document.getElementById('trivia-tip');if(tipEl&&tip){tipEl.textContent=tip;tipEl.style.display='block';}}
   const nb=document.getElementById('nxt');if(nb)nb.style.display='';
   const nb2=document.getElementById('nxt2');if(nb2)nb2.style.display='';
   wrongAnswers.push({n:currentQ+1,q:raw.q,correct:raw.opts[raw.ans],yours:'⏰ Timed Out',time:TIMER_SEC,cat:raw.cat});
@@ -1000,7 +1048,9 @@ function pick(i,ans,cat){
   const exp=document.getElementById('exp');
   if(exp){
     exp.classList.add('visible');
-    if(!examMode){const cr=document.getElementById('conf-row');if(cr)cr.style.display='flex';}
+    const tip=getTip(raw.q);
+    const tipEl=document.getElementById('trivia-tip');
+    if(tipEl&&tip){tipEl.textContent=tip;tipEl.style.display='block';}
   }
   const nb=document.getElementById('nxt');if(nb)nb.style.display='';
   const nb2=document.getElementById('nxt2');if(nb2)nb2.style.display='';
@@ -1093,7 +1143,7 @@ function showResults(){
   wa.innerHTML=(wrongAnswers.length
     ?'<div style="font-family:DM Mono,monospace;font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.75rem;">Review Wrong Answers</div>'+
       wrongAnswers.map(w=>`<div class="wrong-item"><div class="wrong-num">Q${w.n} · ${catLabel(w.cat||'')}</div><div class="wrong-q">${w.q}</div><div style="font-size:.8rem;color:var(--danger);margin-bottom:2px;">Your answer: ${w.yours}</div><div class="wrong-correct">✓ Correct: ${w.correct}</div><div class="wrong-time">⏱ ${w.time}s</div></div>`).join('')
-    :'<div style="text-align:center;color:#4ade80;font-family:DM Mono,monospace;padding:1rem;">🎉 Perfect Score!</div>')+weakBtn;
+    :(score>0?'<div style="text-align:center;color:#4ade80;font-family:DM Mono,monospace;padding:1rem;">🎉 Perfect Score! Outstanding!</div>':'<div style="text-align:center;color:var(--muted);font-family:DM Mono,monospace;padding:1rem;">No answers recorded yet.</div>'))+weakBtn;
 
   // SKIPPED
   let skipEl=document.getElementById('skipped-area');
