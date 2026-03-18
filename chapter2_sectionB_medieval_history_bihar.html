@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Chapter 2 (Section B): Medieval History of Bihar</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{--bg:#0a0d14;--surface:#111520;--border:rgba(255,255,255,0.07);--accent-primary:#38bdf8;--memory-accent:#c9a8d5;--text:#e2e8f0;--muted:#64748b;--danger:#d5a8a8;--memory-bg:#1a1f2e;--trap-bg:#1f1414;--trap-border:#d5a8a8;--fire-color:#f59e0b;--gold:#d4a853;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:0;}
+body::after{content:'';position:fixed;top:-250px;left:50%;transform:translateX(-50%);width:900px;height:500px;background:radial-gradient(ellipse,rgba(56,189,248,0.06) 0%,transparent 70%);pointer-events:none;z-index:0;}
+.wrapper{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:0 24px 80px;}
+/* NAV */
+.chapter-nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0 12px;border-bottom:1px solid var(--border);margin-bottom:28px;flex-wrap:wrap;gap:8px;animation:fadeDown 0.4s ease both;}
+.nav-breadcrumb{display:flex;align-items:center;gap:8px;font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;}
+.nav-breadcrumb a{color:var(--gold);text-decoration:none;transition:opacity .2s;}
+.nav-breadcrumb a:hover{opacity:0.7;}
+.nav-breadcrumb span{opacity:0.4;}
+.nav-siblings{display:flex;gap:8px;flex-wrap:wrap;}
+.sibling-btn{font-family:'DM Mono',monospace;font-size:10px;padding:4px 12px;border-radius:99px;border:1px solid var(--border);background:transparent;color:var(--muted);cursor:pointer;text-decoration:none;transition:all .2s;letter-spacing:0.08em;display:inline-flex;align-items:center;gap:5px;}
+.sibling-btn .dot{width:6px;height:6px;border-radius:50%;background:var(--muted);transition:all .3s;}
+.sibling-btn.linked{color:var(--accent-primary);border-color:rgba(168,213,186,0.4);}
+.sibling-btn.linked .dot{background:var(--accent-primary);box-shadow:0 0 6px var(--accent-primary);}
+.sibling-btn.current{color:#fff;border-color:var(--accent-primary);background:rgba(56,189,248,0.08);cursor:default;pointer-events:none;}
+.sibling-btn.current .dot{background:var(--accent-primary);box-shadow:0 0 6px var(--accent-primary);}
+/* HEADER */
+header{background:var(--surface);border:1px solid var(--border);padding:2.5rem 2rem;border-radius:1rem;margin-bottom:2rem;box-shadow:0 8px 24px rgba(0,0,0,0.3);animation:slideDown 0.6s ease-out;text-align:center;}
+@keyframes slideDown{from{opacity:0;transform:translateY(-30px)}to{opacity:1;transform:translateY(0)}}
+@keyframes slideUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeDown{from{opacity:0;transform:translateY(-16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+h1{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;margin-bottom:.5rem;letter-spacing:-.02em;color:#fff;}
+.subtitle{font-size:1rem;font-weight:300;letter-spacing:.5px;color:var(--muted);}
+.toggle-container{display:flex;gap:.75rem;margin-top:1.5rem;background:var(--surface);padding:4px;border-radius:.75rem;width:fit-content;margin-left:auto;margin-right:auto;border:1px solid var(--border);flex-wrap:wrap;justify-content:center;}
+.toggle-btn{padding:.75rem 1.5rem;border:none;background:transparent;color:var(--muted);font-weight:600;cursor:pointer;border-radius:.5rem;transition:all .3s;font-size:.95rem;text-transform:uppercase;letter-spacing:.05em;}
+.toggle-btn.active{background:var(--accent-primary);color:#0a0d14;box-shadow:0 4px 12px rgba(56,189,248,0.3);}
+.toggle-btn:hover:not(.active){color:var(--text);}
+.container{position:relative;z-index:1;}
+.mode-section{display:none;animation:fadeIn .5s ease-out;}
+.mode-section.active{display:block;}
+/* TABS */
+.learn-tabs{display:flex;gap:.75rem;flex-wrap:wrap;margin-bottom:2rem;border-bottom:1px solid var(--border);padding-bottom:1rem;}
+.learn-tab{padding:.5rem 1.25rem;border:1px solid var(--border);background:transparent;color:var(--muted);border-radius:.5rem;cursor:pointer;font-size:.85rem;font-weight:600;transition:all .2s;white-space:nowrap;font-family:'DM Mono',monospace;letter-spacing:.04em;}
+.learn-tab.active{background:rgba(56,189,248,0.15);color:var(--accent-primary);border-color:var(--accent-primary);}
+.learn-content{display:none;animation:slideUp .4s ease-out;}
+.learn-content.active{display:block;}
+/* CONTENT ELEMENTS */
+.section-title{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:#fff;margin:2rem 0 1rem;padding-bottom:.5rem;border-bottom:1px solid var(--border);}
+.info-box{background:var(--surface);border:1px solid var(--border);border-radius:.75rem;padding:1.5rem;margin-bottom:1.5rem;}
+.info-box h3{font-family:'Playfair Display',serif;font-size:1.1rem;color:#fff;margin-bottom:1rem;}
+.info-box ul{padding-left:1.2rem;}
+.info-box li{margin-bottom:.5rem;color:var(--text);font-size:.93rem;line-height:1.6;}
+.memory-tip{background:rgba(199,168,213,0.1);border-left:3px solid var(--memory-accent);border-radius:0 .5rem .5rem 0;padding:.8rem 1rem;margin-top:1rem;font-size:.88rem;color:var(--memory-accent);font-style:italic;}
+.memory-tip::before{content:'💡 Memory Tip: ';font-weight:700;font-style:normal;}
+.exam-trap{background:var(--trap-bg);border:1px solid var(--trap-border);border-radius:.5rem;padding:.9rem 1rem;font-size:.88rem;color:var(--danger);margin-bottom:1rem;}
+.exam-trap::before{content:'⚠️ Exam Trap! ';font-weight:700;}
+.fire-badge{display:inline-block;font-size:.72rem;background:rgba(245,158,11,0.12);color:var(--fire-color);border:1px solid rgba(245,158,11,0.3);padding:2px 7px;border-radius:99px;font-family:'DM Mono',monospace;letter-spacing:.05em;margin-left:6px;vertical-align:middle;}
+.learn-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1rem;margin-bottom:1.5rem;}
+.fact-card{background:var(--surface);border:1px solid var(--border);border-radius:.75rem;padding:1rem 1.2rem;}
+.fact-label{font-family:'DM Mono',monospace;font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:.35rem;}
+.fact-value{font-weight:600;color:#fff;font-size:.95rem;line-height:1.4;}
+.boundary-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:.75rem;margin-bottom:1rem;}
+.boundary-item{background:var(--memory-bg);border:1px solid var(--border);border-radius:.5rem;padding:.8rem 1rem;}
+.boundary-direction{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--accent-primary);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.3rem;font-weight:700;}
+.boundary-value{font-size:.88rem;color:var(--text);line-height:1.5;}
+.admin-grid-2col{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-bottom:1rem;}
+.admin-item{background:var(--memory-bg);border-radius:.4rem;padding:.65rem .9rem;}
+.admin-label{font-family:'DM Mono',monospace;font-size:.7rem;text-transform:uppercase;color:var(--muted);letter-spacing:.08em;margin-bottom:.2rem;}
+.admin-value{font-size:.9rem;color:#fff;font-weight:600;}
+.persons-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:.75rem;margin-bottom:1.5rem;}
+.person-card{background:var(--memory-bg);border:1px solid var(--border);border-radius:.5rem;padding:.9rem 1rem;}
+.person-name{font-family:'Playfair Display',serif;font-size:.95rem;color:var(--accent-primary);font-weight:700;margin-bottom:.3rem;}
+.person-role{font-size:.78rem;color:var(--muted);font-family:'DM Mono',monospace;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.3rem;}
+.person-fact{font-size:.85rem;color:var(--text);line-height:1.5;}
+.timeline-table{width:100%;border-collapse:collapse;font-size:.88rem;margin-bottom:1.5rem;}
+.timeline-table th{background:rgba(56,189,248,0.1);color:var(--accent-primary);padding:.6rem .9rem;text-align:left;font-family:'DM Mono',monospace;font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;border-bottom:1px solid var(--border);}
+.timeline-table td{padding:.55rem .9rem;border-bottom:1px solid var(--border);color:var(--text);vertical-align:top;line-height:1.5;}
+.timeline-table tr:hover td{background:rgba(255,255,255,0.02);}
+.timeline-table td:first-child{font-family:'DM Mono',monospace;font-size:.78rem;color:var(--accent-primary);white-space:nowrap;font-weight:700;}
+.rebellion-table{width:100%;border-collapse:collapse;font-size:.85rem;margin-bottom:1.5rem;}
+.rebellion-table th{background:rgba(56,189,248,0.1);color:var(--accent-primary);padding:.7rem .8rem;text-align:left;font-family:'DM Mono',monospace;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;border-bottom:1px solid var(--border);}
+.rebellion-table td{padding:.6rem .8rem;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.5;}
+.rebellion-table tr:hover td{background:rgba(255,255,255,0.02);}
+.rebellion-table td:first-child{font-weight:700;color:#fff;}
+.rebellion-table td:nth-child(2){font-family:'DM Mono',monospace;font-size:.8rem;color:var(--accent-primary);white-space:nowrap;}
+.progress-tracker{background:var(--surface);border:1px solid var(--border);border-radius:.75rem;padding:1rem 1.5rem;margin-bottom:1.5rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap;}
+.progress-tracker-label{font-size:.8rem;color:var(--muted);font-family:'DM Mono',monospace;font-weight:700;text-transform:uppercase;}
+.progress-tab-dots{display:flex;gap:.4rem;flex-wrap:wrap;}
+.progress-dot{width:12px;height:12px;border-radius:50%;background:var(--border);border:1px solid var(--muted);transition:all .3s;}
+.progress-dot.visited{background:var(--accent-primary);border-color:var(--accent-primary);}
+/* FLASHCARDS */
+.fc-controls{display:flex;gap:1rem;align-items:center;margin-bottom:2rem;flex-wrap:wrap;}
+.fc-btn{padding:.6rem 1.5rem;border:1px solid var(--border);background:transparent;color:var(--text);border-radius:.5rem;cursor:pointer;font-size:.9rem;font-weight:600;transition:all .2s;}
+.fc-btn:hover{background:rgba(56,189,248,0.1);border-color:var(--accent-primary);}
+.fc-counter{font-family:'DM Mono',monospace;font-size:.85rem;color:var(--muted);margin-left:auto;}
+.flashcard-container{perspective:1000px;height:260px;cursor:pointer;margin-bottom:1.5rem;}
+.flashcard-inner{position:relative;width:100%;height:100%;transition:transform .6s;transform-style:preserve-3d;}
+.flashcard-container.flipped .flashcard-inner{transform:rotateY(180deg);}
+.flashcard-face{position:absolute;inset:0;background:var(--surface);border:1px solid var(--border);border-radius:1rem;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;backface-visibility:hidden;text-align:center;}
+.flashcard-back{transform:rotateY(180deg);}
+.fc-label{font-family:'DM Mono',monospace;font-size:.7rem;text-transform:uppercase;letter-spacing:.15em;color:var(--muted);margin-bottom:1rem;}
+.fc-question{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:#fff;line-height:1.4;}
+.fc-answer{font-size:1.15rem;font-weight:600;color:var(--accent-primary);line-height:1.5;}
+.fc-hint{font-size:.8rem;color:var(--muted);margin-top:.75rem;}
+.fc-category{position:absolute;top:16px;right:16px;font-family:'DM Mono',monospace;font-size:.65rem;color:var(--accent-primary);text-transform:uppercase;letter-spacing:.1em;opacity:.7;}
+/* QUIZ */
+.quiz-filter{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:2rem;}
+.filter-btn{padding:.4rem .9rem;border:1px solid var(--border);background:transparent;color:var(--muted);border-radius:999px;cursor:pointer;font-size:.8rem;font-weight:600;font-family:'DM Mono',monospace;transition:all .2s;text-transform:uppercase;}
+.filter-btn.active{background:var(--accent-primary);color:#0a0d14;border-color:var(--accent-primary);}
+.quiz-box{background:var(--surface);border:1px solid var(--border);border-radius:1rem;padding:2rem;margin-bottom:1.5rem;}
+.question-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1.2rem;gap:1rem;}
+.question-num{font-family:'DM Mono',monospace;font-size:.75rem;color:var(--accent-primary);font-weight:700;text-transform:uppercase;letter-spacing:.1em;white-space:nowrap;}
+.question-cat{font-family:'DM Mono',monospace;font-size:.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;}
+.question-text{font-size:1rem;font-weight:600;color:#fff;line-height:1.55;}
+.options{display:flex;flex-direction:column;gap:.6rem;margin:1.2rem 0;}
+.option{display:flex;align-items:flex-start;gap:.75rem;padding:.75rem 1rem;border:1px solid var(--border);border-radius:.5rem;cursor:pointer;transition:all .2s;font-size:.92rem;}
+.option:hover{border-color:var(--accent-primary);background:rgba(56,189,248,0.05);}
+.option.correct{border-color:#4ade80;background:rgba(74,222,128,0.1);color:#4ade80;}
+.option.wrong{border-color:var(--danger);background:rgba(213,168,168,0.08);color:var(--danger);}
+.option-letter{font-family:'DM Mono',monospace;font-size:.75rem;font-weight:700;color:var(--muted);width:20px;flex-shrink:0;padding-top:1px;}
+.explanation{background:rgba(56,189,248,0.07);border-left:3px solid var(--accent-primary);border-radius:0 .5rem .5rem 0;padding:.9rem 1rem;margin-top:1rem;font-size:.88rem;color:var(--text);line-height:1.6;display:none;}
+.explanation.visible{display:block;}
+.quiz-nav{display:flex;justify-content:space-between;align-items:center;margin-top:1.2rem;flex-wrap:wrap;gap:.75rem;}
+.quiz-nav-btn{padding:.6rem 1.4rem;border:1px solid var(--border);background:transparent;color:var(--text);border-radius:.5rem;cursor:pointer;font-size:.88rem;font-weight:600;transition:all .2s;}
+.quiz-nav-btn:hover{border-color:var(--accent-primary);background:rgba(56,189,248,0.1);}
+.quiz-nav-btn.primary{background:var(--accent-primary);color:#0a0d14;border-color:var(--accent-primary);}
+.score-bar{font-family:'DM Mono',monospace;font-size:.8rem;color:var(--muted);}
+.score-bar span{color:var(--accent-primary);font-weight:700;}
+.results-box{background:var(--surface);border:1px solid var(--border);border-radius:1rem;padding:2.5rem 2rem;text-align:center;display:none;}
+.results-box.visible{display:block;animation:slideUp .5s ease;}
+.score-display{font-family:'Playfair Display',serif;font-size:4rem;font-weight:900;color:var(--accent-primary);line-height:1;margin-bottom:.5rem;}
+.score-label{font-size:1rem;color:var(--muted);margin-bottom:2rem;}
+.results-details{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:2rem;}
+.result-stat{background:var(--memory-bg);padding:1.2rem;border-radius:.75rem;border:1px solid var(--border);}
+.result-stat-label{font-size:.75rem;color:var(--muted);text-transform:uppercase;font-weight:700;letter-spacing:.08em;margin-bottom:.4rem;font-family:'DM Mono',monospace;}
+.result-stat-value{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:900;color:var(--accent-primary);}
+.wrong-list{margin-top:2rem;max-height:380px;overflow-y:auto;padding:1rem;background:var(--bg);border-radius:.75rem;}
+.wrong-item{background:var(--surface);padding:1rem;border-radius:.5rem;margin-bottom:1rem;border-left:4px solid var(--danger);}
+.wrong-num{font-size:.8rem;color:var(--danger);font-weight:700;margin-bottom:.4rem;font-family:'DM Mono',monospace;}
+.wrong-q{color:var(--text);font-weight:600;margin-bottom:.3rem;font-size:.9rem;}
+.wrong-correct{font-size:.82rem;color:#4ade80;}
+@media(max-width:768px){h1{font-size:1.6rem;}.quiz-box{padding:1.5rem;}.toggle-container{flex-direction:column;width:100%;}.toggle-btn{width:100%;}.learn-grid{grid-template-columns:1fr;}.boundary-grid{grid-template-columns:1fr;}.admin-grid-2col{grid-template-columns:1fr;}.results-details{grid-template-columns:1fr;}.flashcard-container{height:220px;}.persons-grid{grid-template-columns:1fr;}.rebellion-table{font-size:.78rem;}}
+
+/* ── TIMER ── */
+.timer-wrap{margin-bottom:.9rem;}
+.timer-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;}
+.timer-label{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--muted);}
+.timer-label.warn{color:#f59e0b;} .timer-label.danger{color:#ef4444;}
+.timer-track{height:5px;background:var(--border);border-radius:3px;overflow:hidden;}
+.timer-fill{height:100%;background:var(--accent-primary);border-radius:3px;transition:width 1s linear,background .3s;}
+.timer-fill.warn{background:#f59e0b;} .timer-fill.danger{background:#ef4444;}
+/* ── SCORE ABOVE ── */
+.quiz-above{display:flex;justify-content:space-between;align-items:center;margin-bottom:.75rem;flex-wrap:wrap;gap:.5rem;}
+.quiz-above-left{font-family:'DM Mono',monospace;font-size:.78rem;color:var(--muted);}
+.quiz-above-left strong{color:var(--accent-primary);}
+.quiz-above-right{display:flex;gap:.5rem;align-items:center;}
+/* ── TIME ANALYSIS ── */
+.time-analysis{margin-top:2rem;text-align:left;}
+.time-analysis h3{font-family:'Playfair Display',serif;font-size:1.15rem;color:#fff;margin-bottom:.85rem;}
+.ta-row{display:flex;align-items:center;gap:.9rem;margin-bottom:.6rem;flex-wrap:wrap;}
+.ta-cat{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--muted);text-transform:uppercase;min-width:95px;}
+.ta-bar-bg{flex:1;height:7px;background:var(--border);border-radius:4px;overflow:hidden;min-width:60px;}
+.ta-bar-fill{height:100%;background:var(--accent-primary);border-radius:4px;transition:width .8s;}
+.ta-bar-fill.slow{background:#ef4444;} .ta-bar-fill.med{background:#f59e0b;}
+.ta-val{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--text);min-width:48px;text-align:right;}
+.ta-badge{font-family:'DM Mono',monospace;font-size:.62rem;background:rgba(239,68,68,.15);color:#ef4444;border:1px solid rgba(239,68,68,.3);padding:2px 7px;border-radius:99px;}
+.slow-q-list{margin-top:.9rem;}
+.slow-q-item{font-size:.8rem;padding:.4rem .7rem;background:var(--memory-bg);border-radius:.4rem;margin-bottom:.35rem;display:flex;gap:.6rem;align-items:baseline;}
+.slow-q-time{font-family:'DM Mono',monospace;color:var(--fire-color);flex-shrink:0;font-size:.72rem;}
+.wrong-item{background:var(--surface);padding:.9rem;border-radius:.5rem;margin-bottom:.75rem;border-left:4px solid var(--danger);}
+.wrong-num{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--danger);margin-bottom:.35rem;font-weight:700;}
+.wrong-q{color:var(--text);font-weight:600;margin-bottom:.3rem;font-size:.88rem;}
+.wrong-correct{font-size:.8rem;color:#4ade80;}
+.wrong-time{font-size:.72rem;color:var(--muted);font-family:'DM Mono',monospace;margin-top:.2rem;}
+
+
+/* ── SKIP ── */
+.skip-btn{padding:.45rem 1.1rem;border:1px solid rgba(255,255,255,0.12);background:transparent;color:var(--muted);border-radius:.45rem;cursor:pointer;font-size:.82rem;font-weight:600;font-family:'DM Mono',monospace;transition:all .2s;letter-spacing:.04em;}
+.skip-btn:hover{border-color:#f59e0b;color:#f59e0b;background:rgba(245,158,11,0.08);}
+.skipped-badge{display:inline-block;font-size:.68rem;background:rgba(245,158,11,0.1);color:#f59e0b;border:1px solid rgba(245,158,11,0.3);padding:2px 8px;border-radius:99px;font-family:'DM Mono',monospace;margin-left:6px;}
+.skip-review-item{background:var(--surface);padding:.85rem 1rem;border-radius:.5rem;margin-bottom:.7rem;border-left:4px solid #f59e0b;cursor:pointer;transition:transform .2s;}
+.skip-review-item:hover{transform:translateX(4px);}
+.skip-review-num{font-family:'DM Mono',monospace;font-size:.72rem;color:#f59e0b;margin-bottom:.3rem;font-weight:700;}
+.skip-review-q{color:var(--text);font-size:.88rem;font-weight:600;}
+
+
+/* ── QUIZ CONTROLS BAR ── */
+.quiz-controls-bar{display:flex;gap:.6rem;align-items:center;flex-wrap:wrap;margin-bottom:1rem;padding:.75rem 1rem;background:var(--surface);border:1px solid var(--border);border-radius:.65rem;}
+.qcb-label{font-family:'DM Mono',monospace;font-size:.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;white-space:nowrap;}
+.qcb-select{background:var(--bg);border:1px solid var(--border);color:var(--text);border-radius:.4rem;padding:.3rem .55rem;font-size:.8rem;font-family:'DM Mono',monospace;cursor:pointer;}
+.qcb-select:focus{outline:none;border-color:var(--accent-primary);}
+.qcb-divider{width:1px;height:20px;background:var(--border);flex-shrink:0;}
+/* ── BOOKMARK ── */
+.bookmark-btn{background:transparent;border:none;cursor:pointer;font-size:1.1rem;padding:2px 6px;border-radius:.3rem;transition:transform .15s;line-height:1;color:var(--muted);}
+.bookmark-btn:hover{transform:scale(1.2);}
+.bookmark-btn.active{color:#f59e0b;}
+/* ── CONFIDENCE ── */
+.confidence-row{display:flex;gap:.5rem;margin-top:.9rem;align-items:center;}
+.conf-label{font-family:'DM Mono',monospace;font-size:.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;}
+.conf-btn{padding:.3rem .75rem;border-radius:99px;border:1px solid var(--border);background:transparent;cursor:pointer;font-size:.75rem;font-family:'DM Mono',monospace;transition:all .2s;}
+.conf-btn.easy{color:#4ade80;border-color:#4ade80;}
+.conf-btn.easy:hover,.conf-btn.easy.picked{background:rgba(74,222,128,.12);}
+.conf-btn.hard{color:#ef4444;border-color:#ef4444;}
+.conf-btn.hard:hover,.conf-btn.hard.picked{background:rgba(239,68,68,.12);}
+.conf-btn.medium{color:#f59e0b;border-color:#f59e0b;}
+.conf-btn.medium:hover,.conf-btn.medium.picked{background:rgba(245,158,11,.12);}
+/* ── SEARCH ── */
+.learn-search-wrap{position:relative;margin-bottom:1.2rem;}
+.learn-search{width:100%;padding:.6rem 1rem .6rem 2.2rem;background:var(--surface);border:1px solid var(--border);border-radius:.5rem;color:var(--text);font-size:.9rem;font-family:'DM Sans',sans-serif;}
+.learn-search:focus{outline:none;border-color:var(--accent-primary);}
+.learn-search-icon{position:absolute;left:.7rem;top:50%;transform:translateY(-50%);font-size:.9rem;pointer-events:none;opacity:.4;}
+.search-highlight{background:rgba(168,213,186,.25);border-radius:2px;}
+/* ── SESSION HISTORY CHART ── */
+.history-section{margin-top:2rem;text-align:left;}
+.history-section h3{font-family:'Playfair Display',serif;font-size:1.1rem;color:#fff;margin-bottom:.85rem;}
+.history-bars{display:flex;align-items:flex-end;gap:4px;height:80px;margin-bottom:.4rem;}
+.h-bar{flex:1;border-radius:3px 3px 0 0;min-width:8px;transition:height .5s;cursor:pointer;position:relative;}
+.h-bar:hover::after{content:attr(data-tip);position:absolute;bottom:calc(100% + 4px);left:50%;transform:translateX(-50%);background:var(--surface);border:1px solid var(--border);border-radius:.3rem;padding:3px 7px;font-size:.68rem;font-family:'DM Mono',monospace;white-space:nowrap;color:var(--text);pointer-events:none;}
+.history-dates{display:flex;gap:4px;}
+.h-date{flex:1;font-size:.6rem;font-family:'DM Mono',monospace;color:var(--muted);text-align:center;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+/* ── BOOKMARKED FILTER ── */
+.bookmarked-empty{text-align:center;padding:2rem;color:var(--muted);font-family:'DM Mono',monospace;font-size:.8rem;}
+/* ── EXAM MODE ── */
+.exam-mode-banner{background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.3);border-radius:.5rem;padding:.5rem 1rem;font-family:'DM Mono',monospace;font-size:.75rem;color:#ef4444;text-transform:uppercase;letter-spacing:.1em;margin-bottom:.8rem;display:none;}
+.exam-mode-banner.show{display:block;}
+/* ── FONT SIZE ── */
+body.fs-small .question-text{font-size:.88rem;}
+body.fs-large .question-text{font-size:1.12rem;}
+body.fs-small .option{font-size:.82rem;}
+body.fs-large .option{font-size:1rem;}
+
+</style>
+
+<body>
+<div class="wrapper">
+<nav style="display:flex;align-items:center;justify-content:space-between;padding:14px 0 12px;border-bottom:1px solid rgba(255,255,255,0.07);margin-bottom:24px;flex-wrap:wrap;gap:8px;">
+  <div style="display:flex;align-items:center;gap:8px;font-family:'DM Mono',monospace;font-size:11px;color:#64748b;letter-spacing:0.1em;text-transform:uppercase;">
+    <a href="bihar_bpsc_master.html" style="color:#d4a853;text-decoration:none;">Bihar Special</a>
+    <span style="opacity:0.35;">/</span>
+    <a href="chapter_2.html" style="color:#d4a853;text-decoration:none;">Chapter 2</a>
+    <span style="opacity:0.35;">/</span>
+    <span>Section B</span>
+  </div>
+  <div style="display:flex;gap:6px;flex-wrap:wrap;">
+    <a id="sib-a" href="chapter2_sectionA_ancient_history_bihar.html" style="font-family:'DM Mono',monospace;font-size:10px;padding:4px 11px;border-radius:99px;border:1px solid rgba(255,255,255,0.07);background:transparent;color:#64748b;text-decoration:none;display:inline-flex;align-items:center;gap:5px;"><span id="dot-a" style="width:6px;height:6px;border-radius:50%;background:#64748b;display:inline-block;"></span>Section A</a>
+    <span style="font-family:'DM Mono',monospace;font-size:10px;padding:4px 11px;border-radius:99px;border:1px solid #38bdf8;background:rgba(56,189,248,0.12);color:#38bdf8;pointer-events:none;">● Section B</span>
+    <a id="sib-c" href="chapter2_sectionC_modern_history_bihar.html" style="font-family:'DM Mono',monospace;font-size:10px;padding:4px 11px;border-radius:99px;border:1px solid rgba(255,255,255,0.07);background:transparent;color:#64748b;text-decoration:none;display:inline-flex;align-items:center;gap:5px;"><span id="dot-c" style="width:6px;height:6px;border-radius:50%;background:#64748b;display:inline-block;"></span>Section C</a>
+  </div>
+</nav>
+<header>
+  <h1>🕌 Chapter 2 (Section B): Medieval History of Bihar</h1>
+  <p class="subtitle">BPSC Complete Study Guide • Learn, Flashcards &amp; Quiz</p>
+  <div class="toggle-container">
+    <button class="toggle-btn active" onclick="switchMode('learn')">📚 Learn</button>
+    <button class="toggle-btn" onclick="switchMode('flashcard')">🎴 Flashcards</button>
+    <button class="toggle-btn" onclick="switchMode('quiz')">✍️ Quiz</button>
+  </div>
+</header>
+<div class="container">
+
+<!-- ══ LEARN MODE ══ -->
+<div id="learn-mode" class="mode-section active">
+  <div class="progress-tracker">
+    <span class="progress-tracker-label">Sections Visited</span>
+    <div class="progress-tab-dots" id="tab-dots"></div>
+    <span id="progress-count" style="font-size:.85rem;color:var(--accent-primary);font-weight:700;margin-left:auto;"></span>
+  </div>
+  <div class="learn-search-wrap">
+    <span class="learn-search-icon">🔍</span>
+    <input class="learn-search" id="learn-search" type="text" placeholder="Search across all sections..." oninput="searchLearn(this.value)">
+  </div>
+  <div class="learn-tabs" id="learn-tabs-div">
+    <button class="learn-tab active" onclick="switchLearnTab('tsources')">Sources</button>
+    <button class="learn-tab" onclick="switchLearnTab('tearly')">Early Medieval</button>
+    <button class="learn-tab" onclick="switchLearnTab('tsultanate')">Delhi Sultanate</button>
+    <button class="learn-tab" onclick="switchLearnTab('tafghans')">Afghan Rule</button>
+    <button class="learn-tab" onclick="switchLearnTab('tmughals')">Mughal Rule</button>
+    <button class="learn-tab" onclick="switchLearnTab('tdates')">Key Dates</button>
+  </div>
+
+  <!-- TAB: SOURCES -->
+  <div id="tsources" class="learn-content active">
+    <h2 class="section-title">📜 Sources of Medieval History of Bihar (2.7)</h2>
+    <div class="exam-trap">Minhas-us-Siraj (Tabakat-i-Nasiri) stayed IN Bihar — firsthand account of Bakhtiyar Khalji's attacks. Abul Fazl wrote Akbarnama (NOT Ain-i-Akbari alone). Bhabua inscription = Sher Shah. Bedibun inscription = Muhammad bin Tughlaq.</div>
+    <div class="learn-grid">
+      <div class="fact-card"><div class="fact-label">Tabakat-i-Nasiri</div><div class="fact-value">By Minhas-us-Siraj — firsthand account of Bakhtiyar Khalji's attacks on Bihar <span class="fire-badge">🔥</span></div></div>
+      <div class="fact-card"><div class="fact-label">Tarikh-i-Firozshahi</div><div class="fact-value">By Ziauddin Barani — early Turk activities in Bihar</div></div>
+      <div class="fact-card"><div class="fact-label">Akbarnama</div><div class="fact-value">By Abul Fazl — Mughal rule in Bihar <span class="fire-badge">🔥</span></div></div>
+      <div class="fact-card"><div class="fact-label">Basatinul-uns</div><div class="fact-value">By Ikhtsar Delhvi — account of Firoz Tughlaq's attack on Tirhut</div></div>
+      <div class="fact-card"><div class="fact-label">Tuzuk-i-Babari</div><div class="fact-value">Provides account of the fall of Nuhanis</div></div>
+      <div class="fact-card"><div class="fact-label">Dastur-ul-amal</div><div class="fact-value">Land revenue documents — organization, rights and responsibilities</div></div>
+    </div>
+    <div class="info-box">
+      <h3>Key Inscriptions <span class="fire-badge">🔥</span></h3>
+      <div class="boundary-grid">
+        <div class="boundary-item"><div class="boundary-direction">Bhabua Inscription</div><div class="boundary-value">Sher Shah — valuable info about Afghan rule in Bihar</div></div>
+        <div class="boundary-item"><div class="boundary-direction">Maner Copper Plate</div><div class="boundary-value">Mentions tax called <strong>turushkadanda</strong> — evidence of Turks in western Patna as early as AD 1124</div></div>
+        <div class="boundary-item"><div class="boundary-direction">Kathotia Gate Inscription</div><div class="boundary-value">Rohtasgarh — mentions date of construction by <strong>Man Singh</strong></div></div>
+        <div class="boundary-item"><div class="boundary-direction">Bedibun Inscription</div><div class="boundary-value">Motihari — issued by <strong>Muhammad bin Tughlaq</strong></div></div>
+        <div class="boundary-item"><div class="boundary-direction">Sukunat Inscription</div><div class="boundary-value">Bihar Sharif — shows Muhammad bin Tughlaq's hold over Bihar</div></div>
+        <div class="boundary-item"><div class="boundary-direction">Munger Copper Plate</div><div class="boundary-value">Belongs to <strong>Devapala</strong> — kingdom free from troubles</div></div>
+        <div class="boundary-item"><div class="boundary-direction">Bodhgaya Inscription</div><div class="boundary-value">Belongs to <strong>Buddhasena</strong></div></div>
+        <div class="boundary-item"><div class="boundary-direction">Corpus of Arabic &amp; Persian Inscriptions of Bihar</div><div class="boundary-value">Compiled by <strong>Z. A. Desai</strong></div></div>
+      </div>
+      <div class="memory-tip">Inscription trick: Bhabua=Sher Shah, Bedibun=Muhammad bin Tughlaq, Maner=turushkadanda, Kathotia=Man Singh. "BMKM = Big Medieval Kings Matter!"</div>
+    </div>
+    <div class="info-box">
+      <h3>Sufi Literature Sources</h3>
+      <ul>
+        <li><strong>Tajkira, Malkujat, Maktubaat</strong> — Sufi writings providing historical account of medieval Bihar</li>
+        <li>Coin minting definite proof comes from <strong>Tirhut-urf-Tughlaqpur</strong> (not Munger or Gaya)</li>
+        <li>Arabic and Persian inscriptions found predominantly on walls of mosques, tombs and imambaras — scattered all over Bihar Sharif, Sasaram, Patna</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- TAB: EARLY MEDIEVAL -->
+  <div id="tearly" class="learn-content">
+    <h2 class="section-title">⚔️ Early Medieval Bihar — Palas, Senas, Karnatas (2.8)</h2>
+    <div class="exam-trap">Gopala founded Pala dynasty AND Odantapura Vihara. Dharmapala founded Vikramshila (NOT Gopala). Harisimhadeva was last Karnata king — defeated by Ghiyasuddin Tughlaq (NOT Iltutmish).</div>
+    <h2 class="section-title">Pala Dynasty</h2>
+    <div class="learn-grid">
+      <div class="fact-card"><div class="fact-label">Founder</div><div class="fact-value">Gopala — ended political anarchy. Founded Odantapura Vihara (modern Bihar Sharif) <span class="fire-badge">🔥</span></div></div>
+      <div class="fact-card"><div class="fact-label">Greatest Pala</div><div class="fact-value">Dharmapala — founded Vikramshila Mahavihara (Antichak, Bhagalpur). Built Sonapura Vihara in N. Bengal. <span class="fire-badge">🔥</span></div></div>
+      <div class="fact-card"><div class="fact-label">Devapala</div><div class="fact-value">Conquered Utkala (Orissa) and Pragjyotisha (Assam). Established relations with Balaputradeva of Suvarnadvipa. <span class="fire-badge">🔥</span></div></div>
+      <div class="fact-card"><div class="fact-label">Devapala's Inscriptions</div><div class="fact-value">Found at Ghosrawan, Hilsa, Nalanda and Munger</div></div>
+      <div class="fact-card"><div class="fact-label">Munger Copper Plate</div><div class="fact-value">Belongs to Devapala — states Dharmapala left kingdom free from troubles</div></div>
+      <div class="fact-card"><div class="fact-label">Narayanapala's successor</div><div class="fact-value">Rajyapala — ruled at least 32 years, kept Magadha under control</div></div>
+    </div>
+    <div class="info-box">
+      <h3>Pala Dynasty — Key Facts <span class="fire-badge">🔥</span></h3>
+      <ul>
+        <li>Dharmapala = first Pala king to assume full imperial titles: <strong>Maharajadhiraja Parmeshvara</strong></li>
+        <li>Pratiharas revived under <strong>Nagabhatta II</strong> who defeated Dharmapala near Mudgagiri (Munger)</li>
+        <li>Badal Pillar Inscription mentions Surapala as successor of Devapala vs Bhagalpur Inscription which says Vigrahapala I — contested succession</li>
+        <li>Devapala established friendly relations with <strong>Balaputradeva, king of Suvarnadvipa</strong> (Sumatra)</li>
+      </ul>
+      <div class="memory-tip">Pala order: Gopala (founder) → Dharmapala (greatest, Vikramshila) → Devapala (conqueror) → Narayanapala → Rajyapala. "Good Dads Don't Neglect Responsibilities!"</div>
+    </div>
+    <h2 class="section-title">Sena Dynasty</h2>
+    <div class="info-box">
+      <h3>Sena Kings — Quick Reference</h3>
+      <div class="admin-grid-2col">
+        <div class="admin-item"><div class="admin-label">Founder</div><div class="admin-value">Samantsena — described as Brahmakshatriya. Originally from Karnataka.</div></div>
+        <div class="admin-item"><div class="admin-label">Vijayasena</div><div class="admin-value">Son of Hemantsena. Long reign of 60+ years. Brought family into limelight.</div></div>
+        <div class="admin-item"><div class="admin-label">Ballalsena</div><div class="admin-value">Peaceful reign. Wrote Danasagara and Adbhutasagara. Introduced Kulinism.</div></div>
+        <div class="admin-item"><div class="admin-label">Lakshmansena</div><div class="admin-value">Succeeded at age 60 (AD 1179). Invaded by Bakhtiyar Khalji — Sena power ended.</div></div>
+      </div>
+    </div>
+    <h2 class="section-title">Karnata Dynasty of Mithila</h2>
+    <div class="info-box">
+      <h3>Karnata Dynasty <span class="fire-badge">🔥</span></h3>
+      <ul>
+        <li>Founded by <strong>Nanyadeva</strong> in AD 1097 — capital at <strong>Simraon, Champaran</strong></li>
+        <li>Called <strong>Karnataka Keshava</strong>. Ruled ~50 years (1097–1147). Expert in music.</li>
+        <li>Successors: Gangadeva → Narsimhadeva (1188–1227) → Harisimhadeva</li>
+        <li><strong>Harisimhadeva</strong> = last great Karnata king. Defeated by <strong>Ghiyasuddin Tughlaq</strong> (1324-25). Fled to Nepal.</li>
+        <li>After Harisimha fled, daughter married into Nepal royal family — Karnata blood continued in Nepal.</li>
+      </ul>
+      <div class="memory-tip">Karnata: Founded at Simraon (Champaran) by Nanyadeva 1097 AD. Ended when Harisimhadeva fled to Nepal after Ghiyasuddin's defeat. "Nanyadeva Started, Harisimha Fled Nepal!"</div>
+    </div>
+  </div>
+
+  <!-- TAB: DELHI SULTANATE -->
+  <div id="tsultanate" class="learn-content">
+    <h2 class="section-title">🏰 Bihar Under the Delhi Sultanate (2.9)</h2>
+    <div class="exam-trap">Bakhtiyar Khalji was killed by his OWN lieutenant Ali Mardan Khalji — NOT defeated in battle. First Delhi Sultan to invade Bihar = ILTUTMISH (1225 AD). Ghiyasuddin Tughlaq ended Karnata dynasty — NOT Iltutmish!</div>
+    <h2 class="section-title">Muhammad-Bin-Bakhtiyar Khalji</h2>
+    <div class="learn-grid">
+      <div class="fact-card"><div class="fact-label">First Victory</div><div class="fact-value">Bihar Sharif (Oddantapuri) — 1199 AD. Plundered and destroyed Odantapuri Mahavihara. <span class="fire-badge">🔥</span></div></div>
+      <div class="fact-card"><div class="fact-label">Nalanda destroyed</div><div class="fact-value">According to Taranath — Bakhtiyar Khalji also destroyed Nalanda University <span class="fire-badge">🔥</span></div></div>
+      <div class="fact-card"><div class="fact-label">Killed by</div><div class="fact-value">His own lieutenant <strong>Ali Mardan Khalji</strong></div></div>
+      <div class="fact-card"><div class="fact-label">Buried at</div><div class="fact-value">Imadpur Muhalla, Bihar Sharif town <span class="fire-badge">🔥</span></div></div>
+      <div class="fact-card"><div class="fact-label">Capital under Tughlaqs</div><div class="fact-value">Bihar Sharif <span class="fire-badge">🔥</span></div></div>
+      <div class="fact-card"><div class="fact-label">turushkadanda</div><div class="fact-value">Turk's tax — Maner Copper Plate. Evidence of Turks in Patna since 1124 AD</div></div>
+    </div>
+    <div class="info-box">
+      <h3>Delhi Sultans in Bihar — Chronology</h3>
+      <div style="overflow-x:auto;"><table class="timeline-table">
+        <thead><tr><th>Sultan/Dynasty</th><th>Period</th><th>Key Act in Bihar</th></tr></thead>
+        <tbody>
+          <tr><td>Bakhtiyar Khalji</td><td>1199</td><td>First Turk conquest. Destroyed Odantapuri, Nalanda. Reduced Sena rulers to vassals.</td></tr>
+          <tr><td>Iltutmish (Mamluk)</td><td>1225</td><td>First Delhi Sultan to invade Bihar. Appointed Malik Alauddin Jani as governor. <span class="fire-badge">🔥</span></td></tr>
+          <tr><td>Tughril Tughan</td><td>—</td><td>Former slave of Iltutmish. Captured then reinstated Narsimha Deva of Tirhut.</td></tr>
+          <tr><td>Balban</td><td>1282-83</td><td>Received 63 elephants from Tartar Khan (Bihar governor). Appointed son Nasiruddin Bughra Khan as governor.</td></tr>
+          <tr><td>Alauddin Khalji</td><td>—</td><td>Sent Muhammad Ismail to defeat Shakti Singh (Karnata). Met saint Ahmad Chiramposh.</td></tr>
+          <tr><td>Ghiyasuddin Tughlaq</td><td>1324-25</td><td>Conquered Tirhut. Defeated Harisimha Deva. Established mint-town Tughlaqabad-urf-Tirhut. <span class="fire-badge">🔥</span></td></tr>
+          <tr><td>Muhammad bin Tughlaq</td><td>—</td><td>Sukunat inscription (Bihar Sharif) + Bedibun inscription (Motihari). Changed Darbhanga to Tughlaqpur.</td></tr>
+          <tr><td>Firoz Tughlaq</td><td>—</td><td>Bihar as separate province from Bengal. Reinstated Kameshwar Thaqur (founder of Oinwara dynasty). Met Ahmad Chiramposh.</td></tr>
+          <tr><td>Sharqi Kings of Jaunpur</td><td>1394+</td><td>Malik Sarwar Khwaja Jahan sent to rule Kanauj to Bihar. Controlled Tirhut and South Bihar.</td></tr>
+          <tr><td>Sikander Lodhi</td><td>1494</td><td>Defeated ex-ruler Husain Shah. Annexed Bihar to Delhi Sultanate.</td></tr>
+        </tbody>
+      </table></div>
+      <div class="memory-tip">First 3 important Tughlaqs in Bihar: Ghiyasuddin (conquered Tirhut) → Muhammad (inscriptions) → Firoz (separate province). "Ghiyasuddin Made Fire!"</div>
+    </div>
+  </div>
+
+  <!-- TAB: AFGHANS -->
+  <div id="tafghans" class="learn-content">
+    <h2 class="section-title">⚔️ Rise of Afghans in Bihar (2.10)</h2>
+    <div class="exam-trap">Sher Shah's childhood name = FARID. Father Hasan Khan was jagirdar of SASARAM (not Patna). Sher Shah defeated Humayun at CHAUSA (1539) THEN KANAUJ (1540) — in that order. Died at KALINJAR (1545) from accidental gunpowder explosion.</div>
+    <div class="learn-grid">
+      <div class="fact-card"><div class="fact-label">Darya Khan Nuhani</div><div class="fact-value">Head of Bihar affairs 1495–1522. Loyal to Sikander Lodhi but independent stature.</div></div>
+      <div class="fact-card"><div class="fact-label">Nuhani founder</div><div class="fact-value">Bahar Khan Nuhani — rose after Ibrahim Lodhi was killed at Panipat (1526)</div></div>
+      <div class="fact-card"><div class="fact-label">Sher Shah's real name</div><div class="fact-value">Farid. Title 'Sher Khan' given by Muhammad Nuhani after killing a tiger. <span class="fire-badge">🔥</span></div></div>
+      <div class="fact-card"><div class="fact-label">Father's jagir</div><div class="fact-value">Hasan Khan — jagirdar of Sasaram. "Sasaram = administrative laboratory" <span class="fire-badge">🔥</span></div></div>
+      <div class="fact-card"><div class="fact-label">Fort of Chunar</div><div class="fact-value">Obtained by Sher Shah by marrying Lado Malka, widow of Taj Khan Sarangkhani</div></div>
+      <div class="fact-card"><div class="fact-label">Last Afghan ruler of Bihar</div><div class="fact-value">Dawood Khan Kararani — defeated by Akbar at Battle of Rajmahal <span class="fire-badge">🔥</span></div></div>
+    </div>
+    <div class="info-box">
+      <h3>Sher Shah's Battles with Humayun <span class="fire-badge">🔥</span></h3>
+      <div class="boundary-grid">
+        <div class="boundary-item"><div class="boundary-direction">Battle of Chausa (1539)</div><div class="boundary-value">First defeat of Humayun. Humayun barely escaped. Sher Shah showed strategic patience — drew Mughals into Bengal first.</div></div>
+        <div class="boundary-item"><div class="boundary-direction">Battle of Kanauj/Bilgram (1540)</div><div class="boundary-value">Decisive defeat of Humayun. Humayun fled India. Sher Shah occupied Bihar and Bengal, marched to Agra.</div></div>
+        <div class="boundary-item"><div class="boundary-direction">Death at Kalinjar (1545)</div><div class="boundary-value">Untimely death — accidental gunpowder explosion while besieging Kalinjar fort. Succeeded by son Islam Shah.</div></div>
+      </div>
+      <div class="memory-tip">Chausa (1539) → Kanauj (1540) → Kalinjar death (1545). "Chausa Kicked, Kanauj Knocked out, Kalinjar Killed him!"</div>
+    </div>
+    <div class="info-box">
+      <h3>Sher Shah's Administrative Reforms <span class="fire-badge">🔥</span></h3>
+      <ul>
+        <li>Introduced <strong>Sarkar</strong> (district) unit for the first time in Indian history</li>
+        <li>Land revenue = <strong>Zabit system</strong> — based on measurement. Made by Todarmal.</li>
+        <li>Introduced silver coin <strong>Rupai (Rupee)</strong> of 178 grains — uniform and standard <span class="fire-badge">🔥</span></li>
+        <li>Built <strong>Grand Trunk Road (Sadak-e-Azam)</strong> — Bengal to Indus</li>
+        <li>Built a fort in Patna and made <strong>Patna the capital of Bihar</strong> — referred to in Tarikh-i-Dawoodi by Abdullah</li>
+        <li>Considered predecessor of Akbar in public works and administration</li>
+        <li>Tomb at <strong>Sasaram</strong> — octagonal mausoleum <span class="fire-badge">🔥</span></li>
+      </ul>
+    </div>
+    <div class="info-box">
+      <h3>Chero &amp; Ujjaini Dynasties</h3>
+      <div class="admin-grid-2col">
+        <div class="admin-item"><div class="admin-label">Chero Dynasty</div><div class="admin-value">Tribal state after Pala decline. Kukumchand Jharap (1587-1607) = head of Cheros of Bhojpur, chased Ujjainnis.</div></div>
+        <div class="admin-item"><div class="admin-label">Ujjaini Dynasty</div><div class="admin-value">Originally Rajputs from Ujjain (Dhar/Malwa). Fled after Alauddin Khalji's conquest. Given jagir of South Gangetic Plain by Chero kings.</div></div>
+        <div class="admin-item"><div class="admin-label">Kararani Dynasty</div><div class="admin-value">Taj Khan Kararani founded Afghan state after Sher Shah. Sulaiman Kararani = major ruler. Dawood Khan (son) = last Afghan ruler.</div></div>
+        <div class="admin-item"><div class="admin-label">Construction — NOT Sher Shah</div><div class="admin-value">Ibadat Khana was NOT built by Sher Shah (it was Akbar). Know what he did NOT do.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB: MUGHALS -->
+  <div id="tmughals" class="learn-content">
+    <h2 class="section-title">🕌 Bihar During Mughal Rule (2.11)</h2>
+    <div class="exam-trap">Akbar merged Bihar+Bengal into Mughal empire in 1576 (Battle of Rajmahal). Raja Man Singh = appointed by AKBAR (1587). First Mughal Prince as governor = Prince PARVEZ (by Jahangir, 1621). Guru Gobind Singh born at PATNA in 1666!</div>
+    <div class="info-box">
+      <h3>Akbar and Bihar (1556–1605)</h3>
+      <ul>
+        <li>Daud Khan (last Afghan) defeated at <strong>Battle of Rajmahal</strong> by Akbar. Bihar+Bengal merged into Mughal empire in <strong>AD 1576</strong>. <span class="fire-badge">🔥</span></li>
+        <li>First governor: <strong>Munim Khan</strong></li>
+        <li><strong>Khan-i-Azam</strong> → transferred to Malwa 1583 → succeeded by Sayeed Khan Chagta</li>
+        <li><strong>Raja Man Singh</strong> appointed governor of Bihar in <strong>AD 1587</strong>. Built Kathotia gate at Rohtasgarh. <span class="fire-badge">🔥</span></li>
+        <li>Last governor under Akbar = <strong>Asif Khan</strong></li>
+      </ul>
+    </div>
+    <div class="info-box">
+      <h3>Jahangir and Bihar (1605–1627) <span class="fire-badge">🔥</span></h3>
+      <ul>
+        <li>Succession of governors: <strong>Beg Bahadur → Islam Khan → Afzal Khan → Jafar Khan → Ibrahim Khan → Jahangir Quli → Muqarrab Khan → Parvez</strong></li>
+        <li><strong>Nur Jahan</strong> passed through Darbhanga during governorship of <strong>Beg Bahadur</strong></li>
+        <li>First Mughal Prince as governor = <strong>Prince Parvez</strong> (son of Jahangir) — appointed <strong>AD 1621</strong> <span class="fire-badge">🔥</span></li>
+        <li>Ibrahim Khan = attacked Kukradesh and arrested Durjan Sal</li>
+        <li><strong>Nazar Bahadur</strong> constructed Sangi Masjid (Pathar-ki-Masjid) in Patna</li>
+      </ul>
+      <div class="memory-tip">Nur Jahan passed through Darbhanga when? During BEG BAHADUR's governorship. "Beg Bahadur Brought Nur Jahan through Bihar!"</div>
+    </div>
+    <div class="info-box">
+      <h3>Shah Jahan and Aurangzeb</h3>
+      <div class="admin-grid-2col">
+        <div class="admin-item"><div class="admin-label">Shah Jahan (1627-58)</div><div class="admin-value">First governor: Khan-i-Alam. Shaista Khan = notable governor. Saif Khan built Shahi Idgah in Patna City.</div></div>
+        <div class="admin-item"><div class="admin-label">Aurangzeb (1658-1707)</div><div class="admin-value">First governor: Daud Khan Quraishi. Defeated Cheros of Palamau. European travellers Tavernier and Bernier visited Bihar during Jan Nisar Khan's tenure.</div></div>
+        <div class="admin-item"><div class="admin-label">Murshid Quli Khan</div><div class="admin-value">Dewan of Bihar under Prince Azim (grandson of Aurangzeb). Strict and hardworking. Relations with lazy prince became restrained.</div></div>
+        <div class="admin-item"><div class="admin-label">First Mughal oath in Patna</div><div class="admin-value">Farrukhsiyar — first Mughal ruler to be sworn in at Patna <span class="fire-badge">🔥</span></div></div>
+      </div>
+    </div>
+    <div class="info-box">
+      <h3>Sikhs in Bihar <span class="fire-badge">🔥</span></h3>
+      <ul>
+        <li><strong>Guru Nanak Dev</strong> visited Gaya, Rajgir, Patna, Munger, Bhagalpur, Kahalgoan — propagated Sikhism</li>
+        <li><strong>Guru Gobind Singh</strong> — 10th and LAST Sikh Guru. Born at <strong>Patna in 1666</strong>. <span class="fire-badge">🔥</span></li>
+        <li>Guru Teg Bahadur on way to Assam stayed at Patna — son Gobind born here</li>
+        <li>Guru Teg Bahadur executed in <strong>1675 in Delhi</strong></li>
+        <li>Guru Gobind Singh announced establishment of <strong>Khalsa on 1st Baishak, 1699</strong></li>
+        <li>Birthplace = <strong>Takht Sri Patna Sahib Gurudwara</strong> (Patna Sahib) <span class="fire-badge">🔥</span></li>
+      </ul>
+      <div class="memory-tip">Guru Gobind Singh: Born PATNA 1666, Khalsa 1699, last Sikh Guru. "Patna 1666 = Tenth Guru's birth, 1699 = Khalsa birth!"</div>
+    </div>
+  </div>
+
+  <!-- TAB: KEY DATES -->
+  <div id="tdates" class="learn-content">
+    <h2 class="section-title">📅 Key Dates — Medieval Bihar</h2>
+    <div style="overflow-x:auto;"><table class="timeline-table">
+      <thead><tr><th>Date</th><th>Event</th><th>Who</th></tr></thead>
+      <tbody>
+        <tr><td>AD 750</td><td>Gopala founds Pala dynasty; founded Odantapura Vihara</td><td>Gopala</td></tr>
+        <tr><td>AD 770-810</td><td>Dharmapala — greatest Pala; founded Vikramshila Mahavihara (Bhagalpur)</td><td>Dharmapala</td></tr>
+        <tr><td>AD 810-850</td><td>Devapala — conquered Orissa, Assam; relations with Suvarnadvipa</td><td>Devapala</td></tr>
+        <tr><td>AD 1097</td><td>Nanyadeva founds Karnata dynasty — capital Simraon (Champaran)</td><td>Nanyadeva</td></tr>
+        <tr><td>AD 1124</td><td>Maner Copper Plate — turushkadanda tax; first evidence of Turks in western Patna</td><td>—</td></tr>
+        <tr><td>AD 1179</td><td>Lakshmansena succeeds as Sena king (at age 60)</td><td>Lakshmansena</td></tr>
+        <tr><td>AD 1199</td><td>Bakhtiyar Khalji attacks Bihar Sharif (Oddantapuri); destroys Nalanda</td><td>Bakhtiyar Khalji</td></tr>
+        <tr><td>AD 1206</td><td>Bakhtiyar Khalji killed by Ali Mardan Khalji; power struggle begins</td><td>Ali Mardan Khalji</td></tr>
+        <tr><td>AD 1225</td><td>Iltutmish captures Bihar — first Delhi Sultan to invade Bihar</td><td>Iltutmish</td></tr>
+        <tr><td>AD 1282-83</td><td>Balban appoints Nasiruddin Bughra Khan as governor of Bihar</td><td>Balban</td></tr>
+        <tr><td>AD 1324-25</td><td>Ghiyasuddin Tughlaq conquers Tirhut; defeats Harisimha Deva; mint-town Tughlaqabad</td><td>Ghiyasuddin</td></tr>
+        <tr><td>AD 1394</td><td>Sharqi rule begins — Malik Sarwar sent from Kanauj to Bihar</td><td>Sharqis</td></tr>
+        <tr><td>AD 1494</td><td>Sikander Lodhi defeats Husain Shah; Bihar annexed to Delhi Sultanate</td><td>Sikander Lodhi</td></tr>
+        <tr><td>AD 1495-1522</td><td>Darya Khan Nuhani heads Bihar affairs</td><td>Darya Khan</td></tr>
+        <tr><td>AD 1526</td><td>Battle of Panipat — Babur defeats Ibrahim Lodhi; Bahar Khan expands in Bihar</td><td>Babar/Bahar Khan</td></tr>
+        <tr><td>AD 1539</td><td>Battle of Chausa — Sher Shah defeats Humayun (first battle)</td><td>Sher Shah</td></tr>
+        <tr><td>AD 1540</td><td>Battle of Kanauj/Bilgram — Sher Shah decisively defeats Humayun; occupies Delhi</td><td>Sher Shah</td></tr>
+        <tr><td>AD 1545</td><td>Sher Shah dies at Kalinjar — gunpowder explosion. Buried at Sasaram.</td><td>Sher Shah</td></tr>
+        <tr><td>AD 1576</td><td>Akbar defeats Daud Khan at Battle of Rajmahal; Bihar+Bengal in Mughal empire</td><td>Akbar</td></tr>
+        <tr><td>AD 1587</td><td>Man Singh appointed governor of Bihar by Akbar</td><td>Akbar/Man Singh</td></tr>
+        <tr><td>AD 1621</td><td>Prince Parvez appointed governor of Bihar — first Mughal Prince as governor</td><td>Jahangir</td></tr>
+        <tr><td>AD 1666</td><td>Guru Gobind Singh born at Patna — 10th and last Sikh Guru</td><td>Guru Gobind Singh</td></tr>
+        <tr><td>AD 1675</td><td>Guru Teg Bahadur executed in Delhi</td><td>—</td></tr>
+        <tr><td>AD 1699</td><td>Guru Gobind Singh announces Khalsa on 1st Baishak</td><td>Guru Gobind Singh</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+</div><!-- end learn-mode -->
+
+<!-- ══ FLASHCARD MODE ══ -->
+<div id="flashcard-mode" class="mode-section">
+  <div class="fc-controls">
+    <button class="fc-btn" onclick="prevCard()">◀ Prev</button>
+    <button class="fc-btn" onclick="flipCard()">↺ Flip</button>
+    <button class="fc-btn" onclick="nextCard()">Next ▶</button>
+    <button class="fc-btn" onclick="shuffleCards()">⇄ Shuffle</button>
+    <span class="fc-counter" id="fc-counter">1 / 20</span>
+  </div>
+  <div class="flashcard-container" id="flashcard" onclick="flipCard()">
+    <div class="flashcard-inner" id="fc-inner">
+      <div class="flashcard-face">
+        <div class="fc-label-text">Question — click to flip</div>
+        <div class="fc-question" id="fc-q">Loading...</div>
+        <div class="fc-hint-text">Click card to reveal answer</div>
+        <div class="fc-category-text" id="fc-cat"></div>
+      </div>
+      <div class="flashcard-face flashcard-back">
+        <div class="fc-label-text">Answer</div>
+        <div class="fc-answer" id="fc-a">Loading...</div>
+        <div class="fc-hint-text" id="fc-hint-text"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ QUIZ MODE ══ -->
+<div id="quiz-mode" class="mode-section">
+  <div class="quiz-controls-bar">
+    <span class="qcb-label">Timer</span>
+    <select class="qcb-select" id="timer-select" onchange="setTimerSec(this.value)">
+      <option value="30">30s</option>
+      <option value="60" selected>60s</option>
+      <option value="90">90s</option>
+      <option value="0">Off</option>
+    </select>
+    <div class="qcb-divider"></div>
+    <span class="qcb-label">Questions</span>
+    <select class="qcb-select" id="qsize-select" onchange="setQuizSize(this.value)">
+      <option value="10">10</option>
+      <option value="25">25</option>
+      <option value="50">50</option>
+      <option value="0" selected>All</option>
+    </select>
+    <div class="qcb-divider"></div>
+    <span class="qcb-label">Mode</span>
+    <select class="qcb-select" id="mode-select" onchange="setExamMode(this.value)">
+      <option value="practice">Practice</option>
+      <option value="exam">Exam</option>
+    </select>
+    <div class="qcb-divider"></div>
+    <button class="filter-btn" onclick="filterBookmarked(event)" id="bookmark-filter-btn">⭐ Starred</button>
+    <div class="qcb-divider"></div>
+    <span class="qcb-label">Text</span>
+    <button class="qcb-select" onclick="cycleFontSize()" id="font-btn" style="cursor:pointer;">A</button>
+  </div>
+  <div class="exam-mode-banner" id="exam-banner">⚠ Exam mode — no hints, no skip, strict timer</div>
+  <div class="quiz-filter" id="quiz-filter"></div>
+  <div id="quiz-area"></div>
+  <div class="results-box" id="results-box">
+    <div class="history-section" id="history-section"></div>
+    <div class="score-display" id="score-display"></div>
+    <div class="score-label" id="score-label"></div>
+    <div class="results-details">
+      <div class="result-stat"><div class="result-stat-label">Correct</div><div class="result-stat-value" id="res-correct">0</div></div>
+      <div class="result-stat"><div class="result-stat-label">Wrong</div><div class="result-stat-value" id="res-wrong" style="color:var(--danger)">0</div></div>
+      <div class="result-stat"><div class="result-stat-label">Total</div><div class="result-stat-value" id="res-total">0</div></div>
+    </div>
+    <div class="wrong-list" id="wrong-list-area"></div>
+    <button class="quiz-nav-btn primary" onclick="restartQuiz()" style="margin-top:1.5rem;">↺ Restart Quiz</button>
+  </div>
+</div>
+
+</div></div>
+
+<script>
+
+// ══════════ MODE + LEARN ENGINE ══════════
+
+const learnTabs = ['tsources','tearly','tsultanate','tafghans','tmughals','tdates'];
+let visitedTabs = new Set(['t18th']);
+
+function switchMode(m){
+  ['learn','flashcard','quiz'].forEach(x=>{
+    const el=document.getElementById(x+'-mode');
+    if(el) el.classList.remove('active');
+  });
+  document.querySelectorAll('.toggle-btn').forEach(b=>b.classList.remove('active'));
+  const target=document.getElementById(m+'-mode');
+  if(target) target.classList.add('active');
+  const idx=['learn','flashcard','quiz'].indexOf(m);
+  const btns=document.querySelectorAll('.toggle-btn');
+  if(btns[idx]) btns[idx].classList.add('active');
+  if(m==='flashcard') renderFlashcard();
+  if(m==='quiz'){ quizFiltered=[...quizData]; renderQuizFilters(); renderQuiz(); }
+}
+
+function switchLearnTab(id){
+  document.querySelectorAll('.learn-content').forEach(c=>c.classList.remove('active'));
+  document.querySelectorAll('.learn-tab').forEach(b=>b.classList.remove('active'));
+  const el=document.getElementById(id);
+  if(el) el.classList.add('active');
+  const idx=learnTabs.indexOf(id);
+  const tabs=document.querySelectorAll('.learn-tab');
+  if(tabs[idx]) tabs[idx].classList.add('active');
+  visitedTabs.add(id);
+  updateDots();
+}
+
+function updateDots(){
+  const dots=document.getElementById('tab-dots');
+  const count=document.getElementById('progress-count');
+  if(dots) dots.innerHTML=learnTabs.map(id=>`<div class="progress-dot${visitedTabs.has(id)?' visited':''}"></div>`).join('');
+  if(count) count.textContent=visitedTabs.size+' / '+learnTabs.length+' visited';
+}
+
+function updateProgress(){
+  updateDots();
+}
+
+// ══════════ FLASHCARD ENGINE ══════════
+let fcIndex=0, fcDeck=[];
+function initFlashcards(){ fcDeck=[...flashcards]; }
+
+function renderFlashcard(){
+  if(!fcDeck.length){ initFlashcards(); }
+  if(!fcDeck.length) return;
+  const c=fcDeck[fcIndex];
+  const qEl=document.getElementById('fc-q');
+  const aEl=document.getElementById('fc-a');
+  const hEl=document.getElementById('fc-hint-text');
+  const catEl=document.getElementById('fc-cat');
+  const cntEl=document.getElementById('fc-counter');
+  if(qEl) qEl.textContent=c.q;
+  if(aEl) aEl.textContent=c.a;
+  if(hEl) hEl.textContent=c.hint||'';
+  if(catEl) catEl.textContent=c.cat;
+  if(cntEl) cntEl.textContent=(fcIndex+1)+' / '+fcDeck.length;
+  const stage=document.getElementById('flashcard');
+  if(stage) stage.classList.remove('flipped');
+}
+
+function flipCard(){
+  const stage=document.getElementById('flashcard');
+  if(stage) stage.classList.toggle('flipped');
+}
+function prevCard(){ fcIndex=(fcIndex-1+fcDeck.length)%fcDeck.length; renderFlashcard(); }
+function nextCard(){ fcIndex=(fcIndex+1)%fcDeck.length; renderFlashcard(); }
+function shuffleCards(){
+  for(let i=fcDeck.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[fcDeck[i],fcDeck[j]]=[fcDeck[j],fcDeck[i]];}
+  fcIndex=0; renderFlashcard();
+}
+
+// ══════════ QUIZ FILTER ENGINE ══════════
+function catLabel(cat){
+  const map={'Sources':'Sources','EarlyMedieval':'Early Medieval','Sultanate':'Delhi Sultanate','Afghans':'Afghan Rule','Mughals':'Mughal Rule'};
+  return map[cat]||cat;
+}
+
+function renderQuizFilters(){
+  const el=document.getElementById('quiz-filter');
+  if(!el) return;
+  const cats=['all',...new Set(quizData.map(q=>q.cat))];
+  el.innerHTML=cats.map(c=>`<button class="filter-btn${c==='all'?' active':''}" onclick="filterQuiz('${c}',event)">${c==='all'?'All ('+quizData.length+')':catLabel(c)}</button>`).join('');
+}
+
+function filterQuiz(cat, e){
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  if(e && e.target) e.target.classList.add('active');
+  let base=cat==='all'?[...quizData]:quizData.filter(q=>q.cat===cat);
+  // shuffle then limit
+  for(let i=base.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[base[i],base[j]]=[base[j],base[i]];}
+  quizFiltered=quizSizeLimit>0?base.slice(0,quizSizeLimit):base;
+  currentQ=0; score=0; answered=false; wrongAnswers=[]; qTimes=[]; catTimes={}; skippedQs=[];
+  clearInterval(timerIv);
+  document.getElementById('results-box').classList.remove('visible');
+  renderQuiz();
+}
+
+// ══════════ INIT ══════════
+document.addEventListener('DOMContentLoaded',()=>{
+  initFlashcards();
+  renderFlashcard();
+  renderQuizFilters();
+  quizFiltered=[...quizData];
+  renderQuiz();
+  updateDots();
+  runSibChecks();
+  setInterval(runSibChecks,5000);
+});
+
+
+// ══════════ FLASHCARD DATA ══════════
+const flashcards=[
+  {q:"Who founded the Pala dynasty?",a:"Gopala — also founded Odantapura Vihara (modern Bihar Sharif)",hint:"First Pala king",cat:"Pala"},
+  {q:"Who founded Vikramshila Mahavihara?",a:"Dharmapala — near Antichak village, Kahalgaon, Bhagalpur",hint:"Greatest Pala king",cat:"Pala"},
+  {q:"Who founded the Karnata dynasty in Mithila?",a:"Nanyadeva in AD 1097 — capital at Simraon, Champaran. Ruled ~50 years.",hint:"Called Karnataka Keshava",cat:"EarlyMedieval"},
+  {q:"Who was the last great king of Karnata dynasty?",a:"Harisimhadeva — defeated by Ghiyasuddin Tughlaq, fled to Nepal",hint:"After him Karnata rule ended",cat:"EarlyMedieval"},
+  {q:"What did Bakhtiyar Khalji destroy in Bihar?",a:"Odantapuri Mahavihara (1199), Nalanda University — mistook them for Hindu forts. He was killed by Ali Mardan Khalji.",hint:"Buried at Bihar Sharif",cat:"Sultanate"},
+  {q:"Who established Turkish rule in Bihar?",a:"Bakhtiyar Khalji — 1199 AD, attacking Bihar Sharif (Oddantapuri)",hint:"First important Turk in Bihar",cat:"Sultanate"},
+  {q:"What was Ghiyasuddin Tughlaq's contribution to Bihar?",a:"Conquered Tirhut (1324-25), defeated Harisimha Deva, established mint-town Tughlaqabad-urf-Tirhut",hint:"First Tughlaq to control Bihar directly",cat:"Sultanate"},
+  {q:"What is the childhood name of Sher Shah and where was he born?",a:"Childhood name: Farid. Born in Sasaram (Rohtas). Father Hasan Khan was jagirdar of Sasaram.",hint:"Sasaram = administrative laboratory",cat:"Afghans"},
+  {q:"Which battles did Sher Shah win against Humayun?",a:"Battle of Chausa (1539) and Battle of Kanauj/Bilgram (1540) — both decisive defeats of Humayun",hint:"Chausa first, then Kanauj",cat:"Afghans"},
+  {q:"What was Sher Shah's silver coin called?",a:"Rupai (Rupee) — 178 grains, uniform and standard. Foundation of modern Rupee.",hint:"178 grain silver coin",cat:"Afghans"},
+  {q:"What did Sher Shah build in Patna?",a:"Constructed a fort in Patna and made it capital of Bihar. Referred to by Abdullah in Tarikh-i-Dawoodi.",hint:"Reconstructed Patna as capital",cat:"Afghans"},
+  {q:"Who was Guru Gobind Singh and what is his connection to Bihar?",a:"10th and last Sikh Guru. Born at Patna in 1666. Birthplace is now Takht Sri Patna Sahib Gurudwara.",hint:"Patna Sahib = his birthplace",cat:"Mughals"},
+  {q:"Who was the first Mughal Prince appointed governor of Bihar?",a:"Prince Parvez — appointed by Jahangir in AD 1621",hint:"Son of Jahangir",cat:"Mughals"},
+  {q:"Who was Raja Man Singh and what was his role in Bihar?",a:"Appointed governor of Bihar in 1587 by Akbar. Built Kathotia gate at Rohtasgarh. Received title of Raja.",hint:"Important Akbar-era governor",cat:"Mughals"},
+  {q:"Where is Bakhtiyar Khalji buried?",a:"Imadpur Muhalla, Bihar Sharif town",hint:"Same town he destroyed Odantapuri",cat:"Sultanate"},
+  {q:"What was the Maner Copper Plate Inscription about?",a:"Mentions a tax called turushkadanda (Turk's tax) — evidence of Turk activity in western Patna as early as 1124 AD",hint:"turushkadanda = Turk's tax",cat:"Sources"},
+  {q:"What was Sher Shah's land revenue system called?",a:"Zabit system — revived land measurement, made by Todarmal. Reintroduced after Alauddin's system.",hint:"Zabit = measurement-based revenue",cat:"Afghans"},
+  {q:"Who was Darya Khan Nuhani?",a:"Head of Bihar affairs from 1495 to 1522. Loyal to Sikander Lodhi but maintained independent stature. Died in 1522.",hint:"First important Nuhani leader",cat:"Afghans"},
+  {q:"Who built Sangi Masjid (Pathar-ki-Masjid) in Patna?",a:"Nazar Bahadur — during Mughal rule",hint:"Also called Stone Mosque",cat:"Mughals"},
+  {q:"What was the Tabakat-i-Nasiri and who wrote it?",a:"Written by Minhas-us-Siraj. Gives detailed firsthand account of Bakhtiyar Khalji's attacks on Bihar.",hint:"Most important source for early Turk period",cat:"Sources"},
+];
+
+// ══════════ QUIZ DATA (60 questions) ══════════
+const quizData=[
+  {q:`Which of the following authors stayed in Bihar and provided first hand information about the attacks of Bakhtiyar Khalji?`,opts:[`Minhas-us-Siraj`, `Ziauddin Barani`, `Mullah Taqia`, `Rizquallah`],ans:0,exp:`Correct: Minhas-us-Siraj`,cat:`Sources`},
+  {q:`Name the author of Akbarnama`,opts:[`Barani`, `Minhas`, `Muhammad Qasim`, `Abul Fazal`],ans:3,exp:`Correct: Abul Fazal`,cat:`Sources`},
+  {q:`Which of the following books provide an account of land revenue in Bihar?`,opts:[`Tabakat-i-Nasiri`, `Ain-i-Akbari`, `Akbarnama`, `Tarikh-i-Firozshahi`],ans:1,exp:`Correct: Ain-i-Akbari`,cat:`Sources`},
+  {q:`The Arabic and Persian inscriptions in Bihar are predominantly found in`,opts:[`Patna`, `Sasaram`, `Bihar Sharif`, `All of the above`],ans:3,exp:`Correct: All of the above`,cat:`Sources`},
+  {q:`Bhabua inscription belonged to which ruler?`,opts:[`Sher Shah`, `Firoz Tughlaq`, `Bahar Khan`, `Muhammad Tughlaq`],ans:0,exp:`Correct: Sher Shah`,cat:`Sources`},
+  {q:`Name the author of the book Corpus of Arabic and Persian Inscriptions of Bihar?`,opts:[`Cunningham`, `Prof. Qyamuddin`, `Buchanan`, `Z. A. Desai`],ans:1,exp:`Correct: Prof. Qyamuddin`,cat:`Sources`},
+  {q:`To which ruler did the Bodhgaya inscription belong to`,opts:[`Ballalasena`, `Sher Shah`, `Buddhasena`, `Bahar Khan`],ans:2,exp:`Correct: Buddhasena`,cat:`Sources`},
+  {q:`Which inscription mentions the name of a tax called turushkadanda?`,opts:[`Bhabhua inscription`, `Sanokhar inscription`, `Simraon Pillar inscription`, `Maner Copper Plate inscription`],ans:3,exp:`Correct: Maner Copper Plate inscription`,cat:`Sources`},
+  {q:`The definite proof of minting of coins in Bihar comes from`,opts:[`Tirhut - urf - Tughlaqpur`, `Munger`, `Gaya`, `Sasaram`],ans:0,exp:`Correct: Tirhut - urf - Tughlaqpur`,cat:`Sources`},
+  {q:`The Bedibun inscription was issued by`,opts:[`Firoz Tughlaq`, `Sher Shah`, `Muhammad bin Tughlaq`, `Alauddin Khalji`],ans:2,exp:`Correct: Muhammad bin Tughlaq`,cat:`Sources`},
+  {q:`Narsimhadeva was the king of`,opts:[`Mithila`, `Bhojpur`, `Sasaram`, `Videha`],ans:0,exp:`Correct: Mithila`,cat:`EarlyMedieval`},
+  {q:`Who founded the independent Karnata dynasty in Mithila?`,opts:[`Nanyadeva`, `Narsimhadeva`, `Harisimha`, `Devapala`],ans:0,exp:`Correct: Nanyadeva`,cat:`EarlyMedieval`},
+  {q:`Who founded the famous Odantapura Vihara?`,opts:[`Devapala`, `Gopala`, `Rampala`, `Narayanpala`],ans:1,exp:`Correct: Gopala`,cat:`EarlyMedieval`},
+  {q:`Who was the founder of the Pala dynasty?`,opts:[`Dharmapala`, `Rampala`, `Narayanpala`, `Gopala`],ans:3,exp:`Correct: Gopala`,cat:`EarlyMedieval`},
+  {q:`Who is credited with the foundation of Vikramshila Mahavihara located near Antichak village near Kahalgaon in Bhagalpur?`,opts:[`Gopala`, `Devapala`, `Dharmapala`, `Vigrahapala I`],ans:2,exp:`Correct: Dharmapala`,cat:`EarlyMedieval`},
+  {q:`Who was the last great king of Karnata dynasty?`,opts:[`Nanyadeva`, `Harisimha`, `Narsimhadeva`, `None of the above`],ans:1,exp:`Correct: Harisimha`,cat:`EarlyMedieval`},
+  {q:`For how many years did Nanyadeva rule?`,opts:[`40 years`, `15 years`, `25 years`, `50 years`],ans:3,exp:`Correct: 50 years`,cat:`EarlyMedieval`},
+  {q:`Which Pala king established friendly relations with Balaputradeva, the king of Suvarnadvipa?`,opts:[`Dharmapala`, `Mahipala`, `Devapala`, `Kumarapala`],ans:2,exp:`Correct: Devapala`,cat:`EarlyMedieval`},
+  {q:`Who built the Sonapura Vihara in north Bengal?`,opts:[`Devapala`, `Dharmapala`, `Gopala`, `Vigrahapala`],ans:1,exp:`Correct: Dharmapala`,cat:`EarlyMedieval`},
+  {q:`The Munger Copper Plate inscription belongs to which Pala king?`,opts:[`Devapala`, `Gopala`, `Mahipala`, `Dharmapala`],ans:0,exp:`Correct: Devapala`,cat:`EarlyMedieval`},
+  {q:`The first important victory of Bakhtiyar Khalji in Bihar was`,opts:[`Bihar Sharif (Oddantapuri)`, `Patna`, `Bhagalpur`, `Munger`],ans:0,exp:`Correct: Bihar Sharif (Oddantapuri)`,cat:`Sultanate`},
+  {q:`Who destroyed the Nalanda University`,opts:[`Mahmud Ghazni`, `Bakhtiyar Khalji`, `Babar`, `Muhammad Ghori`],ans:1,exp:`Correct: Bakhtiyar Khalji`,cat:`Sultanate`},
+  {q:`Who was the first ruler of Delhi Sultanate to invade Bihar?`,opts:[`Balban`, `Alauddin Khalji`, `Aibak`, `Iltutmish`],ans:3,exp:`Correct: Iltutmish`,cat:`Sultanate`},
+  {q:`The capital of Bihar during the reign of the Tughlaq's was`,opts:[`Bhagalpur`, `Patna`, `Darbhanga`, `Bihar Sharif`],ans:3,exp:`Correct: Bihar Sharif`,cat:`Sultanate`},
+  {q:`At which place was Bakhtiyar Khalji buried?`,opts:[`Lakhnauti`, `Munger`, `Bihar Sharif`, `Rajgir`],ans:2,exp:`Correct: Bihar Sharif`,cat:`Sultanate`},
+  {q:`Who established the Turkish rule in Bihar?`,opts:[`Aibak`, `Bakhtiyar Khalji`, `Iltutmish`, `Malik Husam-ud-din`],ans:1,exp:`Correct: Bakhtiyar Khalji`,cat:`Sultanate`},
+  {q:`Which ruler established a mint-town at Tirhut which was also called Tughlaqabad-urf-Tirhut?`,opts:[`Ghiyasuddin Tughlaq`, `Firoz Tughlaq`, `Muhammad-bin-Tughlaq`, `Alauddin Khalji`],ans:0,exp:`Correct: Ghiyasuddin Tughlaq`,cat:`Sultanate`},
+  {q:`Which Sultan ended the rule of Karnata dynasty?`,opts:[`Muhammad bin Tughlaq`, `Ghiyasuddin Tughlaq`, `Firoz Shah Tughlaq`, `Muhammad Tughlaq`],ans:1,exp:`Correct: Ghiyasuddin Tughlaq`,cat:`Sultanate`},
+  {q:`Which Sultan had a meeting with a celebrated saint of Bihar Ahmad Chiramposh?`,opts:[`Muhammad bin Tughlaq`, `Alauddin Khalji`, `Firoz Tughlaq`, `Iltutmish`],ans:2,exp:`Correct: Firoz Tughlaq`,cat:`Sultanate`},
+  {q:`The shrine of an able administrator during the reign of Tughlaq, Malik Ibrahim Baya is situated in`,opts:[`Sasaram`, `Agra`, `Bihar Sharif`, `Delhi`],ans:2,exp:`Correct: Bihar Sharif`,cat:`Sultanate`},
+  {q:`Who defeated the Karnata dynasty ruler Harisimha Deva?`,opts:[`Ghiyasuddin Tughlaq`, `Iltutmish`, `Firoz Tughlaq`, `Alauddin Khalji`],ans:0,exp:`Correct: Ghiyasuddin Tughlaq`,cat:`Sultanate`},
+  {q:`Muhammad bin Tughlaq changed the name of a place to Tughlaqpur. Identify the place?`,opts:[`Patna`, `Purnea`, `Darbhanga`, `Maner`],ans:2,exp:`Correct: Darbhanga`,cat:`Sultanate`},
+  {q:`Which Sultan constructed a fort and a Jama Masjid in Darbhanga?`,opts:[`Firoz Tughlaq`, `Iltutmish`, `Ghiyasuddin Tughlaq`, `Muhammad bin Tughlaq`],ans:3,exp:`Correct: Muhammad bin Tughlaq`,cat:`Sultanate`},
+  {q:`Which Sultan of Delhi conclusively controlled Bihar?`,opts:[`Tughlaqs`, `Khaljis`, `Mamluks`, `None of the above`],ans:0,exp:`Correct: Tughlaqs`,cat:`Sultanate`},
+  {q:`In the 14th century Firoz helped in establishing the rule of which dynasty?`,opts:[`Karnata`, `Vainvaar`, `Mitra`, `Thakur`],ans:1,exp:`Correct: Vainvaar`,cat:`Sultanate`},
+  {q:`Who was the founder of Nuhani dynasty in Bihar.`,opts:[`Jalal Khan Nuhani`, `Darya Khan Nuhani`, `Bahar Khan Nuhani`, `Daulat Khan Lodhi`],ans:2,exp:`Correct: Bahar Khan Nuhani`,cat:`Afghans`},
+  {q:`Who among the following was placed as the administrator of Bihar by Babar after removing Mahmud Lodhi?`,opts:[`Bahar Khan`, `Jalal Khan`, `Farid Khan`, `Hasan Khan`],ans:1,exp:`Correct: Jalal Khan`,cat:`Afghans`},
+  {q:`Who was deputed by Sikander Lodhi in 1495-96 as the head of Bihar?`,opts:[`Farid Khan`, `Hasan Khan`, `Bahar Khan Nuhani`, `Darya Khan Nuhani`],ans:3,exp:`Correct: Darya Khan Nuhani`,cat:`Afghans`},
+  {q:`The Sur dynasty was established by`,opts:[`Sher Shah`, `Hasan Khan`, `Muhammad Nuhani`, `Darya Khan`],ans:0,exp:`Correct: Sher Shah`,cat:`Afghans`},
+  {q:`Which ruler conferred the title of Sher Khan on Sher Shah?`,opts:[`Hasan Khan`, `Muhammad Nuhani`, `Darya Khan Nuhani`, `Humayun`],ans:1,exp:`Correct: Muhammad Nuhani`,cat:`Afghans`},
+  {q:`Sher Khan's father Hasan Khan was a Jagirdar of`,opts:[`Patna`, `Gaya`, `Sasaram`, `Arrah`],ans:2,exp:`Correct: Sasaram`,cat:`Afghans`},
+  {q:`Who reconstructed Patna in the medieval times?`,opts:[`Azim-us-Shaan`, `Harshavardhan`, `Aurangzeb`, `Sher Shah`],ans:3,exp:`Correct: Sher Shah`,cat:`Afghans`},
+  {q:`Patna was made a provincial capital of Bihar by`,opts:[`Ibrahim Lodhi`, `Hasan Khan`, `Sher Shah`, `Azim-us-Shaan`],ans:2,exp:`Correct: Sher Shah`,cat:`Afghans`},
+  {q:`The tomb of Sher Shah is situated in`,opts:[`Sasaram`, `Delhi`, `Munger`, `Patna`],ans:0,exp:`Correct: Sasaram`,cat:`Afghans`},
+  {q:`Which text refers to the construction of a fort in Patna and Patna being made a capital by Sher Shah?`,opts:[`Tarikh-i-Firozshahi`, `Tarikh-i-Dawoodi`, `Wasatin-ul-Uns`, `Waqiat-i-Mushtaqi`],ans:1,exp:`Correct: Tarikh-i-Dawoodi`,cat:`Afghans`},
+  {q:`Sher Khan was appointed as the caretaker of which ruler of Bihar?`,opts:[`Darya Khan`, `Jalal Khan`, `Hasan Khan`, `Muhammad Nuhani`],ans:1,exp:`Correct: Jalal Khan`,cat:`Afghans`},
+  {q:`Sher Shah defeated Humayun in which of the following battles?`,opts:[`Kanauj or Bilgram`, `Chausa`, `Both`, `and`],ans:2,exp:`Correct: Both`,cat:`Afghans`},
+  {q:`Which place is considered as the administrative laboratory of Sher Shah?`,opts:[`Chunar`, `Bengal`, `Delhi`, `Sasaram`],ans:3,exp:`Correct: Sasaram`,cat:`Afghans`},
+  {q:`Who was the last Afghan ruler of Bihar?`,opts:[`Ibrahim Shah Sur`, `Ibrahim Lodhi`, `Dawood Khan Qararani`, `Sulaiman Qararani`],ans:2,exp:`Correct: Dawood Khan Qararani`,cat:`Afghans`},
+  {q:`Which of the following works was not taken up by Sher Shah?`,opts:[`Construction of Ibadat Khana`, `Construction of G.T. Road (Sadak-i-Azam)`, `Construction of his own tomb`, `Introduction of silver coin`],ans:0,exp:`Correct: Construction of Ibadat Khana`,cat:`Afghans`},
+  {q:`Akbar merged Bihar and Bengal in Mughal empire in`,opts:[`1550`, `1575`, `1572`, `1576`],ans:3,exp:`Correct: 1576`,cat:`Mughals`},
+  {q:`Who was the Governor of Bihar during Akbar's reign?`,opts:[`Munim Khan`, `Baj Bahadur`, `Daud Khan`, `None of the above`],ans:0,exp:`Correct: Munim Khan`,cat:`Mughals`},
+  {q:`Who was the first Mughal ruler to be sworn in Patna`,opts:[`Farrukhsiyar`, `Bahadur Shah`, `Jahangir`, `Shahjahan`],ans:0,exp:`Correct: Farrukhsiyar`,cat:`Mughals`},
+  {q:`Which Mughal ruler made his grandson as the subedar of Bihar?`,opts:[`Akbar`, `Shahjahan`, `Jahangir`, `Aurangzeb`],ans:3,exp:`Correct: Aurangzeb`,cat:`Mughals`},
+  {q:`Who was the first Mughal Prince to be appointed as the governor of Bihar?`,opts:[`Prince Salim`, `Prince Azim`, `Prince Parvez`, `Prince Khurram`],ans:2,exp:`Correct: Prince Parvez`,cat:`Mughals`},
+  {q:`Who was the governor of Bihar during the reign of Shah Jahan?`,opts:[`Munim Khan`, `Dara`, `Shaista Khan`, `Murad`],ans:2,exp:`Correct: Shaista Khan`,cat:`Mughals`},
+  {q:`Who appointed the governor of Bihar by Jahangir in A.D. 1621?`,opts:[`Azim`, `Parvez`, `Murshid Quli`, `Jan Nishar Khan`],ans:1,exp:`Correct: Parvez`,cat:`Mughals`},
+  {q:`Raja Man Singh was appointed the governor of Bihar by`,opts:[`Akbar`, `Shah Jahan`, `Jahangir`, `Aurangzeb`],ans:0,exp:`Correct: Akbar`,cat:`Mughals`},
+  {q:`Who was the last governor of Bihar during the reign of Akbar?`,opts:[`Man Singh`, `Asif Khan`, `Raja Bhagwan Das`, `Khan-i-Azam`],ans:1,exp:`Correct: Asif Khan`,cat:`Mughals`},
+  {q:`Nur Jahan passed through Darbhanga during the governorship of`,opts:[`Beg Bahadur`, `Islam Khan`, `Afzal Khan`, `Jafar Khan`],ans:0,exp:`Correct: Beg Bahadur`,cat:`Mughals`},
+  {q:`Which governor of Bihar attacked Kukradesh and arrested Durjan Sal?`,opts:[`Afzal Khan`, `Muqarrab Khan`, `Parvez`, `Ibrahim Khan`],ans:3,exp:`Correct: Ibrahim Khan`,cat:`Mughals`},
+  {q:`Who constructed the famous Sangi Masjid, now known as Pathar-ki-Masjid.`,opts:[`Durzan Sal`, `Man Singh`, `Nazar Bahadur`, `Islam Khan`],ans:2,exp:`Correct: Nazar Bahadur`,cat:`Mughals`},
+  {q:`According to Peter Mundy, who was one of the best governors of Bihar during the Mughal rule?`,opts:[`Mirza Safi`, `Abdullah Khan`, `Jafar Khan`, `Shaista Khan`],ans:0,exp:`Correct: Mirza Safi`,cat:`Mughals`},
+  {q:`Who built the Shahi Idgah in Patna City?`,opts:[`Itiqad Khan`, `Shaista Khan`, `Zulfiqar Khan`, `Saif Khan`],ans:3,exp:`Correct: Saif Khan`,cat:`Mughals`},
+  {q:`Due to the dubious role played by Allahwardi Khan, Shuja was defeated in the battle of`,opts:[`Samugrah`, `Bahadurpur`, `Khazwa`, `Rajmahal`],ans:1,exp:`Correct: Bahadurpur`,cat:`Mughals`},
+  {q:`Which of the following European travellers visited the Guighu Factory?`,opts:[`John Marshall`, `Thomas Bowery`, `Tavernier`, `Bernier`],ans:0,exp:`Correct: John Marshall`,cat:`Mughals`},
+  {q:`Who was the Dewan of Bihar when Prince Azim was the governor of Bihar?`,opts:[`Saadat Khan`, `Safdarjung`, `Murshid Quli Khan`, `Allahwardi Khan`],ans:2,exp:`Correct: Murshid Quli Khan`,cat:`Mughals`},
+  {q:`Who made a grant of Madad-i-Mash land to the descendant of famous Pir Damaria's family?`,opts:[`Prince Salim`, `Prince Azim`, `Prince Parvez`, `Prince Khurram`],ans:0,exp:`Correct: Prince Salim`,cat:`Mughals`},
+  {q:`Prince Parvez was the son of which of the following Mughal emperor?`,opts:[`Shah Jahan`, `Akbar`, `Aurangzeb`, `Jahangir`],ans:3,exp:`Correct: Jahangir`,cat:`Mughals`},
+  {q:`Daud Khan was defeated by Akbar in the battle of`,opts:[`Bahadurpur`, `Munger`, `Rajmahal`, `Chausa`],ans:2,exp:`Correct: Rajmahal`,cat:`Mughals`}
+];
+
+// ══════════ QUIZ STATE ══════════
+let quizFiltered=[...quizData],currentQ=0,answered=false,score=0,wrongAnswers=[];
+let qTimes=[],catTimes={},timerIv=null,qStart=0;
+let skippedQs=[];
+let TIMER_SEC=60;
+let quizSizeLimit=0;
+let examMode=false;
+let bookmarked=new Set(JSON.parse(localStorage.getItem('secB_bookmarks')||'[]'));
+let confidenceMap=JSON.parse(localStorage.getItem('secB_confidence')||'{}');
+let fontSizeState=0; // 0=normal,1=large,2=small
+const fontClasses=['','fs-large','fs-small'];
+
+// ── SETTINGS ──
+function setTimerSec(v){ TIMER_SEC=parseInt(v); }
+function setQuizSize(v){ quizSizeLimit=parseInt(v); }
+function setExamMode(v){
+  examMode=(v==='exam');
+  document.getElementById('exam-banner').classList.toggle('show',examMode);
+}
+function cycleFontSize(){
+  document.body.classList.remove(fontClasses[fontSizeState]);
+  fontSizeState=(fontSizeState+1)%3;
+  document.body.classList.add(fontClasses[fontSizeState]);
+  const btn=document.getElementById('font-btn');
+  if(btn) btn.textContent=fontSizeState===0?'A':fontSizeState===1?'A+':'A-';
+}
+
+// ── BOOKMARKS ──
+function toggleBookmark(idx){
+  const key=quizFiltered[idx]?quizFiltered[idx].q.substring(0,40):'';
+  if(!key) return;
+  if(bookmarked.has(key)) bookmarked.delete(key);
+  else bookmarked.add(key);
+  localStorage.setItem('secB_bookmarks',JSON.stringify([...bookmarked]));
+  // update star button face
+  const btn=document.getElementById('star-btn');
+  if(btn) btn.classList.toggle('active', bookmarked.has(key));
+}
+function isBookmarked(q){
+  return bookmarked.has((q.q||'').substring(0,40));
+}
+function filterBookmarked(e){
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  if(e&&e.target) e.target.classList.add('active');
+  const bqs=quizData.filter(q=>isBookmarked(q));
+  if(!bqs.length){
+    document.getElementById('quiz-area').innerHTML=`<div class="bookmarked-empty">No starred questions yet.<br>Star any question during the quiz to find it here.</div>`;
+    document.getElementById('results-box').classList.remove('visible');
+    return;
+  }
+  quizFiltered=bqs;
+  currentQ=0;score=0;answered=false;wrongAnswers=[];qTimes=[];catTimes={};skippedQs=[];
+  clearInterval(timerIv);
+  document.getElementById('results-box').classList.remove('visible');
+  renderQuiz();
+}
+
+// ── SHUFFLE OPTIONS ──
+function shuffleOpts(q){
+  const pairs=q.opts.map((o,i)=>({text:o,orig:i}));
+  for(let i=pairs.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[pairs[i],pairs[j]]=[pairs[j],pairs[i]];}
+  return{opts:pairs.map(p=>p.text),ans:pairs.findIndex(p=>p.orig===q.ans)};
+}
+
+// ── RENDER QUIZ ──
+function renderQuiz(){
+  updateProgress();
+  document.getElementById('results-box').classList.remove('visible');
+  if(currentQ>=quizFiltered.length){showResults();return;}
+  const raw=quizFiltered[currentQ];
+  const {opts,ans}=shuffleOpts(raw);
+  const L=['A','B','C','D'];
+  const nextLabel=currentQ+1>=quizFiltered.length?'🏁 See Results':'Next ▶';
+  const isStarred=isBookmarked(raw);
+  const timerInfo=TIMER_SEC>0?`${TIMER_SEC}s`:'∞';
+  document.getElementById('quiz-area').innerHTML=`
+    <div class="quiz-above">
+      <span class="quiz-above-left">Q${currentQ+1} of ${quizFiltered.length} &nbsp;|&nbsp; Score: <strong>${score}</strong> / ${currentQ}</span>
+      <span class="quiz-above-right" style="display:flex;align-items:center;gap:.4rem;">
+        <button class="bookmark-btn${isStarred?' active':''}" id="star-btn" onclick="toggleBookmark(${currentQ})" title="Star this question">${isStarred?'⭐':'☆'}</button>
+        ${!examMode?`<button class="skip-btn" id="skip-btn" onclick="skipQ()">⏭ Skip</button>`:''}
+        <button class="quiz-nav-btn primary" id="nxt" onclick="nextQ()" style="display:none">${nextLabel}</button>
+      </span>
+    </div>
+    ${TIMER_SEC>0?`
+    <div class="timer-wrap">
+      <div class="timer-top">
+        <span class="timer-label" id="tlbl">${timerInfo}</span>
+        <span class="timer-label" id="tcat">${catLabel(raw.cat)}</span>
+      </div>
+      <div class="timer-track"><div class="timer-fill" id="tfill" style="width:100%"></div></div>
+    </div>`:''}
+    <div class="quiz-box">
+      <div class="question-header">
+        <span class="question-num">Q${currentQ+1} / ${quizFiltered.length}</span>
+        <span class="question-cat">${catLabel(raw.cat)}</span>
+      </div>
+      <div class="question-text">${raw.q}</div>
+      <div class="options" id="opts">
+        ${opts.map((o,i)=>`<div class="option" id="o${i}" onclick="pick(${i},${ans},'${raw.cat}')"><span class="option-letter">${L[i]}</span><span>${o}</span></div>`).join('')}
+      </div>
+      <div class="explanation" id="exp"><strong>📌 Explanation:</strong> ${raw.exp}
+        <div class="confidence-row" id="conf-row" style="display:none">
+          <span class="conf-label">How was that?</span>
+          <button class="conf-btn easy" onclick="rateConfidence('easy',${currentQ})">😊 Easy</button>
+          <button class="conf-btn medium" onclick="rateConfidence('medium',${currentQ})">😐 OK</button>
+          <button class="conf-btn hard" onclick="rateConfidence('hard',${currentQ})">😓 Hard</button>
+        </div>
+      </div>
+      <div class="quiz-nav">
+        <div class="score-bar">Score: <span>${score}</span></div>
+        <button class="quiz-nav-btn primary" id="nxt2" onclick="nextQ()" style="display:none">${nextLabel}</button>
+      </div>
+    </div>`;
+  answered=false;
+  if(TIMER_SEC>0) startTimer();
+}
+
+// ── CONFIDENCE ──
+function rateConfidence(level, idx){
+  const raw=quizFiltered[idx];
+  if(!raw) return;
+  const key=raw.q.substring(0,40);
+  confidenceMap[key]=level;
+  localStorage.setItem('secB_confidence',JSON.stringify(confidenceMap));
+  document.querySelectorAll('.conf-btn').forEach(b=>b.classList.remove('picked'));
+  const btn=document.querySelector(`.conf-btn.${level}`);
+  if(btn) btn.classList.add('picked');
+}
+
+// ── TIMER ──
+function startTimer(){
+  clearInterval(timerIv);
+  qStart=Date.now();
+  let rem=TIMER_SEC;
+  timerIv=setInterval(()=>{
+    rem--;
+    const fill=document.getElementById('tfill');
+    const lbl=document.getElementById('tlbl');
+    if(fill) fill.style.width=(rem/TIMER_SEC*100)+'%';
+    if(lbl) lbl.textContent=rem+'s';
+    if(rem<=10){if(fill)fill.classList.add('danger');if(lbl)lbl.classList.add('danger');}
+    else if(rem<=20){if(fill)fill.classList.add('warn');if(lbl)lbl.classList.add('warn');}
+    if(rem<=0){clearInterval(timerIv);if(!answered)autoTimeOut();}
+  },1000);
+}
+
+function autoTimeOut(){
+  answered=true;
+  const raw=quizFiltered[currentQ];
+  recTime(TIMER_SEC,raw.cat);
+  document.querySelectorAll('.option').forEach(o=>o.style.pointerEvents='none');
+  const exp=document.getElementById('exp');if(exp){exp.classList.add('visible');const cr=document.getElementById('conf-row');if(cr)cr.style.display='flex';}
+  const nb=document.getElementById('nxt');if(nb)nb.style.display='';
+  const nb2=document.getElementById('nxt2');if(nb2)nb2.style.display='';
+  wrongAnswers.push({n:currentQ+1,q:raw.q,correct:raw.opts[raw.ans],yours:'⏰ Timed Out',time:TIMER_SEC,cat:raw.cat});
+}
+
+function recTime(t,cat){
+  qTimes.push({q:currentQ+1,t,cat});
+  if(!catTimes[cat])catTimes[cat]={total:0,count:0};
+  catTimes[cat].total+=t;catTimes[cat].count++;
+}
+
+// ── PICK ──
+function pick(i,ans,cat){
+  if(answered)return;
+  answered=true;
+  clearInterval(timerIv);
+  const elapsed=TIMER_SEC>0?Math.max(1,Math.round((Date.now()-qStart)/1000)):0;
+  if(TIMER_SEC>0) recTime(elapsed,cat||quizFiltered[currentQ].cat);
+  const raw=quizFiltered[currentQ];
+  const opts=document.querySelectorAll('.option');
+  opts[i].classList.add(i===ans?'correct':'wrong');
+  opts[ans].classList.add('correct');
+  opts.forEach(o=>o.style.pointerEvents='none');
+  if(i===ans){score++;}
+  else{
+    const yourText=document.getElementById('o'+i).querySelector('span:last-child').textContent;
+    const corrText=document.getElementById('o'+ans).querySelector('span:last-child').textContent;
+    wrongAnswers.push({n:currentQ+1,q:raw.q,correct:corrText,yours:yourText,time:elapsed,cat:raw.cat});
+  }
+  const exp=document.getElementById('exp');
+  if(exp){
+    exp.classList.add('visible');
+    if(!examMode){const cr=document.getElementById('conf-row');if(cr)cr.style.display='flex';}
+  }
+  const nb=document.getElementById('nxt');if(nb)nb.style.display='';
+  const nb2=document.getElementById('nxt2');if(nb2)nb2.style.display='';
+  if(TIMER_SEC>0){
+    const lbl=document.getElementById('tlbl');const fill=document.getElementById('tfill');
+    if(lbl){lbl.textContent='✓ '+elapsed+'s';lbl.style.color='var(--accent-primary)';}
+    if(fill){fill.style.transition='none';fill.style.width='100%';fill.classList.remove('warn','danger');fill.style.background='var(--accent-primary)';}
+  }
+}
+
+function nextQ(){currentQ++;renderQuiz();}
+
+// ── SKIP ──
+function skipQ(){
+  if(answered||examMode) return;
+  clearInterval(timerIv);
+  const raw=quizFiltered[currentQ];
+  skippedQs.push({n:currentQ+1,q:raw.q,cat:raw.cat,origIdx:currentQ});
+  currentQ++;
+  renderQuiz();
+}
+
+// ── SHOW RESULTS ──
+function showResults(){
+  clearInterval(timerIv);
+  document.getElementById('quiz-area').innerHTML='';
+  const t=quizFiltered.length,pct=t>0?Math.round(score/t*100):0;
+  const totalT=qTimes.reduce((a,b)=>a+b.t,0);
+  const avgT=TIMER_SEC>0&&t>0?Math.round(totalT/t):0;
+  document.getElementById('score-display').textContent=pct+'%';
+  document.getElementById('score-label').textContent=score+' correct out of '+t+' questions';
+  document.getElementById('res-correct').textContent=score;
+  document.getElementById('res-wrong').textContent=t-score;
+  document.getElementById('res-total').textContent=t;
+
+  // SESSION HISTORY CHART
+  let history=[];
+  try{history=JSON.parse(localStorage.getItem('secB_history')||'[]');}catch(e){}
+  history.push({date:new Date().toLocaleDateString('en-IN',{day:'numeric',month:'short'}),score,total:t,pct,avgTime:avgT,catTimes:JSON.parse(JSON.stringify(catTimes))});
+  if(history.length>15)history.shift();
+  try{localStorage.setItem('secB_history',JSON.stringify(history));}catch(e){}
+  const hs=document.getElementById('history-section');
+  if(hs&&history.length>1){
+    const maxPct=Math.max(...history.map(h=>h.pct),1);
+    const bars=history.map(h=>{
+      const ht=Math.round((h.pct/100)*64)+4;
+      const col=h.pct>=75?'var(--accent-primary)':h.pct>=50?'#f59e0b':'#ef4444';
+      return `<div class="h-bar" style="height:${ht}px;background:${col};opacity:.85;" data-tip="${h.date}: ${h.pct}%"></div>`;
+    }).join('');
+    const dates=history.map(h=>`<div class="h-date">${h.date}</div>`).join('');
+    hs.innerHTML=`<h3>📈 Score History</h3><div class="history-bars">${bars}</div><div class="history-dates">${dates}</div>`;
+  } else if(hs){hs.innerHTML='';}
+
+  // TIME ANALYSIS
+  if(TIMER_SEC>0&&Object.keys(catTimes).length){
+    const maxAvg=Math.max(...Object.values(catTimes).map(c=>c.total/c.count),1);
+    let taHtml='<h3>⏱️ Time by Category</h3><p style="font-size:.76rem;color:var(--muted);font-family:DM Mono,monospace;margin-bottom:.85rem;">Slow = needs more revision</p>';
+    Object.entries(catTimes).sort((a,b)=>(b[1].total/b[1].count)-(a[1].total/a[1].count)).forEach(([cat,d])=>{
+      const avg=Math.round(d.total/d.count);
+      const pct2=Math.round((avg/maxAvg)*100);
+      const spd=avg>30?'slow':avg>15?'med':'';
+      const badge=avg>30?'<span class="ta-badge">Needs Work</span>':'';
+      taHtml+=`<div class="ta-row"><span class="ta-cat">${catLabel(cat)}</span><div class="ta-bar-bg"><div class="ta-bar-fill ${spd}" style="width:${pct2}%"></div></div><span class="ta-val">${avg}s avg</span>${badge}</div>`;
+    });
+    if(qTimes.length){
+      const slow=[...qTimes].sort((a,b)=>b.t-a.t).slice(0,3);
+      taHtml+='<div class="slow-q-list"><p style="font-size:.72rem;color:var(--muted);font-family:DM Mono,monospace;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.4rem;">Slowest Questions</p>';
+      slow.forEach(qt=>{const q=quizFiltered[qt.q-1];taHtml+=`<div class="slow-q-item"><span class="slow-q-time">${qt.t}s</span><span>${q?q.q.substring(0,65)+'...':''}</span></div>`;});
+      taHtml+='</div>';
+    }
+    let taEl=document.getElementById('time-analysis-area');
+    if(!taEl){
+      const rb=document.getElementById('results-box');
+      taEl=document.createElement('div');taEl.id='time-analysis-area';taEl.className='time-analysis';
+      const wl=rb.querySelector('#wrong-list-area');
+      if(wl) rb.insertBefore(taEl,wl); else rb.appendChild(taEl);
+    }
+    taEl.innerHTML=taHtml;
+  }
+
+  // WEAK TOPICS BUTTON
+  const weakCats=Object.entries(catTimes).filter(([c,d])=>(d.total/d.count)>25).map(([c])=>c);
+  let weakBtn='';
+  if(weakCats.length){
+    weakBtn=`<button class="quiz-nav-btn" onclick="drillWeak(${JSON.stringify(weakCats).replace(/"/g,"'")})" style="margin-top:.6rem;width:100%;display:block;text-align:center;">🎯 Drill Weak Topics (${weakCats.map(catLabel).join(', ')})</button>`;
+  }
+
+  // WRONG ANSWERS
+  const wa=document.getElementById('wrong-list-area');
+  wa.innerHTML=(wrongAnswers.length
+    ?'<div style="font-family:DM Mono,monospace;font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.75rem;">Review Wrong Answers</div>'+
+      wrongAnswers.map(w=>`<div class="wrong-item"><div class="wrong-num">Q${w.n} · ${catLabel(w.cat||'')}</div><div class="wrong-q">${w.q}</div><div style="font-size:.8rem;color:var(--danger);margin-bottom:2px;">Your answer: ${w.yours}</div><div class="wrong-correct">✓ Correct: ${w.correct}</div><div class="wrong-time">⏱ ${w.time}s</div></div>`).join('')
+    :'<div style="text-align:center;color:#4ade80;font-family:DM Mono,monospace;padding:1rem;">🎉 Perfect Score!</div>')+weakBtn;
+
+  // SKIPPED
+  let skipEl=document.getElementById('skipped-area');
+  if(!skipEl){const rb=document.getElementById('results-box');skipEl=document.createElement('div');skipEl.id='skipped-area';rb.appendChild(skipEl);}
+  if(skippedQs.length){
+    skipEl.innerHTML='<div style="margin-top:1.5rem;"><div style="font-family:DM Mono,monospace;font-size:.72rem;color:#f59e0b;text-transform:uppercase;letter-spacing:.1em;margin-bottom:.75rem;">⏭ Skipped ('+skippedQs.length+')</div>'+
+      skippedQs.map(s=>`<div class="skip-review-item"><div class="skip-review-num">Q${s.n} · ${catLabel(s.cat)}</div><div class="skip-review-q">${s.q}</div></div>`).join('')+
+      '<button class="quiz-nav-btn" onclick="reviewSkipped()" style="margin-top:.9rem;width:100%;display:block;text-align:center;">↩ Attempt Skipped</button></div>';
+  } else {skipEl.innerHTML='';}
+
+  document.getElementById('results-box').classList.add('visible');
+}
+
+// ── WEAK DRILL ──
+function drillWeak(cats){
+  quizFiltered=quizData.filter(q=>cats.includes(q.cat));
+  if(quizSizeLimit>0) quizFiltered=quizFiltered.slice(0,quizSizeLimit);
+  currentQ=0;score=0;answered=false;wrongAnswers=[];qTimes=[];catTimes={};skippedQs=[];
+  clearInterval(timerIv);
+  document.getElementById('results-box').classList.remove('visible');
+  renderQuiz();
+}
+
+function reviewSkipped(){
+  if(!skippedQs.length) return;
+  const origIdxs=skippedQs.map(s=>s.origIdx);
+  quizFiltered=origIdxs.map(i=>quizFiltered[i]||quizData[i]).filter(Boolean);
+  skippedQs=[];currentQ=0;score=0;answered=false;wrongAnswers=[];qTimes=[];catTimes={};
+  clearInterval(timerIv);
+  document.getElementById('results-box').classList.remove('visible');
+  renderQuiz();
+}
+
+function restartQuiz(){
+  currentQ=0;score=0;answered=false;wrongAnswers=[];qTimes=[];catTimes={};skippedQs=[];
+  clearInterval(timerIv);
+  document.getElementById('results-box').classList.remove('visible');
+  renderQuiz();
+}
+
+// ── SEARCH LEARN ──
+function searchLearn(term){
+  const t=term.trim().toLowerCase();
+  const tabsDiv=document.getElementById('learn-tabs-div');
+  if(!t){
+    // restore all tabs
+    document.querySelectorAll('.learn-tab').forEach(b=>b.style.display='');
+    document.querySelectorAll('.learn-content').forEach(c=>{
+      c.innerHTML=c.innerHTML.replace(/<mark class="search-highlight">([^<]+)<\/mark>/g,'$1');
+    });
+    return;
+  }
+  let firstFound=false;
+  document.querySelectorAll('.learn-content').forEach(c=>{
+    // remove previous highlights
+    c.innerHTML=c.innerHTML.replace(/<mark class="search-highlight">([^<]+)<\/mark>/g,'$1');
+    const text=c.innerText||c.textContent||'';
+    if(text.toLowerCase().includes(t)){
+      // highlight matches
+      c.innerHTML=c.innerHTML.replace(
+        new RegExp(`(${term.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')})`, 'gi'),
+        '<mark class="search-highlight">$1</mark>'
+      );
+      if(!firstFound){
+        // activate this tab
+        const id=c.id;
+        const tabIdx=['tsources','tearly','tsultanate','tafghans','tmughals','tdates'].indexOf(id);
+        if(tabIdx>=0) switchLearnTab(id);
+        firstFound=true;
+      }
+    }
+  });
+}
+
+
+
+// ══════════ SIBLING DETECTION ══════════
+async function checkSib(id, href){
+  try{
+    const r = await fetch(href, {method:'HEAD', cache:'no-store'});
+    if(r.ok){
+      const el = document.getElementById(id);
+      if(el) el.classList.add('linked');
+    }
+  }catch(_){}
+}
+function runSibChecks(){
+  checkSib('sib-a','chapter2_sectionA_ancient_history_bihar.html');
+  checkSib('sib-c','chapter2_sectionC_modern_history_bihar.html');
+}
+
+</script>
+</body>
+</html>
