@@ -6,11 +6,11 @@
 <title>Chapter 2 (Section A): Ancient History of Bihar</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
 <style>
-:root{--bg:#0a0d14;--surface:#111520;--border:rgba(255,255,255,0.07);--accent-primary:#a8d5ba;--memory-accent:#c9a8d5;--text:#e2e8f0;--muted:#64748b;--danger:#d5a8a8;--memory-bg:#1a1f2e;--trap-bg:#1f1414;--trap-border:#d5a8a8;--fire-color:#f59e0b;}
+:root{--bg:#0a0d14;--surface:#111520;--border:rgba(255,255,255,0.07);--accent-primary:#f59e0b;--memory-accent:#c9a8d5;--text:#e2e8f0;--muted:#64748b;--danger:#d5a8a8;--memory-bg:#1a1f2e;--trap-bg:#1f1414;--trap-border:#d5a8a8;--fire-color:#f59e0b;}
 *{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
 body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;padding:1rem;overflow-x:hidden;}
 body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:0;}
-body::after{content:'';position:fixed;top:-250px;left:50%;transform:translateX(-50%);width:900px;height:500px;background:radial-gradient(ellipse,rgba(168,213,186,0.06) 0%,transparent 70%);pointer-events:none;z-index:0;}
+body::after{content:'';position:fixed;top:-250px;left:50%;transform:translateX(-50%);width:900px;height:500px;background:radial-gradient(ellipse,rgba(245,158,11,0.06) 0%,transparent 70%);pointer-events:none;z-index:0;}
 .wrapper{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:60px 24px 80px;}
 header{background:var(--surface);border:1px solid var(--border);padding:2.5rem 2rem;border-radius:1rem;margin-bottom:2rem;box-shadow:0 8px 24px rgba(0,0,0,0.3);animation:slideDown 0.6s ease-out;text-align:center;}
 @keyframes slideDown{from{opacity:0;transform:translateY(-30px)}to{opacity:1;transform:translateY(0)}}
@@ -20,13 +20,13 @@ h1{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.8rem);font-
 .subtitle{font-size:1rem;font-weight:300;letter-spacing:.5px;color:var(--muted);}
 .toggle-container{display:flex;gap:.75rem;margin-top:1.5rem;background:var(--surface);padding:4px;border-radius:.75rem;width:fit-content;margin-left:auto;margin-right:auto;border:1px solid var(--border);flex-wrap:wrap;justify-content:center;}
 .toggle-btn{padding:.75rem 1.5rem;border:none;background:transparent;color:var(--muted);font-weight:600;cursor:pointer;border-radius:.5rem;transition:all .3s;font-size:.95rem;text-transform:uppercase;letter-spacing:.05em;}
-.toggle-btn.active{background:var(--accent-primary);color:#0a0d14;box-shadow:0 4px 12px rgba(168,213,186,0.3);}
+.toggle-btn.active{background:var(--accent-primary);color:#0a0d14;box-shadow:0 4px 12px rgba(245,158,11,0.3);}
 .toggle-btn:hover:not(.active){color:var(--text);}
 .container{max-width:1200px;margin:0 auto;position:relative;z-index:1;}
 .mode-section{display:none;animation:fadeIn .5s ease-out;}.mode-section.active{display:block;}
 .learn-tabs{display:flex;gap:.75rem;flex-wrap:wrap;margin-bottom:2rem;border-bottom:1px solid var(--border);padding-bottom:1rem;}
 .learn-tab{padding:.5rem 1.25rem;border:1px solid var(--border);background:transparent;color:var(--muted);border-radius:.5rem;cursor:pointer;font-size:.85rem;font-weight:600;transition:all .2s;white-space:nowrap;font-family:'DM Mono',monospace;}
-.learn-tab.active{background:rgba(168,213,186,0.15);color:var(--accent-primary);border-color:var(--accent-primary);}
+.learn-tab.active{background:rgba(245,158,11,0.15);color:var(--accent-primary);border-color:var(--accent-primary);}
 .learn-content{display:none;animation:slideUp .4s ease-out;}.learn-content.active{display:block;}
 .section-title{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:#fff;margin:2rem 0 1rem;padding-bottom:.5rem;border-bottom:1px solid var(--border);}
 .info-box{background:var(--surface);border:1px solid var(--border);border-radius:.75rem;padding:1.5rem;margin-bottom:1.5rem;}
@@ -56,7 +56,7 @@ h1{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.8rem);font-
 .progress-dot.visited{background:var(--accent-primary);border-color:var(--accent-primary);}
 .fc-controls{display:flex;gap:1rem;align-items:center;margin-bottom:2rem;flex-wrap:wrap;}
 .fc-btn{padding:.6rem 1.5rem;border:1px solid var(--border);background:transparent;color:var(--text);border-radius:.5rem;cursor:pointer;font-size:.9rem;font-weight:600;transition:all .2s;}
-.fc-btn:hover{background:rgba(168,213,186,0.1);border-color:var(--accent-primary);}
+.fc-btn:hover{background:rgba(245,158,11,0.1);border-color:var(--accent-primary);}
 .fc-counter{font-family:'DM Mono',monospace;font-size:.85rem;color:var(--muted);margin-left:auto;}
 .flashcard-container{perspective:1000px;height:260px;cursor:pointer;margin-bottom:1.5rem;}
 .flashcard-inner{position:relative;width:100%;height:100%;transition:transform .6s;transform-style:preserve-3d;}
@@ -78,16 +78,16 @@ h1{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.8rem);font-
 .question-text{font-size:1rem;font-weight:600;color:#fff;line-height:1.55;}
 .options{display:flex;flex-direction:column;gap:.6rem;margin:1.2rem 0;}
 .option{display:flex;align-items:flex-start;gap:.75rem;padding:.75rem 1rem;border:1px solid var(--border);border-radius:.5rem;cursor:pointer;transition:all .2s;font-size:.92rem;}
-.option:hover{border-color:var(--accent-primary);background:rgba(168,213,186,0.05);}
+.option:hover{border-color:var(--accent-primary);background:rgba(245,158,11,0.05);}
 .option.correct{border-color:#4ade80;background:rgba(74,222,128,0.1);color:#4ade80;}
 .option.wrong{border-color:var(--danger);background:rgba(213,168,168,0.08);color:var(--danger);}
 .option-letter{font-family:'DM Mono',monospace;font-size:.75rem;font-weight:700;color:var(--muted);width:20px;flex-shrink:0;padding-top:1px;}
-.explanation{background:rgba(168,213,186,0.07);border-left:3px solid var(--accent-primary);border-radius:0 .5rem .5rem 0;padding:.9rem 1rem;margin-top:1rem;font-size:.88rem;color:var(--text);line-height:1.6;display:none;}
+.explanation{background:rgba(245,158,11,0.07);border-left:3px solid var(--accent-primary);border-radius:0 .5rem .5rem 0;padding:.9rem 1rem;margin-top:1rem;font-size:.88rem;color:var(--text);line-height:1.6;display:none;}
 .explanation.visible{display:block;}
 .explanation strong{color:var(--accent-primary);}
 .quiz-nav{display:flex;justify-content:space-between;align-items:center;margin-top:1.2rem;flex-wrap:wrap;gap:.75rem;}
 .quiz-nav-btn{padding:.6rem 1.4rem;border:1px solid var(--border);background:transparent;color:var(--text);border-radius:.5rem;cursor:pointer;font-size:.88rem;font-weight:600;transition:all .2s;}
-.quiz-nav-btn:hover{border-color:var(--accent-primary);background:rgba(168,213,186,0.1);}
+.quiz-nav-btn:hover{border-color:var(--accent-primary);background:rgba(245,158,11,0.1);}
 .quiz-nav-btn.primary{background:var(--accent-primary);color:#0a0d14;border-color:var(--accent-primary);}
 .timer-bar-wrap{height:5px;background:var(--border);border-radius:3px;margin-bottom:1rem;overflow:hidden;}
 .timer-bar{height:100%;background:var(--accent-primary);border-radius:3px;transition:width 1s linear,background .3s;}
@@ -119,7 +119,7 @@ h1{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.8rem);font-
 .wrong-q-time{font-size:.72rem;color:var(--muted);font-family:'DM Mono',monospace;margin-top:.2rem;}
 .q-progress-info{font-family:'DM Mono',monospace;font-size:.78rem;color:var(--muted);margin-bottom:.4rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem;}
 .timeline-table{width:100%;border-collapse:collapse;font-size:.88rem;margin-bottom:1.5rem;}
-.timeline-table th{background:rgba(168,213,186,0.1);color:var(--accent-primary);padding:.6rem .9rem;text-align:left;font-family:'DM Mono',monospace;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;border-bottom:1px solid var(--border);}
+.timeline-table th{background:rgba(245,158,11,0.1);color:var(--accent-primary);padding:.6rem .9rem;text-align:left;font-family:'DM Mono',monospace;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;border-bottom:1px solid var(--border);}
 .timeline-table td{padding:.52rem .9rem;border-bottom:1px solid var(--border);color:var(--text);vertical-align:top;line-height:1.5;}
 .timeline-table tr:hover td{background:rgba(255,255,255,0.02);}
 .timeline-table td:first-child{font-family:'DM Mono',monospace;font-size:.76rem;color:var(--accent-primary);font-weight:700;}
@@ -128,13 +128,27 @@ h1{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.8rem);font-
 </head>
 <body>
 <div class="wrapper">
+<nav style="display:flex;align-items:center;justify-content:space-between;padding:14px 0 12px;border-bottom:1px solid rgba(255,255,255,0.07);margin-bottom:24px;flex-wrap:wrap;gap:8px;">
+  <div style="display:flex;align-items:center;gap:8px;font-family:'DM Mono',monospace;font-size:11px;color:#64748b;letter-spacing:0.1em;text-transform:uppercase;">
+    <a href="bihar_bpsc_master.html" style="color:#d4a853;text-decoration:none;">Bihar Special</a>
+    <span style="opacity:0.35;">/</span>
+    <a href="chapter_2.html" style="color:#d4a853;text-decoration:none;">Chapter 2</a>
+    <span style="opacity:0.35;">/</span>
+    <span>Section A</span>
+  </div>
+  <div style="display:flex;gap:6px;flex-wrap:wrap;">
+    <span style="font-family:'DM Mono',monospace;font-size:10px;padding:4px 11px;border-radius:99px;border:1px solid #f59e0b;background:rgba(245,158,11,0.12);color:#f59e0b;pointer-events:none;">● Section A</span>
+    <a id="sib-b" href="chapter2_sectionB_medieval_history_bihar.html" style="font-family:'DM Mono',monospace;font-size:10px;padding:4px 11px;border-radius:99px;border:1px solid rgba(255,255,255,0.07);background:transparent;color:#64748b;text-decoration:none;display:inline-flex;align-items:center;gap:5px;transition:all .2s;"><span id="dot-b" style="width:6px;height:6px;border-radius:50%;background:#64748b;display:inline-block;"></span>Section B</a>
+    <a id="sib-c" href="chapter2_sectionC_modern_history_bihar.html" style="font-family:'DM Mono',monospace;font-size:10px;padding:4px 11px;border-radius:99px;border:1px solid rgba(255,255,255,0.07);background:transparent;color:#64748b;text-decoration:none;display:inline-flex;align-items:center;gap:5px;transition:all .2s;"><span id="dot-c" style="width:6px;height:6px;border-radius:50%;background:#64748b;display:inline-block;"></span>Section C</a>
+  </div>
+</nav>
 <header>
   <h1>🏺 Chapter 2 (Section A): Ancient History of Bihar</h1>
   <p class="subtitle">BPSC Complete Study Guide • Learn, Flashcards &amp; Quiz</p>
   <div class="toggle-container">
-    <button class="toggle-btn active" onclick="switchMode('learn')">📚 Learn</button>
-    <button class="toggle-btn" onclick="switchMode('flashcard')">🎴 Flashcards</button>
-    <button class="toggle-btn" onclick="switchMode('quiz')">✍️ Quiz</button>
+    <button class="toggle-btn active" data-mode="learn">📚 Learn</button>
+    <button class="toggle-btn" data-mode="flashcard">🎴 Flashcards</button>
+    <button class="toggle-btn" data-mode="quiz">✍️ Quiz</button>
   </div>
 </header>
 <div class="container">
@@ -145,13 +159,13 @@ h1{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.8rem);font-
     <span id="progress-count" style="font-size:.85rem;color:var(--accent-primary);font-weight:700;margin-left:auto;"></span>
   </div>
   <div class="learn-tabs">
-    <button class="learn-tab active" onclick="swTab('tsrc')">Sources</button>
-    <button class="learn-tab" onclick="swTab('tanc')">Ancient Bihar</button>
-    <button class="learn-tab" onclick="swTab('trel')">Jainism &amp; Buddhism</button>
-    <button class="learn-tab" onclick="swTab('tmau')">Maurya Empire</button>
-    <button class="learn-tab" onclick="swTab('tpst')">Post-Maurya</button>
-    <button class="learn-tab" onclick="swTab('tgup')">Gupta Empire</button>
-    <button class="learn-tab" onclick="swTab('tdat')">Key Dates</button>
+    <button class="learn-tab active" data-tab="tsrc">Sources</button>
+    <button class="learn-tab" data-tab="tanc">Ancient Bihar</button>
+    <button class="learn-tab" data-tab="trel">Jainism &amp; Buddhism</button>
+    <button class="learn-tab" data-tab="tmau">Maurya Empire</button>
+    <button class="learn-tab" data-tab="tpst">Post-Maurya</button>
+    <button class="learn-tab" data-tab="tgup">Gupta Empire</button>
+    <button class="learn-tab" data-tab="tdat">Key Dates</button>
   </div>
 
   <div id="tsrc" class="learn-content active">
@@ -476,13 +490,13 @@ h1{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.8rem);font-
 
 <div id="flashcard-mode" class="mode-section">
   <div class="fc-controls">
-    <button class="fc-btn" onclick="fcPrev()">◀ Prev</button>
-    <button class="fc-btn" onclick="fcFlip()">↺ Flip</button>
-    <button class="fc-btn" onclick="fcNext()">Next ▶</button>
-    <button class="fc-btn" onclick="fcShuffle()">⇄ Shuffle</button>
+    <button class="fc-btn" id="fc-prev-btn">◀ Prev</button>
+    <button class="fc-btn" id="fc-flip-btn">↺ Flip</button>
+    <button class="fc-btn" id="fc-next-btn">Next ▶</button>
+    <button class="fc-btn" id="fc-shuffle-btn">⇄ Shuffle</button>
     <span class="fc-counter" id="fc-cnt">1 / 30</span>
   </div>
-  <div class="flashcard-container" id="fc-stage" onclick="fcFlip()">
+  <div class="flashcard-container" id="fc-stage">
     <div class="flashcard-inner" id="fc-inner">
       <div class="flashcard-face">
         <div class="fc-label">Question — click to flip</div>
@@ -552,6 +566,27 @@ const flashcards=[
   {q:"Who sent Vassakara to Lichchavi territory and why?",a:"Ajatashatru sent minister Vassakara to sow seeds of dissension among Lichchavis before attacking them.",hint:"Diplomatic strategy before military action",cat:"Ancient"},
   {q:"2nd Jaina Council — where, who, result?",a:"Vallabhi (Gujarat), 512 AD. President: Devardhi Kshamasramana. Result: Jaina literature written down for first time.",hint:"1st Jaina = Pataliputra. 2nd = Gujarat.",cat:"Jainism"},
 ];
+const TRIVIA={
+  'The earliest source for the history of':`📜 Atharvaveda calls Magadha people \'Vratyas\' = outsiders. Shows Bihar was frontier land!`,
+  'The first neolithic culture in Bihar w':`🏺 Chirand on bank of Ganga, Saran. Also found 82 Kushan coins here — 2000 years of occupation!`,
+  'The Ashokan inscriptions found in Bihar':`📝 Brahmi + Prakrit — NOT Sanskrit. Ashoka wrote for common people, not priests!`,
+  'Who was the founder of the Maurya dynas':`🤝 Chandragupta + Chanakya = perfect duo. One had brains, one had army!`,
+  'Which one of the following edicts menti':`💡 MASKI = personal name edict. Remember: Maski has \'ask\' in it — Ashoka asked to be named!`,
+  'Who is considered the real founder of M':`👑 Bimbisara expanded Magadha from tiny kingdom to empire. Without him, no Maurya empire!`,
+  'Both Gautama Buddha and Mahavira died d':`🧘 Ajatashatru killed his father yet was deeply affected by both Buddha and Mahavira dying in his reign!`,
+  'Which Gupta ruler is known as the Napol':`🎵 V.A. Smith gave this title. Samudragupta played veena while conquering — kaviraj + warrior!`,
+  'Who was the founder of Nalanda Universi':`⚠️ KUMARAGUPTA I — NOT Ashoka! Nalanda was Gupta, not Maurya. Common trap!`,
+  'Aryabhatta, the great mathematician and':`🚀 Kusumapura = Pataliputra = modern Patna. India\'s first satellite named after him in 1975!`,
+  'The caves at the Barabar Hills were dev':`🗻 Barabar = Ajivikas (Ashoka). Nagarjuni = Dasaratha. Don\'t confuse these two hill caves!`,
+  'The first Buddhist council was held at ':`☸️ RVP = Rajagriha → Vaishali → Pataliputra. All Bihar! 4th council in Kashmir only.`,
+  'Mahavira died at which place':`🕉️ Pavapuri = where Mahavira died. Jal Mandir (water temple) marks the exact spot!`,
+};
+
+function getTip(q){
+  const key=Object.keys(TRIVIA).find(k=>q.startsWith(k));
+  return key?TRIVIA[key]:'';
+}
+
 const quizData=[
   {q:`Which of the following inscription provide information about the Pala rulers ?`,opts:[`Munger copper - plate inscription of Devapala`, `Bhagalpur copper-plate inscription of Narayanpala`, `Bangarh copper-plate inscription of Vigrahapala`, `All of the above.`],ans:3,exp:`Correct answer: All of the above..`,cat:'Sources'},
   {q:`The earliest source for the history of Bihar is`,opts:[`Upanishads`, `Atharvaveda`, `Samaveda`, `Aranyaks`],ans:1,exp:`Correct answer: Atharvaveda.`,cat:'Sources'},
@@ -828,7 +863,9 @@ function renderQ(){
       <div class="options" id="opts-area">
         ${opts.map((o,i)=>`<div class="option" id="opt${i}" onclick="pickQ(${i},${ans})"><span class="option-letter">${L[i]}</span><span>${o}</span></div>`).join('')}
       </div>
-      <div class="explanation" id="exp"><strong>📌 Explanation:</strong> ${raw.exp}</div>
+      <div class="explanation" id="exp"><strong>📌 Explanation:</strong> ${raw.exp}
+        <div id="trivia-tip" style="display:none;margin-top:.75rem;padding:.65rem .9rem;background:rgba(255,255,255,0.04);border-radius:.4rem;font-size:.83rem;color:var(--muted);line-height:1.5;font-style:italic;border-left:3px solid var(--accent-primary);"></div>
+      </div>
       <div class="quiz-nav">
         <div class="quiz-score-bar" style="font-family:'DM Mono',monospace;font-size:.8rem;color:var(--muted)">Score: <strong style="color:var(--accent-primary)">${qScore}</strong></div>
         <button class="quiz-nav-btn primary" id="nxtbtn" onclick="nextQ()" style="display:none">${qCur+1>=qFiltered.length?'🏁 See Results':'Next ▶'}</button>
@@ -858,6 +895,10 @@ function autoOut(){
   recTime(elapsed);
   document.querySelectorAll('.option').forEach(o=>o.style.pointerEvents='none');
   document.getElementById('exp').classList.add('visible');
+  const _raw=qFiltered[qCur];
+  const _tip=_raw?getTip(_raw.q):'';
+  const _tipEl=document.getElementById('trivia-tip');
+  if(_tipEl&&_tip){_tipEl.textContent=_tip;_tipEl.style.display='block';}
   const nb=document.getElementById('nxtbtn');if(nb)nb.style.display='';
   qWrong.push({n:qCur+1,q:qFiltered[qCur].q,correct:qFiltered[qCur].opts[qFiltered[qCur].ans],yours:'⏰ Time Out',time:elapsed,cat:qFiltered[qCur].cat});
 }
@@ -884,6 +925,10 @@ function pickQ(sel,ans){
     qWrong.push({n:qCur+1,q:qFiltered[qCur].q,correct:corrText,yours:yourText,time:elapsed,cat:qFiltered[qCur].cat});
   }
   document.getElementById('exp').classList.add('visible');
+  const _raw=qFiltered[qCur];
+  const _tip=_raw?getTip(_raw.q):'';
+  const _tipEl=document.getElementById('trivia-tip');
+  if(_tipEl&&_tip){_tipEl.textContent=_tip;_tipEl.style.display='block';}
   const nb=document.getElementById('nxtbtn');
   if(nb){nb.style.display='';nb.textContent=qCur+1>=qFiltered.length?'🏁 See Results':'Next ▶';}
   const dis=document.getElementById('tdis');const bar=document.getElementById('tbar');
@@ -933,7 +978,7 @@ function showResults(){
   wa.innerHTML=qWrong.length
     ?'<div style="font-family:DM Mono,monospace;font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.7rem;">Review Wrong Answers</div>'+
       qWrong.map(w=>`<div class="wrong-q-item"><div class="wrong-q-number">Q${w.n} · ${w.cat}</div><div class="wrong-q-text">${w.q}</div><div style="font-size:.8rem;color:var(--danger);margin-bottom:2px;">Your answer: ${w.yours}</div><div class="wrong-q-correct">✓ Correct: ${w.correct}</div><div class="wrong-q-time">⏱ ${w.time}s taken</div></div>`).join('')
-    :'<div style="text-align:center;color:#4ade80;font-family:DM Mono,monospace;padding:1rem;">🎉 Perfect Score! Outstanding!</div>';
+    : (qScore>0 ? '<div style="text-align:center;color:#4ade80;font-family:DM Mono,monospace;padding:1rem;">🎉 Perfect Score! Outstanding!</div>' : '<div style="text-align:center;color:var(--muted);font-family:DM Mono,monospace;padding:1rem;">No answers recorded yet — answer some questions first!</div>');
   document.getElementById('results-box').classList.add('visible');
 }
 function quizRestart(){
@@ -944,10 +989,58 @@ function quizRestart(){
 }
 
 // INIT
-fcRender();
-renderQFilters();
-quizFiltered=[...quizData];
-renderQ();
+document.addEventListener('DOMContentLoaded', () => {
+  // Mode toggle button listeners
+  document.querySelectorAll('.toggle-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const mode = this.dataset.mode;
+      if(mode) switchMode(mode);
+    });
+  });
+  
+  // Learn tab button listeners
+  document.querySelectorAll('.learn-tab').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const tabId = this.dataset.tab;
+      if(tabId) swTab(tabId);
+    });
+  });
+  
+  // Flashcard button listeners
+  document.getElementById('fc-prev-btn')?.addEventListener('click', fcPrev);
+  document.getElementById('fc-flip-btn')?.addEventListener('click', fcFlip);
+  document.getElementById('fc-next-btn')?.addEventListener('click', fcNext);
+  document.getElementById('fc-shuffle-btn')?.addEventListener('click', fcShuffle);
+  
+  // Flashcard container flip listener
+  const fcContainer = document.getElementById('fc-stage');
+  if(fcContainer) fcContainer.addEventListener('click', fcFlip);
+  
+  fcRender();
+  renderQFilters();
+  qFiltered=[...quizData];
+  renderQ();
+});
+</script>
+
+<script>
+async function checkSib(id, dotId, href, color) {
+  try {
+    const r = await fetch(href, {method:'HEAD', cache:'no-store'});
+    if (r.ok) {
+      const el = document.getElementById(id);
+      const dot = document.getElementById(dotId);
+      if (el) { el.style.color = color; el.style.borderColor = color + '55'; }
+      if (dot) { dot.style.background = color; dot.style.boxShadow = '0 0 6px ' + color; }
+    }
+  } catch(_) {}
+}
+function runSibChecks() {
+  checkSib('sib-b','dot-b','chapter2_sectionB_medieval_history_bihar.html','#38bdf8');
+  checkSib('sib-c','dot-c','chapter2_sectionC_modern_history_bihar.html','#4ade80');
+}
+runSibChecks();
+setInterval(runSibChecks, 5000);
 </script>
 </body>
 </html>
