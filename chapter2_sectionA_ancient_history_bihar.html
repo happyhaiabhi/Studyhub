@@ -6,7 +6,7 @@
 <title>Chapter 2 (Section A): Ancient History of Bihar</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
 <style>
-:root{--bg:#0a0d14;--surface:#111520;--border:rgba(255,255,255,0.07);--accent-primary:#f59e0b;--memory-accent:#c9a8d5;--text:#e2e8f0;--muted:#64748b;--danger:#d5a8a8;--memory-bg:#1a1f2e;--trap-bg:#1f1414;--trap-border:#d5a8a8;--fire-color:#f59e0b;}
+:root{--bg:#0a0d14;--surface:#111520;--border:rgba(255,255,255,0.07);--accent-primary:#a8d5ba;--memory-accent:#c9a8d5;--text:#e2e8f0;--muted:#64748b;--danger:#d5a8a8;--memory-bg:#1a1f2e;--trap-bg:#1f1414;--trap-border:#d5a8a8;--fire-color:#a8d5ba;}
 *{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
 body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;padding:1rem;overflow-x:hidden;}
 body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:0;}
@@ -79,7 +79,7 @@ h1{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.8rem);font-
 .options{display:flex;flex-direction:column;gap:.6rem;margin:1.2rem 0;}
 .option{display:flex;align-items:flex-start;gap:.75rem;padding:.75rem 1rem;border:1px solid var(--border);border-radius:.5rem;cursor:pointer;transition:all .2s;font-size:.92rem;}
 .option:hover{border-color:var(--accent-primary);background:rgba(245,158,11,0.05);}
-.option.correct{border-color:#4ade80;background:rgba(74,222,128,0.1);color:#4ade80;}
+.option.correct{border-color:#a8d5ba;background:rgba(74,222,128,0.1);color:#a8d5ba;}
 .option.wrong{border-color:var(--danger);background:rgba(213,168,168,0.08);color:var(--danger);}
 .option-letter{font-family:'DM Mono',monospace;font-size:.75rem;font-weight:700;color:var(--muted);width:20px;flex-shrink:0;padding-top:1px;}
 .explanation{background:rgba(245,158,11,0.07);border-left:3px solid var(--accent-primary);border-radius:0 .5rem .5rem 0;padding:.9rem 1rem;margin-top:1rem;font-size:.88rem;color:var(--text);line-height:1.6;display:none;}
@@ -91,9 +91,9 @@ h1{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.8rem);font-
 .quiz-nav-btn.primary{background:var(--accent-primary);color:#0a0d14;border-color:var(--accent-primary);}
 .timer-bar-wrap{height:5px;background:var(--border);border-radius:3px;margin-bottom:1rem;overflow:hidden;}
 .timer-bar{height:100%;background:var(--accent-primary);border-radius:3px;transition:width 1s linear,background .3s;}
-.timer-bar.warn{background:#f59e0b;}.timer-bar.danger{background:#ef4444;}
+.timer-bar.warn{background:#a8d5ba;}.timer-bar.danger{background:#ef4444;}
 .timer-display{font-family:'DM Mono',monospace;font-size:.75rem;color:var(--muted);text-align:right;margin-bottom:.25rem;}
-.timer-display.warn{color:#f59e0b;}.timer-display.danger{color:#ef4444;}
+.timer-display.warn{color:#a8d5ba;}.timer-display.danger{color:#ef4444;}
 .results-box{background:var(--surface);border:1px solid var(--border);border-radius:1rem;padding:2.5rem 2rem;text-align:center;display:none;}
 .results-box.visible{display:block;animation:slideUp .5s ease;}
 .score-display{font-family:'Playfair Display',serif;font-size:4rem;font-weight:900;color:var(--accent-primary);line-height:1;margin-bottom:.5rem;}
@@ -108,14 +108,14 @@ h1{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.8rem);font-
 .cat-time-label{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--muted);text-transform:uppercase;min-width:100px;}
 .cat-time-bar-bg{flex:1;height:7px;background:var(--border);border-radius:4px;overflow:hidden;min-width:60px;}
 .cat-time-bar-fill{height:100%;background:var(--accent-primary);border-radius:4px;}
-.cat-time-bar-fill.slow{background:#ef4444;}.cat-time-bar-fill.medium{background:#f59e0b;}
+.cat-time-bar-fill.slow{background:#ef4444;}.cat-time-bar-fill.medium{background:#a8d5ba;}
 .cat-time-val{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--text);min-width:50px;text-align:right;}
 .slow-badge{font-family:'DM Mono',monospace;font-size:.62rem;background:rgba(239,68,68,0.15);color:#ef4444;border:1px solid rgba(239,68,68,0.3);padding:2px 7px;border-radius:99px;}
 .wrong-questions{margin-top:1.5rem;max-height:400px;overflow-y:auto;padding:1rem;background:var(--bg);border-radius:.75rem;}
 .wrong-q-item{background:var(--surface);padding:1rem;border-radius:.5rem;margin-bottom:.9rem;border-left:4px solid var(--danger);}
 .wrong-q-number{font-size:.82rem;color:var(--danger);font-weight:700;margin-bottom:.4rem;font-family:'DM Mono',monospace;}
 .wrong-q-text{color:var(--text);font-weight:600;margin-bottom:.35rem;font-size:.9rem;}
-.wrong-q-correct{font-size:.8rem;color:#4ade80;}
+.wrong-q-correct{font-size:.8rem;color:#a8d5ba;}
 .wrong-q-time{font-size:.72rem;color:var(--muted);font-family:'DM Mono',monospace;margin-top:.2rem;}
 .q-progress-info{font-family:'DM Mono',monospace;font-size:.78rem;color:var(--muted);margin-bottom:.4rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem;}
 .timeline-table{width:100%;border-collapse:collapse;font-size:.88rem;margin-bottom:1.5rem;}
@@ -131,7 +131,7 @@ h1{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.8rem);font-
 .ta-cat{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--muted);text-transform:uppercase;min-width:95px;}
 .ta-bar-bg{flex:1;height:7px;background:var(--border);border-radius:4px;overflow:hidden;min-width:60px;}
 .ta-bar-fill{height:100%;background:var(--accent-primary);border-radius:4px;transition:width .8s;}
-.ta-bar-fill.slow{background:#ef4444;} .ta-bar-fill.med{background:#f59e0b;}
+.ta-bar-fill.slow{background:#ef4444;} .ta-bar-fill.med{background:#a8d5ba;}
 .ta-val{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--text);min-width:48px;text-align:right;}
 .ta-badge{font-family:'DM Mono',monospace;font-size:.62rem;background:rgba(239,68,68,.15);color:#ef4444;border:1px solid rgba(239,68,68,.3);padding:2px 7px;border-radius:99px;}
 .slow-q-list{margin-top:.9rem;}
@@ -140,17 +140,17 @@ h1{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.8rem);font-
 .wrong-item{background:var(--surface);padding:.9rem;border-radius:.5rem;margin-bottom:.75rem;border-left:4px solid var(--danger);}
 .wrong-num{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--danger);margin-bottom:.35rem;font-weight:700;}
 .wrong-q{color:var(--text);font-weight:600;margin-bottom:.3rem;font-size:.88rem;}
-.wrong-correct{font-size:.8rem;color:#4ade80;}
+.wrong-correct{font-size:.8rem;color:#a8d5ba;}
 .wrong-time{font-size:.72rem;color:var(--muted);font-family:'DM Mono',monospace;margin-top:.2rem;}
 
 
 /* ── SKIP ── */
 .skip-btn{padding:.45rem 1.1rem;border:1px solid rgba(255,255,255,0.12);background:transparent;color:var(--muted);border-radius:.45rem;cursor:pointer;font-size:.82rem;font-weight:600;font-family:'DM Mono',monospace;transition:all .2s;letter-spacing:.04em;}
-.skip-btn:hover{border-color:#f59e0b;color:#f59e0b;background:rgba(245,158,11,0.08);}
-.skipped-badge{display:inline-block;font-size:.68rem;background:rgba(245,158,11,0.1);color:#f59e0b;border:1px solid rgba(245,158,11,0.3);padding:2px 8px;border-radius:99px;font-family:'DM Mono',monospace;margin-left:6px;}
-.skip-review-item{background:var(--surface);padding:.85rem 1rem;border-radius:.5rem;margin-bottom:.7rem;border-left:4px solid #f59e0b;cursor:pointer;transition:transform .2s;}
+.skip-btn:hover{border-color:#a8d5ba;color:#a8d5ba;background:rgba(245,158,11,0.08);}
+.skipped-badge{display:inline-block;font-size:.68rem;background:rgba(245,158,11,0.1);color:#a8d5ba;border:1px solid rgba(245,158,11,0.3);padding:2px 8px;border-radius:99px;font-family:'DM Mono',monospace;margin-left:6px;}
+.skip-review-item{background:var(--surface);padding:.85rem 1rem;border-radius:.5rem;margin-bottom:.7rem;border-left:4px solid #a8d5ba;cursor:pointer;transition:transform .2s;}
 .skip-review-item:hover{transform:translateX(4px);}
-.skip-review-num{font-family:'DM Mono',monospace;font-size:.72rem;color:#f59e0b;margin-bottom:.3rem;font-weight:700;}
+.skip-review-num{font-family:'DM Mono',monospace;font-size:.72rem;color:#a8d5ba;margin-bottom:.3rem;font-weight:700;}
 .skip-review-q{color:var(--text);font-size:.88rem;font-weight:600;}
 
 
@@ -163,16 +163,16 @@ h1{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.8rem);font-
 /* ── BOOKMARK ── */
 .bookmark-btn{background:transparent;border:none;cursor:pointer;font-size:1.1rem;padding:2px 6px;border-radius:.3rem;transition:transform .15s;line-height:1;color:var(--muted);}
 .bookmark-btn:hover{transform:scale(1.2);}
-.bookmark-btn.active{color:#f59e0b;}
+.bookmark-btn.active{color:#a8d5ba;}
 /* ── CONFIDENCE ── */
 .confidence-row{display:flex;gap:.5rem;margin-top:.9rem;align-items:center;}
 .conf-label{font-family:'DM Mono',monospace;font-size:.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;}
 .conf-btn{padding:.3rem .75rem;border-radius:99px;border:1px solid var(--border);background:transparent;cursor:pointer;font-size:.75rem;font-family:'DM Mono',monospace;transition:all .2s;}
-.conf-btn.easy{color:#4ade80;border-color:#4ade80;}
+.conf-btn.easy{color:#a8d5ba;border-color:#a8d5ba;}
 .conf-btn.easy:hover,.conf-btn.easy.picked{background:rgba(74,222,128,.12);}
 .conf-btn.hard{color:#ef4444;border-color:#ef4444;}
 .conf-btn.hard:hover,.conf-btn.hard.picked{background:rgba(239,68,68,.12);}
-.conf-btn.medium{color:#f59e0b;border-color:#f59e0b;}
+.conf-btn.medium{color:#a8d5ba;border-color:#a8d5ba;}
 .conf-btn.medium:hover,.conf-btn.medium.picked{background:rgba(245,158,11,.12);}
 /* ── SEARCH ── */
 .learn-search-wrap{position:relative;margin-bottom:1.2rem;}
@@ -213,7 +213,7 @@ body.fs-large .option{font-size:1rem;}
     <span>Section A</span>
   </div>
   <div style="display:flex;gap:6px;flex-wrap:wrap;">
-    <span style="font-family:'DM Mono',monospace;font-size:10px;padding:4px 11px;border-radius:99px;border:1px solid #f59e0b;background:rgba(245,158,11,0.12);color:#f59e0b;pointer-events:none;">● Section A</span>
+    <span style="font-family:'DM Mono',monospace;font-size:10px;padding:4px 11px;border-radius:99px;border:1px solid #a8d5ba;background:rgba(245,158,11,0.12);color:#a8d5ba;pointer-events:none;">● Section A</span>
     <a id="sib-b" href="chapter2_sectionB_medieval_history_bihar.html" style="font-family:'DM Mono',monospace;font-size:10px;padding:4px 11px;border-radius:99px;border:1px solid rgba(255,255,255,0.07);background:transparent;color:#64748b;text-decoration:none;display:inline-flex;align-items:center;gap:5px;transition:all .2s;"><span id="dot-b" style="width:6px;height:6px;border-radius:50%;background:#64748b;display:inline-block;"></span>Section B</a>
     <a id="sib-c" href="chapter2_sectionC_modern_history_bihar.html" style="font-family:'DM Mono',monospace;font-size:10px;padding:4px 11px;border-radius:99px;border:1px solid rgba(255,255,255,0.07);background:transparent;color:#64748b;text-decoration:none;display:inline-flex;align-items:center;gap:5px;transition:all .2s;"><span id="dot-c" style="width:6px;height:6px;border-radius:50%;background:#64748b;display:inline-block;"></span>Section C</a>
   </div>
@@ -1223,7 +1223,7 @@ function showResults(){
   if(hs&&history.length>1){
     const bars=history.map(h=>{
       const ht=Math.round((h.pct/100)*64)+4;
-      const col=h.pct>=75?'var(--accent-primary)':h.pct>=50?'#f59e0b':'#ef4444';
+      const col=h.pct>=75?'var(--accent-primary)':h.pct>=50?'#a8d5ba':'#ef4444';
       return `<div class="h-bar" style="height:${ht}px;background:${col};opacity:.85;" data-tip="${h.date}: ${h.pct}%"></div>`;
     }).join('');
     const dates=history.map(h=>`<div class="h-date">${h.date}</div>`).join('');
@@ -1261,13 +1261,13 @@ function showResults(){
   wa.innerHTML=(wrongAnswers.length
     ?'<div style="font-family:DM Mono,monospace;font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.75rem;">Review Wrong Answers</div>'+
       wrongAnswers.map(w=>`<div class="wrong-q-item"><div class="wrong-q-number">Q${w.n} · ${catLabel(w.cat||'')}</div><div class="wrong-q-text">${w.q}</div><div style="font-size:.8rem;color:var(--danger);margin-bottom:2px;">Your answer: ${w.yours}</div><div class="wrong-q-correct">✓ Correct: ${w.correct}</div><div class="wrong-q-time">⏱ ${w.time}s</div></div>`).join('')
-    :(score>0?'<div style="text-align:center;color:#4ade80;font-family:DM Mono,monospace;padding:1rem;">🎉 Perfect Score! Outstanding!</div>':'<div style="text-align:center;color:var(--muted);font-family:DM Mono,monospace;padding:1rem;">No answers recorded yet — answer some questions first!</div>'))+weakBtn;
+    :(score>0?'<div style="text-align:center;color:#a8d5ba;font-family:DM Mono,monospace;padding:1rem;">🎉 Perfect Score! Outstanding!</div>':'<div style="text-align:center;color:var(--muted);font-family:DM Mono,monospace;padding:1rem;">No answers recorded yet — answer some questions first!</div>'))+weakBtn;
 
   // SKIPPED
   let skipEl=document.getElementById('skipped-area');
   if(!skipEl){const rb=document.getElementById('results-box');skipEl=document.createElement('div');skipEl.id='skipped-area';rb.appendChild(skipEl);}
   if(skippedQs.length){
-    skipEl.innerHTML='<div style="margin-top:1.5rem;"><div style="font-family:DM Mono,monospace;font-size:.72rem;color:#f59e0b;text-transform:uppercase;letter-spacing:.1em;margin-bottom:.75rem;">⏭ Skipped ('+skippedQs.length+')</div>'+
+    skipEl.innerHTML='<div style="margin-top:1.5rem;"><div style="font-family:DM Mono,monospace;font-size:.72rem;color:#a8d5ba;text-transform:uppercase;letter-spacing:.1em;margin-bottom:.75rem;">⏭ Skipped ('+skippedQs.length+')</div>'+
       skippedQs.map(s=>`<div class="skip-review-item"><div class="skip-review-num">Q${s.n} · ${catLabel(s.cat)}</div><div class="skip-review-q">${s.q}</div></div>`).join('')+
       '<button class="quiz-nav-btn" onclick="reviewSkipped()" style="margin-top:.9rem;width:100%;display:block;text-align:center;">↩ Attempt Skipped</button></div>';
   } else {skipEl.innerHTML='';}
@@ -1336,7 +1336,7 @@ async function checkSib(id, dotId, href, color) {
 }
 function runSibChecks() {
   checkSib('sib-b','dot-b','chapter2_sectionB_medieval_history_bihar.html','#38bdf8');
-  checkSib('sib-c','dot-c','chapter2_sectionC_modern_history_bihar.html','#4ade80');
+  checkSib('sib-c','dot-c','chapter2_sectionC_modern_history_bihar.html','#a8d5ba');
 }
 </script>
 </body>
