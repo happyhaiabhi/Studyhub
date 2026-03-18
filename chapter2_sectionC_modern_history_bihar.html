@@ -143,6 +143,49 @@ h1{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.8rem);font-
 .wrong-q{color:var(--text);font-weight:600;margin-bottom:.3rem;font-size:.9rem;}
 .wrong-correct{font-size:.82rem;color:#4ade80;}
 @media(max-width:768px){h1{font-size:1.6rem;}.quiz-box{padding:1.5rem;}.toggle-container{flex-direction:column;width:100%;}.toggle-btn{width:100%;}.learn-grid{grid-template-columns:1fr;}.boundary-grid{grid-template-columns:1fr;}.admin-grid-2col{grid-template-columns:1fr;}.results-details{grid-template-columns:1fr;}.flashcard-container{height:220px;}.persons-grid{grid-template-columns:1fr;}.rebellion-table{font-size:.78rem;}}
+
+/* ── TIMER ── */
+.timer-wrap{margin-bottom:.9rem;}
+.timer-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;}
+.timer-label{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--muted);}
+.timer-label.warn{color:#f59e0b;} .timer-label.danger{color:#ef4444;}
+.timer-track{height:5px;background:var(--border);border-radius:3px;overflow:hidden;}
+.timer-fill{height:100%;background:var(--accent-primary);border-radius:3px;transition:width 1s linear,background .3s;}
+.timer-fill.warn{background:#f59e0b;} .timer-fill.danger{background:#ef4444;}
+/* ── SCORE ABOVE ── */
+.quiz-above{display:flex;justify-content:space-between;align-items:center;margin-bottom:.75rem;flex-wrap:wrap;gap:.5rem;}
+.quiz-above-left{font-family:'DM Mono',monospace;font-size:.78rem;color:var(--muted);}
+.quiz-above-left strong{color:var(--accent-primary);}
+.quiz-above-right{display:flex;gap:.5rem;align-items:center;}
+/* ── TIME ANALYSIS ── */
+.time-analysis{margin-top:2rem;text-align:left;}
+.time-analysis h3{font-family:'Playfair Display',serif;font-size:1.15rem;color:#fff;margin-bottom:.85rem;}
+.ta-row{display:flex;align-items:center;gap:.9rem;margin-bottom:.6rem;flex-wrap:wrap;}
+.ta-cat{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--muted);text-transform:uppercase;min-width:95px;}
+.ta-bar-bg{flex:1;height:7px;background:var(--border);border-radius:4px;overflow:hidden;min-width:60px;}
+.ta-bar-fill{height:100%;background:var(--accent-primary);border-radius:4px;transition:width .8s;}
+.ta-bar-fill.slow{background:#ef4444;} .ta-bar-fill.med{background:#f59e0b;}
+.ta-val{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--text);min-width:48px;text-align:right;}
+.ta-badge{font-family:'DM Mono',monospace;font-size:.62rem;background:rgba(239,68,68,.15);color:#ef4444;border:1px solid rgba(239,68,68,.3);padding:2px 7px;border-radius:99px;}
+.slow-q-list{margin-top:.9rem;}
+.slow-q-item{font-size:.8rem;padding:.4rem .7rem;background:var(--memory-bg);border-radius:.4rem;margin-bottom:.35rem;display:flex;gap:.6rem;align-items:baseline;}
+.slow-q-time{font-family:'DM Mono',monospace;color:var(--fire-color);flex-shrink:0;font-size:.72rem;}
+.wrong-item{background:var(--surface);padding:.9rem;border-radius:.5rem;margin-bottom:.75rem;border-left:4px solid var(--danger);}
+.wrong-num{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--danger);margin-bottom:.35rem;font-weight:700;}
+.wrong-q{color:var(--text);font-weight:600;margin-bottom:.3rem;font-size:.88rem;}
+.wrong-correct{font-size:.8rem;color:#4ade80;}
+.wrong-time{font-size:.72rem;color:var(--muted);font-family:'DM Mono',monospace;margin-top:.2rem;}
+
+
+/* ── SKIP ── */
+.skip-btn{padding:.45rem 1.1rem;border:1px solid rgba(255,255,255,0.12);background:transparent;color:var(--muted);border-radius:.45rem;cursor:pointer;font-size:.82rem;font-weight:600;font-family:'DM Mono',monospace;transition:all .2s;letter-spacing:.04em;}
+.skip-btn:hover{border-color:#f59e0b;color:#f59e0b;background:rgba(245,158,11,0.08);}
+.skipped-badge{display:inline-block;font-size:.68rem;background:rgba(245,158,11,0.1);color:#f59e0b;border:1px solid rgba(245,158,11,0.3);padding:2px 8px;border-radius:99px;font-family:'DM Mono',monospace;margin-left:6px;}
+.skip-review-item{background:var(--surface);padding:.85rem 1rem;border-radius:.5rem;margin-bottom:.7rem;border-left:4px solid #f59e0b;cursor:pointer;transition:transform .2s;}
+.skip-review-item:hover{transform:translateX(4px);}
+.skip-review-num{font-family:'DM Mono',monospace;font-size:.72rem;color:#f59e0b;margin-bottom:.3rem;font-weight:700;}
+.skip-review-q{color:var(--text);font-size:.88rem;font-weight:600;}
+
 </style>
 </head>
 <body>
@@ -557,14 +600,7 @@ h1{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.8rem);font-
     <div id="quiz-prog-dots" style="display:flex;gap:.4rem;"></div>
     <span id="quiz-prog-text" style="font-size:.82rem;color:var(--accent-primary);font-weight:700;margin-left:auto;"></span>
   </div>
-  <div class="quiz-filter">
-    <button class="filter-btn active" onclick="filterQuiz('all',event)">All (60)</button>
-    <button class="filter-btn" onclick="filterQuiz('18thc',event)">18th Century</button>
-    <button class="filter-btn" onclick="filterQuiz('rebellions',event)">Rebellions</button>
-    <button class="filter-btn" onclick="filterQuiz('revolt1857',event)">1857 Revolt</button>
-    <button class="filter-btn" onclick="filterQuiz('freedom',event)">Freedom</button>
-    <button class="filter-btn" onclick="filterQuiz('persons',event)">Persons</button>
-  </div>
+  <div class="quiz-filter" id="quiz-filter"></div>
   <div id="quiz-area"></div>
   <div class="results-box" id="results-box">
     <div class="score-display" id="score-display"></div>
@@ -582,6 +618,119 @@ h1{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.8rem);font-
 </div></div>
 
 <script>
+
+// ══════════ MODE + LEARN ENGINE ══════════
+
+const learnTabs = ['t18th','tbuxar','trebel','t1857','tfreedom','tdates'];
+let visitedTabs = new Set(['t18th']);
+
+function switchMode(m){
+  ['learn','flashcard','quiz'].forEach(x=>{
+    const el=document.getElementById(x+'-mode');
+    if(el) el.classList.remove('active');
+  });
+  document.querySelectorAll('.toggle-btn').forEach(b=>b.classList.remove('active'));
+  const target=document.getElementById(m+'-mode');
+  if(target) target.classList.add('active');
+  const idx=['learn','flashcard','quiz'].indexOf(m);
+  const btns=document.querySelectorAll('.toggle-btn');
+  if(btns[idx]) btns[idx].classList.add('active');
+  if(m==='flashcard') renderFlashcard();
+  if(m==='quiz'){ quizFiltered=[...quizData]; renderQuizFilters(); renderQuiz(); }
+}
+
+function switchLearnTab(id){
+  document.querySelectorAll('.learn-content').forEach(c=>c.classList.remove('active'));
+  document.querySelectorAll('.learn-tab').forEach(b=>b.classList.remove('active'));
+  const el=document.getElementById(id);
+  if(el) el.classList.add('active');
+  const idx=learnTabs.indexOf(id);
+  const tabs=document.querySelectorAll('.learn-tab');
+  if(tabs[idx]) tabs[idx].classList.add('active');
+  visitedTabs.add(id);
+  updateDots();
+}
+
+function updateDots(){
+  const dots=document.getElementById('tab-dots');
+  const count=document.getElementById('progress-count');
+  if(dots) dots.innerHTML=learnTabs.map(id=>`<div class="progress-dot${visitedTabs.has(id)?' visited':''}"></div>`).join('');
+  if(count) count.textContent=visitedTabs.size+' / '+learnTabs.length+' visited';
+}
+
+function updateProgress(){
+  updateDots();
+}
+
+// ══════════ FLASHCARD ENGINE ══════════
+let fcIndex=0, fcDeck=[];
+function initFlashcards(){ fcDeck=[...flashcards]; }
+
+function renderFlashcard(){
+  if(!fcDeck.length){ initFlashcards(); }
+  if(!fcDeck.length) return;
+  const c=fcDeck[fcIndex];
+  const qEl=document.getElementById('fc-q');
+  const aEl=document.getElementById('fc-a');
+  const hEl=document.getElementById('fc-hint-text');
+  const catEl=document.getElementById('fc-cat');
+  const cntEl=document.getElementById('fc-counter');
+  if(qEl) qEl.textContent=c.q;
+  if(aEl) aEl.textContent=c.a;
+  if(hEl) hEl.textContent=c.hint||'';
+  if(catEl) catEl.textContent=c.cat;
+  if(cntEl) cntEl.textContent=(fcIndex+1)+' / '+fcDeck.length;
+  const stage=document.getElementById('flashcard');
+  if(stage) stage.classList.remove('flipped');
+}
+
+function flipCard(){
+  const stage=document.getElementById('flashcard');
+  if(stage) stage.classList.toggle('flipped');
+}
+function prevCard(){ fcIndex=(fcIndex-1+fcDeck.length)%fcDeck.length; renderFlashcard(); }
+function nextCard(){ fcIndex=(fcIndex+1)%fcDeck.length; renderFlashcard(); }
+function shuffleCards(){
+  for(let i=fcDeck.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[fcDeck[i],fcDeck[j]]=[fcDeck[j],fcDeck[i]];}
+  fcIndex=0; renderFlashcard();
+}
+
+// ══════════ QUIZ FILTER ENGINE ══════════
+function catLabel(cat){
+  const map={'18thc':'18th Century','rebellions':'Rebellions','revolt1857':'1857 Revolt','freedom':'Freedom Mvt','persons':'Persons'};
+  return map[cat]||cat;
+}
+
+function renderQuizFilters(){
+  const el=document.getElementById('quiz-filter');
+  if(!el) return;
+  const cats=['all',...new Set(quizData.map(q=>q.cat))];
+  el.innerHTML=cats.map(c=>`<button class="filter-btn${c==='all'?' active':''}" onclick="filterQuiz('${c}',event)">${c==='all'?'All ('+quizData.length+')':catLabel(c)}</button>`).join('');
+}
+
+function filterQuiz(cat, e){
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  if(e && e.target) e.target.classList.add('active');
+  quizFiltered=cat==='all'?[...quizData]:quizData.filter(q=>q.cat===cat);
+  currentQ=0; score=0; answered=false; wrongAnswers=[]; qTimes=[]; catTimes={}; skippedQs=[];
+  clearInterval(timerIv);
+  document.getElementById('results-box').classList.remove('visible');
+  renderQuiz();
+}
+
+// ══════════ INIT ══════════
+document.addEventListener('DOMContentLoaded',()=>{
+  initFlashcards();
+  renderFlashcard();
+  renderQuizFilters();
+  quizFiltered=[...quizData];
+  renderQuiz();
+  updateDots();
+  runSibChecks();
+  setInterval(runSibChecks,5000);
+});
+
+
 // ══════════ FLASHCARD DATA ══════════
 const flashcards=[
   {q:"Who was the last independent Mughal governor of Bihar?",a:"Fakhr-ud-Daulah (1727)",hint:"After him Bihar got linked to Bengal",cat:"18th Century"},
@@ -593,28 +742,28 @@ const flashcards=[
   {q:"What happened in the Battle of Gharia (1740)?",a:"Sarfaraj Khan killed → Alivardi Khan became governor of Bengal+Bihar+Orissa",hint:"Shuja-ud-din had nominated Sarfaraj Khan",cat:"18th Century"},
   {q:"Who was the father of Siraj-ud-Daulah appointed as Bihar's deputy?",a:"Haibat Jung",hint:"His mausoleum is in Begumpur Muhalla, Patna",cat:"18th Century"},
   {q:"Describe Ram Narayan, Bihar's deputy governor",a:"Persian poet 'Mauzum'; disciple of Irani poet Shaikh Ali Hazin; drowned in Ganges on Mir Qasim's orders",hint:"Poetic career ended tragically",cat:"18th Century"},
-  {q:"Battle of Buxar: date, commander, alliance?",a:"Oct 22, 1764; Major Hector Munro (British); Mir Qasim + Shah Alam II + Shuja-ud-daulah",hint:"Triple alliance all defeated",cat:"Buxar"},
-  {q:"Why is Buxar more significant than Plassey?",a:"Plassey = only Nawab of Bengal; Buxar = Nawab of Bengal + Nawab of Awadh + Mughal Emperor all submitted",hint:"Bigger enemies, bigger significance",cat:"Buxar"},
-  {q:"Treaty of Allahabad: what did Shah Alam II get and give?",a:"Got: Kora & Allahabad districts + ₹26 lakhs annual tribute. Gave: Firman (Aug 12 & 19, 1765) granting EIC Diwani rights of Bengal, Bihar, Orissa",hint:"Diwani rights changed everything",cat:"Buxar"},
-  {q:"What is Dyarchy (1765–1772) in Bihar?",a:"Diwani (revenue) → British; Nizamat (administration) → Nawab. Introduced by Clive 1765, abolished by Warren Hastings 1772",hint:"7 years of double-headed confusion",cat:"Buxar"},
-  {q:"Who was the 1770 Provincial Council President of Bihar?",a:"James Alexander (President); Robert Palk, George Vansittart, Shitab Rai (members)",hint:"Formed after the 1769-70 famine",cat:"Buxar"},
-  {q:"Who led the Santhal Uprising (1855) and in which region?",a:"Sidhu and Kanhu; Rajmahal hills. British created Santhal Paragana to pacify.",hint:"'Ulgulan' = rebellion",cat:"Rebellions"},
-  {q:"What does 'ulgulan' mean and which revolt is it associated with?",a:"Rebellion — associated with Munda revolt under Birsa Munda",hint:"Not the Santhal revolt",cat:"Rebellions"},
-  {q:"Who led the Kol Uprising (1831) and what was its immediate cause?",a:"Budhu Bhagat (and others); immediate cause = abduction of wife of Surya Munda by Jafar Ali Khan",hint:"Broader cause = land transfer to outsiders",cat:"Rebellions"},
-  {q:"Who led the Bhumij Revolt (1832) and what was the cause?",a:"Ganga Narayan Singh; land revenue policy of British, oppressive taxes, police corruption",hint:"Revolt ended with his accidental death Feb 1833",cat:"Rebellions"},
-  {q:"Who founded the Wahabi Movement and what was its goal?",a:"Syed Ahmad; political + religious goal to free India from British rule (unIslamic to be ruled by British). Bihar centre = Sadikpore family, Patna — 40 years active",hint:"Patna Trials 1864 — Andamans",cat:"Rebellions"},
-  {q:"Tana Bhagat movement: which tribe, what type?",a:"Oraon tribe; essentially a RELIGIOUS movement. 'Tana' = to pull. Led by Jatra Bhagat.",hint:"Inspired by Munda revolt",cat:"Rebellions"},
-  {q:"First incident vs first MAJOR incident of 1857 in Bihar?",a:"First: Rohini village, Deoghar (June 12, 1857). First MAJOR: Patna uprising by Pir Ali (July 3, 1857)",hint:"These are different events — know both!",cat:"1857"},
-  {q:"Kunwar Singh: born, clan, age during revolt, last battle?",a:"Born Nov 1782, Jagdishpur; Ujjainiya Rajput; AGE 80 during revolt; last battle vs Captain Le Grand (won!) Apr 23, 1858; died Apr 26, 1858",hint:"Father: Raja Shahabzada Singh",cat:"1857"},
-  {q:"What happened Apr 21, 23, 26 of 1858?",a:"Apr 21: Kunwar Singh fought Brigadier Douglas, lost arm, crossed Ganges at Shivapur ghat. Apr 23: Captain Le Grand defeated. Apr 26: Kunwar Singh DIED",hint:"Three dramatic final days of a hero",cat:"1857"},
-  {q:"Which region was UNAFFECTED by the 1857 revolt in Bihar?",a:"Muzaffarpur — the most common BPSC trick question!",hint:"All other major centres had revolts",cat:"1857"},
-  {q:"Who invited Gandhi to Champaran and how did they meet?",a:"Raj Kumar Shukla; met Gandhi at Lucknow Congress, December 1916. Gandhi reached Muzaffarpur April 10, 1917.",hint:"Shukla persistently pursued Gandhi",cat:"Freedom"},
-  {q:"What is the Tinkathia system?",a:"Tenants must cultivate indigo on 3 kathas per bigha (3/20th of their land) — most prevalent method under Assamiwar system in Champaran",hint:"TIN = 3, KATHA = unit of land",cat:"Freedom"},
-  {q:"What happened August 11, 1942 at Patna Secretariat?",a:"Students marched to hoist national flag; 7 students shot dead under orders of DM W.G. Archer",hint:"Quit India Movement — 7 martyrs",cat:"Freedom"},
-  {q:"Who escaped Hazaribagh jail on Diwali night 1942 and what did JP do after?",a:"JP Narayan, Ramnandan Mishra, Yogendra Shukla, Suraj Narayan Singh, Gulab Sonar, Shaligram Singh. JP organized Azad Dasta (guerrilla bands) in Nepal.",hint:"November 9, 1942 — most dramatic jailbreak",cat:"Freedom"},
-  {q:"When was Bihar separated from Bengal and then from Orissa?",a:"Bihar+Orissa separated from Bengal: April 1, 1912. Bihar separated from Orissa: 1936 (GOI Act 1935)",hint:"1912 = double significance year",cat:"Freedom"},
-  {q:"Who was the first Premier of Bihar's Congress Ministry (1937)?",a:"Shri Krishna Sinha (July 20, 1937). Congress won 98/152 seats.",hint:"He was also the first Individual Civil Disobedience satyagrahi",cat:"Freedom"},
-  {q:"What was the Sadakat Ashram and who founded it?",a:"Mazharul Haque founded it near Digha, Patna. He also started newspaper 'Motherland'. He was Home Rule League President (1916).",hint:"Connected to Non-Cooperation Movement",cat:"Freedom"},
+  {q:"Battle of Buxar: date, commander, alliance?",a:"Oct 22, 1764; Major Hector Munro (British); Mir Qasim + Shah Alam II + Shuja-ud-daulah",hint:"Triple alliance all defeated",cat:"18thc"},
+  {q:"Why is Buxar more significant than Plassey?",a:"Plassey = only Nawab of Bengal; Buxar = Nawab of Bengal + Nawab of Awadh + Mughal Emperor all submitted",hint:"Bigger enemies, bigger significance",cat:"18thc"},
+  {q:"Treaty of Allahabad: what did Shah Alam II get and give?",a:"Got: Kora & Allahabad districts + ₹26 lakhs annual tribute. Gave: Firman (Aug 12 & 19, 1765) granting EIC Diwani rights of Bengal, Bihar, Orissa",hint:"Diwani rights changed everything",cat:"18thc"},
+  {q:"What is Dyarchy (1765–1772) in Bihar?",a:"Diwani (revenue) → British; Nizamat (administration) → Nawab. Introduced by Clive 1765, abolished by Warren Hastings 1772",hint:"7 years of double-headed confusion",cat:"18thc"},
+  {q:"Who was the 1770 Provincial Council President of Bihar?",a:"James Alexander (President); Robert Palk, George Vansittart, Shitab Rai (members)",hint:"Formed after the 1769-70 famine",cat:"18thc"},
+  {q:"Who led the Santhal Uprising (1855) and in which region?",a:"Sidhu and Kanhu; Rajmahal hills. British created Santhal Paragana to pacify.",hint:"'Ulgulan' = rebellion",cat:"rebellions"},
+  {q:"What does 'ulgulan' mean and which revolt is it associated with?",a:"Rebellion — associated with Munda revolt under Birsa Munda",hint:"Not the Santhal revolt",cat:"rebellions"},
+  {q:"Who led the Kol Uprising (1831) and what was its immediate cause?",a:"Budhu Bhagat (and others); immediate cause = abduction of wife of Surya Munda by Jafar Ali Khan",hint:"Broader cause = land transfer to outsiders",cat:"rebellions"},
+  {q:"Who led the Bhumij Revolt (1832) and what was the cause?",a:"Ganga Narayan Singh; land revenue policy of British, oppressive taxes, police corruption",hint:"Revolt ended with his accidental death Feb 1833",cat:"rebellions"},
+  {q:"Who founded the Wahabi Movement and what was its goal?",a:"Syed Ahmad; political + religious goal to free India from British rule (unIslamic to be ruled by British). Bihar centre = Sadikpore family, Patna — 40 years active",hint:"Patna Trials 1864 — Andamans",cat:"rebellions"},
+  {q:"Tana Bhagat movement: which tribe, what type?",a:"Oraon tribe; essentially a RELIGIOUS movement. 'Tana' = to pull. Led by Jatra Bhagat.",hint:"Inspired by Munda revolt",cat:"rebellions"},
+  {q:"First incident vs first MAJOR incident of 1857 in Bihar?",a:"First: Rohini village, Deoghar (June 12, 1857). First MAJOR: Patna uprising by Pir Ali (July 3, 1857)",hint:"These are different events — know both!",cat:"revolt1857"},
+  {q:"Kunwar Singh: born, clan, age during revolt, last battle?",a:"Born Nov 1782, Jagdishpur; Ujjainiya Rajput; AGE 80 during revolt; last battle vs Captain Le Grand (won!) Apr 23, 1858; died Apr 26, 1858",hint:"Father: Raja Shahabzada Singh",cat:"revolt1857"},
+  {q:"What happened Apr 21, 23, 26 of 1858?",a:"Apr 21: Kunwar Singh fought Brigadier Douglas, lost arm, crossed Ganges at Shivapur ghat. Apr 23: Captain Le Grand defeated. Apr 26: Kunwar Singh DIED",hint:"Three dramatic final days of a hero",cat:"revolt1857"},
+  {q:"Which region was UNAFFECTED by the 1857 revolt in Bihar?",a:"Muzaffarpur — the most common BPSC trick question!",hint:"All other major centres had revolts",cat:"revolt1857"},
+  {q:"Who invited Gandhi to Champaran and how did they meet?",a:"Raj Kumar Shukla; met Gandhi at Lucknow Congress, December 1916. Gandhi reached Muzaffarpur April 10, 1917.",hint:"Shukla persistently pursued Gandhi",cat:"freedom"},
+  {q:"What is the Tinkathia system?",a:"Tenants must cultivate indigo on 3 kathas per bigha (3/20th of their land) — most prevalent method under Assamiwar system in Champaran",hint:"TIN = 3, KATHA = unit of land",cat:"freedom"},
+  {q:"What happened August 11, 1942 at Patna Secretariat?",a:"Students marched to hoist national flag; 7 students shot dead under orders of DM W.G. Archer",hint:"Quit India Movement — 7 martyrs",cat:"freedom"},
+  {q:"Who escaped Hazaribagh jail on Diwali night 1942 and what did JP do after?",a:"JP Narayan, Ramnandan Mishra, Yogendra Shukla, Suraj Narayan Singh, Gulab Sonar, Shaligram Singh. JP organized Azad Dasta (guerrilla bands) in Nepal.",hint:"November 9, 1942 — most dramatic jailbreak",cat:"freedom"},
+  {q:"When was Bihar separated from Bengal and then from Orissa?",a:"Bihar+Orissa separated from Bengal: April 1, 1912. Bihar separated from Orissa: 1936 (GOI Act 1935)",hint:"1912 = double significance year",cat:"freedom"},
+  {q:"Who was the first Premier of Bihar's Congress Ministry (1937)?",a:"Shri Krishna Sinha (July 20, 1937). Congress won 98/152 seats.",hint:"He was also the first Individual Civil Disobedience satyagrahi",cat:"freedom"},
+  {q:"What was the Sadakat Ashram and who founded it?",a:"Mazharul Haque founded it near Digha, Patna. He also started newspaper 'Motherland'. He was Home Rule League President (1916).",hint:"Connected to Non-Cooperation Movement",cat:"freedom"},
 ];
 
 // ══════════ QUIZ DATA (60 questions) ══════════
@@ -704,141 +853,332 @@ const quizData=[
   {q:"Khudiram Bose was hanged on:",opts:["August 11, 1907","August 11, 1908","July 30, 1908","August 30, 1908"],ans:1,exp:"Khudiram Bose threw a bomb in Muzaffarpur on April 30, 1908 (meant for Kingsford, killed wife and daughter of Pingle Kennedy). He was hanged on August 11, 1908 — the youngest revolutionary executed.",cat:"persons"},
   {q:"JP Narayan escaped from which jail on Diwali night 1942?",opts:["Patna Central Jail","Muzaffarpur Jail","Hazaribagh Jail","Gaya Jail"],ans:2,exp:"Jai Prakash Narayan and five others — Ramnandan Mishra, Yogendra Shukla, Suraj Narayan Singh, Gulab Sonar, and Shaligram Singh — escaped from Hazaribagh Jail on Diwali night (November 9, 1942).",cat:"persons"},
   {q:"Who established Sadakat Ashram in Patna?",opts:["Rajendra Prasad","JP Narayan","Mazharul Haque","Anugraha Narayan Sinha"],ans:2,exp:"Mazharul Haque established Sadakat Ashram near Digha in Patna. He also started newspaper 'Motherland'. He was President of the Home Rule League in Bihar (1916).",cat:"persons"},
+
+  {q:`The East India Company proclaimed the diwani rights of Bengal, Bihar and Orissa during the reign of`,opts:[`Mir Qasim`, `Shah Alam II`, `Farrukhsiyar`, `Alivardi Khan`],ans:1,exp:`Correct: Shah Alam II`,cat:`18thc`},
+  {q:`Who became the deputy Nawab of Bihar after the Battle of Plassey (1757)?`,opts:[`Mir Jafar`, `Miran`, `Shujjat Khan`, `Tabtabai`],ans:1,exp:`Correct: Miran`,cat:`18thc`},
+  {q:`The first British traveller to visit Bihar was`,opts:[`Bishop Heber`, `Peter Mundy`, `John Marshall`, `Raulf Fitch`],ans:3,exp:`Correct: Raulf Fitch`,cat:`18thc`},
+  {q:`Which Nawab of Bengal transferred his capital from Murshidabad to Munger?`,opts:[`Mir Jafar`, `Siraj-ud-Daulah`, `Mir Qasim`, `Alivardi Khan`],ans:2,exp:`Correct: Mir Qasim`,cat:`18thc`},
+  {q:`In which year the Dutch established their first factory in Bihar?`,opts:[`1620`, `1651`, `1609`, `1632`],ans:3,exp:`Correct: 1632`,cat:`18thc`},
+  {q:`In which year the Danes established their factory in Patna?`,opts:[`1774`, `1664`, `1631`, `1786`],ans:0,exp:`Correct: 1774`,cat:`18thc`},
+  {q:`The Britishers established their first trading centre in 1620 Bihar at`,opts:[`Munger`, `Alamganj (Patna)`, `Purnea`, `Champaran`],ans:1,exp:`Correct: Alamganj (Patna)`,cat:`18thc`},
+  {q:`Who among the following was the first to oppose the British rule in Bihar?`,opts:[`Ali Gauhar`, `Haider Ali Khan`, `Kunwar Singh`, `Mir Qasim`],ans:0,exp:`Correct: Ali Gauhar`,cat:`18thc`},
+  {q:`In which year was the Revenue Council of Patna established?`,opts:[`1770`, `1765`, `1801`, `1719`],ans:0,exp:`Correct: 1770`,cat:`18thc`},
+  {q:`In which year did the company remove Dhiraj Narayan and replaced him with Raja Shitab Rai as the naib Diwan of Bihar?`,opts:[`1801`, `1767`, `1791`, `1765`],ans:1,exp:`Correct: 1767`,cat:`18thc`},
+  {q:`The Golghar in Patna was constructed during the reign of`,opts:[`Warren Hastings`, `Lord Hardinge`, `John Shore`, `Lord Cornwallis`],ans:3,exp:`Correct: Lord Cornwallis`,cat:`18thc`},
+  {q:`The first English magistrate of Patna was`,opts:[`James Alexander`, `Charles Francis Grand`, `Robert Palk`, `John Vansittart`],ans:1,exp:`Correct: Charles Francis Grand`,cat:`18thc`},
+  {q:`Who provided the monopoly in the trade of saltpetre to the Britishers in Bihar?`,opts:[`Mir Qasim`, `Mir Jafar`, `Raja Ramnarayan`, `Farrukhsiyar`],ans:1,exp:`Correct: Mir Jafar`,cat:`18thc`},
+  {q:`Mir Qasim established an ordnance factory at`,opts:[`Munger`, `Bhagalpur`, `Patna`, `Buxar`],ans:0,exp:`Correct: Munger`,cat:`18thc`},
+  {q:`The battle of Buxar was fought on`,opts:[`October 22, 1764`, `September 23, 1761`, `June 24, 1764`, `June 24, 1761`],ans:0,exp:`Correct: October 22, 1764`,cat:`18thc`},
+  {q:`Who was the commander of British army in the battle of Buxar?`,opts:[`Clive`, `Lord Hastings`, `Hector Munro`, `Major Knox`],ans:2,exp:`Correct: Hector Munro`,cat:`18thc`},
+  {q:`Who emerged victorious in the battle of Buxar?`,opts:[`Shuja-ud-daulah`, `East India Company`, `Shah Alam II`, `Mir Qasim`],ans:1,exp:`Correct: East India Company`,cat:`18thc`},
+  {q:`Who was appointed as the naib Diwan of Bihar by Robert Clive?`,opts:[`Omichand`, `Shitab Rai`, `Raja Durlabh Rai`, `Manik Chand`],ans:1,exp:`Correct: Shitab Rai`,cat:`18thc`},
+  {q:`Who established the control over the English factory in Patna in 1763?`,opts:[`Nawab Siraj-ud-daulah`, `Mir Jafar`, `Mir Qasim`, `Shah Alam II`],ans:2,exp:`Correct: Mir Qasim`,cat:`18thc`},
+  {q:`Shah Alam II handed over the Diwani rights of Bengal, Bihar and Orissa to the East India Company in 1765 in return of amount`,opts:[`Rs Fifty thousand`, `Rs 26 lakhs`, `Rs 1 Crore`, `Rs 10 Lakh`],ans:1,exp:`Correct: Rs 26 lakhs`,cat:`18thc`},
+  {q:`Which of the following is not related to Wahabi movement?`,opts:[`Syed Ahmad`, `Shah Waliullah`, `Vilayat Ali`, `Birsa Munda`],ans:3,exp:`Correct: Birsa Munda`,cat:`rebellions`},
+  {q:`In which year Wahabi movement was started?`,opts:[`1820`, `1830`, `1840`, `1850`],ans:0,exp:`Correct: 1820`,cat:`rebellions`},
+  {q:`Which of the following was / were the centres for the Wahabi Movement?`,opts:[`Patna`, `Sittana`, `Both`, `and`],ans:2,exp:`Correct: Both`,cat:`rebellions`},
+  {q:`Which of the following statements is / are not true?`,opts:[`Wahabi movement was based on Islamic revivalism.`, `Wahabi movement was only based around NWFP.`, `Both`, `and`],ans:1,exp:`Correct: Wahabi movement was only based around NWFP.`,cat:`rebellions`},
+  {q:`What was the reason for Kol uprising?`,opts:[`Transfer of their lands to outsiders`, `High revenue`, `Oppression by Britishers`, `None of the above`],ans:0,exp:`Correct: Transfer of their lands to outsiders`,cat:`rebellions`},
+  {q:`Who led the Kol revolt?`,opts:[`Budhu Bhagat`, `Sidhu and Kanhu`, `Birsa Munda`, `Raja Porhat`],ans:0,exp:`Correct: Budhu Bhagat`,cat:`rebellions`},
+  {q:`Who led the Bhumij revolt?`,opts:[`Ganga Narayan`, `Sidhu and Kanhu`, `Sayed Hasan`, `Raja Porhat`],ans:0,exp:`Correct: Ganga Narayan`,cat:`rebellions`},
+  {q:`Who among the following participated in the revolt of Tana Bhagat?`,opts:[`Ho tribe`, `Munda tribe`, `Santhal tribe`, `Oraon tribe`],ans:3,exp:`Correct: Oraon tribe`,cat:`rebellions`},
+  {q:`The Tana Bhagat movement was essentially a _____ movement.`,opts:[`religious`, `political`, `social`, `natural`],ans:0,exp:`Correct: religious`,cat:`rebellions`},
+  {q:`The occupation of which of the following region led the HO uprising?`,opts:[`occupation of Singhbhum`, `occupation of Chhotanagpur`, `Occupation of Kalahandi`, `None of the above`],ans:0,exp:`Correct: occupation of Singhbhum`,cat:`rebellions`},
+  {q:`In which year Kol uprising began?`,opts:[`1832`, `1831`, `1833`, `1834`],ans:1,exp:`Correct: 1831`,cat:`rebellions`},
+  {q:`Who among the following was the leader of Ho tribals movement?`,opts:[`Raja Parhat`, `Sidhu and Kanhu`, `Birsa Munda`, `Budhu Bhagat`],ans:0,exp:`Correct: Raja Parhat`,cat:`rebellions`},
+  {q:`In which year Bhumij revolt started?`,opts:[`1831`, `1832`, `1833`, `1834`],ans:1,exp:`Correct: 1832`,cat:`rebellions`},
+  {q:`Which of the following was the reason for Munda revolt?`,opts:[`Forest right`, `Land right`, `Religious revivalism`, `All of the above`],ans:0,exp:`Correct: Forest right`,cat:`rebellions`},
+  {q:`The term ulgulan means`,opts:[`Rebellion`, `Courageous`, `Tribal movement`, `Tribal song`],ans:0,exp:`Correct: Rebellion`,cat:`rebellions`},
+  {q:`What was created by the British to pacify the Santhal Uprising?`,opts:[`Specific area`, `Santhal Paragana`, `Autonomous status`, `None of the above`],ans:1,exp:`Correct: Santhal Paragana`,cat:`rebellions`},
+  {q:`Which of the following regions was mainly affected by Santhal uprising?`,opts:[`Rajmahal hill`, `Chhotanagpur`, `Singhbhum`, `None of these`],ans:0,exp:`Correct: Rajmahal hill`,cat:`rebellions`},
+  {q:`The reason of Bhumij revolt was _____`,opts:[`Land annexation policy of the Britishers`, `Land revenue policy of the Britishers`, `Both`, `and`],ans:1,exp:`Correct: Land revenue policy of the Britishers`,cat:`rebellions`},
+  {q:`Santhal uprising was led by`,opts:[`Sidhu and Kanhu`, `Birsa Munda`, `Budhu Bhagat`, `None of them`],ans:0,exp:`Correct: Sidhu and Kanhu`,cat:`rebellions`},
+  {q:`Which of the following statements is/are true?`,opts:[`Santhal uprising was led by Sidhu and Kanhu`, `Wahabi Movement was led by Syed Ahmad.`, `None of the above`, `Both`],ans:3,exp:`Correct: Both`,cat:`rebellions`},
+  {q:`Kunwar Singh was the King of`,opts:[`Hamirpur`, `Dheerpur`, `Jagdishpur`, `Rampur`],ans:2,exp:`Correct: Jagdishpur`,cat:`revolt1857`},
+  {q:`The leaders of the revolt of 1857 in Bihar was`,opts:[`Maulvi Ahmadullah`, `Tatya Tope`, `Nana Sahib`, `Kunwar Singh`],ans:3,exp:`Correct: Kunwar Singh`,cat:`revolt1857`},
+  {q:`Who among the following had established an arms and ammunition factory at Jagdishpur?`,opts:[`Amar Singh`, `Kunwar Singh`, `Pir Ali`, `Harkishen Singh`],ans:1,exp:`Correct: Kunwar Singh`,cat:`revolt1857`},
+  {q:`Who had established a parallel government in Jagdishpur?`,opts:[`Amar Singh`, `Kunwar Singh`, `Rathbhanjan Singh`, `Harkishen Singh`],ans:0,exp:`Correct: Amar Singh`,cat:`revolt1857`},
+  {q:`Who was the head of the parallel government established by Amar Singh?`,opts:[`Kunwar Singh`, `Harkishen Singh`, `Nishan Singh`, `Jaimangal Singh`],ans:1,exp:`Correct: Harkishen Singh`,cat:`revolt1857`},
+  {q:`Which region in Bihar was unaffected by the revolt of 1857?`,opts:[`4 and 5`, `Only 5`, `Only 4`, `3 4 and 5`],ans:1,exp:`Correct: Only 5`,cat:`revolt1857`},
+  {q:`The rulers of which state denied entry to Kunwar Singh in his state?`,opts:[`Rewa`, `Azamgarh`, `Awadh`, `Banda`],ans:0,exp:`Correct: Rewa`,cat:`revolt1857`},
+  {q:`Kunwar Singh fought his last war against which English captain?`,opts:[`Douglas`, `Lugard`, `Le Grand`, `Eyre`],ans:2,exp:`Correct: Le Grand`,cat:`revolt1857`},
+  {q:`Who was the leader of Patna uprising in 1857?`,opts:[`Jaimangal Singh`, `Inayat Ali`, `Vilayat Ali`, `Pir Ali`],ans:3,exp:`Correct: Pir Ali`,cat:`revolt1857`},
+  {q:`Amar Singh died on`,opts:[`February 5, 1860`, `January 5, 1860`, `March 5, 1859`, `January 3, 1860`],ans:0,exp:`Correct: February 5, 1860`,cat:`revolt1857`},
+  {q:`Who arrested Amar Singh?`,opts:[`Lugard`, `Maharaja Jang Bahadur`, `Maharaja Rai Bahadur`, `Samuels`],ans:1,exp:`Correct: Maharaja Jang Bahadur`,cat:`revolt1857`},
+  {q:`Kunwar Singh tried to meet which leader in October 1857?`,opts:[`Lakshmibai`, `Liaqat Ali`, `Tatya Tope`, `Begum Hazrat Mahal`],ans:2,exp:`Correct: Tatya Tope`,cat:`revolt1857`},
+  {q:`On which day the first major incident of 1857 occurred in Patna?`,opts:[`July 3, 1857`, `August 3, 1857`, `June 3, 1857`, `May 3, 1857`],ans:0,exp:`Correct: July 3, 1857`,cat:`revolt1857`},
+  {q:`During the revolt of 1857, Kunwar Singh represented the state of`,opts:[`Maharashtra`, `Punjab`, `Bengal`, `Bihar`],ans:3,exp:`Correct: Bihar`,cat:`revolt1857`},
+  {q:`Pir Ali was convicted and hanged on`,opts:[`July 7, 1858`, `July 7, 1857`, `August 7, 1857`, `August 7, 1858`],ans:1,exp:`Correct: July 7, 1857`,cat:`revolt1857`},
+  {q:`Which local leader of Rajgir Pargana declared himself Raja during 1857?`,opts:[`Kunwar Singh`, `Kushal Singh`, `Haider Ali Khan`, `Pitamber Shahi`],ans:2,exp:`Correct: Haider Ali Khan`,cat:`revolt1857`},
+  {q:`At which place in Bihar did the revolt of 1857 start comprehensively for the first time?`,opts:[`Patna`, `Munger`, `Muzaffarpur`, `Rajgir`],ans:0,exp:`Correct: Patna`,cat:`revolt1857`},
+  {q:`When did Kunwar Singh die?`,opts:[`10 April 1858`, `23 April 1858`, `26 April 1858`, `20 June 1858`],ans:2,exp:`Correct: 26 April 1858`,cat:`revolt1857`},
+  {q:`At which place Muhammad Hussain Khan led the revolt of 1857?`,opts:[`Chapra`, `Gaya`, `Nalanda`, `Rohtas`],ans:0,exp:`Correct: Chapra`,cat:`revolt1857`},
+  {q:`Which English officer invited Kunwar Singh to meet him at Patna?`,opts:[`Samuels`, `Eyre`, `Lugard`, `Tayler`],ans:3,exp:`Correct: Tayler`,cat:`revolt1857`},
+  {q:`When did the sepoys at Danapur revolt?`,opts:[`July 25, 1857`, `June 25, 1857`, `May 25, 1857`, `August 25, 1857`],ans:0,exp:`Correct: July 25, 1857`,cat:`revolt1857`},
+  {q:`Who engaged in guerilla war against the British during 1857?`,opts:[`Pir Ali`, `Amar Singh`, `Kunwar Singh`, `None`],ans:1,exp:`Correct: Amar Singh`,cat:`revolt1857`},
+  {q:`Amar Singh initiated guerilla war in the hills of`,opts:[`Rajgir`, `Ranchi`, `Kaimur`, `None`],ans:2,exp:`Correct: Kaimur`,cat:`revolt1857`},
+  {q:`During 1857, sepoys were removed from which districts?`,opts:[`Patna, Muzaffarpur`, `Shahabad, Patna`, `Sahabad, Muzaffarpur`, `Patna, Muzaffarpur`],ans:1,exp:`Correct: Shahabad, Patna`,cat:`revolt1857`},
+  {q:`Who was the Commissioner of Patna when revolt of 1857 started?`,opts:[`William Tayler`, `Samuels`, `Lloyd`, `Irwin`],ans:0,exp:`Correct: William Tayler`,cat:`revolt1857`},
+  {q:`The zamindars of which places helped the Company during 1857?`,opts:[`Hathua`, `Pandaul`, `Bettiah`, `All of the above`],ans:3,exp:`Correct: All of the above`,cat:`revolt1857`},
+  {q:`Kunwar Singh captured which district on March 25, 1858?`,opts:[`Rewa`, `Kanpur`, `Azamgarh`, `Kalpi`],ans:2,exp:`Correct: Azamgarh`,cat:`revolt1857`},
+  {q:`The ruler of which place presented Kunwar Singh a robe of honour and twelve thousand rupees?`,opts:[`Banda`, `Awadh`, `Rewa`, `Jaunpur`],ans:1,exp:`Correct: Awadh`,cat:`revolt1857`},
+  {q:`Kunwar Singh helped Nana Saheb in the war of`,opts:[`Lucknow`, `Kanpur`, `Shahabad`, `Jhansi`],ans:1,exp:`Correct: Kanpur`,cat:`revolt1857`},
+  {q:`Shiekh Bhikari was related to`,opts:[`Revolt of 1857`, `Indigo Revolt`, `Civil Disobedience Movement`, `Non-Cooperation Movement`],ans:0,exp:`Correct: Revolt of 1857`,cat:`revolt1857`},
+  {q:`Who had invited Gandhiji in West Champaran?`,opts:[`Raj Kumar Shukla`, `Mahadeo Desai`, `Rajendra Prasad`, `Narhari Parikh`],ans:0,exp:`Correct: Raj Kumar Shukla`,cat:`freedom`},
+  {q:`Which Government Act separated Orissa from Bihar province?`,opts:[`1909 Act`, `1919 Act`, `1935 Act`, `1948 Act`],ans:2,exp:`Correct: 1935 Act`,cat:`freedom`},
+  {q:`In Bihar, resolution for Non-cooperation Movement was passed under the leadership of`,opts:[`Rajendra Prasad`, `Mazhar-ul-Haq`, `Shah Mohammad`, `None`],ans:0,exp:`Correct: Rajendra Prasad`,cat:`freedom`},
+  {q:`In which year Bihar and Orissa separated from Bengal?`,opts:[`1910`, `1911`, `1912`, `1913`],ans:2,exp:`Correct: 1912`,cat:`freedom`},
+  {q:`Who among the following was not related to Champaran Satyagraha?`,opts:[`Dr. Rajendra Prasad`, `Anugrah Narayan Singh`, `JB Kriplani`, `Jai Prakash Narayan`],ans:3,exp:`Correct: Jai Prakash Narayan`,cat:`freedom`},
+  {q:`Which movement is called the first Civil Disobedience Movement?`,opts:[`Champaran`, `Bhagalpur`, `Bardoli`, `Gaya`],ans:0,exp:`Correct: Champaran`,cat:`freedom`},
+  {q:`In which year the Swarajist Movement started in Bihar?`,opts:[`1920`, `1922`, `1921`, `1923`],ans:3,exp:`Correct: 1923`,cat:`freedom`},
+  {q:`The All India Congress Session in December 1922 was held in`,opts:[`Patna`, `Gaya`, `Bhagalpur`, `Champaran`],ans:1,exp:`Correct: Gaya`,cat:`freedom`},
+  {q:`Patna Yuvak Sangh was formed in`,opts:[`1929`, `1926`, `1928`, `1927`],ans:3,exp:`Correct: 1927`,cat:`freedom`},
+  {q:`Where was Anushilan Committee Branch established in Bihar?`,opts:[`Gaya`, `Patna`, `Muzaffarpur`, `Munger`],ans:1,exp:`Correct: Patna`,cat:`freedom`},
+  {q:`Who had formed Bihar Provincial Kisan Sabha?`,opts:[`Shahjanand Saraswati`, `Mohammad Zubair`, `Sri Krishna Singh`, `Rajendra Prasad`],ans:0,exp:`Correct: Shahjanand Saraswati`,cat:`freedom`},
+  {q:`Champaran Satyagraha was against`,opts:[`tinkathiya system`, `high rent`, `outsiders`, `illegal transfer of land`],ans:0,exp:`Correct: tinkathiya system`,cat:`freedom`},
+  {q:`Refusal to pay Chaukidari tax was part of`,opts:[`Non-cooperation Movement`, `Civil Disobedience Movement`, `Quit India Movement`, `Khilafat Movement`],ans:1,exp:`Correct: Civil Disobedience Movement`,cat:`freedom`},
+  {q:`Under whose leadership All Party boycotted Simon Commission in Bihar?`,opts:[`Anugrah Narayan Sinha`, `Ramvriksha Benipuri`, `Fanishwarnath Renu`, `Rajendra Prasad`],ans:0,exp:`Correct: Anugrah Narayan Sinha`,cat:`freedom`},
+  {q:`Non-cooperation Movement was basically against`,opts:[`Rowlatt Act`, `Khilafat Issue`, `Jallianwala Bagh massacre`, `All of the above`],ans:3,exp:`Correct: All of the above`,cat:`freedom`},
+  {q:`When was Bihar Socialist Party established?`,opts:[`1934`, `1932`, `1931`, `1933`],ans:0,exp:`Correct: 1934`,cat:`freedom`},
+  {q:`Who was the leader of Salt Satyagraha in Bihar?`,opts:[`Rajendra Prasad`, `Jawaharlal Nehru`, `Gandhiji`, `Professor Abdul Bari`],ans:0,exp:`Correct: Rajendra Prasad`,cat:`freedom`},
+  {q:`Salt Revolt in Patna started from which date?`,opts:[`16th April, 1930`, `18th April, 1930`, `4th May, 1930`, `3rd April, 1930`],ans:0,exp:`Correct: 16th April, 1930`,cat:`freedom`},
+  {q:`When the British prince visited Bihar?`,opts:[`1921`, `1922`, `1923`, `1924`],ans:1,exp:`Correct: 1922`,cat:`freedom`},
+  {q:`In which year the period of Swarajist Movement started in Bihar?`,opts:[`1920`, `1922`, `1921`, `1923`],ans:3,exp:`Correct: 1923`,cat:`freedom`},
 ];
 
-// ══════════ STATE ══════════
-const TAB_IDS=['t18th','tbuxar','trebel','t1857','tfree','tdates'];
-let visitedTabs=new Set(['t18th']);
-let fcIndex=0,fcDeck=[...flashcards];
+// ══════════ QUIZ STATE ══════════
 let quizFiltered=[...quizData],currentQ=0,answered=false,score=0,wrongAnswers=[];
+let qTimes=[],catTimes={},timerIv=null,qStart=0;
+let skippedQs=[];
+const TIMER_SEC=60;
 
-// ══════════ LEARN ══════════
-function switchMode(m){
-  ['learn','flashcard','quiz'].forEach(x=>document.getElementById(x+'-mode').classList.remove('active'));
-  document.querySelectorAll('.toggle-btn').forEach(b=>b.classList.remove('active'));
-  document.getElementById(m+'-mode').classList.add('active');
-  document.querySelectorAll('.toggle-btn')[['learn','flashcard','quiz'].indexOf(m)].classList.add('active');
-  if(m==='flashcard')renderFlashcard();
-  if(m==='quiz')renderQuiz();
-  updateProgress();
-}
-function switchLearnTab(id){
-  document.querySelectorAll('.learn-content').forEach(c=>c.classList.remove('active'));
-  document.querySelectorAll('.learn-tab').forEach(b=>b.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  document.querySelectorAll('.learn-tab')[TAB_IDS.indexOf(id)].classList.add('active');
-  visitedTabs.add(id);updateDots();
-}
-function updateDots(){
-  const d=document.getElementById('tab-dots');
-  if(!d)return;
-  d.innerHTML=TAB_IDS.map(id=>`<div class="progress-dot${visitedTabs.has(id)?' visited':''}"></div>`).join('');
-  const c=document.getElementById('progress-count');
-  if(c)c.textContent=visitedTabs.size+' / '+TAB_IDS.length+' visited';
-}
-function updateProgress(){
-  const d=document.getElementById('quiz-prog-dots');
-  if(d)d.innerHTML=TAB_IDS.map(id=>`<div class="progress-dot${visitedTabs.has(id)?' visited':''}"></div>`).join('');
-  const t=document.getElementById('quiz-prog-text');
-  if(t)t.textContent=visitedTabs.size+' / '+TAB_IDS.length+' sections covered in Learn mode';
+function shuffleOpts(q){
+  const pairs=q.opts.map((o,i)=>({text:o,orig:i}));
+  for(let i=pairs.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[pairs[i],pairs[j]]=[pairs[j],pairs[i]];}
+  return{opts:pairs.map(p=>p.text),ans:pairs.findIndex(p=>p.orig===q.ans)};
 }
 
-// ══════════ FLASHCARDS ══════════
-function renderFlashcard(){
-  const c=fcDeck[fcIndex];
-  document.getElementById('fc-q').textContent=c.q;
-  document.getElementById('fc-a').textContent=c.a;
-  document.getElementById('fc-hint').textContent=c.hint||'';
-  document.getElementById('fc-cat').textContent=c.cat;
-  document.getElementById('fc-counter').textContent=(fcIndex+1)+' / '+fcDeck.length;
-  document.getElementById('flashcard').classList.remove('flipped');
-}
-function flipCard(){document.getElementById('flashcard').classList.toggle('flipped');}
-function prevCard(){fcIndex=(fcIndex-1+fcDeck.length)%fcDeck.length;renderFlashcard();}
-function nextCard(){fcIndex=(fcIndex+1)%fcDeck.length;renderFlashcard();}
-function shuffleCards(){
-  for(let i=fcDeck.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[fcDeck[i],fcDeck[j]]=[fcDeck[j],fcDeck[i]];}
-  fcIndex=0;renderFlashcard();
-}
-
-// ══════════ QUIZ ══════════
-function catLabel(c){return{'18thc':'18th Century','rebellions':'Rebellions','revolt1857':'1857 Revolt','freedom':'Freedom Movement','persons':'Key Persons'}[c]||c;}
-function filterQuiz(cat,e){
-  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
-  if(e&&e.target)e.target.classList.add('active');
-  quizFiltered=cat==='all'?[...quizData]:quizData.filter(q=>q.cat===cat);
-  currentQ=0;score=0;answered=false;wrongAnswers=[];
-  document.getElementById('results-box').classList.remove('visible');
-  renderQuiz();
-}
 function renderQuiz(){
   updateProgress();
+  document.getElementById('results-box').classList.remove('visible');
   if(currentQ>=quizFiltered.length){showResults();return;}
-  const q=quizFiltered[currentQ];
+  const raw=quizFiltered[currentQ];
+  const {opts,ans}=shuffleOpts(raw);
   const L=['A','B','C','D'];
+  const nextLabel=currentQ+1>=quizFiltered.length?'🏁 See Results':'Next ▶';
   document.getElementById('quiz-area').innerHTML=`
+    <div class="quiz-above">
+      <span class="quiz-above-left">Q${currentQ+1} of ${quizFiltered.length} &nbsp;|&nbsp; Score: <strong>${score}</strong> / ${currentQ}</span>
+      <span class="quiz-above-right">
+        <button class="skip-btn" id="skip-btn" onclick="skipQ()">⏭ Skip</button>
+        <button class="quiz-nav-btn primary" id="nxt" onclick="nextQ()" style="display:none">${nextLabel}</button>
+      </span>
+    </div>
+    <div class="timer-wrap">
+      <div class="timer-top">
+        <span class="timer-label" id="tlbl">${TIMER_SEC}s</span>
+        <span class="timer-label" id="tcat">${catLabel(raw.cat)}</span>
+      </div>
+      <div class="timer-track"><div class="timer-fill" id="tfill" style="width:100%"></div></div>
+    </div>
     <div class="quiz-box">
       <div class="question-header">
         <span class="question-num">Q${currentQ+1} / ${quizFiltered.length}</span>
-        <span class="question-cat">${catLabel(q.cat)}</span>
+        <span class="question-cat">${catLabel(raw.cat)}</span>
       </div>
-      <div class="question-text">${q.q}</div>
+      <div class="question-text">${raw.q}</div>
       <div class="options" id="opts">
-        ${q.opts.map((o,i)=>`<div class="option" id="o${i}" onclick="pick(${i})"><span class="option-letter">${L[i]}</span><span>${o}</span></div>`).join('')}
+        ${opts.map((o,i)=>`<div class="option" id="o${i}" onclick="pick(${i},${ans},'${raw.cat}')"><span class="option-letter">${L[i]}</span><span>${o}</span></div>`).join('')}
       </div>
-      <div class="explanation" id="exp"><strong>📌 Explanation:</strong> ${q.exp}</div>
+      <div class="explanation" id="exp"><strong>📌 Explanation:</strong> ${raw.exp}</div>
       <div class="quiz-nav">
         <div class="score-bar">Score: <span>${score}</span></div>
-        <button class="quiz-nav-btn primary" id="nxt" onclick="nextQ()" style="display:none">${currentQ+1>=quizFiltered.length?'🏁 See Results':'Next ▶'}</button>
+        <button class="quiz-nav-btn primary" id="nxt2" onclick="nextQ()" style="display:none">${nextLabel}</button>
       </div>
     </div>`;
-  document.getElementById('results-box').classList.remove('visible');
   answered=false;
+  startTimer();
 }
-function pick(i){
+
+function startTimer(){
+  clearInterval(timerIv);
+  qStart=Date.now();
+  let rem=TIMER_SEC;
+  timerIv=setInterval(()=>{
+    rem--;
+    const fill=document.getElementById('tfill');
+    const lbl=document.getElementById('tlbl');
+    if(fill) fill.style.width=(rem/TIMER_SEC*100)+'%';
+    if(lbl) lbl.textContent=rem+'s';
+    if(rem<=10){if(fill)fill.classList.add('danger');if(lbl)lbl.classList.add('danger');}
+    else if(rem<=20){if(fill)fill.classList.add('warn');if(lbl)lbl.classList.add('warn');}
+    if(rem<=0){clearInterval(timerIv);if(!answered)autoTimeOut();}
+  },1000);
+}
+
+function autoTimeOut(){
+  answered=true;
+  const raw=quizFiltered[currentQ];
+  recTime(TIMER_SEC,raw.cat);
+  document.querySelectorAll('.option').forEach(o=>o.style.pointerEvents='none');
+  const exp=document.getElementById('exp');if(exp)exp.classList.add('visible');
+  const nb=document.getElementById('nxt');if(nb)nb.style.display='';
+  const nb2=document.getElementById('nxt2');if(nb2)nb2.style.display='';
+  wrongAnswers.push({n:currentQ+1,q:raw.q,correct:raw.opts[raw.ans],yours:'⏰ Timed Out',time:TIMER_SEC,cat:raw.cat});
+}
+
+function recTime(t,cat){
+  qTimes.push({q:currentQ+1,t,cat});
+  if(!catTimes[cat])catTimes[cat]={total:0,count:0};
+  catTimes[cat].total+=t;catTimes[cat].count++;
+}
+
+function pick(i,ans,cat){
   if(answered)return;
   answered=true;
-  const q=quizFiltered[currentQ];
-  document.getElementById('o'+i).classList.add(i===q.ans?'correct':'wrong');
-  document.getElementById('o'+q.ans).classList.add('correct');
-  if(i===q.ans)score++;
-  else wrongAnswers.push({n:currentQ+1,q:q.q,correct:q.opts[q.ans],yours:q.opts[i]});
+  clearInterval(timerIv);
+  const elapsed=Math.max(1,Math.round((Date.now()-qStart)/1000));
+  recTime(elapsed,cat||quizFiltered[currentQ].cat);
+  const raw=quizFiltered[currentQ];
+  const opts=document.querySelectorAll('.option');
+  opts[i].classList.add(i===ans?'correct':'wrong');
+  opts[ans].classList.add('correct');
+  opts.forEach(o=>o.style.pointerEvents='none');
+  if(i===ans){score++;}
+  else{
+    const yourText=document.getElementById('o'+i).querySelector('span:last-child').textContent;
+    const corrText=document.getElementById('o'+ans).querySelector('span:last-child').textContent;
+    wrongAnswers.push({n:currentQ+1,q:raw.q,correct:corrText,yours:yourText,time:elapsed,cat:raw.cat});
+  }
   document.getElementById('exp').classList.add('visible');
-  document.getElementById('nxt').style.display='';
-  document.querySelectorAll('.option').forEach(o=>o.style.pointerEvents='none');
+  const nb=document.getElementById('nxt');if(nb)nb.style.display='';
+  const nb2=document.getElementById('nxt2');if(nb2)nb2.style.display='';
+  const lbl=document.getElementById('tlbl');
+  const fill=document.getElementById('tfill');
+  if(lbl){lbl.textContent='✓ '+elapsed+'s';lbl.style.color='var(--accent-primary)';}
+  if(fill){fill.style.transition='none';fill.style.width='100%';fill.classList.remove('warn','danger');fill.style.background='var(--accent-primary)';}
 }
-function nextQ(){currentQ++;if(currentQ>=quizFiltered.length){showResults();return;}renderQuiz();}
+
+function skipQ(){
+  if(answered) return;
+  clearInterval(timerIv);
+  const raw=quizFiltered[currentQ];
+  skippedQs.push({n:currentQ+1, q:raw.q, cat:raw.cat, origIdx:currentQ});
+  // hide skip button
+  const sb=document.getElementById('skip-btn');
+  if(sb) sb.style.display='none';
+  // move to next without counting
+  currentQ++;
+  renderQuiz();
+}
+
+
+function nextQ(){currentQ++;renderQuiz();}
+
 function showResults(){
+  clearInterval(timerIv);
   document.getElementById('quiz-area').innerHTML='';
   const t=quizFiltered.length,pct=t>0?Math.round(score/t*100):0;
+  const totalT=qTimes.reduce((a,b)=>a+b.t,0);
+  const avgT=t>0?Math.round(totalT/t):0;
   document.getElementById('score-display').textContent=pct+'%';
   document.getElementById('score-label').textContent=score+' correct out of '+t+' questions';
   document.getElementById('res-correct').textContent=score;
   document.getElementById('res-wrong').textContent=t-score;
   document.getElementById('res-total').textContent=t;
+  const maxAvg=Math.max(...Object.values(catTimes).map(c=>c.total/c.count),1);
+  let taHtml='<h3>⏱️ Time Analysis by Category</h3><p style="font-size:.76rem;color:var(--muted);font-family:DM Mono,monospace;margin-bottom:.85rem;">Slow categories need most revision</p>';
+  Object.entries(catTimes).sort((a,b)=>(b[1].total/b[1].count)-(a[1].total/a[1].count)).forEach(([cat,d])=>{
+    const avg=Math.round(d.total/d.count);
+    const pct2=Math.round((avg/maxAvg)*100);
+    const spd=avg>30?'slow':avg>15?'med':'';
+    const badge=avg>30?'<span class="ta-badge">Needs Work</span>':'';
+    taHtml+=`<div class="ta-row"><span class="ta-cat">${catLabel(cat)}</span><div class="ta-bar-bg"><div class="ta-bar-fill ${spd}" style="width:${pct2}%"></div></div><span class="ta-val">${avg}s avg</span>${badge}</div>`;
+  });
+  if(qTimes.length){
+    const slow=[...qTimes].sort((a,b)=>b.t-a.t).slice(0,3);
+    taHtml+='<div class="slow-q-list"><p style="font-size:.72rem;color:var(--muted);font-family:DM Mono,monospace;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.4rem;">Slowest Questions</p>';
+    slow.forEach(qt=>{const q=quizFiltered[qt.q-1];taHtml+=`<div class="slow-q-item"><span class="slow-q-time">${qt.t}s</span><span>${q?q.q.substring(0,65)+'...':''}</span></div>`;});
+    taHtml+='</div>';
+  }
+  let taEl=document.getElementById('time-analysis-area');
+  if(!taEl){
+    const rb=document.getElementById('results-box');
+    taEl=document.createElement('div');
+    taEl.id='time-analysis-area';taEl.className='time-analysis';
+    rb.insertBefore(taEl,rb.querySelector('#wrong-list-area'));
+  }
+  taEl.innerHTML=taHtml;
   const wa=document.getElementById('wrong-list-area');
-  wa.innerHTML=wrongAnswers.length>0
-    ?'<div style="font-family:\'DM Mono\',monospace;font-size:.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.75rem;">Review Wrong Answers</div>'+
-      wrongAnswers.map(w=>`<div class="wrong-item"><div class="wrong-num">Q${w.n}</div><div class="wrong-q">${w.q}</div><div style="font-size:.8rem;color:var(--danger);margin-bottom:2px;">Your answer: ${w.yours}</div><div class="wrong-correct">✓ Correct: ${w.correct}</div></div>`).join('')
-    :'<div style="text-align:center;color:#4ade80;font-family:\'DM Mono\',monospace;padding:1rem;">🎉 Perfect Score! Outstanding!</div>';
+  wa.innerHTML=wrongAnswers.length
+    ?'<div style="font-family:DM Mono,monospace;font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.75rem;">Review Wrong Answers</div>'+
+      wrongAnswers.map(w=>`<div class="wrong-item"><div class="wrong-num">Q${w.n} · ${catLabel(w.cat||'')}</div><div class="wrong-q">${w.q}</div><div style="font-size:.8rem;color:var(--danger);margin-bottom:2px;">Your answer: ${w.yours}</div><div class="wrong-correct">✓ Correct: ${w.correct}</div><div class="wrong-time">⏱ ${w.time}s taken</div></div>`).join('')
+    :'<div style="text-align:center;color:#4ade80;font-family:DM Mono,monospace;padding:1rem;">🎉 Perfect Score!</div>';
+  // SKIPPED QUESTIONS
+  let skipEl=document.getElementById('skipped-area');
+  if(!skipEl){
+    const rb=document.getElementById('results-box');
+    skipEl=document.createElement('div');
+    skipEl.id='skipped-area';
+    rb.appendChild(skipEl);
+  }
+  if(skippedQs.length>0){
+    skipEl.innerHTML='<div style="margin-top:1.5rem;"><div style="font-family:DM Mono,monospace;font-size:.72rem;color:#f59e0b;text-transform:uppercase;letter-spacing:.1em;margin-bottom:.75rem;">⏭ Skipped Questions ('+skippedQs.length+')</div>'+
+      skippedQs.map(s=>`<div class="skip-review-item" onclick="jumpToSkipped(${s.origIdx})"><div class="skip-review-num">Q${s.n} · ${catLabel(s.cat)}</div><div class="skip-review-q">${s.q}</div></div>`).join('')+
+      '<button class="quiz-nav-btn" onclick="reviewSkipped()" style="margin-top:.9rem;width:100%;justify-content:center;display:flex;">↩ Attempt Skipped Questions</button></div>';
+  } else {
+    skipEl.innerHTML='';
+  }
   document.getElementById('results-box').classList.add('visible');
+  try{
+    const saved=JSON.parse(localStorage.getItem('secC_history')||'[]');
+    saved.push({date:new Date().toLocaleDateString(),score,total:t,pct,avgTime:avgT});
+    if(saved.length>20)saved.shift();
+    localStorage.setItem('secC_history',JSON.stringify(saved));
+  }catch(e){}
 }
-function restartQuiz(){currentQ=0;score=0;answered=false;wrongAnswers=[];document.getElementById('results-box').classList.remove('visible');renderQuiz();}
 
-// ══════════ SIBLING NAV ══════════
-async function checkSib(id,href){
-  try{const r=await fetch(href,{method:'HEAD',cache:'no-store'});if(r.ok)document.getElementById(id).classList.add('linked');}catch(_){}
+function reviewSkipped(){
+  if(!skippedQs.length) return;
+  // rebuild quizFiltered with only skipped questions
+  quizFiltered = skippedQs.map(s => quizFiltered[s.origIdx] || quizData[s.origIdx]).filter(Boolean);
+  skippedQs=[];
+  currentQ=0; score=0; answered=false; wrongAnswers=[]; qTimes=[]; catTimes={};
+  clearInterval(timerIv);
+  document.getElementById('results-box').classList.remove('visible');
+  renderQuiz();
+}
+function jumpToSkipped(idx){
+  // just close results and go to that question index
+  document.getElementById('results-box').classList.remove('visible');
+  currentQ=idx; answered=false;
+  clearInterval(timerIv);
+  renderQuiz();
+}
+
+
+function restartQuiz(){
+  currentQ=0;score=0;answered=false;wrongAnswers=[];qTimes=[];catTimes={};skippedQs=[];
+  clearInterval(timerIv);
+  document.getElementById('results-box').classList.remove('visible');
+  renderQuiz();
+}
+
+// ══════════ SIBLING DETECTION ══════════
+async function checkSib(id, href){
+  try{
+    const r = await fetch(href, {method:'HEAD', cache:'no-store'});
+    if(r.ok){
+      const el = document.getElementById(id);
+      if(el) el.classList.add('linked');
+    }
+  }catch(_){}
 }
 function runSibChecks(){
-  checkSib('sib-a','chapter2_sectionA_ancient_history_bihar.html');
   checkSib('sib-b','chapter2_sectionB_medieval_history_bihar.html');
+  checkSib('sib-c','chapter2_sectionC_modern_history_bihar.html');
 }
-runSibChecks();
-setInterval(runSibChecks,5000);
 
-// ══════════ INIT ══════════
-updateDots();
-renderFlashcard();
 </script>
 </body>
 </html>
