@@ -256,9 +256,9 @@ body.fs-large .option{font-size:1rem;}
   <h1>🏛️ Chapter 2 — Section C: Modern History of Bihar</h1>
   <p class="subtitle">BPSC Complete Study Guide • Learn · Flashcards · Quiz</p>
   <div class="toggle-container">
-    <button class="toggle-btn active" onclick="switchMode('learn')">📚 Learn</button>
-    <button class="toggle-btn" onclick="switchMode('flashcard')">🎴 Flashcards</button>
-    <button class="toggle-btn" onclick="switchMode('quiz')">✍️ Quiz</button>
+    <button class="toggle-btn active" data-mode="learn">📚 Learn</button>
+    <button class="toggle-btn" data-mode="flashcard">🎴 Flashcards</button>
+    <button class="toggle-btn" data-mode="quiz">✍️ Quiz</button>
   </div>
 </header>
 
@@ -276,12 +276,12 @@ body.fs-large .option{font-size:1rem;}
     <input class="learn-search" id="learn-search" type="text" placeholder="Search across all sections..." oninput="searchLearn(this.value)">
   </div>
   <div class="learn-tabs" id="learn-tabs-div">
-    <button class="learn-tab active" onclick="switchLearnTab('t18th')">18th Century</button>
-    <button class="learn-tab" onclick="switchLearnTab('tbuxar')">Buxar &amp; Dyarchy</button>
-    <button class="learn-tab" onclick="switchLearnTab('trebel')">Rebellions</button>
-    <button class="learn-tab" onclick="switchLearnTab('t1857')">1857 Revolt</button>
-    <button class="learn-tab" onclick="switchLearnTab('tfree')">Freedom Movement</button>
-    <button class="learn-tab" onclick="switchLearnTab('tdates')">Key Dates</button>
+    <button class="learn-tab active" data-tab="t18th">18th Century</button>
+    <button class="learn-tab" data-tab="tbuxar">Buxar &amp; Dyarchy</button>
+    <button class="learn-tab" data-tab="trebel">Rebellions</button>
+    <button class="learn-tab" data-tab="t1857">1857 Revolt</button>
+    <button class="learn-tab" data-tab="tfreedom">Freedom Movement</button>
+    <button class="learn-tab" data-tab="tdates">Key Dates</button>
   </div>
 
   <!-- 18TH CENTURY -->
@@ -778,10 +778,7 @@ function shuffleCards(){
 }
 
 // ══════════ QUIZ FILTER ENGINE ══════════
-function catLabel(cat){
-  const map={'18thc':'18th Century','rebellions':'Rebellions','revolt1857':'1857 Revolt','freedom':'Freedom Mvt','persons':'Persons'};
-  return map[cat]||cat;
-}
+function catLabel(cat){const map={'18thc':'18th Century','rebellions':'Rebellions','revolt1857':'1857 Revolt','freedom':'Freedom Mvt','persons':'Persons'};return map[cat]||cat;}
 
 function renderQuizFilters(){
   const el=document.getElementById('quiz-filter');
@@ -805,6 +802,22 @@ function filterQuiz(cat, e){
 
 // ══════════ INIT ══════════
 document.addEventListener('DOMContentLoaded',()=>{
+  // Mode toggle button listeners
+  document.querySelectorAll('.toggle-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const mode = this.dataset.mode;
+      if(mode) switchMode(mode);
+    });
+  });
+  
+  // Learn tab button listeners
+  document.querySelectorAll('.learn-tab').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const tabId = this.dataset.tab;
+      if(tabId) switchLearnTab(tabId);
+    });
+  });
+  
   initFlashcards();
   renderFlashcard();
   renderQuizFilters();
@@ -852,6 +865,32 @@ const flashcards=[
 ];
 
 // ══════════ QUIZ DATA (60 questions) ══════════
+const TRIVIA={
+  'The East India Company proclaimed Diwa':`💡 Shah Alam II signed the firman on Aug 12 & 19, 1765 — TWO dates for one grant!`,
+  'Who became the deputy Nawab of Bihar a':`🎯 Miran = son of Mir Jafar. Both father and son were British puppets.`,
+  'The first British traveller to visit B':`🗺️ Raulf Fitch visited in 1583 — over 200 years before British rule began!`,
+  'Which Nawab of Bengal transferred his ':`🏃 Mir Qasim moved to Munger to ESCAPE British interference in Murshidabad!`,
+  'In which year the Dutch established th':`📅 Dutch 1632 → English 1651 → Danes 1774. Europeans arrived in that order in Bihar.`,
+  'The battle of Buxar was fought on - ':`⚔️ Oct 22, 1764 — Triple alliance of Mir Qasim + Shuja-ud-Daulah + Shah Alam II still lost!`,
+  'Who was the commander of British army ':`🎖️ Hector Munro → H for Hero of Buxar! He defeated 3 rulers at once.`,
+  'Shah Alam II handed over the Diwani ri':`💰 ₹26 lakhs annually — EIC got revenue rights of 3 states for just 26 lakhs per year!`,
+  'Which of the following is not related ':`⚠️ Birsa Munda = Munda revolt (ulgulan). Wahabi = Islamic revival. Totally different!`,
+  'Who led the Kol revolt':`✊ Budhu Bhagat — B for Bhagat, B for Budhu, B for Bhumi (land). Triple B!`,
+  'Who led the Bhumij revolt':`💧 Ganga Narayan — named after Ganga river, his revolt was in the riverine areas.`,
+  'The term ulgulan means':`🔥 Ulgulan = Great Tumult/Rebellion in Mundari language. Birsa Munda\'s revolt 1899-1900.`,
+  'Kunwar Singh was the King of':`👑 Jagdishpur in Shahabad (now Bhojpur). He was 80 years old and still fought!`,
+  'When did Kunwar Singh die':`⚔️ Apr 26, 1858 — just 3 days after his last battle victory on Apr 23. True warrior!`,
+  'Who had invited Gandhiji in West Champ':`🌾 Raj Kumar Shukla was a poor indigo farmer who chased Gandhi for months until he agreed to come!`,
+  'Champaran Satyagraha was against':`💡 Tinkathia = 3/20th of land must grow indigo. TIN = Three = Tinkathia!`,
+  'Which movement is called the first Civ':`📌 Champaran 1917 = first Civil Disobedience. Non-Cooperation was 1920 — 3 years later!`,
+  'Salt Revolt in Patna started from whic':`🧂 Patna started Apr 16, Saran/Champaran started Apr 15 — one day difference!`,
+};
+
+function getTip(q){
+  const key=Object.keys(TRIVIA).find(k=>q.startsWith(k));
+  return key?TRIVIA[key]:'';
+}
+
 const quizData=[
   // 18TH CENTURY (20)
   {q:"The East India Company proclaimed Diwani rights of Bengal, Bihar and Orissa during the reign of:",opts:["Mir Qasim","Shah Alam II","Farrukhsiyar","Alivardi Khan"],ans:1,exp:"Shah Alam II granted EIC Diwani rights via the Treaty of Allahabad (1765), firman dated August 12 & 19, 1765.",cat:"18thc"},
@@ -1060,21 +1099,40 @@ function cycleFontSize(){
 
 // ── BOOKMARKS ──
 function toggleBookmark(idx){
-  const key=quizFiltered[idx]?quizFiltered[idx].q.substring(0,40):'';
-  if(!key) return;
+  const raw=quizFiltered[idx];
+  if(!raw) return;
+  const key=raw.q.substring(0,40);
   if(bookmarked.has(key)) bookmarked.delete(key);
   else bookmarked.add(key);
   localStorage.setItem('secC_bookmarks',JSON.stringify([...bookmarked]));
-  // update star button face
+  const isNowStarred=bookmarked.has(key);
   const btn=document.getElementById('star-btn');
-  if(btn) btn.classList.toggle('active', bookmarked.has(key));
+  if(btn){
+    btn.textContent=isNowStarred?'⭐':'☆';
+    btn.classList.toggle('active',isNowStarred);
+  }
 }
 function isBookmarked(q){
   return bookmarked.has((q.q||'').substring(0,40));
 }
 function filterBookmarked(e){
   document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
-  if(e&&e.target) e.target.classList.add('active');
+  const btn=e&&e.target?e.target:document.getElementById('bookmark-filter-btn');
+  if(btn){
+    const isActive=btn.classList.contains('active');
+    if(isActive){
+      // toggle off — go back to all
+      btn.classList.remove('active');
+      quizFiltered=[...quizData];
+      currentQ=0;score=0;answered=false;wrongAnswers=[];qTimes=[];catTimes={};skippedQs=[];
+      clearInterval(timerIv);
+      document.getElementById('results-box').classList.remove('visible');
+      document.querySelectorAll('.filter-btn')[0].classList.add('active');
+      renderQuiz();
+      return;
+    }
+    btn.classList.add('active');
+  }
   const bqs=quizData.filter(q=>isBookmarked(q));
   if(!bqs.length){
     document.getElementById('quiz-area').innerHTML=`<div class="bookmarked-empty">No starred questions yet.<br>Star any question during the quiz to find it here.</div>`;
@@ -1133,12 +1191,7 @@ function renderQuiz(){
         ${opts.map((o,i)=>`<div class="option" id="o${i}" onclick="pick(${i},${ans},'${raw.cat}')"><span class="option-letter">${L[i]}</span><span>${o}</span></div>`).join('')}
       </div>
       <div class="explanation" id="exp"><strong>📌 Explanation:</strong> ${raw.exp}
-        <div class="confidence-row" id="conf-row" style="display:none">
-          <span class="conf-label">How was that?</span>
-          <button class="conf-btn easy" onclick="rateConfidence('easy',${currentQ})">😊 Easy</button>
-          <button class="conf-btn medium" onclick="rateConfidence('medium',${currentQ})">😐 OK</button>
-          <button class="conf-btn hard" onclick="rateConfidence('hard',${currentQ})">😓 Hard</button>
-        </div>
+        <div id="trivia-tip" style="display:none;margin-top:.75rem;padding:.65rem .9rem;background:rgba(255,255,255,0.04);border-radius:.4rem;font-size:.83rem;color:var(--muted);line-height:1.5;font-style:italic;border-left:3px solid var(--accent-primary);"></div>
       </div>
       <div class="quiz-nav">
         <div class="score-bar">Score: <span>${score}</span></div>
@@ -1183,7 +1236,7 @@ function autoTimeOut(){
   const raw=quizFiltered[currentQ];
   recTime(TIMER_SEC,raw.cat);
   document.querySelectorAll('.option').forEach(o=>o.style.pointerEvents='none');
-  const exp=document.getElementById('exp');if(exp){exp.classList.add('visible');const cr=document.getElementById('conf-row');if(cr)cr.style.display='flex';}
+  const exp=document.getElementById('exp');if(exp){exp.classList.add('visible');const tip=getTip(raw.q);const tipEl=document.getElementById('trivia-tip');if(tipEl&&tip){tipEl.textContent=tip;tipEl.style.display='block';}}
   const nb=document.getElementById('nxt');if(nb)nb.style.display='';
   const nb2=document.getElementById('nxt2');if(nb2)nb2.style.display='';
   wrongAnswers.push({n:currentQ+1,q:raw.q,correct:raw.opts[raw.ans],yours:'⏰ Timed Out',time:TIMER_SEC,cat:raw.cat});
@@ -1216,7 +1269,9 @@ function pick(i,ans,cat){
   const exp=document.getElementById('exp');
   if(exp){
     exp.classList.add('visible');
-    if(!examMode){const cr=document.getElementById('conf-row');if(cr)cr.style.display='flex';}
+    const tip=getTip(raw.q);
+    const tipEl=document.getElementById('trivia-tip');
+    if(tipEl&&tip){tipEl.textContent=tip;tipEl.style.display='block';}
   }
   const nb=document.getElementById('nxt');if(nb)nb.style.display='';
   const nb2=document.getElementById('nxt2');if(nb2)nb2.style.display='';
@@ -1309,7 +1364,7 @@ function showResults(){
   wa.innerHTML=(wrongAnswers.length
     ?'<div style="font-family:DM Mono,monospace;font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.75rem;">Review Wrong Answers</div>'+
       wrongAnswers.map(w=>`<div class="wrong-item"><div class="wrong-num">Q${w.n} · ${catLabel(w.cat||'')}</div><div class="wrong-q">${w.q}</div><div style="font-size:.8rem;color:var(--danger);margin-bottom:2px;">Your answer: ${w.yours}</div><div class="wrong-correct">✓ Correct: ${w.correct}</div><div class="wrong-time">⏱ ${w.time}s</div></div>`).join('')
-    :'<div style="text-align:center;color:#4ade80;font-family:DM Mono,monospace;padding:1rem;">🎉 Perfect Score!</div>')+weakBtn;
+    :(score>0?'<div style="text-align:center;color:#4ade80;font-family:DM Mono,monospace;padding:1rem;">🎉 Perfect Score! Outstanding!</div>':'<div style="text-align:center;color:var(--muted);font-family:DM Mono,monospace;padding:1rem;">No answers recorded yet.</div>'))+weakBtn;
 
   // SKIPPED
   let skipEl=document.getElementById('skipped-area');
