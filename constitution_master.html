@@ -1,0 +1,1946 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>SamvidhanSaathi — Master the Constitution</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,500;0,700;1,300&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════
+   ROOT VARIABLES & THEME
+═══════════════════════════════════════════ */
+:root {
+  --bg: #F7F3EE;
+  --bg2: #EDE8E0;
+  --bg3: #E2DBD0;
+  --surface: #FFFFFF;
+  --surface2: #FAF7F3;
+  --border: #D8D0C4;
+  --text: #2A2118;
+  --text2: #6B5E4E;
+  --text3: #9B8B7A;
+  --accent: #5B4FCF;
+  --accent2: #7C73D6;
+  --accent-soft: #EAE8F8;
+  --gold: #C9882A;
+  --gold-soft: #FBF1E0;
+  --green: #2D8A55;
+  --green-soft: #E3F4EB;
+  --red: #C0392B;
+  --red-soft: #FDECEA;
+  --shadow: 0 2px 12px rgba(42,33,24,0.08);
+  --shadow-lg: 0 8px 32px rgba(42,33,24,0.14);
+  --radius: 14px;
+  --radius-sm: 8px;
+  --nav-h: 64px;
+  --font-display: 'Fraunces', serif;
+  --font-body: 'DM Sans', sans-serif;
+  --font-mono: 'DM Mono', monospace;
+  --transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-theme="dark"] {
+  --bg: #1A1612;
+  --bg2: #231F1A;
+  --bg3: #2D2820;
+  --surface: #2A2520;
+  --surface2: #322D27;
+  --border: #3D3630;
+  --text: #F0EAE2;
+  --text2: #B8A898;
+  --text3: #7A6A5A;
+  --accent: #7C73D6;
+  --accent2: #9B94E0;
+  --accent-soft: #2A2650;
+  --gold: #D4973A;
+  --gold-soft: #2E2510;
+  --green: #3DAA6A;
+  --green-soft: #142A1E;
+  --red: #E05555;
+  --red-soft: #2E1414;
+  --shadow: 0 2px 12px rgba(0,0,0,0.3);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,0.5);
+}
+
+/* ═══════════════════════════════════════════
+   RESET & BASE
+═══════════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  padding-bottom: calc(var(--nav-h) + 16px);
+  transition: background var(--transition), color var(--transition);
+}
+button { font-family: var(--font-body); cursor: pointer; border: none; outline: none; }
+input, textarea { font-family: var(--font-body); }
+a { color: var(--accent); text-decoration: none; }
+img { max-width: 100%; }
+
+/* ═══════════════════════════════════════════
+   BOTTOM NAVIGATION
+═══════════════════════════════════════════ */
+.bottom-nav {
+  position: fixed; bottom: 0; left: 0; right: 0;
+  height: var(--nav-h);
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-around;
+  z-index: 100;
+  box-shadow: 0 -4px 20px rgba(0,0,0,0.06);
+  padding: 0 4px;
+}
+.nav-btn {
+  display: flex; flex-direction: column; align-items: center; gap: 3px;
+  padding: 8px 12px; border-radius: var(--radius-sm);
+  background: none; color: var(--text3);
+  font-size: 10px; font-weight: 500; letter-spacing: 0.3px;
+  transition: all var(--transition);
+  flex: 1;
+}
+.nav-btn .nav-icon { font-size: 20px; line-height: 1; transition: transform var(--transition); }
+.nav-btn.active { color: var(--accent); }
+.nav-btn.active .nav-icon { transform: scale(1.1); }
+.nav-btn:active { transform: scale(0.95); }
+
+/* ═══════════════════════════════════════════
+   SCREENS
+═══════════════════════════════════════════ */
+.screen { display: none; padding: 0 0 8px; animation: fadeUp 0.3s ease; }
+.screen.active { display: block; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ═══════════════════════════════════════════
+   HEADER
+═══════════════════════════════════════════ */
+.top-bar {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 16px 18px 12px;
+  position: sticky; top: 0; z-index: 50;
+  background: var(--bg);
+  backdrop-filter: blur(12px);
+}
+.app-logo {
+  font-family: var(--font-display);
+  font-size: 20px; font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.3px;
+}
+.app-logo span { color: var(--accent); }
+.top-actions { display: flex; gap: 8px; }
+.icon-btn {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: var(--bg2);
+  border: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px; transition: all var(--transition);
+  color: var(--text);
+}
+.icon-btn:active { transform: scale(0.92); }
+
+/* ═══════════════════════════════════════════
+   CARDS
+═══════════════════════════════════════════ */
+.card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 18px;
+  box-shadow: var(--shadow);
+  transition: background var(--transition), border var(--transition);
+}
+.card-sm { padding: 14px; border-radius: var(--radius-sm); }
+
+/* ═══════════════════════════════════════════
+   DASHBOARD SCREEN
+═══════════════════════════════════════════ */
+#screen-home { padding: 0; }
+
+.hero-section {
+  background: linear-gradient(135deg, var(--accent) 0%, #8B5CF6 100%);
+  padding: 24px 20px 28px;
+  position: relative; overflow: hidden;
+}
+.hero-section::before {
+  content: '⚖️';
+  position: absolute; right: -10px; top: -10px;
+  font-size: 120px; opacity: 0.08;
+}
+.hero-greeting {
+  font-family: var(--font-display);
+  font-size: 26px; font-weight: 700;
+  color: white; line-height: 1.2;
+  margin-bottom: 4px;
+}
+.hero-sub { color: rgba(255,255,255,0.8); font-size: 14px; margin-bottom: 20px; }
+
+.stats-row {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.stat-chip {
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: var(--radius-sm);
+  padding: 10px 8px; text-align: center;
+}
+.stat-chip .val {
+  font-family: var(--font-display);
+  font-size: 22px; font-weight: 700; color: white; line-height: 1;
+}
+.stat-chip .lbl { font-size: 10px; color: rgba(255,255,255,0.75); margin-top: 2px; }
+
+.home-body { padding: 18px 16px; display: flex; flex-direction: column; gap: 16px; }
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: 17px; font-weight: 600; color: var(--text);
+  margin-bottom: 12px;
+  display: flex; align-items: center; gap: 8px;
+}
+.section-title .badge {
+  font-family: var(--font-body);
+  font-size: 11px; font-weight: 600;
+  background: var(--accent-soft); color: var(--accent);
+  padding: 2px 8px; border-radius: 20px;
+}
+
+/* Today's articles */
+.today-article {
+  display: flex; align-items: center; gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+}
+.today-article:last-child { border-bottom: none; }
+.art-num {
+  width: 44px; height: 44px; border-radius: var(--radius-sm);
+  background: var(--accent-soft); color: var(--accent);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  font-family: var(--font-mono); font-size: 11px; font-weight: 500;
+  flex-shrink: 0;
+}
+.art-num .big { font-size: 16px; font-weight: 600; line-height: 1; }
+.art-info { flex: 1; min-width: 0; }
+.art-title { font-size: 14px; font-weight: 500; color: var(--text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.art-part { font-size: 11px; color: var(--text3); margin-top: 2px; }
+.art-status { font-size: 18px; }
+
+/* Priority badge */
+.priority-dot {
+  width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0;
+}
+.priority-dot.high { background: var(--red); }
+.priority-dot.med { background: var(--gold); }
+.priority-dot.low { background: var(--green); }
+
+/* Streak card */
+.streak-card {
+  background: var(--gold-soft);
+  border: 1px solid var(--gold);
+  border-radius: var(--radius);
+  padding: 16px;
+  display: flex; align-items: center; gap: 14px;
+}
+.streak-flame { font-size: 40px; line-height: 1; }
+.streak-info { flex: 1; }
+.streak-count {
+  font-family: var(--font-display);
+  font-size: 28px; font-weight: 700; color: var(--gold); line-height: 1;
+}
+.streak-label { font-size: 12px; color: var(--text2); margin-top: 2px; }
+.streak-sub { font-size: 11px; color: var(--text3); margin-top: 4px; }
+
+/* Quick action buttons */
+.quick-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.quick-btn {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 14px;
+  display: flex; flex-direction: column; gap: 6px;
+  cursor: pointer; transition: all var(--transition);
+  text-align: left;
+}
+.quick-btn:active { transform: scale(0.97); box-shadow: var(--shadow-lg); }
+.quick-btn .qb-icon { font-size: 24px; }
+.quick-btn .qb-title { font-size: 13px; font-weight: 600; color: var(--text); }
+.quick-btn .qb-sub { font-size: 11px; color: var(--text3); }
+.quick-btn.accent-btn { background: var(--accent-soft); border-color: var(--accent); }
+.quick-btn.accent-btn .qb-title { color: var(--accent); }
+
+/* ═══════════════════════════════════════════
+   LEARN SCREEN
+═══════════════════════════════════════════ */
+#screen-learn { padding: 0; }
+
+.article-header {
+  background: var(--surface);
+  padding: 16px;
+  border-bottom: 1px solid var(--border);
+}
+.article-nav-row {
+  display: flex; align-items: center; gap: 10px; margin-bottom: 14px;
+}
+.nav-arrow {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: var(--bg2); border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px; cursor: pointer; color: var(--text);
+  transition: all var(--transition); flex-shrink: 0;
+}
+.nav-arrow:active { transform: scale(0.9); }
+.nav-arrow:disabled { opacity: 0.3; cursor: not-allowed; }
+.article-counter {
+  flex: 1; text-align: center;
+  font-family: var(--font-mono); font-size: 12px; color: var(--text3);
+}
+.art-big-num {
+  font-family: var(--font-display);
+  font-size: 44px; font-weight: 700; color: var(--accent); line-height: 1;
+}
+.art-big-title {
+  font-family: var(--font-display);
+  font-size: 20px; font-weight: 600; color: var(--text); line-height: 1.3;
+  margin-top: 4px;
+}
+.art-part-tag {
+  display: inline-block; margin-top: 8px;
+  font-size: 11px; font-weight: 600;
+  background: var(--accent-soft); color: var(--accent);
+  padding: 3px 10px; border-radius: 20px;
+}
+.exam-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px; }
+.exam-tag {
+  font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 20px;
+}
+.exam-tag.upsc { background: var(--green-soft); color: var(--green); }
+.exam-tag.bpsc { background: var(--gold-soft); color: var(--gold); }
+.exam-tag.high { background: var(--red-soft); color: var(--red); }
+
+/* Article body tabs */
+.tabs-row {
+  display: flex; gap: 4px; padding: 12px 16px 0;
+  overflow-x: auto; scrollbar-width: none;
+}
+.tabs-row::-webkit-scrollbar { display: none; }
+.tab-btn {
+  padding: 8px 14px; border-radius: 20px;
+  font-size: 12px; font-weight: 500;
+  background: var(--bg2); color: var(--text2); border: none; cursor: pointer;
+  white-space: nowrap; transition: all var(--transition);
+  flex-shrink: 0;
+}
+.tab-btn.active { background: var(--accent); color: white; }
+
+.tab-content { display: none; padding: 16px; }
+.tab-content.active { display: block; animation: fadeUp 0.25s ease; }
+
+.content-block {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px; margin-bottom: 12px;
+}
+.content-block-title {
+  font-size: 11px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.8px; color: var(--text3); margin-bottom: 10px;
+  display: flex; align-items: center; gap: 6px;
+}
+.content-block-body {
+  font-size: 14px; line-height: 1.7; color: var(--text2);
+}
+.content-block-body p { margin-bottom: 8px; }
+.content-block-body ul { padding-left: 18px; }
+.content-block-body li { margin-bottom: 6px; }
+.content-block-body strong { color: var(--text); }
+
+.official-text {
+  font-family: var(--font-mono);
+  font-size: 13px; line-height: 1.8;
+  color: var(--text2); background: var(--bg2);
+  border-radius: var(--radius-sm); padding: 14px;
+  border-left: 3px solid var(--accent);
+}
+
+.memory-card {
+  background: linear-gradient(135deg, var(--accent-soft), var(--bg2));
+  border: 1px solid var(--accent);
+  border-radius: var(--radius); padding: 16px;
+  margin-bottom: 12px;
+}
+.memory-card .mc-head {
+  font-size: 11px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 1px; color: var(--accent); margin-bottom: 10px;
+  display: flex; align-items: center; gap: 6px;
+}
+.memory-trick-text {
+  font-size: 14px; line-height: 1.7; color: var(--text);
+  font-style: italic;
+}
+
+.bollywood-hook {
+  background: linear-gradient(135deg, #FF6B6B15, #FFE66D15);
+  border: 1px solid #FF6B6B40;
+  border-radius: var(--radius); padding: 14px;
+  margin-bottom: 12px;
+}
+.bollywood-hook .bh-head {
+  font-size: 11px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 1px; color: #E05050; margin-bottom: 8px;
+  display: flex; align-items: center; gap: 6px;
+}
+
+.judgment-item {
+  border-left: 2px solid var(--gold);
+  padding: 10px 0 10px 14px; margin-bottom: 10px;
+}
+.judgment-case { font-size: 13px; font-weight: 600; color: var(--text); }
+.judgment-year { font-size: 11px; color: var(--gold); font-weight: 600; }
+.judgment-sig { font-size: 12px; color: var(--text2); margin-top: 4px; line-height: 1.5; }
+
+.amendment-item {
+  display: flex; gap: 10px; padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+}
+.amendment-item:last-child { border-bottom: none; }
+.amend-num {
+  font-family: var(--font-mono); font-size: 12px; font-weight: 600;
+  color: var(--accent); background: var(--accent-soft);
+  padding: 3px 8px; border-radius: var(--radius-sm);
+  white-space: nowrap; height: fit-content;
+}
+.amend-text { font-size: 13px; color: var(--text2); line-height: 1.5; }
+
+/* AI Loading */
+.ai-loading {
+  display: flex; flex-direction: column; align-items: center;
+  padding: 40px 20px; gap: 14px;
+}
+.spinner {
+  width: 40px; height: 40px; border-radius: 50%;
+  border: 3px solid var(--bg3);
+  border-top-color: var(--accent);
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.ai-status { font-size: 13px; color: var(--text3); text-align: center; }
+
+/* Mark as learned button */
+.learn-footer {
+  padding: 14px 16px;
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  display: flex; gap: 10px;
+  position: sticky; bottom: var(--nav-h);
+}
+.btn-primary {
+  flex: 1; padding: 14px;
+  background: var(--accent); color: white;
+  border: none; border-radius: var(--radius-sm);
+  font-size: 14px; font-weight: 600; cursor: pointer;
+  transition: all var(--transition); display: flex; align-items: center; justify-content: center; gap: 8px;
+}
+.btn-primary:active { transform: scale(0.97); opacity: 0.9; }
+.btn-secondary {
+  padding: 14px 18px;
+  background: var(--bg2); color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 14px; font-weight: 500; cursor: pointer;
+  transition: all var(--transition);
+}
+.btn-secondary:active { transform: scale(0.97); }
+
+/* ═══════════════════════════════════════════
+   QUIZ SCREEN
+═══════════════════════════════════════════ */
+#screen-quiz { padding: 0; }
+
+.quiz-header {
+  padding: 16px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+.quiz-progress-bar {
+  width: 100%; height: 6px;
+  background: var(--bg2); border-radius: 3px; overflow: hidden;
+  margin-bottom: 12px;
+}
+.quiz-progress-fill {
+  height: 100%; background: var(--accent);
+  border-radius: 3px; transition: width 0.4s ease;
+}
+.quiz-meta { display: flex; justify-content: space-between; align-items: center; }
+.quiz-q-count { font-size: 12px; color: var(--text3); font-family: var(--font-mono); }
+.quiz-score-pill {
+  background: var(--green-soft); color: var(--green);
+  font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 20px;
+}
+
+.quiz-body { padding: 16px; }
+.question-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px; margin-bottom: 16px;
+}
+.question-art-tag {
+  font-size: 11px; font-weight: 600; color: var(--accent);
+  background: var(--accent-soft); padding: 2px 8px; border-radius: 20px;
+  display: inline-block; margin-bottom: 10px;
+}
+.question-text {
+  font-size: 15px; font-weight: 500; color: var(--text); line-height: 1.5;
+}
+
+.options-list { display: flex; flex-direction: column; gap: 10px; }
+.option-btn {
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+  text-align: left; cursor: pointer;
+  transition: all var(--transition);
+  display: flex; align-items: flex-start; gap: 10px;
+}
+.option-btn:active { transform: scale(0.99); }
+.option-letter {
+  width: 24px; height: 24px; border-radius: 50%;
+  background: var(--bg2); color: var(--text2);
+  font-size: 12px; font-weight: 600;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.option-text { font-size: 14px; color: var(--text); line-height: 1.4; flex: 1; }
+.option-btn.selected { border-color: var(--accent); background: var(--accent-soft); }
+.option-btn.selected .option-letter { background: var(--accent); color: white; }
+.option-btn.correct { border-color: var(--green); background: var(--green-soft); }
+.option-btn.correct .option-letter { background: var(--green); color: white; }
+.option-btn.wrong { border-color: var(--red); background: var(--red-soft); }
+.option-btn.wrong .option-letter { background: var(--red); color: white; }
+
+.explanation-box {
+  background: var(--bg2); border-radius: var(--radius-sm);
+  padding: 14px; margin-top: 12px;
+  border-left: 3px solid var(--accent);
+  font-size: 13px; color: var(--text2); line-height: 1.6;
+  display: none;
+}
+.explanation-box.visible { display: block; animation: fadeUp 0.2s ease; }
+
+.quiz-next-btn {
+  width: 100%; padding: 16px;
+  background: var(--accent); color: white;
+  border: none; border-radius: var(--radius-sm);
+  font-size: 15px; font-weight: 600; cursor: pointer;
+  transition: all var(--transition); display: none;
+  margin-top: 4px;
+}
+.quiz-next-btn.visible { display: block; animation: fadeUp 0.2s ease; }
+.quiz-next-btn:active { opacity: 0.9; transform: scale(0.99); }
+
+/* Quiz mode selector */
+.mode-selector { padding: 16px; display: flex; flex-direction: column; gap: 12px; }
+.mode-card {
+  background: var(--surface); border: 1.5px solid var(--border);
+  border-radius: var(--radius); padding: 18px;
+  cursor: pointer; transition: all var(--transition);
+  display: flex; align-items: center; gap: 14px;
+}
+.mode-card:active { transform: scale(0.98); box-shadow: var(--shadow-lg); }
+.mode-card.accent { border-color: var(--accent); background: var(--accent-soft); }
+.mode-icon { font-size: 32px; }
+.mode-info { flex: 1; }
+.mode-name { font-size: 15px; font-weight: 600; color: var(--text); }
+.mode-desc { font-size: 12px; color: var(--text3); margin-top: 2px; }
+.mode-arrow { font-size: 18px; color: var(--text3); }
+
+/* Quiz Result */
+.quiz-result {
+  padding: 32px 20px; text-align: center;
+  display: flex; flex-direction: column; align-items: center; gap: 16px;
+}
+.result-circle {
+  width: 100px; height: 100px; border-radius: 50%;
+  background: var(--green-soft); border: 3px solid var(--green);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  font-family: var(--font-display); font-size: 28px; font-weight: 700; color: var(--green);
+}
+.result-label { font-size: 12px; font-weight: 500; color: var(--green); }
+.result-title { font-family: var(--font-display); font-size: 22px; font-weight: 700; color: var(--text); }
+.result-sub { font-size: 14px; color: var(--text2); max-width: 280px; text-align: center; }
+.points-earned {
+  background: var(--gold-soft); border: 1px solid var(--gold);
+  border-radius: var(--radius); padding: 14px 24px;
+  font-family: var(--font-display); font-size: 18px; font-weight: 600; color: var(--gold);
+}
+
+/* ═══════════════════════════════════════════
+   PROGRESS SCREEN
+═══════════════════════════════════════════ */
+#screen-progress { padding: 0; }
+
+.progress-body { padding: 16px; display: flex; flex-direction: column; gap: 16px; }
+
+.big-progress-ring {
+  display: flex; justify-content: center; padding: 20px 0 8px;
+}
+.ring-container { position: relative; width: 140px; height: 140px; }
+.ring-svg { transform: rotate(-90deg); }
+.ring-track { fill: none; stroke: var(--bg3); stroke-width: 10; }
+.ring-fill { fill: none; stroke: var(--accent); stroke-width: 10; stroke-linecap: round; transition: stroke-dashoffset 1s ease; }
+.ring-text {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+}
+.ring-val { font-family: var(--font-display); font-size: 32px; font-weight: 700; color: var(--text); line-height: 1; }
+.ring-lbl { font-size: 11px; color: var(--text3); }
+
+.progress-stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+.prog-stat {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 14px;
+}
+.prog-stat .ps-val { font-family: var(--font-display); font-size: 24px; font-weight: 700; color: var(--text); }
+.prog-stat .ps-lbl { font-size: 11px; color: var(--text3); margin-top: 2px; }
+
+.part-progress { display: flex; flex-direction: column; gap: 8px; }
+.part-row { display: flex; flex-direction: column; gap: 4px; }
+.part-row-header { display: flex; justify-content: space-between; align-items: center; }
+.part-name { font-size: 13px; font-weight: 500; color: var(--text); }
+.part-pct { font-size: 12px; color: var(--text3); font-family: var(--font-mono); }
+.part-bar { height: 6px; background: var(--bg2); border-radius: 3px; overflow: hidden; }
+.part-bar-fill { height: 100%; background: var(--accent); border-radius: 3px; transition: width 1s ease; }
+
+.calendar-grid {
+  display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px;
+}
+.cal-day {
+  aspect-ratio: 1; border-radius: 4px;
+  background: var(--bg2); position: relative;
+}
+.cal-day.studied { background: var(--accent); }
+.cal-day.today { outline: 2px solid var(--gold); outline-offset: 1px; }
+
+.badges-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.badge-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 14px 10px; text-align: center;
+  transition: all var(--transition);
+}
+.badge-card.locked { opacity: 0.35; filter: grayscale(1); }
+.badge-card .badge-icon { font-size: 32px; margin-bottom: 6px; }
+.badge-card .badge-name { font-size: 11px; font-weight: 600; color: var(--text); }
+.badge-card .badge-desc { font-size: 10px; color: var(--text3); margin-top: 2px; }
+
+/* ═══════════════════════════════════════════
+   LIBRARY SCREEN
+═══════════════════════════════════════════ */
+#screen-library { padding: 0; }
+
+.search-bar {
+  padding: 12px 16px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  position: sticky; top: 0; z-index: 10;
+}
+.search-input-wrap {
+  display: flex; align-items: center; gap: 10px;
+  background: var(--bg2); border: 1px solid var(--border);
+  border-radius: var(--radius-sm); padding: 10px 14px;
+}
+.search-input-wrap input {
+  border: none; background: none; color: var(--text);
+  font-size: 14px; flex: 1; outline: none;
+}
+.search-input-wrap input::placeholder { color: var(--text3); }
+
+.filter-chips {
+  padding: 10px 16px; display: flex; gap: 8px;
+  overflow-x: auto; scrollbar-width: none;
+  background: var(--surface); border-bottom: 1px solid var(--border);
+}
+.filter-chips::-webkit-scrollbar { display: none; }
+.chip {
+  padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 500;
+  background: var(--bg2); color: var(--text2); border: 1px solid var(--border);
+  cursor: pointer; white-space: nowrap; transition: all var(--transition);
+  flex-shrink: 0;
+}
+.chip.active { background: var(--accent); color: white; border-color: var(--accent); }
+
+.lib-list { padding: 12px 16px; display: flex; flex-direction: column; gap: 8px; }
+.lib-item {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  display: flex; align-items: center; gap: 12px;
+  padding: 12px 14px; cursor: pointer;
+  transition: all var(--transition);
+}
+.lib-item:active { transform: scale(0.99); box-shadow: var(--shadow); }
+.lib-art-num {
+  width: 40px; height: 40px; border-radius: var(--radius-sm);
+  background: var(--bg2); display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-mono); font-size: 13px; font-weight: 600; color: var(--text2);
+  flex-shrink: 0;
+}
+.lib-item.learned .lib-art-num { background: var(--green-soft); color: var(--green); }
+.lib-item-info { flex: 1; min-width: 0; }
+.lib-item-title { font-size: 14px; font-weight: 500; color: var(--text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.lib-item-meta { font-size: 11px; color: var(--text3); margin-top: 2px; }
+.lib-status { font-size: 16px; }
+
+/* ═══════════════════════════════════════════
+   TOAST
+═══════════════════════════════════════════ */
+.toast {
+  position: fixed; bottom: calc(var(--nav-h) + 16px); left: 50%; transform: translateX(-50%) translateY(20px);
+  background: var(--text); color: var(--bg);
+  padding: 10px 20px; border-radius: 20px;
+  font-size: 13px; font-weight: 500;
+  opacity: 0; transition: all 0.3s ease; z-index: 200;
+  white-space: nowrap; max-width: 90vw; text-align: center;
+  pointer-events: none;
+}
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+/* ═══════════════════════════════════════════
+   POINTS POPUP
+═══════════════════════════════════════════ */
+.points-popup {
+  position: fixed; top: 80px; right: 16px;
+  background: var(--gold); color: white;
+  padding: 8px 16px; border-radius: 20px;
+  font-size: 14px; font-weight: 700;
+  opacity: 0; transform: translateY(-10px) scale(0.9);
+  transition: all 0.3s ease; z-index: 200;
+  pointer-events: none;
+}
+.points-popup.show { opacity: 1; transform: translateY(0) scale(1); }
+
+/* ═══════════════════════════════════════════
+   MODAL
+═══════════════════════════════════════════ */
+.modal-overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.5);
+  z-index: 300; display: none; align-items: flex-end; justify-content: center;
+  backdrop-filter: blur(4px);
+}
+.modal-overlay.open { display: flex; animation: fadeIn 0.2s ease; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+.modal-sheet {
+  background: var(--surface); border-radius: 20px 20px 0 0;
+  width: 100%; max-height: 90vh; overflow-y: auto;
+  padding: 20px 20px 40px;
+  animation: slideUp 0.3s ease;
+}
+@keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
+.modal-handle {
+  width: 36px; height: 4px; background: var(--border);
+  border-radius: 2px; margin: 0 auto 20px;
+}
+.modal-title { font-family: var(--font-display); font-size: 20px; font-weight: 700; color: var(--text); margin-bottom: 16px; }
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════ */
+@media (min-width: 600px) {
+  body { max-width: 480px; margin: 0 auto; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══ BOTTOM NAVIGATION ══ -->
+<nav class="bottom-nav">
+  <button class="nav-btn active" onclick="showScreen('home')" id="nav-home">
+    <span class="nav-icon">🏠</span>
+    <span>Home</span>
+  </button>
+  <button class="nav-btn" onclick="showScreen('learn')" id="nav-learn">
+    <span class="nav-icon">📖</span>
+    <span>Learn</span>
+  </button>
+  <button class="nav-btn" onclick="showScreen('quiz')" id="nav-quiz">
+    <span class="nav-icon">✍️</span>
+    <span>Quiz</span>
+  </button>
+  <button class="nav-btn" onclick="showScreen('progress')" id="nav-progress">
+    <span class="nav-icon">📊</span>
+    <span>Progress</span>
+  </button>
+  <button class="nav-btn" onclick="showScreen('library')" id="nav-library">
+    <span class="nav-icon">📚</span>
+    <span>Library</span>
+  </button>
+</nav>
+
+<!-- ══ TOAST ══ -->
+<div class="toast" id="toast"></div>
+<div class="points-popup" id="pointsPopup">+10 pts 🎯</div>
+
+<!-- ══════════════════════════════
+     SCREEN: HOME
+══════════════════════════════ -->
+<div class="screen active" id="screen-home">
+  <div class="top-bar">
+    <div class="app-logo">Samvidhan<span>Saathi</span></div>
+    <div class="top-actions">
+      <button class="icon-btn" onclick="toggleTheme()" id="themeBtn" title="Toggle theme">🌙</button>
+    </div>
+  </div>
+
+  <div class="hero-section">
+    <div class="hero-greeting" id="heroGreeting">Jai Hind, Abhi! 🇮🇳</div>
+    <div class="hero-sub" id="heroSub">Ready for today's Constitution dose?</div>
+    <div class="stats-row">
+      <div class="stat-chip">
+        <div class="val" id="statLearned">0</div>
+        <div class="lbl">Articles</div>
+      </div>
+      <div class="stat-chip">
+        <div class="val" id="statPoints">0</div>
+        <div class="lbl">Points</div>
+      </div>
+      <div class="stat-chip">
+        <div class="val" id="statAccuracy">—</div>
+        <div class="lbl">Accuracy</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="home-body">
+    <!-- Streak -->
+    <div class="streak-card" id="streakCard">
+      <div class="streak-flame">🔥</div>
+      <div class="streak-info">
+        <div class="streak-count" id="streakCount">0</div>
+        <div class="streak-label">Day Streak</div>
+        <div class="streak-sub" id="streakSub">Start today to build your streak!</div>
+      </div>
+    </div>
+
+    <!-- Today's Plan -->
+    <div class="card">
+      <div class="section-title">
+        📅 Today's Articles
+        <span class="badge" id="todayBadge">5 articles</span>
+      </div>
+      <div id="todayList"><!-- populated by JS --></div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div>
+      <div class="section-title">⚡ Quick Actions</div>
+      <div class="quick-actions">
+        <button class="quick-btn accent-btn" onclick="showScreen('learn')">
+          <span class="qb-icon">📖</span>
+          <span class="qb-title">Continue Learning</span>
+          <span class="qb-sub" id="qb-continue-sub">Article 12 next</span>
+        </button>
+        <button class="quick-btn" onclick="startQuiz('daily')">
+          <span class="qb-icon">🎯</span>
+          <span class="qb-title">Daily Quiz</span>
+          <span class="qb-sub">10 questions</span>
+        </button>
+        <button class="quick-btn" onclick="startQuiz('revision')">
+          <span class="qb-icon">🔄</span>
+          <span class="qb-title">Revision</span>
+          <span class="qb-sub" id="qb-revision-sub">0 due today</span>
+        </button>
+        <button class="quick-btn" onclick="showScreen('library')">
+          <span class="qb-icon">📚</span>
+          <span class="qb-title">All Articles</span>
+          <span class="qb-sub">Browse library</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Daily motivation -->
+    <div class="card" style="background: var(--accent-soft); border-color: var(--accent);">
+      <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--accent); margin-bottom: 8px;">💬 Abhi's Reminder</div>
+      <div style="font-size: 14px; color: var(--text2); line-height: 1.6;" id="dailyQuote">"Jo article kal aaya, woh kal phir aa sakta hai." — Every article you learn today is a question you'll answer correctly tomorrow. 🎯</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════
+     SCREEN: LEARN
+══════════════════════════════ -->
+<div class="screen" id="screen-learn">
+  <div class="article-header">
+    <div class="article-nav-row">
+      <button class="nav-arrow" id="prevBtn" onclick="navigateArticle(-1)">←</button>
+      <div class="article-counter" id="artCounter">Article 1 of 80</div>
+      <button class="nav-arrow" id="nextBtn" onclick="navigateArticle(1)">→</button>
+    </div>
+    <div class="art-big-num" id="artNum">12</div>
+    <div class="art-big-title" id="artTitle">Definition of State</div>
+    <div>
+      <span class="art-part-tag" id="artPart">Part III — Fundamental Rights</span>
+    </div>
+    <div class="exam-tags" id="artExamTags">
+      <span class="exam-tag upsc">UPSC</span>
+      <span class="exam-tag bpsc">BPSC</span>
+      <span class="exam-tag high">🔴 High Priority</span>
+    </div>
+  </div>
+
+  <div class="tabs-row">
+    <button class="tab-btn active" onclick="showTab('explain')">💡 Explain</button>
+    <button class="tab-btn" onclick="showTab('official')">📜 Text</button>
+    <button class="tab-btn" onclick="showTab('memory')">🧠 Memory</button>
+    <button class="tab-btn" onclick="showTab('exam')">🎓 Exam</button>
+    <button class="tab-btn" onclick="showTab('laws')">⚖️ Cases</button>
+    <button class="tab-btn" onclick="showTab('amend')">🔄 Amendments</button>
+    <button class="tab-btn" onclick="showTab('trivia')">🎯 Trivia</button>
+  </div>
+
+  <!-- TAB: EXPLAIN -->
+  <div class="tab-content active" id="tab-explain">
+    <div id="explain-content">
+      <div class="ai-loading">
+        <div class="spinner"></div>
+        <div class="ai-status">Loading explanation…</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB: OFFICIAL TEXT -->
+  <div class="tab-content" id="tab-official">
+    <div id="official-content">
+      <div class="ai-loading"><div class="spinner"></div><div class="ai-status">Loading…</div></div>
+    </div>
+  </div>
+
+  <!-- TAB: MEMORY -->
+  <div class="tab-content" id="tab-memory">
+    <div id="memory-content">
+      <div class="ai-loading"><div class="spinner"></div><div class="ai-status">Loading memory tricks…</div></div>
+    </div>
+  </div>
+
+  <!-- TAB: EXAM -->
+  <div class="tab-content" id="tab-exam">
+    <div id="exam-content">
+      <div class="ai-loading"><div class="spinner"></div><div class="ai-status">Loading exam tips…</div></div>
+    </div>
+  </div>
+
+  <!-- TAB: CASES -->
+  <div class="tab-content" id="tab-laws">
+    <div id="laws-content">
+      <div class="ai-loading"><div class="spinner"></div><div class="ai-status">Loading case laws…</div></div>
+    </div>
+  </div>
+
+  <!-- TAB: AMENDMENTS -->
+  <div class="tab-content" id="tab-amend">
+    <div id="amend-content">
+      <div class="ai-loading"><div class="spinner"></div><div class="ai-status">Loading amendments…</div></div>
+    </div>
+  </div>
+
+  <!-- TAB: TRIVIA -->
+  <div class="tab-content" id="tab-trivia">
+    <div id="trivia-content">
+      <div class="ai-loading"><div class="spinner"></div><div class="ai-status">Loading trivia…</div></div>
+    </div>
+  </div>
+
+  <div class="learn-footer">
+    <button class="btn-secondary" onclick="bookmarkArticle()" id="bookmarkBtn">🔖</button>
+    <button class="btn-primary" id="markLearnedBtn" onclick="markArticleLearned()">
+      ✅ Mark as Learned
+    </button>
+  </div>
+</div>
+
+<!-- ══════════════════════════════
+     SCREEN: QUIZ
+══════════════════════════════ -->
+<div class="screen" id="screen-quiz">
+  <div class="top-bar">
+    <div class="app-logo">Samvidhan<span>Saathi</span></div>
+  </div>
+
+  <!-- Mode selector -->
+  <div id="quiz-mode-selector">
+    <div class="mode-selector">
+      <div style="padding: 0 0 8px; font-family: var(--font-display); font-size: 20px; font-weight: 700; color: var(--text);">Choose Quiz Mode</div>
+
+      <div class="mode-card accent" onclick="startQuiz('daily')">
+        <div class="mode-icon">🎯</div>
+        <div class="mode-info">
+          <div class="mode-name">Daily Quiz</div>
+          <div class="mode-desc">10 MCQs from today's articles — builds daily habit</div>
+        </div>
+        <div class="mode-arrow">›</div>
+      </div>
+
+      <div class="mode-card" onclick="startQuiz('random')">
+        <div class="mode-icon">🎲</div>
+        <div class="mode-info">
+          <div class="mode-name">Random Quiz</div>
+          <div class="mode-desc">10 random questions from all learned articles</div>
+        </div>
+        <div class="mode-arrow">›</div>
+      </div>
+
+      <div class="mode-card" onclick="startQuiz('pyq')">
+        <div class="mode-icon">📋</div>
+        <div class="mode-info">
+          <div class="mode-name">PYQ Practice</div>
+          <div class="mode-desc">Actual UPSC/BPSC previous year questions</div>
+        </div>
+        <div class="mode-arrow">›</div>
+      </div>
+
+      <div class="mode-card" onclick="startQuiz('fundRights')">
+        <div class="mode-icon">⚖️</div>
+        <div class="mode-info">
+          <div class="mode-name">Fundamental Rights</div>
+          <div class="mode-desc">Focus on Part III — highest exam weight</div>
+        </div>
+        <div class="mode-arrow">›</div>
+      </div>
+
+      <div class="mode-card" onclick="startQuiz('dpsp')">
+        <div class="mode-icon">🏛️</div>
+        <div class="mode-info">
+          <div class="mode-name">DPSP & Duties</div>
+          <div class="mode-desc">Part IV — frequently asked in Mains too</div>
+        </div>
+        <div class="mode-arrow">›</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Active quiz -->
+  <div id="quiz-active" style="display:none; padding-bottom: 20px;">
+    <div class="quiz-header">
+      <div class="quiz-progress-bar">
+        <div class="quiz-progress-fill" id="quizProgressFill" style="width:0%"></div>
+      </div>
+      <div class="quiz-meta">
+        <div class="quiz-q-count" id="quizQCount">Q 1 / 10</div>
+        <div class="quiz-score-pill" id="quizScorePill">Score: 0</div>
+      </div>
+    </div>
+    <div class="quiz-body">
+      <div class="question-card">
+        <div class="question-art-tag" id="qArtTag">Article 12</div>
+        <div class="question-text" id="qText">Loading question…</div>
+      </div>
+      <div class="options-list" id="optionsList"></div>
+      <div class="explanation-box" id="explanationBox"></div>
+      <button class="quiz-next-btn" id="quizNextBtn" onclick="nextQuestion()">Next Question →</button>
+    </div>
+  </div>
+
+  <!-- Quiz result -->
+  <div id="quiz-result" style="display:none;">
+    <div class="quiz-result">
+      <div class="result-circle" id="resultCircle">
+        <div id="resultPct">0%</div>
+        <div class="result-label">Score</div>
+      </div>
+      <div class="result-title" id="resultTitle">Quiz Complete!</div>
+      <div class="result-sub" id="resultSub"></div>
+      <div class="points-earned" id="resultPoints">+50 points earned 🎉</div>
+      <button class="btn-primary" style="width:100%; max-width:300px;" onclick="resetQuiz()">Take Another Quiz</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════
+     SCREEN: PROGRESS
+══════════════════════════════ -->
+<div class="screen" id="screen-progress">
+  <div class="top-bar">
+    <div class="app-logo">Samvidhan<span>Saathi</span></div>
+  </div>
+
+  <div class="progress-body">
+    <!-- Main ring -->
+    <div class="big-progress-ring">
+      <div class="ring-container">
+        <svg class="ring-svg" width="140" height="140" viewBox="0 0 140 140">
+          <circle class="ring-track" cx="70" cy="70" r="60"/>
+          <circle class="ring-fill" id="ringFill" cx="70" cy="70" r="60"
+            stroke-dasharray="377" stroke-dashoffset="377"/>
+        </svg>
+        <div class="ring-text">
+          <div class="ring-val" id="ringVal">0%</div>
+          <div class="ring-lbl">Complete</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats grid -->
+    <div class="progress-stats">
+      <div class="prog-stat">
+        <div class="ps-val" id="ps-learned">0</div>
+        <div class="ps-lbl">Articles Learned</div>
+      </div>
+      <div class="prog-stat">
+        <div class="ps-val" id="ps-streak">0 🔥</div>
+        <div class="ps-lbl">Day Streak</div>
+      </div>
+      <div class="prog-stat">
+        <div class="ps-val" id="ps-points">0</div>
+        <div class="ps-lbl">Total Points</div>
+      </div>
+      <div class="prog-stat">
+        <div class="ps-val" id="ps-accuracy">—</div>
+        <div class="ps-lbl">Quiz Accuracy</div>
+      </div>
+    </div>
+
+    <!-- Part breakdown -->
+    <div class="card">
+      <div class="section-title">📊 Progress by Part</div>
+      <div class="part-progress" id="partProgress"><!-- generated by JS --></div>
+    </div>
+
+    <!-- Study Calendar (last 28 days) -->
+    <div class="card">
+      <div class="section-title">📅 Study Calendar</div>
+      <div style="font-size: 11px; color: var(--text3); margin-bottom: 10px;">Last 28 days</div>
+      <div class="calendar-grid" id="calendarGrid"><!-- JS --></div>
+    </div>
+
+    <!-- Badges -->
+    <div class="card">
+      <div class="section-title">🏆 Achievements</div>
+      <div class="badges-grid" id="badgesGrid"><!-- JS --></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════
+     SCREEN: LIBRARY
+══════════════════════════════ -->
+<div class="screen" id="screen-library">
+  <div class="search-bar">
+    <div class="search-input-wrap">
+      <span>🔍</span>
+      <input type="text" placeholder="Search articles by number or name…" id="searchInput" oninput="filterLibrary()">
+    </div>
+  </div>
+  <div class="filter-chips">
+    <button class="chip active" onclick="setFilter('all', this)">All</button>
+    <button class="chip" onclick="setFilter('learned', this)">✅ Learned</button>
+    <button class="chip" onclick="setFilter('unlearned', this)">📖 To Learn</button>
+    <button class="chip" onclick="setFilter('bookmarked', this)">🔖 Bookmarked</button>
+    <button class="chip" onclick="setFilter('part3', this)">Part III</button>
+    <button class="chip" onclick="setFilter('part4', this)">Part IV</button>
+    <button class="chip" onclick="setFilter('high', this)">🔴 High Priority</button>
+  </div>
+  <div class="lib-list" id="libList"><!-- JS --></div>
+</div>
+
+<script>
+// ════════════════════════════════════════════════
+// ARTICLES DATABASE
+// ════════════════════════════════════════════════
+const ARTICLES = [
+  // Part I — Union & Territory
+  { n:1, title:"Name and Territory of India", part:"Part I — Union and Territory", priority:"med", upsc:true, bpsc:true },
+  { n:2, title:"Admission or Establishment of New States", part:"Part I", priority:"low", upsc:true, bpsc:false },
+  { n:3, title:"Formation of New States and Alteration of Areas", part:"Part I", priority:"high", upsc:true, bpsc:true },
+  { n:4, title:"Laws Made Under Arts 2 & 3 Not Amenable Under Art 13", part:"Part I", priority:"low", upsc:false, bpsc:false },
+  // Part II — Citizenship
+  { n:5, title:"Citizenship at Commencement", part:"Part II — Citizenship", priority:"med", upsc:true, bpsc:true },
+  { n:8, title:"Rights of Citizenship of Certain Persons of Indian Origin", part:"Part II", priority:"low", upsc:false, bpsc:false },
+  { n:9, title:"Persons Voluntarily Acquiring Citizenship of Foreign State", part:"Part II", priority:"low", upsc:false, bpsc:false },
+  { n:11, title:"Parliament to Regulate Citizenship by Law", part:"Part II", priority:"low", upsc:false, bpsc:false },
+  // Part III — Fundamental Rights
+  { n:12, title:"Definition of State (for Part III)", part:"Part III — Fundamental Rights", priority:"high", upsc:true, bpsc:true },
+  { n:13, title:"Laws Inconsistent with Fundamental Rights are Void", part:"Part III", priority:"high", upsc:true, bpsc:true },
+  { n:14, title:"Equality Before Law", part:"Part III", priority:"high", upsc:true, bpsc:true },
+  { n:15, title:"Prohibition of Discrimination on Grounds of Religion, Race, Caste, Sex", part:"Part III", priority:"high", upsc:true, bpsc:true },
+  { n:16, title:"Equality of Opportunity in Public Employment", part:"Part III", priority:"high", upsc:true, bpsc:true },
+  { n:17, title:"Abolition of Untouchability", part:"Part III", priority:"high", upsc:true, bpsc:true },
+  { n:18, title:"Abolition of Titles", part:"Part III", priority:"med", upsc:true, bpsc:true },
+  { n:19, title:"Protection of Six Freedoms", part:"Part III", priority:"high", upsc:true, bpsc:true },
+  { n:20, title:"Protection in Respect of Conviction for Offences", part:"Part III", priority:"high", upsc:true, bpsc:true },
+  { n:21, title:"Protection of Life and Personal Liberty", part:"Part III", priority:"high", upsc:true, bpsc:true },
+  { n:21, title:"Right to Education (21-A)", part:"Part III", priority:"high", upsc:true, bpsc:true, subkey:"21A" },
+  { n:22, title:"Protection Against Arrest and Detention", part:"Part III", priority:"high", upsc:true, bpsc:true },
+  { n:23, title:"Prohibition of Traffic in Human Beings and Forced Labour", part:"Part III", priority:"med", upsc:true, bpsc:true },
+  { n:24, title:"Prohibition of Employment of Children in Factories", part:"Part III", priority:"med", upsc:true, bpsc:true },
+  { n:25, title:"Freedom of Conscience and Free Profession of Religion", part:"Part III", priority:"med", upsc:true, bpsc:true },
+  { n:26, title:"Freedom to Manage Religious Affairs", part:"Part III", priority:"med", upsc:false, bpsc:false },
+  { n:29, title:"Protection of Interests of Minorities", part:"Part III", priority:"high", upsc:true, bpsc:true },
+  { n:30, title:"Right of Minorities to Establish Educational Institutions", part:"Part III", priority:"high", upsc:true, bpsc:true },
+  { n:32, title:"Right to Constitutional Remedies (Heart of Constitution)", part:"Part III", priority:"high", upsc:true, bpsc:true },
+  // Part IV — DPSP
+  { n:36, title:"Definition (DPSP)", part:"Part IV — DPSP", priority:"low", upsc:false, bpsc:false },
+  { n:37, title:"Application of DPSP", part:"Part IV — DPSP", priority:"med", upsc:true, bpsc:true },
+  { n:38, title:"State to Secure Social Order for Welfare", part:"Part IV — DPSP", priority:"med", upsc:true, bpsc:true },
+  { n:39, title:"Certain Principles of Policy to be Followed by State", part:"Part IV — DPSP", priority:"high", upsc:true, bpsc:true },
+  { n:40, title:"Organisation of Village Panchayats", part:"Part IV — DPSP", priority:"med", upsc:true, bpsc:true },
+  { n:44, title:"Uniform Civil Code", part:"Part IV — DPSP", priority:"high", upsc:true, bpsc:true },
+  { n:45, title:"Provision for Early Childhood Care and Education", part:"Part IV — DPSP", priority:"med", upsc:true, bpsc:false },
+  { n:48, title:"Organisation of Agriculture and Animal Husbandry", part:"Part IV — DPSP", priority:"med", upsc:true, bpsc:true },
+  // Part IVA — Fundamental Duties
+  { n:51, title:"Fundamental Duties (Article 51-A)", part:"Part IVA — Fundamental Duties", priority:"high", upsc:true, bpsc:true, subkey:"51A" },
+  // Part V — Union
+  { n:52, title:"The President of India", part:"Part V — The Union", priority:"high", upsc:true, bpsc:true },
+  { n:53, title:"Executive Power of Union", part:"Part V", priority:"high", upsc:true, bpsc:true },
+  { n:54, title:"Election of President", part:"Part V", priority:"high", upsc:true, bpsc:true },
+  { n:55, title:"Manner of Election of President", part:"Part V", priority:"high", upsc:true, bpsc:true },
+  { n:56, title:"Term of Office of President", part:"Part V", priority:"med", upsc:true, bpsc:true },
+  { n:61, title:"Impeachment of the President", part:"Part V", priority:"high", upsc:true, bpsc:true },
+  { n:63, title:"The Vice-President of India", part:"Part V", priority:"med", upsc:true, bpsc:true },
+  { n:72, title:"Power of President to Grant Pardons etc.", part:"Part V", priority:"high", upsc:true, bpsc:true },
+  { n:74, title:"Council of Ministers to Aid and Advise President", part:"Part V", priority:"high", upsc:true, bpsc:true },
+  { n:75, title:"Other Provisions as to Ministers", part:"Part V", priority:"high", upsc:true, bpsc:true },
+  { n:76, title:"Attorney General for India", part:"Part V", priority:"med", upsc:true, bpsc:false },
+  { n:78, title:"Duties of Prime Minister — Furnishing Information to President", part:"Part V", priority:"med", upsc:true, bpsc:false },
+  // Parliament
+  { n:79, title:"Constitution of Parliament", part:"Part V — Parliament", priority:"high", upsc:true, bpsc:true },
+  { n:80, title:"Composition of the Council of States (Rajya Sabha)", part:"Part V", priority:"high", upsc:true, bpsc:true },
+  { n:81, title:"Composition of the House of the People (Lok Sabha)", part:"Part V", priority:"high", upsc:true, bpsc:true },
+  { n:83, title:"Duration of Houses of Parliament", part:"Part V", priority:"high", upsc:true, bpsc:true },
+  { n:100, title:"Voting in Houses, Power of Houses to Act Notwithstanding Vacancies", part:"Part V", priority:"med", upsc:true, bpsc:false },
+  { n:108, title:"Joint Sitting of Both Houses", part:"Part V", priority:"high", upsc:true, bpsc:true },
+  { n:109, title:"Special Procedure in Respect of Money Bills", part:"Part V", priority:"high", upsc:true, bpsc:true },
+  { n:110, title:"Definition of Money Bills", part:"Part V", priority:"high", upsc:true, bpsc:true },
+  { n:112, title:"Annual Financial Statement (Budget)", part:"Part V", priority:"high", upsc:true, bpsc:true },
+  { n:123, title:"Power of President to Promulgate Ordinances", part:"Part V", priority:"high", upsc:true, bpsc:true },
+  // Judiciary
+  { n:124, title:"Establishment and Constitution of Supreme Court", part:"Part V — Judiciary", priority:"high", upsc:true, bpsc:true },
+  { n:125, title:"Salaries etc. of Judges", part:"Part V", priority:"low", upsc:false, bpsc:false },
+  { n:126, title:"Appointment of Acting Chief Justice", part:"Part V", priority:"med", upsc:true, bpsc:false },
+  { n:131, title:"Original Jurisdiction of Supreme Court", part:"Part V", priority:"high", upsc:true, bpsc:true },
+  { n:132, title:"Appellate Jurisdiction — Constitutional Cases", part:"Part V", priority:"med", upsc:true, bpsc:false },
+  { n:136, title:"Special Leave to Appeal — Supreme Court", part:"Part V", priority:"med", upsc:true, bpsc:false },
+  { n:137, title:"Review of Judgements by Supreme Court", part:"Part V", priority:"med", upsc:true, bpsc:false },
+  { n:141, title:"Law Declared by Supreme Court Binding on All Courts", part:"Part V", priority:"high", upsc:true, bpsc:true },
+  { n:143, title:"Power of President to Consult Supreme Court", part:"Part V", priority:"med", upsc:true, bpsc:false },
+  // Part VI — States
+  { n:153, title:"Governors of States", part:"Part VI — The States", priority:"high", upsc:true, bpsc:true },
+  { n:154, title:"Executive Power of State", part:"Part VI", priority:"high", upsc:true, bpsc:true },
+  { n:155, title:"Appointment of Governor", part:"Part VI", priority:"high", upsc:true, bpsc:true },
+  { n:163, title:"Council of Ministers to Aid and Advise Governor", part:"Part VI", priority:"high", upsc:true, bpsc:true },
+  { n:167, title:"Duties of Chief Minister — Furnishing Information to Governor", part:"Part VI", priority:"med", upsc:true, bpsc:true },
+  { n:213, title:"Power of Governor to Promulgate Ordinances", part:"Part VI", priority:"high", upsc:true, bpsc:true },
+  { n:214, title:"High Courts for States", part:"Part VI", priority:"high", upsc:true, bpsc:true },
+  { n:226, title:"Power of High Courts to Issue Writs", part:"Part VI", priority:"high", upsc:true, bpsc:true },
+  // Emergency
+  { n:352, title:"Proclamation of Emergency (National)", part:"Part XVIII — Emergency", priority:"high", upsc:true, bpsc:true },
+  { n:356, title:"Provisions in Case of Failure of Constitutional Machinery", part:"Part XVIII", priority:"high", upsc:true, bpsc:true },
+  { n:360, title:"Provisions as to Financial Emergency", part:"Part XVIII", priority:"high", upsc:true, bpsc:true },
+  // Amendment
+  { n:368, title:"Power of Parliament to Amend the Constitution", part:"Part XX — Amendment", priority:"high", upsc:true, bpsc:true },
+  // Schedules
+  { n:370, title:"Temporary Provisions — Jammu & Kashmir (Abrogated)", part:"Part XXI (Abrogated)", priority:"high", upsc:true, bpsc:true },
+];
+
+// Filter out duplicates by creating unique keys
+const ARTICLES_CLEAN = ARTICLES.filter((a, i) =>
+  ARTICLES.findIndex(b => (b.subkey || b.n) === (a.subkey || a.n)) === i ||
+  a.subkey
+);
+
+// ════════════════════════════════════════════════
+// STATE MANAGEMENT
+// ════════════════════════════════════════════════
+let state = {
+  currentArticleIdx: 0,
+  learnedArticles: [],
+  bookmarkedArticles: [],
+  streakCount: 0,
+  lastStudyDate: null,
+  totalPoints: 0,
+  quizHistory: [],
+  studyDays: [],
+};
+
+function loadState() {
+  const saved = localStorage.getItem('samvidhan_state');
+  if (saved) {
+    try { state = { ...state, ...JSON.parse(saved) }; } catch(e) {}
+  }
+  updateStreak();
+}
+
+function saveState() {
+  localStorage.setItem('samvidhan_state', JSON.stringify(state));
+}
+
+function updateStreak() {
+  const today = new Date().toDateString();
+  if (state.lastStudyDate === today) return;
+  const yesterday = new Date(Date.now() - 86400000).toDateString();
+  if (state.lastStudyDate === yesterday) {
+    state.streakCount++;
+  } else if (state.lastStudyDate !== today) {
+    // Don't reset streak just for loading — only reset if they miss a day
+    // We check when they actually study
+  }
+}
+
+function recordStudyDay() {
+  const today = new Date().toDateString();
+  if (state.lastStudyDate !== today) {
+    const yesterday = new Date(Date.now() - 86400000).toDateString();
+    if (state.lastStudyDate === yesterday) {
+      state.streakCount++;
+    } else if (!state.lastStudyDate) {
+      state.streakCount = 1;
+    } else {
+      state.streakCount = 1;
+    }
+    state.lastStudyDate = today;
+    if (!state.studyDays.includes(today)) state.studyDays.push(today);
+    saveState();
+  }
+}
+
+// ════════════════════════════════════════════════
+// NAVIGATION
+// ════════════════════════════════════════════════
+function showScreen(name) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('screen-' + name).classList.add('active');
+  document.getElementById('nav-' + name).classList.add('active');
+
+  if (name === 'home') refreshHome();
+  if (name === 'learn') loadCurrentArticle();
+  if (name === 'progress') refreshProgress();
+  if (name === 'library') renderLibrary();
+}
+
+// ════════════════════════════════════════════════
+// HOME SCREEN
+// ════════════════════════════════════════════════
+function refreshHome() {
+  const learned = state.learnedArticles.length;
+  const total = ARTICLES_CLEAN.length;
+  const qTotal = state.quizHistory.length;
+  const qCorrect = state.quizHistory.filter(q => q.correct).length;
+  const acc = qTotal ? Math.round(qCorrect/qTotal*100) + '%' : '—';
+
+  document.getElementById('statLearned').textContent = learned;
+  document.getElementById('statPoints').textContent = state.totalPoints;
+  document.getElementById('statAccuracy').textContent = acc;
+  document.getElementById('streakCount').textContent = state.streakCount;
+
+  const streakSub = state.streakCount === 0 ? "Study today to start your streak!" :
+    state.streakCount < 7 ? `${state.streakCount} days strong! Keep going!` :
+    `Incredible! ${state.streakCount} days of consistency!`;
+  document.getElementById('streakSub').textContent = streakSub;
+
+  // Today's articles (next 5 unlearned)
+  const unlearned = ARTICLES_CLEAN.filter(a => !state.learnedArticles.includes(getKey(a)));
+  const todayArticles = unlearned.slice(0, 5);
+  document.getElementById('todayBadge').textContent = `${todayArticles.length} articles`;
+
+  const todayList = document.getElementById('todayList');
+  if (todayArticles.length === 0) {
+    todayList.innerHTML = `<div style="text-align:center; padding: 20px; color: var(--green); font-weight:600;">🎉 All done for today! You're amazing!</div>`;
+  } else {
+    todayList.innerHTML = todayArticles.map((a, i) => `
+      <div class="today-article" onclick="goToArticle(${ARTICLES_CLEAN.indexOf(a)})">
+        <div class="art-num">
+          <span style="font-size:9px">Art.</span>
+          <span class="big">${a.subkey || a.n}</span>
+        </div>
+        <div class="art-info">
+          <div class="art-title">${a.title}</div>
+          <div class="art-part">${a.part}</div>
+        </div>
+        <div class="priority-dot ${a.priority}"></div>
+      </div>
+    `).join('');
+  }
+
+  // Quick action sub text
+  const nextUnlearned = ARTICLES_CLEAN.find(a => !state.learnedArticles.includes(getKey(a)));
+  if (nextUnlearned) {
+    document.getElementById('qb-continue-sub').textContent = `Article ${nextUnlearned.subkey || nextUnlearned.n} next`;
+  }
+
+  // Revision due
+  const revDue = getRevisionDue().length;
+  document.getElementById('qb-revision-sub').textContent = `${revDue} due today`;
+}
+
+function getKey(a) {
+  return a.subkey ? `${a.n}_${a.subkey}` : `${a.n}`;
+}
+
+function getRevisionDue() {
+  // Simple: articles learned > 3 days ago that haven't been quizzed recently
+  return state.learnedArticles.slice(0, 5); // placeholder
+}
+
+function goToArticle(idx) {
+  state.currentArticleIdx = idx;
+  showScreen('learn');
+}
+
+// ════════════════════════════════════════════════
+// LEARN SCREEN
+// ════════════════════════════════════════════════
+let articleCache = {};
+let currentTab = 'explain';
+
+function loadCurrentArticle() {
+  const article = ARTICLES_CLEAN[state.currentArticleIdx];
+  if (!article) return;
+
+  const artKey = getKey(article);
+  const isLearned = state.learnedArticles.includes(artKey);
+  const isBookmarked = state.bookmarkedArticles.includes(artKey);
+
+  // Header
+  document.getElementById('artNum').textContent = article.subkey || article.n;
+  document.getElementById('artTitle').textContent = article.title;
+  document.getElementById('artPart').textContent = article.part;
+  document.getElementById('artCounter').textContent = `${state.currentArticleIdx + 1} of ${ARTICLES_CLEAN.length}`;
+
+  // Tags
+  const tags = [];
+  if (article.upsc) tags.push('<span class="exam-tag upsc">UPSC</span>');
+  if (article.bpsc) tags.push('<span class="exam-tag bpsc">BPSC</span>');
+  if (article.priority === 'high') tags.push('<span class="exam-tag high">🔴 High Priority</span>');
+  if (article.priority === 'med') tags.push('<span class="exam-tag upsc">🟡 Medium</span>');
+  document.getElementById('artExamTags').innerHTML = tags.join('');
+
+  // Nav arrows
+  document.getElementById('prevBtn').disabled = state.currentArticleIdx === 0;
+  document.getElementById('nextBtn').disabled = state.currentArticleIdx === ARTICLES_CLEAN.length - 1;
+
+  // Mark learned button
+  const mlBtn = document.getElementById('markLearnedBtn');
+  if (isLearned) {
+    mlBtn.innerHTML = '✅ Learned!';
+    mlBtn.style.background = 'var(--green)';
+  } else {
+    mlBtn.innerHTML = '✅ Mark as Learned';
+    mlBtn.style.background = 'var(--accent)';
+  }
+
+  // Bookmark button
+  document.getElementById('bookmarkBtn').textContent = isBookmarked ? '🔖' : '🔖';
+  document.getElementById('bookmarkBtn').style.color = isBookmarked ? 'var(--gold)' : '';
+
+  // Reset tabs
+  showTab('explain');
+
+  // Load content
+  loadTabContent('explain', article);
+}
+
+function showTab(tabName) {
+  currentTab = tabName;
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+
+  const tabBtns = document.querySelectorAll('.tab-btn');
+  const tabMap = ['explain','official','memory','exam','laws','amend','trivia'];
+  tabBtns[tabMap.indexOf(tabName)]?.classList.add('active');
+  document.getElementById('tab-' + tabName).classList.add('active');
+
+  const article = ARTICLES_CLEAN[state.currentArticleIdx];
+  if (article) loadTabContent(tabName, article);
+}
+
+function loadTabContent(tab, article) {
+  const cacheKey = `${getKey(article)}_${tab}`;
+  if (articleCache[cacheKey]) {
+    setTabHTML(tab, articleCache[cacheKey]);
+    return;
+  }
+  setTabHTML(tab, `<div class="ai-loading"><div class="spinner"></div><div class="ai-status">Asking Claude about Article ${article.subkey || article.n}…</div></div>`);
+  fetchArticleContent(tab, article).then(html => {
+    articleCache[cacheKey] = html;
+    if (currentTab === tab && ARTICLES_CLEAN[state.currentArticleIdx] === article) {
+      setTabHTML(tab, html);
+    }
+  });
+}
+
+function setTabHTML(tab, html) {
+  const el = document.getElementById(tab + '-content');
+  if (el) el.innerHTML = html;
+}
+
+async function fetchArticleContent(tab, article) {
+  const artId = article.subkey ? `${article.n}(${article.subkey})` : article.n;
+  const prompts = {
+    explain: `You are a fun, UPSC/BPSC exam coach. Explain Article ${artId} of the Indian Constitution titled "${article.title}" for Abhi — a beginner. Use simple English, no jargon. Give: 1) A simple 2-3 line explanation of what it means. 2) Why it was included in the Constitution (historical context, 2-3 lines). 3) 4-5 bullet-point key takeaways. Format as clean HTML using divs. Be concise and exam-focused. Don't use markdown.`,
+    official: `Give the official constitutional text of Article ${artId} ("${article.title}") of the Indian Constitution, formatted as a readable block. Then give a 1-line plain English translation of each clause. Format as clean HTML. Keep it accurate and concise.`,
+    memory: `Create 2-3 creative memory tricks for Article ${artId} ("${article.title}") of the Indian Constitution for a UPSC/BPSC student named Abhi who loves Bollywood. Include: 1) A catchy mnemonic or word association. 2) A Bollywood movie/song/dialogue analogy that helps remember this article. 3) A visual mental image. Format as clean HTML with divs. Make it fun and memorable!`,
+    exam: `For Article ${artId} ("${article.title}") of the Indian Constitution, give exam-focused tips for UPSC + BPSC: 1) How this is tested in Prelims (typical question types, 3-4 examples of question patterns). 2) How to use it in Mains answers (which GS papers, sample answer angle). 3) Common traps/mistakes students make. 4) Related articles to know alongside this one. Format as clean HTML. Be very exam-specific.`,
+    laws: `List 3-5 landmark Supreme Court judgments related to Article ${artId} ("${article.title}") of the Indian Constitution. For each case: Case name, Year, and a 2-line significance. These should be real, important cases. Format as clean HTML divs. Relevant for UPSC/BPSC.`,
+    amend: `List all constitutional amendments that have affected Article ${artId} ("${article.title}") of the Indian Constitution. For each: Amendment number, year, and what changed. If no amendments, explain the article's original state. Format as clean HTML. Be accurate and concise.`,
+    trivia: `Give 5-6 fascinating trivia facts about Article ${artId} ("${article.title}") of the Indian Constitution — things that are interesting, surprising, or exam-relevant. Include Constituent Assembly debates, comparisons with other constitutions, historical incidents where this article was invoked, or quirky facts. Format as clean HTML bullet points. Make it genuinely interesting!`,
+  };
+
+  try {
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 1000,
+        system: "You are a knowledgeable, friendly UPSC/BPSC Constitutional Law tutor. Give concise, exam-focused responses formatted as clean HTML (use <div>, <ul>, <li>, <strong>, <em>, <p> tags). Never use markdown. Keep responses under 600 words. Always be accurate about the Indian Constitution.",
+        messages: [{ role: 'user', content: prompts[tab] }]
+      })
+    });
+    const data = await res.json();
+    const raw = data.content?.[0]?.text || '';
+    return `<div style="padding: 16px; padding-bottom: 8px; font-size: 14px; line-height: 1.7; color: var(--text2);">${raw}</div>`;
+  } catch(e) {
+    return getFallbackContent(tab, article);
+  }
+}
+
+function getFallbackContent(tab, article) {
+  const artId = article.subkey || article.n;
+  const fallbacks = {
+    explain: `<div style="padding:16px">
+      <div class="content-block">
+        <div class="content-block-title">💡 Simple Explanation</div>
+        <div class="content-block-body">
+          <p><strong>Article ${artId}: ${article.title}</strong></p>
+          <p>This is one of the key articles in ${article.part}. It's rated <strong>${article.priority} priority</strong> for both UPSC and BPSC exams.</p>
+          <p>⚠️ Could not load AI explanation. Please check your internet connection and try switching tabs to reload.</p>
+        </div>
+      </div>
+    </div>`,
+    memory: `<div style="padding:16px">
+      <div class="memory-card">
+        <div class="mc-head">🧠 Memory Trick</div>
+        <div class="memory-trick-text">Article ${artId} = "${article.title}". Connect the number ${artId} to the title using your own association!</div>
+      </div>
+    </div>`,
+    official: `<div style="padding:16px"><div class="official-text">Article ${artId} — ${article.title}\n\n[Please load with internet connection for full official text]</div></div>`,
+    exam: `<div style="padding:16px"><div class="content-block"><div class="content-block-body"><strong>Priority:</strong> ${article.priority.toUpperCase()} | UPSC: ${article.upsc ? '✅' : '❌'} | BPSC: ${article.bpsc ? '✅' : '❌'}</div></div></div>`,
+    laws: `<div style="padding:16px"><div class="content-block"><div class="content-block-body"><p>⚠️ Load with internet for landmark cases on Article ${artId}.</p></div></div></div>`,
+    amend: `<div style="padding:16px"><div class="content-block"><div class="content-block-body"><p>⚠️ Load with internet for amendment history of Article ${artId}.</p></div></div></div>`,
+    trivia: `<div style="padding:16px"><div class="content-block"><div class="content-block-body"><p>⚠️ Load with internet for trivia on Article ${artId}.</p></div></div></div>`,
+  };
+  return fallbacks[tab] || `<div style="padding:16px; color:var(--text3)">Content unavailable offline.</div>`;
+}
+
+function navigateArticle(dir) {
+  const newIdx = state.currentArticleIdx + dir;
+  if (newIdx >= 0 && newIdx < ARTICLES_CLEAN.length) {
+    state.currentArticleIdx = newIdx;
+    loadCurrentArticle();
+    saveState();
+  }
+}
+
+function markArticleLearned() {
+  const article = ARTICLES_CLEAN[state.currentArticleIdx];
+  const artKey = getKey(article);
+  if (!state.learnedArticles.includes(artKey)) {
+    state.learnedArticles.push(artKey);
+    state.totalPoints += 10;
+    recordStudyDay();
+    saveState();
+    showPointsPopup('+10 pts 🎯');
+    showToast(`Article ${article.subkey || article.n} marked as learned! 🎉`);
+    document.getElementById('markLearnedBtn').innerHTML = '✅ Learned!';
+    document.getElementById('markLearnedBtn').style.background = 'var(--green)';
+    // Auto-advance after a moment
+    setTimeout(() => {
+      if (state.currentArticleIdx < ARTICLES_CLEAN.length - 1) {
+        navigateArticle(1);
+      }
+    }, 1000);
+  } else {
+    showToast('Already learned! Moving to next article…');
+    navigateArticle(1);
+  }
+}
+
+function bookmarkArticle() {
+  const article = ARTICLES_CLEAN[state.currentArticleIdx];
+  const artKey = getKey(article);
+  if (state.bookmarkedArticles.includes(artKey)) {
+    state.bookmarkedArticles = state.bookmarkedArticles.filter(k => k !== artKey);
+    showToast('Bookmark removed');
+  } else {
+    state.bookmarkedArticles.push(artKey);
+    showToast('Bookmarked! 🔖');
+  }
+  saveState();
+}
+
+// ════════════════════════════════════════════════
+// QUIZ SYSTEM
+// ════════════════════════════════════════════════
+let quizState = {
+  questions: [],
+  current: 0,
+  score: 0,
+  answered: false,
+};
+
+const QUIZ_QUESTIONS = [
+  { art: 12, q: "Article 12 defines 'State' for the purpose of which Part?", opts: ["Part II","Part III","Part IV","Part V"], ans: 1, exp: "Article 12 defines 'State' for Part III (Fundamental Rights). It includes Parliament, State legislatures, local bodies, and other authorities under the Government of India." },
+  { art: 13, q: "Under Article 13, laws that are inconsistent with Fundamental Rights are:", opts: ["Suspended","Void ab initio","Voidable","Unconstitutional but valid"], ans: 1, exp: "Article 13 declares such laws void (void ab initio = void from the beginning). This is the doctrine of judicial review." },
+  { art: 14, q: "Article 14 guarantees equality before law to:", opts: ["Only citizens","Only persons","Citizens and foreigners both","Government employees only"], ans: 1, exp: "Article 14 uses the word 'person' (not 'citizen'), so it applies to everyone — citizens AND foreigners — on Indian soil." },
+  { art: 15, q: "Article 15 prohibits discrimination on the ground of:", opts: ["Only religion","Only caste","Religion, race, caste, sex, place of birth","Religion and caste only"], ans: 2, exp: "Article 15 prohibits discrimination on 5 grounds: Religion, Race, Caste, Sex, and Place of Birth. Remember: RRCSB." },
+  { art: 17, q: "Article 17 abolishes untouchability. Practising untouchability is:", opts: ["A civil wrong","A constitutional violation","An offence punishable by law","Both B and C"], ans: 3, exp: "Untouchability is both a constitutional violation AND punishable under the Protection of Civil Rights Act, 1955 (formerly the Untouchability Offences Act)." },
+  { art: 19, q: "Article 19 protects how many freedoms?", opts: ["4","5","6","7"], ans: 2, exp: "Article 19 originally protected 7 freedoms but Article 19(1)(f) (right to property) was deleted by the 44th Amendment 1978. Now 6 freedoms remain." },
+  { art: 20, q: "Article 20 and Article 21 CANNOT be suspended even during:", opts: ["Financial Emergency","State Emergency (Art 356)","National Emergency (Art 352)","Both B and C"], ans: 2, exp: "Under Article 359, the President can suspend enforcement of most Fundamental Rights during National Emergency — EXCEPT Articles 20 and 21." },
+  { art: 21, q: "The Right to Education (Article 21-A) was added by which Amendment?", opts: ["42nd Amendment","44th Amendment","86th Amendment","91st Amendment"], ans: 2, exp: "The 86th Constitutional Amendment 2002 inserted Article 21-A, making free and compulsory education a Fundamental Right for children aged 6-14 years." },
+  { art: 32, q: "Dr. B.R. Ambedkar called Article 32 the 'Heart and Soul of the Constitution' because:", opts: ["It establishes the Supreme Court","It gives Parliament power to amend","It provides right to approach Supreme Court to enforce FRs","It defines citizenship"], ans: 2, exp: "Article 32 is special because without it, Fundamental Rights would be meaningless. It gives citizens the right to directly approach the Supreme Court if their FRs are violated — hence 'Heart and Soul'." },
+  { art: 44, q: "Article 44 (Uniform Civil Code) falls under:", opts: ["Fundamental Rights","DPSP","Fundamental Duties","Preamble"], ans: 1, exp: "Article 44 is a DPSP (Directive Principle of State Policy) in Part IV. It's non-justiciable (not enforceable by courts) but a directive to the State. One of India's most debated constitutional provisions." },
+  { art: 51, q: "Fundamental Duties were added by which Constitutional Amendment?", opts: ["42nd Amendment","44th Amendment","52nd Amendment","86th Amendment"], ans: 0, exp: "The 42nd Amendment 1976 (during Emergency) added Article 51A with 10 Fundamental Duties. The 86th Amendment 2002 added the 11th duty. Total: 11 duties now." },
+  { art: 52, q: "Who is the constitutional head of the Union Executive?", opts: ["Prime Minister","Chief Justice","President","Vice-President"], ans: 2, exp: "Article 52 establishes the President as the constitutional head. But real executive power lies with the Council of Ministers headed by PM (Article 74). India has a parliamentary system." },
+  { art: 72, q: "The pardoning power of the President under Article 72 includes:", opts: ["Only pardon","Pardon, reprieve, respite, remission, and commutation","Only commutation of death sentence","Pardon and commutation only"], ans: 1, exp: "Article 72 gives President 5 powers: Pardon (removes conviction), Reprieve (temporary suspension), Respite (reducing sentence due to special reasons), Remission (reducing period), Commutation (changing nature of punishment)." },
+  { art: 110, q: "A bill is a Money Bill if it deals with:", opts: ["Any financial matter","Only taxation matters","Matters in Article 110 (taxes, borrowing, appropriation etc.)","Budget alone"], ans: 2, exp: "Article 110 defines Money Bill with 7 specific categories — taxation, borrowing, custody of Consolidated Fund, etc. The Speaker certifies a bill as Money Bill. Rajya Sabha cannot amend Money Bills." },
+  { art: 352, q: "National Emergency under Article 352 can be declared on the grounds of:", opts: ["War only","External aggression only","War, external aggression, OR armed rebellion","Only internal disturbance"], ans: 2, exp: "Article 352 allows National Emergency for: War, External Aggression, or Armed Rebellion (changed from 'internal disturbance' by 44th Amendment 1978). 'Armed rebellion' is a higher threshold than 'internal disturbance'." },
+  { art: 356, q: "President's Rule (Article 356) is imposed when:", opts: ["PM loses majority","Governor recommends or President is satisfied that constitutional machinery has failed","War breaks out","Parliament is dissolved"], ans: 1, exp: "President's Rule (State Emergency) is under Article 356. It's imposed when the Governor reports (or President is satisfied) that the state government cannot be carried on according to the Constitution. Famous for political misuse — limited by S.R. Bommai case 1994." },
+  { art: 368, q: "What type of majority is needed to amend the Constitution under Article 368?", opts: ["Simple majority","Absolute majority","Special majority (2/3 present + voting AND majority of total membership)","Unanimous"], ans: 2, exp: "Article 368 requires Special Majority: 2/3 of members PRESENT AND VOTING, plus majority of total membership in each House. For some provisions, ratification by half the state legislatures is also needed." },
+  { art: 14, q: "The concept of 'reasonable classification' under Article 14 was established in which case?", opts: ["Maneka Gandhi case","State of West Bengal v. Anwar Ali Sarkar","Kesavananda Bharati case","Indra Sawhney case"], ans: 1, exp: "The State of West Bengal v. Anwar Ali Sarkar (1952) established that Article 14 doesn't prohibit reasonable classification — it only prohibits arbitrary discrimination. Classification must have rational nexus to the objective." },
+  { art: 21, q: "The Right to Privacy was recognized as a Fundamental Right (under Article 21) in:", opts: ["Maneka Gandhi v. Union of India (1978)","Justice K.S. Puttaswamy v. Union of India (2017)","Francis Coralie Mullin case (1981)","Olga Tellis v. Bombay Municipal Corporation (1985)"], ans: 1, exp: "The 9-judge bench in Justice K.S. Puttaswamy v. Union of India (2017) unanimously declared Right to Privacy a Fundamental Right under Article 21. This was a landmark judgment that overruled earlier cases." },
+  { art: 32, q: "Article 32 can be invoked in which court?", opts: ["Any court","High Court only","Supreme Court only","Both Supreme Court and High Court"], ans: 2, exp: "Article 32 writs go ONLY to the Supreme Court. For High Courts, it's Article 226 (which has WIDER jurisdiction — can issue writs for any purpose, not just FR violations). Key distinction for UPSC!" },
+];
+
+function startQuiz(mode) {
+  document.getElementById('quiz-mode-selector').style.display = 'none';
+  document.getElementById('quiz-active').style.display = 'block';
+  document.getElementById('quiz-result').style.display = 'none';
+
+  // Filter questions by mode
+  let pool = [...QUIZ_QUESTIONS];
+  if (mode === 'fundRights') pool = pool.filter(q => q.art >= 12 && q.art <= 35);
+  if (mode === 'dpsp') pool = pool.filter(q => q.art >= 36 && q.art <= 51);
+  if (mode === 'pyq') pool = pool.filter((q, i) => i % 2 === 0); // alternate as "PYQ"
+
+  // Shuffle and take 10
+  pool.sort(() => Math.random() - 0.5);
+  quizState.questions = pool.slice(0, Math.min(10, pool.length));
+  quizState.current = 0;
+  quizState.score = 0;
+  quizState.answered = false;
+
+  recordStudyDay();
+  renderQuestion();
+}
+
+function renderQuestion() {
+  const q = quizState.questions[quizState.current];
+  if (!q) { showResult(); return; }
+
+  const total = quizState.questions.length;
+  const curr = quizState.current;
+
+  document.getElementById('quizProgressFill').style.width = `${(curr/total)*100}%`;
+  document.getElementById('quizQCount').textContent = `Q ${curr+1} / ${total}`;
+  document.getElementById('quizScorePill').textContent = `Score: ${quizState.score}`;
+  document.getElementById('qArtTag').textContent = `Article ${q.art}`;
+  document.getElementById('qText').textContent = q.q;
+
+  const opts = document.getElementById('optionsList');
+  const letters = ['A','B','C','D'];
+  opts.innerHTML = q.opts.map((o, i) => `
+    <button class="option-btn" onclick="selectOption(${i})" id="opt-${i}">
+      <span class="option-letter">${letters[i]}</span>
+      <span class="option-text">${o}</span>
+    </button>
+  `).join('');
+
+  document.getElementById('explanationBox').classList.remove('visible');
+  document.getElementById('explanationBox').innerHTML = '';
+  document.getElementById('quizNextBtn').classList.remove('visible');
+  quizState.answered = false;
+}
+
+function selectOption(idx) {
+  if (quizState.answered) return;
+  quizState.answered = true;
+
+  const q = quizState.questions[quizState.current];
+  const correct = q.ans;
+  const isCorrect = idx === correct;
+
+  // Visual feedback
+  document.querySelectorAll('.option-btn').forEach((b, i) => {
+    if (i === correct) b.classList.add('correct');
+    else if (i === idx && !isCorrect) b.classList.add('wrong');
+    b.style.pointerEvents = 'none';
+  });
+
+  // Score
+  if (isCorrect) {
+    quizState.score++;
+    state.totalPoints += 5;
+    showPointsPopup('+5 pts ✅');
+  }
+
+  state.quizHistory.push({ art: q.art, correct: isCorrect });
+  saveState();
+
+  // Explanation
+  const expBox = document.getElementById('explanationBox');
+  expBox.innerHTML = `<strong>${isCorrect ? '✅ Correct!' : '❌ Incorrect.'}</strong> ${q.exp}`;
+  expBox.classList.add('visible');
+  document.getElementById('quizNextBtn').classList.add('visible');
+}
+
+function nextQuestion() {
+  quizState.current++;
+  if (quizState.current >= quizState.questions.length) {
+    showResult();
+  } else {
+    renderQuestion();
+  }
+}
+
+function showResult() {
+  document.getElementById('quiz-active').style.display = 'none';
+  document.getElementById('quiz-result').style.display = 'block';
+
+  const total = quizState.questions.length;
+  const score = quizState.score;
+  const pct = Math.round((score/total)*100);
+  const bonus = pct >= 80 ? 50 : pct >= 60 ? 30 : 10;
+  state.totalPoints += bonus;
+  saveState();
+
+  document.getElementById('resultPct').textContent = `${pct}%`;
+  document.getElementById('resultPoints').textContent = `+${bonus} bonus points earned! 🎉`;
+
+  const titles = pct >= 80 ? "Excellent, Abhi! 🌟" : pct >= 60 ? "Good work! 💪" : "Keep practicing! 📚";
+  const subs = pct >= 80 ? "You're on track for BPSC 2026! This level of accuracy will clear Prelims." :
+    pct >= 60 ? `${total-score} mistakes. Review the wrong ones — they'll come back in the actual exam.` :
+    "Don't worry — revision is the key. Review these articles and try again!";
+
+  document.getElementById('resultTitle').textContent = titles;
+  document.getElementById('resultSub').textContent = subs;
+
+  if (pct >= 80) {
+    document.getElementById('resultCircle').style.borderColor = 'var(--green)';
+    document.getElementById('resultCircle').style.color = 'var(--green)';
+    document.getElementById('resultCircle').style.background = 'var(--green-soft)';
+  }
+}
+
+function resetQuiz() {
+  document.getElementById('quiz-mode-selector').style.display = 'block';
+  document.getElementById('quiz-active').style.display = 'none';
+  document.getElementById('quiz-result').style.display = 'none';
+}
+
+// ════════════════════════════════════════════════
+// PROGRESS SCREEN
+// ════════════════════════════════════════════════
+function refreshProgress() {
+  const learned = state.learnedArticles.length;
+  const total = ARTICLES_CLEAN.length;
+  const pct = Math.round((learned/total)*100);
+
+  // Ring
+  const circumference = 377;
+  const offset = circumference - (pct/100)*circumference;
+  document.getElementById('ringFill').style.strokeDashoffset = offset;
+  document.getElementById('ringVal').textContent = pct + '%';
+
+  // Stats
+  document.getElementById('ps-learned').textContent = learned;
+  document.getElementById('ps-streak').textContent = state.streakCount + ' 🔥';
+  document.getElementById('ps-points').textContent = state.totalPoints;
+  const qTotal = state.quizHistory.length;
+  const qCorrect = state.quizHistory.filter(q => q.correct).length;
+  document.getElementById('ps-accuracy').textContent = qTotal ? Math.round(qCorrect/qTotal*100)+'%' : '—';
+
+  // Part progress
+  const parts = [
+    { name: 'Part I — Union', range: [1,11] },
+    { name: 'Part II — Citizenship', range: [5,11] },
+    { name: 'Part III — Fundamental Rights', range: [12,35] },
+    { name: 'Part IV — DPSP', range: [36,51] },
+    { name: 'Part V — Union Govt', range: [52,151] },
+    { name: 'Part VI — States', range: [152,237] },
+    { name: 'Emergency Provisions', range: [352,360] },
+  ];
+  const partProg = document.getElementById('partProgress');
+  partProg.innerHTML = parts.map(p => {
+    const partArts = ARTICLES_CLEAN.filter(a => a.n >= p.range[0] && a.n <= p.range[1]);
+    const learnedPart = partArts.filter(a => state.learnedArticles.includes(getKey(a))).length;
+    const pctPart = partArts.length ? Math.round(learnedPart/partArts.length*100) : 0;
+    return `
+      <div class="part-row">
+        <div class="part-row-header">
+          <span class="part-name">${p.name}</span>
+          <span class="part-pct">${learnedPart}/${partArts.length}</span>
+        </div>
+        <div class="part-bar"><div class="part-bar-fill" style="width:${pctPart}%"></div></div>
+      </div>
+    `;
+  }).join('');
+
+  // Calendar
+  const cal = document.getElementById('calendarGrid');
+  const today = new Date();
+  cal.innerHTML = '';
+  for (let i = 27; i >= 0; i--) {
+    const d = new Date(today);
+    d.setDate(d.getDate() - i);
+    const ds = d.toDateString();
+    const isStudied = state.studyDays.includes(ds);
+    const isToday = ds === today.toDateString();
+    const div = document.createElement('div');
+    div.className = `cal-day${isStudied?' studied':''}${isToday?' today':''}`;
+    cal.appendChild(div);
+  }
+
+  // Badges
+  const badges = [
+    { icon:'🌱', name:'First Step', desc:'Learn 1 article', locked: learned < 1 },
+    { icon:'🔥', name:'3-Day Streak', desc:'3 days in a row', locked: state.streakCount < 3 },
+    { icon:'⚖️', name:'FR Expert', desc:'Learn all FR articles', locked: learned < 15 },
+    { icon:'🎯', name:'Quiz Master', desc:'Score 80%+ on a quiz', locked: !state.quizHistory.length },
+    { icon:'📜', name:'10 Articles', desc:'Learn 10 articles', locked: learned < 10 },
+    { icon:'🏆', name:'BPSC Ready', desc:'Learn 50 articles', locked: learned < 50 },
+    { icon:'🔥', name:'Week Streak', desc:'7 days in a row', locked: state.streakCount < 7 },
+    { icon:'🌟', name:'Halfway There', desc:'Learn 40 articles', locked: learned < 40 },
+    { icon:'🇮🇳', name:'Constitution Pro', desc:'Complete all articles', locked: learned < total },
+  ];
+  document.getElementById('badgesGrid').innerHTML = badges.map(b => `
+    <div class="badge-card ${b.locked?'locked':''}">
+      <div class="badge-icon">${b.icon}</div>
+      <div class="badge-name">${b.name}</div>
+      <div class="badge-desc">${b.desc}</div>
+    </div>
+  `).join('');
+}
+
+// ════════════════════════════════════════════════
+// LIBRARY SCREEN
+// ════════════════════════════════════════════════
+let currentFilter = 'all';
+
+function renderLibrary() {
+  const search = document.getElementById('searchInput').value.toLowerCase();
+  let articles = [...ARTICLES_CLEAN];
+
+  if (currentFilter === 'learned') articles = articles.filter(a => state.learnedArticles.includes(getKey(a)));
+  if (currentFilter === 'unlearned') articles = articles.filter(a => !state.learnedArticles.includes(getKey(a)));
+  if (currentFilter === 'bookmarked') articles = articles.filter(a => state.bookmarkedArticles.includes(getKey(a)));
+  if (currentFilter === 'part3') articles = articles.filter(a => a.n >= 12 && a.n <= 35);
+  if (currentFilter === 'part4') articles = articles.filter(a => a.n >= 36 && a.n <= 51);
+  if (currentFilter === 'high') articles = articles.filter(a => a.priority === 'high');
+
+  if (search) {
+    articles = articles.filter(a =>
+      a.title.toLowerCase().includes(search) ||
+      String(a.n).includes(search) ||
+      (a.subkey && String(a.subkey).toLowerCase().includes(search))
+    );
+  }
+
+  const list = document.getElementById('libList');
+  if (articles.length === 0) {
+    list.innerHTML = `<div style="text-align:center; padding: 40px; color: var(--text3);">No articles found 🔍</div>`;
+    return;
+  }
+
+  list.innerHTML = articles.map(a => {
+    const isLearned = state.learnedArticles.includes(getKey(a));
+    const isBookmarked = state.bookmarkedArticles.includes(getKey(a));
+    const idx = ARTICLES_CLEAN.indexOf(a);
+    return `
+      <div class="lib-item ${isLearned?'learned':''}" onclick="goToArticle(${idx})">
+        <div class="lib-art-num">${a.subkey || a.n}</div>
+        <div class="lib-item-info">
+          <div class="lib-item-title">${a.title}</div>
+          <div class="lib-item-meta">${a.part} · ${a.priority === 'high' ? '🔴 High' : a.priority === 'med' ? '🟡 Med' : '🟢 Low'}</div>
+        </div>
+        <div class="lib-status">${isLearned ? '✅' : isBookmarked ? '🔖' : '›'}</div>
+      </div>
+    `;
+  }).join('');
+}
+
+function filterLibrary() { renderLibrary(); }
+
+function setFilter(filter, el) {
+  currentFilter = filter;
+  document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+  el.classList.add('active');
+  renderLibrary();
+}
+
+// ════════════════════════════════════════════════
+// UTILITIES
+// ════════════════════════════════════════════════
+function toggleTheme() {
+  const current = document.documentElement.getAttribute('data-theme');
+  const next = current === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', next);
+  document.getElementById('themeBtn').textContent = next === 'dark' ? '☀️' : '🌙';
+  localStorage.setItem('samvidhan_theme', next);
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2500);
+}
+
+function showPointsPopup(msg) {
+  const p = document.getElementById('pointsPopup');
+  p.textContent = msg;
+  p.classList.add('show');
+  setTimeout(() => p.classList.remove('show'), 1500);
+}
+
+// ════════════════════════════════════════════════
+// INIT
+// ════════════════════════════════════════════════
+function init() {
+  loadState();
+
+  // Load saved theme
+  const savedTheme = localStorage.getItem('samvidhan_theme');
+  if (savedTheme) {
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    document.getElementById('themeBtn').textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+  }
+
+  // Set greeting
+  const hour = new Date().getHours();
+  const greeting = hour < 12 ? 'Subah ka Salam' : hour < 17 ? 'Jai Hind' : 'Shubh Sandhya';
+  document.getElementById('heroGreeting').textContent = `${greeting}, Abhi! 🇮🇳`;
+
+  const motivations = [
+    '"Jo article kal aaya, woh kal phir aa sakta hai." — BPSC 2026 is yours. 🎯',
+    '"Constitution padh ke Collector banna hai. Ek article at a time." 💪',
+    '"Laxmikanth is your best friend, but SamvidhanSaathi is your daily habit." 📖',
+    '"Ek article roz — 60 din mein Constitution hero." 🏆',
+  ];
+  document.getElementById('dailyQuote').textContent = motivations[new Date().getDay() % motivations.length];
+
+  refreshHome();
+}
+
+window.addEventListener('load', init);
+</script>
+</body>
+</html>
