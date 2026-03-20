@@ -4,6 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>SamvidhanSaathi — Master the Constitution</title>
+<!-- Pre-filled article content — edit data.js to update content -->
+<script src="data.js"></script>
+<!-- Gemini API config — paste your key in api.js -->
+<script src="api.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,500;0,700;1,300&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -918,25 +922,40 @@ function loadTabContent(tab,sfx){
 function setTabHTML(tab,sfx,html){const el=document.getElementById(`tab-${tab}-${sfx}`);if(el)el.innerHTML=html;}
 
 // This same function works for BOTH the 60 curated articles AND any reference article
+// 3-tier content loading:
+// Tier 1 — Pre-filled data.js (offline, instant) ✅
+// Tier 2 — Gemini API (online, free) 🌐
+// Tier 3 — Offline fallback message 📡
 async function fetchContent(tab,article){
   const id=article.n;
-  const prompts={
-    explain:`Explain Article ${id} ("${article.title}") of the Indian Constitution to a UPSC/BPSC beginner. Use: 1) Simple 2-3 line explanation. 2) Historical context (why it was included). 3) 4-5 bullet key takeaways. HTML only, no markdown.`,
-    official:`Give the full official text of Article ${id} ("${article.title}") of the Indian Constitution, then a plain English translation of each clause. HTML format.`,
-    memory:`Create memory tricks for Article ${id} ("${article.title}") for Abhi who loves Bollywood: 1) Catchy mnemonic. 2) Bollywood movie/song/dialogue analogy. 3) Visual mental image. Fun, memorable, HTML only.`,
-    exam:`For Article ${id} ("${article.title}"), give: 1) How tested in UPSC/BPSC Prelims (question patterns). 2) How to use in Mains answers. 3) Common mistakes. 4) Related articles. HTML only, exam-focused.`,
-    laws:`List 3-5 landmark Supreme Court cases on Article ${id} ("${article.title}"). Each: case name, year, 2-line significance. Real cases only. HTML format.`,
-    amend:`List all constitutional amendments affecting Article ${id} ("${article.title}"). Each: amendment number, year, what changed. If none, explain original state. HTML format.`,
-    trivia:`Give 5-6 fascinating trivia facts about Article ${id} ("${article.title}") — Constituent Assembly debates, comparisons, historical incidents. HTML bullet points.`,
-  };
-  try{
-    const res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,system:"You are a knowledgeable UPSC/BPSC Constitutional Law tutor. Give concise, exam-focused responses as clean HTML (div, ul, li, strong, em, p tags). Never use markdown. Under 600 words. Accurate.",messages:[{role:'user',content:prompts[tab]}]})});
-    const data=await res.json();
-    const raw=data.content?.[0]?.text||'';
-    return `<div style="padding:16px;font-size:14px;line-height:1.7;color:var(--text2)">${raw}</div>`;
-  }catch(e){
-    return `<div style="padding:16px;color:var(--text3);text-align:center"><p>⚠️ Needs internet to load AI content.</p><p style="margin-top:8px;font-size:12px">Article ${id}: ${article.title}</p></div>`;
+  const title=article.title||'';
+  const part=article.part||'';
+  const key=String(id);
+
+  // TIER 1: Pre-filled content from data.js — works offline!
+  if(typeof ARTICLE_DATA!=='undefined' && ARTICLE_DATA[key] && ARTICLE_DATA[key][tab]){
+    return ARTICLE_DATA[key][tab];
   }
+
+  // TIER 2: Gemini API — free, needs internet
+  if(typeof fetchFromGemini==='function'){
+    try{
+      const result=await fetchFromGemini(tab,id,title,part);
+      if(result) return result;
+    }catch(e){ console.log('Gemini unavailable'); }
+  }
+
+  // TIER 3: Default offline content from data.js fallback
+  if(typeof getArticleContent==='function'){
+    return getArticleContent(id,tab,title,part);
+  }
+
+  // Last resort
+  return `<div style="padding:16px;text-align:center;color:var(--text3)">
+    <p style="font-size:32px;margin-bottom:12px">📡</p>
+    <p style="font-weight:600;color:var(--text);font-size:15px">Article ${id}: ${title}</p>
+    <p style="margin-top:8px;font-size:13px;line-height:1.6">Add your Gemini API key in <strong>api.js</strong> for AI-powered content on all articles.<br>Key articles (12, 14, 17, 19, 21, 32, 44, 51A, 52, 110, 352, 368) work offline!</p>
+  </div>`;
 }
 
 function navigateArticle(dir){const n=state.currentIdx+dir;if(n>=0&&n<ARTICLES.length){state.currentIdx=n;loadCurrentArticle();saveState();}}
