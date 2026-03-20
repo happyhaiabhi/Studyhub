@@ -26,16 +26,16 @@
   --text2:     #8BAFC4;
   --text3:     #4A6478;
 
-  /* Primary: Sky blue + teal */
-  --primary:        #5BB8D4;
-  --primary-soft:   #5BB8D418;
-  --primary-mid:    #5BB8D440;
-  --primary-dim:    #3A8FAA;
+  /* Primary: Soft lavender */
+  --primary:        #9B8FD4;
+  --primary-soft:   #9B8FD418;
+  --primary-mid:    #9B8FD440;
+  --primary-dim:    #7A6EAF;
 
-  /* Accent: Warm cream/apricot */
-  --accent:         #E8C97A;
-  --accent-soft:    #E8C97A18;
-  --accent-mid:     #E8C97A40;
+  /* Accent: Mint green */
+  --accent:         #5BBFAA;
+  --accent-soft:    #5BBFAA18;
+  --accent-mid:     #5BBFAA40;
 
   /* Status colors — muted versions */
   --green:      #4CAF8A;
@@ -69,11 +69,11 @@
   --text:      #0D1D28;
   --text2:     #3A5A70;
   --text3:     #6A8898;
-  --primary:        #2A8FAA;
-  --primary-soft:   #2A8FAA18;
-  --primary-mid:    #2A8FAA35;
-  --accent:         #C4900A;
-  --accent-soft:    #C4900A18;
+  --primary:        #7A6EAF;
+  --primary-soft:   #7A6EAF18;
+  --primary-mid:    #7A6EAF35;
+  --accent:         #3A9E8A;
+  --accent-soft:    #3A9E8A18;
   --shadow:     0 4px 20px rgba(0,0,0,0.06);
   --shadow-lg:  0 8px 40px rgba(0,0,0,0.10);
 }
@@ -505,31 +505,6 @@ body{padding-bottom:calc(var(--nav-h) + 8px)}
 }
 .si-badge.coming{background:var(--bg3);color:var(--text3)}
 
-/* ══════════════════════════════════════
-   PLANNER + SCHEDULE (MERGED)
-══════════════════════════════════════ */
-.planner-layout{
-  display:flex;flex-direction:column;
-  gap:0;
-}
-@media(min-width:900px){
-  .planner-layout{
-    display:grid;
-    grid-template-columns:360px 1fr;
-    grid-template-rows:auto;
-    gap:0;
-    min-height:calc(100vh - 60px);
-  }
-}
-.planner-col{
-  border-right:1px solid var(--border);
-  padding:16px;
-  overflow-y:auto;
-}
-@media(max-width:899px){.planner-col{border-right:none;border-bottom:1px solid var(--border)}}
-.schedule-col{padding:16px;overflow-y:auto}
-@media(min-width:900px){.planner-col{padding:20px 22px}.schedule-col{padding:20px 22px}}
-
 .day-selector{
   display:flex;gap:5px;overflow-x:auto;scrollbar-width:none;padding-bottom:4px;
 }
@@ -810,7 +785,8 @@ body{padding-bottom:calc(var(--nav-h) + 8px)}
     <div class="sidebar-section">Main</div>
     <div class="sidebar-item active" onclick="showScreen('home')" id="snav-home"><span class="si">🏠</span>Dashboard</div>
     <div class="sidebar-item" onclick="showScreen('subjects')" id="snav-subjects"><span class="si">📚</span>All Subjects</div>
-    <div class="sidebar-item" onclick="showScreen('planner')" id="snav-planner"><span class="si">📅</span>Planner & Schedule</div>
+    <div class="sidebar-item" onclick="showScreen('planner')" id="snav-planner"><span class="si">📅</span>Daily Planner</div>
+    <div class="sidebar-item" onclick="showScreen('timetable')" id="snav-timetable"><span class="si">⏰</span>Schedule</div>
     <div class="sidebar-item" onclick="showScreen('quiz')" id="snav-quiz"><span class="si">🎯</span>Quiz</div>
     <div class="sidebar-divider"></div>
     <div class="sidebar-section">Quick Tools</div>
@@ -900,8 +876,7 @@ body{padding-bottom:calc(var(--nav-h) + 8px)}
           <span class="quick-icon">🗺️</span>
           <div><div class="quick-title">Geography</div><div class="quick-sub">150 Questions</div></div>
         </a>
-        <a href="#" onclick="showScreen('quiz');return false" class="quick-item">
-          <span class="quick-icon">🎯</span>
+        <a href="#" onclick="showScreen('quiz');return false" class="quick-item">          <span class="quick-icon">🎯</span>
           <div><div class="quick-title">Quick Quiz</div><div class="quick-sub">Practice MCQs</div></div>
         </a>
       </div>
@@ -1001,60 +976,67 @@ body{padding-bottom:calc(var(--nav-h) + 8px)}
   </div>
 </div><!-- /screen-subjects -->
 
-<!-- ═══ PLANNER + SCHEDULE (MERGED) ═══ -->
+<!-- ═══ PLANNER ═══ -->
 <div class="screen" id="screen-planner">
   <div class="top-bar">
-    <div class="top-logo">Planner & Schedule <span>Tasks + Timetable</span></div>
+    <div class="top-logo">Daily Planner <span>Today's tasks</span></div>
   </div>
   <div class="page-header">
-    <div><div class="ph-title">Planner & Schedule</div><div class="ph-sub">Daily tasks + your study timetable</div></div>
+    <div><div class="ph-title">Daily Planner</div><div class="ph-sub">Plan your study tasks day by day</div></div>
   </div>
-
-  <div class="planner-layout">
-    <!-- LEFT: Planner -->
-    <div class="planner-col">
-      <div style="margin-bottom:12px">
-        <div class="section-title" style="margin-bottom:10px">📅 Daily Planner</div>
-        <div class="day-selector" id="daySelector"></div>
-      </div>
-      <div style="margin-bottom:10px;display:flex;align-items:center;justify-content:space-between">
-        <div class="section-title" style="font-size:13px">Tasks <span class="section-badge" id="taskCountBadge">0</span></div>
-        <div style="font-size:11px;color:var(--text3)" id="taskProgressText">0/0 done</div>
-      </div>
-      <div id="taskList" style="display:flex;flex-direction:column;gap:7px"></div>
-      <button class="add-task-btn" style="margin-top:9px" onclick="openAddTask()">+ Add Task</button>
-
-      <div class="card" style="margin-top:14px;background:var(--primary-soft);border-color:var(--primary-mid)">
-        <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--primary);margin-bottom:7px">💡 Study Tip</div>
-        <div style="font-size:12px;color:var(--text2);line-height:1.6" id="studyTip">Break study into 45-min sessions. After each, write what you remember — best retention trick!</div>
-      </div>
+  <div style="padding:14px;display:flex;flex-direction:column;gap:12px">
+    <div class="day-selector" id="daySelector"></div>
+    <div style="display:flex;align-items:center;justify-content:space-between">
+      <div class="section-title">📋 Tasks <span class="section-badge" id="taskCountBadge">0</span></div>
+      <div style="font-size:11px;color:var(--text3)" id="taskProgressText">0/0 done</div>
     </div>
+    <div id="taskList" style="display:flex;flex-direction:column;gap:7px"></div>
+    <button class="add-task-btn" onclick="openAddTask()">+ Add Task</button>
+    <div class="card" style="background:var(--primary-soft);border-color:var(--primary-mid)">
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--primary);margin-bottom:7px">💡 Study Tip</div>
+      <div style="font-size:12px;color:var(--text2);line-height:1.6" id="studyTip">Break study into 45-min sessions. After each, write what you remember — best retention trick!</div>
+    </div>
+  </div>
+</div><!-- /screen-planner -->
 
-    <!-- RIGHT: Schedule -->
-    <div class="schedule-col">
-      <div class="schedule-section-title">
-        ⏰ Daily Schedule
-        <button class="edit-schedule-btn" onclick="toggleEditMode()" id="editModeBtn">✏️ Edit Schedule</button>
-      </div>
-      <div id="timetableBlocks"></div>
-      <button class="add-slot-btn" id="addSlotBtn" style="display:none" onclick="addNewSlot()">+ Add Time Slot</button>
-
-      <div class="card" style="margin-top:12px;padding:13px">
-        <div style="font-size:10px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:0.8px;margin-bottom:9px">📱 Metro Study Strategy</div>
-        <div style="display:flex;flex-direction:column;gap:8px">
-          <div style="display:flex;gap:9px;align-items:flex-start">
-            <span style="font-size:15px;flex-shrink:0">🚇</span>
-            <div style="font-size:11px;color:var(--text2);line-height:1.5"><strong style="color:var(--text)">In metro (30-45 min):</strong> Open Constitution app or Bihar BPSC Master. 1 article + quiz.</div>
-          </div>
-          <div style="display:flex;gap:9px;align-items:flex-start">
-            <span style="font-size:15px;flex-shrink:0">🌙</span>
-            <div style="font-size:11px;color:var(--text2);line-height:1.5"><strong style="color:var(--text)">Before sleep (20 min):</strong> Write 5 things you studied today from memory. Best retention!</div>
-          </div>
+<!-- ═══ TIMETABLE / SCHEDULE ═══ -->
+<div class="screen" id="screen-timetable">
+  <div class="top-bar">
+    <div class="top-logo">Daily Schedule <span>5 hrs/day plan</span></div>
+    <button class="edit-schedule-btn" onclick="toggleEditMode()" id="editModeBtnMob" style="font-size:11px">✏️ Edit</button>
+  </div>
+  <div class="page-header">
+    <div><div class="ph-title">Daily Schedule</div><div class="ph-sub">Your 5 hrs/day plan — tap ✏️ Edit to customise</div></div>
+    <div class="ph-actions">
+      <button class="edit-schedule-btn" onclick="toggleEditMode()" id="editModeBtn">✏️ Edit Schedule</button>
+    </div>
+  </div>
+  <div style="padding:14px;display:flex;flex-direction:column;gap:10px">
+    <div class="card" style="background:var(--accent-soft);border-color:var(--accent-mid);padding:13px">
+      <div style="font-size:11px;font-weight:700;color:var(--accent);margin-bottom:5px">🎯 Your 5-Hour Daily Plan</div>
+      <div style="font-size:12px;color:var(--text2);line-height:1.6">Based on 5 hrs/day, BPSC 2026 target. Flexible — adjust as needed. Metro time = revision time! 🚇</div>
+    </div>
+    <div id="timetableBlocks"></div>
+    <button class="add-slot-btn" id="addSlotBtn" style="display:none" onclick="addNewSlot()">+ Add Time Slot</button>
+    <div class="card" style="padding:13px">
+      <div style="font-size:10px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:0.8px;margin-bottom:9px">📱 Metro Study Strategy</div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <div style="display:flex;gap:9px;align-items:flex-start">
+          <span style="font-size:15px;flex-shrink:0">🚇</span>
+          <div style="font-size:11px;color:var(--text2);line-height:1.5"><strong style="color:var(--text)">In metro (30-45 min):</strong> Open Constitution app or Bihar BPSC Master. 1 article + quiz. This is your most distraction-free time!</div>
+        </div>
+        <div style="display:flex;gap:9px;align-items:flex-start">
+          <span style="font-size:15px;flex-shrink:0">⏰</span>
+          <div style="font-size:11px;color:var(--text2);line-height:1.5"><strong style="color:var(--text)">Waiting time:</strong> Open the Quiz tab. 10 MCQs = 10 minutes. Never waste a waiting moment.</div>
+        </div>
+        <div style="display:flex;gap:9px;align-items:flex-start">
+          <span style="font-size:15px;flex-shrink:0">🌙</span>
+          <div style="font-size:11px;color:var(--text2);line-height:1.5"><strong style="color:var(--text)">Before sleep (20 min):</strong> Write 5 things from memory. Best retention trick!</div>
         </div>
       </div>
     </div>
   </div>
-</div><!-- /screen-planner -->
+</div><!-- /screen-timetable -->
 
 <!-- ═══ QUIZ ═══ -->
 <div class="screen" id="screen-quiz">
@@ -1143,7 +1125,7 @@ body{padding-bottom:calc(var(--nav-h) + 8px)}
   <button class="bnav-btn active" onclick="showScreen('home')" id="bnav-home"><span class="bi">🏠</span><span>Home</span></button>
   <button class="bnav-btn" onclick="showScreen('subjects')" id="bnav-subjects"><span class="bi">📚</span><span>Subjects</span></button>
   <button class="bnav-btn" onclick="showScreen('planner')" id="bnav-planner"><span class="bi">📅</span><span>Planner</span></button>
-  <button class="bnav-btn" onclick="showScreen('quiz')" id="bnav-quiz"><span class="bi">🎯</span><span>Quiz</span></button>
+  <button class="bnav-btn" onclick="showScreen('timetable')" id="bnav-timetable"><span class="bi">⏰</span><span>Schedule</span></button>
 </nav>
 
 <!-- ADD TASK MODAL -->
@@ -1247,8 +1229,8 @@ function showScreen(name){
   const sn = document.getElementById('snav-'+name);
   if(sn) sn.classList.add('active');
   if(name==='home') refreshHome();
-  if(name==='planner') renderPlanner();
-  // Scroll to top on screen change
+  if(name==='planner'){ renderPlanner(); }
+  if(name==='timetable'){ renderTimetable(); }
   const mw = document.getElementById('mainWrap');
   if(mw) mw.scrollTo(0,0);
   else window.scrollTo(0,0);
@@ -1326,7 +1308,6 @@ function toggleHomeTask(date, id){
 function renderPlanner(){
   renderDaySelector();
   renderTaskList();
-  renderTimetable();
   renderStudyTip();
 }
 
@@ -1436,7 +1417,9 @@ function getDefaultSchedule(){
 let editModeOn=false;
 function toggleEditMode(){
   editModeOn=!editModeOn;
-  document.getElementById('editModeBtn').textContent=editModeOn?'✅ Done Editing':'✏️ Edit Schedule';
+  const label = editModeOn ? '✅ Done Editing' : '✏️ Edit Schedule';
+  const b1=document.getElementById('editModeBtn');    if(b1) b1.textContent=label;
+  const b2=document.getElementById('editModeBtnMob'); if(b2) b2.textContent=editModeOn?'✅ Done':'✏️ Edit';
   document.getElementById('addSlotBtn').style.display=editModeOn?'flex':'none';
   renderTimetable();
 }
@@ -1465,7 +1448,8 @@ function renderTimetable(){
             <button class="tb-save-btn" onclick="saveBlock(${i})">Save</button>
             <button onclick="deleteBlock(${i})" style="padding:5px 12px;background:var(--red-soft);color:var(--red);border-radius:var(--radius-sm);font-size:11px;font-weight:700;cursor:pointer;font-family:var(--font-body)">Delete</button>
           </div>
-        </div>`:''}`}
+        </div>`:''}
+
       </div>
     </div>`).join('');
 }
