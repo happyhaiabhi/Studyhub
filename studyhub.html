@@ -1,455 +1,1263 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>अध्ययन केंद्र — Study Hub</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Abhi's personal UPSC/BPSC study hub — all subjects in one place">
+<meta name="theme-color" content="#0F1117">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="StudyHub">
+<link rel="manifest" href="manifest.json">
+<title>अध्ययन केंद्र — Abhi's StudyHub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Mukta:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --bg: #0a0d14;
-    --surface: #111520;
-    --border: rgba(255,255,255,0.07);
-    --accent-geo: #f59e0b;
-    --accent-water: #38bdf8;
-    --accent-energy: #f97316;
-    --accent-bihar: #4ade80;
-    --accent-master: #a78bfa;
-    --accent-polity: #22c55e;   /* ← green for polity */
-    --text: #e2e8f0;
-    --muted: #64748b;
-    --gold: #d4a853;
-  }
+/* ═══════════════════════════════════
+   VARIABLES
+═══════════════════════════════════ */
+:root {
+  --bg:       #0F1117;
+  --bg2:      #161820;
+  --bg3:      #1E2028;
+  --surface:  #1A1C24;
+  --border:   #2A2D38;
+  --border2:  #353849;
+  --text:     #F0EDE8;
+  --text2:    #A8A4A0;
+  --text3:    #5A5760;
+  --saffron:  #FF9933;
+  --saffron2: #FFB366;
+  --saffron-soft: #FF993318;
+  --green:    #138808;
+  --green2:   #2ECC71;
+  --green-soft: #13880818;
+  --blue:     #4A90D9;
+  --blue-soft:#4A90D918;
+  --red:      #E74C3C;
+  --red-soft: #E74C3C18;
+  --gold:     #D4A843;
+  --gold-soft:#D4A84318;
+  --purple:   #9B59B6;
+  --purple-soft:#9B59B618;
+  --shadow:   0 4px 24px rgba(0,0,0,0.4);
+  --shadow-lg:0 8px 48px rgba(0,0,0,0.6);
+  --radius:   16px;
+  --radius-sm:10px;
+  --font-display: 'Playfair Display', serif;
+  --font-body:    'Mukta', sans-serif;
+  --font-mono:    'JetBrains Mono', monospace;
+  --nav-h:    60px;
+  --transition: 0.25s cubic-bezier(0.4,0,0.2,1);
+}
+[data-theme="light"] {
+  --bg:       #F5F3EE;
+  --bg2:      #EDEBE5;
+  --bg3:      #E5E2DA;
+  --surface:  #FFFFFF;
+  --border:   #DDD9D0;
+  --border2:  #CBC7BE;
+  --text:     #1A1612;
+  --text2:    #5A5450;
+  --text3:    #9A9590;
+  --saffron-soft:#FF993320;
+  --green-soft:#13880820;
+  --blue-soft:#4A90D920;
+  --gold-soft:#D4A84320;
+  --shadow:   0 4px 24px rgba(0,0,0,0.08);
+  --shadow-lg:0 8px 48px rgba(0,0,0,0.15);
+}
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+/* ═══════════════════════════════════
+   RESET
+═══════════════════════════════════ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px;scroll-behavior:smooth;-webkit-tap-highlight-color:transparent}
+body{font-family:var(--font-body);background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;padding-bottom:calc(var(--nav-h)+16px);transition:background 0.3s,color 0.3s}
+button{font-family:var(--font-body);cursor:pointer;border:none;outline:none}
+a{text-decoration:none;color:inherit}
 
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'DM Sans', sans-serif;
-    min-height: 100vh;
-    overflow-x: hidden;
-  }
+/* ═══════════════════════════════════
+   GRAIN TEXTURE OVERLAY
+═══════════════════════════════════ */
+body::before {
+  content:'';
+  position:fixed;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events:none;z-index:0;opacity:0.4;
+}
 
-  /* Background grain */
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-    pointer-events: none;
-    z-index: 0;
-  }
+/* ═══════════════════════════════════
+   BOTTOM NAV (Mobile)
+═══════════════════════════════════ */
+.bottom-nav {
+  position:fixed;bottom:0;left:0;right:0;
+  height:var(--nav-h);
+  background:var(--bg2);
+  border-top:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-around;
+  z-index:100;
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+}
+.bnav-btn {
+  display:flex;flex-direction:column;align-items:center;gap:2px;
+  padding:8px 16px;border-radius:var(--radius-sm);
+  background:none;color:var(--text3);
+  font-size:10px;font-weight:500;
+  transition:all var(--transition);flex:1;
+}
+.bnav-btn .bi{font-size:20px;line-height:1}
+.bnav-btn.active{color:var(--saffron)}
+.bnav-btn:active{transform:scale(0.92)}
 
-  /* Radial glow top */
-  body::after {
-    content: '';
-    position: fixed;
-    top: -200px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 800px;
-    height: 400px;
-    background: radial-gradient(ellipse, rgba(167,139,250,0.08) 0%, transparent 70%);
-    pointer-events: none;
-    z-index: 0;
-  }
+/* Desktop sidebar */
+@media(min-width:900px){
+  .bottom-nav{display:none}
+  body{padding-bottom:0;display:grid;grid-template-columns:220px 1fr;min-height:100vh}
+  .sidebar{display:flex!important}
+  .main-wrap{margin-left:0}
+}
+.sidebar{
+  display:none;
+  flex-direction:column;
+  position:fixed;left:0;top:0;bottom:0;width:220px;
+  background:var(--bg2);border-right:1px solid var(--border);
+  z-index:50;overflow-y:auto;
+  padding:24px 0 24px;
+}
+.sidebar-logo{padding:0 20px 24px;border-bottom:1px solid var(--border);margin-bottom:16px}
+.sidebar-logo .sl-hi{font-family:var(--font-display);font-size:20px;font-weight:700;color:var(--saffron)}
+.sidebar-logo .sl-sub{font-size:11px;color:var(--text3);margin-top:2px}
+.sidebar-nav-item{
+  display:flex;align-items:center;gap:10px;
+  padding:10px 20px;cursor:pointer;
+  font-size:13px;font-weight:500;color:var(--text2);
+  transition:all var(--transition);
+  border-left:2px solid transparent;
+}
+.sidebar-nav-item:hover{background:var(--bg3);color:var(--text)}
+.sidebar-nav-item.active{color:var(--saffron);border-left-color:var(--saffron);background:var(--saffron-soft)}
+.sidebar-nav-item .sni{font-size:16px;width:20px;text-align:center}
+.sidebar-divider{height:1px;background:var(--border);margin:12px 20px}
+.sidebar-theme{
+  margin:auto 16px 0;
+  padding:10px;border-radius:var(--radius-sm);
+  background:var(--bg3);border:1px solid var(--border);
+  font-size:12px;color:var(--text2);
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  transition:all var(--transition);
+}
+.sidebar-theme:hover{color:var(--text)}
 
-  .wrapper {
-    position: relative;
-    z-index: 1;
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 60px 24px 80px;
-  }
+/* ═══════════════════════════════════
+   SCREENS
+═══════════════════════════════════ */
+.screen{display:none;animation:fadeUp 0.3s ease;position:relative;z-index:1}
+.screen.active{display:block}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.main-wrap{flex:1}
+@media(min-width:900px){.main-wrap{margin-left:220px;max-width:calc(100vw - 220px)}}
 
-  /* ── Header ── */
-  .header {
-    text-align: center;
-    margin-bottom: 64px;
-    animation: fadeDown 0.7s ease both;
-  }
+/* ═══════════════════════════════════
+   TOP BAR
+═══════════════════════════════════ */
+.top-bar{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:16px 18px 12px;
+  position:sticky;top:0;z-index:40;
+  background:var(--bg);
+  border-bottom:1px solid var(--border);
+}
+.top-logo{font-family:var(--font-display);font-size:18px;font-weight:700;color:var(--saffron)}
+.top-logo span{color:var(--text);font-size:12px;display:block;font-family:var(--font-body);font-weight:400;margin-top:1px}
+.icon-btn{
+  width:36px;height:36px;border-radius:50%;
+  background:var(--bg3);border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  font-size:15px;color:var(--text2);transition:all var(--transition);
+}
+.icon-btn:hover{color:var(--text);background:var(--border)}
 
-  .eyebrow {
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-  }
-  .eyebrow::before, .eyebrow::after {
-    content: '';
-    width: 40px;
-    height: 1px;
-    background: var(--gold);
-    opacity: 0.4;
-  }
+/* ═══════════════════════════════════
+   HOME SCREEN
+═══════════════════════════════════ */
+.hero {
+  padding:24px 18px 20px;
+  background:linear-gradient(135deg, #1A0A00 0%, #0F1117 60%);
+  position:relative;overflow:hidden;
+  border-bottom:1px solid var(--border);
+}
+.hero::before{
+  content:'भारत';
+  position:absolute;right:-20px;top:-10px;
+  font-family:var(--font-display);font-size:120px;font-weight:900;
+  color:var(--saffron);opacity:0.04;
+  pointer-events:none;line-height:1;
+}
+.hero-flag{
+  display:flex;gap:2px;margin-bottom:16px;
+}
+.flag-stripe{height:3px;border-radius:2px;flex:1}
+.flag-stripe.s{background:var(--saffron)}
+.flag-stripe.w{background:var(--text)}
+.flag-stripe.g{background:var(--green)}
+.hero-greeting{
+  font-family:var(--font-display);
+  font-size:26px;font-weight:700;
+  color:var(--text);line-height:1.2;margin-bottom:4px;
+}
+.hero-greeting em{color:var(--saffron);font-style:normal}
+.hero-sub{font-size:13px;color:var(--text3);margin-bottom:20px}
 
-  .title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2.4rem, 6vw, 4rem);
-    font-weight: 900;
-    line-height: 1.1;
-    color: #fff;
-    margin-bottom: 16px;
-  }
+/* Countdown */
+.countdown-row{
+  display:grid;grid-template-columns:1fr 1fr;gap:10px;
+  margin-bottom:16px;
+}
+.countdown-card{
+  background:rgba(255,153,51,0.08);
+  border:1px solid rgba(255,153,51,0.2);
+  border-radius:var(--radius-sm);padding:12px;
+}
+.countdown-card.blue{background:var(--blue-soft);border-color:rgba(74,144,217,0.25)}
+.cc-val{font-family:var(--font-display);font-size:28px;font-weight:700;color:var(--saffron);line-height:1}
+.countdown-card.blue .cc-val{color:var(--blue)}
+.cc-label{font-size:11px;color:var(--text3);margin-top:2px}
+.cc-exam{font-size:10px;font-weight:600;color:var(--saffron);margin-top:4px;text-transform:uppercase;letter-spacing:0.5px}
+.countdown-card.blue .cc-exam{color:var(--blue)}
 
-  .title span {
-    color: var(--gold);
-    display: block;
-  }
+/* Quote */
+.quote-card{
+  background:rgba(255,255,255,0.03);
+  border:1px solid var(--border);
+  border-radius:var(--radius-sm);padding:14px;
+  position:relative;
+}
+.quote-card::before{
+  content:'"';
+  position:absolute;top:-8px;left:12px;
+  font-family:var(--font-display);font-size:48px;
+  color:var(--saffron);opacity:0.3;line-height:1;
+}
+.quote-text{font-size:13px;line-height:1.7;color:var(--text2);font-style:italic;padding-left:4px}
+.quote-author{font-size:11px;color:var(--text3);margin-top:6px;padding-left:4px}
 
-  .subtitle {
-    font-size: 15px;
-    color: var(--muted);
-    font-weight: 300;
-    letter-spacing: 0.02em;
-  }
+/* ═══════════════════════════════════
+   DAILY PLANNER
+═══════════════════════════════════ */
+.home-body{padding:16px;display:flex;flex-direction:column;gap:14px}
+.section-header{
+  display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:10px;
+}
+.section-title{
+  font-family:var(--font-display);font-size:16px;font-weight:600;color:var(--text);
+  display:flex;align-items:center;gap:8px;
+}
+.section-badge{
+  font-family:var(--font-body);font-size:10px;font-weight:600;
+  background:var(--saffron-soft);color:var(--saffron);
+  padding:2px 8px;border-radius:20px;
+}
+.card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius);padding:16px;
+  box-shadow:var(--shadow);
+}
 
-  /* ── Stats bar ── */
-  .stats {
-    display: flex;
-    justify-content: center;
-    gap: 48px;
-    margin-top: 36px;
-    padding-top: 36px;
-    border-top: 1px solid var(--border);
-    animation: fadeUp 0.8s 0.2s ease both;
-  }
+/* Today's plan */
+.plan-item{
+  display:flex;align-items:center;gap:12px;
+  padding:10px 0;border-bottom:1px solid var(--border);
+  cursor:pointer;transition:all var(--transition);
+}
+.plan-item:last-child{border-bottom:none}
+.plan-item:hover{padding-left:4px}
+.plan-dot{
+  width:8px;height:8px;border-radius:50%;flex-shrink:0;
+}
+.plan-subject{font-size:13px;font-weight:500;color:var(--text);flex:1}
+.plan-topic{font-size:11px;color:var(--text3);margin-top:2px}
+.plan-time{
+  font-family:var(--font-mono);font-size:11px;color:var(--text3);
+  background:var(--bg3);padding:2px 7px;border-radius:20px;
+  flex-shrink:0;
+}
+.plan-done{
+  width:20px;height:20px;border-radius:50%;
+  border:1.5px solid var(--border2);
+  display:flex;align-items:center;justify-content:center;
+  font-size:11px;flex-shrink:0;transition:all var(--transition);
+}
+.plan-item.done .plan-done{background:var(--green2);border-color:var(--green2);color:white}
+.plan-item.done .plan-subject{text-decoration:line-through;color:var(--text3)}
 
-  .stat { text-align: center; }
-  .stat-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: var(--gold);
-    display: block;
-  }
-  .stat-label {
-    font-size: 11px;
-    color: var(--muted);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    font-family: 'DM Mono', monospace;
-    margin-top: 4px;
-  }
+/* Progress mini */
+.mini-progress{display:flex;flex-direction:column;gap:8px}
+.mp-row{display:flex;align-items:center;gap:10px}
+.mp-label{font-size:12px;color:var(--text2);width:80px;flex-shrink:0}
+.mp-bar{flex:1;height:5px;background:var(--bg3);border-radius:3px;overflow:hidden}
+.mp-fill{height:100%;border-radius:3px;transition:width 1s ease}
+.mp-pct{font-family:var(--font-mono);font-size:11px;color:var(--text3);width:32px;text-align:right;flex-shrink:0}
 
-  /* ── Grid ── */
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
-    gap: 20px;
-  }
+/* ═══════════════════════════════════
+   SUBJECTS SCREEN — Menu List
+═══════════════════════════════════ */
+.subjects-body{padding:16px;display:flex;flex-direction:column;gap:8px}
 
-  /* ── Card ── */
-  .card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 28px 28px 24px;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-    text-decoration: none;
-    color: inherit;
-    display: block;
-    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-    animation: fadeUp 0.6s ease both;
-  }
+/* Subject group */
+.subject-group{margin-bottom:4px}
+.subject-group-title{
+  font-size:10px;font-weight:700;text-transform:uppercase;
+  letter-spacing:1.2px;color:var(--text3);
+  padding:8px 4px 6px;
+}
 
-  .card:nth-child(1) { animation-delay: 0.15s; }
-  .card:nth-child(2) { animation-delay: 0.22s; }
-  .card:nth-child(3) { animation-delay: 0.29s; }
-  .card:nth-child(4) { animation-delay: 0.36s; }
-  .card:nth-child(5) { animation-delay: 0.43s; }
+.subject-item{
+  display:flex;align-items:center;gap:14px;
+  padding:14px 16px;
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius-sm);
+  cursor:pointer;
+  transition:all var(--transition);
+  text-decoration:none;color:inherit;
+  position:relative;overflow:hidden;
+}
+.subject-item::before{
+  content:'';
+  position:absolute;left:0;top:0;bottom:0;
+  width:3px;border-radius:2px 0 0 2px;
+  background:var(--item-color,var(--saffron));
+  transition:width var(--transition);
+}
+.subject-item:hover{
+  border-color:var(--item-color,var(--saffron));
+  background:var(--bg3);
+  transform:translateX(2px);
+}
+.subject-item:hover::before{width:4px}
+.subject-item:active{transform:scale(0.99)}
 
-  .card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    border-radius: inherit;
-  }
+.si-icon{
+  width:42px;height:42px;border-radius:var(--radius-sm);
+  display:flex;align-items:center;justify-content:center;
+  font-size:20px;flex-shrink:0;
+  background:color-mix(in srgb, var(--item-color,var(--saffron)) 15%, transparent);
+}
+.si-info{flex:1;min-width:0}
+.si-title{font-size:14px;font-weight:600;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.si-sub{font-size:11px;color:var(--text3);margin-top:2px}
+.si-tags{display:flex;gap:4px;margin-top:5px;flex-wrap:wrap}
+.si-tag{
+  font-size:9px;font-weight:600;padding:1px 6px;border-radius:20px;
+  background:color-mix(in srgb, var(--item-color,var(--saffron)) 12%, transparent);
+  color:var(--item-color,var(--saffron));
+}
+.si-arrow{font-size:16px;color:var(--text3);flex-shrink:0}
+.si-badge{
+  position:absolute;top:8px;right:8px;
+  font-size:9px;font-weight:700;
+  padding:2px 6px;border-radius:20px;
+  background:var(--saffron);color:#000;
+}
+.si-badge.coming{background:var(--bg3);color:var(--text3)}
 
-  .card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
-  }
-  .card:hover::before { opacity: 1; }
+/* ═══════════════════════════════════
+   PLANNER SCREEN
+═══════════════════════════════════ */
+.planner-body{padding:16px;display:flex;flex-direction:column;gap:14px}
 
-  /* Per-card accent colours */
-  .card[data-accent="geo"]    { --c: var(--accent-geo); }
-  .card[data-accent="water"]  { --c: var(--accent-water); }
-  .card[data-accent="energy"] { --c: var(--accent-energy); }
-  .card[data-accent="bihar"]  { --c: var(--accent-bihar); }
-  .card[data-accent="master"] { --c: var(--accent-master); }
-  .card[data-accent="polity"] { --c: var(--accent-polity); } /* ← NEW */
+.day-selector{
+  display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;
+  padding-bottom:4px;
+}
+.day-selector::-webkit-scrollbar{display:none}
+.day-btn{
+  display:flex;flex-direction:column;align-items:center;
+  padding:8px 10px;border-radius:var(--radius-sm);
+  background:var(--bg3);border:1px solid var(--border);
+  cursor:pointer;flex-shrink:0;min-width:48px;
+  transition:all var(--transition);
+}
+.day-btn.today{background:var(--saffron);border-color:var(--saffron)}
+.day-btn.today .db-day,.day-btn.today .db-date{color:#000}
+.day-btn .db-day{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:var(--text3)}
+.day-btn .db-date{font-family:var(--font-display);font-size:18px;font-weight:700;color:var(--text);line-height:1.1}
+.day-btn.has-tasks::after{content:'•';display:block;font-size:14px;color:var(--saffron);line-height:0.8}
+.day-btn.today.has-tasks::after{color:#000}
 
-  .card:hover { border-color: var(--c); }
-  .card::before { background: radial-gradient(circle at 30% 0%, color-mix(in srgb, var(--c) 8%, transparent), transparent 60%); }
+/* Task item */
+.task-item{
+  display:flex;align-items:flex-start;gap:12px;
+  padding:14px;background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius-sm);transition:all var(--transition);
+}
+.task-check{
+  width:22px;height:22px;border-radius:50%;
+  border:2px solid var(--border2);
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;flex-shrink:0;margin-top:1px;
+  transition:all var(--transition);
+}
+.task-item.done .task-check{background:var(--green2);border-color:var(--green2);color:white;font-size:11px}
+.task-item.done .task-title{text-decoration:line-through;color:var(--text3)}
+.task-info{flex:1}
+.task-title{font-size:14px;font-weight:500;color:var(--text)}
+.task-meta{font-size:11px;color:var(--text3);margin-top:3px}
+.task-subject-tag{
+  font-size:10px;font-weight:600;padding:2px 8px;border-radius:20px;
+  display:inline-block;margin-top:5px;
+}
 
-  /* Accent bar at top */
-  .card-bar {
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 3px;
-    background: var(--c);
-    border-radius: 16px 16px 0 0;
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.3s ease;
-  }
-  .card:hover .card-bar { transform: scaleX(1); }
+/* Add task */
+.add-task-btn{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  padding:13px;background:none;border:1.5px dashed var(--border2);
+  border-radius:var(--radius-sm);color:var(--text3);
+  font-size:13px;font-weight:500;
+  transition:all var(--transition);width:100%;
+}
+.add-task-btn:hover{border-color:var(--saffron);color:var(--saffron);background:var(--saffron-soft)}
 
-  .card-icon {
-    font-size: 2rem;
-    margin-bottom: 16px;
-    display: block;
-    line-height: 1;
-  }
+/* Add task modal */
+.modal-overlay{
+  position:fixed;inset:0;background:rgba(0,0,0,0.7);
+  z-index:300;display:none;align-items:flex-end;justify-content:center;
+  backdrop-filter:blur(8px);
+}
+.modal-overlay.open{display:flex;animation:fadeIn 0.2s ease}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.modal-sheet{
+  background:var(--bg2);border-radius:20px 20px 0 0;
+  width:100%;max-width:600px;
+  padding:20px 20px 40px;
+  animation:slideUp 0.3s ease;
+  border-top:1px solid var(--border);
+}
+@keyframes slideUp{from{transform:translateY(100%)}to{transform:translateY(0)}}
+.modal-handle{width:36px;height:4px;background:var(--border2);border-radius:2px;margin:0 auto 20px}
+.modal-title{font-family:var(--font-display);font-size:20px;font-weight:700;color:var(--text);margin-bottom:16px}
+.form-group{margin-bottom:14px}
+.form-label{font-size:12px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px;display:block}
+.form-input{
+  width:100%;padding:11px 14px;
+  background:var(--bg3);border:1px solid var(--border2);
+  border-radius:var(--radius-sm);color:var(--text);
+  font-size:14px;font-family:var(--font-body);outline:none;
+  transition:border-color var(--transition);
+}
+.form-input:focus{border-color:var(--saffron)}
+.form-select{appearance:none;cursor:pointer}
+.btn-primary{
+  width:100%;padding:14px;background:var(--saffron);color:#000;
+  border:none;border-radius:var(--radius-sm);
+  font-size:14px;font-weight:700;cursor:pointer;
+  transition:all var(--transition);
+  font-family:var(--font-body);
+}
+.btn-primary:hover{opacity:0.9}
+.btn-primary:active{transform:scale(0.98)}
 
-  .card-tag {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--c);
-    margin-bottom: 8px;
-    opacity: 0.85;
-  }
+/* ═══════════════════════════════════
+   TIMETABLE SCREEN
+═══════════════════════════════════ */
+.timetable-body{padding:16px;display:flex;flex-direction:column;gap:14px}
+.time-block{
+  display:flex;gap:12px;align-items:flex-start;
+  padding:12px 14px;
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius-sm);
+}
+.tb-time{
+  font-family:var(--font-mono);font-size:12px;color:var(--text3);
+  min-width:70px;flex-shrink:0;padding-top:2px;
+}
+.tb-content{flex:1}
+.tb-title{font-size:14px;font-weight:600;color:var(--text)}
+.tb-sub{font-size:11px;color:var(--text3);margin-top:2px}
+.tb-dot{
+  width:10px;height:10px;border-radius:50%;
+  flex-shrink:0;margin-top:4px;
+}
 
-  .card-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: #fff;
-    margin-bottom: 10px;
-    line-height: 1.3;
-  }
+/* ═══════════════════════════════════
+   TOAST
+═══════════════════════════════════ */
+.toast{
+  position:fixed;bottom:calc(var(--nav-h) + 16px);left:50%;
+  transform:translateX(-50%) translateY(20px);
+  background:var(--text);color:var(--bg);
+  padding:10px 20px;border-radius:20px;
+  font-size:13px;font-weight:500;
+  opacity:0;transition:all 0.3s ease;z-index:200;
+  white-space:nowrap;max-width:90vw;pointer-events:none;
+}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+@media(min-width:900px){.toast{bottom:24px}}
 
-  .card-desc {
-    font-size: 13.5px;
-    color: var(--muted);
-    line-height: 1.65;
-    font-weight: 300;
-  }
+/* ═══════════════════════════════════
+   ANIMATIONS
+═══════════════════════════════════ */
+.stagger-1{animation:fadeUp 0.4s ease 0.05s both}
+.stagger-2{animation:fadeUp 0.4s ease 0.1s both}
+.stagger-3{animation:fadeUp 0.4s ease 0.15s both}
+.stagger-4{animation:fadeUp 0.4s ease 0.2s both}
+.stagger-5{animation:fadeUp 0.4s ease 0.25s both}
+.stagger-6{animation:fadeUp 0.4s ease 0.3s both}
 
-  .card-footer {
-    margin-top: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .card-chips {
-    display: flex;
-    gap: 6px;
-    flex-wrap: wrap;
-  }
-
-  .chip {
-    font-size: 10px;
-    font-family: 'DM Mono', monospace;
-    padding: 3px 8px;
-    border-radius: 99px;
-    background: rgba(255,255,255,0.05);
-    color: var(--muted);
-    border: 1px solid rgba(255,255,255,0.07);
-  }
-
-  .open-btn {
-    font-size: 11px;
-    font-family: 'DM Mono', monospace;
-    color: var(--c);
-    opacity: 0;
-    transition: opacity 0.2s ease;
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    white-space: nowrap;
-  }
-  .card:hover .open-btn { opacity: 1; }
-
-  /* ── Featured card (spans all cols) ── */
-  .card.featured {
-    grid-column: 1 / -1;
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 0 28px;
-    align-items: start;
-  }
-  .card.featured .card-body { }
-  .card.featured .card-side {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    justify-content: space-between;
-    height: 100%;
-    min-width: 140px;
-  }
-  .featured-badge {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--c);
-    background: color-mix(in srgb, var(--c) 12%, transparent);
-    border: 1px solid color-mix(in srgb, var(--c) 30%, transparent);
-    padding: 5px 12px;
-    border-radius: 99px;
-    margin-bottom: 16px;
-  }
-
-  /* ── Animations ── */
-  @keyframes fadeDown {
-    from { opacity: 0; transform: translateY(-20px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(24px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-
-  /* ── Responsive ── */
-  @media (max-width: 640px) {
-    .stats { gap: 24px; }
-    .card.featured { grid-template-columns: 1fr; }
-    .card.featured .card-side { align-items: flex-start; margin-top: 16px; }
-  }
+/* ═══════════════════════════════════
+   INSTALL PWA BANNER
+═══════════════════════════════════ */
+.install-banner{
+  display:none;
+  margin:12px 16px 0;
+  padding:12px 16px;
+  background:var(--saffron-soft);
+  border:1px solid rgba(255,153,51,0.3);
+  border-radius:var(--radius-sm);
+  align-items:center;gap:12px;
+}
+.install-banner.show{display:flex}
+.ib-text{flex:1;font-size:13px;color:var(--saffron2)}
+.ib-btn{
+  padding:7px 14px;background:var(--saffron);color:#000;
+  border:none;border-radius:var(--radius-sm);
+  font-size:12px;font-weight:700;cursor:pointer;
+  white-space:nowrap;flex-shrink:0;
+}
+.ib-close{font-size:18px;color:var(--text3);cursor:pointer;flex-shrink:0}
 </style>
 </head>
 <body>
-<div class="wrapper">
 
-  <!-- Header -->
-  <div class="header">
-    <div class="eyebrow">UPSC · BPSC · Civil Services</div>
-    <h1 class="title">
-      Study Hub
-      <span>अध्ययन केंद्र</span>
-    </h1>
-    <p class="subtitle">All your preparation tools, in one place.</p>
+<!-- SIDEBAR (Desktop) -->
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-logo">
+    <div class="sl-hi">अध्ययन केंद्र</div>
+    <div class="sl-sub">UPSC · BPSC · Abhi 2026</div>
+  </div>
+  <nav>
+    <div class="sidebar-nav-item active" onclick="showScreen('home')" id="snav-home"><span class="sni">🏠</span>Dashboard</div>
+    <div class="sidebar-nav-item" onclick="showScreen('subjects')" id="snav-subjects"><span class="sni">📚</span>All Subjects</div>
+    <div class="sidebar-nav-item" onclick="showScreen('planner')" id="snav-planner"><span class="sni">📅</span>Daily Planner</div>
+    <div class="sidebar-nav-item" onclick="showScreen('timetable')" id="snav-timetable"><span class="sni">⏰</span>Timetable</div>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-nav-item" onclick="window.open('https://happyhaiabhi.github.io/Studyhub/constitution_master.html')"><span class="sni">⚖️</span>Constitution</div>
+    <div class="sidebar-nav-item" onclick="window.open('https://happyhaiabhi.github.io/Studyhub/bihar_bpsc_master.html')"><span class="sni">🌟</span>BPSC Master</div>
+    <div class="sidebar-nav-item" onclick="window.open('https://happyhaiabhi.github.io/Studyhub/GeoMasterTest_Complete.html')"><span class="sni">🗺️</span>Geography</div>
+    <div class="sidebar-nav-item" onclick="window.open('https://happyhaiabhi.github.io/Studyhub/bihar-district-explorer.html')"><span class="sni">🏛️</span>Bihar Districts</div>
+  </nav>
+  <button class="sidebar-theme" onclick="toggleTheme()" id="sidebarThemeBtn">☀️ Toggle Theme</button>
+</aside>
 
-    <div class="stats">
-      <div class="stat">
-        <span class="stat-num">4</span>
-        <span class="stat-label">Modules</span>
+<!-- MOBILE BOTTOM NAV -->
+<nav class="bottom-nav">
+  <button class="bnav-btn active" onclick="showScreen('home')" id="bnav-home"><span class="bi">🏠</span><span>Home</span></button>
+  <button class="bnav-btn" onclick="showScreen('subjects')" id="bnav-subjects"><span class="bi">📚</span><span>Subjects</span></button>
+  <button class="bnav-btn" onclick="showScreen('planner')" id="bnav-planner"><span class="bi">📅</span><span>Planner</span></button>
+  <button class="bnav-btn" onclick="showScreen('timetable')" id="bnav-timetable"><span class="bi">⏰</span><span>Schedule</span></button>
+</nav>
+
+<div class="main-wrap">
+
+<!-- INSTALL PWA BANNER -->
+<div class="install-banner" id="installBanner">
+  <span style="font-size:20px">📱</span>
+  <span class="ib-text">Install as app on your phone!</span>
+  <button class="ib-btn" onclick="installPWA()">Install</button>
+  <span class="ib-close" onclick="dismissInstall()">✕</span>
+</div>
+
+<!-- ═══ HOME SCREEN ═══ -->
+<div class="screen active" id="screen-home">
+  <!-- Mobile top bar -->
+  <div class="top-bar" id="mob-topbar">
+    <div class="top-logo">अध्ययन केंद्र <span>UPSC · BPSC · Abhi</span></div>
+    <button class="icon-btn" onclick="toggleTheme()" id="themeBtn">☀️</button>
+  </div>
+
+  <!-- Hero -->
+  <div class="hero stagger-1">
+    <div class="hero-flag">
+      <div class="flag-stripe s"></div>
+      <div class="flag-stripe w"></div>
+      <div class="flag-stripe g"></div>
+    </div>
+    <div class="hero-greeting">Jai Hind, <em>Abhi</em>! 🇮🇳</div>
+    <div class="hero-sub" id="heroSub">Today is a good day to study.</div>
+    <!-- Countdown -->
+    <div class="countdown-row">
+      <div class="countdown-card">
+        <div class="cc-val" id="bpscDays">—</div>
+        <div class="cc-label">days remaining</div>
+        <div class="cc-exam">BPSC 2026 🎯</div>
       </div>
-      <div class="stat">
-        <span class="stat-num">3+</span>
-        <span class="stat-label">Subjects</span>
+      <div class="countdown-card blue">
+        <div class="cc-val" id="upscDays">—</div>
+        <div class="cc-label">days remaining</div>
+        <div class="cc-exam">UPSC 2027 📘</div>
       </div>
-      <div class="stat">
-        <span class="stat-num">∞</span>
-        <span class="stat-label">Practice</span>
-      </div>
+    </div>
+    <!-- Quote -->
+    <div class="quote-card">
+      <div class="quote-text" id="quoteText">Jo aaj padh liya, woh kal exam mein aayega.</div>
+      <div class="quote-author" id="quoteAuthor">— Abhi's Study Rule #1</div>
     </div>
   </div>
 
-  <!-- Cards -->
-  <div class="grid">
+  <div class="home-body">
 
-    <!-- 1. Bihar Special — BPSC Master -->
-    <a class="card featured" data-accent="bihar" href="bihar_bpsc_master.html">
-      <div class="card-bar"></div>
-      <div class="card-body">
-        <span class="card-icon">🌟</span>
-        <div class="card-tag">BPSC · Bihar Special · Complete Guide</div>
-        <div class="card-title">Bihar Special — BPSC Master</div>
-        <div class="card-desc">All-in-one BPSC prep — Geography · Economy · Census · History · Polity · Schemes · Current Affairs. Flashcards, Quiz, PYQs and mnemonics for every topic.</div>
-        <div class="card-footer">
-          <div class="card-chips">
-            <span class="chip">Geography</span>
-            <span class="chip">Economy</span>
-            <span class="chip">History</span>
-            <span class="chip">Polity</span>
-            <span class="chip">Schemes</span>
-          </div>
-          <span class="open-btn">Open ↗</span>
+    <!-- Today's Plan -->
+    <div class="card stagger-2">
+      <div class="section-header">
+        <div class="section-title">📅 Today's Plan <span class="section-badge" id="todayPlanBadge">0 tasks</span></div>
+        <button onclick="showScreen('planner')" style="font-size:12px;color:var(--saffron);background:none;padding:4px 8px;border-radius:20px;border:1px solid var(--saffron-soft)">Edit →</button>
+      </div>
+      <div id="todayPlanList">
+        <div style="text-align:center;padding:20px;color:var(--text3);font-size:13px">
+          📋 No tasks yet — add them in the Planner tab!
         </div>
       </div>
-      <div class="card-side">
-        <span class="featured-badge">★ BPSC Special</span>
-      </div>
-    </a>
+    </div>
 
-    <!-- 2. Constitution of India — Complete Guide -->
-    <a class="card featured" data-accent="polity" href="constitution_master.html">
-      <div class="card-bar"></div>
-      <div class="card-body">
-        <span class="card-icon">⚖️</span>
-        <div class="card-tag">UPSC · BPSC · Polity · Constitution</div>
-        <div class="card-title">Constitution of India — Complete Guide</div>
-        <div class="card-desc">All 25 Parts · 448 Articles · 12 Schedules — Preamble, Fundamental Rights, DPSP, Parliament, Executive, Judiciary, Federalism, Amendments & more. Flashcards, Quiz, PYQs and mnemonics for every article.</div>
-        <div class="card-footer">
-          <div class="card-chips">
-            <span class="chip">Fundamental Rights</span>
-            <span class="chip">DPSP</span>
-            <span class="chip">Parliament</span>
-            <span class="chip">Judiciary</span>
-            <span class="chip">Amendments</span>
-          </div>
-          <span class="open-btn">Open ↗</span>
-        </div>
+    <!-- Subject Progress -->
+    <div class="card stagger-3">
+      <div class="section-title" style="margin-bottom:14px">📊 Subject Coverage</div>
+      <div class="mini-progress" id="subjectProgress">
+        <div class="mp-row"><span class="mp-label">Polity</span><div class="mp-bar"><div class="mp-fill" style="width:0%;background:var(--saffron)" id="prog-polity"></div></div><span class="mp-pct" id="pct-polity">0%</span></div>
+        <div class="mp-row"><span class="mp-label">Geography</span><div class="mp-bar"><div class="mp-fill" style="width:0%;background:var(--blue)" id="prog-geo"></div></div><span class="mp-pct" id="pct-geo">0%</span></div>
+        <div class="mp-row"><span class="mp-label">History</span><div class="mp-bar"><div class="mp-fill" style="width:0%;background:var(--gold)" id="prog-history"></div></div><span class="mp-pct" id="pct-history">0%</span></div>
+        <div class="mp-row"><span class="mp-label">Bihar Sp.</span><div class="mp-bar"><div class="mp-fill" style="width:0%;background:var(--green2)" id="prog-bihar"></div></div><span class="mp-pct" id="pct-bihar">0%</span></div>
+        <div class="mp-row"><span class="mp-label">Science</span><div class="mp-bar"><div class="mp-fill" style="width:0%;background:var(--purple)" id="prog-science"></div></div><span class="mp-pct" id="pct-science">0%</span></div>
       </div>
-      <div class="card-side">
-        <span class="featured-badge">★ Polity Special</span>
-      </div>
-    </a>
+      <div style="font-size:11px;color:var(--text3);margin-top:12px;text-align:center">Tap a subject to update progress →</div>
+    </div>
 
-    <!-- 3. Bihar District Explorer -->
-    <a class="card featured" data-accent="bihar" href="bihar-district-explorer.html">
-      <div class="card-bar"></div>
-      <div class="card-body">
-        <span class="card-icon">🏛️</span>
-        <div class="card-tag">BPSC · State GK</div>
-        <div class="card-title">Bihar District Explorer</div>
-        <div class="card-desc">Interactive explorer of Bihar's districts — geography, history, economy, and key facts essential for BPSC mains and prelims.</div>
-        <div class="card-footer">
-          <div class="card-chips">
-            <span class="chip">BPSC</span>
-            <span class="chip">Bihar GK</span>
-            <span class="chip">Districts</span>
-          </div>
-          <span class="open-btn">Open ↗</span>
-        </div>
+    <!-- Quick Launch -->
+    <div class="stagger-4">
+      <div class="section-title" style="margin-bottom:10px">⚡ Quick Launch</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+        <a href="https://happyhaiabhi.github.io/Studyhub/constitution_master.html" style="display:flex;align-items:center;gap:10px;padding:12px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);text-decoration:none;color:inherit;transition:all var(--transition)" onmouseover="this.style.borderColor='var(--saffron)'" onmouseout="this.style.borderColor='var(--border)'">
+          <span style="font-size:22px">⚖️</span>
+          <div><div style="font-size:13px;font-weight:600;color:var(--text)">Constitution</div><div style="font-size:10px;color:var(--text3)">448 Articles</div></div>
+        </a>
+        <a href="https://happyhaiabhi.github.io/Studyhub/bihar_bpsc_master.html" style="display:flex;align-items:center;gap:10px;padding:12px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);text-decoration:none;color:inherit;transition:all var(--transition)" onmouseover="this.style.borderColor='var(--green2)'" onmouseout="this.style.borderColor='var(--border)'">
+          <span style="font-size:22px">🌟</span>
+          <div><div style="font-size:13px;font-weight:600;color:var(--text)">BPSC Master</div><div style="font-size:10px;color:var(--text3)">Bihar Special</div></div>
+        </a>
+        <a href="https://happyhaiabhi.github.io/Studyhub/GeoMasterTest_Complete.html" style="display:flex;align-items:center;gap:10px;padding:12px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);text-decoration:none;color:inherit;transition:all var(--transition)" onmouseover="this.style.borderColor='var(--blue)'" onmouseout="this.style.borderColor='var(--border)'">
+          <span style="font-size:22px">🗺️</span>
+          <div><div style="font-size:13px;font-weight:600;color:var(--text)">Geography</div><div style="font-size:10px;color:var(--text3)">150 Questions</div></div>
+        </a>
+        <a href="https://happyhaiabhi.github.io/Studyhub/bihar-district-explorer.html" style="display:flex;align-items:center;gap:10px;padding:12px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);text-decoration:none;color:inherit;transition:all var(--transition)" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'">
+          <span style="font-size:22px">🏛️</span>
+          <div><div style="font-size:13px;font-weight:600;color:var(--text)">Bihar Districts</div><div style="font-size:10px;color:var(--text3)">Explorer</div></div>
+        </a>
       </div>
-      <div class="card-side">
-        <span class="featured-badge">★ Bihar Special</span>
-      </div>
-    </a>
-
-    <!-- 4. Geography Master Test (featured) -->
-    <a class="card featured" data-accent="master" href="GeoMasterTest_Complete.html">
-      <div class="card-bar"></div>
-      <div class="card-body">
-        <span class="card-icon">🗺️</span>
-        <div class="card-tag">Geography · All 5 Topics</div>
-        <div class="card-title">Geography Basics</div>
-        <div class="card-desc">All 5 topics in one place — Earth & Maps · Landforms & Water Bodies · Climate & Vegetation · Geology & Scale · Human Geography & Agriculture. 150 questions, master level.</div>
-        <div class="card-footer">
-          <div class="card-chips">
-            <span class="chip">GS-1</span>
-            <span class="chip">Physical Geo</span>
-            <span class="chip">5 PDFs</span>
-            <span class="chip">Master Level</span>
-          </div>
-          <span class="open-btn">Open ↗</span>
-        </div>
-      </div>
-      <div class="card-side">
-        <span class="featured-badge">★ Complete Suite</span>
-      </div>
-    </a>
+    </div>
 
   </div>
-
 </div>
+
+<!-- ═══ SUBJECTS SCREEN ═══ -->
+<div class="screen" id="screen-subjects">
+  <div class="top-bar"><div class="top-logo">All Subjects <span>UPSC + BPSC</span></div></div>
+  <div class="subjects-body">
+
+    <!-- GS Papers label -->
+    <div class="subject-group stagger-1">
+      <div class="subject-group-title">📋 GS Paper I — History, Geography, Society</div>
+
+      <a href="https://happyhaiabhi.github.io/Studyhub/GeoMasterTest_Complete.html" class="subject-item" style="--item-color:var(--blue);margin-bottom:8px">
+        <div class="si-icon">🗺️</div>
+        <div class="si-info">
+          <div class="si-title">Geography — Complete Suite</div>
+          <div class="si-sub">Physical · Human · Indian · World · Environment</div>
+          <div class="si-tags"><span class="si-tag">GS-1</span><span class="si-tag">UPSC</span><span class="si-tag">BPSC</span><span class="si-tag">150 Qs</span></div>
+        </div>
+        <div class="si-arrow">›</div>
+        <span class="si-badge">⭐ Active</span>
+      </a>
+
+      <a href="#" class="subject-item" style="--item-color:var(--gold);margin-bottom:8px" onclick="comingSoon('Modern History')">
+        <div class="si-icon">📜</div>
+        <div class="si-info">
+          <div class="si-title">Modern History</div>
+          <div class="si-sub">1857 Revolt · Freedom Struggle · Social Reforms</div>
+          <div class="si-tags"><span class="si-tag">GS-1</span><span class="si-tag">UPSC</span><span class="si-tag">BPSC</span></div>
+        </div>
+        <div class="si-arrow">›</div>
+        <span class="si-badge coming">Soon</span>
+      </a>
+
+      <a href="#" class="subject-item" style="--item-color:var(--gold);margin-bottom:8px" onclick="comingSoon('Ancient & Medieval History')">
+        <div class="si-icon">🏺</div>
+        <div class="si-info">
+          <div class="si-title">Ancient & Medieval History</div>
+          <div class="si-sub">Indus Valley · Maurya · Gupta · Mughal</div>
+          <div class="si-tags"><span class="si-tag">GS-1</span><span class="si-tag">UPSC</span><span class="si-tag">BPSC</span></div>
+        </div>
+        <div class="si-arrow">›</div>
+        <span class="si-badge coming">Soon</span>
+      </a>
+    </div>
+
+    <div class="subject-group stagger-2">
+      <div class="subject-group-title">📋 GS Paper II — Polity, Governance, IR</div>
+
+      <a href="https://happyhaiabhi.github.io/Studyhub/constitution_master.html" class="subject-item" style="--item-color:var(--saffron);margin-bottom:8px">
+        <div class="si-icon">⚖️</div>
+        <div class="si-info">
+          <div class="si-title">Constitution of India</div>
+          <div class="si-sub">448 Articles · All Parts · Amendments · Case Laws</div>
+          <div class="si-tags"><span class="si-tag">GS-2</span><span class="si-tag">UPSC</span><span class="si-tag">BPSC</span><span class="si-tag">AI-Powered</span></div>
+        </div>
+        <div class="si-arrow">›</div>
+        <span class="si-badge">⭐ Active</span>
+      </a>
+
+      <a href="#" class="subject-item" style="--item-color:var(--saffron);margin-bottom:8px" onclick="comingSoon('Governance & Social Justice')">
+        <div class="si-icon">🏛️</div>
+        <div class="si-info">
+          <div class="si-title">Governance & Social Justice</div>
+          <div class="si-sub">Schemes · Welfare · Rights · Committees</div>
+          <div class="si-tags"><span class="si-tag">GS-2</span><span class="si-tag">UPSC</span></div>
+        </div>
+        <div class="si-arrow">›</div>
+        <span class="si-badge coming">Soon</span>
+      </a>
+    </div>
+
+    <div class="subject-group stagger-3">
+      <div class="subject-group-title">📋 GS Paper III — Economy, Science, Environment</div>
+
+      <a href="#" class="subject-item" style="--item-color:var(--green2);margin-bottom:8px" onclick="comingSoon('Indian Economy')">
+        <div class="si-icon">📈</div>
+        <div class="si-info">
+          <div class="si-title">Indian Economy</div>
+          <div class="si-sub">Budget · Banking · Inflation · GDP · Schemes</div>
+          <div class="si-tags"><span class="si-tag">GS-3</span><span class="si-tag">UPSC</span><span class="si-tag">BPSC</span></div>
+        </div>
+        <div class="si-arrow">›</div>
+        <span class="si-badge coming">Soon</span>
+      </a>
+
+      <a href="#" class="subject-item" style="--item-color:var(--purple);margin-bottom:8px" onclick="comingSoon('Science & Technology')">
+        <div class="si-icon">🔬</div>
+        <div class="si-info">
+          <div class="si-title">Science & Technology</div>
+          <div class="si-sub">Physics · Chemistry · Biology · Space · Defence</div>
+          <div class="si-tags"><span class="si-tag">GS-3</span><span class="si-tag">UPSC</span><span class="si-tag">BPSC High Weight</span></div>
+        </div>
+        <div class="si-arrow">›</div>
+        <span class="si-badge coming">Soon</span>
+      </a>
+
+      <a href="#" class="subject-item" style="--item-color:var(--green2);margin-bottom:8px" onclick="comingSoon('Environment & Ecology')">
+        <div class="si-icon">🌿</div>
+        <div class="si-info">
+          <div class="si-title">Environment & Ecology</div>
+          <div class="si-sub">Biodiversity · Climate · Conventions · Protected Areas</div>
+          <div class="si-tags"><span class="si-tag">GS-3</span><span class="si-tag">UPSC</span><span class="si-tag">BPSC</span></div>
+        </div>
+        <div class="si-arrow">›</div>
+        <span class="si-badge coming">Soon</span>
+      </a>
+    </div>
+
+    <div class="subject-group stagger-4">
+      <div class="subject-group-title">🌟 Bihar Special — BPSC Exclusive</div>
+
+      <a href="https://happyhaiabhi.github.io/Studyhub/bihar_bpsc_master.html" class="subject-item" style="--item-color:var(--green2);margin-bottom:8px">
+        <div class="si-icon">🌟</div>
+        <div class="si-info">
+          <div class="si-title">Bihar Special — BPSC Master</div>
+          <div class="si-sub">Geography · Economy · Census · History · Schemes</div>
+          <div class="si-tags"><span class="si-tag">BPSC Only</span><span class="si-tag">High Yield</span><span class="si-tag">PYQs</span></div>
+        </div>
+        <div class="si-arrow">›</div>
+        <span class="si-badge">⭐ Active</span>
+      </a>
+
+      <a href="https://happyhaiabhi.github.io/Studyhub/bihar-district-explorer.html" class="subject-item" style="--item-color:var(--green2);margin-bottom:8px">
+        <div class="si-icon">🏛️</div>
+        <div class="si-info">
+          <div class="si-title">Bihar District Explorer</div>
+          <div class="si-sub">All 38 districts — facts, geography, history</div>
+          <div class="si-tags"><span class="si-tag">BPSC Only</span><span class="si-tag">Mains</span></div>
+        </div>
+        <div class="si-arrow">›</div>
+        <span class="si-badge">⭐ Active</span>
+      </a>
+    </div>
+
+    <div class="subject-group stagger-5">
+      <div class="subject-group-title">📰 Current Affairs</div>
+
+      <a href="#" class="subject-item" style="--item-color:var(--red);margin-bottom:8px" onclick="comingSoon('Current Affairs')">
+        <div class="si-icon">📰</div>
+        <div class="si-info">
+          <div class="si-title">Current Affairs — Daily</div>
+          <div class="si-sub">National · International · Economy · Awards</div>
+          <div class="si-tags"><span class="si-tag">UPSC</span><span class="si-tag">BPSC</span><span class="si-tag">Daily</span></div>
+        </div>
+        <div class="si-arrow">›</div>
+        <span class="si-badge coming">Soon</span>
+      </a>
+    </div>
+
+    <div class="subject-group stagger-6">
+      <div class="subject-group-title">📖 UPSC Optional</div>
+      <a href="#" class="subject-item" style="--item-color:var(--purple);margin-bottom:8px" onclick="comingSoon('Philosophy Optional')">
+        <div class="si-icon">🧠</div>
+        <div class="si-info">
+          <div class="si-title">Philosophy Optional</div>
+          <div class="si-sub">Indian Phil · Western Phil · Ethics — 500 marks</div>
+          <div class="si-tags"><span class="si-tag">UPSC Mains</span><span class="si-tag">500 marks</span><span class="si-tag">Your Edge</span></div>
+        </div>
+        <div class="si-arrow">›</div>
+        <span class="si-badge coming">Soon</span>
+      </a>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══ PLANNER SCREEN ═══ -->
+<div class="screen" id="screen-planner">
+  <div class="top-bar"><div class="top-logo">Daily Planner <span>Today's tasks</span></div></div>
+  <div class="planner-body">
+
+    <!-- Day selector -->
+    <div class="day-selector" id="daySelector"></div>
+
+    <!-- Tasks for selected day -->
+    <div>
+      <div class="section-header">
+        <div class="section-title">📋 Tasks <span class="section-badge" id="taskCountBadge">0</span></div>
+        <div style="font-size:12px;color:var(--text3)" id="taskProgressText">0/0 done</div>
+      </div>
+      <div id="taskList" style="display:flex;flex-direction:column;gap:8px"></div>
+      <button class="add-task-btn" style="margin-top:8px" onclick="openAddTask()">+ Add Task</button>
+    </div>
+
+    <!-- Study tip -->
+    <div class="card" style="background:var(--saffron-soft);border-color:rgba(255,153,51,0.3)">
+      <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--saffron);margin-bottom:8px">💡 Abhi's Study Tip</div>
+      <div style="font-size:13px;color:var(--text2);line-height:1.6" id="studyTip">Break your study into 45-minute Pomodoro sessions. After each session, do 5 minutes of active recall — write what you remembered without looking.</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══ TIMETABLE SCREEN ═══ -->
+<div class="screen" id="screen-timetable">
+  <div class="top-bar"><div class="top-logo">Daily Schedule <span>5 hrs/day plan</span></div></div>
+  <div class="timetable-body">
+
+    <div class="card" style="background:var(--saffron-soft);border-color:rgba(255,153,51,0.3);padding:14px">
+      <div style="font-size:12px;font-weight:700;color:var(--saffron);margin-bottom:6px">🎯 Your 5-Hour Daily Plan</div>
+      <div style="font-size:12px;color:var(--text2);line-height:1.6">Based on your 5 hrs/day, BPSC 2026 target. Flexible — adjust as needed. Metro time = revision time! 🚇</div>
+    </div>
+
+    <div id="timetableBlocks" style="display:flex;flex-direction:column;gap:8px"></div>
+
+    <div class="card" style="padding:14px">
+      <div style="font-size:12px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:0.8px;margin-bottom:10px">📱 Metro Study Strategy</div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <div style="display:flex;align-items:flex-start;gap:10px">
+          <span style="font-size:16px;flex-shrink:0">🚇</span>
+          <div style="font-size:12px;color:var(--text2);line-height:1.5"><strong style="color:var(--text)">In metro (30-45 min):</strong> Open Constitution app or Bihar BPSC Master. Do 1 article + quiz. This is your most distraction-free time!</div>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:10px">
+          <span style="font-size:16px;flex-shrink:0">⏰</span>
+          <div style="font-size:12px;color:var(--text2);line-height:1.5"><strong style="color:var(--text)">Waiting time:</strong> Open the Quiz tab. 10 MCQs = 10 minutes. Never waste a waiting moment.</div>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:10px">
+          <span style="font-size:16px;flex-shrink:0">🌙</span>
+          <div style="font-size:12px;color:var(--text2);line-height:1.5"><strong style="color:var(--text)">Before sleep (20 min):</strong> Write 5 things you studied today from memory. Best retention trick!</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</div><!-- main-wrap -->
+
+<!-- ADD TASK MODAL -->
+<div class="modal-overlay" id="addTaskModal">
+  <div class="modal-sheet">
+    <div class="modal-handle"></div>
+    <div class="modal-title">Add Task 📋</div>
+    <div class="form-group">
+      <label class="form-label">Task Title</label>
+      <input class="form-input" type="text" id="taskTitleInput" placeholder="e.g. Read Article 21, Solve 20 MCQs...">
+    </div>
+    <div class="form-group">
+      <label class="form-label">Subject</label>
+      <select class="form-input form-select" id="taskSubjectInput">
+        <option value="Polity">⚖️ Polity / Constitution</option>
+        <option value="Geography">🗺️ Geography</option>
+        <option value="History">📜 History</option>
+        <option value="Bihar Special">🌟 Bihar Special</option>
+        <option value="Science">🔬 Science</option>
+        <option value="Economy">📈 Economy</option>
+        <option value="Philosophy">🧠 Philosophy</option>
+        <option value="Current Affairs">📰 Current Affairs</option>
+        <option value="Revision">🔄 Revision</option>
+        <option value="Quiz">🎯 Quiz / Test</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Time (optional)</label>
+      <input class="form-input" type="text" id="taskTimeInput" placeholder="e.g. 9:00 AM, Evening, Metro...">
+    </div>
+    <button class="btn-primary" onclick="addTask()">Add Task ✅</button>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ═══════════════════════════════════
+// STATE
+// ═══════════════════════════════════
+let state = {
+  tasks: {},        // { 'YYYY-MM-DD': [{id,title,subject,time,done}] }
+  progress: {
+    polity: 0, geo: 0, history: 0, bihar: 0, science: 0
+  },
+  theme: 'dark',
+  selectedDate: getTodayStr(),
+};
+
+function loadState() {
+  const s = localStorage.getItem('studyhub_v1');
+  if(s) try { state = {...state, ...JSON.parse(s)}; } catch(e){}
+  state.selectedDate = getTodayStr(); // always start with today
+}
+function saveState() { localStorage.setItem('studyhub_v1', JSON.stringify(state)); }
+function getTodayStr() {
+  return new Date().toISOString().split('T')[0];
+}
+function getDateStr(offsetDays) {
+  const d = new Date();
+  d.setDate(d.getDate() + offsetDays);
+  return d.toISOString().split('T')[0];
+}
+
+// ═══════════════════════════════════
+// NAVIGATION
+// ═══════════════════════════════════
+function showScreen(name) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.bnav-btn, .sidebar-nav-item').forEach(b => b.classList.remove('active'));
+  document.getElementById('screen-' + name).classList.add('active');
+  const bnav = document.getElementById('bnav-' + name);
+  if(bnav) bnav.classList.add('active');
+  const snav = document.getElementById('snav-' + name);
+  if(snav) snav.classList.add('active');
+  if(name === 'home') refreshHome();
+  if(name === 'planner') renderPlanner();
+  if(name === 'timetable') renderTimetable();
+}
+
+// ═══════════════════════════════════
+// HOME
+// ═══════════════════════════════════
+function refreshHome() {
+  // Countdown
+  const bpscTarget = new Date('2026-05-01');
+  const upscTarget = new Date('2027-05-15');
+  const now = new Date();
+  document.getElementById('bpscDays').textContent = Math.ceil((bpscTarget - now) / 86400000);
+  document.getElementById('upscDays').textContent = Math.ceil((upscTarget - now) / 86400000);
+
+  // Greeting
+  const h = new Date().getHours();
+  const greet = h < 5 ? 'Raat bhar jaag rahe ho' : h < 12 ? 'Subah ka Salam' : h < 17 ? 'Dopahar ki Shubhkaamnayein' : h < 20 ? 'Shaam ko bhi padhai' : 'Raat bhi padhai chalti hai';
+  document.getElementById('heroSub').textContent = greet + ', Abhi. Let\'s study! 📚';
+
+  // Quotes
+  const quotes = [
+    {q: '"Jo aaj padh liya, woh kal exam mein aayega."', a: '— Abhi\'s Study Rule #1'},
+    {q: '"BPSC 2026 is not a dream. It\'s a deadline."', a: '— Your Countdown'},
+    {q: '"Ek article roz. 60 din mein Constitution hero."', a: '— SamvidhanSaathi'},
+    {q: '"Mushkilein aati hain to aao, kyunki iske bagair progress nahi."', a: '— Motivational'},
+    {q: '"Bihar ka hero banna hai. Toh Bihar ko pehle samjho."', a: '— BPSC Strategy'},
+    {q: '"Jo question kal aaya, woh kal phir aa sakta hai."', a: '— PYQ Wisdom'},
+    {q: '"5 hours a day. Every day. No excuses. BPSC pakka."', a: '— Your Plan'},
+  ];
+  const q = quotes[new Date().getDay() % quotes.length];
+  document.getElementById('quoteText').textContent = q.q;
+  document.getElementById('quoteAuthor').textContent = q.a;
+
+  // Today's tasks
+  const today = getTodayStr();
+  const todayTasks = state.tasks[today] || [];
+  const badge = document.getElementById('todayPlanBadge');
+  badge.textContent = todayTasks.length + ' tasks';
+  const list = document.getElementById('todayPlanList');
+  if(todayTasks.length === 0) {
+    list.innerHTML = '<div style="text-align:center;padding:20px;color:var(--text3);font-size:13px">📋 No tasks yet — add them in the Planner tab!</div>';
+  } else {
+    const colors = {Polity:'var(--saffron)',Geography:'var(--blue)',History:'var(--gold)',
+      'Bihar Special':'var(--green2)',Science:'var(--purple)',Economy:'var(--green2)',
+      Philosophy:'var(--purple)',default:'var(--saffron)'};
+    list.innerHTML = todayTasks.map(t => `
+      <div class="plan-item ${t.done?'done':''}" onclick="toggleHomeTask('${today}','${t.id}')">
+        <div class="plan-dot" style="background:${colors[t.subject]||colors.default}"></div>
+        <div style="flex:1;min-width:0">
+          <div class="plan-subject">${t.title}</div>
+          <div class="plan-topic">${t.subject}${t.time?' · '+t.time:''}</div>
+        </div>
+        <div class="plan-done">${t.done?'✓':''}</div>
+      </div>`).join('');
+  }
+
+  // Progress bars
+  const p = state.progress;
+  const subjects = ['polity','geo','history','bihar','science'];
+  subjects.forEach(s => {
+    const val = Math.min(100, Math.max(0, p[s] || 0));
+    const fill = document.getElementById('prog-'+s);
+    const pct = document.getElementById('pct-'+s);
+    if(fill) setTimeout(() => fill.style.width = val+'%', 100);
+    if(pct) pct.textContent = val+'%';
+  });
+}
+
+function toggleHomeTask(date, id) {
+  const tasks = state.tasks[date] || [];
+  const t = tasks.find(x => x.id === id);
+  if(t) t.done = !t.done;
+  state.tasks[date] = tasks;
+  saveState();
+  refreshHome();
+}
+
+// ═══════════════════════════════════
+// PLANNER
+// ═══════════════════════════════════
+function renderPlanner() {
+  renderDaySelector();
+  renderTaskList();
+  renderStudyTip();
+}
+
+function renderDaySelector() {
+  const sel = document.getElementById('daySelector');
+  const days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  let html = '';
+  for(let i = -2; i <= 6; i++) {
+    const d = new Date();
+    d.setDate(d.getDate() + i);
+    const ds = d.toISOString().split('T')[0];
+    const isToday = i === 0;
+    const isSelected = ds === state.selectedDate;
+    const hasTasks = (state.tasks[ds] || []).length > 0;
+    html += `<button class="day-btn ${isToday?'today':''} ${isSelected&&!isToday?'today':''} ${hasTasks?'has-tasks':''}"
+      onclick="selectDate('${ds}')" style="${isSelected&&!isToday?'background:var(--saffron-soft);border-color:var(--saffron)':''}">
+      <span class="db-day">${days[d.getDay()]}</span>
+      <span class="db-date">${d.getDate()}</span>
+    </button>`;
+  }
+  sel.innerHTML = html;
+}
+
+function selectDate(ds) {
+  state.selectedDate = ds;
+  renderPlanner();
+}
+
+function renderTaskList() {
+  const tasks = state.tasks[state.selectedDate] || [];
+  const done = tasks.filter(t => t.done).length;
+  document.getElementById('taskCountBadge').textContent = tasks.length;
+  document.getElementById('taskProgressText').textContent = done + '/' + tasks.length + ' done';
+
+  const colors = {Polity:'var(--saffron)',Geography:'var(--blue)',History:'var(--gold)',
+    'Bihar Special':'var(--green2)',Science:'var(--purple)',Economy:'var(--green2)',
+    Philosophy:'var(--purple)','Current Affairs':'var(--red)',Revision:'var(--blue)',Quiz:'var(--saffron)',default:'var(--text3)'};
+
+  const list = document.getElementById('taskList');
+  if(tasks.length === 0) {
+    list.innerHTML = `<div style="text-align:center;padding:30px;color:var(--text3);font-size:13px">
+      No tasks for this day.<br>Click "+ Add Task" to plan your study! 📚
+    </div>`;
+    return;
+  }
+  list.innerHTML = tasks.map(t => `
+    <div class="task-item ${t.done?'done':''}">
+      <div class="task-check" onclick="toggleTask('${t.id}')">${t.done?'✓':''}</div>
+      <div class="task-info">
+        <div class="task-title">${t.title}</div>
+        <div class="task-meta">${t.time||'No time set'}</div>
+        <div class="task-subject-tag" style="background:color-mix(in srgb, ${colors[t.subject]||colors.default} 15%, transparent);color:${colors[t.subject]||colors.default}">
+          ${t.subject}
+        </div>
+      </div>
+      <button onclick="deleteTask('${t.id}')" style="background:none;color:var(--text3);font-size:16px;padding:4px;flex-shrink:0">🗑️</button>
+    </div>`).join('');
+}
+
+function toggleTask(id) {
+  const tasks = state.tasks[state.selectedDate] || [];
+  const t = tasks.find(x => x.id === id);
+  if(t) { t.done = !t.done; showToast(t.done ? '✅ Task done! Great work!' : '↩️ Marked undone'); }
+  state.tasks[state.selectedDate] = tasks;
+  saveState(); renderTaskList();
+}
+
+function deleteTask(id) {
+  state.tasks[state.selectedDate] = (state.tasks[state.selectedDate] || []).filter(t => t.id !== id);
+  saveState(); renderPlanner(); showToast('🗑️ Task deleted');
+}
+
+function openAddTask() {
+  document.getElementById('addTaskModal').classList.add('open');
+  document.getElementById('taskTitleInput').focus();
+}
+
+function addTask() {
+  const title = document.getElementById('taskTitleInput').value.trim();
+  if(!title) { showToast('⚠️ Please enter a task title!'); return; }
+  const subject = document.getElementById('taskSubjectInput').value;
+  const time = document.getElementById('taskTimeInput').value.trim();
+  const task = { id: Date.now().toString(), title, subject, time, done: false };
+  if(!state.tasks[state.selectedDate]) state.tasks[state.selectedDate] = [];
+  state.tasks[state.selectedDate].push(task);
+  saveState();
+  document.getElementById('addTaskModal').classList.remove('open');
+  document.getElementById('taskTitleInput').value = '';
+  document.getElementById('taskTimeInput').value = '';
+  renderPlanner();
+  showToast('✅ Task added!');
+}
+
+// Close modal on overlay click
+document.getElementById('addTaskModal').addEventListener('click', function(e) {
+  if(e.target === this) this.classList.remove('open');
+});
+
+function renderStudyTip() {
+  const tips = [
+    'Break study into 45-min sessions. After each, write what you remember without looking — best retention trick!',
+    'For BPSC, Bihar Special questions are EXCLUSIVE — no UPSC student knows them. This is your secret weapon!',
+    'PYQs first, always. "Jo question kal aaya, woh kal phir aa sakta hai." Do 10 PYQs before any new topic.',
+    'Metro time = article time. Open Constitution app, do 1 article + quiz. 30 min metro = 1 article = 10 pts!',
+    'Laxmikanth chapter → PYQs on that chapter → Constitution app for articles. That\'s the Polity triangle!',
+    'Geography maps: draw them from memory every Sunday. Visual memory is 10x stronger than text memory.',
+    'Before sleeping, write 5 things you studied today. This transfers info from short to long-term memory.',
+  ];
+  const tip = tips[new Date().getDay() % tips.length];
+  document.getElementById('studyTip').textContent = tip;
+}
+
+// ═══════════════════════════════════
+// TIMETABLE
+// ═══════════════════════════════════
+function renderTimetable() {
+  const blocks = [
+    { time:'6:00–7:00 AM', title:'Morning Revision', sub:'Previous day\'s topics — Active recall before fresh study', color:'var(--saffron)', icon:'🌅' },
+    { time:'7:00–8:30 AM', title:'Core Study Block 1', sub:'Hard topic of the day — History / Geography / Polity', color:'var(--blue)', icon:'📚' },
+    { time:'8:30–9:00 AM', title:'Metro / Commute', sub:'Constitution app — 1 article + quiz. Never skip this!', color:'var(--green2)', icon:'🚇' },
+    { time:'9:00–10:30 AM', title:'Core Study Block 2', sub:'Bihar Special / Science / Economy', color:'var(--gold)', icon:'🌟' },
+    { time:'10:30–11:00 AM', title:'Break + Walk', sub:'Mandatory! Body movement = better memory', color:'var(--text3)', icon:'🚶' },
+    { time:'2:00–3:30 PM', title:'PYQ Practice Session', sub:'Solve 30 MCQs from today\'s topics. Timed!', color:'var(--purple)', icon:'📝' },
+    { time:'3:30–4:30 PM', title:'Current Affairs', sub:'One newspaper / PIB / Yojana — 1 hour max', color:'var(--red)', icon:'📰' },
+    { time:'9:00–9:30 PM', title:'Night Revision', sub:'Write 5 things from memory. Read tomorrow\'s plan.', color:'var(--saffron)', icon:'🌙' },
+    { time:'Weekend Special', title:'Full Mock Test', sub:'Saturday: 100 MCQ test. Sunday: Analyse mistakes.', color:'var(--saffron)', icon:'🎯' },
+  ];
+  document.getElementById('timetableBlocks').innerHTML = blocks.map(b => `
+    <div class="time-block">
+      <div class="tb-time">${b.time}</div>
+      <div class="tb-dot" style="background:${b.color}"></div>
+      <div class="tb-content">
+        <div class="tb-title">${b.icon} ${b.title}</div>
+        <div class="tb-sub">${b.sub}</div>
+      </div>
+    </div>`).join('');
+}
+
+// ═══════════════════════════════════
+// THEME
+// ═══════════════════════════════════
+function toggleTheme() {
+  const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', next);
+  const icon = next === 'dark' ? '☀️' : '🌙';
+  const tb = document.getElementById('themeBtn');
+  if(tb) tb.textContent = icon;
+  const stb = document.getElementById('sidebarThemeBtn');
+  if(stb) stb.textContent = icon + ' Toggle Theme';
+  state.theme = next;
+  saveState();
+  localStorage.setItem('studyhub_theme', next);
+}
+
+// ═══════════════════════════════════
+// UTILS
+// ═══════════════════════════════════
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2500);
+}
+function comingSoon(name) {
+  showToast(`📚 ${name} module coming soon! Focus on active modules for now.`);
+}
+
+// ═══════════════════════════════════
+// PWA INSTALL
+// ═══════════════════════════════════
+let deferredPrompt;
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+  if(!localStorage.getItem('pwa_dismissed')) {
+    document.getElementById('installBanner').classList.add('show');
+  }
+});
+function installPWA() {
+  if(deferredPrompt) {
+    deferredPrompt.prompt();
+    deferredPrompt.userChoice.then(r => {
+      if(r.outcome === 'accepted') showToast('🎉 App installed! Find it on your home screen!');
+      deferredPrompt = null;
+      document.getElementById('installBanner').classList.remove('show');
+    });
+  }
+}
+function dismissInstall() {
+  document.getElementById('installBanner').classList.remove('show');
+  localStorage.setItem('pwa_dismissed', '1');
+}
+
+// ═══════════════════════════════════
+// INIT
+// ═══════════════════════════════════
+function init() {
+  loadState();
+  // Theme
+  const saved = localStorage.getItem('studyhub_theme');
+  if(saved) {
+    document.documentElement.setAttribute('data-theme', saved);
+    const icon = saved === 'dark' ? '☀️' : '🌙';
+    const tb = document.getElementById('themeBtn');
+    if(tb) tb.textContent = icon;
+    const stb = document.getElementById('sidebarThemeBtn');
+    if(stb) stb.textContent = icon + ' Toggle Theme';
+  }
+  refreshHome();
+  // Register service worker for PWA
+  if('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('sw.js').catch(() => {});
+  }
+}
+window.addEventListener('load', init);
+</script>
 </body>
 </html>
