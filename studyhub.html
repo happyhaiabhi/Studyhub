@@ -3,94 +3,245 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Abhi's personal UPSC/BPSC study hub — all subjects in one place">
-<meta name="theme-color" content="#0F1117">
+<meta name="theme-color" content="#0D1117">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="StudyHub">
-<link rel="manifest" href="manifest.json">
-<title>अध्ययन केंद्र — Abhi's StudyHub</title>
+<title>अध्ययन केंद्र — StudyHub</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Mukta:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
 <style>
-/* ═══════════════════════════════════
-   VARIABLES
-═══════════════════════════════════ */
+/* ══════════════════════════════════════
+   DESIGN SYSTEM — SKY BLUE + WARM CREAM
+══════════════════════════════════════ */
 :root {
-  --bg:       #0F1117;
-  --bg2:      #161820;
-  --bg3:      #1E2028;
-  --surface:  #1A1C24;
-  --border:   #2A2D38;
-  --border2:  #353849;
-  --text:     #F0EDE8;
-  --text2:    #A8A4A0;
-  --text3:    #5A5760;
-  --saffron:  #FF9933;
-  --saffron2: #FFB366;
-  --saffron-soft: #FF993318;
-  --green:    #138808;
-  --green2:   #2ECC71;
-  --green-soft: #13880818;
-  --blue:     #4A90D9;
-  --blue-soft:#4A90D918;
-  --red:      #E74C3C;
-  --red-soft: #E74C3C18;
-  --gold:     #D4A843;
-  --gold-soft:#D4A84318;
-  --purple:   #9B59B6;
-  --purple-soft:#9B59B618;
-  --shadow:   0 4px 24px rgba(0,0,0,0.4);
-  --shadow-lg:0 8px 48px rgba(0,0,0,0.6);
-  --radius:   16px;
-  --radius-sm:10px;
+  --bg:        #0D1117;
+  --bg2:       #131920;
+  --bg3:       #1A2332;
+  --surface:   #1E2A3A;
+  --border:    #2A3A4E;
+  --border2:   #3A4E62;
+  --text:      #E8F4F8;
+  --text2:     #8BAFC4;
+  --text3:     #4A6478;
+
+  /* Primary: Sky blue + teal */
+  --primary:        #5BB8D4;
+  --primary-soft:   #5BB8D418;
+  --primary-mid:    #5BB8D440;
+  --primary-dim:    #3A8FAA;
+
+  /* Accent: Warm cream/apricot */
+  --accent:         #E8C97A;
+  --accent-soft:    #E8C97A18;
+  --accent-mid:     #E8C97A40;
+
+  /* Status colors — muted versions */
+  --green:      #4CAF8A;
+  --green-soft: #4CAF8A15;
+  --red:        #E07070;
+  --red-soft:   #E0707015;
+  --purple:     #9B8FD4;
+  --purple-soft:#9B8FD415;
+  --gold:       #D4A843;
+  --gold-soft:  #D4A84315;
+
+  --shadow:     0 4px 20px rgba(0,0,0,0.4);
+  --shadow-lg:  0 8px 40px rgba(0,0,0,0.5);
+  --radius:     14px;
+  --radius-sm:  9px;
   --font-display: 'Playfair Display', serif;
   --font-body:    'Mukta', sans-serif;
   --font-mono:    'JetBrains Mono', monospace;
-  --nav-h:    60px;
-  --transition: 0.25s cubic-bezier(0.4,0,0.2,1);
-}
-[data-theme="light"] {
-  --bg:       #F5F3EE;
-  --bg2:      #EDEBE5;
-  --bg3:      #E5E2DA;
-  --surface:  #FFFFFF;
-  --border:   #DDD9D0;
-  --border2:  #CBC7BE;
-  --text:     #1A1612;
-  --text2:    #5A5450;
-  --text3:    #9A9590;
-  --saffron-soft:#FF993320;
-  --green-soft:#13880820;
-  --blue-soft:#4A90D920;
-  --gold-soft:#D4A84320;
-  --shadow:   0 4px 24px rgba(0,0,0,0.08);
-  --shadow-lg:0 8px 48px rgba(0,0,0,0.15);
+  --nav-h:    62px;
+  --sidebar-w: 228px;
+  --transition: 0.22s cubic-bezier(0.4,0,0.2,1);
 }
 
-/* ═══════════════════════════════════
-   RESET
-═══════════════════════════════════ */
+[data-theme="light"] {
+  --bg:        #F0F6FA;
+  --bg2:       #E4EEF5;
+  --bg3:       #D8E7F0;
+  --surface:   #FFFFFF;
+  --border:    #C8DAEA;
+  --border2:   #B0CCE0;
+  --text:      #0D1D28;
+  --text2:     #3A5A70;
+  --text3:     #6A8898;
+  --primary:        #2A8FAA;
+  --primary-soft:   #2A8FAA18;
+  --primary-mid:    #2A8FAA35;
+  --accent:         #C4900A;
+  --accent-soft:    #C4900A18;
+  --shadow:     0 4px 20px rgba(0,0,0,0.06);
+  --shadow-lg:  0 8px 40px rgba(0,0,0,0.10);
+}
+
+/* ══════════════════════════════════════
+   RESET & BASE
+══════════════════════════════════════ */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{font-size:16px;scroll-behavior:smooth;-webkit-tap-highlight-color:transparent}
-body{font-family:var(--font-body);background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;padding-bottom:calc(var(--nav-h)+16px);transition:background 0.3s,color 0.3s}
+body{
+  font-family:var(--font-body);
+  background:var(--bg);
+  color:var(--text);
+  min-height:100vh;
+  overflow-x:hidden;
+  transition:background 0.3s, color 0.3s;
+}
 button{font-family:var(--font-body);cursor:pointer;border:none;outline:none}
 a{text-decoration:none;color:inherit}
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:var(--bg2)}
+::-webkit-scrollbar-thumb{background:var(--border2);border-radius:3px}
 
-/* ═══════════════════════════════════
-   GRAIN TEXTURE OVERLAY
-═══════════════════════════════════ */
-body::before {
-  content:'';
-  position:fixed;inset:0;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
-  pointer-events:none;z-index:0;opacity:0.4;
+/* ══════════════════════════════════════
+   NAME SPLASH SCREEN
+══════════════════════════════════════ */
+#nameSplash {
+  position:fixed;inset:0;z-index:999;
+  background:var(--bg);
+  display:flex;align-items:center;justify-content:center;
+  flex-direction:column;gap:28px;
+  padding:24px;
+  animation:fadeIn 0.4s ease;
+}
+#nameSplash.hidden{display:none}
+.splash-logo{
+  font-family:var(--font-display);
+  font-size:36px;font-weight:900;
+  color:var(--primary);
+  text-align:center;
+}
+.splash-logo span{
+  display:block;font-family:var(--font-body);
+  font-size:13px;color:var(--text3);font-weight:400;margin-top:4px;
+}
+.splash-flag{display:flex;gap:3px;justify-content:center;margin-bottom:8px}
+.splash-flag div{height:4px;width:48px;border-radius:2px}
+.splash-flag .s{background:#FF9933}
+.splash-flag .w{background:var(--text)}
+.splash-flag .g{background:#138808}
+.splash-prompt{
+  font-size:16px;color:var(--text2);text-align:center;line-height:1.6;
+}
+.splash-input{
+  width:100%;max-width:340px;
+  padding:14px 18px;
+  background:var(--bg3);border:2px solid var(--border2);
+  border-radius:var(--radius-sm);
+  color:var(--text);font-size:16px;font-family:var(--font-body);
+  outline:none;text-align:center;
+  transition:border-color var(--transition);
+}
+.splash-input:focus{border-color:var(--primary)}
+.splash-btn{
+  width:100%;max-width:340px;
+  padding:14px;background:var(--primary);color:#fff;
+  border-radius:var(--radius-sm);
+  font-size:15px;font-weight:700;
+  transition:all var(--transition);
+}
+.splash-btn:hover{opacity:0.9;transform:translateY(-1px)}
+
+/* ══════════════════════════════════════
+   LAYOUT: SIDEBAR + MAIN
+══════════════════════════════════════ */
+.app-layout{
+  display:block;
+  min-height:100vh;
 }
 
-/* ═══════════════════════════════════
-   BOTTOM NAV (Mobile)
-═══════════════════════════════════ */
-.bottom-nav {
+/* DESKTOP: sidebar + main side-by-side */
+@media(min-width:900px){
+  .app-layout{
+    display:grid;
+    grid-template-columns:var(--sidebar-w) 1fr;
+    grid-template-rows:100vh;
+  }
+  .bottom-nav{display:none!important}
+  body{padding-bottom:0}
+  .main-wrap{
+    height:100vh;
+    overflow-y:auto;
+    overflow-x:hidden;
+  }
+}
+
+/* MOBILE: bottom nav */
+body{padding-bottom:calc(var(--nav-h) + 8px)}
+
+/* ══════════════════════════════════════
+   SIDEBAR
+══════════════════════════════════════ */
+.sidebar{
+  display:none;
+  position:sticky;top:0;height:100vh;
+  background:var(--bg2);
+  border-right:1px solid var(--border);
+  flex-direction:column;
+  overflow-y:auto;
+  overflow-x:hidden;
+  z-index:50;
+}
+@media(min-width:900px){.sidebar{display:flex}}
+
+.sidebar-logo{
+  padding:22px 18px 20px;
+  border-bottom:1px solid var(--border);
+  flex-shrink:0;
+}
+.sl-hi{
+  font-family:var(--font-display);
+  font-size:19px;font-weight:700;
+  color:var(--primary);
+}
+.sl-sub{font-size:11px;color:var(--text3);margin-top:2px}
+.sl-user{
+  margin-top:6px;
+  font-size:12px;color:var(--accent);font-weight:600;
+  font-family:var(--font-mono);
+}
+
+.sidebar-nav{padding:10px 0;flex:1}
+.sidebar-section{
+  font-size:9px;font-weight:700;text-transform:uppercase;
+  letter-spacing:1.2px;color:var(--text3);
+  padding:12px 18px 5px;
+}
+.sidebar-item{
+  display:flex;align-items:center;gap:10px;
+  padding:9px 18px;cursor:pointer;
+  font-size:13px;font-weight:500;color:var(--text2);
+  border-left:2px solid transparent;
+  transition:all var(--transition);
+  border-radius:0 var(--radius-sm) var(--radius-sm) 0;
+}
+.sidebar-item:hover{background:var(--bg3);color:var(--text)}
+.sidebar-item.active{
+  color:var(--primary);
+  border-left-color:var(--primary);
+  background:var(--primary-soft);
+}
+.sidebar-item .si{font-size:15px;width:20px;text-align:center}
+.sidebar-divider{height:1px;background:var(--border);margin:8px 18px}
+
+.sidebar-theme{
+  margin:10px 14px;
+  padding:9px;border-radius:var(--radius-sm);
+  background:var(--bg3);border:1px solid var(--border);
+  font-size:12px;color:var(--text2);
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  transition:all var(--transition);flex-shrink:0;
+}
+.sidebar-theme:hover{color:var(--text)}
+
+/* ══════════════════════════════════════
+   BOTTOM NAV (MOBILE)
+══════════════════════════════════════ */
+.bottom-nav{
   position:fixed;bottom:0;left:0;right:0;
   height:var(--nav-h);
   background:var(--bg2);
@@ -98,578 +249,676 @@ body::before {
   display:flex;align-items:center;justify-content:space-around;
   z-index:100;
   backdrop-filter:blur(20px);
-  -webkit-backdrop-filter:blur(20px);
 }
-.bnav-btn {
+.bnav-btn{
   display:flex;flex-direction:column;align-items:center;gap:2px;
-  padding:8px 16px;border-radius:var(--radius-sm);
+  padding:8px 10px;border-radius:var(--radius-sm);
   background:none;color:var(--text3);
   font-size:10px;font-weight:500;
   transition:all var(--transition);flex:1;
 }
-.bnav-btn .bi{font-size:20px;line-height:1}
-.bnav-btn.active{color:var(--saffron)}
+.bnav-btn .bi{font-size:18px;line-height:1}
+.bnav-btn.active{color:var(--primary)}
 .bnav-btn:active{transform:scale(0.92)}
 
-/* Desktop sidebar */
-@media(min-width:900px){
-  .bottom-nav{display:none}
-  body{padding-bottom:0;display:grid;grid-template-columns:220px 1fr;min-height:100vh}
-  .sidebar{display:flex!important}
-  .main-wrap{margin-left:0}
-}
-.sidebar{
-  display:none;
-  flex-direction:column;
-  position:fixed;left:0;top:0;bottom:0;width:220px;
-  background:var(--bg2);border-right:1px solid var(--border);
-  z-index:50;overflow-y:auto;
-  padding:24px 0 24px;
-}
-.sidebar-logo{padding:0 20px 24px;border-bottom:1px solid var(--border);margin-bottom:16px}
-.sidebar-logo .sl-hi{font-family:var(--font-display);font-size:20px;font-weight:700;color:var(--saffron)}
-.sidebar-logo .sl-sub{font-size:11px;color:var(--text3);margin-top:2px}
-.sidebar-nav-item{
-  display:flex;align-items:center;gap:10px;
-  padding:10px 20px;cursor:pointer;
-  font-size:13px;font-weight:500;color:var(--text2);
-  transition:all var(--transition);
-  border-left:2px solid transparent;
-}
-.sidebar-nav-item:hover{background:var(--bg3);color:var(--text)}
-.sidebar-nav-item.active{color:var(--saffron);border-left-color:var(--saffron);background:var(--saffron-soft)}
-.sidebar-nav-item .sni{font-size:16px;width:20px;text-align:center}
-.sidebar-divider{height:1px;background:var(--border);margin:12px 20px}
-.sidebar-theme{
-  margin:auto 16px 0;
-  padding:10px;border-radius:var(--radius-sm);
-  background:var(--bg3);border:1px solid var(--border);
-  font-size:12px;color:var(--text2);
-  display:flex;align-items:center;justify-content:center;gap:8px;
-  transition:all var(--transition);
-}
-.sidebar-theme:hover{color:var(--text)}
-
-/* ═══════════════════════════════════
+/* ══════════════════════════════════════
    SCREENS
-═══════════════════════════════════ */
-.screen{display:none;animation:fadeUp 0.3s ease;position:relative;z-index:1}
+══════════════════════════════════════ */
+.screen{display:none;animation:fadeUp 0.28s ease;position:relative;z-index:1}
 .screen.active{display:block}
-@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
-.main-wrap{flex:1}
-@media(min-width:900px){.main-wrap{margin-left:220px;max-width:calc(100vw - 220px)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
 
-/* ═══════════════════════════════════
-   TOP BAR
-═══════════════════════════════════ */
+/* TOP BAR (mobile only) */
 .top-bar{
   display:flex;align-items:center;justify-content:space-between;
-  padding:16px 18px 12px;
+  padding:14px 16px 10px;
   position:sticky;top:0;z-index:40;
   background:var(--bg);
   border-bottom:1px solid var(--border);
 }
-.top-logo{font-family:var(--font-display);font-size:18px;font-weight:700;color:var(--saffron)}
-.top-logo span{color:var(--text);font-size:12px;display:block;font-family:var(--font-body);font-weight:400;margin-top:1px}
+@media(min-width:900px){.top-bar{display:none}}
+
+.top-logo{
+  font-family:var(--font-display);
+  font-size:17px;font-weight:700;color:var(--primary)
+}
+.top-logo span{
+  color:var(--text2);font-size:11px;
+  display:block;font-family:var(--font-body);font-weight:400;
+}
 .icon-btn{
-  width:36px;height:36px;border-radius:50%;
+  width:34px;height:34px;border-radius:50%;
   background:var(--bg3);border:1px solid var(--border);
   display:flex;align-items:center;justify-content:center;
-  font-size:15px;color:var(--text2);transition:all var(--transition);
+  font-size:14px;color:var(--text2);transition:all var(--transition);
 }
-.icon-btn:hover{color:var(--text);background:var(--border)}
+.icon-btn:hover{color:var(--text)}
 
-/* ═══════════════════════════════════
-   HOME SCREEN
-═══════════════════════════════════ */
-.hero {
-  padding:24px 18px 20px;
-  background:linear-gradient(135deg, #1A0A00 0%, #0F1117 60%);
-  position:relative;overflow:hidden;
+/* Desktop page header (inside each screen) */
+.page-header{
+  display:none;
+  padding:22px 24px 16px;
   border-bottom:1px solid var(--border);
 }
-.hero::before{
-  content:'भारत';
-  position:absolute;right:-20px;top:-10px;
-  font-family:var(--font-display);font-size:120px;font-weight:900;
-  color:var(--saffron);opacity:0.04;
-  pointer-events:none;line-height:1;
+@media(min-width:900px){.page-header{display:flex;align-items:flex-start;justify-content:space-between}}
+.ph-title{
+  font-family:var(--font-display);font-size:22px;font-weight:700;
+  color:var(--text);
 }
-.hero-flag{
-  display:flex;gap:2px;margin-bottom:16px;
-}
-.flag-stripe{height:3px;border-radius:2px;flex:1}
-.flag-stripe.s{background:var(--saffron)}
-.flag-stripe.w{background:var(--text)}
-.flag-stripe.g{background:var(--green)}
-.hero-greeting{
-  font-family:var(--font-display);
-  font-size:26px;font-weight:700;
-  color:var(--text);line-height:1.2;margin-bottom:4px;
-}
-.hero-greeting em{color:var(--saffron);font-style:normal}
-.hero-sub{font-size:13px;color:var(--text3);margin-bottom:20px}
+.ph-sub{font-size:12px;color:var(--text3);margin-top:3px}
+.ph-actions{display:flex;gap:8px;align-items:center}
 
-/* Countdown */
-.countdown-row{
-  display:grid;grid-template-columns:1fr 1fr;gap:10px;
-  margin-bottom:16px;
-}
-.countdown-card{
-  background:rgba(255,153,51,0.08);
-  border:1px solid rgba(255,153,51,0.2);
-  border-radius:var(--radius-sm);padding:12px;
-}
-.countdown-card.blue{background:var(--blue-soft);border-color:rgba(74,144,217,0.25)}
-.cc-val{font-family:var(--font-display);font-size:28px;font-weight:700;color:var(--saffron);line-height:1}
-.countdown-card.blue .cc-val{color:var(--blue)}
-.cc-label{font-size:11px;color:var(--text3);margin-top:2px}
-.cc-exam{font-size:10px;font-weight:600;color:var(--saffron);margin-top:4px;text-transform:uppercase;letter-spacing:0.5px}
-.countdown-card.blue .cc-exam{color:var(--blue)}
-
-/* Quote */
-.quote-card{
-  background:rgba(255,255,255,0.03);
-  border:1px solid var(--border);
-  border-radius:var(--radius-sm);padding:14px;
-  position:relative;
-}
-.quote-card::before{
-  content:'"';
-  position:absolute;top:-8px;left:12px;
-  font-family:var(--font-display);font-size:48px;
-  color:var(--saffron);opacity:0.3;line-height:1;
-}
-.quote-text{font-size:13px;line-height:1.7;color:var(--text2);font-style:italic;padding-left:4px}
-.quote-author{font-size:11px;color:var(--text3);margin-top:6px;padding-left:4px}
-
-/* ═══════════════════════════════════
-   DAILY PLANNER
-═══════════════════════════════════ */
-.home-body{padding:16px;display:flex;flex-direction:column;gap:14px}
-.section-header{
-  display:flex;align-items:center;justify-content:space-between;
-  margin-bottom:10px;
-}
-.section-title{
-  font-family:var(--font-display);font-size:16px;font-weight:600;color:var(--text);
-  display:flex;align-items:center;gap:8px;
-}
-.section-badge{
-  font-family:var(--font-body);font-size:10px;font-weight:600;
-  background:var(--saffron-soft);color:var(--saffron);
-  padding:2px 8px;border-radius:20px;
-}
+/* ══════════════════════════════════════
+   SHARED COMPONENTS
+══════════════════════════════════════ */
 .card{
   background:var(--surface);border:1px solid var(--border);
   border-radius:var(--radius);padding:16px;
   box-shadow:var(--shadow);
 }
+.section-title{
+  font-family:var(--font-display);font-size:15px;font-weight:600;
+  color:var(--text);display:flex;align-items:center;gap:8px;
+}
+.section-badge{
+  font-family:var(--font-body);font-size:10px;font-weight:600;
+  background:var(--primary-soft);color:var(--primary);
+  padding:2px 8px;border-radius:20px;
+}
+.btn-primary{
+  padding:11px 20px;background:var(--primary);color:#fff;
+  border-radius:var(--radius-sm);
+  font-size:13px;font-weight:700;transition:all var(--transition);
+  font-family:var(--font-body);
+}
+.btn-primary:hover{opacity:0.9;transform:translateY(-1px)}
+.btn-primary:active{transform:scale(0.98)}
+.btn-outline{
+  padding:9px 16px;background:none;color:var(--primary);
+  border:1.5px solid var(--primary);border-radius:var(--radius-sm);
+  font-size:12px;font-weight:600;transition:all var(--transition);
+  font-family:var(--font-body);
+}
+.btn-outline:hover{background:var(--primary-soft)}
 
-/* Today's plan */
+/* ══════════════════════════════════════
+   INSTALL BANNER
+══════════════════════════════════════ */
+.install-banner{
+  display:none;margin:12px 16px 0;padding:11px 14px;
+  background:var(--primary-soft);border:1px solid var(--primary-mid);
+  border-radius:var(--radius-sm);align-items:center;gap:10px;
+}
+.install-banner.show{display:flex}
+.ib-text{flex:1;font-size:12px;color:var(--primary)}
+.ib-btn{
+  padding:6px 12px;background:var(--primary);color:#fff;
+  border-radius:var(--radius-sm);font-size:11px;font-weight:700;
+  cursor:pointer;white-space:nowrap;flex-shrink:0;
+}
+.ib-close{font-size:16px;color:var(--text3);cursor:pointer;flex-shrink:0}
+
+/* ══════════════════════════════════════
+   HOME SCREEN
+══════════════════════════════════════ */
+.hero{
+  padding:20px 16px 18px;
+  background:linear-gradient(135deg, rgba(91,184,212,0.08) 0%, var(--bg) 70%);
+  border-bottom:1px solid var(--border);
+  position:relative;overflow:hidden;
+}
+@media(min-width:900px){.hero{padding:28px 24px 22px}}
+.hero::before{
+  content:'भारत';
+  position:absolute;right:-10px;top:-5px;
+  font-family:var(--font-display);font-size:100px;font-weight:900;
+  color:var(--primary);opacity:0.04;pointer-events:none;line-height:1;
+}
+.hero-flag{display:flex;gap:2px;margin-bottom:14px}
+.flag-stripe{height:3px;border-radius:2px;flex:1}
+.flag-stripe.s{background:#FF9933}
+.flag-stripe.w{background:var(--text)}
+.flag-stripe.g{background:#138808}
+.hero-greeting{
+  font-family:var(--font-display);
+  font-size:22px;font-weight:700;color:var(--text);line-height:1.2;margin-bottom:4px;
+}
+@media(min-width:900px){.hero-greeting{font-size:28px}}
+.hero-greeting em{color:var(--primary);font-style:normal}
+.hero-sub{font-size:12px;color:var(--text3);margin-bottom:16px}
+
+.countdown-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
+.countdown-card{
+  background:var(--primary-soft);border:1px solid var(--primary-mid);
+  border-radius:var(--radius-sm);padding:12px;
+}
+.countdown-card.accent{background:var(--accent-soft);border-color:var(--accent-mid)}
+.cc-val{
+  font-family:var(--font-display);font-size:26px;font-weight:700;
+  color:var(--primary);line-height:1;
+}
+.countdown-card.accent .cc-val{color:var(--accent)}
+.cc-label{font-size:10px;color:var(--text3);margin-top:2px}
+.cc-exam{font-size:9px;font-weight:700;color:var(--primary);margin-top:4px;text-transform:uppercase;letter-spacing:0.5px}
+.countdown-card.accent .cc-exam{color:var(--accent)}
+
+.quote-card{
+  background:rgba(255,255,255,0.03);border:1px solid var(--border);
+  border-radius:var(--radius-sm);padding:12px 14px;position:relative;
+}
+.quote-card::before{
+  content:'"';position:absolute;top:-8px;left:12px;
+  font-family:var(--font-display);font-size:44px;
+  color:var(--primary);opacity:0.35;line-height:1;
+}
+.quote-text{font-size:12px;line-height:1.7;color:var(--text2);font-style:italic;padding-left:4px}
+.quote-author{font-size:11px;color:var(--text3);margin-top:5px;padding-left:4px}
+
+.home-body{padding:14px;display:flex;flex-direction:column;gap:12px}
+@media(min-width:900px){.home-body{padding:18px 24px;gap:16px}}
+
 .plan-item{
-  display:flex;align-items:center;gap:12px;
-  padding:10px 0;border-bottom:1px solid var(--border);
+  display:flex;align-items:center;gap:10px;
+  padding:9px 0;border-bottom:1px solid var(--border);
   cursor:pointer;transition:all var(--transition);
 }
 .plan-item:last-child{border-bottom:none}
-.plan-item:hover{padding-left:4px}
-.plan-dot{
-  width:8px;height:8px;border-radius:50%;flex-shrink:0;
-}
+.plan-item:hover{padding-left:3px}
+.plan-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
 .plan-subject{font-size:13px;font-weight:500;color:var(--text);flex:1}
-.plan-topic{font-size:11px;color:var(--text3);margin-top:2px}
+.plan-topic{font-size:10px;color:var(--text3);margin-top:2px}
 .plan-time{
-  font-family:var(--font-mono);font-size:11px;color:var(--text3);
-  background:var(--bg3);padding:2px 7px;border-radius:20px;
-  flex-shrink:0;
+  font-family:var(--font-mono);font-size:10px;color:var(--text3);
+  background:var(--bg3);padding:2px 6px;border-radius:20px;flex-shrink:0;
 }
 .plan-done{
-  width:20px;height:20px;border-radius:50%;
+  width:18px;height:18px;border-radius:50%;
   border:1.5px solid var(--border2);
   display:flex;align-items:center;justify-content:center;
-  font-size:11px;flex-shrink:0;transition:all var(--transition);
+  font-size:10px;flex-shrink:0;transition:all var(--transition);
 }
-.plan-item.done .plan-done{background:var(--green2);border-color:var(--green2);color:white}
+.plan-item.done .plan-done{background:var(--green);border-color:var(--green);color:#fff}
 .plan-item.done .plan-subject{text-decoration:line-through;color:var(--text3)}
 
-/* Progress mini */
-.mini-progress{display:flex;flex-direction:column;gap:8px}
 .mp-row{display:flex;align-items:center;gap:10px}
-.mp-label{font-size:12px;color:var(--text2);width:80px;flex-shrink:0}
+.mp-label{font-size:11px;color:var(--text2);width:72px;flex-shrink:0}
 .mp-bar{flex:1;height:5px;background:var(--bg3);border-radius:3px;overflow:hidden}
 .mp-fill{height:100%;border-radius:3px;transition:width 1s ease}
-.mp-pct{font-family:var(--font-mono);font-size:11px;color:var(--text3);width:32px;text-align:right;flex-shrink:0}
+.mp-pct{font-family:var(--font-mono);font-size:10px;color:var(--text3);width:28px;text-align:right;flex-shrink:0}
 
-/* ═══════════════════════════════════
-   SUBJECTS SCREEN — Menu List
-═══════════════════════════════════ */
-.subjects-body{padding:16px;display:flex;flex-direction:column;gap:8px}
-
-/* Subject group */
-.subject-group{margin-bottom:4px}
-.subject-group-title{
-  font-size:10px;font-weight:700;text-transform:uppercase;
-  letter-spacing:1.2px;color:var(--text3);
-  padding:8px 4px 6px;
+.quick-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.quick-item{
+  display:flex;align-items:center;gap:9px;
+  padding:11px;background:var(--surface);
+  border:1px solid var(--border);border-radius:var(--radius-sm);
+  text-decoration:none;color:inherit;transition:all var(--transition);
 }
+.quick-item:hover{border-color:var(--primary);transform:translateY(-1px)}
+.quick-icon{font-size:20px}
+.quick-title{font-size:12px;font-weight:600;color:var(--text)}
+.quick-sub{font-size:9px;color:var(--text3)}
 
+/* ══════════════════════════════════════
+   SUBJECTS SCREEN
+══════════════════════════════════════ */
+.subjects-body{padding:14px;display:flex;flex-direction:column;gap:6px}
+@media(min-width:900px){.subjects-body{padding:18px 24px}}
+.subject-group-title{
+  font-size:9px;font-weight:700;text-transform:uppercase;
+  letter-spacing:1.2px;color:var(--text3);padding:8px 4px 5px;
+}
 .subject-item{
-  display:flex;align-items:center;gap:14px;
-  padding:14px 16px;
-  background:var(--surface);border:1px solid var(--border);
-  border-radius:var(--radius-sm);
-  cursor:pointer;
-  transition:all var(--transition);
-  text-decoration:none;color:inherit;
-  position:relative;overflow:hidden;
+  display:flex;align-items:center;gap:12px;
+  padding:13px 14px;background:var(--surface);
+  border:1px solid var(--border);border-radius:var(--radius-sm);
+  cursor:pointer;transition:all var(--transition);
+  text-decoration:none;color:inherit;position:relative;overflow:hidden;
 }
 .subject-item::before{
-  content:'';
-  position:absolute;left:0;top:0;bottom:0;
+  content:'';position:absolute;left:0;top:0;bottom:0;
   width:3px;border-radius:2px 0 0 2px;
-  background:var(--item-color,var(--saffron));
-  transition:width var(--transition);
+  background:var(--item-color,var(--primary));transition:width var(--transition);
 }
-.subject-item:hover{
-  border-color:var(--item-color,var(--saffron));
-  background:var(--bg3);
-  transform:translateX(2px);
-}
+.subject-item:hover{border-color:var(--item-color,var(--primary));background:var(--bg3);transform:translateX(2px)}
 .subject-item:hover::before{width:4px}
-.subject-item:active{transform:scale(0.99)}
-
 .si-icon{
-  width:42px;height:42px;border-radius:var(--radius-sm);
+  width:40px;height:40px;border-radius:var(--radius-sm);
   display:flex;align-items:center;justify-content:center;
-  font-size:20px;flex-shrink:0;
-  background:color-mix(in srgb, var(--item-color,var(--saffron)) 15%, transparent);
+  font-size:18px;flex-shrink:0;
+  background:color-mix(in srgb, var(--item-color,var(--primary)) 15%, transparent);
 }
 .si-info{flex:1;min-width:0}
-.si-title{font-size:14px;font-weight:600;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.si-sub{font-size:11px;color:var(--text3);margin-top:2px}
-.si-tags{display:flex;gap:4px;margin-top:5px;flex-wrap:wrap}
+.si-title{font-size:13px;font-weight:600;color:var(--text)}
+.si-sub{font-size:10px;color:var(--text3);margin-top:2px}
+.si-tags{display:flex;gap:4px;margin-top:4px;flex-wrap:wrap}
 .si-tag{
-  font-size:9px;font-weight:600;padding:1px 6px;border-radius:20px;
-  background:color-mix(in srgb, var(--item-color,var(--saffron)) 12%, transparent);
-  color:var(--item-color,var(--saffron));
+  font-size:9px;font-weight:600;padding:1px 5px;border-radius:20px;
+  background:color-mix(in srgb, var(--item-color,var(--primary)) 12%, transparent);
+  color:var(--item-color,var(--primary));
 }
-.si-arrow{font-size:16px;color:var(--text3);flex-shrink:0}
+.si-arrow{font-size:14px;color:var(--text3);flex-shrink:0}
 .si-badge{
   position:absolute;top:8px;right:8px;
-  font-size:9px;font-weight:700;
-  padding:2px 6px;border-radius:20px;
-  background:var(--saffron);color:#000;
+  font-size:9px;font-weight:700;padding:2px 6px;border-radius:20px;
+  background:var(--primary);color:#fff;
 }
 .si-badge.coming{background:var(--bg3);color:var(--text3)}
 
-/* ═══════════════════════════════════
-   PLANNER SCREEN
-═══════════════════════════════════ */
-.planner-body{padding:16px;display:flex;flex-direction:column;gap:14px}
+/* ══════════════════════════════════════
+   PLANNER + SCHEDULE (MERGED)
+══════════════════════════════════════ */
+.planner-layout{
+  display:flex;flex-direction:column;
+  gap:0;
+}
+@media(min-width:900px){
+  .planner-layout{
+    display:grid;
+    grid-template-columns:360px 1fr;
+    grid-template-rows:auto;
+    gap:0;
+    min-height:calc(100vh - 60px);
+  }
+}
+.planner-col{
+  border-right:1px solid var(--border);
+  padding:16px;
+  overflow-y:auto;
+}
+@media(max-width:899px){.planner-col{border-right:none;border-bottom:1px solid var(--border)}}
+.schedule-col{padding:16px;overflow-y:auto}
+@media(min-width:900px){.planner-col{padding:20px 22px}.schedule-col{padding:20px 22px}}
 
 .day-selector{
-  display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;
-  padding-bottom:4px;
+  display:flex;gap:5px;overflow-x:auto;scrollbar-width:none;padding-bottom:4px;
 }
 .day-selector::-webkit-scrollbar{display:none}
 .day-btn{
   display:flex;flex-direction:column;align-items:center;
-  padding:8px 10px;border-radius:var(--radius-sm);
+  padding:7px 9px;border-radius:var(--radius-sm);
   background:var(--bg3);border:1px solid var(--border);
-  cursor:pointer;flex-shrink:0;min-width:48px;
+  cursor:pointer;flex-shrink:0;min-width:44px;
   transition:all var(--transition);
 }
-.day-btn.today{background:var(--saffron);border-color:var(--saffron)}
-.day-btn.today .db-day,.day-btn.today .db-date{color:#000}
-.day-btn .db-day{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:var(--text3)}
-.day-btn .db-date{font-family:var(--font-display);font-size:18px;font-weight:700;color:var(--text);line-height:1.1}
-.day-btn.has-tasks::after{content:'•';display:block;font-size:14px;color:var(--saffron);line-height:0.8}
-.day-btn.today.has-tasks::after{color:#000}
+.day-btn.today{background:var(--primary);border-color:var(--primary)}
+.day-btn.today .db-day,.day-btn.today .db-date{color:#fff}
+.day-btn .db-day{font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:var(--text3)}
+.day-btn .db-date{font-family:var(--font-display);font-size:16px;font-weight:700;color:var(--text);line-height:1.1}
+.day-btn.has-tasks::after{content:'•';display:block;font-size:12px;color:var(--primary);line-height:0.8}
+.day-btn.today.has-tasks::after{color:#fff}
+.day-btn.selected:not(.today){background:var(--primary-soft);border-color:var(--primary)}
 
-/* Task item */
 .task-item{
-  display:flex;align-items:flex-start;gap:12px;
-  padding:14px;background:var(--surface);border:1px solid var(--border);
+  display:flex;align-items:flex-start;gap:10px;
+  padding:12px;background:var(--surface);border:1px solid var(--border);
   border-radius:var(--radius-sm);transition:all var(--transition);
 }
 .task-check{
-  width:22px;height:22px;border-radius:50%;
-  border:2px solid var(--border2);
+  width:20px;height:20px;border-radius:50%;border:2px solid var(--border2);
   display:flex;align-items:center;justify-content:center;
-  cursor:pointer;flex-shrink:0;margin-top:1px;
-  transition:all var(--transition);
+  cursor:pointer;flex-shrink:0;margin-top:1px;transition:all var(--transition);
 }
-.task-item.done .task-check{background:var(--green2);border-color:var(--green2);color:white;font-size:11px}
+.task-item.done .task-check{background:var(--green);border-color:var(--green);color:#fff;font-size:10px}
 .task-item.done .task-title{text-decoration:line-through;color:var(--text3)}
 .task-info{flex:1}
-.task-title{font-size:14px;font-weight:500;color:var(--text)}
-.task-meta{font-size:11px;color:var(--text3);margin-top:3px}
-.task-subject-tag{
-  font-size:10px;font-weight:600;padding:2px 8px;border-radius:20px;
-  display:inline-block;margin-top:5px;
-}
+.task-title{font-size:13px;font-weight:500;color:var(--text)}
+.task-meta{font-size:10px;color:var(--text3);margin-top:2px}
+.task-tag{font-size:9px;font-weight:600;padding:1px 7px;border-radius:20px;display:inline-block;margin-top:4px}
+.task-delete{background:none;color:var(--text3);font-size:14px;padding:3px;flex-shrink:0;transition:color var(--transition)}
+.task-delete:hover{color:var(--red)}
 
-/* Add task */
 .add-task-btn{
   display:flex;align-items:center;justify-content:center;gap:8px;
-  padding:13px;background:none;border:1.5px dashed var(--border2);
+  padding:11px;background:none;border:1.5px dashed var(--border2);
   border-radius:var(--radius-sm);color:var(--text3);
-  font-size:13px;font-weight:500;
-  transition:all var(--transition);width:100%;
+  font-size:12px;font-weight:500;transition:all var(--transition);width:100%;
 }
-.add-task-btn:hover{border-color:var(--saffron);color:var(--saffron);background:var(--saffron-soft)}
+.add-task-btn:hover{border-color:var(--primary);color:var(--primary);background:var(--primary-soft)}
 
-/* Add task modal */
+/* Schedule (timetable) in right col */
+.schedule-section-title{
+  font-size:11px;font-weight:700;text-transform:uppercase;
+  letter-spacing:0.8px;color:var(--text3);margin-bottom:10px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.edit-schedule-btn{
+  font-size:11px;color:var(--primary);background:var(--primary-soft);
+  padding:3px 9px;border-radius:20px;border:none;font-weight:600;
+  cursor:pointer;transition:all var(--transition);font-family:var(--font-body);
+}
+.edit-schedule-btn:hover{background:var(--primary-mid)}
+
+.time-block{
+  display:flex;gap:10px;align-items:flex-start;
+  padding:10px 12px;background:var(--surface);
+  border:1px solid var(--border);border-radius:var(--radius-sm);
+  margin-bottom:7px;transition:all var(--transition);
+}
+.time-block:hover{border-color:var(--border2)}
+.time-block.editing{border-color:var(--primary);background:var(--primary-soft)}
+.tb-time{
+  font-family:var(--font-mono);font-size:10px;color:var(--text3);
+  min-width:80px;flex-shrink:0;padding-top:2px;
+}
+.tb-content{flex:1}
+.tb-title{font-size:13px;font-weight:600;color:var(--text)}
+.tb-sub{font-size:10px;color:var(--text3);margin-top:2px}
+.tb-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0;margin-top:4px}
+.tb-edit-form{display:none;margin-top:8px}
+.tb-edit-form.open{display:block}
+.tb-input{
+  width:100%;padding:7px 10px;background:var(--bg3);
+  border:1px solid var(--border2);border-radius:var(--radius-sm);
+  color:var(--text);font-size:12px;font-family:var(--font-body);outline:none;
+  margin-bottom:5px;transition:border-color var(--transition);
+}
+.tb-input:focus{border-color:var(--primary)}
+.tb-save-btn{
+  padding:6px 14px;background:var(--primary);color:#fff;
+  border-radius:var(--radius-sm);font-size:11px;font-weight:700;
+  cursor:pointer;transition:all var(--transition);font-family:var(--font-body);
+}
+.add-slot-btn{
+  display:flex;align-items:center;justify-content:center;gap:7px;
+  padding:10px;background:none;border:1.5px dashed var(--border2);
+  border-radius:var(--radius-sm);color:var(--text3);
+  font-size:12px;font-weight:500;transition:all var(--transition);width:100%;
+  margin-top:4px;
+}
+.add-slot-btn:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
+
+/* ══════════════════════════════════════
+   QUIZ SCREEN
+══════════════════════════════════════ */
+.quiz-body{padding:14px;display:flex;flex-direction:column;gap:14px}
+@media(min-width:900px){.quiz-body{padding:20px 24px}}
+
+.quiz-categories{
+  display:grid;grid-template-columns:1fr 1fr;gap:8px;
+}
+@media(min-width:600px){.quiz-categories{grid-template-columns:repeat(3,1fr)}}
+.quiz-cat-btn{
+  padding:16px 12px;background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius);cursor:pointer;text-align:center;
+  transition:all var(--transition);font-family:var(--font-body);
+}
+.quiz-cat-btn:hover{border-color:var(--item-color,var(--primary));background:var(--bg3);transform:translateY(-2px)}
+.quiz-cat-btn.active{background:var(--primary-soft);border-color:var(--primary)}
+.quiz-cat-icon{font-size:22px;margin-bottom:6px}
+.quiz-cat-name{font-size:12px;font-weight:600;color:var(--text)}
+.quiz-cat-count{font-size:10px;color:var(--text3);margin-top:2px}
+
+/* Quiz question card */
+.quiz-question-wrap{display:none}
+.quiz-question-wrap.active{display:block}
+.quiz-progress{
+  display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:12px;
+}
+.quiz-prog-text{font-size:11px;color:var(--text3)}
+.quiz-prog-bar{flex:1;height:4px;background:var(--bg3);border-radius:2px;overflow:hidden;margin:0 12px}
+.quiz-prog-fill{height:100%;background:var(--primary);border-radius:2px;transition:width 0.5s ease}
+.quiz-score-badge{
+  font-family:var(--font-mono);font-size:11px;
+  color:var(--green);background:var(--green-soft);
+  padding:2px 8px;border-radius:20px;
+}
+
+.quiz-q-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius);padding:18px;
+  box-shadow:var(--shadow);
+}
+.quiz-q-cat{
+  font-size:9px;font-weight:700;text-transform:uppercase;
+  letter-spacing:1px;color:var(--primary);margin-bottom:10px;
+}
+.quiz-q-text{
+  font-family:var(--font-display);font-size:15px;font-weight:600;
+  color:var(--text);line-height:1.5;margin-bottom:16px;
+}
+.quiz-options{display:flex;flex-direction:column;gap:8px}
+.quiz-opt{
+  padding:11px 14px;background:var(--bg3);
+  border:1.5px solid var(--border);border-radius:var(--radius-sm);
+  cursor:pointer;font-size:13px;color:var(--text);
+  transition:all var(--transition);text-align:left;
+  font-family:var(--font-body);
+  display:flex;align-items:center;gap:10px;
+}
+.quiz-opt:hover:not(.disabled){border-color:var(--primary);background:var(--primary-soft)}
+.quiz-opt.correct{background:var(--green-soft);border-color:var(--green);color:var(--green)}
+.quiz-opt.wrong{background:var(--red-soft);border-color:var(--red);color:var(--red)}
+.quiz-opt.disabled{cursor:not-allowed;pointer-events:none}
+.opt-letter{
+  width:22px;height:22px;border-radius:50%;
+  background:var(--border);display:flex;align-items:center;justify-content:center;
+  font-size:10px;font-weight:700;flex-shrink:0;
+}
+.quiz-opt.correct .opt-letter{background:var(--green);color:#fff}
+.quiz-opt.wrong .opt-letter{background:var(--red);color:#fff}
+
+.quiz-explanation{
+  margin-top:12px;padding:12px;background:var(--accent-soft);
+  border:1px solid var(--accent-mid);border-radius:var(--radius-sm);
+  font-size:12px;color:var(--text2);line-height:1.6;display:none;
+}
+.quiz-explanation.show{display:block}
+.quiz-nav{display:flex;gap:8px;margin-top:14px;justify-content:space-between}
+
+/* Quiz result card */
+.quiz-result{
+  display:none;
+  text-align:center;padding:28px 18px;
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius);
+}
+.quiz-result.show{display:block}
+.result-emoji{font-size:48px;margin-bottom:12px}
+.result-title{font-family:var(--font-display);font-size:22px;font-weight:700;color:var(--text);margin-bottom:6px}
+.result-score{
+  font-family:var(--font-mono);font-size:36px;font-weight:700;
+  color:var(--primary);margin-bottom:8px;
+}
+.result-detail{font-size:13px;color:var(--text2);margin-bottom:20px}
+
+/* ══════════════════════════════════════
+   MODAL — ADD TASK
+══════════════════════════════════════ */
 .modal-overlay{
   position:fixed;inset:0;background:rgba(0,0,0,0.7);
   z-index:300;display:none;align-items:flex-end;justify-content:center;
   backdrop-filter:blur(8px);
 }
 .modal-overlay.open{display:flex;animation:fadeIn 0.2s ease}
-@keyframes fadeIn{from{opacity:0}to{opacity:1}}
 .modal-sheet{
-  background:var(--bg2);border-radius:20px 20px 0 0;
-  width:100%;max-width:600px;
-  padding:20px 20px 40px;
-  animation:slideUp 0.3s ease;
-  border-top:1px solid var(--border);
+  background:var(--bg2);border-radius:18px 18px 0 0;
+  width:100%;max-width:580px;padding:18px 18px 36px;
+  animation:slideUp 0.3s ease;border-top:1px solid var(--border);
 }
 @keyframes slideUp{from{transform:translateY(100%)}to{transform:translateY(0)}}
-.modal-handle{width:36px;height:4px;background:var(--border2);border-radius:2px;margin:0 auto 20px}
-.modal-title{font-family:var(--font-display);font-size:20px;font-weight:700;color:var(--text);margin-bottom:16px}
-.form-group{margin-bottom:14px}
-.form-label{font-size:12px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px;display:block}
+.modal-handle{width:34px;height:3px;background:var(--border2);border-radius:2px;margin:0 auto 18px}
+.modal-title{font-family:var(--font-display);font-size:18px;font-weight:700;color:var(--text);margin-bottom:14px}
+.form-group{margin-bottom:12px}
+.form-label{font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:5px;display:block}
 .form-input{
-  width:100%;padding:11px 14px;
-  background:var(--bg3);border:1px solid var(--border2);
-  border-radius:var(--radius-sm);color:var(--text);
-  font-size:14px;font-family:var(--font-body);outline:none;
+  width:100%;padding:10px 12px;background:var(--bg3);
+  border:1px solid var(--border2);border-radius:var(--radius-sm);
+  color:var(--text);font-size:13px;font-family:var(--font-body);outline:none;
   transition:border-color var(--transition);
 }
-.form-input:focus{border-color:var(--saffron)}
+.form-input:focus{border-color:var(--primary)}
 .form-select{appearance:none;cursor:pointer}
-.btn-primary{
-  width:100%;padding:14px;background:var(--saffron);color:#000;
-  border:none;border-radius:var(--radius-sm);
-  font-size:14px;font-weight:700;cursor:pointer;
-  transition:all var(--transition);
-  font-family:var(--font-body);
-}
-.btn-primary:hover{opacity:0.9}
-.btn-primary:active{transform:scale(0.98)}
 
-/* ═══════════════════════════════════
-   TIMETABLE SCREEN
-═══════════════════════════════════ */
-.timetable-body{padding:16px;display:flex;flex-direction:column;gap:14px}
-.time-block{
-  display:flex;gap:12px;align-items:flex-start;
-  padding:12px 14px;
-  background:var(--surface);border:1px solid var(--border);
-  border-radius:var(--radius-sm);
-}
-.tb-time{
-  font-family:var(--font-mono);font-size:12px;color:var(--text3);
-  min-width:70px;flex-shrink:0;padding-top:2px;
-}
-.tb-content{flex:1}
-.tb-title{font-size:14px;font-weight:600;color:var(--text)}
-.tb-sub{font-size:11px;color:var(--text3);margin-top:2px}
-.tb-dot{
-  width:10px;height:10px;border-radius:50%;
-  flex-shrink:0;margin-top:4px;
-}
-
-/* ═══════════════════════════════════
+/* ══════════════════════════════════════
    TOAST
-═══════════════════════════════════ */
+══════════════════════════════════════ */
 .toast{
-  position:fixed;bottom:calc(var(--nav-h) + 16px);left:50%;
-  transform:translateX(-50%) translateY(20px);
+  position:fixed;bottom:calc(var(--nav-h) + 14px);left:50%;
+  transform:translateX(-50%) translateY(12px);
   background:var(--text);color:var(--bg);
-  padding:10px 20px;border-radius:20px;
-  font-size:13px;font-weight:500;
+  padding:9px 18px;border-radius:18px;font-size:12px;font-weight:500;
   opacity:0;transition:all 0.3s ease;z-index:200;
   white-space:nowrap;max-width:90vw;pointer-events:none;
 }
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
-@media(min-width:900px){.toast{bottom:24px}}
+@media(min-width:900px){.toast{bottom:20px}}
 
-/* ═══════════════════════════════════
-   ANIMATIONS
-═══════════════════════════════════ */
-.stagger-1{animation:fadeUp 0.4s ease 0.05s both}
-.stagger-2{animation:fadeUp 0.4s ease 0.1s both}
-.stagger-3{animation:fadeUp 0.4s ease 0.15s both}
-.stagger-4{animation:fadeUp 0.4s ease 0.2s both}
-.stagger-5{animation:fadeUp 0.4s ease 0.25s both}
-.stagger-6{animation:fadeUp 0.4s ease 0.3s both}
-
-/* ═══════════════════════════════════
-   INSTALL PWA BANNER
-═══════════════════════════════════ */
-.install-banner{
-  display:none;
-  margin:12px 16px 0;
-  padding:12px 16px;
-  background:var(--saffron-soft);
-  border:1px solid rgba(255,153,51,0.3);
-  border-radius:var(--radius-sm);
-  align-items:center;gap:12px;
-}
-.install-banner.show{display:flex}
-.ib-text{flex:1;font-size:13px;color:var(--saffron2)}
-.ib-btn{
-  padding:7px 14px;background:var(--saffron);color:#000;
-  border:none;border-radius:var(--radius-sm);
-  font-size:12px;font-weight:700;cursor:pointer;
-  white-space:nowrap;flex-shrink:0;
-}
-.ib-close{font-size:18px;color:var(--text3);cursor:pointer;flex-shrink:0}
+/* ══════════════════════════════════════
+   STAGGER ANIMATIONS
+══════════════════════════════════════ */
+.s1{animation:fadeUp 0.35s ease 0.05s both}
+.s2{animation:fadeUp 0.35s ease 0.10s both}
+.s3{animation:fadeUp 0.35s ease 0.15s both}
+.s4{animation:fadeUp 0.35s ease 0.20s both}
+.s5{animation:fadeUp 0.35s ease 0.25s both}
 </style>
 </head>
 <body>
 
-<!-- SIDEBAR (Desktop) -->
+<!-- ═══════════════════════════════════
+     NAME SPLASH
+═══════════════════════════════════ -->
+<div id="nameSplash">
+  <div class="splash-flag"><div class="s"></div><div class="w"></div><div class="g"></div></div>
+  <div class="splash-logo">
+    अध्ययन केंद्र
+    <span>UPSC · BPSC · Your Personal Study Hub</span>
+  </div>
+  <div class="splash-prompt">
+    👋 Welcome! What should we call you?<br>
+    <small style="color:var(--text3);font-size:11px">We'll personalise your experience</small>
+  </div>
+  <input class="splash-input" id="splashNameInput" type="text" placeholder="Enter your name..." maxlength="30">
+  <button class="splash-btn" onclick="saveName()">🚀 Start Studying</button>
+</div>
+
+<!-- ═══════════════════════════════════
+     APP LAYOUT
+═══════════════════════════════════ -->
+<div class="app-layout" id="appLayout">
+
+<!-- SIDEBAR -->
 <aside class="sidebar" id="sidebar">
   <div class="sidebar-logo">
     <div class="sl-hi">अध्ययन केंद्र</div>
-    <div class="sl-sub">UPSC · BPSC · Abhi 2026</div>
+    <div class="sl-sub">UPSC · BPSC · 2026</div>
+    <div class="sl-user" id="sidebarUser">— Abhi</div>
   </div>
-  <nav>
-    <div class="sidebar-nav-item active" onclick="showScreen('home')" id="snav-home"><span class="sni">🏠</span>Dashboard</div>
-    <div class="sidebar-nav-item" onclick="showScreen('subjects')" id="snav-subjects"><span class="sni">📚</span>All Subjects</div>
-    <div class="sidebar-nav-item" onclick="showScreen('planner')" id="snav-planner"><span class="sni">📅</span>Daily Planner</div>
-    <div class="sidebar-nav-item" onclick="showScreen('timetable')" id="snav-timetable"><span class="sni">⏰</span>Timetable</div>
+  <nav class="sidebar-nav">
+    <div class="sidebar-section">Main</div>
+    <div class="sidebar-item active" onclick="showScreen('home')" id="snav-home"><span class="si">🏠</span>Dashboard</div>
+    <div class="sidebar-item" onclick="showScreen('subjects')" id="snav-subjects"><span class="si">📚</span>All Subjects</div>
+    <div class="sidebar-item" onclick="showScreen('planner')" id="snav-planner"><span class="si">📅</span>Planner & Schedule</div>
+    <div class="sidebar-item" onclick="showScreen('quiz')" id="snav-quiz"><span class="si">🎯</span>Quiz</div>
     <div class="sidebar-divider"></div>
-    <div class="sidebar-nav-item" onclick="window.open('https://happyhaiabhi.github.io/Studyhub/constitution_master.html')"><span class="sni">⚖️</span>Constitution</div>
-    <div class="sidebar-nav-item" onclick="window.open('https://happyhaiabhi.github.io/Studyhub/bihar_bpsc_master.html')"><span class="sni">🌟</span>BPSC Master</div>
-    <div class="sidebar-nav-item" onclick="window.open('https://happyhaiabhi.github.io/Studyhub/GeoMasterTest_Complete.html')"><span class="sni">🗺️</span>Geography</div>
-    <div class="sidebar-nav-item" onclick="window.open('https://happyhaiabhi.github.io/Studyhub/bihar-district-explorer.html')"><span class="sni">🏛️</span>Bihar Districts</div>
+    <div class="sidebar-section">Quick Tools</div>
+    <div class="sidebar-item" onclick="window.open('https://happyhaiabhi.github.io/Studyhub/constitution_master.html')"><span class="si">⚖️</span>Constitution</div>
+    <div class="sidebar-item" onclick="window.open('https://happyhaiabhi.github.io/Studyhub/bihar_bpsc_master.html')"><span class="si">🌟</span>BPSC Master</div>
+    <div class="sidebar-item" onclick="window.open('https://happyhaiabhi.github.io/Studyhub/GeoMasterTest_Complete.html')"><span class="si">🗺️</span>Geography</div>
+    <div class="sidebar-item" onclick="window.open('https://happyhaiabhi.github.io/Studyhub/bihar-district-explorer.html')"><span class="si">🏛️</span>Bihar Districts</div>
   </nav>
   <button class="sidebar-theme" onclick="toggleTheme()" id="sidebarThemeBtn">☀️ Toggle Theme</button>
 </aside>
 
-<!-- MOBILE BOTTOM NAV -->
-<nav class="bottom-nav">
-  <button class="bnav-btn active" onclick="showScreen('home')" id="bnav-home"><span class="bi">🏠</span><span>Home</span></button>
-  <button class="bnav-btn" onclick="showScreen('subjects')" id="bnav-subjects"><span class="bi">📚</span><span>Subjects</span></button>
-  <button class="bnav-btn" onclick="showScreen('planner')" id="bnav-planner"><span class="bi">📅</span><span>Planner</span></button>
-  <button class="bnav-btn" onclick="showScreen('timetable')" id="bnav-timetable"><span class="bi">⏰</span><span>Schedule</span></button>
-</nav>
+<!-- MAIN WRAP -->
+<div class="main-wrap" id="mainWrap">
 
-<div class="main-wrap">
-
-<!-- INSTALL PWA BANNER -->
+<!-- PWA Banner -->
 <div class="install-banner" id="installBanner">
-  <span style="font-size:20px">📱</span>
-  <span class="ib-text">Install as app on your phone!</span>
+  <span style="font-size:18px">📱</span>
+  <span class="ib-text">Install as app!</span>
   <button class="ib-btn" onclick="installPWA()">Install</button>
   <span class="ib-close" onclick="dismissInstall()">✕</span>
 </div>
 
-<!-- ═══ HOME SCREEN ═══ -->
+<!-- ═══ HOME ═══ -->
 <div class="screen active" id="screen-home">
-  <!-- Mobile top bar -->
   <div class="top-bar" id="mob-topbar">
-    <div class="top-logo">अध्ययन केंद्र <span>UPSC · BPSC · Abhi</span></div>
+    <div class="top-logo">अध्ययन केंद्र <span id="topLogoUser">UPSC · BPSC</span></div>
     <button class="icon-btn" onclick="toggleTheme()" id="themeBtn">☀️</button>
   </div>
 
-  <!-- Hero -->
-  <div class="hero stagger-1">
-    <div class="hero-flag">
-      <div class="flag-stripe s"></div>
-      <div class="flag-stripe w"></div>
-      <div class="flag-stripe g"></div>
-    </div>
-    <div class="hero-greeting">Jai Hind, <em>Abhi</em>! 🇮🇳</div>
-    <div class="hero-sub" id="heroSub">Today is a good day to study.</div>
-    <!-- Countdown -->
+  <div class="hero s1">
+    <div class="hero-flag"><div class="flag-stripe s"></div><div class="flag-stripe w"></div><div class="flag-stripe g"></div></div>
+    <div class="hero-greeting">Jai Hind, <em id="heroName">Abhi</em>! 🇮🇳</div>
+    <div class="hero-sub" id="heroSub">Today is a great day to study.</div>
     <div class="countdown-row">
       <div class="countdown-card">
         <div class="cc-val" id="bpscDays">—</div>
         <div class="cc-label">days remaining</div>
         <div class="cc-exam">BPSC 2026 🎯</div>
       </div>
-      <div class="countdown-card blue">
+      <div class="countdown-card accent">
         <div class="cc-val" id="upscDays">—</div>
         <div class="cc-label">days remaining</div>
         <div class="cc-exam">UPSC 2027 📘</div>
       </div>
     </div>
-    <!-- Quote -->
     <div class="quote-card">
       <div class="quote-text" id="quoteText">Jo aaj padh liya, woh kal exam mein aayega.</div>
-      <div class="quote-author" id="quoteAuthor">— Abhi's Study Rule #1</div>
+      <div class="quote-author" id="quoteAuthor">— Study Rule #1</div>
     </div>
   </div>
 
   <div class="home-body">
-
-    <!-- Today's Plan -->
-    <div class="card stagger-2">
-      <div class="section-header">
-        <div class="section-title">📅 Today's Plan <span class="section-badge" id="todayPlanBadge">0 tasks</span></div>
-        <button onclick="showScreen('planner')" style="font-size:12px;color:var(--saffron);background:none;padding:4px 8px;border-radius:20px;border:1px solid var(--saffron-soft)">Edit →</button>
+    <div class="card s2">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
+        <div class="section-title">📅 Today's Plan <span class="section-badge" id="todayBadge">0 tasks</span></div>
+        <button onclick="showScreen('planner')" style="font-size:11px;color:var(--primary);background:none;padding:3px 8px;border-radius:20px;border:1px solid var(--primary-soft)">Edit →</button>
       </div>
       <div id="todayPlanList">
-        <div style="text-align:center;padding:20px;color:var(--text3);font-size:13px">
-          📋 No tasks yet — add them in the Planner tab!
-        </div>
+        <div style="text-align:center;padding:18px;color:var(--text3);font-size:12px">📋 No tasks yet — add in Planner tab!</div>
       </div>
     </div>
 
-    <!-- Subject Progress -->
-    <div class="card stagger-3">
-      <div class="section-title" style="margin-bottom:14px">📊 Subject Coverage</div>
-      <div class="mini-progress" id="subjectProgress">
-        <div class="mp-row"><span class="mp-label">Polity</span><div class="mp-bar"><div class="mp-fill" style="width:0%;background:var(--saffron)" id="prog-polity"></div></div><span class="mp-pct" id="pct-polity">0%</span></div>
-        <div class="mp-row"><span class="mp-label">Geography</span><div class="mp-bar"><div class="mp-fill" style="width:0%;background:var(--blue)" id="prog-geo"></div></div><span class="mp-pct" id="pct-geo">0%</span></div>
+    <div class="card s3">
+      <div class="section-title" style="margin-bottom:12px">📊 Subject Coverage</div>
+      <div style="display:flex;flex-direction:column;gap:7px" id="subjectProgress">
+        <div class="mp-row"><span class="mp-label">Polity</span><div class="mp-bar"><div class="mp-fill" style="width:0%;background:var(--primary)" id="prog-polity"></div></div><span class="mp-pct" id="pct-polity">0%</span></div>
+        <div class="mp-row"><span class="mp-label">Geography</span><div class="mp-bar"><div class="mp-fill" style="width:0%;background:var(--accent)" id="prog-geo"></div></div><span class="mp-pct" id="pct-geo">0%</span></div>
         <div class="mp-row"><span class="mp-label">History</span><div class="mp-bar"><div class="mp-fill" style="width:0%;background:var(--gold)" id="prog-history"></div></div><span class="mp-pct" id="pct-history">0%</span></div>
-        <div class="mp-row"><span class="mp-label">Bihar Sp.</span><div class="mp-bar"><div class="mp-fill" style="width:0%;background:var(--green2)" id="prog-bihar"></div></div><span class="mp-pct" id="pct-bihar">0%</span></div>
+        <div class="mp-row"><span class="mp-label">Bihar Sp.</span><div class="mp-bar"><div class="mp-fill" style="width:0%;background:var(--green)" id="prog-bihar"></div></div><span class="mp-pct" id="pct-bihar">0%</span></div>
         <div class="mp-row"><span class="mp-label">Science</span><div class="mp-bar"><div class="mp-fill" style="width:0%;background:var(--purple)" id="prog-science"></div></div><span class="mp-pct" id="pct-science">0%</span></div>
       </div>
-      <div style="font-size:11px;color:var(--text3);margin-top:12px;text-align:center">Tap a subject to update progress →</div>
+      <div style="font-size:10px;color:var(--text3);margin-top:10px;text-align:center">Tap subject to update →</div>
     </div>
 
-    <!-- Quick Launch -->
-    <div class="stagger-4">
-      <div class="section-title" style="margin-bottom:10px">⚡ Quick Launch</div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
-        <a href="https://happyhaiabhi.github.io/Studyhub/constitution_master.html" style="display:flex;align-items:center;gap:10px;padding:12px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);text-decoration:none;color:inherit;transition:all var(--transition)" onmouseover="this.style.borderColor='var(--saffron)'" onmouseout="this.style.borderColor='var(--border)'">
-          <span style="font-size:22px">⚖️</span>
-          <div><div style="font-size:13px;font-weight:600;color:var(--text)">Constitution</div><div style="font-size:10px;color:var(--text3)">448 Articles</div></div>
+    <div class="s4">
+      <div class="section-title" style="margin-bottom:9px">⚡ Quick Launch</div>
+      <div class="quick-grid">
+        <a href="https://happyhaiabhi.github.io/Studyhub/constitution_master.html" class="quick-item">
+          <span class="quick-icon">⚖️</span>
+          <div><div class="quick-title">Constitution</div><div class="quick-sub">448 Articles</div></div>
         </a>
-        <a href="https://happyhaiabhi.github.io/Studyhub/bihar_bpsc_master.html" style="display:flex;align-items:center;gap:10px;padding:12px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);text-decoration:none;color:inherit;transition:all var(--transition)" onmouseover="this.style.borderColor='var(--green2)'" onmouseout="this.style.borderColor='var(--border)'">
-          <span style="font-size:22px">🌟</span>
-          <div><div style="font-size:13px;font-weight:600;color:var(--text)">BPSC Master</div><div style="font-size:10px;color:var(--text3)">Bihar Special</div></div>
+        <a href="https://happyhaiabhi.github.io/Studyhub/bihar_bpsc_master.html" class="quick-item">
+          <span class="quick-icon">🌟</span>
+          <div><div class="quick-title">BPSC Master</div><div class="quick-sub">Bihar Special</div></div>
         </a>
-        <a href="https://happyhaiabhi.github.io/Studyhub/GeoMasterTest_Complete.html" style="display:flex;align-items:center;gap:10px;padding:12px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);text-decoration:none;color:inherit;transition:all var(--transition)" onmouseover="this.style.borderColor='var(--blue)'" onmouseout="this.style.borderColor='var(--border)'">
-          <span style="font-size:22px">🗺️</span>
-          <div><div style="font-size:13px;font-weight:600;color:var(--text)">Geography</div><div style="font-size:10px;color:var(--text3)">150 Questions</div></div>
+        <a href="https://happyhaiabhi.github.io/Studyhub/GeoMasterTest_Complete.html" class="quick-item">
+          <span class="quick-icon">🗺️</span>
+          <div><div class="quick-title">Geography</div><div class="quick-sub">150 Questions</div></div>
         </a>
-        <a href="https://happyhaiabhi.github.io/Studyhub/bihar-district-explorer.html" style="display:flex;align-items:center;gap:10px;padding:12px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);text-decoration:none;color:inherit;transition:all var(--transition)" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'">
-          <span style="font-size:22px">🏛️</span>
-          <div><div style="font-size:13px;font-weight:600;color:var(--text)">Bihar Districts</div><div style="font-size:10px;color:var(--text3)">Explorer</div></div>
+        <a href="#" onclick="showScreen('quiz');return false" class="quick-item">
+          <span class="quick-icon">🎯</span>
+          <div><div class="quick-title">Quick Quiz</div><div class="quick-sub">Practice MCQs</div></div>
         </a>
       </div>
     </div>
-
   </div>
-</div>
+</div><!-- /screen-home -->
 
-<!-- ═══ SUBJECTS SCREEN ═══ -->
+<!-- ═══ SUBJECTS ═══ -->
 <div class="screen" id="screen-subjects">
   <div class="top-bar"><div class="top-logo">All Subjects <span>UPSC + BPSC</span></div></div>
+  <div class="page-header">
+    <div><div class="ph-title">All Subjects</div><div class="ph-sub">UPSC + BPSC curriculum</div></div>
+  </div>
   <div class="subjects-body">
-
-    <!-- GS Papers label -->
-    <div class="subject-group stagger-1">
+    <div class="s1">
       <div class="subject-group-title">📋 GS Paper I — History, Geography, Society</div>
-
-      <a href="https://happyhaiabhi.github.io/Studyhub/GeoMasterTest_Complete.html" class="subject-item" style="--item-color:var(--blue);margin-bottom:8px">
+      <a href="https://happyhaiabhi.github.io/Studyhub/GeoMasterTest_Complete.html" class="subject-item" style="--item-color:var(--primary)">
         <div class="si-icon">🗺️</div>
         <div class="si-info">
           <div class="si-title">Geography — Complete Suite</div>
@@ -679,34 +928,20 @@ body::before {
         <div class="si-arrow">›</div>
         <span class="si-badge">⭐ Active</span>
       </a>
-
-      <a href="#" class="subject-item" style="--item-color:var(--gold);margin-bottom:8px" onclick="comingSoon('Modern History')">
+      <div style="height:6px"></div>
+      <a href="#" class="subject-item" style="--item-color:var(--gold)" onclick="comingSoon('Modern History');return false">
         <div class="si-icon">📜</div>
         <div class="si-info">
           <div class="si-title">Modern History</div>
           <div class="si-sub">1857 Revolt · Freedom Struggle · Social Reforms</div>
           <div class="si-tags"><span class="si-tag">GS-1</span><span class="si-tag">UPSC</span><span class="si-tag">BPSC</span></div>
         </div>
-        <div class="si-arrow">›</div>
-        <span class="si-badge coming">Soon</span>
-      </a>
-
-      <a href="#" class="subject-item" style="--item-color:var(--gold);margin-bottom:8px" onclick="comingSoon('Ancient & Medieval History')">
-        <div class="si-icon">🏺</div>
-        <div class="si-info">
-          <div class="si-title">Ancient & Medieval History</div>
-          <div class="si-sub">Indus Valley · Maurya · Gupta · Mughal</div>
-          <div class="si-tags"><span class="si-tag">GS-1</span><span class="si-tag">UPSC</span><span class="si-tag">BPSC</span></div>
-        </div>
-        <div class="si-arrow">›</div>
-        <span class="si-badge coming">Soon</span>
+        <div class="si-arrow">›</div><span class="si-badge coming">Soon</span>
       </a>
     </div>
-
-    <div class="subject-group stagger-2">
+    <div class="s2">
       <div class="subject-group-title">📋 GS Paper II — Polity, Governance, IR</div>
-
-      <a href="https://happyhaiabhi.github.io/Studyhub/constitution_master.html" class="subject-item" style="--item-color:var(--saffron);margin-bottom:8px">
+      <a href="https://happyhaiabhi.github.io/Studyhub/constitution_master.html" class="subject-item" style="--item-color:var(--primary)">
         <div class="si-icon">⚖️</div>
         <div class="si-info">
           <div class="si-title">Constitution of India</div>
@@ -716,60 +951,10 @@ body::before {
         <div class="si-arrow">›</div>
         <span class="si-badge">⭐ Active</span>
       </a>
-
-      <a href="#" class="subject-item" style="--item-color:var(--saffron);margin-bottom:8px" onclick="comingSoon('Governance & Social Justice')">
-        <div class="si-icon">🏛️</div>
-        <div class="si-info">
-          <div class="si-title">Governance & Social Justice</div>
-          <div class="si-sub">Schemes · Welfare · Rights · Committees</div>
-          <div class="si-tags"><span class="si-tag">GS-2</span><span class="si-tag">UPSC</span></div>
-        </div>
-        <div class="si-arrow">›</div>
-        <span class="si-badge coming">Soon</span>
-      </a>
     </div>
-
-    <div class="subject-group stagger-3">
-      <div class="subject-group-title">📋 GS Paper III — Economy, Science, Environment</div>
-
-      <a href="#" class="subject-item" style="--item-color:var(--green2);margin-bottom:8px" onclick="comingSoon('Indian Economy')">
-        <div class="si-icon">📈</div>
-        <div class="si-info">
-          <div class="si-title">Indian Economy</div>
-          <div class="si-sub">Budget · Banking · Inflation · GDP · Schemes</div>
-          <div class="si-tags"><span class="si-tag">GS-3</span><span class="si-tag">UPSC</span><span class="si-tag">BPSC</span></div>
-        </div>
-        <div class="si-arrow">›</div>
-        <span class="si-badge coming">Soon</span>
-      </a>
-
-      <a href="#" class="subject-item" style="--item-color:var(--purple);margin-bottom:8px" onclick="comingSoon('Science & Technology')">
-        <div class="si-icon">🔬</div>
-        <div class="si-info">
-          <div class="si-title">Science & Technology</div>
-          <div class="si-sub">Physics · Chemistry · Biology · Space · Defence</div>
-          <div class="si-tags"><span class="si-tag">GS-3</span><span class="si-tag">UPSC</span><span class="si-tag">BPSC High Weight</span></div>
-        </div>
-        <div class="si-arrow">›</div>
-        <span class="si-badge coming">Soon</span>
-      </a>
-
-      <a href="#" class="subject-item" style="--item-color:var(--green2);margin-bottom:8px" onclick="comingSoon('Environment & Ecology')">
-        <div class="si-icon">🌿</div>
-        <div class="si-info">
-          <div class="si-title">Environment & Ecology</div>
-          <div class="si-sub">Biodiversity · Climate · Conventions · Protected Areas</div>
-          <div class="si-tags"><span class="si-tag">GS-3</span><span class="si-tag">UPSC</span><span class="si-tag">BPSC</span></div>
-        </div>
-        <div class="si-arrow">›</div>
-        <span class="si-badge coming">Soon</span>
-      </a>
-    </div>
-
-    <div class="subject-group stagger-4">
+    <div class="s3">
       <div class="subject-group-title">🌟 Bihar Special — BPSC Exclusive</div>
-
-      <a href="https://happyhaiabhi.github.io/Studyhub/bihar_bpsc_master.html" class="subject-item" style="--item-color:var(--green2);margin-bottom:8px">
+      <a href="https://happyhaiabhi.github.io/Studyhub/bihar_bpsc_master.html" class="subject-item" style="--item-color:var(--green)">
         <div class="si-icon">🌟</div>
         <div class="si-info">
           <div class="si-title">Bihar Special — BPSC Master</div>
@@ -777,10 +962,10 @@ body::before {
           <div class="si-tags"><span class="si-tag">BPSC Only</span><span class="si-tag">High Yield</span><span class="si-tag">PYQs</span></div>
         </div>
         <div class="si-arrow">›</div>
-        <span class="si-badge">⭐ Active</span>
+        <span class="si-badge" style="background:var(--green)">⭐ Active</span>
       </a>
-
-      <a href="https://happyhaiabhi.github.io/Studyhub/bihar-district-explorer.html" class="subject-item" style="--item-color:var(--green2);margin-bottom:8px">
+      <div style="height:6px"></div>
+      <a href="https://happyhaiabhi.github.io/Studyhub/bihar-district-explorer.html" class="subject-item" style="--item-color:var(--green)">
         <div class="si-icon">🏛️</div>
         <div class="si-info">
           <div class="si-title">Bihar District Explorer</div>
@@ -788,103 +973,178 @@ body::before {
           <div class="si-tags"><span class="si-tag">BPSC Only</span><span class="si-tag">Mains</span></div>
         </div>
         <div class="si-arrow">›</div>
-        <span class="si-badge">⭐ Active</span>
+        <span class="si-badge" style="background:var(--green)">⭐ Active</span>
       </a>
     </div>
-
-    <div class="subject-group stagger-5">
-      <div class="subject-group-title">📰 Current Affairs</div>
-
-      <a href="#" class="subject-item" style="--item-color:var(--red);margin-bottom:8px" onclick="comingSoon('Current Affairs')">
-        <div class="si-icon">📰</div>
+    <div class="s4">
+      <div class="subject-group-title">📋 GS Paper III — Economy, Science, Environment</div>
+      <a href="#" class="subject-item" style="--item-color:var(--accent)" onclick="comingSoon('Indian Economy');return false">
+        <div class="si-icon">📈</div>
         <div class="si-info">
-          <div class="si-title">Current Affairs — Daily</div>
-          <div class="si-sub">National · International · Economy · Awards</div>
-          <div class="si-tags"><span class="si-tag">UPSC</span><span class="si-tag">BPSC</span><span class="si-tag">Daily</span></div>
+          <div class="si-title">Indian Economy</div>
+          <div class="si-sub">Budget · Banking · Inflation · GDP · Schemes</div>
+          <div class="si-tags"><span class="si-tag">GS-3</span><span class="si-tag">UPSC</span><span class="si-tag">BPSC</span></div>
         </div>
-        <div class="si-arrow">›</div>
-        <span class="si-badge coming">Soon</span>
+        <div class="si-arrow">›</div><span class="si-badge coming">Soon</span>
       </a>
-    </div>
-
-    <div class="subject-group stagger-6">
-      <div class="subject-group-title">📖 UPSC Optional</div>
-      <a href="#" class="subject-item" style="--item-color:var(--purple);margin-bottom:8px" onclick="comingSoon('Philosophy Optional')">
-        <div class="si-icon">🧠</div>
+      <div style="height:6px"></div>
+      <a href="#" class="subject-item" style="--item-color:var(--purple)" onclick="comingSoon('Science & Tech');return false">
+        <div class="si-icon">🔬</div>
         <div class="si-info">
-          <div class="si-title">Philosophy Optional</div>
-          <div class="si-sub">Indian Phil · Western Phil · Ethics — 500 marks</div>
-          <div class="si-tags"><span class="si-tag">UPSC Mains</span><span class="si-tag">500 marks</span><span class="si-tag">Your Edge</span></div>
+          <div class="si-title">Science & Technology</div>
+          <div class="si-sub">Physics · Chemistry · Biology · Space · Defence</div>
+          <div class="si-tags"><span class="si-tag">GS-3</span><span class="si-tag">UPSC</span><span class="si-tag">BPSC High</span></div>
         </div>
-        <div class="si-arrow">›</div>
-        <span class="si-badge coming">Soon</span>
+        <div class="si-arrow">›</div><span class="si-badge coming">Soon</span>
       </a>
     </div>
-
   </div>
-</div>
+</div><!-- /screen-subjects -->
 
-<!-- ═══ PLANNER SCREEN ═══ -->
+<!-- ═══ PLANNER + SCHEDULE (MERGED) ═══ -->
 <div class="screen" id="screen-planner">
-  <div class="top-bar"><div class="top-logo">Daily Planner <span>Today's tasks</span></div></div>
-  <div class="planner-body">
-
-    <!-- Day selector -->
-    <div class="day-selector" id="daySelector"></div>
-
-    <!-- Tasks for selected day -->
-    <div>
-      <div class="section-header">
-        <div class="section-title">📋 Tasks <span class="section-badge" id="taskCountBadge">0</span></div>
-        <div style="font-size:12px;color:var(--text3)" id="taskProgressText">0/0 done</div>
-      </div>
-      <div id="taskList" style="display:flex;flex-direction:column;gap:8px"></div>
-      <button class="add-task-btn" style="margin-top:8px" onclick="openAddTask()">+ Add Task</button>
-    </div>
-
-    <!-- Study tip -->
-    <div class="card" style="background:var(--saffron-soft);border-color:rgba(255,153,51,0.3)">
-      <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--saffron);margin-bottom:8px">💡 Abhi's Study Tip</div>
-      <div style="font-size:13px;color:var(--text2);line-height:1.6" id="studyTip">Break your study into 45-minute Pomodoro sessions. After each session, do 5 minutes of active recall — write what you remembered without looking.</div>
-    </div>
-
+  <div class="top-bar">
+    <div class="top-logo">Planner & Schedule <span>Tasks + Timetable</span></div>
   </div>
-</div>
+  <div class="page-header">
+    <div><div class="ph-title">Planner & Schedule</div><div class="ph-sub">Daily tasks + your study timetable</div></div>
+  </div>
 
-<!-- ═══ TIMETABLE SCREEN ═══ -->
-<div class="screen" id="screen-timetable">
-  <div class="top-bar"><div class="top-logo">Daily Schedule <span>5 hrs/day plan</span></div></div>
-  <div class="timetable-body">
+  <div class="planner-layout">
+    <!-- LEFT: Planner -->
+    <div class="planner-col">
+      <div style="margin-bottom:12px">
+        <div class="section-title" style="margin-bottom:10px">📅 Daily Planner</div>
+        <div class="day-selector" id="daySelector"></div>
+      </div>
+      <div style="margin-bottom:10px;display:flex;align-items:center;justify-content:space-between">
+        <div class="section-title" style="font-size:13px">Tasks <span class="section-badge" id="taskCountBadge">0</span></div>
+        <div style="font-size:11px;color:var(--text3)" id="taskProgressText">0/0 done</div>
+      </div>
+      <div id="taskList" style="display:flex;flex-direction:column;gap:7px"></div>
+      <button class="add-task-btn" style="margin-top:9px" onclick="openAddTask()">+ Add Task</button>
 
-    <div class="card" style="background:var(--saffron-soft);border-color:rgba(255,153,51,0.3);padding:14px">
-      <div style="font-size:12px;font-weight:700;color:var(--saffron);margin-bottom:6px">🎯 Your 5-Hour Daily Plan</div>
-      <div style="font-size:12px;color:var(--text2);line-height:1.6">Based on your 5 hrs/day, BPSC 2026 target. Flexible — adjust as needed. Metro time = revision time! 🚇</div>
-    </div>
-
-    <div id="timetableBlocks" style="display:flex;flex-direction:column;gap:8px"></div>
-
-    <div class="card" style="padding:14px">
-      <div style="font-size:12px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:0.8px;margin-bottom:10px">📱 Metro Study Strategy</div>
-      <div style="display:flex;flex-direction:column;gap:8px">
-        <div style="display:flex;align-items:flex-start;gap:10px">
-          <span style="font-size:16px;flex-shrink:0">🚇</span>
-          <div style="font-size:12px;color:var(--text2);line-height:1.5"><strong style="color:var(--text)">In metro (30-45 min):</strong> Open Constitution app or Bihar BPSC Master. Do 1 article + quiz. This is your most distraction-free time!</div>
-        </div>
-        <div style="display:flex;align-items:flex-start;gap:10px">
-          <span style="font-size:16px;flex-shrink:0">⏰</span>
-          <div style="font-size:12px;color:var(--text2);line-height:1.5"><strong style="color:var(--text)">Waiting time:</strong> Open the Quiz tab. 10 MCQs = 10 minutes. Never waste a waiting moment.</div>
-        </div>
-        <div style="display:flex;align-items:flex-start;gap:10px">
-          <span style="font-size:16px;flex-shrink:0">🌙</span>
-          <div style="font-size:12px;color:var(--text2);line-height:1.5"><strong style="color:var(--text)">Before sleep (20 min):</strong> Write 5 things you studied today from memory. Best retention trick!</div>
-        </div>
+      <div class="card" style="margin-top:14px;background:var(--primary-soft);border-color:var(--primary-mid)">
+        <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--primary);margin-bottom:7px">💡 Study Tip</div>
+        <div style="font-size:12px;color:var(--text2);line-height:1.6" id="studyTip">Break study into 45-min sessions. After each, write what you remember — best retention trick!</div>
       </div>
     </div>
 
-  </div>
-</div>
+    <!-- RIGHT: Schedule -->
+    <div class="schedule-col">
+      <div class="schedule-section-title">
+        ⏰ Daily Schedule
+        <button class="edit-schedule-btn" onclick="toggleEditMode()" id="editModeBtn">✏️ Edit Schedule</button>
+      </div>
+      <div id="timetableBlocks"></div>
+      <button class="add-slot-btn" id="addSlotBtn" style="display:none" onclick="addNewSlot()">+ Add Time Slot</button>
 
-</div><!-- main-wrap -->
+      <div class="card" style="margin-top:12px;padding:13px">
+        <div style="font-size:10px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:0.8px;margin-bottom:9px">📱 Metro Study Strategy</div>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <div style="display:flex;gap:9px;align-items:flex-start">
+            <span style="font-size:15px;flex-shrink:0">🚇</span>
+            <div style="font-size:11px;color:var(--text2);line-height:1.5"><strong style="color:var(--text)">In metro (30-45 min):</strong> Open Constitution app or Bihar BPSC Master. 1 article + quiz.</div>
+          </div>
+          <div style="display:flex;gap:9px;align-items:flex-start">
+            <span style="font-size:15px;flex-shrink:0">🌙</span>
+            <div style="font-size:11px;color:var(--text2);line-height:1.5"><strong style="color:var(--text)">Before sleep (20 min):</strong> Write 5 things you studied today from memory. Best retention!</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div><!-- /screen-planner -->
+
+<!-- ═══ QUIZ ═══ -->
+<div class="screen" id="screen-quiz">
+  <div class="top-bar">
+    <div class="top-logo">Quiz <span>Practice MCQs</span></div>
+  </div>
+  <div class="page-header">
+    <div><div class="ph-title">Quiz Practice</div><div class="ph-sub">UPSC · BPSC · Polity · Geography · Bihar</div></div>
+  </div>
+  <div class="quiz-body">
+    <!-- Category select -->
+    <div id="quizCategorySection">
+      <div class="section-title" style="margin-bottom:10px">🎯 Choose a Category</div>
+      <div class="quiz-categories" id="quizCategories">
+        <button class="quiz-cat-btn" style="--item-color:var(--primary)" onclick="startQuiz('polity')">
+          <div class="quiz-cat-icon">⚖️</div>
+          <div class="quiz-cat-name">Polity</div>
+          <div class="quiz-cat-count">20 Questions</div>
+        </button>
+        <button class="quiz-cat-btn" style="--item-color:var(--accent)" onclick="startQuiz('geography')">
+          <div class="quiz-cat-icon">🗺️</div>
+          <div class="quiz-cat-name">Geography</div>
+          <div class="quiz-cat-count">20 Questions</div>
+        </button>
+        <button class="quiz-cat-btn" style="--item-color:var(--green)" onclick="startQuiz('bihar')">
+          <div class="quiz-cat-icon">🌟</div>
+          <div class="quiz-cat-name">Bihar Special</div>
+          <div class="quiz-cat-count">20 Questions</div>
+        </button>
+        <button class="quiz-cat-btn" style="--item-color:var(--gold)" onclick="startQuiz('history')">
+          <div class="quiz-cat-icon">📜</div>
+          <div class="quiz-cat-name">History</div>
+          <div class="quiz-cat-count">15 Questions</div>
+        </button>
+        <button class="quiz-cat-btn" style="--item-color:var(--purple)" onclick="startQuiz('science')">
+          <div class="quiz-cat-icon">🔬</div>
+          <div class="quiz-cat-name">Science & Tech</div>
+          <div class="quiz-cat-count">15 Questions</div>
+        </button>
+        <button class="quiz-cat-btn" style="--item-color:var(--red)" onclick="startQuiz('mixed')">
+          <div class="quiz-cat-icon">🎲</div>
+          <div class="quiz-cat-name">Mixed (All)</div>
+          <div class="quiz-cat-count">Random 15</div>
+        </button>
+      </div>
+    </div>
+
+    <!-- Quiz question -->
+    <div class="quiz-question-wrap" id="quizQuestionSection">
+      <div class="quiz-progress">
+        <div class="quiz-prog-text" id="quizProgText">Q 1/10</div>
+        <div class="quiz-prog-bar"><div class="quiz-prog-fill" id="quizProgFill" style="width:10%"></div></div>
+        <div class="quiz-score-badge" id="quizScoreDisplay">Score: 0</div>
+      </div>
+      <div class="quiz-q-card">
+        <div class="quiz-q-cat" id="quizQCat">POLITY</div>
+        <div class="quiz-q-text" id="quizQText">Question text goes here...</div>
+        <div class="quiz-options" id="quizOptions"></div>
+        <div class="quiz-explanation" id="quizExplanation"></div>
+      </div>
+      <div class="quiz-nav">
+        <button class="btn-outline" onclick="endQuiz()">🚪 Exit Quiz</button>
+        <button class="btn-primary" id="nextQuizBtn" onclick="nextQuestion()" style="display:none">Next →</button>
+      </div>
+    </div>
+
+    <!-- Result -->
+    <div class="quiz-result" id="quizResult">
+      <div class="result-emoji" id="resultEmoji">🎉</div>
+      <div class="result-title" id="resultTitle">Quiz Complete!</div>
+      <div class="result-score" id="resultScore">8/10</div>
+      <div class="result-detail" id="resultDetail">Great performance!</div>
+      <div style="display:flex;gap:8px;justify-content:center">
+        <button class="btn-primary" onclick="restartQuiz()">🔄 Try Again</button>
+        <button class="btn-outline" onclick="endQuiz()">🏠 Categories</button>
+      </div>
+    </div>
+  </div>
+</div><!-- /screen-quiz -->
+
+</div><!-- /main-wrap -->
+</div><!-- /app-layout -->
+
+<!-- BOTTOM NAV (mobile) -->
+<nav class="bottom-nav">
+  <button class="bnav-btn active" onclick="showScreen('home')" id="bnav-home"><span class="bi">🏠</span><span>Home</span></button>
+  <button class="bnav-btn" onclick="showScreen('subjects')" id="bnav-subjects"><span class="bi">📚</span><span>Subjects</span></button>
+  <button class="bnav-btn" onclick="showScreen('planner')" id="bnav-planner"><span class="bi">📅</span><span>Planner</span></button>
+  <button class="bnav-btn" onclick="showScreen('quiz')" id="bnav-quiz"><span class="bi">🎯</span><span>Quiz</span></button>
+</nav>
 
 <!-- ADD TASK MODAL -->
 <div class="modal-overlay" id="addTaskModal">
@@ -904,111 +1164,137 @@ body::before {
         <option value="Bihar Special">🌟 Bihar Special</option>
         <option value="Science">🔬 Science</option>
         <option value="Economy">📈 Economy</option>
-        <option value="Philosophy">🧠 Philosophy</option>
         <option value="Current Affairs">📰 Current Affairs</option>
-        <option value="Revision">🔄 Revision</option>
         <option value="Quiz">🎯 Quiz / Test</option>
+        <option value="Revision">🔄 Revision</option>
       </select>
     </div>
     <div class="form-group">
       <label class="form-label">Time (optional)</label>
       <input class="form-input" type="text" id="taskTimeInput" placeholder="e.g. 9:00 AM, Evening, Metro...">
     </div>
-    <button class="btn-primary" onclick="addTask()">Add Task ✅</button>
+    <button class="btn-primary" style="width:100%" onclick="addTask()">Add Task ✅</button>
   </div>
 </div>
 
 <div class="toast" id="toast"></div>
 
 <script>
-// ═══════════════════════════════════
+// ══════════════════════════════════════
 // STATE
-// ═══════════════════════════════════
+// ══════════════════════════════════════
 let state = {
-  tasks: {},        // { 'YYYY-MM-DD': [{id,title,subject,time,done}] }
-  progress: {
-    polity: 0, geo: 0, history: 0, bihar: 0, science: 0
-  },
+  userName: '',
+  tasks: {},
+  progress: { polity:0, geo:0, history:0, bihar:0, science:0 },
   theme: 'dark',
   selectedDate: getTodayStr(),
+  scheduleBlocks: null,
+  editMode: false,
 };
 
-function loadState() {
-  const s = localStorage.getItem('studyhub_v1');
-  if(s) try { state = {...state, ...JSON.parse(s)}; } catch(e){}
-  state.selectedDate = getTodayStr(); // always start with today
+const SUBJECT_COLORS = {
+  Polity:'var(--primary)',Geography:'var(--accent)',History:'var(--gold)',
+  'Bihar Special':'var(--green)',Science:'var(--purple)',Economy:'var(--green)',
+  'Current Affairs':'var(--red)',Revision:'var(--primary)',Quiz:'var(--accent)',
+  default:'var(--primary)'
+};
+
+function loadState(){
+  const s = localStorage.getItem('studyhub_v3');
+  if(s) try{ Object.assign(state, JSON.parse(s)); }catch(e){}
+  state.selectedDate = getTodayStr();
+  if(!state.scheduleBlocks) state.scheduleBlocks = getDefaultSchedule();
 }
-function saveState() { localStorage.setItem('studyhub_v1', JSON.stringify(state)); }
-function getTodayStr() {
+function saveState(){
+  localStorage.setItem('studyhub_v3', JSON.stringify(state));
+}
+function getTodayStr(){
   return new Date().toISOString().split('T')[0];
 }
-function getDateStr(offsetDays) {
-  const d = new Date();
-  d.setDate(d.getDate() + offsetDays);
-  return d.toISOString().split('T')[0];
+
+// ══════════════════════════════════════
+// NAME SPLASH
+// ══════════════════════════════════════
+function saveName(){
+  const val = document.getElementById('splashNameInput').value.trim();
+  const name = val || 'Warrior';
+  state.userName = name;
+  saveState();
+  document.getElementById('nameSplash').classList.add('hidden');
+  applyUserName();
 }
 
-// ═══════════════════════════════════
+function applyUserName(){
+  const n = state.userName || 'Abhi';
+  const el = document.getElementById('heroName');
+  if(el) el.textContent = n;
+  const su = document.getElementById('sidebarUser');
+  if(su) su.textContent = '— ' + n;
+  const tl = document.getElementById('topLogoUser');
+  if(tl) tl.textContent = 'UPSC · BPSC · ' + n;
+}
+
+// ══════════════════════════════════════
 // NAVIGATION
-// ═══════════════════════════════════
-function showScreen(name) {
-  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-  document.querySelectorAll('.bnav-btn, .sidebar-nav-item').forEach(b => b.classList.remove('active'));
-  document.getElementById('screen-' + name).classList.add('active');
-  const bnav = document.getElementById('bnav-' + name);
-  if(bnav) bnav.classList.add('active');
-  const snav = document.getElementById('snav-' + name);
-  if(snav) snav.classList.add('active');
-  if(name === 'home') refreshHome();
-  if(name === 'planner') renderPlanner();
-  if(name === 'timetable') renderTimetable();
+// ══════════════════════════════════════
+function showScreen(name){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.bnav-btn, .sidebar-item').forEach(b=>b.classList.remove('active'));
+  document.getElementById('screen-'+name).classList.add('active');
+  const bn = document.getElementById('bnav-'+name);
+  if(bn) bn.classList.add('active');
+  const sn = document.getElementById('snav-'+name);
+  if(sn) sn.classList.add('active');
+  if(name==='home') refreshHome();
+  if(name==='planner') renderPlanner();
+  // Scroll to top on screen change
+  const mw = document.getElementById('mainWrap');
+  if(mw) mw.scrollTo(0,0);
+  else window.scrollTo(0,0);
 }
 
-// ═══════════════════════════════════
+// ══════════════════════════════════════
 // HOME
-// ═══════════════════════════════════
-function refreshHome() {
-  // Countdown
-  const bpscTarget = new Date('2026-05-01');
-  const upscTarget = new Date('2027-05-15');
+// ══════════════════════════════════════
+function refreshHome(){
+  const bpscT = new Date('2026-05-01');
+  const upscT = new Date('2027-05-15');
   const now = new Date();
-  document.getElementById('bpscDays').textContent = Math.ceil((bpscTarget - now) / 86400000);
-  document.getElementById('upscDays').textContent = Math.ceil((upscTarget - now) / 86400000);
+  document.getElementById('bpscDays').textContent = Math.max(0, Math.ceil((bpscT-now)/86400000));
+  document.getElementById('upscDays').textContent  = Math.max(0, Math.ceil((upscT-now)/86400000));
 
-  // Greeting
   const h = new Date().getHours();
-  const greet = h < 5 ? 'Raat bhar jaag rahe ho' : h < 12 ? 'Subah ka Salam' : h < 17 ? 'Dopahar ki Shubhkaamnayein' : h < 20 ? 'Shaam ko bhi padhai' : 'Raat bhi padhai chalti hai';
-  document.getElementById('heroSub').textContent = greet + ', Abhi. Let\'s study! 📚';
+  const greet = h<5?'Raat bhar padhai':h<12?'Subah ka Salam':h<17?'Dopahar ki Shubhkaamnayein':h<20?'Shaam ko bhi padhai':'Raat bhi padhai chalti hai';
+  const un = state.userName||'Abhi';
+  document.getElementById('heroSub').textContent = greet+', '+un+'. Let\'s study! 📚';
 
-  // Quotes
   const quotes = [
-    {q: '"Jo aaj padh liya, woh kal exam mein aayega."', a: '— Abhi\'s Study Rule #1'},
-    {q: '"BPSC 2026 is not a dream. It\'s a deadline."', a: '— Your Countdown'},
-    {q: '"Ek article roz. 60 din mein Constitution hero."', a: '— SamvidhanSaathi'},
-    {q: '"Mushkilein aati hain to aao, kyunki iske bagair progress nahi."', a: '— Motivational'},
-    {q: '"Bihar ka hero banna hai. Toh Bihar ko pehle samjho."', a: '— BPSC Strategy'},
-    {q: '"Jo question kal aaya, woh kal phir aa sakta hai."', a: '— PYQ Wisdom'},
-    {q: '"5 hours a day. Every day. No excuses. BPSC pakka."', a: '— Your Plan'},
+    {q:'"Jo aaj padh liya, woh kal exam mein aayega."',a:'— Study Rule #1'},
+    {q:'"BPSC 2026 is not a dream. It\'s a deadline."',a:'— Your Countdown'},
+    {q:'"Ek article roz. 60 din mein Constitution hero."',a:'— SamvidhanSaathi'},
+    {q:'"Bihar ka hero banna hai. Toh Bihar ko pehle samjho."',a:'— BPSC Strategy'},
+    {q:'"Jo question kal aaya, woh kal phir aa sakta hai."',a:'— PYQ Wisdom'},
+    {q:'"5 hours a day. Every day. No excuses. BPSC pakka."',a:'— Your Plan'},
+    {q:'"Mushkilein sahi hain — iske bagair progress nahi."',a:'— Motivational'},
   ];
-  const q = quotes[new Date().getDay() % quotes.length];
+  const q = quotes[new Date().getDay()%quotes.length];
   document.getElementById('quoteText').textContent = q.q;
   document.getElementById('quoteAuthor').textContent = q.a;
 
+  applyUserName();
+
   // Today's tasks
   const today = getTodayStr();
-  const todayTasks = state.tasks[today] || [];
-  const badge = document.getElementById('todayPlanBadge');
-  badge.textContent = todayTasks.length + ' tasks';
+  const tasks = state.tasks[today]||[];
+  document.getElementById('todayBadge').textContent = tasks.length+' tasks';
   const list = document.getElementById('todayPlanList');
-  if(todayTasks.length === 0) {
-    list.innerHTML = '<div style="text-align:center;padding:20px;color:var(--text3);font-size:13px">📋 No tasks yet — add them in the Planner tab!</div>';
+  if(!tasks.length){
+    list.innerHTML='<div style="text-align:center;padding:16px;color:var(--text3);font-size:12px">📋 No tasks yet — add them in Planner tab!</div>';
   } else {
-    const colors = {Polity:'var(--saffron)',Geography:'var(--blue)',History:'var(--gold)',
-      'Bihar Special':'var(--green2)',Science:'var(--purple)',Economy:'var(--green2)',
-      Philosophy:'var(--purple)',default:'var(--saffron)'};
-    list.innerHTML = todayTasks.map(t => `
+    list.innerHTML = tasks.map(t=>`
       <div class="plan-item ${t.done?'done':''}" onclick="toggleHomeTask('${today}','${t.id}')">
-        <div class="plan-dot" style="background:${colors[t.subject]||colors.default}"></div>
+        <div class="plan-dot" style="background:${SUBJECT_COLORS[t.subject]||SUBJECT_COLORS.default}"></div>
         <div style="flex:1;min-width:0">
           <div class="plan-subject">${t.title}</div>
           <div class="plan-topic">${t.subject}${t.time?' · '+t.time:''}</div>
@@ -1017,246 +1303,428 @@ function refreshHome() {
       </div>`).join('');
   }
 
-  // Progress bars
-  const p = state.progress;
-  const subjects = ['polity','geo','history','bihar','science'];
-  subjects.forEach(s => {
-    const val = Math.min(100, Math.max(0, p[s] || 0));
-    const fill = document.getElementById('prog-'+s);
-    const pct = document.getElementById('pct-'+s);
-    if(fill) setTimeout(() => fill.style.width = val+'%', 100);
-    if(pct) pct.textContent = val+'%';
+  // Progress
+  ['polity','geo','history','bihar','science'].forEach(s=>{
+    const v=Math.min(100,Math.max(0,state.progress[s]||0));
+    const f=document.getElementById('prog-'+s), p=document.getElementById('pct-'+s);
+    if(f) setTimeout(()=>f.style.width=v+'%',100);
+    if(p) p.textContent=v+'%';
   });
 }
 
-function toggleHomeTask(date, id) {
-  const tasks = state.tasks[date] || [];
-  const t = tasks.find(x => x.id === id);
-  if(t) t.done = !t.done;
-  state.tasks[date] = tasks;
-  saveState();
-  refreshHome();
+function toggleHomeTask(date, id){
+  const tasks=state.tasks[date]||[];
+  const t=tasks.find(x=>x.id===id);
+  if(t) t.done=!t.done;
+  state.tasks[date]=tasks;
+  saveState();refreshHome();
 }
 
-// ═══════════════════════════════════
+// ══════════════════════════════════════
 // PLANNER
-// ═══════════════════════════════════
-function renderPlanner() {
+// ══════════════════════════════════════
+function renderPlanner(){
   renderDaySelector();
   renderTaskList();
+  renderTimetable();
   renderStudyTip();
 }
 
-function renderDaySelector() {
-  const sel = document.getElementById('daySelector');
-  const days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
-  let html = '';
-  for(let i = -2; i <= 6; i++) {
-    const d = new Date();
-    d.setDate(d.getDate() + i);
-    const ds = d.toISOString().split('T')[0];
-    const isToday = i === 0;
-    const isSelected = ds === state.selectedDate;
-    const hasTasks = (state.tasks[ds] || []).length > 0;
-    html += `<button class="day-btn ${isToday?'today':''} ${isSelected&&!isToday?'today':''} ${hasTasks?'has-tasks':''}"
-      onclick="selectDate('${ds}')" style="${isSelected&&!isToday?'background:var(--saffron-soft);border-color:var(--saffron)':''}">
+function renderDaySelector(){
+  const sel=document.getElementById('daySelector');
+  const days=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  let html='';
+  for(let i=-2;i<=6;i++){
+    const d=new Date(); d.setDate(d.getDate()+i);
+    const ds=d.toISOString().split('T')[0];
+    const isToday=i===0, isSelected=ds===state.selectedDate;
+    const hasTasks=(state.tasks[ds]||[]).length>0;
+    html+=`<button class="day-btn ${isToday?'today':''} ${isSelected&&!isToday?'selected':''} ${hasTasks?'has-tasks':''}" onclick="selectDate('${ds}')">
       <span class="db-day">${days[d.getDay()]}</span>
       <span class="db-date">${d.getDate()}</span>
     </button>`;
   }
-  sel.innerHTML = html;
+  sel.innerHTML=html;
 }
 
-function selectDate(ds) {
-  state.selectedDate = ds;
-  renderPlanner();
-}
+function selectDate(ds){ state.selectedDate=ds; renderPlanner(); }
 
-function renderTaskList() {
-  const tasks = state.tasks[state.selectedDate] || [];
-  const done = tasks.filter(t => t.done).length;
-  document.getElementById('taskCountBadge').textContent = tasks.length;
-  document.getElementById('taskProgressText').textContent = done + '/' + tasks.length + ' done';
-
-  const colors = {Polity:'var(--saffron)',Geography:'var(--blue)',History:'var(--gold)',
-    'Bihar Special':'var(--green2)',Science:'var(--purple)',Economy:'var(--green2)',
-    Philosophy:'var(--purple)','Current Affairs':'var(--red)',Revision:'var(--blue)',Quiz:'var(--saffron)',default:'var(--text3)'};
-
-  const list = document.getElementById('taskList');
-  if(tasks.length === 0) {
-    list.innerHTML = `<div style="text-align:center;padding:30px;color:var(--text3);font-size:13px">
-      No tasks for this day.<br>Click "+ Add Task" to plan your study! 📚
-    </div>`;
+function renderTaskList(){
+  const tasks=state.tasks[state.selectedDate]||[];
+  const done=tasks.filter(t=>t.done).length;
+  document.getElementById('taskCountBadge').textContent=tasks.length;
+  document.getElementById('taskProgressText').textContent=done+'/'+tasks.length+' done';
+  const list=document.getElementById('taskList');
+  if(!tasks.length){
+    list.innerHTML=`<div style="text-align:center;padding:24px;color:var(--text3);font-size:12px">No tasks. Click "+ Add Task" to plan! 📚</div>`;
     return;
   }
-  list.innerHTML = tasks.map(t => `
+  list.innerHTML=tasks.map(t=>`
     <div class="task-item ${t.done?'done':''}">
       <div class="task-check" onclick="toggleTask('${t.id}')">${t.done?'✓':''}</div>
       <div class="task-info">
         <div class="task-title">${t.title}</div>
         <div class="task-meta">${t.time||'No time set'}</div>
-        <div class="task-subject-tag" style="background:color-mix(in srgb, ${colors[t.subject]||colors.default} 15%, transparent);color:${colors[t.subject]||colors.default}">
-          ${t.subject}
-        </div>
+        <div class="task-tag" style="background:color-mix(in srgb, ${SUBJECT_COLORS[t.subject]||SUBJECT_COLORS.default} 15%, transparent);color:${SUBJECT_COLORS[t.subject]||SUBJECT_COLORS.default}">${t.subject}</div>
       </div>
-      <button onclick="deleteTask('${t.id}')" style="background:none;color:var(--text3);font-size:16px;padding:4px;flex-shrink:0">🗑️</button>
+      <button class="task-delete" onclick="deleteTask('${t.id}')">🗑️</button>
     </div>`).join('');
 }
 
-function toggleTask(id) {
-  const tasks = state.tasks[state.selectedDate] || [];
-  const t = tasks.find(x => x.id === id);
-  if(t) { t.done = !t.done; showToast(t.done ? '✅ Task done! Great work!' : '↩️ Marked undone'); }
-  state.tasks[state.selectedDate] = tasks;
-  saveState(); renderTaskList();
+function toggleTask(id){
+  const tasks=state.tasks[state.selectedDate]||[];
+  const t=tasks.find(x=>x.id===id);
+  if(t){t.done=!t.done; showToast(t.done?'✅ Done! Great work!':'↩️ Marked undone');}
+  state.tasks[state.selectedDate]=tasks;
+  saveState();renderTaskList();
 }
-
-function deleteTask(id) {
-  state.tasks[state.selectedDate] = (state.tasks[state.selectedDate] || []).filter(t => t.id !== id);
-  saveState(); renderPlanner(); showToast('🗑️ Task deleted');
+function deleteTask(id){
+  state.tasks[state.selectedDate]=(state.tasks[state.selectedDate]||[]).filter(t=>t.id!==id);
+  saveState();renderPlanner();showToast('🗑️ Deleted');
 }
-
-function openAddTask() {
+function openAddTask(){
   document.getElementById('addTaskModal').classList.add('open');
   document.getElementById('taskTitleInput').focus();
 }
-
-function addTask() {
-  const title = document.getElementById('taskTitleInput').value.trim();
-  if(!title) { showToast('⚠️ Please enter a task title!'); return; }
-  const subject = document.getElementById('taskSubjectInput').value;
-  const time = document.getElementById('taskTimeInput').value.trim();
-  const task = { id: Date.now().toString(), title, subject, time, done: false };
-  if(!state.tasks[state.selectedDate]) state.tasks[state.selectedDate] = [];
+function addTask(){
+  const title=document.getElementById('taskTitleInput').value.trim();
+  if(!title){showToast('⚠️ Enter a task title!');return;}
+  const subject=document.getElementById('taskSubjectInput').value;
+  const time=document.getElementById('taskTimeInput').value.trim();
+  const task={id:Date.now().toString(),title,subject,time,done:false};
+  if(!state.tasks[state.selectedDate]) state.tasks[state.selectedDate]=[];
   state.tasks[state.selectedDate].push(task);
   saveState();
   document.getElementById('addTaskModal').classList.remove('open');
-  document.getElementById('taskTitleInput').value = '';
-  document.getElementById('taskTimeInput').value = '';
-  renderPlanner();
-  showToast('✅ Task added!');
+  document.getElementById('taskTitleInput').value='';
+  document.getElementById('taskTimeInput').value='';
+  renderPlanner();showToast('✅ Task added!');
 }
+document.getElementById('addTaskModal').addEventListener('click',function(e){if(e.target===this)this.classList.remove('open');});
 
-// Close modal on overlay click
-document.getElementById('addTaskModal').addEventListener('click', function(e) {
-  if(e.target === this) this.classList.remove('open');
-});
-
-function renderStudyTip() {
-  const tips = [
+function renderStudyTip(){
+  const tips=[
     'Break study into 45-min sessions. After each, write what you remember without looking — best retention trick!',
-    'For BPSC, Bihar Special questions are EXCLUSIVE — no UPSC student knows them. This is your secret weapon!',
-    'PYQs first, always. "Jo question kal aaya, woh kal phir aa sakta hai." Do 10 PYQs before any new topic.',
-    'Metro time = article time. Open Constitution app, do 1 article + quiz. 30 min metro = 1 article = 10 pts!',
-    'Laxmikanth chapter → PYQs on that chapter → Constitution app for articles. That\'s the Polity triangle!',
-    'Geography maps: draw them from memory every Sunday. Visual memory is 10x stronger than text memory.',
-    'Before sleeping, write 5 things you studied today. This transfers info from short to long-term memory.',
+    'For BPSC, Bihar Special questions are EXCLUSIVE. This is your secret weapon!',
+    'PYQs first, always. "Jo question kal aaya, woh kal phir aa sakta hai."',
+    'Metro time = article time. 30 min metro = 1 article = 10 pts!',
+    'Laxmikanth → PYQs → Constitution app. That\'s the Polity triangle!',
+    'Geography maps: draw from memory every Sunday. Visual memory is 10× stronger.',
+    'Before sleeping: write 5 things you studied today. Transfers to long-term memory.',
   ];
-  const tip = tips[new Date().getDay() % tips.length];
-  document.getElementById('studyTip').textContent = tip;
+  const el=document.getElementById('studyTip');
+  if(el) el.textContent=tips[new Date().getDay()%tips.length];
 }
 
-// ═══════════════════════════════════
-// TIMETABLE
-// ═══════════════════════════════════
-function renderTimetable() {
-  const blocks = [
-    { time:'6:00–7:00 AM', title:'Morning Revision', sub:'Previous day\'s topics — Active recall before fresh study', color:'var(--saffron)', icon:'🌅' },
-    { time:'7:00–8:30 AM', title:'Core Study Block 1', sub:'Hard topic of the day — History / Geography / Polity', color:'var(--blue)', icon:'📚' },
-    { time:'8:30–9:00 AM', title:'Metro / Commute', sub:'Constitution app — 1 article + quiz. Never skip this!', color:'var(--green2)', icon:'🚇' },
-    { time:'9:00–10:30 AM', title:'Core Study Block 2', sub:'Bihar Special / Science / Economy', color:'var(--gold)', icon:'🌟' },
-    { time:'10:30–11:00 AM', title:'Break + Walk', sub:'Mandatory! Body movement = better memory', color:'var(--text3)', icon:'🚶' },
-    { time:'2:00–3:30 PM', title:'PYQ Practice Session', sub:'Solve 30 MCQs from today\'s topics. Timed!', color:'var(--purple)', icon:'📝' },
-    { time:'3:30–4:30 PM', title:'Current Affairs', sub:'One newspaper / PIB / Yojana — 1 hour max', color:'var(--red)', icon:'📰' },
-    { time:'9:00–9:30 PM', title:'Night Revision', sub:'Write 5 things from memory. Read tomorrow\'s plan.', color:'var(--saffron)', icon:'🌙' },
-    { time:'Weekend Special', title:'Full Mock Test', sub:'Saturday: 100 MCQ test. Sunday: Analyse mistakes.', color:'var(--saffron)', icon:'🎯' },
+// ══════════════════════════════════════
+// SCHEDULE (EDITABLE)
+// ══════════════════════════════════════
+function getDefaultSchedule(){
+  return [
+    {id:'s1', time:'6:00–7:00 AM',  title:'🌅 Morning Revision',   sub:'Previous day\'s topics — active recall before fresh study', color:'var(--primary)'},
+    {id:'s2', time:'7:00–8:30 AM',  title:'📚 Core Study Block 1', sub:'Hard topic of the day — History / Geography / Polity',     color:'var(--accent)'},
+    {id:'s3', time:'8:30–9:00 AM',  title:'🚇 Metro / Commute',   sub:'Constitution app — 1 article + quiz. Never skip this!',     color:'var(--green)'},
+    {id:'s4', time:'9:00–10:30 AM', title:'🌟 Core Study Block 2', sub:'Bihar Special / Science / Economy',                        color:'var(--gold)'},
+    {id:'s5', time:'10:30–11:00 AM',title:'🚶 Break + Walk',       sub:'Mandatory! Body movement = better memory',                 color:'var(--text3)'},
+    {id:'s6', time:'2:00–3:30 PM',  title:'📝 PYQ Practice',      sub:'Solve 30 MCQs from today\'s topics. Timed!',               color:'var(--purple)'},
+    {id:'s7', time:'3:30–4:30 PM',  title:'📰 Current Affairs',   sub:'One newspaper / PIB / Yojana — 1 hour max',               color:'var(--red)'},
+    {id:'s8', time:'9:00–9:30 PM',  title:'🌙 Night Revision',    sub:'Write 5 things from memory. Read tomorrow\'s plan.',       color:'var(--primary)'},
+    {id:'s9', time:'Weekend Special',title:'🎯 Full Mock Test',   sub:'Saturday: 100 MCQ test. Sunday: Analyse mistakes.',        color:'var(--accent)'},
   ];
-  document.getElementById('timetableBlocks').innerHTML = blocks.map(b => `
-    <div class="time-block">
-      <div class="tb-time">${b.time}</div>
+}
+
+let editModeOn=false;
+function toggleEditMode(){
+  editModeOn=!editModeOn;
+  document.getElementById('editModeBtn').textContent=editModeOn?'✅ Done Editing':'✏️ Edit Schedule';
+  document.getElementById('addSlotBtn').style.display=editModeOn?'flex':'none';
+  renderTimetable();
+}
+
+function renderTimetable(){
+  const blocks=state.scheduleBlocks||getDefaultSchedule();
+  const container=document.getElementById('timetableBlocks');
+  container.innerHTML=blocks.map((b,i)=>`
+    <div class="time-block ${editModeOn?'editing':''}">
       <div class="tb-dot" style="background:${b.color}"></div>
-      <div class="tb-content">
-        <div class="tb-title">${b.icon} ${b.title}</div>
-        <div class="tb-sub">${b.sub}</div>
+      <div class="tb-content" style="flex:1">
+        <div style="display:flex;align-items:center;justify-content:space-between">
+          <div>
+            <div class="tb-time">${b.time}</div>
+            <div class="tb-title">${b.title}</div>
+            <div class="tb-sub">${b.sub}</div>
+          </div>
+          ${editModeOn?`<button onclick="toggleEditBlock(${i})" style="background:none;color:var(--text3);font-size:12px;padding:4px;flex-shrink:0">✏️</button>`:''}
+        </div>
+        ${editModeOn?`
+        <div class="tb-edit-form" id="editForm${i}">
+          <input class="tb-input" placeholder="Time" value="${b.time}" id="eTime${i}">
+          <input class="tb-input" placeholder="Title (with emoji)" value="${b.title}" id="eTitle${i}">
+          <input class="tb-input" placeholder="Description" value="${b.sub}" id="eSub${i}">
+          <div style="display:flex;gap:6px">
+            <button class="tb-save-btn" onclick="saveBlock(${i})">Save</button>
+            <button onclick="deleteBlock(${i})" style="padding:5px 12px;background:var(--red-soft);color:var(--red);border-radius:var(--radius-sm);font-size:11px;font-weight:700;cursor:pointer;font-family:var(--font-body)">Delete</button>
+          </div>
+        </div>`:''}`}
       </div>
     </div>`).join('');
 }
 
-// ═══════════════════════════════════
+function toggleEditBlock(i){
+  const form=document.getElementById('editForm'+i);
+  if(form) form.classList.toggle('open');
+}
+function saveBlock(i){
+  const blocks=state.scheduleBlocks||getDefaultSchedule();
+  blocks[i].time  =document.getElementById('eTime'+i).value||blocks[i].time;
+  blocks[i].title =document.getElementById('eTitle'+i).value||blocks[i].title;
+  blocks[i].sub   =document.getElementById('eSub'+i).value||blocks[i].sub;
+  state.scheduleBlocks=blocks; saveState(); renderTimetable();
+  showToast('✅ Schedule updated!');
+}
+function deleteBlock(i){
+  const blocks=state.scheduleBlocks||getDefaultSchedule();
+  blocks.splice(i,1); state.scheduleBlocks=blocks; saveState(); renderTimetable();
+  showToast('🗑️ Slot deleted');
+}
+function addNewSlot(){
+  const blocks=state.scheduleBlocks||getDefaultSchedule();
+  blocks.push({id:'s'+Date.now(),time:'Time',title:'📌 New Slot',sub:'Add description here',color:'var(--primary)'});
+  state.scheduleBlocks=blocks; saveState(); renderTimetable();
+  showToast('➕ New slot added');
+}
+
+// ══════════════════════════════════════
+// QUIZ DATA
+// ══════════════════════════════════════
+const QUIZ_DATA = {
+  polity:[
+    {q:'Which article of the Constitution deals with the Right to Equality?',opts:['Article 14','Article 19','Article 21','Article 32'],ans:0,cat:'Polity',exp:'Article 14 guarantees equality before law and equal protection of laws to all persons.'},
+    {q:'The Preamble of the Indian Constitution was amended by which amendment?',opts:['42nd Amendment','44th Amendment','52nd Amendment','74th Amendment'],ans:0,cat:'Polity',exp:'The 42nd Constitutional Amendment (1976) added "Socialist", "Secular", and "Integrity" to the Preamble.'},
+    {q:'Which schedule of the Constitution deals with the allocation of seats in the Rajya Sabha?',opts:['First Schedule','Second Schedule','Third Schedule','Fourth Schedule'],ans:3,cat:'Polity',exp:'The Fourth Schedule deals with allocation of seats in the Rajya Sabha to States and Union Territories.'},
+    {q:'The concept of "Directive Principles of State Policy" was borrowed from which country?',opts:['USA','UK','Ireland','Canada'],ans:2,cat:'Polity',exp:'The DPSP was borrowed from the Irish Constitution of Ireland.'},
+    {q:'Article 21-A of the Indian Constitution provides right to education for children of which age group?',opts:['5-10 years','6-14 years','6-18 years','5-14 years'],ans:1,cat:'Polity',exp:'Article 21-A, inserted by 86th Amendment, provides free and compulsory education for children from 6-14 years.'},
+    {q:'The First Amendment to the Indian Constitution was made in which year?',opts:['1950','1951','1952','1953'],ans:1,cat:'Polity',exp:'The First Constitutional Amendment was enacted in 1951, mainly to address land reform laws.'},
+    {q:'Who appoints the Chief Election Commissioner of India?',opts:['Prime Minister','Parliament','President','Chief Justice'],ans:2,cat:'Polity',exp:'The Chief Election Commissioner is appointed by the President of India.'},
+    {q:'Which article deals with the abolition of untouchability?',opts:['Article 16','Article 17','Article 18','Article 19'],ans:1,cat:'Polity',exp:'Article 17 abolishes untouchability and its practice in any form is forbidden.'},
+    {q:'The Rajya Sabha is a permanent body and cannot be dissolved. This is provided under which article?',opts:['Article 83','Article 84','Article 85','Article 86'],ans:0,cat:'Polity',exp:'Article 83(1) states that Rajya Sabha shall not be subject to dissolution.'},
+    {q:'India follows which type of federal system?',opts:['Pure Federation','Confederation','Federal with Unitary Bias','Unitary with Federal Features'],ans:2,cat:'Polity',exp:'India has a federal system with a strong unitary bias — states have autonomy but centre has override powers.'},
+  ],
+  geography:[
+    {q:'Which is the largest desert in the world by area?',opts:['Sahara','Arabian','Antarctic','Gobi'],ans:2,cat:'Geography',exp:'The Antarctic Desert is the largest desert in the world covering about 14.2 million sq km. The Sahara is the largest HOT desert.'},
+    {q:'Which river is known as the "Sorrow of Bihar"?',opts:['Ganga','Kosi','Gandak','Bagmati'],ans:1,cat:'Geography',exp:'The Kosi river is known as the "Sorrow of Bihar" due to frequent floods and course changes.'},
+    {q:'The Tropic of Cancer passes through how many Indian states?',opts:['6','7','8','9'],ans:2,cat:'Geography',exp:'The Tropic of Cancer passes through 8 states: Gujarat, Rajasthan, MP, Chhattisgarh, Jharkhand, WB, Tripura, Mizoram.'},
+    {q:'Which is the highest peak in the Western Ghats?',opts:['Anai Mudi','Doddabetta','Kudremukh','Mullayanagiri'],ans:0,cat:'Geography',exp:'Anai Mudi (2695 m) in Kerala is the highest peak in the Western Ghats and South India.'},
+    {q:'The Thar Desert is formed due to the rain shadow effect of which mountain range?',opts:['Himalayas','Vindhyas','Aravallis','Satpura'],ans:2,cat:'Geography',exp:'The Aravalli Hills block moisture-laden winds from the Arabian Sea, creating a rain shadow — the Thar Desert.'},
+    {q:'Which ocean current keeps Northern Europe warm?',opts:['California Current','Labrador Current','Gulf Stream','Canary Current'],ans:2,cat:'Geography',exp:'The North Atlantic Drift (extension of Gulf Stream) keeps the climate of Northern Europe warm.'},
+    {q:'The "Ring of Fire" is associated with which ocean?',opts:['Atlantic','Indian','Pacific','Arctic'],ans:2,cat:'Geography',exp:'The Pacific Ring of Fire is a region around the Pacific Ocean where a large number of earthquakes and volcanic eruptions occur.'},
+    {q:'Which state has the longest coastline in India?',opts:['Maharashtra','Gujarat','Tamil Nadu','Andhra Pradesh'],ans:1,cat:'Geography',exp:'Gujarat has the longest coastline in India, approximately 1,600 km.'},
+    {q:'The Sundarbans mangrove forest is shared between which two countries?',opts:['India-Myanmar','India-Bangladesh','Bangladesh-Myanmar','India-Bhutan'],ans:1,cat:'Geography',exp:'The Sundarbans delta is shared between India (West Bengal) and Bangladesh.'},
+    {q:'Rub\' al Khali is the largest sand desert in the world. It is located in:',opts:['Libya','Saudi Arabia','Iran','Egypt'],ans:1,cat:'Geography',exp:'Rub\' al Khali (Empty Quarter) is the world\'s largest continuous sand desert, covering most of southern Saudi Arabia.'},
+  ],
+  bihar:[
+    {q:'What is the capital of Bihar?',opts:['Gaya','Bhagalpur','Patna','Muzaffarpur'],ans:2,cat:'Bihar Special',exp:'Patna (ancient Pataliputra) is the capital of Bihar.'},
+    {q:'Bihar was separated from Bengal in which year?',opts:['1905','1912','1936','1947'],ans:1,cat:'Bihar Special',exp:'Bihar was separated from Bengal on March 22, 1912, which is celebrated as Bihar Diwas.'},
+    {q:'The Nalanda University ruins are located in which district of Bihar?',opts:['Nalanda','Gaya','Patna','Rajgir'],ans:0,cat:'Bihar Special',exp:'The ruins of ancient Nalanda University are in Rajgir area of Nalanda district.'},
+    {q:'Bihar\'s major river Gandak originates from which country?',opts:['China','Nepal','Bhutan','India'],ans:1,cat:'Bihar Special',exp:'The Gandak (Narayani) river originates from Nepal and enters Bihar before joining the Ganga.'},
+    {q:'Which city in Bihar is famous for producing Madhubani paintings?',opts:['Patna','Madhubani','Muzaffarpur','Darbhanga'],ans:1,cat:'Bihar Special',exp:'Madhubani (Mithila) paintings originated in the Madhubani district of Bihar.'},
+    {q:'Bihar Day is celebrated on which date?',opts:['March 22','April 22','January 26','February 28'],ans:0,cat:'Bihar Special',exp:'Bihar Day (Bihar Diwas) is celebrated on March 22, the anniversary of Bihar\'s formation in 1912.'},
+    {q:'The Vikramshila University was established by which ruler?',opts:['Dharmapala','Gopala','Devapala','Mahipala'],ans:0,cat:'Bihar Special',exp:'Vikramshila University was established by the Pala king Dharmapala in the 8th century.'},
+    {q:'Which is the highest point in Bihar?',opts:['Someshwar Fort','Kaimur Plateau','Premdhar','Rohtas Plateau'],ans:0,cat:'Bihar Special',exp:'Someshwar Fort (880 m) in Champaran is the highest point in Bihar.'},
+    {q:'Bodh Gaya, where Buddha attained enlightenment, is in which district?',opts:['Nalanda','Gaya','Patna','Vaishali'],ans:1,cat:'Bihar Special',exp:'Bodh Gaya is in Gaya district. The Bodhi tree under which Buddha meditated is here.'},
+    {q:'The Rajgir hot springs are located in which district?',opts:['Gaya','Nalanda','Patna','Sheikhpura'],ans:1,cat:'Bihar Special',exp:'Rajgir is in Nalanda district, famous for its hot springs and historical significance.'},
+  ],
+  history:[
+    {q:'The First Battle of Panipat (1526) was fought between:',opts:['Babur and Ibrahim Lodi','Akbar and Hemu','Humayun and Sher Shah','Babur and Rana Sanga'],ans:0,cat:'History',exp:'Babur defeated Ibrahim Lodi in the First Battle of Panipat (April 21, 1526), establishing the Mughal Empire.'},
+    {q:'The Revolt of 1857 started from which place?',opts:['Kanpur','Delhi','Meerut','Lucknow'],ans:2,cat:'History',exp:'The Revolt of 1857 started at Meerut on May 10, 1857, when sepoys revolted against British forces.'},
+    {q:'"Swaraj is my birthright and I shall have it" was the famous slogan of:',opts:['Mahatma Gandhi','Bal Gangadhar Tilak','Lala Lajpat Rai','Subhas Chandra Bose'],ans:1,cat:'History',exp:'This famous declaration was made by Bal Gangadhar Tilak.'},
+    {q:'The Jallianwala Bagh massacre occurred in which year?',opts:['1917','1918','1919','1920'],ans:2,cat:'History',exp:'The Jallianwala Bagh massacre occurred on April 13, 1919, when General Dyer ordered firing on a peaceful gathering.'},
+    {q:'The Indian National Congress was founded in which year?',opts:['1875','1883','1885','1889'],ans:2,cat:'History',exp:'The Indian National Congress was founded in 1885 by A.O. Hume, Dadabhai Naoroji, and Dinshaw Wacha.'},
+    {q:'Who was the first Governor General of independent India?',opts:['Lord Mountbatten','C. Rajagopalachari','Jawaharlal Nehru','B.R. Ambedkar'],ans:0,cat:'History',exp:'Lord Mountbatten was the first Governor General of independent India (August 1947 - June 1948).'},
+    {q:'The Partition of Bengal was annulled in which year?',opts:['1907','1911','1915','1919'],ans:1,cat:'History',exp:'The Partition of Bengal (1905) was annulled in 1911 when the British shifted the capital from Calcutta to Delhi.'},
+    {q:'Dandi March was started from Sabarmati Ashram on which date?',opts:['March 12, 1930','April 6, 1930','March 6, 1930','April 12, 1930'],ans:0,cat:'History',exp:'Gandhi started the Dandi March from Sabarmati Ashram on March 12, 1930, reaching Dandi on April 6.'},
+  ],
+  science:[
+    {q:'Which planet is known as the "Red Planet"?',opts:['Jupiter','Venus','Mars','Saturn'],ans:2,cat:'Science & Tech',exp:'Mars is called the Red Planet due to iron oxide (rust) on its surface.'},
+    {q:'What is the chemical formula of water?',opts:['HO','H2O','H3O','H2O2'],ans:1,cat:'Science & Tech',exp:'Water is H2O — two hydrogen atoms and one oxygen atom.'},
+    {q:'Who invented the telephone?',opts:['Thomas Edison','Alexander Graham Bell','Nikola Tesla','Guglielmo Marconi'],ans:1,cat:'Science & Tech',exp:'Alexander Graham Bell is credited with inventing the telephone in 1876.'},
+    {q:'India\'s first satellite Aryabhata was launched in which year?',opts:['1970','1972','1975','1980'],ans:2,cat:'Science & Tech',exp:'Aryabhata, India\'s first satellite, was launched on April 19, 1975, from Soviet Union.'},
+    {q:'ISRO\'s Chandrayaan-3 successfully landed on the Moon in which year?',opts:['2021','2022','2023','2024'],ans:2,cat:'Science & Tech',exp:'Chandrayaan-3 successfully landed near the Moon\'s south pole on August 23, 2023.'},
+    {q:'Which gas is most abundant in Earth\'s atmosphere?',opts:['Oxygen','Carbon Dioxide','Nitrogen','Argon'],ans:2,cat:'Science & Tech',exp:'Nitrogen makes up about 78% of Earth\'s atmosphere.'},
+    {q:'The process by which plants make food using sunlight is called:',opts:['Respiration','Photosynthesis','Digestion','Fermentation'],ans:1,cat:'Science & Tech',exp:'Photosynthesis is the process by which plants convert sunlight, water, and CO2 into glucose and oxygen.'},
+    {q:'What does CPU stand for?',opts:['Central Processing Unit','Computer Processing Unit','Central Program Unit','Core Processing Utility'],ans:0,cat:'Science & Tech',exp:'CPU stands for Central Processing Unit — the main processor of a computer.'},
+  ],
+};
+
+function getMixedQuestions(n=15){
+  const all=[];
+  Object.values(QUIZ_DATA).forEach(arr=>arr.forEach(q=>all.push(q)));
+  // shuffle
+  for(let i=all.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[all[i],all[j]]=[all[j],all[i]];}
+  return all.slice(0,n);
+}
+
+// ══════════════════════════════════════
+// QUIZ ENGINE
+// ══════════════════════════════════════
+let quiz={questions:[],current:0,score:0,answered:false,catName:''};
+
+function startQuiz(cat){
+  let qs;
+  if(cat==='mixed') qs=getMixedQuestions(15);
+  else qs=[...(QUIZ_DATA[cat]||[])];
+  // shuffle
+  for(let i=qs.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[qs[i],qs[j]]=[qs[j],qs[i]];}
+  quiz={questions:qs,current:0,score:0,answered:false,catName:cat};
+  document.getElementById('quizCategorySection').style.display='none';
+  document.getElementById('quizResult').classList.remove('show');
+  document.getElementById('quizQuestionSection').classList.add('active');
+  renderQuestion();
+}
+
+function renderQuestion(){
+  const q=quiz.questions[quiz.current];
+  if(!q) return;
+  quiz.answered=false;
+  document.getElementById('quizProgText').textContent=`Q ${quiz.current+1}/${quiz.questions.length}`;
+  document.getElementById('quizProgFill').style.width=((quiz.current+1)/quiz.questions.length*100)+'%';
+  document.getElementById('quizScoreDisplay').textContent='Score: '+quiz.score;
+  document.getElementById('quizQCat').textContent=q.cat.toUpperCase();
+  document.getElementById('quizQText').textContent=q.q;
+  document.getElementById('quizExplanation').classList.remove('show');
+  document.getElementById('quizExplanation').textContent='';
+  document.getElementById('nextQuizBtn').style.display='none';
+  const labels=['A','B','C','D'];
+  document.getElementById('quizOptions').innerHTML=q.opts.map((opt,i)=>`
+    <button class="quiz-opt" onclick="selectAnswer(${i})">
+      <span class="opt-letter">${labels[i]}</span>
+      ${opt}
+    </button>`).join('');
+}
+
+function selectAnswer(idx){
+  if(quiz.answered) return;
+  quiz.answered=true;
+  const q=quiz.questions[quiz.current];
+  const opts=document.querySelectorAll('.quiz-opt');
+  opts.forEach((btn,i)=>{
+    btn.classList.add('disabled');
+    if(i===q.ans) btn.classList.add('correct');
+    else if(i===idx&&i!==q.ans) btn.classList.add('wrong');
+  });
+  if(idx===q.ans) quiz.score++;
+  document.getElementById('quizScoreDisplay').textContent='Score: '+quiz.score;
+  if(q.exp){
+    const ex=document.getElementById('quizExplanation');
+    ex.textContent='💡 '+q.exp;
+    ex.classList.add('show');
+  }
+  document.getElementById('nextQuizBtn').style.display='inline-flex';
+}
+
+function nextQuestion(){
+  quiz.current++;
+  if(quiz.current>=quiz.questions.length){ showQuizResult(); return; }
+  renderQuestion();
+}
+
+function showQuizResult(){
+  document.getElementById('quizQuestionSection').classList.remove('active');
+  const total=quiz.questions.length, s=quiz.score;
+  const pct=Math.round(s/total*100);
+  let emoji='😤',title='Keep Practicing!',detail='Review your weak topics and try again!';
+  if(pct>=90){emoji='🏆';title='Outstanding!';detail='Excellent performance — you\'re exam-ready!';}
+  else if(pct>=75){emoji='🎉';title='Well Done!';detail='Great score! A bit more practice and you\'ll ace it.';}
+  else if(pct>=50){emoji='👍';title='Good Attempt!';detail='Halfway there! Review and retry for better results.';}
+  document.getElementById('resultEmoji').textContent=emoji;
+  document.getElementById('resultTitle').textContent=title;
+  document.getElementById('resultScore').textContent=s+'/'+total+' ('+pct+'%)';
+  document.getElementById('resultDetail').textContent=detail;
+  document.getElementById('quizResult').classList.add('show');
+}
+
+function restartQuiz(){ startQuiz(quiz.catName); }
+function endQuiz(){
+  document.getElementById('quizCategorySection').style.display='block';
+  document.getElementById('quizQuestionSection').classList.remove('active');
+  document.getElementById('quizResult').classList.remove('show');
+}
+
+// ══════════════════════════════════════
 // THEME
-// ═══════════════════════════════════
-function toggleTheme() {
-  const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-  document.documentElement.setAttribute('data-theme', next);
-  const icon = next === 'dark' ? '☀️' : '🌙';
-  const tb = document.getElementById('themeBtn');
-  if(tb) tb.textContent = icon;
-  const stb = document.getElementById('sidebarThemeBtn');
-  if(stb) stb.textContent = icon + ' Toggle Theme';
-  state.theme = next;
-  saveState();
-  localStorage.setItem('studyhub_theme', next);
+// ══════════════════════════════════════
+function toggleTheme(){
+  const next=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';
+  document.documentElement.setAttribute('data-theme',next);
+  const icon=next==='dark'?'☀️':'🌙';
+  const tb=document.getElementById('themeBtn'); if(tb) tb.textContent=icon;
+  const stb=document.getElementById('sidebarThemeBtn'); if(stb) stb.textContent=icon+' Toggle Theme';
+  state.theme=next; saveState();
+  localStorage.setItem('studyhub_theme',next);
 }
 
-// ═══════════════════════════════════
+// ══════════════════════════════════════
 // UTILS
-// ═══════════════════════════════════
-function showToast(msg) {
-  const t = document.getElementById('toast');
-  t.textContent = msg; t.classList.add('show');
-  setTimeout(() => t.classList.remove('show'), 2500);
+// ══════════════════════════════════════
+function showToast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg; t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),2500);
 }
-function comingSoon(name) {
-  showToast(`📚 ${name} module coming soon! Focus on active modules for now.`);
-}
+function comingSoon(name){ showToast(`📚 ${name} coming soon! Focus on active modules.`); }
 
-// ═══════════════════════════════════
-// PWA INSTALL
-// ═══════════════════════════════════
+// ══════════════════════════════════════
+// PWA
+// ══════════════════════════════════════
 let deferredPrompt;
-window.addEventListener('beforeinstallprompt', (e) => {
-  e.preventDefault();
-  deferredPrompt = e;
-  if(!localStorage.getItem('pwa_dismissed')) {
-    document.getElementById('installBanner').classList.add('show');
-  }
+window.addEventListener('beforeinstallprompt',(e)=>{
+  e.preventDefault(); deferredPrompt=e;
+  if(!localStorage.getItem('pwa_dismissed')) document.getElementById('installBanner').classList.add('show');
 });
-function installPWA() {
-  if(deferredPrompt) {
-    deferredPrompt.prompt();
-    deferredPrompt.userChoice.then(r => {
-      if(r.outcome === 'accepted') showToast('🎉 App installed! Find it on your home screen!');
-      deferredPrompt = null;
-      document.getElementById('installBanner').classList.remove('show');
-    });
-  }
+function installPWA(){
+  if(deferredPrompt){ deferredPrompt.prompt(); deferredPrompt.userChoice.then(r=>{
+    if(r.outcome==='accepted') showToast('🎉 App installed!');
+    deferredPrompt=null; document.getElementById('installBanner').classList.remove('show');
+  }); }
 }
-function dismissInstall() {
+function dismissInstall(){
   document.getElementById('installBanner').classList.remove('show');
-  localStorage.setItem('pwa_dismissed', '1');
+  localStorage.setItem('pwa_dismissed','1');
 }
 
-// ═══════════════════════════════════
+// ══════════════════════════════════════
 // INIT
-// ═══════════════════════════════════
-function init() {
+// ══════════════════════════════════════
+function init(){
   loadState();
+
   // Theme
-  const saved = localStorage.getItem('studyhub_theme');
-  if(saved) {
-    document.documentElement.setAttribute('data-theme', saved);
-    const icon = saved === 'dark' ? '☀️' : '🌙';
-    const tb = document.getElementById('themeBtn');
-    if(tb) tb.textContent = icon;
-    const stb = document.getElementById('sidebarThemeBtn');
-    if(stb) stb.textContent = icon + ' Toggle Theme';
+  const savedTheme=localStorage.getItem('studyhub_theme');
+  if(savedTheme){
+    document.documentElement.setAttribute('data-theme',savedTheme);
+    const icon=savedTheme==='dark'?'☀️':'🌙';
+    const tb=document.getElementById('themeBtn'); if(tb) tb.textContent=icon;
+    const stb=document.getElementById('sidebarThemeBtn'); if(stb) stb.textContent=icon+' Toggle Theme';
   }
+
+  // Check if name has been set
+  if(state.userName){
+    document.getElementById('nameSplash').classList.add('hidden');
+    applyUserName();
+  } else {
+    // pre-fill if previously used old key
+    const old=localStorage.getItem('studyhub_v1');
+    if(old){ try{ const o=JSON.parse(old); if(o.userName){ document.getElementById('splashNameInput').value=o.userName; } } catch(e){} }
+  }
+
+  // Allow Enter key on splash
+  document.getElementById('splashNameInput').addEventListener('keydown',e=>{ if(e.key==='Enter') saveName(); });
+  document.getElementById('addTaskModal').querySelector('input').addEventListener('keydown',e=>{ if(e.key==='Enter') addTask(); });
+
   refreshHome();
-  // Register service worker for PWA
-  if('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('sw.js').catch(() => {});
-  }
+  if('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(()=>{});
 }
+
 window.addEventListener('load', init);
 </script>
 </body>
