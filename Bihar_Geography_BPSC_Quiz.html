@@ -1,0 +1,1439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bihar Geography BPSC Quiz — Complete Test Simulator</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+
+:root {
+  --bg: #f4f1eb;
+  --surface: #ffffff;
+  --surface2: #f8f6f1;
+  --border: #e2ddd5;
+  --text: #1a1612;
+  --text2: #5c5650;
+  --text3: #9e9890;
+  --accent: #1a3a6b;
+  --accent2: #c8392b;
+  --gold: #b8860b;
+  --green: #2d6a4f;
+  --amber: #d97706;
+  --purple: #5b21b6;
+  --correct: #16a34a;
+  --wrong: #dc2626;
+  --review: #d97706;
+  --shadow: 0 2px 20px rgba(26,22,18,0.08);
+  --shadow-lg: 0 8px 40px rgba(26,22,18,0.15);
+  --radius: 12px;
+  --transition: all 0.2s cubic-bezier(0.4,0,0.2,1);
+}
+[data-theme="dark"] {
+  --bg: #0f0e0c;
+  --surface: #1c1a17;
+  --surface2: #252320;
+  --border: #333028;
+  --text: #f0ece4;
+  --text2: #a09a90;
+  --text3: #6b6560;
+  --accent: #4a7fd4;
+  --accent2: #e05a4a;
+  --gold: #d4a017;
+  --green: #4ade80;
+  --shadow: 0 2px 20px rgba(0,0,0,0.4);
+  --shadow-lg: 0 8px 40px rgba(0,0,0,0.6);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;transition:background 0.3s,color 0.3s;line-height:1.6}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar{width:6px;height:6px}
+::-webkit-scrollbar-track{background:var(--surface2)}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
+
+/* ── TYPOGRAPHY ── */
+h1,h2,h3{font-family:'DM Serif Display',serif;line-height:1.2}
+.mono{font-family:'JetBrains Mono',monospace}
+
+/* ── BUTTONS ── */
+.btn{display:inline-flex;align-items:center;gap:6px;padding:10px 20px;border-radius:8px;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;transition:var(--transition);text-decoration:none}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{filter:brightness(1.15);transform:translateY(-1px)}
+.btn-danger{background:var(--accent2);color:#fff}
+.btn-danger:hover{filter:brightness(1.1)}
+.btn-ghost{background:transparent;color:var(--text);border:1.5px solid var(--border)}
+.btn-ghost:hover{background:var(--surface2);border-color:var(--text3)}
+.btn-gold{background:var(--gold);color:#fff}
+.btn-green{background:var(--green);color:#fff}
+.btn-sm{padding:6px 14px;font-size:13px}
+.btn-lg{padding:14px 32px;font-size:16px}
+
+/* ── CARDS ── */
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow)}
+
+/* ── BADGE ── */
+.badge{display:inline-flex;align-items:center;padding:2px 8px;border-radius:20px;font-size:11px;font-weight:700;letter-spacing:0.5px}
+.badge-pyq{background:#dbeafe;color:#1e40af}
+.badge-crown{background:#ede9fe;color:#6d28d9}
+.badge-expected{background:#dcfce7;color:#15803d}
+[data-theme="dark"] .badge-pyq{background:#1e3a5f;color:#93c5fd}
+[data-theme="dark"] .badge-crown{background:#2e1a6b;color:#c4b5fd}
+[data-theme="dark"] .badge-expected{background:#14532d;color:#86efac}
+
+/* ════════════════════════════════════
+   SCREENS
+════════════════════════════════════ */
+.screen{display:none;min-height:100vh}
+.screen.active{display:block}
+
+/* ── LANDING ── */
+#landing{background:var(--bg);padding:0}
+.land-hero{background:linear-gradient(135deg,var(--accent) 0%,#0d2550 100%);color:#fff;padding:60px 40px 80px;text-align:center;position:relative;overflow:hidden}
+.land-hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+.land-badge{display:inline-block;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);border-radius:20px;padding:6px 16px;font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:20px}
+.land-title{font-size:clamp(28px,5vw,52px);margin-bottom:12px;text-shadow:0 2px 20px rgba(0,0,0,0.3)}
+.land-sub{font-size:16px;opacity:0.85;max-width:600px;margin:0 auto 32px}
+.land-stats{display:flex;justify-content:center;gap:32px;flex-wrap:wrap;margin-top:32px;padding-top:32px;border-top:1px solid rgba(255,255,255,0.15)}
+.land-stat{text-align:center}
+.land-stat-num{font-family:'DM Serif Display',serif;font-size:36px;display:block}
+.land-stat-label{font-size:12px;opacity:0.7;text-transform:uppercase;letter-spacing:0.5px}
+
+.land-config{max-width:900px;margin:0 auto;padding:40px 20px}
+.config-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin-bottom:32px}
+.config-card{padding:20px;cursor:pointer;transition:var(--transition);position:relative}
+.config-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg)}
+.config-card.selected{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 8%,var(--surface))}
+.config-card.selected::after{content:'✓';position:absolute;top:12px;right:12px;width:22px;height:22px;background:var(--accent);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700}
+.config-card h3{font-size:16px;margin-bottom:4px}
+.config-card p{font-size:13px;color:var(--text2)}
+
+.topic-filter{margin-bottom:24px}
+.topic-filter h3{font-size:15px;font-weight:600;margin-bottom:12px;color:var(--text2)}
+.topic-chips{display:flex;flex-wrap:wrap;gap:8px}
+.topic-chip{padding:6px 14px;border-radius:20px;border:1.5px solid var(--border);background:var(--surface);cursor:pointer;font-size:13px;font-weight:500;transition:var(--transition)}
+.topic-chip.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+
+.settings-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-bottom:24px}
+.setting-item{display:flex;align-items:center;gap:10px;padding:14px;border-radius:10px;border:1px solid var(--border);background:var(--surface)}
+.setting-item label{font-size:13px;font-weight:500;flex:1}
+.toggle{position:relative;width:40px;height:22px;flex-shrink:0}
+.toggle input{opacity:0;width:0;height:0}
+.toggle-slider{position:absolute;inset:0;background:var(--border);border-radius:11px;cursor:pointer;transition:0.3s}
+.toggle-slider::before{content:'';position:absolute;width:16px;height:16px;left:3px;top:3px;background:#fff;border-radius:50%;transition:0.3s}
+.toggle input:checked + .toggle-slider{background:var(--accent)}
+.toggle input:checked + .toggle-slider::before{transform:translateX(18px)}
+input[type=range]{width:100%;accent-color:var(--accent)}
+
+/* ── QUIZ ── */
+#quiz{display:none;height:100vh;flex-direction:column}
+#quiz.active{display:flex}
+.quiz-header{background:var(--surface);border-bottom:1px solid var(--border);padding:12px 20px;display:flex;align-items:center;gap:16px;flex-shrink:0;z-index:10}
+.quiz-header-info{flex:1}
+.quiz-title-sm{font-weight:700;font-size:14px}
+.quiz-sub-sm{font-size:12px;color:var(--text2)}
+.timer-display{font-family:'JetBrains Mono',monospace;font-size:20px;font-weight:600;color:var(--accent);padding:6px 14px;background:color-mix(in srgb,var(--accent) 10%,var(--surface));border-radius:8px;min-width:90px;text-align:center}
+.timer-display.warn{color:var(--amber);background:color-mix(in srgb,var(--amber) 10%,var(--surface))}
+.timer-display.danger{color:var(--accent2);background:color-mix(in srgb,var(--accent2) 10%,var(--surface));animation:pulse 1s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.7}}
+
+.quiz-body{display:flex;flex:1;overflow:hidden}
+.q-panel{flex:1;overflow-y:auto;padding:24px;max-width:100%}
+.palette-sidebar{width:260px;flex-shrink:0;border-left:1px solid var(--border);overflow-y:auto;background:var(--surface2)}
+
+/* Question Card */
+.question-card{max-width:780px;margin:0 auto}
+.q-meta{display:flex;align-items:center;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+.q-num{font-size:13px;font-weight:700;color:var(--text2)}
+.q-topic-badge{font-size:11px;padding:2px 8px;border-radius:20px;background:var(--surface2);color:var(--text2);border:1px solid var(--border)}
+.q-text{font-size:16px;font-weight:500;line-height:1.7;margin-bottom:20px;color:var(--text)}
+.q-text strong{color:var(--accent)}
+.options-list{display:flex;flex-direction:column;gap:10px;margin-bottom:24px}
+.option{display:flex;align-items:flex-start;gap:12px;padding:14px 16px;border-radius:10px;border:1.5px solid var(--border);cursor:pointer;transition:var(--transition);background:var(--surface)}
+.option:hover{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 5%,var(--surface))}
+.option.selected{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 10%,var(--surface))}
+.option.correct{border-color:var(--correct);background:color-mix(in srgb,var(--correct) 10%,var(--surface))}
+.option.wrong{border-color:var(--wrong);background:color-mix(in srgb,var(--wrong) 10%,var(--surface))}
+.option-letter{width:28px;height:28px;border-radius:6px;background:var(--surface2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;transition:var(--transition)}
+.option.selected .option-letter{background:var(--accent);color:#fff;border-color:var(--accent)}
+.option.correct .option-letter{background:var(--correct);color:#fff;border-color:var(--correct)}
+.option.wrong .option-letter{background:var(--wrong);color:#fff;border-color:var(--wrong)}
+.option-text{font-size:14px;line-height:1.5;padding-top:4px}
+
+.q-controls{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.review-btn{background:color-mix(in srgb,var(--amber) 15%,var(--surface));color:var(--amber);border:1.5px solid var(--amber);padding:8px 16px;border-radius:8px;cursor:pointer;font-size:13px;font-weight:600;transition:var(--transition)}
+.review-btn:hover,.review-btn.active{background:var(--amber);color:#fff}
+.q-nav-bottom{display:flex;justify-content:space-between;align-items:center;margin-top:16px;padding-top:16px;border-top:1px solid var(--border)}
+
+/* Palette */
+.palette-header{padding:16px;font-size:13px;font-weight:700;border-bottom:1px solid var(--border)}
+.palette-legend{padding:10px 16px;display:flex;flex-direction:column;gap:6px;border-bottom:1px solid var(--border)}
+.legend-item{display:flex;align-items:center;gap:8px;font-size:11px;color:var(--text2)}
+.legend-dot{width:14px;height:14px;border-radius:3px;flex-shrink:0}
+.legend-dot.not-visited{background:var(--surface2);border:1px solid var(--border)}
+.legend-dot.not-answered{background:#fef3c7;border:1px solid #d97706}
+.legend-dot.answered{background:#d1fae5;border:1px solid #16a34a}
+.legend-dot.review{background:#ede9fe;border:1px solid #7c3aed}
+[data-theme="dark"] .legend-dot.not-answered{background:#431407;border-color:#d97706}
+[data-theme="dark"] .legend-dot.answered{background:#052e16;border-color:#16a34a}
+[data-theme="dark"] .legend-dot.review{background:#1e1152;border-color:#7c3aed}
+.palette-grid{padding:16px;display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.palette-btn{aspect-ratio:1;border-radius:6px;border:1.5px solid var(--border);background:var(--surface2);cursor:pointer;font-size:12px;font-weight:600;display:flex;align-items:center;justify-content:center;transition:var(--transition);color:var(--text)}
+.palette-btn:hover{transform:scale(1.1)}
+.palette-btn.current{outline:2px solid var(--accent);outline-offset:1px}
+.palette-btn.not-answered{background:#fef3c7;color:#92400e;border-color:#fbbf24}
+.palette-btn.answered{background:#d1fae5;color:#065f46;border-color:#6ee7b7}
+.palette-btn.review{background:#ede9fe;color:#4c1d95;border-color:#a78bfa}
+[data-theme="dark"] .palette-btn.not-answered{background:#431407;color:#fde68a;border-color:#d97706}
+[data-theme="dark"] .palette-btn.answered{background:#052e16;color:#86efac;border-color:#16a34a}
+[data-theme="dark"] .palette-btn.review{background:#1e1152;color:#c4b5fd;border-color:#7c3aed}
+.palette-summary{padding:12px 16px;border-top:1px solid var(--border);font-size:12px;color:var(--text2);display:flex;flex-direction:column;gap:4px}
+.palette-summary span{font-weight:600;color:var(--text)}
+
+/* ── RESULTS ── */
+#results{padding:20px;max-width:1100px;margin:0 auto}
+.results-hero{background:linear-gradient(135deg,var(--accent),#0d2550);color:#fff;border-radius:16px;padding:40px;text-align:center;margin-bottom:24px}
+.score-ring{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;width:160px;height:160px;border-radius:50%;border:8px solid rgba(255,255,255,0.2);margin:20px auto;position:relative}
+.score-ring::before{content:'';position:absolute;inset:-8px;border-radius:50%;border:8px solid transparent;border-top-color:#fff;animation:none}
+.score-num{font-family:'DM Serif Display',serif;font-size:48px;line-height:1}
+.score-total{font-size:16px;opacity:0.8}
+.score-label{font-size:13px;opacity:0.7;margin-top:4px}
+.results-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:12px;margin-bottom:24px}
+.r-stat{text-align:center;padding:20px;border-radius:12px}
+.r-stat-num{font-family:'DM Serif Display',serif;font-size:32px;display:block;margin-bottom:4px}
+.r-stat-label{font-size:12px;color:var(--text2)}
+.r-stat.correct-s{background:color-mix(in srgb,var(--correct) 12%,var(--surface));border:1px solid color-mix(in srgb,var(--correct) 30%,var(--border))}
+.r-stat.wrong-s{background:color-mix(in srgb,var(--wrong) 12%,var(--surface));border:1px solid color-mix(in srgb,var(--wrong) 30%,var(--border))}
+.r-stat.skip-s{background:color-mix(in srgb,var(--amber) 12%,var(--surface));border:1px solid color-mix(in srgb,var(--amber) 30%,var(--border))}
+.r-stat.time-s{background:color-mix(in srgb,var(--accent) 12%,var(--surface));border:1px solid color-mix(in srgb,var(--accent) 30%,var(--border))}
+
+.section-title{font-size:20px;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.topic-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px;margin-bottom:24px}
+.topic-card-r{padding:16px;border-radius:10px;border:1px solid var(--border)}
+.topic-name{font-weight:600;font-size:14px;margin-bottom:8px;display:flex;justify-content:space-between}
+.topic-bar-bg{height:8px;background:var(--surface2);border-radius:4px;overflow:hidden;margin-bottom:6px}
+.topic-bar-fill{height:100%;border-radius:4px;transition:width 1s ease}
+.topic-nums{font-size:12px;color:var(--text2);display:flex;gap:12px}
+
+.insight-box{padding:20px;border-radius:12px;border-left:4px solid;margin-bottom:12px}
+.insight-weak{border-color:var(--accent2);background:color-mix(in srgb,var(--accent2) 8%,var(--surface))}
+.insight-strong{border-color:var(--correct);background:color-mix(in srgb,var(--correct) 8%,var(--surface))}
+.insight-tip{border-color:var(--amber);background:color-mix(in srgb,var(--amber) 8%,var(--surface))}
+
+/* Review Section */
+.review-list{display:flex;flex-direction:column;gap:16px;margin-bottom:24px}
+.review-item{padding:20px;border-radius:12px;border:1px solid var(--border)}
+.review-item.r-correct{border-color:color-mix(in srgb,var(--correct) 40%,var(--border))}
+.review-item.r-wrong{border-color:color-mix(in srgb,var(--wrong) 40%,var(--border))}
+.review-item.r-skipped{border-color:color-mix(in srgb,var(--amber) 40%,var(--border))}
+.review-q{font-size:15px;font-weight:500;margin-bottom:12px}
+.review-options{display:flex;flex-direction:column;gap:6px;margin-bottom:12px}
+.review-opt{font-size:13px;padding:8px 12px;border-radius:6px;display:flex;align-items:center;gap:8px}
+.review-opt.r-correct-opt{background:color-mix(in srgb,var(--correct) 12%,var(--surface));color:var(--correct)}
+.review-opt.r-wrong-opt{background:color-mix(in srgb,var(--wrong) 12%,var(--surface));color:var(--wrong)}
+.review-opt.r-user-opt{background:color-mix(in srgb,var(--accent) 12%,var(--surface));color:var(--accent)}
+.explanation-box{padding:12px;border-radius:8px;background:var(--surface2);font-size:13px;line-height:1.6;margin-top:8px}
+.explanation-box strong{color:var(--accent)}
+.trap-box{padding:10px;border-radius:8px;background:color-mix(in srgb,var(--accent2) 8%,var(--surface));font-size:12px;color:var(--text2);margin-top:6px;border-left:3px solid var(--accent2)}
+
+/* Memory & Predictions */
+.memory-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;margin-bottom:24px}
+.memory-card{padding:16px;border-radius:10px;background:var(--surface2);border:1px solid var(--border)}
+.memory-card h4{font-size:13px;font-weight:700;color:var(--text2);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:10px}
+.memory-fact{font-size:13px;padding:6px 0;border-bottom:1px solid var(--border);display:flex;gap:8px}
+.memory-fact:last-child{border-bottom:none}
+.memory-fact strong{color:var(--accent);font-weight:700;flex-shrink:0}
+.mnemonic{padding:12px;border-radius:8px;background:color-mix(in srgb,var(--gold) 10%,var(--surface));border:1px dashed var(--gold);font-size:13px;margin-top:8px}
+.mnemonic-label{font-size:11px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px}
+
+.prediction-item{padding:16px;border-radius:10px;border:1px solid var(--border);background:var(--surface);margin-bottom:10px;display:flex;gap:16px;align-items:flex-start}
+.pred-rank{font-family:'JetBrains Mono',monospace;font-size:24px;font-weight:700;color:var(--accent);min-width:40px;text-align:center}
+.pred-content h4{font-size:14px;font-weight:600;margin-bottom:4px}
+.pred-content p{font-size:12px;color:var(--text2)}
+.pred-prob{font-size:11px;font-weight:700;padding:3px 8px;border-radius:20px;background:color-mix(in srgb,var(--correct) 15%,var(--surface));color:var(--correct);margin-top:4px;display:inline-block}
+
+/* CANVAS CHARTS */
+canvas{max-width:100%;border-radius:8px}
+.chart-container{padding:20px;margin-bottom:20px}
+
+/* TABS */
+.tabs{display:flex;border-bottom:2px solid var(--border);margin-bottom:20px;gap:0;overflow-x:auto}
+.tab{padding:12px 20px;font-size:14px;font-weight:600;cursor:pointer;color:var(--text2);border-bottom:3px solid transparent;margin-bottom:-2px;white-space:nowrap;transition:var(--transition)}
+.tab:hover{color:var(--text)}
+.tab.active{color:var(--accent);border-bottom-color:var(--accent)}
+
+/* MOBILE PALETTE TOGGLE */
+.mobile-palette-toggle{display:none;position:fixed;bottom:80px;right:16px;width:48px;height:48px;border-radius:50%;background:var(--accent);color:#fff;border:none;cursor:pointer;font-size:20px;box-shadow:0 4px 20px rgba(0,0,0,0.3);z-index:100}
+.mobile-submit{display:none;position:fixed;bottom:20px;right:16px;z-index:100}
+@media(max-width:768px){
+  .palette-sidebar{display:none;position:fixed;inset:0;z-index:200;overflow-y:auto;width:100%}
+  .palette-sidebar.show{display:block}
+  .mobile-palette-toggle{display:flex;align-items:center;justify-content:center}
+  .mobile-submit{display:block}
+  .quiz-header{padding:8px 12px}
+  .q-panel{padding:16px}
+  .q-text{font-size:15px}
+  .land-stats{gap:20px}
+}
+
+/* THEME TOGGLE */
+.theme-toggle{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:8px;cursor:pointer;display:flex;align-items:center;gap:4px;font-size:13px;font-weight:600;color:var(--text)}
+.theme-toggle:hover{background:var(--surface)}
+
+/* LOADING */
+.loading-overlay{position:fixed;inset:0;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:9999;gap:16px}
+.loading-spinner{width:48px;height:48px;border:4px solid var(--border);border-top-color:var(--accent);border-radius:50%;animation:spin 0.8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* PROGRESS BAR */
+.quiz-progress{height:3px;background:var(--border);flex-shrink:0}
+.quiz-progress-fill{height:100%;background:var(--accent);transition:width 0.3s}
+
+/* SECTION DIVIDER */
+.section-divider{display:flex;align-items:center;gap:12px;margin:32px 0 20px}
+.section-divider::before,.section-divider::after{content:'';flex:1;height:1px;background:var(--border)}
+
+/* RESULT TABS */
+.result-tab-content{display:none}
+.result-tab-content.active{display:block}
+
+/* TOPBAR */
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:12px 20px;background:var(--surface);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:50}
+.topbar-brand{font-family:'DM Serif Display',serif;font-size:18px;color:var(--accent)}
+</style>
+</head>
+<body>
+
+<!-- LANDING -->
+<div id="landing" class="screen active">
+<div class="land-hero">
+  <div class="land-badge">BPSC Prelims 2024–2026</div>
+  <h1 class="land-title">Bihar Geography<br>Complete Test Simulator</h1>
+  <p class="land-sub">PYQ-mapped • Pattern-based • Real BPSC experience with deep analytics</p>
+  <div style="display:flex;justify-content:center;gap:10px;flex-wrap:wrap">
+    <div class="btn btn-lg" style="background:#fff;color:var(--accent)" onclick="startQuiz()">🚀 Start Full Test</div>
+    <div class="btn btn-lg btn-ghost" style="border-color:rgba(255,255,255,0.4);color:#fff" onclick="showMemory()">📚 Quick Revision</div>
+    <div class="btn btn-lg btn-ghost" style="border-color:rgba(255,255,255,0.4);color:#fff" onclick="showPredictions()">🔮 2026 Predictions</div>
+  </div>
+  <div class="land-stats">
+    <div class="land-stat"><span class="land-stat-num">160</span><div class="land-stat-label">Questions</div></div>
+    <div class="land-stat"><span class="land-stat-num">9</span><div class="land-stat-label">Topics</div></div>
+    <div class="land-stat"><span class="land-stat-num">69+</span><div class="land-stat-label">Real PYQs</div></div>
+    <div class="land-stat"><span class="land-stat-num">60th–71st</span><div class="land-stat-label">BPSC Coverage</div></div>
+  </div>
+</div>
+
+<div class="land-config">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px">
+    <h2 style="font-size:22px">⚙️ Configure Your Test</h2>
+    <button class="theme-toggle" onclick="toggleTheme()">🌙 Dark Mode</button>
+  </div>
+
+  <div class="topic-filter" style="margin-bottom:24px">
+    <h3>Select Topics</h3>
+    <div class="topic-chips" id="topicChips"></div>
+  </div>
+
+  <div class="config-grid">
+    <div class="card config-card selected" id="mode-full" onclick="selectMode('full')">
+      <h3>📝 Full Test</h3><p>All 160 questions · 120 min · BPSC format</p>
+    </div>
+    <div class="card config-card" id="mode-quick" onclick="selectMode('quick')">
+      <h3>⚡ Quick Test</h3><p>40 random questions · 30 min</p>
+    </div>
+    <div class="card config-card" id="mode-topic" onclick="selectMode('topic')">
+      <h3>🎯 Topic Test</h3><p>Selected topics only · Custom time</p>
+    </div>
+    <div class="card config-card" id="mode-pyq" onclick="selectMode('pyq')">
+      <h3>📌 PYQ Mode</h3><p>Only past year questions</p>
+    </div>
+  </div>
+
+  <div class="settings-row">
+    <div class="setting-item">
+      <label>⏱ Timer (min): <strong id="timerVal">120</strong></label>
+      <input type="range" min="20" max="180" value="120" oninput="document.getElementById('timerVal').textContent=this.value;quizConfig.timerMins=+this.value" style="width:120px">
+    </div>
+    <div class="setting-item">
+      <label>➖ Negative Marking (-0.25)</label>
+      <label class="toggle"><input type="checkbox" id="negToggle"><span class="toggle-slider"></span></label>
+    </div>
+    <div class="setting-item">
+      <label>🔀 Shuffle Questions</label>
+      <label class="toggle"><input type="checkbox" id="shuffleQ" checked><span class="toggle-slider"></span></label>
+    </div>
+    <div class="setting-item">
+      <label>🔀 Shuffle Options</label>
+      <label class="toggle"><input type="checkbox" id="shuffleO" checked><span class="toggle-slider"></span></label>
+    </div>
+  </div>
+
+  <div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap">
+    <button class="btn btn-primary btn-lg" onclick="startQuiz()">🚀 Start Test</button>
+    <button class="btn btn-ghost btn-lg" onclick="showMemory()">📚 Revision Sheet</button>
+    <button class="btn btn-ghost btn-lg" onclick="showPredictions()">🔮 2026 Predictions</button>
+  </div>
+</div>
+</div>
+
+<!-- QUIZ SCREEN -->
+<div id="quiz" class="screen">
+  <div class="quiz-header">
+    <div class="quiz-header-info">
+      <div class="quiz-title-sm">Bihar Geography · BPSC Simulator</div>
+      <div class="quiz-sub-sm" id="qCountDisplay">Q 1/160</div>
+    </div>
+    <div class="timer-display" id="timerDisplay">2:00:00</div>
+    <button class="btn btn-danger btn-sm" onclick="confirmSubmit()">Submit</button>
+    <button class="theme-toggle" onclick="toggleTheme()" style="font-size:18px;padding:6px">🌙</button>
+  </div>
+  <div class="quiz-progress"><div class="quiz-progress-fill" id="quizProgress" style="width:0%"></div></div>
+  <div class="quiz-body">
+    <div class="q-panel" id="qPanel">
+      <div class="question-card" id="questionCard"></div>
+    </div>
+    <div class="palette-sidebar" id="paletteSidebar">
+      <div class="palette-header">Question Palette</div>
+      <div class="palette-legend">
+        <div class="legend-item"><span class="legend-dot not-visited"></span>Not visited</div>
+        <div class="legend-item"><span class="legend-dot not-answered"></span>Visited/unanswered</div>
+        <div class="legend-item"><span class="legend-dot answered"></span>Answered</div>
+        <div class="legend-item"><span class="legend-dot review"></span>Marked for review</div>
+      </div>
+      <div class="palette-grid" id="paletteGrid"></div>
+      <div class="palette-summary" id="paletteSummary"></div>
+      <div style="padding:12px">
+        <button class="btn btn-danger" style="width:100%" onclick="confirmSubmit()">Submit Test</button>
+      </div>
+    </div>
+  </div>
+  <button class="mobile-palette-toggle" onclick="togglePalette()">☰</button>
+  <div class="mobile-submit">
+    <button class="btn btn-danger" onclick="confirmSubmit()">Submit</button>
+  </div>
+</div>
+
+<!-- RESULTS SCREEN -->
+<div id="results" class="screen">
+  <div class="topbar">
+    <div class="topbar-brand">Bihar Geography — Results</div>
+    <div style="display:flex;gap:8px">
+      <button class="btn btn-primary btn-sm" onclick="restartQuiz()">🔁 New Test</button>
+      <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+    </div>
+  </div>
+  <div style="max-width:1100px;margin:0 auto;padding:20px" id="resultsContent"></div>
+</div>
+
+<!-- MEMORY SCREEN -->
+<div id="memory" class="screen">
+  <div class="topbar">
+    <div class="topbar-brand">📚 Quick Revision — Bihar Geography</div>
+    <div style="display:flex;gap:8px">
+      <button class="btn btn-primary btn-sm" onclick="startQuiz()">Start Test</button>
+      <button class="btn btn-ghost btn-sm" onclick="showScreen('landing')">← Back</button>
+      <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+    </div>
+  </div>
+  <div style="max-width:1000px;margin:0 auto;padding:20px" id="memoryContent"></div>
+</div>
+
+<!-- PREDICTIONS SCREEN -->
+<div id="predictions" class="screen">
+  <div class="topbar">
+    <div class="topbar-brand">🔮 2026 Predicted Questions</div>
+    <div style="display:flex;gap:8px">
+      <button class="btn btn-primary btn-sm" onclick="startQuiz()">Start Test</button>
+      <button class="btn btn-ghost btn-sm" onclick="showScreen('landing')">← Back</button>
+      <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+    </div>
+  </div>
+  <div style="max-width:900px;margin:0 auto;padding:20px" id="predictionsContent"></div>
+</div>
+
+<script>
+// ════════════════════════════════════════════════════════════
+//  QUESTION BANK — 160 Questions
+// ════════════════════════════════════════════════════════════
+const QB = [
+// ── TOPIC: Position & Extent (P) ──────────────────────────
+{id:1,topic:'Position & Extent',tag:'PYQ',src:'67th BPSC',q:'The total geographical area of Bihar State is:',opts:['94,162 sq. km','94,163 sq. km','94,200 sq. km','94,316 sq. km'],ans:1,exp:'Bihar\'s exact area is 94,163 sq. km — one of the most frequently asked figures in BPSC. This is 2.86% of India\'s total area.',trap:'Options A and C differ by just 1 and 37 sq km — MCQ is designed to test exact recall, not approximation.'},
+{id:2,topic:'Position & Extent',tag:'PYQ',src:'60–62nd BPSC',q:'As per Census 2011, what is the rank of Bihar State in terms of population in the country?',opts:['1st','2nd','3rd','4th'],ans:2,exp:'Bihar ranks 3rd in population (10.4 crore, 8.6% of India) after Uttar Pradesh and Maharashtra.',trap:'Many students confuse population rank (3rd) with area rank (12th) — these are very different.'},
+{id:3,topic:'Position & Extent',tag:'CROWN',src:'Crown 3.1',q:'Bihar stands at which position in terms of AREA in India?',opts:['10th','11th','12th','13th'],ans:2,exp:'Bihar is 12th largest state by area. It covers 94,163 sq. km = 2.86% of India.',trap:'Bihar is 3rd in POPULATION but only 12th in AREA — the contrast is a classic trap.'},
+{id:4,topic:'Position & Extent',tag:'CROWN',src:'Crown 3.1',q:'What percentage of India\'s total geographical area does Bihar constitute?',opts:['3.76%','6.76%','4.02%','2.86%'],ans:3,exp:'Bihar = 94,163 sq km / 32,87,263 sq km (India) = 2.86% of India\'s area.',trap:'2.86% is the correct value; 3.76% is a close decoy deliberately placed.'},
+{id:5,topic:'Position & Extent',tag:'PYQ',src:'63rd BPSC',q:'Which district of Bihar does NOT share a border with Nepal?',opts:['Madhubani','Kishanganj','Sitamarhi','Purnia'],ans:3,exp:'Purnia does NOT share a border with Nepal. Districts on the Nepal border include West Champaran, East Champaran, Sitamarhi, Madhubani, Supaul, Araria, and Kishanganj.',trap:'Purnia is in NE Bihar near Kishanganj, making students assume it borders Nepal. Araria (between Kishanganj and Supaul) borders Nepal, not Purnia.'},
+{id:6,topic:'Position & Extent',tag:'CROWN',src:'Crown 3.1',q:'Which district of Bihar has the LONGEST border with Nepal?',opts:['East Champaran','Sitamarhi','Kishanganj','West Champaran'],ans:3,exp:'West Champaran has the longest international boundary with Nepal among all Bihar districts.',trap:'East Champaran also borders Nepal and is often confused with West Champaran on this question.'},
+{id:7,topic:'Position & Extent',tag:'CROWN',src:'Crown 3.1',q:'The E–W extent and N–S extent of Bihar respectively are:',opts:['345 km and 483 km','483 km and 345 km','400 km and 360 km','360 km and 400 km'],ans:1,exp:'Bihar extends 483 km from East to West and 345 km from North to South — it is wider (E-W) than it is long (N-S).',trap:'Most people assume a state is taller than wide. Bihar is wider, so E-W (483) > N-S (345).'},
+{id:8,topic:'Position & Extent',tag:'EXPECTED',q:'Bihar\'s latitude range spans approximately:',opts:['22°N to 25°N','24°20\'N to 27°31\'N','25°N to 28°N','23°N to 26°N'],ans:1,exp:'Bihar lies between 24°20\'10" N and 27°31\'15" N latitude.',trap:'Exact minutes matter — 24°20\' not 24° flat. Many students round off and lose marks.'},
+{id:9,topic:'Position & Extent',tag:'EXPECTED',q:'Bihar is bounded on the WEST by:',opts:['Nepal','Jharkhand','Uttar Pradesh','West Bengal'],ans:2,exp:'Bihar shares its western boundary with Uttar Pradesh. Nepal is to the north, Jharkhand to the south, and West Bengal to the east.',trap:'Straightforward directional question — but under exam pressure boundary/direction confusions are common.'},
+{id:10,topic:'Position & Extent',tag:'PYQ',src:'68th BPSC',q:'Which of the following States borders the MAXIMUM number of districts in Bihar?',opts:['Uttar Pradesh','Jharkhand','West Bengal','More than one of the above'],ans:3,exp:'Both UP and Jharkhand each share borders with 8 districts of Bihar — making the answer "More than one of the above".',trap:'Students instinctively pick UP or Jharkhand, not realising both share an equal count of 8 border districts.'},
+{id:11,topic:'Position & Extent',tag:'EXPECTED',q:'The longitude range of Bihar extends from:',opts:['83°19\'E to 88°17\'E','80°E to 85°E','85°E to 90°E','82°E to 87°E'],ans:0,exp:'Bihar lies between 83°19\'50" E and 88°17\'40" E longitudes.',trap:''},
+{id:12,topic:'Position & Extent',tag:'EXPECTED',q:'Consider the following statements about Bihar\'s position:\n1. Bihar is a landlocked state with no direct sea access.\n2. Bihar is connected to the sea through Haldia Port via waterways.\n3. Bihar shares an international boundary only with Nepal.\nWhich are CORRECT?',opts:['1 only','1 and 2 only','1, 2 and 3','2 and 3 only'],ans:2,exp:'All three statements are correct. Bihar is landlocked but connected to sea via Haldia Port. It only borders Nepal internationally.',trap:'Statement 1 and 2 may seem contradictory, but both are true — "landlocked" means no own coastline, but river/port access can exist.'},
+{id:13,topic:'Position & Extent',tag:'PYQ',src:'65th BPSC',q:'How many districts of Bihar are situated on the bank of river Ganga?',opts:['21','17','12','6'],ans:2,exp:'12 districts of Bihar are on the banks of the Ganga river.',trap:''},
+{id:14,topic:'Position & Extent',tag:'PYQ',src:'65th BPSC',q:'The district of Bihar which has a LONGER length of Ganga river is:',opts:['Bhagalpur','Katihar','Patna','Begusarai'],ans:2,exp:'The Ganga has the longest stretch within Patna district compared to other Bihar districts.',trap:'Bhagalpur comes to mind as a major river city, but Patna has the longest Ganga stretch.'},
+{id:15,topic:'Position & Extent',tag:'PYQ',src:'65th BPSC',q:'Which district of Bihar has recorded the HIGHEST population density per sq. km (Census 2011)?',opts:['Sheohar','Vaishali','Patna','Darbhanga'],ans:0,exp:'Sheohar has the highest population density in Bihar — it is also the smallest district by area, leading to extreme density.',trap:'Patna seems like the obvious high-density answer but Sheohar (tiny area + high population) tops the list.'},
+
+// ── TOPIC: Geology (G) ──────────────────────────────────────
+{id:16,topic:'Geology',tag:'PYQ',src:'64th BPSC',q:'Which one of the following parts of Bihar is GEOLOGICALLY OLDER in age relatively?',opts:['Rohtas Plateau','North-Western Hills','Kharagpur Hills','North Ganga Plains'],ans:2,exp:'Kharagpur Hills are composed of Pre-Cambrian (Dharwar-type) rocks, making them geologically the oldest among the options. The North Ganga Plains are the youngest (Quaternary/recent alluvium).',trap:'Rohtas Plateau is old but Kharagpur Hills have Pre-Cambrian basement rocks making them older.'},
+{id:17,topic:'Geology',tag:'CROWN',src:'Crown 3.1',q:'Geologically, the southern plateau of Bihar was formed in which period?',opts:['Pre-Cambrian','Oligocene','Miocene','Pleistocene'],ans:0,exp:'The southern plateau/hills of Bihar (part of Chotanagpur plateau) are composed of Pre-Cambrian ancient rocks (gneiss, schist, granite).',trap:''},
+{id:18,topic:'Geology',tag:'CROWN',src:'Crown 3.1',q:'Mica deposits are found in which kind of rocks in Bihar?',opts:['Dharwar rocks','Tertiary rocks','Vindhyan rocks','Quaternary rocks'],ans:0,exp:'Mica is found in Dharwar rocks which are metamorphic in nature, occurring in south-east Bihar (Munger, Jamui, Nawada).',trap:'Vindhyan rocks have limestone/sandstone; Quaternary has alluvium. Mica belongs exclusively to Dharwar/Archean formations.'},
+{id:19,topic:'Geology',tag:'PYQ',src:'63rd BPSC',q:'Kaimur Plateau is famous for which mineral?',opts:['Copper','Limestone','Lithium','Bauxite'],ans:1,exp:'Kaimur (Bhabhua) district is famous for large limestone deposits. Vindhyan rocks in SW Bihar contain limestone, sandstone, and quartzite.',trap:'Common distractors are copper and bauxite — neither is found in Kaimur. This is a direct PYQ from 63rd BPSC.'},
+{id:20,topic:'Geology',tag:'CROWN',src:'Crown 3.1',q:'Which of the following is a CORRECTLY matched pair of rock type and example mineral?',opts:['Vindhyan rocks — alluvium','Quaternary rocks — phyllite, quartzite','Dharwar rocks — gneiss, schist','Tertiary rocks — limestone, shale'],ans:2,exp:'Dharwar rocks contain metamorphic rocks like gneiss, schist, quartzite, phyllite, and slate. They are the Pre-Cambrian equivalent found in SE Bihar.',trap:'Option D is tempting — Tertiary rocks DO contain shale but are mainly formed in the Terai; Vindhyan (not Tertiary) has limestone.'},
+{id:21,topic:'Geology',tag:'CROWN',src:'Crown 3.1',q:'In which period was Ramnagar Dun formed?',opts:['Dharwar','Quaternary','Vindhyan','Tertiary'],ans:3,exp:'Ramnagar Dun (part of the Shiwalik Himalayan range) was formed in the Tertiary period during the uplifting of the Himalayas.',trap:'Students often confuse Ramnagar Dun with the Bihar plain (Quaternary). Shiwalik hills are Tertiary formation.'},
+{id:22,topic:'Geology',tag:'PYQ',src:'68th BPSC',q:'With reference to mineral production in Bihar, consider the following statements:\n1. Rohtas has the highest deposit of pyrites.\n2. Limestone is found in Kaimur (Bhabhua), Munger, and Rohtas districts.\n3. Gold deposits are found in Jamui district.\nWhich of the statements are correct?',opts:['3 only','1 and 2 only','1 and 3 only','More than one of the above'],ans:3,exp:'All three statements are actually correct: Rohtas has highest pyrites (India\'s ~95%), limestone in Kaimur+Munger+Rohtas, Gold in Jamui. The 68th BPSC answer was "1 and 3 only" treating statement 2 as partially wrong.',trap:'Statement 2 says "Kaimur, Munger AND Rohtas" — BPSC considered only Kaimur+Rohtas the primary locations, making S2 debatable.'},
+{id:23,topic:'Geology',tag:'PYQ',src:'67th BPSC',q:'Which district of Bihar has the LARGEST gold reserve?',opts:['Banka','Katihar','Munger','Jamui'],ans:3,exp:'Jamui district in SE Bihar has the largest gold deposits. This has been asked in 67th, 68th, 69th, and 71st BPSC — the most repeated geology question.',trap:'Munger is close to Jamui and has mica/other minerals, leading to confusion. Jamui specifically has the gold.'},
+{id:24,topic:'Geology',tag:'CROWN',src:'Crown 3.1',q:'Identify the correct match:\nI. Kaimur Hills: South-West Bihar\nII. Vindhyan rocks: South-East Bihar\nIII. Quaternary rocks: Bihar Plain\nIV. Tertiary rocks: Himalayas (Terai)',opts:['I and II','II and III','III and IV','All of these'],ans:2,exp:'III and IV are correct: Quaternary rocks form the Bihar plain (alluvial deposition) and Tertiary rocks are found in the Himalayan Terai region. Vindhyan rocks are in SW Bihar (not SE) — making II wrong.',trap:'Vindhyan rocks are in SOUTH-WEST (Kaimur+Son valley), NOT south-east. This makes option II wrong.'},
+{id:25,topic:'Geology',tag:'CROWN',src:'Crown 3.1',q:'In which district(s) of Bihar are gneiss, quartzite, and schist rocks found?',opts:['Munger only','Gaya','Sheikhpura','All of these districts have them'],ans:0,exp:'Dharwar rocks (gneiss, quartzite, schist) are primarily found in Munger district of SE Bihar, along with Jamui and Nawada.',trap:''},
+{id:26,topic:'Geology',tag:'EXPECTED',q:'Vindhyan rocks found in Bihar are primarily used for which purpose?',opts:['Agricultural fertilizers','Building and construction','Fuel and energy','Ceramics only'],ans:1,exp:'Vindhyan rocks (sandstone, quartzite, limestone) from SW Bihar are valued for building purposes — used in construction. Kaimur limestone also feeds the cement industry.',trap:''},
+{id:27,topic:'Geology',tag:'EXPECTED',q:'Which of the following sequences correctly represents rocks from OLDEST to YOUNGEST in Bihar?',opts:['Quaternary > Tertiary > Vindhyan > Dharwar','Dharwar > Vindhyan > Tertiary > Quaternary','Vindhyan > Dharwar > Quaternary > Tertiary','Tertiary > Quaternary > Dharwar > Vindhyan'],ans:1,exp:'Dharwar (Pre-Cambrian/Archean = oldest) → Vindhyan (Cambrian-Proterozoic) → Tertiary (Cenozoic) → Quaternary (most recent, Pleistocene-Recent).',trap:''},
+{id:28,topic:'Geology',tag:'PYQ',src:'71st BPSC',q:'Bihar produces approximately what percentage of India\'s total pyrite production?',opts:['75%','85%','95%','100%'],ans:2,exp:'Bihar (Rohtas district, Amjhor area) produces approximately 95% of India\'s pyrite. This is a distinctive mineral monopoly.',trap:''},
+{id:29,topic:'Geology',tag:'CROWN',src:'Crown 3.6',q:'Uranium is found in which of the following districts of Bihar?',opts:['Gaya','Rohtas','Munger','Banka'],ans:0,exp:'Uranium deposits have been found in Gaya district of Bihar.',trap:''},
+{id:30,topic:'Geology',tag:'CROWN',src:'Crown 3.6',q:'The deposits of Monazite are found in which districts of Bihar?',opts:['Siwan and Saran','Patna and Aurangabad','Gaya and Munger','Banka and Bhagalpur'],ans:2,exp:'Monazite (a radioactive mineral containing thorium) deposits are found in Gaya and Munger districts of Bihar.',trap:''},
+
+// ── TOPIC: Physiography (PH) ────────────────────────────────
+{id:31,topic:'Physiography',tag:'PYQ',src:'60–62nd BPSC',q:'Which of the following landforms occupies the North-Western part of Bihar State?',opts:['Someshwar Hilly Range','Kaimur Plateau','Nawada Hilly Region','Rajgir Hilly Region'],ans:0,exp:'The Someshwar Range (part of Shiwalik Hills) is located in the north-western part of Bihar, specifically in West Champaran district.',trap:'All four options are real geographical features of Bihar, making this a classic PYQ trap. Only Someshwar is NW.'},
+{id:32,topic:'Physiography',tag:'CROWN',src:'Crown 3.1',q:'The highest place of Bihar is:',opts:['Santpur (240 m)','Kaimur hills','Someshwar Range (874 m)','Barabar hills'],ans:2,exp:'Someshwar Fort on the Someshwar Range in West Champaran is 874 m high — the highest point in Bihar.',trap:'Santpur (240 m) is the highest peak of Ramnagar Dun, not of Bihar as a whole. Don\'t confuse sub-unit with state.'},
+{id:33,topic:'Physiography',tag:'CROWN',src:'Crown 3.1',q:'What is the per-kilometre average slope of the Bihar Ganga plains?',opts:['12 cm/km','8 cm/km','10 cm/km','6 cm/km'],ans:3,exp:'The Bihar Ganga plain has an extremely gentle slope of just 6 cm per kilometre, contributing to poor drainage and floods.',trap:'6 cm not 12 cm. This almost-flat slope is why rivers overflow so easily — examiners love to test this exact figure.'},
+{id:34,topic:'Physiography',tag:'CROWN',src:'Crown 3.1',q:'Bihar has maximum areal extent in which of the following natural regions?',opts:['Terai region of Shiwalik','North Gangetic Plain','South Gangetic Plain','Southern hilly region'],ans:1,exp:'North Gangetic Plain covers 56,980 sq km of Bihar — the largest physiographic unit by area (nearly 60% of the state\'s total plain area).',trap:''},
+{id:35,topic:'Physiography',tag:'CROWN',src:'Crown 3.1',q:'Chuars/Chaurs found in the Bihar plain are geomorphologically classified as:',opts:['Flooded plains','Levees','Oxbow lakes','Highlands'],ans:2,exp:'Chaurs are oxbow lakes or abandoned river channels, particularly common in North Bihar (Samastipur, Begusarai, Saharsa, Katihar districts).',trap:'Students often confuse Chaurs with levees (embankments) or flooded plains. They are specifically abandoned meander channels = oxbow lakes.'},
+{id:36,topic:'Physiography',tag:'CROWN',src:'Crown 3.1',q:'Harha Valley located in north-western Bihar is also known as:',opts:['Ramnagar Dun','Dun Valley','Someshwar Range','None of these'],ans:1,exp:'Harha Valley = Dun Valley. It lies between Ramnagar Dun and Someshwar Range, is 24 km long and about 150 m in height.',trap:'Ramnagar Dun is a different sub-unit (the broken hilly region south of Someshwar). Harha Valley = Dun Valley specifically.'},
+{id:37,topic:'Physiography',tag:'EXPECTED',q:'The Someshwar Range forms a boundary between:',opts:['Bihar and Jharkhand','Bihar and Uttar Pradesh','India and Nepal','India and Bangladesh'],ans:2,exp:'The Someshwar Range in West Champaran marks the international boundary between India (Bihar) and Nepal.',trap:''},
+{id:38,topic:'Physiography',tag:'EXPECTED',q:'The area of Bihar\'s plain region as a percentage of the total state area is approximately:',opts:['76.27%','86.27%','96.27%','66.27%'],ans:2,exp:'The Bihar Plain covers 90,650 sq. km out of 94,163 sq. km total area = 96.27%.',trap:'96.27% not 86.27% — the Shiwalik and southern hills together cover only ~3.73% of Bihar.'},
+{id:39,topic:'Physiography',tag:'EXPECTED',q:'Consider the following statements about Bihar\'s physiographic divisions:\n1. The North Ganga plain is larger than the South Ganga plain.\n2. The South Ganga plain is triangular in shape with wider west.\n3. The North Ganga plain is more prone to flooding than the South.\nWhich of these are correct?',opts:['1 only','1 and 2 only','2 and 3 only','1, 2 and 3'],ans:3,exp:'All three are correct. North (56,980 km²) > South (33,670 km²). South plain is triangular-wider west. North Bihar has river beds higher than plains causing floods; South is stable.',trap:''},
+{id:40,topic:'Physiography',tag:'EXPECTED',q:'Which of the following is NOT a sub-division of the Shiwalik range in Bihar?',opts:['Ramnagar Dun','Someshwar Range','Harha Valley','Rajgir Range'],ans:3,exp:'The Shiwalik range in Bihar (NW West Champaran) has 3 parts: Ramnagar Dun, Someshwar Range, and Harha (Dun) Valley. Rajgir Range is in South Bihar — part of the Chotanagpur outlier hills.',trap:''},
+{id:41,topic:'Physiography',tag:'EXPECTED',q:'The Tal region in South Bihar plain is characterised by:',opts:['Upland rocky terrain','Low-lying seasonally water-filled depressions','Dune formations','Deep gorges and waterfalls'],ans:1,exp:'The Tal region is a low-lying area that gets filled with water during the rainy season. It stretches from Buxar to Banka and is known for rabi crop cultivation after waters recede.',trap:''},
+{id:42,topic:'Physiography',tag:'EXPECTED',q:'The Shahabad plain (westernmost South Bihar) lies between the Son river in the east and which river in the west?',opts:['Ghaghra','Karmanasa','Gandak','Punpun'],ans:1,exp:'Shahabad plain is bounded: Ganga (N), Kaimur plateau (S), Son river (E), Karmanasa river (W). Karmanasa also marks the Bihar-UP boundary.',trap:'Ghaghra is in North Bihar. Karmanasa specifically is the western boundary of Shahabad plain.'},
+{id:43,topic:'Physiography',tag:'EXPECTED',q:'Which of the following hills in Bihar are classified as "residual hills" or outliers of the Chotanagpur plateau?',opts:['Someshwar hills','Barabar hills, Rajgir-Jethian hills, Kharagpur hills','Ramnagar Dun hills','Shiwalik hills only'],ans:1,exp:'Barabar, Rajgir-Jethian, Giriak, and Kharagpur hills in South Bihar are residual/outlier hills of the Chotanagpur plateau.',trap:''},
+{id:44,topic:'Physiography',tag:'PYQ',src:'69th BPSC',q:'The average height of the Kosi plain from mean sea level is:',opts:['300 m','150 m','30 m','None of the above'],ans:2,exp:'The Kosi plain in North Bihar lies at only about 30 m above mean sea level — very low elevation contributing to frequent flooding.',trap:'150 m and 300 m seem plausible but are far too high. The alluvial plain is near sea level at 30 m.'},
+{id:45,topic:'Physiography',tag:'EXPECTED',q:'Match the sub-plains with their descriptions:\nA. Ghaghra plain | B. Chandan plain | C. Mahananda plain\n1. Easternmost sub-plain of North Bihar\n2. Westernmost sub-plain of North Bihar\n3. Easternmost sub-plain of South Bihar',opts:['A-1, B-3, C-2','A-2, B-3, C-1','A-3, B-1, C-2','A-2, B-1, C-3'],ans:1,exp:'Ghaghra plain (Siwan, Gopalganj, Saran) = westernmost North Bihar; Chandan plain (Banka, Bhagalpur) = easternmost South Bihar; Mahananda plain = easternmost North Bihar.',trap:''},
+
+// ── TOPIC: Rivers & Drainage (R) ───────────────────────────
+{id:46,topic:'Rivers & Drainage',tag:'PYQ',src:'67th BPSC',q:'Which river is known as the "Sorrow of Bihar"?',opts:['Karmanasa','Kosi','Son','Ghaghra'],ans:1,exp:'The Kosi river is called the "Sorrow of Bihar" because it frequently changes course (shifted ~70 km westward over 200 years) and causes massive floods destroying crops and property.',trap:'Son and Karmanasa are South Bihar rivers. Ghaghra causes floods but Kosi is the iconic "Sorrow of Bihar."'},
+{id:47,topic:'Rivers & Drainage',tag:'PYQ',src:'63rd & 69th BPSC',q:'The Triveni Canal has been constructed on which river?',opts:['Kosi','Son','Gandak','Kamla'],ans:2,exp:'Triveni Canal is built on the Gandak river. This was tested in both 63rd BPSC (Q48) and 69th BPSC (Q90) — one of the most repeated facts.',trap:'Kosi canal is different from Triveni Canal. Triveni = Gandak. This is a 100% confirmed repeat fact.'},
+{id:48,topic:'Rivers & Drainage',tag:'PYQ',src:'69th BPSC',q:'The other name of river Gandak is:',opts:['Burhi Gandak','Mahananda','Narayani','Punpun'],ans:2,exp:'Gandak river is also known as Narayani (especially where it flows through Nepal). The Sonepur Mela is held at the confluence of Ganga and Gandak.',trap:'Burhi Gandak is a DIFFERENT river flowing through North Bihar. Narayani = Gandak; Burhi Gandak ≠ Gandak.'},
+{id:49,topic:'Rivers & Drainage',tag:'PYQ',src:'68th BPSC',q:'Phalgu, a sacred river flowing in Bihar, is formed by the confluence of which rivers?',opts:['Lilajan and Son rivers','Son and Mohana rivers','Mohana and Lilajan rivers','More than one of the above'],ans:2,exp:'The Phalgu river is formed by the confluence of the Mohana and Lilajan rivers near Gaya. It is also known as Niranjana.',trap:'The order "Mohana and Lilajan" not "Lilajan and Son" — Son is a separate, much larger river.'},
+{id:50,topic:'Rivers & Drainage',tag:'PYQ',src:'67th BPSC',q:'Which is Asia\'s largest and freshwater oxbow lake in Bihar?',opts:['Anupam Lake','Kusheshwar Lake','Ghogha Lake','Kanwar Lake'],ans:3,exp:'Kanwar Lake (Kabartal Wetland) in Begusarai district is Asia\'s largest freshwater oxbow lake and was designated a Ramsar site in 2020.',trap:'Anupam Lake is inside Kaimur WLS, not the largest oxbow. Kanwar = Asia\'s largest freshwater oxbow lake.'},
+{id:51,topic:'Rivers & Drainage',tag:'CROWN',src:'Crown 3.5',q:'Which river is also known as Niranjana?',opts:['Gandak','Phalgu','Sone','Mahananda'],ans:1,exp:'Phalgu river flowing through Gaya is also called Niranjana. It is a sacred river where Hindus perform pind-daan (funeral rites) for ancestors.',trap:'Phalgu is both "Niranjana" AND formed by Mohana+Lilajan — both aliases to remember.'},
+{id:52,topic:'Rivers & Drainage',tag:'CROWN',src:'Crown 3.5',q:'Why is the Bagmati considered a dangerous river?',opts:['Due to its changing course','Due to its origin in the Himalayas','Due to tendency to create floods alone','None of the above'],ans:0,exp:'Bagmati is considered dangerous primarily because it frequently changes its course, causing unpredictable flooding in the Bagmati plain.',trap:'While Bagmati does cause floods, the key characteristic is COURSE CHANGE — same reason Kosi is dangerous.'},
+{id:53,topic:'Rivers & Drainage',tag:'CROWN',src:'Crown 3.5',q:'Which river of Bihar originates from Someshwar hills and flows PARALLEL to the Gandak river?',opts:['Burhi Gandak','Gandak itself','Kamla','Bagmati'],ans:0,exp:'Burhi Gandak originates from the Someshwar hills in West Champaran and flows roughly parallel to the Gandak river before joining the Ganga.',trap:'Don\'t confuse Burhi Gandak with Gandak — they are separate rivers.'},
+{id:54,topic:'Rivers & Drainage',tag:'CROWN',src:'Crown 3.5',q:'Which of the following rivers does NOT enter the Ganga from the SOUTH?',opts:['Saryu/Ghaghra','Sone','Kiul','Punpun'],ans:0,exp:'Saryu (Ghaghra) joins Ganga from the NORTH (north bank tributary). Sone, Kiul, and Punpun are all south-bank tributaries.',trap:'Ghaghra/Saryu is commonly mistaken as a south-bank river. It flows from Nepal through N.Bihar — joining Ganga from north.'},
+{id:55,topic:'Rivers & Drainage',tag:'PYQ',src:'70th BPSC',q:'What is the name of the one-month-long cattle fair organised at the confluence of Ganga and Gandak rivers?',opts:['Katihar Mela','Sonepur Mela','Purnia Mela','More than one of the above'],ans:1,exp:'Sonepur Mela (Harihar Kshetra Mela) is held at Sonepur at the confluence of Ganga and Gandak rivers — one of the world\'s largest cattle fairs.',trap:'Despite being called "Sonepur Mela," it is at the Ganga-GANDAK confluence, not the Ganga-SON confluence.'},
+{id:56,topic:'Rivers & Drainage',tag:'CROWN',src:'Crown 3.5',q:'In which district of Bihar does the river Ganga ENTER Bihar?',opts:['Gopalganj','Bhojpur (Buxar)','Rohtas','Siwan'],ans:1,exp:'The Ganga enters Bihar at Buxar (Bhojpur district) in the west, flowing from Uttar Pradesh.',trap:''},
+{id:57,topic:'Rivers & Drainage',tag:'CROWN',src:'Crown 3.5',q:'Which pair showing springs and their places is NOT correctly matched?',opts:['Sita Kund – Rajgir','Rishi Kund – Munger','Surya Kund – Rajgir','Brahma Kund – Rajgir'],ans:0,exp:'Sita Kund is located at MUNGER, NOT at Rajgir. Rajgir has Surya Kund, Brahma Kund, and other hot springs. Sita Kund is famous in Munger.',trap:'Rajgir is so famous for hot springs that students assume all kunds are there. Sita Kund is the Munger exception.'},
+{id:58,topic:'Rivers & Drainage',tag:'CROWN',src:'Crown 3.5',q:'Which statement is NOT true about Kakolat waterfall in Bihar?',opts:['It is in Nawada district','It is a famous tourist site','There is a natural reservoir below the fall','It dries up in summer'],ans:3,exp:'Kakolat waterfall (Nawada district) does NOT dry up in summer — it is perennial. Options A, B, C are all true.',trap:'The logic "waterfalls dry in summer" is a general trap. Kakolat specifically is perennial.'},
+{id:59,topic:'Rivers & Drainage',tag:'PYQ',src:'66th BPSC',q:'In which one of the following pairs of Administrative Divisions of Bihar does the Ganga river NOT flow?',opts:['Darbhanga – Munger','Purnea – Bhagalpur','Tirhut – Saran','Kosi – Magadh'],ans:3,exp:'Ganga does not flow through Kosi and Magadh administrative divisions. Kosi division (Saharsa, Madhepura, Supaul) is north of Ganga and Magadh is south but refers to Patna-Gaya area — Ganga flows through Patna division not "Magadh division".',trap:''},
+{id:60,topic:'Rivers & Drainage',tag:'EXPECTED',q:'Arrange the catchment area of the following rivers in Bihar in ASCENDING order:\nI. Kosi  II. Son  III. Burhi Gandak  IV. Kiul-Harohar',opts:['I, II, III, IV','IV, III, II, I','IV, II, I, III','II, III, IV, I'],ans:1,exp:'Catchment area ascending: IV Kiul-Harohar (smallest) < III Burhi Gandak < II Son < I Kosi (largest).',trap:''},
+{id:61,topic:'Rivers & Drainage',tag:'EXPECTED',q:'The famous Mahatma Gandhi Setu bridge in Bihar connects:',opts:['Patna to Hajipur over river Ganga','Munger to Bhagalpur over river Ganga','Buxar to Ballia over river Ganga','Patna to Ara over river Son'],ans:0,exp:'Mahatma Gandhi Setu (about 5.8 km long) connects Patna (south bank) to Hajipur (north bank) over the Ganga river.',trap:''},
+{id:62,topic:'Rivers & Drainage',tag:'EXPECTED',q:'Durgavati and Chandraprabha are important tributaries of which of the following rivers?',opts:['Karmanasa','Punpun','Phalgu','Saryu'],ans:0,exp:'Durgavati and Chandraprabha are tributaries of the Karmanasa river, which flows along the Bihar-UP border.',trap:''},
+{id:63,topic:'Rivers & Drainage',tag:'PYQ',src:'60–62nd BPSC',q:'Which of the following canal systems IRRIGATES areas of Bihar?',opts:['Upper Ganga Canal','Triveni Canal','Sharda Canal','Eastern Yamuna Canal'],ans:1,exp:'Triveni Canal (on Gandak river) irrigates areas of North Bihar. Upper Ganga, Sharda, and Eastern Yamuna canals are in Uttar Pradesh.',trap:'Upper Ganga Canal sounds Bihar-relevant but irrigates western UP. Only Triveni Canal is Bihar-specific.'},
+{id:64,topic:'Rivers & Drainage',tag:'EXPECTED',q:'Which river in Bihar is specifically known for the TELHAR KUND waterfall?',opts:['Son','Karmanasa (Kaimur district)','Punpun','Phalgu'],ans:1,exp:'Telhar Kund waterfall is located in Kaimur district, through which the Karmanasa river flows. (67th BPSC Q136 asked which district — Kaimur)',trap:''},
+
+// ── TOPIC: Soils (S) ────────────────────────────────────────
+{id:65,topic:'Soils',tag:'PYQ',src:'64th BPSC',q:'Most of the area in Bihar is covered by which type of soil?',opts:['Mountainous soil','Alluvial soil','Regur soil','Terai soil'],ans:1,exp:'Bihar\'s vast plains are composed predominantly of alluvial soil (both Khadar/new and Bhangar/old alluvium) deposited by Himalayan rivers.',trap:'Regur (black cotton soil) is from Deccan trap region; not Bihar. Alluvial is the dominant Bihar soil.'},
+{id:66,topic:'Soils',tag:'PYQ',src:'66th BPSC',q:'Piedmont Swamp Soil is found ONLY in which district of Bihar?',opts:['Madhubani','Bhagalpur','West Champaran','Sitamarhi'],ans:2,exp:'Piedmont Swamp Soil is found EXCLUSIVELY in West Champaran district — it develops at the foot of Himalayan slopes where drainage is poor.',trap:'Sitamarhi and Madhubani are also North Bihar districts bordering Nepal, making them likely decoys. West Champaran alone has piedmont swamp soil.'},
+{id:67,topic:'Soils',tag:'CROWN',src:'Crown 3.3',q:'Where is Tal soil found in Bihar?',opts:['In terai region','In upland plains','In desert','In backwater belt of river Ganga'],ans:3,exp:'Tal soil is found in the backwater belt of the river Ganga (south bank), extending from Buxar to Banka. It is heavy clay soil, filled with water in monsoon.',trap:'Terai is in North Bihar; Tal soil is South Bihar (south of Ganga).'},
+{id:68,topic:'Soils',tag:'CROWN',src:'Crown 3.3',q:'Tal soil extends from Buxar to:',opts:['Banka','Gaya','Bhagalpur','Champaran'],ans:0,exp:'The Tal soil belt in South Bihar extends from Buxar (west) to Banka (east) — along the backwater belt south of the Ganga.',trap:'Bhagalpur seems eastern but the Tal belt ends at Banka.'},
+{id:69,topic:'Soils',tag:'CROWN',src:'Crown 3.3',q:'What are the major crops that can be grown on BALTHAR soil?',opts:['Rice','Jowar and Bajra (millets)','Sugarcane','Pulses'],ans:1,exp:'Balthar soil (sandy loam found in SW Bihar, south-west of Ganga) is best suited for dry/millet crops like Jowar and Bajra.',trap:'Balthar soil is poor for rice or sugarcane. Jowar-Bajra is the correct crop association.'},
+{id:70,topic:'Soils',tag:'CROWN',src:'Crown 3.3',q:'Which of the following soils is NOT found in the North Ganga plain?',opts:['Recent alluvial soil (Khadar)','Balsundari soil','Balthar soil','Swamp soil (Piedmont)'],ans:2,exp:'Balthar soil is found in the SOUTH-WEST of Ganga — it is NOT a North Ganga plain soil. North Bihar plain has Khadar, Balsundari, and swamp soils.',trap:'This negative question requires knowing not just where each soil IS, but where it is NOT. Balthar = SW Ganga only.'},
+{id:71,topic:'Soils',tag:'CROWN',src:'Crown 3.3',q:'Where is the Balsundari soil found in Bihar?',opts:['Saharsa, Darbhanga, Muzaffarpur, Saran area','Nalanda, Saran, Siwan, Gopalganj area','Purnea, Madhepura, Khagaria, Darbhanga area','Bhagalpur, Khagaria, Samastipur, Vaishali area'],ans:0,exp:'Balsundari soil is a fine sandy loam found in Saharsa, Darbhanga, Muzaffarpur, and Saran — the central North Bihar plain.',trap:''},
+{id:72,topic:'Soils',tag:'CROWN',src:'Crown 3.3',q:'Old alluvial soil (Bhangar) in Bihar is primarily found in:',opts:['Rohtas, Gaya, Patna, Munger, Bhagalpur area','Purnea, Saharsa, Darbhanga, Muzaffarpur area','Saharsa, Darbhanga, Muzaffarpur, Saran area','None of the above'],ans:0,exp:'Old alluvial (Bhangar) is found in the older parts of the plains — Rohtas, Gaya, Patna, Munger, Bhagalpur — away from active river channels.',trap:'Bhangar ≠ Khadar. Khadar (new alluvium) is near river banks; Bhangar (old alluvium) is higher ground away from rivers.'},
+{id:73,topic:'Soils',tag:'CROWN',src:'Crown 3.3',q:'Consider the following statements about NORWESTERS in Bihar:\n(i) They are cyclonic winds.\n(ii) They bring rainfall of about 10 cm.\n(iii) They are useful for mango and litchi cultivation.\n(iv) They are hot winds from the west.\nWhich statement(s) are WRONG?',opts:['i, ii and iii','Only iv','i and iv','iii and iv'],ans:1,exp:'Only statement (iv) is wrong — Norwesters are NOT hot winds from the west (that description fits "Loo"). They are cyclonic, bring ~10 cm rain, and benefit mango/litchi orchards.',trap:'Students mix up Loo (hot westerly) with Norwester (cyclonic thunderstorm). The question traps those who mark both as wrong.'},
+{id:74,topic:'Soils',tag:'CROWN',src:'Crown 3.3',q:'Usar (alkaline/saline) soil is found in which district of Bihar?',opts:['Saran','West Champaran','Siwan','Nawada'],ans:2,exp:'Usar (saline/alkaline unproductive) soil is found in Siwan district.',trap:''},
+{id:75,topic:'Soils',tag:'CROWN',src:'Crown 3.3',q:'Which type of soil is predominantly found in the plains of Ganga in Bihar?',opts:['Residual soil','Alluvial soil','Both residual and alluvial','None of these'],ans:1,exp:'The Ganga plains are dominated by alluvial soil — transported sediment deposited by rivers over millennia.',trap:''},
+{id:76,topic:'Soils',tag:'EXPECTED',q:'The 5 to 7 km wide Terai region in Bihar extends through which districts?',opts:['W.Champaran, Chapra, Darbhanga, Kishanganj','Sitamarhi, Madhubani, Madhepura, Purnea','Sitamarhi, Supaul, Araria, Purnea','W.Champaran, Sitamarhi, Araria, Kishanganj'],ans:3,exp:'The Terai belt runs along the Nepal border through West Champaran, Sitamarhi, Araria, and Kishanganj — characterised by marshy land and Sal forests.',trap:''},
+{id:77,topic:'Soils',tag:'EXPECTED',q:'Khadar (new alluvial soil) is found in which districts of Bihar?',opts:['Bhagalpur and Araria','Patna and Nalanda','Purnea and Saharsa','None of the above'],ans:2,exp:'Khadar (new/recent alluvium) is found along active river banks — Purnea and Saharsa are in the flood-prone Kosi belt with freshly deposited alluvium.',trap:''},
+{id:78,topic:'Soils',tag:'EXPECTED',q:'Which soil in Bihar is described as "heavy clay, acidic to alkaline, with HIGH water absorption capacity"?',opts:['Balthar soil','Balsundari soil','Karail-Kewal (Tal) soil','Piedmont Swamp soil'],ans:2,exp:'Karail-Kewal or Tal soil is heavy clay soil found in south Bihar backwaters. It is acidic to alkaline and has HIGH water absorption — good for rabi crops.',trap:'A statement "less water absorption" about karail-kewal is FALSE — it has HIGH absorption. Crown Q22 directly tests this.'},
+{id:79,topic:'Soils',tag:'CROWN',src:'Crown 3.3',q:'Which agro-climatic zone of Bihar is DROUGHT-PRONE?',opts:['Zone I','Zone III','Zone II','None of the above'],ans:1,exp:'Zone III of Bihar (south Bihar uplands near Jharkhand) is drought-prone, characterised by rocky terrain and low rainfall.',trap:'Zone I is flood-prone (north Bihar). Zone III is drought-prone (south Bihar). Classic reversal trap.'},
+{id:80,topic:'Soils',tag:'CROWN',src:'Crown 3.3',q:'The Bhagar/Bhangar soil in Bihar is found primarily in the area of:',opts:['Gaya-Bodhgaya-E.Champaran-Bhagalpur','Purnea-Saharsa-Darbhanga-Muzaffarpur','Gaya-Nalanda-Bodhgaya-Saharsa','E.Champaran-Nalanda-Gaya-Sasaram'],ans:1,exp:'Bhangar (old alluvium) in Bihar is found in Purnea, Saharsa, Darbhanga, and Muzaffarpur — the older, higher alluvial terrace away from active rivers.',trap:''},
+
+// ── TOPIC: Climate (C) ─────────────────────────────────────
+{id:81,topic:'Climate',tag:'PYQ',src:'63rd BPSC',q:'According to Köppen\'s climatic classification, the climate of North Bihar may be explained as:',opts:['Cwg','Aw','CA\'w','CB\'w'],ans:0,exp:'North Bihar has a Cwg (warm temperate with dry winter, hot summer) climate under Köppen\'s classification. The \'w\' denotes dry winter and \'g\' means Ganges type rainfall pattern.',trap:'CA\'w might seem plausible but Cwg is specifically for North Bihar. This is a direct PYQ — memorise Cwg.'},
+{id:82,topic:'Climate',tag:'PYQ',src:'71st BPSC',q:'Most of Bihar comes under which of the following climate types?',opts:['Subtropical Monsoon','Tropical Savannah','Hot and Dry','Hot and Semi-Arid'],ans:0,exp:'Bihar predominantly has Subtropical Monsoon climate — hot summers, cold winters, and rainfall mainly through SW monsoon from June to September.',trap:''},
+{id:83,topic:'Climate',tag:'CROWN',src:'Crown 3.3',q:'Which district of Bihar gets the HIGHEST rainfall?',opts:['Araria','Kishanganj','Gaya','Aurangabad'],ans:1,exp:'Kishanganj in NE Bihar receives the highest annual rainfall (~2000 mm), being closer to the Bay of Bengal moisture and influenced by NE India rainfall patterns.',trap:'Araria is also NE Bihar and seems close, but Kishanganj tops the rainfall chart consistently.'},
+{id:84,topic:'Climate',tag:'CROWN',src:'Crown 3.3',q:'Which district of Bihar records the HIGHEST temperature?',opts:['Aurangabad','Gaya','Saran','Siwan'],ans:1,exp:'Gaya district records the highest temperature in Bihar — it is in a rain shadow area with continental climate characteristics.',trap:'Gaya also records the lowest winter temperature — it has extreme temperature ranges (continental interior).'},
+{id:85,topic:'Climate',tag:'CROWN',src:'Crown 3.3',q:'The rainfall during monsoon season in Bihar is mainly due to:',opts:['Eastern monsoon','South-East monsoon','Southern monsoon','South-West monsoon'],ans:3,exp:'Bihar receives most of its rainfall from the South-West monsoon (Bay of Bengal branch), which enters Bihar from the east after traversing West Bengal.',trap:''},
+{id:86,topic:'Climate',tag:'CROWN',src:'Crown 3.3',q:'Hathiya Nakshatra is associated with:',opts:['Rainfall in October','Rainfall in November','Rainfall in April','Rainfall in July'],ans:0,exp:'Hathiya Nakshatra (Hasta constellation) falls around October and is associated with late monsoon rainfall in Bihar — the last significant rains of the season.',trap:''},
+{id:87,topic:'Climate',tag:'CROWN',src:'Crown 3.3',q:'In which of the following months does the monsoon RETREAT from Bihar?',opts:['September','October','November','December'],ans:1,exp:'The South-West monsoon retreats from Bihar by October, bringing the monsoon season to a close.',trap:'September is when retreating begins from NW India; Bihar retains monsoon until October.'},
+{id:88,topic:'Climate',tag:'CROWN',src:'Crown 3.3',q:'The local wind LOO blowing in Bihar has the following wind velocity:',opts:['10–16 km/hr','10–14 km/hr','8–16 km/hr','12–16 km/hr'],ans:2,exp:'Loo — the hot, dry westerly wind — blows in Bihar at 8–16 km/hr during summer months (April–June).',trap:'8 is the minimum speed — the range is 8-16, not 10-16 or 12-16.'},
+{id:89,topic:'Climate',tag:'EXPECTED',q:'Consider these statements about Bihar\'s climate:\n1. Eastern Bihar has higher humidity than western Bihar.\n2. South-West monsoon is the primary source of rainfall.\n3. Bihar receives winter rainfall from the western disturbances.\nWhich are correct?',opts:['1 and 2 only','2 and 3 only','1 and 3 only','1, 2 and 3'],ans:3,exp:'All three are correct. Eastern Bihar is closer to Bay of Bengal (higher humidity). SW monsoon = primary rain. Western disturbances bring small amounts of winter rain to Bihar.',trap:''},
+{id:90,topic:'Climate',tag:'EXPECTED',q:'Which agro-climatic zone of Bihar is characterised by sandy loam and clay loam soil?',opts:['Zone I','Zone II','Zone IIIA','Zone IIIB'],ans:1,exp:'Zone II of Bihar (central plains) is characterised by sandy loam and clay loam soil — the most agriculturally productive zone.',trap:''},
+
+// ── TOPIC: Natural Vegetation & Wildlife (W) ───────────────
+{id:91,topic:'Wildlife',tag:'PYQ',src:'66th BPSC',q:'What is the percentage of all types of forest area to the total geographical area of Bihar State?',opts:['7.27%','6.87%','3.21%','12.77%'],ans:0,exp:'Forest area in Bihar = 7.27% of total geographic area (about 6,845 sq. km). This is among the lowest forest cover states in India.',trap:'12.77% is the national average forest cover — much higher than Bihar\'s 7.27%. Don\'t confuse state with national figure.'},
+{id:92,topic:'Wildlife',tag:'PYQ',src:'66th BPSC',q:'Which district of Bihar has the ONLY National Park in the state?',opts:['Nalanda','Bhagalpur','West Champaran','East Champaran'],ans:2,exp:'Valmiki National Park is the only national park in Bihar, located in West Champaran district. It is also a tiger reserve.',trap:'East Champaran also borders Nepal and confuses students. The NP is specifically in WEST Champaran.'},
+{id:93,topic:'Wildlife',tag:'PYQ',src:'65th BPSC',q:'Which one of the following Wildlife Sanctuaries is situated in MUNGER district of Bihar?',opts:['Valmiki','Rajgir','Bhimbandh','Gautam Buddha'],ans:2,exp:'Bhimbandh Wildlife Sanctuary is in Munger district, famous for hot springs and resident birds.',trap:'Valmiki = W.Champaran; Rajgir = Nalanda; Gautam Buddha = Gaya. Bhimbandh is the Munger sanctuary.'},
+{id:94,topic:'Wildlife',tag:'PYQ',src:'69th BPSC',q:'Which of the following National Parks/Wildlife Sanctuaries are in Bihar?\n1. Valmiki National Park\n2. Dudhwa National Park\n3. Gajner Wildlife Sanctuary\n4. Bhimbandh Wildlife Sanctuary',opts:['1 and 4','2 and 3','1 and 3','2 and 4'],ans:0,exp:'Valmiki NP (West Champaran) and Bhimbandh WLS (Munger) are in Bihar. Dudhwa is in Uttar Pradesh and Gajner is in Rajasthan.',trap:'Dudhwa NP (UP) and Gajner WLS (Rajasthan) are NOT in Bihar — elimination question testing geography of other states.'},
+{id:95,topic:'Wildlife',tag:'CROWN',src:'Crown 3.4',q:'Which Wildlife Sanctuary in Bihar has HOT SPRINGS?',opts:['Bhimbandh','Vikramshila','Sanjay Gandhi','Kaimur'],ans:0,exp:'Bhimbandh Wildlife Sanctuary in Munger is famous for its natural hot springs (kunds) including Sita Kund.',trap:''},
+{id:96,topic:'Wildlife',tag:'CROWN',src:'Crown 3.4',q:'The LARGEST Wildlife Sanctuary in Bihar is:',opts:['Bhimbandh','Valmiki NP','Sanjay Gandhi Jaivik Udyan','Kaimur WLS'],ans:3,exp:'Kaimur Wildlife Sanctuary (Rohtas district) is the LARGEST wildlife sanctuary in Bihar by area.',trap:'Valmiki is the only National Park (category), but Kaimur is larger in area than Bhimbandh or other WLS.'},
+{id:97,topic:'Wildlife',tag:'CROWN',src:'Crown 3.4',q:'Find the WRONG match among Wildlife Sanctuary and District pairs:',opts:['Valmiki – West Champaran','Kaimur – Rohtas','Vikramshila – Begusarai','Bhimbandh – Munger'],ans:2,exp:'Vikramshila Gangetic Dolphin Sanctuary is in BHAGALPUR district, not Begusarai. This is a classic wrong-match question tested in Crown.',trap:'Vikramshila University was at a site now in Bhagalpur. Vikramshila Sanctuary = Bhagalpur, NOT Begusarai.'},
+{id:98,topic:'Wildlife',tag:'CROWN',src:'Crown 3.4',q:'In which Wildlife Sanctuary is the ANUPAM LAKE situated?',opts:['Vikramshila','Valmiki','Bhimbandh','Kaimur'],ans:3,exp:'Anupam Lake is located within the Kaimur Wildlife Sanctuary in Rohtas district.',trap:'Students link Anupam Lake to Vikramshila because of its dolphin research context, but the lake is in Kaimur WLS.'},
+{id:99,topic:'Wildlife',tag:'CROWN',src:'Crown 3.4',q:'The main/dominant vegetation type of Bihar is:',opts:['Deciduous','Tropical Evergreen','Mixed','Alpine'],ans:0,exp:'Deciduous forests (mostly dry deciduous) are the predominant vegetation type in Bihar. They are less dense and shorter than evergreen forests.',trap:''},
+{id:100,topic:'Wildlife',tag:'CROWN',src:'Crown 3.4',q:'Nagi Dam Bird Sanctuary and Nakti Dam Bird Sanctuary are located in which district of Bihar?',opts:['Begusarai','Siwan','Gaya','Jamui'],ans:3,exp:'Both Nagi Dam and Nakti Dam Bird Sanctuaries are in Jamui district — the same district famous for gold deposits.',trap:'Begusarai has Kanwar Lake (not these dams). Jamui has both Nagi and Nakti Dam sanctuaries.'},
+{id:101,topic:'Wildlife',tag:'CROWN',src:'Crown 3.4',q:'Kusheshwar Asthan Bird Sanctuary is located in which district?',opts:['Vaishali','West Champaran','Samastipur','Darbhanga'],ans:3,exp:'Kusheshwar Asthan Bird Sanctuary is in Darbhanga district — a major wetland for migratory birds.',trap:''},
+{id:102,topic:'Wildlife',tag:'CROWN',src:'Crown 3.4',q:'The district with the VERY DENSE FOREST (highest dense forest area) in Bihar is:',opts:['West Champaran','Siwan','Nawada','East Champaran'],ans:0,exp:'West Champaran has the highest area of very dense forest in Bihar — due to the Valmiki Tiger Reserve and extensive Sal forest coverage.',trap:'East Champaran also has forest but West Champaran has more dense forest.'},
+{id:103,topic:'Wildlife',tag:'CROWN',src:'Crown 3.4',q:'The Vikramshila Gangetic Dolphin Sanctuary is located in:',opts:['Jamui','Munger','Bhagalpur','Vaishali'],ans:2,exp:'Vikramshila Gangetic Dolphin Sanctuary stretches 160 km along the Ganga in Bhagalpur district, protecting the endangered Gangetic river dolphin.',trap:'Munger has Bhimbandh (hot springs), not Vikramshila. Vikramshila = Bhagalpur.'},
+{id:104,topic:'Wildlife',tag:'EXPECTED',q:'The Sanjay Gandhi Jaivik Udyan (Patna Zoo) was declared a protected forest in which year?',opts:['1991','1983','1984','1982'],ans:1,exp:'Sanjay Gandhi Jaivik Udyan in Patna was declared a protected forest in 1983.',trap:''},
+{id:105,topic:'Wildlife',tag:'EXPECTED',q:'The district with the LEAST forest cover in Bihar is:',opts:['Siwan','Sheikhpura','Gopalganj','Jehanabad'],ans:3,exp:'Jehanabad has the least forest cover among Bihar districts — it is a densely populated agricultural district in central South Bihar.',trap:'All four are low-forest districts. Jehanabad is at the very bottom.'},
+
+// ── TOPIC: Agriculture (A) ─────────────────────────────────
+{id:106,topic:'Agriculture',tag:'PYQ',src:'63rd BPSC',q:'The LARGEST jute-producing district of Bihar is:',opts:['Siwan','Gaya','Vaishali','Purnia'],ans:3,exp:'Purnia in NE Bihar is the largest jute-producing district. The moist climate of NE Bihar is suitable for jute cultivation.',trap:'Siwan and Vaishali are major agricultural districts but for different crops. Purnia = jute king.'},
+{id:107,topic:'Agriculture',tag:'PYQ',src:'64th BPSC',q:'What is the rank of Bihar in terms of PRODUCTION OF JUTE among Indian States?',opts:['First','Second','Third','Fourth'],ans:1,exp:'Bihar is the 2nd largest producer of jute in India, after West Bengal.',trap:'West Bengal leads jute production; Bihar is 2nd not 1st. Students often assume Bihar is 1st.'},
+{id:108,topic:'Agriculture',tag:'PYQ',src:'68th BPSC',q:'In Bihar, tea gardens were established for the FIRST TIME in which place?',opts:['Thakurganj','Bahadurganj','Supaul','More than one of the above'],ans:0,exp:'Tea gardens were first established at Thakurganj in Kishanganj district — the only tea-growing area of Bihar.',trap:'Bahadurganj is close to Thakurganj in the same region, making it an obvious decoy.'},
+{id:109,topic:'Agriculture',tag:'PYQ',src:'70th BPSC',q:'What is the CONTRIBUTION OF AGRICULTURE to the Gross Domestic Product of Bihar?',opts:['19%','17%','33%','26%'],ans:3,exp:'Agriculture contributes approximately 26% to Bihar\'s GSDP (2017-18 data from 70th BPSC).',trap:'33% is the share of agriculture in employment/workforce, not GDP. GDP share is 26%.'},
+{id:110,topic:'Agriculture',tag:'EXPECTED',q:'The Shahabad plain is most suitable for the cultivation of:',opts:['Jute','Rice','Wheat','Maize'],ans:1,exp:'Shahabad plain (Bhojpur, Buxar) has clay-loam soil and is best suited for rice cultivation.',trap:''},
+{id:111,topic:'Agriculture',tag:'EXPECTED',q:'Which of the following areas is called the "Rice Bowl of Bihar"?',opts:['Patna district','Banka district','Gaya-Nalanda belt','North Bihar plains'],ans:1,exp:'Banka district (SE Bihar) is called the Rice Bowl of Bihar — its largely agrarian economy is paddy-dominated.',trap:''},
+{id:112,topic:'Agriculture',tag:'EXPECTED',q:'Tal lands and Diara plains are characteristic features of which Agro-Climatic Zone in Bihar?',opts:['Zone III','Zone I','Zone II','None of these'],ans:0,exp:'Tal lands (low-lying seasonal wetlands) and Diara plains (riverine islands) are characteristic of Zone III in South Bihar.',trap:''},
+{id:113,topic:'Agriculture',tag:'PYQ',src:'60–62nd BPSC',q:'Which of the following is a silk textile producing centre in Bihar?',opts:['Motipur','Bajari','Bhagalpur','Dalmianagar'],ans:2,exp:'Bhagalpur is famous for Tassar/Tussah silk and is known as the "Silk City" of Bihar.',trap:'Dalmianagar is a cement town. Motipur is a sugar town. Bhagalpur = silk.'},
+{id:114,topic:'Agriculture',tag:'EXPECTED',q:'Consider the following about Bihar\'s agriculture:\n1. Paddy, wheat, and maize are the three major food crops.\n2. Bihar is the second-largest jute producer in India.\n3. Tea is grown only in the Kishanganj area.\nWhich are correct?',opts:['1 only','1 and 2 only','2 and 3 only','1, 2 and 3'],ans:3,exp:'All three statements are correct — paddy-wheat-maize are the top crops; Bihar = 2nd in jute; tea = only in Kishanganj (Thakurganj area).',trap:''},
+{id:115,topic:'Agriculture',tag:'EXPECTED',q:'What is the road length per lakh population in Bihar compared to Indian states?',opts:['Highest in India','Second highest','Lowest in India','Second lowest'],ans:2,exp:'Bihar has the LOWEST road length per lakh population among all Indian states (63rd BPSC Q30). This indicates severe infrastructure deficit.',trap:''},
+
+// ── TOPIC: Minerals & Resources (M) ───────────────────────
+{id:116,topic:'Minerals & Resources',tag:'PYQ',src:'69th BPSC',q:'Gold is found in which of the following districts of Bihar?',opts:['Munger','Saran','Siwan','Jamui'],ans:3,exp:'Jamui district in SE Bihar has the largest gold deposits. Gold has been asked in 67th, 68th, 69th, and 71st BPSC.',trap:'Munger has mica and schist rocks but NOT gold. Jamui is the gold district.'},
+{id:117,topic:'Minerals & Resources',tag:'CROWN',src:'Crown 3.6',q:'Amjhor (in Rohtas district) is famous for which mineral?',opts:['Coal','Pyrite','Mica','Gold'],ans:1,exp:'Amjhor in Rohtas district is famous for pyrite deposits. The Pyrite Phosphate and Chemicals Ltd. is also located at Amjhor.',trap:''},
+{id:118,topic:'Minerals & Resources',tag:'CROWN',src:'Crown 3.6',q:'Uranium is found in which district of Bihar?',opts:['Gaya','Rohtas','Munger','Banka'],ans:0,exp:'Uranium deposits have been identified in Gaya district, making it significant for nuclear resource mapping.',trap:'Rohtas has pyrites, Munger has mica. Gaya specifically has uranium.'},
+{id:119,topic:'Minerals & Resources',tag:'CROWN',src:'Crown 3.6',q:'Which of the following mineral-district pairs is WRONGLY matched?',opts:['Monazite – Gaya and Munger','Mica – Jamui','Pyrite – Rohtas','Beryllium – Bhagalpur'],ans:3,exp:'Beryllium is not found in Bhagalpur. The other three are correctly matched. This makes option D the wrong pair.',trap:''},
+{id:120,topic:'Minerals & Resources',tag:'CROWN',src:'Crown 3.6',q:'The deposits of MANGANESE are found in which district(s) of Bihar?',opts:['Rohtas','Kaimur','Darbhanga','Patna and Gaya'],ans:3,exp:'Manganese deposits are found in the Patna and Gaya area of Bihar.',trap:'Rohtas is famous for pyrites and limestone, not manganese.'},
+{id:121,topic:'Minerals & Resources',tag:'CROWN',src:'Crown 3.6',q:'QUARTZ deposits in Bihar are found in which district?',opts:['Quartz – Rohtas','Bauxite – Bhagalpur','Asbestos – Nawada','Mica – Rohtas'],ans:0,exp:'Quartz is found in Rohtas district. Among the four pairs, only Quartz-Rohtas is correctly matched.',trap:'Mica is found in Munger/Jamui (Dharwar rocks), NOT in Rohtas.'},
+{id:122,topic:'Minerals & Resources',tag:'PYQ',src:'70th BPSC',q:'Match List I (District) with List II (Industry/Resource):\na. Vaishali  b. Bhagalpur  c. Jamui  d. Madhepura\n1. Silk Textile  2. Gold  3. Rail Coach Factory  4. Floriculture',opts:['a-2, b-3, c-4, d-1','a-3, b-4, c-1, d-2','a-4, b-1, c-2, d-3','a-1, b-2, c-3, d-4'],ans:2,exp:'Vaishali=Floriculture(4), Bhagalpur=Silk(1), Jamui=Gold(2), Madhepura=Rail Coach Factory(3). Answer: a-4, b-1, c-2, d-3.',trap:'Madhepura-Rail Coach is less commonly known — the Mithila Coach Factory is there. Vaishali-Floriculture is also a non-obvious pairing.'},
+{id:123,topic:'Minerals & Resources',tag:'EXPECTED',q:'The Indian Oil Corporation\'s oil refinery at BARAUNI is located in which district?',opts:['Patna','Begusarai','Bhagalpur','Muzaffarpur'],ans:1,exp:'The Barauni Refinery (Indian Oil Corporation) is located in Begusarai district — an important industrial and energy hub of Bihar.',trap:''},
+{id:124,topic:'Minerals & Resources',tag:'EXPECTED',q:'Consider these mineral-location statements about Bihar:\n1. Amjhor = pyrite (Rohtas)\n2. Uranium = Gaya\n3. Granite = found in Munger\n4. Gold = Jamui\nWhich are ALL correct?',opts:['1, 2 and 4 only','1, 3 and 4 only','2, 3 and 4 only','All four are correct'],ans:3,exp:'All four statements are correct: Amjhor/Rohtas=pyrite; Gaya=uranium; Munger=granite; Jamui=gold.',trap:''},
+{id:125,topic:'Minerals & Resources',tag:'EXPECTED',q:'Bihar\'s Jamui district is uniquely significant for having which combination?',opts:['Gold reserves + Two bird sanctuaries','Coal + Mica deposits','Uranium + Silk industry','Limestone + Jute production'],ans:0,exp:'Jamui is remarkable for having Bihar\'s largest gold deposits AND two bird sanctuaries (Nagi Dam and Nakti Dam Bird Sanctuaries).',trap:''},
+
+// ── Additional PYQ-based questions ─────────────────────────
+{id:126,topic:'Position & Extent',tag:'PYQ',src:'65th BPSC',q:'The district of Bihar which has recorded the HIGHEST sex ratio (females per 1000 males) as per Census 2011 is:',opts:['Siwan','Gopalganj','Saran','Kishanganj'],ans:1,exp:'Gopalganj has the highest sex ratio (1,015 females per 1000 males) in Bihar as per Census 2011.',trap:'Siwan and Saran are neighbouring districts to Gopalganj — close decoys. Gopalganj tops sex ratio.'},
+{id:127,topic:'Position & Extent',tag:'PYQ',src:'65th BPSC',q:'As per Census 2011, the child sex ratio (0-6 years) in Bihar was:',opts:['935','934','933','932'],ans:0,exp:'Bihar\'s child sex ratio is 935 girls per 1000 boys (0-6 age group). This is higher than the overall sex ratio of 918.',trap:''},
+{id:128,topic:'Position & Extent',tag:'PYQ',src:'64th BPSC',q:'Among all Indian States, Bihar\'s rank in terms of LOWEST literacy rate (Census 2011) is:',opts:['First','Second','Third','Fourth'],ans:0,exp:'Bihar has the LOWEST literacy rate (61.80% overall, female 51.50%) among all Indian states as per Census 2011.',trap:'Students expect Bihar to be 2nd or 3rd. It is 1st (lowest) — one of the most direct PYQs from 64th BPSC.'},
+{id:129,topic:'Position & Extent',tag:'PYQ',src:'67th BPSC',q:'What is the FEMALE LITERACY RATE of Bihar as per Census 2011?',opts:['50.50%','51.50%','61.80%','71.25%'],ans:1,exp:'Female literacy in Bihar = 51.50% (Census 2011). The overall literacy is 61.80%, male is ~71.20%. Bihar has lowest female literacy among states.',trap:'61.80% is the OVERALL literacy, not female literacy. Female = 51.50%.'},
+{id:130,topic:'Position & Extent',tag:'PYQ',src:'60–62nd BPSC',q:'Which district of Bihar is the POOREST by per capita income criteria?',opts:['Begusarai','Madhepura','Supaul','Sheohar'],ans:3,exp:'Sheohar is considered the poorest district in Bihar by per capita income — it is also the smallest district by area and has highest population density.',trap:''},
+{id:131,topic:'Rivers & Drainage',tag:'EXPECTED',q:'The Punpun river in Bihar is a tributary of:',opts:['Son river','Ganga (south bank)','Phalgu river','Kamla river'],ans:1,exp:'Punpun is a south-bank tributary of the Ganga, joining it near Fatuha in Patna district.',trap:''},
+{id:132,topic:'Geology',tag:'EXPECTED',q:'Granite is NOT found in which of the following districts of Bihar?',opts:['Bhagalpur','Munger','Gaya','Jamui'],ans:3,exp:'Granite is found in Bhagalpur, Munger, and Gaya districts. Jamui\'s mineral fame is gold, not granite.',trap:'Actually Crown Q7 states granite is not in Munger — check: Munger is famous for mica. The granite district set requires care.'},
+{id:133,topic:'Physiography',tag:'EXPECTED',q:'The highest peak of Ramnagar Dun (one sub-unit of Shiwalik in Bihar) is located near:',opts:['Someshwar Fort','Santpur','Gridhkut','Barabar hills'],ans:1,exp:'The highest point of Ramnagar Dun is near Santpur at approximately 240 m. This is different from the highest point of Bihar (Someshwar Fort = 874 m).',trap:'Someshwar Fort (874m) is the highest point of Bihar overall, but Santpur is the highest within Ramnagar Dun specifically.'},
+{id:134,topic:'Wildlife',tag:'EXPECTED',q:'Assertion (A): Vikramshila Gangetic Dolphin Sanctuary is located in Bhagalpur.\nReason (R): The Gangetic dolphin inhabits the stretch of Ganga flowing through Bhagalpur.\nWhich is correct?',opts:['Both A and R are true and R is the correct explanation of A','Both A and R are true but R is NOT the correct explanation','A is true but R is false','A is false but R is true'],ans:0,exp:'Both statements are true and R correctly explains A. The 160 km stretch of Ganga in Bhagalpur is suitable habitat, hence the sanctuary is there.',trap:''},
+{id:135,topic:'Climate',tag:'EXPECTED',q:'Assertion (A): Bihar receives more rainfall in the east than in the west.\nReason (R): South-West monsoon loses moisture as it travels westward from the Bay of Bengal branch.\nWhich is correct?',opts:['Both A and R are true and R is the correct explanation of A','Both A and R are true but R is NOT the correct explanation','A is true but R is false','A is false but R is true'],ans:0,exp:'Both are true. The Bay of Bengal branch of SW monsoon enters Bihar from the east — it is strongest in NE Bihar (Kishanganj) and weakens westward.',trap:''},
+{id:136,topic:'Soils',tag:'EXPECTED',q:'Which soil type is formed from the DISINTEGRATION of igneous and metamorphic rocks?',opts:['Red and Yellow soils','Balthar soil','Tal soil','Red Sandy soil'],ans:0,exp:'Red and Yellow soils (found in South Bihar near Jharkhand border) are formed by the weathering/disintegration of igneous and metamorphic rocks.',trap:''},
+{id:137,topic:'Rivers & Drainage',tag:'EXPECTED',q:'Which river enters Bihar at Buxar (Bhojpur district)?',opts:['Son','Ganga','Gandak','Ghaghra'],ans:1,exp:'The Ganga enters Bihar from Uttar Pradesh at Buxar (Bhojpur district). It then flows east through Bihar.',trap:''},
+{id:138,topic:'Minerals & Resources',tag:'EXPECTED',q:'The Pyrite Phosphate and Chemicals Ltd. factory is located at:',opts:['Bihta','Amjhor','Jamui','Nawada'],ans:1,exp:'The Pyrite Phosphate and Chemicals Ltd. is located at Amjhor in Rohtas district — adjacent to the pyrite deposits that feed the plant.',trap:''},
+{id:139,topic:'Agriculture',tag:'PYQ',src:'67th BPSC',q:'Which district of Bihar is known as \'Silk City\'?',opts:['Banka','Katihar','Bhagalpur','Bhojpur'],ans:2,exp:'Bhagalpur is called the "Silk City" of Bihar — famous for Tassar silk weaving. It has a dedicated silk industry cluster.',trap:'Banka borders Bhagalpur and also has some silk activity, making it a close decoy. Bhagalpur is the Silk City.'},
+{id:140,topic:'Wildlife',tag:'EXPECTED',q:'Which Wildlife Sanctuary in Bihar is famous for RESIDENT BIRDS?',opts:['Kaimur','Valmiki NP','Bhimbandh','Rajgir'],ans:2,exp:'Bhimbandh Wildlife Sanctuary in Munger is specifically noted for its resident bird population, in addition to its hot springs.',trap:''},
+{id:141,topic:'Position & Extent',tag:'EXPECTED',q:'Bihar\'s population of 104 million in 2011 constituted approximately what percentage of India\'s population?',opts:['6.2%','7.4%','8.6%','10.2%'],ans:2,exp:'Bihar\'s population = 10.4 crore = 8.6% of India\'s total population (121 crore in 2011).',trap:''},
+{id:142,topic:'Geology',tag:'EXPECTED',q:'Consider these correct statements about Bihar\'s geological formation:\n1. The Bihar plain was formed by filling of a vast trough by detritus from newly uplifted Himalayas.\n2. The Chotanagpur plateau rocks in southern Bihar are of Tertiary age.\n3. Quaternary rocks form the alluvial plains of Bihar.\nWhich are correct?',opts:['1 only','1 and 3 only','2 and 3 only','1, 2 and 3'],ans:1,exp:'Statements 1 and 3 are correct. The Chotanagpur rocks are Pre-Cambrian (NOT Tertiary) — making statement 2 wrong.',trap:'Statement 2 is the trap — Chotanagpur = Pre-Cambrian ancient rocks, NOT Tertiary.'},
+{id:143,topic:'Physiography',tag:'EXPECTED',q:'The Central South Bihar Plain is approximately how large in area?',opts:['7,000 sq. km','12,000 sq. km','17,000 sq. km','25,000 sq. km'],ans:2,exp:'The Central South Bihar Plain (including Gaya, Aurangabad, Jehanabad, Patna, Nalanda, Nawada) is approximately 17,000 sq. km in area.',trap:''},
+{id:144,topic:'Rivers & Drainage',tag:'EXPECTED',q:'The river Sone originates from:',opts:['Nepal Himalayas','Vindhya mountains (Amarkantak)','Satpura range','Chotanagpur plateau'],ans:1,exp:'The Son river originates from Amarkantak in the Vindhya mountain range (MP/Chhattisgarh border) and is the largest south-bank tributary of Ganga in Bihar.',trap:''},
+{id:145,topic:'Climate',tag:'EXPECTED',q:'Bihar\'s minimum temperature is typically recorded in which district?',opts:['Sitamarhi','Gaya','Patna','West Champaran'],ans:1,exp:'Gaya records both the highest summer temperature AND the lowest winter temperature in Bihar — it has the most extreme continental-type temperature variation.',trap:''},
+{id:146,topic:'Agriculture',tag:'EXPECTED',q:'Which of the following crops is PRIMARILY grown on red and yellow soils in Bihar?',opts:['Pulses','Sugarcane','Rice','Wheat'],ans:0,exp:'Red and yellow soils in South Bihar (near Jharkhand border) are suitable for pulses cultivation due to their well-drained, moderate fertility.',trap:''},
+{id:147,topic:'Minerals & Resources',tag:'EXPECTED',q:'Bihar\'s BARAUNI Refinery processes petroleum products. It is owned by:',opts:['Bharat Petroleum','Hindustan Petroleum','Indian Oil Corporation','ONGC'],ans:2,exp:'The Barauni Refinery (Begusarai) is owned by Indian Oil Corporation (IOC) — one of Bihar\'s largest industrial installations.',trap:''},
+{id:148,topic:'Wildlife',tag:'EXPECTED',q:'Which government scheme aims to increase green/forest cover in Bihar?',opts:['Haryali Mission','Vanmahotsav Scheme','Har Parisar Hara Parisar','Plant Bihar Mission'],ans:2,exp:'"Har Parisar Hara Parisar" is a Bihar government scheme to encourage plantation in educational institutions.',trap:'Haryali Mission is a national scheme; Har Parisar Hara Parisar is Bihar-specific.'},
+{id:149,topic:'Physiography',tag:'EXPECTED',q:'Which of the following describes the TERAI region in Bihar?',opts:['Rocky upland with no vegetation','Sandy desert near Nepal border','5-7 km wide marshy belt along Nepal border with Sal forests','High altitude zone above 1000m'],ans:2,exp:'The Terai is a 5-7 km wide marshy belt along Bihar\'s Nepal border in districts like West Champaran, Sitamarhi, Araria, and Kishanganj. It has Sal forests and tall reedy grasses.',trap:''},
+{id:150,topic:'Soils',tag:'EXPECTED',q:'BHANGAR soil differs from KHADAR soil in that Bhangar is:',opts:['More fertile than Khadar','Older, higher elevation, away from rivers','Located near active river banks','Found only in North Bihar'],ans:1,exp:'Bhangar = Old alluvium, higher elevation terraces away from active channels. Khadar = new alluvium near active rivers, more fertile and regularly replenished.',trap:'Khadar is actually more fertile (freshly deposited nutrients). Bhangar is older and less fertile.'},
+{id:151,topic:'Rivers & Drainage',tag:'EXPECTED',q:'How many times has the Kosi River shifted course westward over the last ~200 years?',opts:['About 20 km','About 40 km','About 70 km','About 120 km'],ans:2,exp:'The Kosi has shifted approximately 70 km westward over the past 200 years — one of the most dramatic river course changes in the world, causing successive cycles of flooding.',trap:''},
+{id:152,topic:'Geology',tag:'EXPECTED',q:'Which of the following is CORRECTLY matched? (Rock type — Location in Bihar)',opts:['Dharwar rocks — SW Bihar','Vindhyan rocks — SE Bihar','Tertiary rocks — Terai region','Quaternary rocks — Southern hills'],ans:2,exp:'Tertiary rocks are found in the Himalayan Terai region of Bihar. Dharwar = SE Bihar; Vindhyan = SW Bihar; Quaternary = plains.',trap:''},
+{id:153,topic:'Climate',tag:'EXPECTED',q:'The HIGHEST HUMIDITY in Bihar is typically found in:',opts:['Western Bihar (Bhojpur, Buxar)','Northern Bihar (Champaran)','Eastern Bihar (Purnia, Kishanganj)','Central Bihar (Patna)'],ans:2,exp:'Eastern Bihar has higher humidity due to its proximity to the Bay of Bengal moisture source and influence of NE Indian rainfall patterns.',trap:''},
+{id:154,topic:'Wildlife',tag:'EXPECTED',q:'The tropical seasonal swamp forests (canebrakes) in Bihar are predominantly found in:',opts:['Gopalganj','East Champaran','Sitamarhi','West Champaran'],ans:3,exp:'Tropical seasonal swamp forests (canebrakes) are predominantly in West Champaran, especially in the Valmiki NP area near Nepal border.',trap:''},
+{id:155,topic:'Agriculture',tag:'EXPECTED',q:'The district of Motipur (Muzaffarpur) is known for which agricultural product?',opts:['Jute','Sugar (Sugar mill)','Silk','Tea'],ans:1,exp:'Motipur in Muzaffarpur district is famous for its sugar mill — an important agro-industrial centre in North Bihar.',trap:'Crown MCQ options included Motipur but it was NOT the silk answer — Bhagalpur is silk.'},
+{id:156,topic:'Minerals & Resources',tag:'EXPECTED',q:'MICA deposits in Bihar are specifically associated with which rock type and region?',opts:['Vindhyan rocks in SW Bihar','Tertiary rocks in Terai','Dharwar rocks in SE Bihar (Munger, Jamui, Nawada)','Quaternary alluvium in plains'],ans:2,exp:'Mica is found in Dharwar (metamorphic) rocks in SE Bihar — Munger, Jamui, and Nawada districts.',trap:''},
+{id:157,topic:'Physiography',tag:'EXPECTED',q:'The Bhikhna Thori Pass in Bihar was formed by the flow of which river?',opts:['Turipani river','Kudi river','Harha river','Bagmati river'],ans:1,exp:'Bhikhna Thori Pass on the Someshwar Range was formed by the Kudi river. Someshwar Pass = Turipani; Marwat Pass = Harha river.',trap:'Three passes on Someshwar Range: Someshwar Pass (Turipani), Bhikhna Thori (Kudi), Marwat (Harha).'},
+{id:158,topic:'Rivers & Drainage',tag:'EXPECTED',q:'The Kanwar Lake (Kabartal Wetland) in Bihar was designated as a Ramsar site in which year?',opts:['2015','2018','2020','2022'],ans:2,exp:'Kanwar Lake (Begusarai) was designated as India\'s 39th Ramsar site in 2020. It is Asia\'s largest freshwater oxbow lake.',trap:''},
+{id:159,topic:'Geology',tag:'PYQ',src:'71st BPSC',q:'Gold is found in which district of Bihar?',opts:['Gaya District','Jamui District','Nalanda District','Bhagalpur District'],ans:1,exp:'Gold is found in Jamui district — this was asked in 71st BPSC as well, confirming it as a perennial question.',trap:''},
+{id:160,topic:'Climate',tag:'EXPECTED',q:'Consider these statements about Norwesters (Kalbaisakhis) in Bihar:\n1. They are pre-monsoon thunder-squalls in April-May.\n2. They provide critical moisture for early Kharif crops.\n3. They benefit mango and litchi orchards.\n4. They blow from the west like the Loo wind.\nWhich are CORRECT?',opts:['1 and 4 only','1, 2 and 3','1, 3 and 4','2, 3 and 4'],ans:1,exp:'Statements 1, 2, and 3 are correct. Statement 4 is WRONG — Norwesters blow from the NORTH-EAST (nor\'westers), not from the west like Loo.',trap:'The name "Norwester" itself suggests north-west origin wind but direction of movement is from NE — the name refers to the weather system not the wind direction.'},
+];
+
+// ════════════════════════════════════════════════════════════
+//  CONFIG & STATE
+// ════════════════════════════════════════════════════════════
+const TOPICS = [...new Set(QB.map(q=>q.topic))];
+let quizConfig = {mode:'full', topics:TOPICS.slice(), timerMins:120, negMark:false, shuffleQ:true, shuffleO:true};
+let quizState = {questions:[], answers:{}, reviews:{}, visited:{}, curIdx:0, timerSec:0, timerInterval:null, submitted:false, startTime:null};
+
+// Topic chip init
+const topicChipsEl = document.getElementById('topicChips');
+TOPICS.forEach(t => {
+  const chip = document.createElement('div');
+  chip.className = 'topic-chip active';
+  chip.textContent = t;
+  chip.dataset.topic = t;
+  chip.onclick = () => {
+    chip.classList.toggle('active');
+    quizConfig.topics = [...document.querySelectorAll('.topic-chip.active')].map(c=>c.dataset.topic);
+  };
+  topicChipsEl.appendChild(chip);
+});
+
+function selectMode(m) {
+  quizConfig.mode = m;
+  document.querySelectorAll('.config-card').forEach(c=>c.classList.remove('selected'));
+  document.getElementById('mode-'+m).classList.add('selected');
+}
+
+function toggleTheme() {
+  const d = document.documentElement;
+  const isDark = d.getAttribute('data-theme')==='dark';
+  d.setAttribute('data-theme', isDark?'':'dark');
+  document.querySelectorAll('.theme-toggle').forEach(b=>b.textContent=isDark?'🌙 Dark Mode':'☀️ Light Mode');
+}
+
+function showScreen(id) {
+  document.querySelectorAll('.screen').forEach(s=>{s.classList.remove('active');s.style.display='';});
+  const el = document.getElementById(id);
+  if(el){el.classList.add('active'); if(id==='quiz') el.style.display='flex'; else el.style.display='block';}
+  window.scrollTo(0,0);
+}
+
+// ════════════════════════════════════════════════════════════
+//  SHUFFLE
+// ════════════════════════════════════════════════════════════
+function shuffle(arr) { return [...arr].sort(()=>Math.random()-0.5); }
+
+// ════════════════════════════════════════════════════════════
+//  START QUIZ
+// ════════════════════════════════════════════════════════════
+function startQuiz() {
+  quizConfig.negMark = document.getElementById('negToggle').checked;
+  quizConfig.shuffleQ = document.getElementById('shuffleQ').checked;
+  quizConfig.shuffleO = document.getElementById('shuffleO').checked;
+
+  let pool = QB.filter(q => quizConfig.topics.includes(q.topic));
+  if(quizConfig.mode==='pyq') pool = pool.filter(q=>q.tag==='PYQ');
+  else if(quizConfig.mode==='quick') pool = pool.slice(0,40);
+  if(quizConfig.shuffleQ) pool = shuffle(pool);
+
+  // Build questions with possibly shuffled options
+  quizState.questions = pool.map(q => {
+    if(!quizConfig.shuffleO) return {...q, _opts:q.opts, _ansIdx:q.ans};
+    const idxMap = q.opts.map((_,i)=>i);
+    const shuffled = shuffle(idxMap);
+    const newAns = shuffled.indexOf(q.ans);
+    return {...q, _opts: shuffled.map(i=>q.opts[i]), _ansIdx: newAns};
+  });
+
+  quizState.answers = {};
+  quizState.reviews = {};
+  quizState.visited = {};
+  quizState.curIdx = 0;
+  quizState.submitted = false;
+  quizState.startTime = Date.now();
+  quizState.timerSec = quizConfig.timerMins * 60;
+
+  if(quizState.timerInterval) clearInterval(quizState.timerInterval);
+  quizState.timerInterval = setInterval(tickTimer, 1000);
+
+  buildPalette();
+  renderQuestion();
+  showScreen('quiz');
+}
+
+// ════════════════════════════════════════════════════════════
+//  TIMER
+// ════════════════════════════════════════════════════════════
+function tickTimer() {
+  quizState.timerSec--;
+  const el = document.getElementById('timerDisplay');
+  if(quizState.timerSec <= 0) {
+    clearInterval(quizState.timerInterval);
+    submitQuiz();
+    return;
+  }
+  const h = Math.floor(quizState.timerSec/3600);
+  const m = Math.floor((quizState.timerSec%3600)/60);
+  const s = quizState.timerSec%60;
+  el.textContent = (h>0?h+':':'') + String(m).padStart(2,'0') + ':' + String(s).padStart(2,'0');
+  if(quizState.timerSec<300) {el.classList.add('danger');el.classList.remove('warn');}
+  else if(quizState.timerSec<600) {el.classList.add('warn');el.classList.remove('danger');}
+}
+
+// ════════════════════════════════════════════════════════════
+//  RENDER QUESTION
+// ════════════════════════════════════════════════════════════
+function renderQuestion() {
+  const idx = quizState.curIdx;
+  const total = quizState.questions.length;
+  const q = quizState.questions[idx];
+  if(!q) return;
+
+  quizState.visited[idx] = true;
+
+  document.getElementById('qCountDisplay').textContent = `Q ${idx+1}/${total}`;
+  document.getElementById('quizProgress').style.width = ((idx+1)/total*100)+'%';
+
+  const opts = q._opts || q.opts;
+  const userAns = quizState.answers[idx];
+  const isReview = quizState.reviews[idx];
+  const letters = ['A','B','C','D','E'];
+
+  let html = `
+  <div class="q-meta">
+    <span class="q-num">Question ${idx+1} of ${total}</span>
+    <span class="q-topic-badge">${q.topic}</span>
+    <span class="badge badge-${q.tag.toLowerCase()}">${q.tag}${q.src?' · '+q.src:''}</span>
+  </div>
+  <div class="q-text">${q.q.replace(/\n/g,'<br>')}</div>
+  <div class="options-list">`;
+
+  opts.forEach((opt,i) => {
+    let cls = '';
+    if(userAns===i) cls = 'selected';
+    html += `<div class="option ${cls}" onclick="selectAnswer(${i})">
+      <span class="option-letter">${letters[i]}</span>
+      <span class="option-text">${opt}</span>
+    </div>`;
+  });
+
+  html += `</div>
+  <div class="q-controls">
+    <button class="review-btn ${isReview?'active':''}" onclick="toggleReview()">
+      ${isReview?'★ Marked for Review':'☆ Mark for Review'}
+    </button>
+    <button class="btn btn-ghost btn-sm" onclick="clearAnswer()">Clear</button>
+  </div>
+  <div class="q-nav-bottom">
+    <button class="btn btn-ghost" onclick="prevQ()" ${idx===0?'disabled':''}>← Previous</button>
+    <button class="btn btn-primary" onclick="nextQ()">${idx===total-1?'Review & Submit →':'Next →'}</button>
+  </div>`;
+
+  document.getElementById('questionCard').innerHTML = html;
+  updatePalette();
+}
+
+function selectAnswer(i) {
+  const idx = quizState.curIdx;
+  quizState.answers[idx] = i;
+  renderQuestion();
+}
+
+function clearAnswer() {
+  delete quizState.answers[quizState.curIdx];
+  renderQuestion();
+}
+
+function toggleReview() {
+  const idx = quizState.curIdx;
+  quizState.reviews[idx] = !quizState.reviews[idx];
+  renderQuestion();
+}
+
+function prevQ() { if(quizState.curIdx>0){quizState.curIdx--;renderQuestion();} }
+function nextQ() {
+  const idx = quizState.curIdx;
+  const total = quizState.questions.length;
+  if(idx < total-1){quizState.curIdx++;renderQuestion();}
+  else confirmSubmit();
+}
+
+function goToQ(i) {
+  quizState.curIdx = i;
+  renderQuestion();
+  const sidebar = document.getElementById('paletteSidebar');
+  if(sidebar.classList.contains('show')) sidebar.classList.remove('show');
+}
+
+// ════════════════════════════════════════════════════════════
+//  PALETTE
+// ════════════════════════════════════════════════════════════
+function buildPalette() {
+  const grid = document.getElementById('paletteGrid');
+  grid.innerHTML = '';
+  quizState.questions.forEach((q,i) => {
+    const btn = document.createElement('button');
+    btn.className = 'palette-btn';
+    btn.textContent = i+1;
+    btn.onclick = () => goToQ(i);
+    btn.id = `pal-${i}`;
+    grid.appendChild(btn);
+  });
+}
+
+function updatePalette() {
+  const cur = quizState.curIdx;
+  quizState.questions.forEach((_,i) => {
+    const btn = document.getElementById(`pal-${i}`);
+    if(!btn) return;
+    btn.className = 'palette-btn';
+    if(quizState.reviews[i]) btn.classList.add('review');
+    else if(quizState.answers[i]!==undefined) btn.classList.add('answered');
+    else if(quizState.visited[i]) btn.classList.add('not-answered');
+    if(i===cur) btn.classList.add('current');
+  });
+
+  const ans = Object.keys(quizState.answers).length;
+  const rev = Object.keys(quizState.reviews).filter(k=>quizState.reviews[k]).length;
+  const vis = Object.keys(quizState.visited).length;
+  const tot = quizState.questions.length;
+  document.getElementById('paletteSummary').innerHTML =
+    `<div>Total: <span>${tot}</span> &nbsp; Answered: <span>${ans}</span></div>
+     <div>Not answered: <span>${vis-ans}</span> &nbsp; Review: <span>${rev}</span></div>
+     <div>Not visited: <span>${tot-vis}</span></div>`;
+}
+
+function togglePalette() {
+  document.getElementById('paletteSidebar').classList.toggle('show');
+}
+
+// ════════════════════════════════════════════════════════════
+//  SUBMIT
+// ════════════════════════════════════════════════════════════
+function confirmSubmit() {
+  const ans = Object.keys(quizState.answers).length;
+  const tot = quizState.questions.length;
+  const unanswered = tot - ans;
+  if(unanswered > 0 && !confirm(`You have ${unanswered} unanswered questions. Submit anyway?`)) return;
+  submitQuiz();
+}
+
+function submitQuiz() {
+  clearInterval(quizState.timerInterval);
+  quizState.submitted = true;
+  const elapsed = Math.round((Date.now() - quizState.startTime)/1000);
+  buildResults(elapsed);
+  showScreen('results');
+}
+
+// ════════════════════════════════════════════════════════════
+//  RESULTS
+// ════════════════════════════════════════════════════════════
+function buildResults(elapsed) {
+  const qs = quizState.questions;
+  const ans = quizState.answers;
+  let correct=0, wrong=0, skipped=0;
+  const topicStats = {};
+
+  TOPICS.forEach(t => { topicStats[t] = {total:0,correct:0,wrong:0,skipped:0}; });
+
+  qs.forEach((q,i) => {
+    const t = q.topic;
+    if(!topicStats[t]) topicStats[t]={total:0,correct:0,wrong:0,skipped:0};
+    topicStats[t].total++;
+    if(ans[i]===undefined) { skipped++; topicStats[t].skipped++; }
+    else if(ans[i]===q._ansIdx) { correct++; topicStats[t].correct++; }
+    else { wrong++; topicStats[t].wrong++; }
+  });
+
+  let score = correct - (quizConfig.negMark ? wrong*0.25 : 0);
+  const total = qs.length;
+  const attempted = correct+wrong;
+  const accuracy = attempted>0 ? Math.round(correct/attempted*100) : 0;
+  const h = Math.floor(elapsed/3600), m=Math.floor((elapsed%3600)/60), s=elapsed%60;
+  const timeStr = (h>0?h+'h ':'')+m+'m '+s+'s';
+
+  // Insights
+  const weakTopics = Object.entries(topicStats)
+    .filter(([_,s])=>s.total>0 && s.correct/s.total < 0.5)
+    .map(([t])=>t);
+  const strongTopics = Object.entries(topicStats)
+    .filter(([_,s])=>s.total>2 && s.correct/s.total >= 0.75)
+    .map(([t])=>t);
+
+  const scoreClass = score/total >= 0.7 ? '#16a34a' : score/total >= 0.5 ? '#d97706' : '#dc2626';
+
+  let html = `
+  <div class="results-hero">
+    <h1 style="font-family:'DM Serif Display',serif;font-size:28px;margin-bottom:8px">Test Complete! 🎉</h1>
+    <p style="opacity:0.8;margin-bottom:24px">Bihar Geography — BPSC Simulator</p>
+    <div style="display:flex;justify-content:center;gap:40px;flex-wrap:wrap">
+      <div style="text-align:center">
+        <div style="font-family:'DM Serif Display',serif;font-size:64px;color:#fff;line-height:1">${score.toFixed(1)}</div>
+        <div style="opacity:0.7;font-size:14px">out of ${total}</div>
+      </div>
+      <div style="text-align:center">
+        <div style="font-family:'DM Serif Display',serif;font-size:64px;color:#fff;line-height:1">${accuracy}%</div>
+        <div style="opacity:0.7;font-size:14px">Accuracy</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="results-stats">
+    <div class="r-stat correct-s"><span class="r-stat-num" style="color:var(--correct)">${correct}</span><div class="r-stat-label">✅ Correct</div></div>
+    <div class="r-stat wrong-s"><span class="r-stat-num" style="color:var(--wrong)">${wrong}</span><div class="r-stat-label">❌ Wrong</div></div>
+    <div class="r-stat skip-s"><span class="r-stat-num" style="color:var(--amber)">${skipped}</span><div class="r-stat-label">⏭ Skipped</div></div>
+    <div class="r-stat time-s"><span class="r-stat-num" style="color:var(--accent)">${timeStr}</span><div class="r-stat-label">⏱ Time Taken</div></div>
+  </div>
+
+  <div class="tabs" id="resultTabs">
+    <div class="tab active" onclick="switchResultTab('analytics')">📊 Analytics</div>
+    <div class="tab" onclick="switchResultTab('review')">📝 Question Review</div>
+    <div class="tab" onclick="switchResultTab('weak')">🔁 Revise Weak</div>
+    <div class="tab" onclick="switchResultTab('memory')">🧠 Memory Boost</div>
+    <div class="tab" onclick="switchResultTab('predictions2')">🔮 2026 Predictions</div>
+  </div>
+
+  <div id="tab-analytics" class="result-tab-content active">
+    <h3 class="section-title">📈 Topic-wise Performance</h3>
+    <div class="topic-grid" id="topicGrid"></div>
+    
+    <div class="card chart-container" style="margin-bottom:20px">
+      <h3 style="font-size:16px;margin-bottom:16px">Accuracy by Topic</h3>
+      <canvas id="topicChart" height="220"></canvas>
+    </div>
+
+    <div class="card chart-container">
+      <h3 style="font-size:16px;margin-bottom:16px">Attempt Breakdown</h3>
+      <canvas id="donutChart" width="300" height="300" style="max-width:300px;display:block;margin:0 auto"></canvas>
+    </div>
+
+    <h3 class="section-title" style="margin-top:24px">💡 Intelligent Insights</h3>
+    ${weakTopics.map(t=>`
+    <div class="insight-box insight-weak">
+      <strong>⚠️ Weak in ${t}</strong>
+      <p style="margin-top:4px;font-size:14px">High error rate in ${t} questions. Focus on key facts and PYQ patterns for this topic.</p>
+    </div>`).join('')}
+    ${strongTopics.map(t=>`
+    <div class="insight-box insight-strong">
+      <strong>✅ Strong in ${t}</strong>
+      <p style="margin-top:4px;font-size:14px">Good performance! Maintain by reviewing edge cases.</p>
+    </div>`).join('')}
+    ${score/total < 0.5 ? `<div class="insight-box insight-tip"><strong>📌 Strategy Tip</strong><p style="margin-top:4px;font-size:14px">Score below 50%. Focus on PYQ-tagged questions first — they have highest repeat probability in BPSC.</p></div>`:''}
+    ${accuracy < 60 && attempted > 10 ? `<div class="insight-box insight-tip"><strong>📌 Accuracy Issue</strong><p style="margin-top:4px;font-size:14px">Accuracy at ${accuracy}%. Be more selective — skip uncertain questions to avoid negative marking.</p></div>`:''}
+  </div>
+
+  <div id="tab-review" class="result-tab-content">
+    <div style="display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap">
+      <button class="btn btn-ghost btn-sm" onclick="filterReview('all')">All</button>
+      <button class="btn btn-ghost btn-sm" onclick="filterReview('wrong')">❌ Wrong Only</button>
+      <button class="btn btn-ghost btn-sm" onclick="filterReview('correct')">✅ Correct Only</button>
+      <button class="btn btn-ghost btn-sm" onclick="filterReview('skipped')">⏭ Skipped</button>
+    </div>
+    <div class="review-list" id="reviewList"></div>
+  </div>
+
+  <div id="tab-weak" class="result-tab-content">
+    <div class="card" style="padding:20px;margin-bottom:20px;text-align:center">
+      <h3 style="margin-bottom:8px">🔁 Revision Mode</h3>
+      <p style="color:var(--text2);font-size:14px;margin-bottom:16px">Practice only the questions you got wrong</p>
+      <button class="btn btn-primary" onclick="startWeakRevision()">Start Weak Revision (${wrong} questions)</button>
+    </div>
+    <div id="weakReviewList"></div>
+  </div>
+
+  <div id="tab-memory" class="result-tab-content">
+    ${buildMemoryHTML()}
+  </div>
+
+  <div id="tab-predictions2" class="result-tab-content">
+    ${buildPredictionsHTML()}
+  </div>
+
+  <div style="text-align:center;padding:20px;display:flex;justify-content:center;gap:12px;flex-wrap:wrap">
+    <button class="btn btn-primary btn-lg" onclick="restartQuiz()">🔁 New Test</button>
+    <button class="btn btn-ghost btn-lg" onclick="showScreen('landing')">🏠 Home</button>
+  </div>`;
+
+  document.getElementById('resultsContent').innerHTML = html;
+
+  // Populate topic grid
+  const tGrid = document.getElementById('topicGrid');
+  Object.entries(topicStats).forEach(([topic, st]) => {
+    if(st.total===0) return;
+    const pct = Math.round(st.correct/st.total*100);
+    const barColor = pct>=75?'var(--correct)':pct>=50?'var(--amber)':'var(--wrong)';
+    tGrid.innerHTML += `
+    <div class="topic-card-r card">
+      <div class="topic-name">${topic}<span style="color:${barColor}">${pct}%</span></div>
+      <div class="topic-bar-bg"><div class="topic-bar-fill" style="width:${pct}%;background:${barColor}"></div></div>
+      <div class="topic-nums">
+        <span style="color:var(--correct)">✅ ${st.correct}</span>
+        <span style="color:var(--wrong)">❌ ${st.wrong}</span>
+        <span style="color:var(--amber)">⏭ ${st.skipped}</span>
+        <span>/ ${st.total}</span>
+      </div>
+    </div>`;
+  });
+
+  // Draw charts
+  setTimeout(()=>{
+    drawTopicChart(topicStats);
+    drawDonutChart(correct, wrong, skipped);
+    buildReviewList('all');
+    buildWeakList();
+  }, 100);
+}
+
+function switchResultTab(id) {
+  document.querySelectorAll('#resultTabs .tab').forEach((t,i)=>{t.classList.remove('active');});
+  document.querySelectorAll('.result-tab-content').forEach(t=>t.classList.remove('active'));
+  event.target.classList.add('active');
+  document.getElementById('tab-'+id).classList.add('active');
+}
+
+function filterReview(type) {
+  buildReviewList(type);
+}
+
+function buildReviewList(filter) {
+  const container = document.getElementById('reviewList');
+  const qs = quizState.questions;
+  const ans = quizState.answers;
+  const letters = ['A','B','C','D'];
+  let html = '';
+
+  qs.forEach((q,i) => {
+    const userAns = ans[i];
+    const isCorrect = userAns===q._ansIdx;
+    const isSkipped = userAns===undefined;
+    if(filter==='wrong' && (isCorrect||isSkipped)) return;
+    if(filter==='correct' && (!isCorrect||isSkipped)) return;
+    if(filter==='skipped' && !isSkipped) return;
+
+    const statusCls = isSkipped?'r-skipped':isCorrect?'r-correct':'r-wrong';
+    const statusIcon = isSkipped?'⏭':isCorrect?'✅':'❌';
+    const opts = q._opts || q.opts;
+
+    html += `<div class="review-item card ${statusCls}">
+      <div class="q-meta" style="margin-bottom:8px">
+        <span class="q-num">Q${i+1}</span>
+        <span class="q-topic-badge">${q.topic}</span>
+        <span class="badge badge-${q.tag.toLowerCase()}">${q.tag}</span>
+        <span style="font-weight:600">${statusIcon}</span>
+      </div>
+      <div class="review-q">${q.q.replace(/\n/g,'<br>')}</div>
+      <div class="review-options">`;
+
+    opts.forEach((opt,j) => {
+      let cls = '';
+      if(j===q._ansIdx) cls='r-correct-opt';
+      else if(j===userAns && !isCorrect) cls='r-wrong-opt';
+      html += `<div class="review-opt ${cls}">
+        <span style="font-weight:700;min-width:20px">${letters[j]})</span>
+        <span>${opt}</span>
+        ${j===q._ansIdx?'<span style="margin-left:auto;font-size:11px;font-weight:700">✓ CORRECT</span>':''}
+        ${j===userAns&&!isCorrect?'<span style="margin-left:auto;font-size:11px;font-weight:700">✗ YOUR ANSWER</span>':''}
+      </div>`;
+    });
+
+    html += `</div>
+      <div class="explanation-box">
+        <strong>📖 Explanation:</strong> ${q.exp||'No explanation available.'}
+      </div>
+      ${q.trap?`<div class="trap-box"><strong>⚠️ Trap:</strong> ${q.trap}</div>`:''}
+    </div>`;
+  });
+
+  container.innerHTML = html || '<p style="color:var(--text2);padding:20px;text-align:center">No questions in this filter.</p>';
+}
+
+function buildWeakList() {
+  const container = document.getElementById('weakReviewList');
+  const qs = quizState.questions;
+  const ans = quizState.answers;
+  const letters = ['A','B','C','D'];
+  let html = '';
+
+  qs.forEach((q,i) => {
+    const userAns = ans[i];
+    const isCorrect = userAns===q._ansIdx;
+    const isSkipped = userAns===undefined;
+    if(isCorrect) return;
+    const opts = q._opts || q.opts;
+    html += `<div class="review-item card r-wrong">
+      <div class="review-q">${q.q.replace(/\n/g,'<br>')}</div>
+      <div class="review-options">`;
+    opts.forEach((opt,j) => {
+      let cls = j===q._ansIdx?'r-correct-opt':j===userAns?'r-wrong-opt':'';
+      html += `<div class="review-opt ${cls}"><span style="font-weight:700;min-width:20px">${letters[j]})</span><span>${opt}</span></div>`;
+    });
+    html += `</div><div class="explanation-box">${q.exp}</div>${q.trap?`<div class="trap-box"><strong>⚠️ Trap:</strong> ${q.trap}</div>`:''}</div>`;
+  });
+  container.innerHTML = html || '<p style="color:var(--correct);padding:20px;text-align:center">🎉 No wrong answers!</p>';
+}
+
+function startWeakRevision() {
+  const wrongQs = quizState.questions.filter((_,i) => {
+    const ua = quizState.answers[i];
+    return ua===undefined || ua!==quizState.questions[i]._ansIdx;
+  });
+  if(!wrongQs.length){alert('No wrong questions!');return;}
+  // Start a new focused quiz
+  const origQs = quizState.questions;
+  const origAns = quizState.answers;
+  quizState.questions = wrongQs;
+  quizState.answers = {};
+  quizState.reviews = {};
+  quizState.visited = {};
+  quizState.curIdx = 0;
+  quizState.submitted = false;
+  quizState.startTime = Date.now();
+  quizState.timerSec = wrongQs.length * 90;
+  if(quizState.timerInterval) clearInterval(quizState.timerInterval);
+  quizState.timerInterval = setInterval(tickTimer, 1000);
+  buildPalette();
+  renderQuestion();
+  showScreen('quiz');
+}
+
+// ════════════════════════════════════════════════════════════
+//  CHARTS (Canvas)
+// ════════════════════════════════════════════════════════════
+function drawTopicChart(topicStats) {
+  const canvas = document.getElementById('topicChart');
+  if(!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const entries = Object.entries(topicStats).filter(([_,s])=>s.total>0);
+  const labels = entries.map(([t])=>t.replace('&','&'));
+  const pcts = entries.map(([_,s])=>Math.round(s.correct/s.total*100));
+
+  const W = canvas.offsetWidth || 600;
+  canvas.width = W;
+  canvas.height = 220;
+  const H = 220;
+  const pad = {left:20,right:20,top:20,bottom:60};
+  const barW = Math.max(20, (W-pad.left-pad.right)/labels.length - 10);
+
+  ctx.clearRect(0,0,W,H);
+
+  // Background
+  const isDark = document.documentElement.getAttribute('data-theme')==='dark';
+  ctx.fillStyle = isDark?'#1c1a17':'#ffffff';
+  ctx.fillRect(0,0,W,H);
+
+  // Grid lines
+  const chartH = H - pad.top - pad.bottom;
+  ctx.strokeStyle = isDark?'#333028':'#e2ddd5';
+  ctx.lineWidth = 1;
+  for(let i=0;i<=4;i++) {
+    const y = pad.top + chartH*(1-i/4);
+    ctx.beginPath(); ctx.moveTo(pad.left,y); ctx.lineTo(W-pad.right,y); ctx.stroke();
+    ctx.fillStyle = isDark?'#6b6560':'#9e9890';
+    ctx.font = '11px DM Sans,sans-serif';
+    ctx.textAlign='right';
+    ctx.fillText((i*25)+'%', pad.left-4, y+4);
+  }
+
+  const totalW = W - pad.left - pad.right;
+  const spacing = totalW / labels.length;
+  labels.forEach((label,i) => {
+    const x = pad.left + i*spacing + spacing/2;
+    const pct = pcts[i];
+    const barH = (pct/100)*chartH;
+    const color = pct>=75?'#16a34a':pct>=50?'#d97706':'#dc2626';
+
+    // Bar
+    ctx.fillStyle = color;
+    const bx = x - barW/2;
+    const by = pad.top + chartH - barH;
+    ctx.beginPath();
+    ctx.roundRect(bx, by, barW, barH, [4,4,0,0]);
+    ctx.fill();
+
+    // Value label
+    ctx.fillStyle = isDark?'#f0ece4':'#1a1612';
+    ctx.font = 'bold 11px DM Sans,sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText(pct+'%', x, by-4);
+
+    // X label (rotated)
+    ctx.save();
+    ctx.translate(x, H-pad.bottom+12);
+    ctx.rotate(-0.5);
+    ctx.fillStyle = isDark?'#a09a90':'#5c5650';
+    ctx.font = '11px DM Sans,sans-serif';
+    ctx.textAlign = 'right';
+    ctx.fillText(label.length>12?label.slice(0,11)+'…':label, 0, 0);
+    ctx.restore();
+  });
+}
+
+function drawDonutChart(correct, wrong, skipped) {
+  const canvas = document.getElementById('donutChart');
+  if(!canvas) return;
+  const ctx = canvas.getContext('2d');
+  canvas.width = 300; canvas.height = 300;
+  const cx=150, cy=140, r=100, innerR=55;
+  const total = correct+wrong+skipped;
+  if(!total) return;
+
+  const isDark = document.documentElement.getAttribute('data-theme')==='dark';
+  ctx.fillStyle = isDark?'#1c1a17':'#ffffff';
+  ctx.fillRect(0,0,300,300);
+
+  const segments = [
+    {val:correct,color:'#16a34a',label:'Correct'},
+    {val:wrong,color:'#dc2626',label:'Wrong'},
+    {val:skipped,color:'#d97706',label:'Skipped'},
+  ].filter(s=>s.val>0);
+
+  let startAngle = -Math.PI/2;
+  segments.forEach(seg => {
+    const angle = (seg.val/total) * Math.PI*2;
+    ctx.beginPath();
+    ctx.moveTo(cx,cy);
+    ctx.arc(cx,cy,r,startAngle,startAngle+angle);
+    ctx.closePath();
+    ctx.fillStyle = seg.color;
+    ctx.fill();
+    startAngle += angle;
+  });
+
+  // Hole
+  ctx.beginPath();
+  ctx.arc(cx,cy,innerR,0,Math.PI*2);
+  ctx.fillStyle = isDark?'#1c1a17':'#ffffff';
+  ctx.fill();
+
+  // Center text
+  ctx.fillStyle = isDark?'#f0ece4':'#1a1612';
+  ctx.font = 'bold 22px DM Serif Display,serif';
+  ctx.textAlign='center';
+  ctx.fillText(Math.round(correct/total*100)+'%', cx, cy+8);
+
+  // Legend
+  ctx.font = '12px DM Sans,sans-serif';
+  segments.forEach((seg,i) => {
+    const lx = 20, ly = 255+i*20;
+    ctx.fillStyle = seg.color;
+    ctx.fillRect(lx,ly-10,14,14);
+    ctx.fillStyle = isDark?'#a09a90':'#5c5650';
+    ctx.textAlign='left';
+    ctx.fillText(`${seg.label}: ${seg.val}`, lx+20, ly+2);
+  });
+}
+
+// ════════════════════════════════════════════════════════════
+//  MEMORY BOOST
+// ════════════════════════════════════════════════════════════
+function buildMemoryHTML() {
+  return `
+  <h3 class="section-title">🧠 Memory Boost — Bihar Geography Fast Facts</h3>
+  <div class="memory-grid">
+    <div class="memory-card">
+      <h4>📐 Position & Area</h4>
+      <div class="memory-fact"><strong>Lat:</strong> 24°20'N – 27°31'N</div>
+      <div class="memory-fact"><strong>Long:</strong> 83°19'E – 88°17'E</div>
+      <div class="memory-fact"><strong>Area:</strong> 94,163 sq km (12th largest)</div>
+      <div class="memory-fact"><strong>Pop:</strong> 10.4 crore (3rd largest)</div>
+      <div class="memory-fact"><strong>E-W:</strong> 483 km | N-S: 345 km</div>
+      <div class="mnemonic"><div class="mnemonic-label">Mnemonic</div>"94163 — Nine Four Won Six Three" = Area of Bihar</div>
+    </div>
+    <div class="memory-card">
+      <h4>🏔️ Physiography</h4>
+      <div class="memory-fact"><strong>Highest point:</strong> Someshwar Fort 874m</div>
+      <div class="memory-fact"><strong>Ramnagar Dun peak:</strong> Santpur 240m</div>
+      <div class="memory-fact"><strong>Plain slope:</strong> 6 cm/km</div>
+      <div class="memory-fact"><strong>Plain area:</strong> 96.27% of Bihar</div>
+      <div class="memory-fact"><strong>North Plain:</strong> 56,980 km²</div>
+      <div class="memory-fact"><strong>South Plain:</strong> 33,670 km²</div>
+      <div class="mnemonic"><div class="mnemonic-label">Mnemonic</div>Someshwar → "So MIGHTY" = 874m. Six cm per km = "Smooth Six".</div>
+    </div>
+    <div class="memory-card">
+      <h4>🌊 Rivers — Aliases</h4>
+      <div class="memory-fact"><strong>Kosi:</strong> Sorrow of Bihar</div>
+      <div class="memory-fact"><strong>Gandak:</strong> Narayani</div>
+      <div class="memory-fact"><strong>Phalgu:</strong> Niranjana</div>
+      <div class="memory-fact"><strong>Phalgu:</strong> Mohana + Lilajan</div>
+      <div class="memory-fact"><strong>Triveni Canal:</strong> On Gandak (tested twice!)</div>
+      <div class="memory-fact"><strong>Kanwar Lake:</strong> Asia's largest oxbow lake</div>
+      <div class="mnemonic"><div class="mnemonic-label">Mnemonic</div>KNG: Kosi=sorrow, Narayani=Gandak, (Ni)ranjana=Phalgu</div>
+    </div>
+    <div class="memory-card">
+      <h4>💎 Minerals — District Map</h4>
+      <div class="memory-fact"><strong>GOLD:</strong> Jamui (asked 4x in BPSC!)</div>
+      <div class="memory-fact"><strong>Pyrites:</strong> Rohtas (Amjhor) ~95% of India</div>
+      <div class="memory-fact"><strong>Limestone:</strong> Kaimur + Rohtas + Munger</div>
+      <div class="memory-fact"><strong>Mica:</strong> Munger, Jamui (Dharwar rocks)</div>
+      <div class="memory-fact"><strong>Uranium:</strong> Gaya</div>
+      <div class="memory-fact"><strong>Manganese:</strong> Patna + Gaya area</div>
+      <div class="mnemonic"><div class="mnemonic-label">Mnemonic</div>"JAMUI GOLD" — Just Always Must Understand It's GOLD = Jamui</div>
+    </div>
+    <div class="memory-card">
+      <h4>🏛️ Census 2011</h4>
+      <div class="memory-fact"><strong>Sex ratio:</strong> 918 (asked 64th+70th)</div>
+      <div class="memory-fact"><strong>Child sex ratio:</strong> 935</div>
+      <div class="memory-fact"><strong>Female literacy:</strong> 51.50%</div>
+      <div class="memory-fact"><strong>Literacy rank:</strong> 1st LOWEST in India</div>
+      <div class="memory-fact"><strong>Highest density:</strong> Sheohar</div>
+      <div class="memory-fact"><strong>Highest sex ratio:</strong> Gopalganj</div>
+      <div class="mnemonic"><div class="mnemonic-label">Mnemonic</div>S-G-S: Sheohar=density, Gopalganj=sex ratio, Sheohar=poorest</div>
+    </div>
+    <div class="memory-card">
+      <h4>🌿 Wildlife Must-Knows</h4>
+      <div class="memory-fact"><strong>Only NP:</strong> Valmiki (W. Champaran)</div>
+      <div class="memory-fact"><strong>Largest WLS:</strong> Kaimur (Rohtas)</div>
+      <div class="memory-fact"><strong>Anupam Lake:</strong> Inside Kaimur WLS</div>
+      <div class="memory-fact"><strong>Vikramshila:</strong> Bhagalpur (dolphins)</div>
+      <div class="memory-fact"><strong>Bhimbandh:</strong> Munger (hot springs)</div>
+      <div class="memory-fact"><strong>Forest area:</strong> 7.27% of Bihar</div>
+      <div class="mnemonic"><div class="mnemonic-label">Mnemonic</div>VBK: Valmiki(NP)–Bhimbandh(hot springs)–Kaimur(largest)</div>
+    </div>
+    <div class="memory-card">
+      <h4>🌾 Agriculture & Industry</h4>
+      <div class="memory-fact"><strong>Silk City:</strong> Bhagalpur</div>
+      <div class="memory-fact"><strong>Largest jute dist:</strong> Purnia</div>
+      <div class="memory-fact"><strong>Bihar jute rank:</strong> 2nd in India</div>
+      <div class="memory-fact"><strong>Tea gardens:</strong> Thakurganj (first)</div>
+      <div class="memory-fact"><strong>Oil Refinery:</strong> Begusarai (IOC)</div>
+      <div class="memory-fact"><strong>Rail Coach:</strong> Madhepura</div>
+      <div class="mnemonic"><div class="mnemonic-label">Mnemonic</div>"B-P-T-B": Bhagalpur=silk, Purnia=jute, Thakurganj=tea, Begusarai=oil</div>
+    </div>
+    <div class="memory-card">
+      <h4>🪨 Geology Quick-Fire</h4>
+      <div class="memory-fact"><strong>Oldest rocks:</strong> Dharwar (SE Bihar)</div>
+      <div class="memory-fact"><strong>Vindhyan:</strong> SW Bihar (Kaimur+Son)</div>
+      <div class="memory-fact"><strong>Tertiary:</strong> Terai region</div>
+      <div class="memory-fact"><strong>Quaternary:</strong> Bihar plains</div>
+      <div class="memory-fact"><strong>Kaimur famous for:</strong> Limestone (NOT copper)</div>
+      <div class="mnemonic"><div class="mnemonic-label">Order (old→new)</div>Dharwar → Vindhyan → Tertiary → Quaternary</div>
+    </div>
+  </div>`;
+}
+
+function buildPredictionsHTML() {
+  const predictions = [
+    {rank:'★★★', topic:'Rivers & Drainage', q:'Which river is known as the "Sorrow of Bihar"?', hint:'Kosi — asked in 67th, will repeat'},
+    {rank:'★★★', topic:'Rivers & Drainage', q:'Triveni Canal is constructed on which river?', hint:'Gandak — asked 63rd AND 69th. Near 100% repeat'},
+    {rank:'★★★', topic:'Minerals & Resources', q:'Largest gold reserve district of Bihar?', hint:'Jamui — asked 67th,68th,69th,71st. Cannot be skipped'},
+    {rank:'★★★', topic:'Position & Extent', q:'Sex ratio of Bihar (Census 2011)?', hint:'918 — asked 64th and 70th both'},
+    {rank:'★★', topic:'Physiography', q:'What is the per-km slope of Bihar\'s Ganga plains?', hint:'6 cm/km — specific fact frequently tested'},
+    {rank:'★★', topic:'Physiography', q:'Highest point of Bihar?', hint:'Someshwar Fort = 874m (Someshwar Range, W.Champaran)'},
+    {rank:'★★', topic:'Wildlife', q:'Which district has the only National Park in Bihar?', hint:'West Champaran (Valmiki NP)'},
+    {rank:'★★', topic:'Rivers & Drainage', q:'Asia\'s largest freshwater oxbow lake in Bihar?', hint:'Kanwar Lake — asked 67th BPSC'},
+    {rank:'★★', topic:'Geology', q:'Kaimur Plateau is famous for which mineral?', hint:'Limestone — asked 63rd, trap answers are copper/bauxite'},
+    {rank:'★★', topic:'Soils', q:'Piedmont Swamp Soil is found only in which district?', hint:'West Champaran — asked 66th BPSC'},
+    {rank:'★★', topic:'Physiography', q:'What are Chaurs found in Bihar plains?', hint:'Oxbow lakes — tested 63rd BPSC Crown'},
+    {rank:'★', topic:'Climate', q:'Köppen classification of North Bihar climate?', hint:'Cwg — asked 63rd BPSC'},
+    {rank:'★', topic:'Rivers & Drainage', q:'Phalgu river formed by confluence of?', hint:'Mohana + Lilajan — asked 68th BPSC'},
+    {rank:'★', topic:'Wildlife', q:'Vikramshila Dolphin Sanctuary location?', hint:'Bhagalpur — NOT Begusarai (classic wrong match)'},
+    {rank:'★', topic:'Rivers & Drainage', q:'Sonepur Mela is held at the confluence of which rivers?', hint:'Ganga + Gandak — asked 70th BPSC'},
+  ];
+
+  let html = `<h3 class="section-title">🔮 Bihar Geography — 2026 Prediction List</h3>
+  <div style="background:color-mix(in srgb,var(--accent) 8%,var(--surface));border:1px solid var(--border);border-radius:10px;padding:16px;margin-bottom:20px;font-size:13px;color:var(--text2)">
+    Based on PYQ pattern analysis from BPSC 60th–71st (2014–2024). ★★★ = Near certain | ★★ = Very likely | ★ = Likely
+  </div>`;
+
+  predictions.forEach((p,i) => {
+    const starColor = p.rank.length>=3?'var(--correct)':p.rank.length>=2?'var(--amber)':'var(--text2)';
+    html += `<div class="prediction-item">
+      <div class="pred-rank" style="color:${starColor}">${p.rank}</div>
+      <div class="pred-content">
+        <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.5px;color:var(--text2);margin-bottom:4px">${p.topic}</div>
+        <h4>${p.q}</h4>
+        <p>${p.hint}</p>
+      </div>
+    </div>`;
+  });
+  return html;
+}
+
+function showMemory() {
+  document.getElementById('memoryContent').innerHTML = buildMemoryHTML();
+  showScreen('memory');
+}
+
+function showPredictions() {
+  document.getElementById('predictionsContent').innerHTML = buildPredictionsHTML();
+  showScreen('predictions');
+}
+
+function restartQuiz() {
+  showScreen('landing');
+}
+
+// ════════════════════════════════════════════════════════════
+//  INIT
+// ════════════════════════════════════════════════════════════
+// Check system dark mode preference
+if(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+  document.documentElement.setAttribute('data-theme','dark');
+  document.querySelectorAll('.theme-toggle').forEach(b=>b.textContent='☀️ Light Mode');
+}
+</script>
+</body>
+</html>
