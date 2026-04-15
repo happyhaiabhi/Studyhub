@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M03 — Pre-Mauryan Dynasties | Bihar History</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1a1a2e;--ink2:#2d2d44;--paper:#f5f2eb;--paper2:#ede9df;--gold:#c9973a;--gold2:#e8b45a;--teal:#1e7a6e;--teal2:#2aa195;--coral:#c2522b;--coral2:#e06840;--muted:#7a7465;--border:rgba(26,26,46,0.11);--accent:var(--gold);--accent2:var(--gold2);}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);display:flex;min-height:100vh;}
+.sidebar{width:260px;flex-shrink:0;background:var(--ink);display:flex;flex-direction:column;position:sticky;top:0;height:100vh;overflow-y:auto;}
+.sidebar-logo{padding:24px 20px 16px;border-bottom:1px solid rgba(255,255,255,0.07);}
+.sidebar-logo a{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:var(--gold2);text-decoration:none;line-height:1.3;display:block;}
+.sidebar-logo span{display:block;font-size:10px;color:rgba(245,242,235,0.35);letter-spacing:1px;margin-top:3px;font-family:'DM Mono',monospace;}
+.sidebar-part{padding:14px 20px 6px;font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:1.4px;text-transform:uppercase;color:rgba(245,242,235,0.28);}
+.sidebar-item{display:flex;align-items:center;gap:10px;padding:9px 20px;text-decoration:none;font-size:12px;color:rgba(245,242,235,0.55);transition:background 0.15s,color 0.15s;border-left:2px solid transparent;}
+.sidebar-item:hover{background:rgba(255,255,255,0.05);color:rgba(245,242,235,0.9);}
+.sidebar-item.active{background:rgba(201,151,58,0.12);color:var(--gold2);border-left-color:var(--gold);}
+.sidebar-item.done .s-dot{background:var(--teal);}
+.s-num{font-family:'DM Mono',monospace;font-size:9.5px;color:rgba(245,242,235,0.28);width:28px;flex-shrink:0;}
+.s-dot{width:6px;height:6px;border-radius:50%;border:1.5px solid rgba(255,255,255,0.2);flex-shrink:0;}
+.sidebar-item.active .s-dot{background:var(--gold);border-color:var(--gold);}
+.main{flex:1;min-width:0;display:flex;flex-direction:column;}
+.topbar{background:var(--ink2);padding:12px 48px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10;border-bottom:1px solid rgba(255,255,255,0.05);}
+.topbar-left{display:flex;align-items:center;gap:14px;}
+.era-pill{font-size:10px;padding:3px 10px;border-radius:2px;background:rgba(201,151,58,0.2);color:var(--gold2);font-family:'DM Mono',monospace;letter-spacing:0.8px;}
+.topbar-title{font-size:13px;color:rgba(245,242,235,0.7);}
+.topbar-nav{display:flex;gap:8px;}
+.nav-btn{padding:7px 14px;border-radius:3px;font-size:12px;font-weight:500;text-decoration:none;border:1px solid rgba(255,255,255,0.12);color:rgba(245,242,235,0.6);transition:all 0.18s;cursor:pointer;background:none;}
+.nav-btn:hover{border-color:var(--gold);color:var(--gold2);}
+.nav-btn.primary{background:var(--gold);color:var(--ink);border-color:var(--gold);}
+.nav-btn.primary:hover{background:var(--gold2);}
+.content{flex:1;padding:48px 52px 80px;max-width:920px;}
+.mod-header{margin-bottom:40px;}
+.mod-badge{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--ink);font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:4px 12px;border-radius:2px;margin-bottom:18px;}
+.mod-header h1{font-family:'Playfair Display',serif;font-size:clamp(26px,3.5vw,40px);font-weight:900;line-height:1.15;letter-spacing:-0.5px;margin-bottom:14px;}
+.mod-header h1 em{font-style:italic;color:var(--gold);}
+.mod-header p{font-size:14.5px;color:var(--muted);line-height:1.75;max-width:640px;}
+.mod-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px;padding-top:18px;border-top:1px solid var(--border);}
+.meta-tag{font-size:10.5px;padding:3px 9px;border-radius:2px;font-weight:500;}
+.meta-tag.b{background:#fdf5e6;color:var(--gold);}
+.meta-tag.m{background:#ebf5f3;color:var(--teal);}
+.meta-tag.s{background:#fff0eb;color:var(--coral);}
+.meta-tag.d{background:#f0edf8;color:#5a3ea1;}
+.section{margin-bottom:44px;}
+.section-head{display:flex;align-items:center;gap:12px;margin-bottom:20px;padding-bottom:12px;border-bottom:2px solid var(--accent);}
+.section-icon{font-size:20px;}
+.section-label-text{font-family:'Playfair Display',serif;font-size:19px;font-weight:700;}
+.section-sub{font-size:11px;color:var(--muted);font-family:'DM Mono',monospace;letter-spacing:0.8px;margin-left:auto;}
+.story-box{background:var(--ink);color:var(--paper);border-radius:5px;padding:28px 32px;position:relative;overflow:hidden;}
+.story-box::before{content:'';position:absolute;top:-40px;right:-40px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(201,151,58,0.15) 0%,transparent 70%);}
+.story-box p{font-size:14.5px;line-height:1.85;font-weight:300;position:relative;}
+.story-box p+p{margin-top:12px;}
+.story-box strong{color:var(--gold2);}
+.story-highlight{display:inline-block;margin-top:18px;padding:10px 16px;background:rgba(201,151,58,0.15);border-left:3px solid var(--gold);border-radius:0 3px 3px 0;font-size:13px;font-style:italic;color:var(--gold2);}
+/* Dynasty cards */
+.dynasty-strip{display:flex;flex-direction:column;gap:0;}
+.dyn-card{background:#fff;border:1px solid var(--border);border-radius:4px;margin-bottom:14px;overflow:hidden;}
+.dyn-header{display:flex;align-items:center;gap:16px;padding:18px 22px;background:var(--paper2);}
+.dyn-era{font-family:'DM Mono',monospace;font-size:10px;color:var(--accent);letter-spacing:0.8px;}
+.dyn-name{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--ink);}
+.dyn-badge{margin-left:auto;font-size:10px;padding:3px 9px;border-radius:2px;background:var(--accent);color:var(--ink);font-weight:600;}
+.dyn-body{padding:18px 22px;display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.dyn-rulers{grid-column:1/-1;}
+.dyn-ruler-list{display:flex;flex-direction:column;gap:8px;}
+.ruler-row{display:flex;align-items:flex-start;gap:12px;padding:10px 14px;background:var(--paper);border-radius:3px;border:1px solid var(--border);}
+.ruler-name{font-weight:600;font-size:13px;min-width:140px;flex-shrink:0;color:var(--ink2);}
+.ruler-dates{font-family:'DM Mono',monospace;font-size:10.5px;color:var(--accent);min-width:100px;flex-shrink:0;}
+.ruler-note{font-size:12.5px;color:var(--muted);line-height:1.55;}
+.ruler-note strong{color:var(--ink2);}
+.ruler-row.key{background:linear-gradient(135deg,#fff9f0,#fff);border-color:rgba(201,151,58,0.25);}
+.analogy-box{background:linear-gradient(135deg,#fff9f0,#fff);border:1px solid rgba(201,151,58,0.25);border-radius:4px;padding:20px;margin-bottom:20px;}
+.analogy-box .analogy-label{font-size:10px;font-family:'DM Mono',monospace;letter-spacing:1.2px;color:var(--gold);text-transform:uppercase;margin-bottom:8px;}
+.analogy-box p{font-size:13.5px;line-height:1.7;color:var(--ink2);}
+.timeline{position:relative;padding-left:28px;}
+.timeline::before{content:'';position:absolute;left:8px;top:8px;bottom:8px;width:2px;background:linear-gradient(180deg,var(--accent),transparent);}
+.tl-item{position:relative;margin-bottom:20px;}
+.tl-dot{position:absolute;left:-24px;top:4px;width:12px;height:12px;border-radius:50%;background:var(--accent);border:2px solid var(--paper);box-shadow:0 0 0 2px var(--accent);}
+.tl-period{font-family:'DM Mono',monospace;font-size:10.5px;color:var(--accent);letter-spacing:0.5px;margin-bottom:4px;}
+.tl-title{font-size:14px;font-weight:600;margin-bottom:4px;color:var(--ink);}
+.tl-body{font-size:12.5px;color:var(--muted);line-height:1.6;}
+.tl-badge{display:inline-block;font-size:10px;padding:1.5px 7px;border-radius:2px;background:var(--paper2);color:var(--ink2);margin-left:6px;font-weight:500;}
+.tl-badge.trap{background:#fff0eb;color:var(--coral);}
+.flow{display:flex;flex-direction:column;}
+.flow-cols{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;}
+.flow-box{background:#fff;border:1px solid var(--border);border-radius:4px;padding:14px 16px;}
+.flow-box.cause{border-top:3px solid var(--coral);}
+.flow-box.event{border-top:3px solid var(--gold);}
+.flow-box.result{border-top:3px solid var(--teal);}
+.flow-label{font-size:9.5px;font-family:'DM Mono',monospace;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:6px;}
+.flow-box.cause  .flow-label{color:var(--coral);}
+.flow-box.event  .flow-label{color:var(--gold);}
+.flow-box.result .flow-label{color:var(--teal);}
+.flow-box h4{font-size:12.5px;font-weight:600;margin-bottom:4px;}
+.flow-box p{font-size:11.5px;color:var(--muted);line-height:1.5;}
+.flow-arrow{display:flex;align-items:center;justify-content:center;padding:6px 0;color:var(--muted);font-size:18px;}
+.comp-table{width:100%;border-collapse:collapse;font-size:12.5px;}
+.comp-table th{background:var(--ink);color:var(--paper);padding:11px 14px;text-align:left;font-weight:500;font-size:12px;}
+.comp-table th:first-child{border-radius:4px 0 0 0;}
+.comp-table th:last-child{border-radius:0 4px 0 0;}
+.comp-table td{padding:9px 14px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.5;}
+.comp-table tr:last-child td{border-bottom:none;}
+.comp-table tr:nth-child(even) td{background:var(--paper2);}
+.comp-table tr:hover td{background:#fff9f0;}
+.comp-table td:first-child{font-weight:600;color:var(--ink2);}
+.comp-table td.accent{color:var(--gold);font-weight:500;}
+.comp-table td.trap{color:var(--coral);font-style:italic;font-size:11.5px;}
+.mnemonic-box{background:linear-gradient(135deg,var(--ink) 0%,var(--ink2) 100%);border-radius:5px;padding:28px 32px;color:var(--paper);}
+.mnemonic-box+.mnemonic-box{margin-top:16px;}
+.m-label{font-size:10px;font-family:'DM Mono',monospace;letter-spacing:1.5px;color:var(--gold);text-transform:uppercase;margin-bottom:14px;}
+.mnemonic-word{font-family:'Playfair Display',serif;font-size:clamp(22px,3vw,34px);font-weight:900;color:var(--gold2);letter-spacing:4px;margin-bottom:18px;line-height:1.2;}
+.mnemonic-rows{display:flex;flex-direction:column;gap:10px;}
+.m-row{display:flex;align-items:baseline;gap:14px;}
+.m-letter{font-family:'DM Mono',monospace;font-size:20px;font-weight:500;color:var(--gold2);width:28px;flex-shrink:0;}
+.m-text{font-size:13.5px;line-height:1.5;}
+.m-text strong{color:var(--gold2);}
+.m-tip{margin-top:18px;padding:12px 16px;background:rgba(201,151,58,0.12);border-radius:3px;font-size:12.5px;font-style:italic;color:rgba(245,242,235,0.7);}
+.pyq-item{background:#fff;border:1px solid var(--border);border-radius:4px;padding:22px;margin-bottom:14px;}
+.pyq-meta{display:flex;align-items:center;gap:8px;margin-bottom:12px;flex-wrap:wrap;}
+.pyq-tag{font-size:10px;padding:2px 8px;border-radius:2px;font-weight:500;font-family:'DM Mono',monospace;letter-spacing:0.5px;}
+.pyq-tag.prelims{background:#fdf5e6;color:var(--gold);}
+.pyq-tag.mains{background:#ebf5f3;color:var(--teal);}
+.pyq-tag.year{background:var(--paper2);color:var(--muted);}
+.pyq-q{font-size:14px;font-weight:500;line-height:1.6;margin-bottom:14px;}
+.pyq-options{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:14px;}
+.pyq-opt{padding:8px 12px;border-radius:3px;font-size:12.5px;border:1px solid var(--border);background:var(--paper);cursor:pointer;transition:all 0.18s;}
+.pyq-opt:hover{border-color:var(--gold);background:#fff9f0;}
+.pyq-opt.correct{background:#e8f5e9;border-color:#4caf50;color:#2e7d32;font-weight:500;}
+.pyq-opt.wrong{background:#ffebee;border-color:#ef9a9a;color:#c62828;}
+.pyq-answer{display:none;padding:14px 16px;background:#e8f5f3;border-radius:3px;border-left:3px solid var(--teal);}
+.pyq-answer.show{display:block;}
+.pyq-answer strong{color:var(--teal);font-size:12px;}
+.pyq-answer p{font-size:13px;color:var(--ink2);margin-top:5px;line-height:1.6;}
+.reveal-btn{font-size:11.5px;padding:6px 14px;border-radius:3px;background:none;border:1px solid var(--border);cursor:pointer;color:var(--muted);transition:all 0.18s;}
+.reveal-btn:hover{border-color:var(--teal);color:var(--teal);}
+.mains-box{background:#fff;border:1px solid var(--border);border-radius:4px;padding:22px;}
+.mains-q{font-size:14.5px;font-weight:600;line-height:1.6;margin-bottom:14px;}
+.mains-meta{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap;}
+.mains-answer{display:none;border-top:1px solid var(--border);padding-top:16px;}
+.mains-answer.show{display:block;}
+.answer-section{margin-bottom:14px;}
+.answer-section h5{font-size:11px;font-family:'DM Mono',monospace;letter-spacing:1px;color:var(--gold);text-transform:uppercase;margin-bottom:7px;}
+.answer-section p{font-size:13px;line-height:1.7;color:var(--ink2);}
+.answer-section ul{padding-left:18px;}
+.answer-section li{font-size:13px;line-height:1.7;color:var(--ink2);margin-bottom:4px;}
+.qr-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.qr-item{display:flex;align-items:flex-start;gap:10px;background:#fff;border:1px solid var(--border);border-radius:4px;padding:14px 16px;}
+.qr-num{font-family:'DM Mono',monospace;font-size:10px;color:var(--accent);font-weight:500;flex-shrink:0;margin-top:2px;}
+.qr-text{font-size:13px;line-height:1.6;color:var(--ink2);}
+.qr-text strong{color:var(--accent);}
+.memory-hook{background:var(--accent);border-radius:4px;padding:16px 22px;display:flex;align-items:center;gap:16px;margin-top:32px;}
+.hook-icon{font-size:22px;}
+.hook-text{font-size:14px;font-weight:600;color:var(--ink);line-height:1.5;}
+.check-mcq{background:#fff;border:1px solid var(--border);border-radius:4px;padding:20px;margin-bottom:12px;}
+.check-q{font-size:14px;font-weight:500;margin-bottom:14px;line-height:1.6;}
+.check-opts{display:flex;flex-direction:column;gap:7px;}
+.check-opt{padding:10px 14px;border-radius:3px;font-size:13px;border:1px solid var(--border);background:var(--paper);cursor:pointer;transition:all 0.18s;text-align:left;display:flex;align-items:center;gap:10px;}
+.check-opt:hover{border-color:var(--accent);background:#fff9f0;}
+.check-opt.correct{background:#e8f5e9;border-color:#4caf50;color:#2e7d32;}
+.check-opt.wrong{background:#ffebee;border-color:#ef9a9a;color:#c62828;}
+.opt-letter{width:22px;height:22px;border-radius:50%;background:var(--paper2);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;flex-shrink:0;}
+.check-opt.correct .opt-letter{background:#4caf50;color:#fff;}
+.check-opt.wrong   .opt-letter{background:#ef9a9a;color:#fff;}
+.check-feedback{margin-top:10px;padding:10px 14px;border-radius:3px;font-size:12.5px;display:none;line-height:1.6;}
+.check-feedback.show{display:block;}
+.check-feedback.ok{background:#e8f5e9;color:#2e7d32;}
+.check-feedback.no{background:#ffebee;color:#c62828;}
+.trap-alert{background:#fff0eb;border:1px solid rgba(194,82,43,0.3);border-radius:4px;padding:14px 18px;margin-bottom:16px;display:flex;align-items:flex-start;gap:10px;}
+.trap-alert-icon{font-size:18px;flex-shrink:0;}
+.trap-alert p{font-size:13px;color:var(--coral);line-height:1.6;}
+.trap-alert strong{font-weight:600;}
+.sidebar::-webkit-scrollbar{width:4px;}
+.sidebar::-webkit-scrollbar-track{background:transparent;}
+.sidebar::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.1);border-radius:2px;}
+.print-btn{position:fixed;bottom:24px;right:24px;background:var(--ink);color:var(--gold2);border:none;border-radius:50%;width:44px;height:44px;font-size:16px;cursor:pointer;box-shadow:0 4px 16px rgba(26,26,46,0.25);transition:transform 0.18s;display:flex;align-items:center;justify-content:center;}
+.print-btn:hover{transform:scale(1.1);}
+@media print{.sidebar,.topbar,.print-btn{display:none;}.main{display:block;}.content{padding:20px;}}
+@media(max-width:768px){.sidebar{display:none;}.content{padding:24px 20px 60px;}.topbar{padding:10px 20px;}.dyn-body,.flow-cols,.qr-grid,.pyq-options{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<aside class="sidebar">
+  <div class="sidebar-logo"><a href="../index.html">Bihar History<br>Study System</a><span>BPSC · UPSC · State PCS</span></div>
+  <div class="sidebar-part">Part I — Ancient Bihar</div>
+  <a class="sidebar-item done" href="m01.html"><span class="s-num">01</span><span class="s-dot"></span>Sources & Prehistoric Bihar</a>
+  <a class="sidebar-item done" href="m02.html"><span class="s-num">02</span><span class="s-dot"></span>Mahajanapadas in Bihar</a>
+  <a class="sidebar-item active" href="m03.html"><span class="s-num">03</span><span class="s-dot"></span>Pre-Mauryan Dynasties</a>
+  <a class="sidebar-item" href="m04.html"><span class="s-num">04</span><span class="s-dot"></span>Buddhism & Jainism</a>
+  <a class="sidebar-item" href="m05.html"><span class="s-num">05</span><span class="s-dot"></span>Mauryan Empire</a>
+  <a class="sidebar-item" href="m06.html"><span class="s-num">06</span><span class="s-dot"></span>Ashoka — Kalinga to Dhamma</a>
+  <a class="sidebar-item" href="m07.html"><span class="s-num">07</span><span class="s-dot"></span>Post-Mauryan to Gupta Era</a>
+  <div class="sidebar-part">Part II — Medieval Bihar</div>
+  <a class="sidebar-item" href="m08.html"><span class="s-num">08</span><span class="s-dot"></span>Pala Dynasty</a>
+  <a class="sidebar-item" href="m09.html"><span class="s-num">09</span><span class="s-dot"></span>Sena & Karnata Dynasties</a>
+  <a class="sidebar-item" href="m10.html"><span class="s-num">10</span><span class="s-dot"></span>Turkish Invasion</a>
+  <a class="sidebar-item" href="m11.html"><span class="s-num">11</span><span class="s-dot"></span>Khilji, Tughlaq & Noohani</a>
+  <a class="sidebar-item" href="m12.html"><span class="s-num">12</span><span class="s-dot"></span>Sher Shah Suri</a>
+  <a class="sidebar-item" href="m13.html"><span class="s-num">13</span><span class="s-dot"></span>Mughal Rule in Bihar</a>
+  <a class="sidebar-item" href="m14.html"><span class="s-num">14</span><span class="s-dot"></span>Sufism, Sikhism & Tribal States</a>
+  <div class="sidebar-part">Part III — Modern Bihar</div>
+  <a class="sidebar-item" href="m15.html"><span class="s-num">15</span><span class="s-dot"></span>European Entry</a>
+  <a class="sidebar-item" href="m16.html"><span class="s-num">16</span><span class="s-dot"></span>Battle of Buxar</a>
+  <a class="sidebar-item" href="m17.html"><span class="s-num">17</span><span class="s-dot"></span>Revolt of 1857</a>
+  <a class="sidebar-item" href="m18.html"><span class="s-num">18</span><span class="s-dot"></span>Tribal Revolts</a>
+  <a class="sidebar-item" href="m19.html"><span class="s-num">19</span><span class="s-dot"></span>Freedom Movements</a>
+  <a class="sidebar-item" href="m20.html"><span class="s-num">20</span><span class="s-dot"></span>Eminent Freedom Fighters</a>
+  <a class="sidebar-item" href="m21.html"><span class="s-num">21</span><span class="s-dot"></span>Formation of Modern Bihar</a>
+</aside>
+
+<div class="main">
+  <div class="topbar">
+    <div class="topbar-left">
+      <span class="era-pill">ANCIENT BIHAR</span>
+      <span class="topbar-title">Module 03 of 21</span>
+    </div>
+    <div class="topbar-nav">
+      <a href="m02.html" class="nav-btn">← Prev</a>
+      <a href="../index.html" class="nav-btn">Index</a>
+      <a href="m04.html" class="nav-btn primary">Next →</a>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <div class="mod-header">
+      <div class="mod-badge"><span>MODULE 03</span><span>·</span><span>Ancient Bihar</span></div>
+      <h1>Pre-Mauryan Dynasties<br><em>of Magadha</em></h1>
+      <p>Four dynasties. Two centuries. An empire in the making. From the first king Brihadratha to the last Nanda who faced Alexander's shadow — this is how Magadha became the foundation of India's first great empire.</p>
+      <div class="mod-meta">
+        <span class="meta-tag b">BPSC Prelims</span>
+        <span class="meta-tag m">Mains GS-I</span>
+        <span class="meta-tag d">544 BC – 321 BC</span>
+        <span class="meta-tag s">⚠ Trap: Ajatashatru = Haryanka dynasty (NOT Maurya); Pataliputra founded 455 BC by Udayin (NOT Ajatashatru)</span>
+      </div>
+    </div>
+
+    <!-- ① STORY HOOK -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">🎭</span><span class="section-label-text">Story Hook</span><span class="section-sub">START HERE</span></div>
+      <div class="story-box">
+        <p>The year is <strong>321 BC</strong>. Alexander the Great has turned back from India. In Pataliputra, the richest city in the world, the last Nanda king <strong>Dhana Nanda</strong> sleeps peacefully. His treasury is legendary. His army — 200,000 infantry, 80,000 cavalry, 6,000 elephants — is the most feared in Asia.</p>
+        <p>But in the shadows, a <strong>young man</strong> from uncertain origins — some say Shudra-born, others say Kshatriya — is meeting secretly with a sharp-tongued professor named <strong>Chanakya</strong>. Chanakya has a grudge. Dhana Nanda once humiliated him in court, pulled him by his topknot, and threw him out. Chanakya swore then that he would never tie his topknot again until he had destroyed the Nanda dynasty.</p>
+        <p>The young man is <strong>Chandragupta Maurya</strong>. And the dynasty about to be destroyed — the Nandas — is the final chapter in a fascinating story that began <strong>200 years earlier</strong> with a warrior named Bimbisara and a kingdom called Magadha.</p>
+        <div class="story-highlight">💡 Fun Fact: Chanakya's untied topknot is one of history's most dramatic political vows — and it ended one of India's most powerful dynasties.</div>
+      </div>
+    </div>
+
+    <!-- ② CORE CONCEPT -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">🧠</span><span class="section-label-text">Core Concept — Four Dynasties, One Empire Built</span><span class="section-sub">WITH ANALOGY</span></div>
+      <div class="analogy-box">
+        <div class="analogy-label">🏗️ Modern Analogy</div>
+        <p>Think of Magadha's rise like building a skyscraper. <strong>Brihadratha dynasty</strong> = laying the foundation (established Magadha as a kingdom). <strong>Haryanka</strong> = building the first 10 floors (Bimbisara's alliances + Ajatashatru's conquests). <strong>Shishunaga</strong> = reinforcing the structure (defeated Avanti's 100-year rivalry). <strong>Nanda</strong> = building the top floors and filling the treasury. <strong>Maurya</strong> (next module) = adding the spire and calling it the world's greatest building.</p>
+      </div>
+
+      <!-- Dynasty Cards -->
+      <div class="dynasty-strip">
+
+        <!-- Dynasty 1: Brihadratha -->
+        <div class="dyn-card">
+          <div class="dyn-header">
+            <div>
+              <div class="dyn-era">~6th CENTURY BC (MYTHOLOGICAL ERA)</div>
+              <div class="dyn-name">1. Brihadratha Dynasty</div>
+            </div>
+            <span class="dyn-badge">EARLIEST</span>
+          </div>
+          <div class="dyn-body">
+            <div class="dyn-rulers">
+              <div class="dyn-ruler-list">
+                <div class="ruler-row key">
+                  <span class="ruler-name">Brihadratha</span>
+                  <span class="ruler-dates">Founder</span>
+                  <span class="ruler-note"><strong>Eldest son of Vasu</strong> (Kuru king of Chedi). Founded Magadha; established capital at <strong>Girivraja (Rajgir)</strong>. Mentioned in Rigveda.</span>
+                </div>
+                <div class="ruler-row key">
+                  <span class="ruler-name">Jarasandha</span>
+                  <span class="ruler-dates">Most famous</span>
+                  <span class="ruler-note">Son of Brihadratha. Extended empire to Chedi, Anga, Pundra, Vanga, Kalinga. <strong>Killed by Bhima</strong> in Mahabharata (with Krishna's help). Capital: Rajgir.</span>
+                </div>
+                <div class="ruler-row">
+                  <span class="ruler-name">Ripunjaya</span>
+                  <span class="ruler-dates">Last ruler</span>
+                  <span class="ruler-note">Killed by his minister Pulika, who installed his own son. According to Puranas, Pradyota dynasty followed briefly before Haryanka.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dynasty 2: Haryanka -->
+        <div class="dyn-card">
+          <div class="dyn-header">
+            <div>
+              <div class="dyn-era">544 BC – 412 BC</div>
+              <div class="dyn-name">2. Haryanka Dynasty</div>
+            </div>
+            <span class="dyn-badge">⭐ MOST TESTED</span>
+          </div>
+          <div class="dyn-body">
+            <div class="dyn-rulers">
+              <div class="dyn-ruler-list">
+                <div class="ruler-row key">
+                  <span class="ruler-name">Bimbisara</span>
+                  <span class="ruler-dates">544–492 BC</span>
+                  <span class="ruler-note"><strong>Founder of Haryanka dynasty.</strong> Capital: Rajgir. Married at age 15 (per Mahavamsa). Contemporary of Buddha. Policy of <strong>3 marriage alliances</strong>: Kosaladevi (got Kashi dowry), Chellana (Licchavi), Kshema (Madra/Punjab). <strong>Known as Shrenika in Jain texts.</strong> First ruler to form permanent army. Sent physician Jivaka to Avanti king.</span>
+                </div>
+                <div class="ruler-row key">
+                  <span class="ruler-name">Ajatashatru</span>
+                  <span class="ruler-dates">492–460 BC</span>
+                  <span class="ruler-note">Imprisoned and killed his father Bimbisara. <strong>Childhood name: Kunika.</strong> Conquered Vaishali (16-year war; used minister Vassakara + new weapons). Both Buddha (487 BC) and Mahavira (468 BC) died in his reign. <strong>1st Buddhist Council held at Rajgir</strong> under his patronage after Buddha's death.</span>
+                </div>
+                <div class="ruler-row">
+                  <span class="ruler-name">Udayin</span>
+                  <span class="ruler-dates">460–444 BC</span>
+                  <span class="ruler-note"><strong>Founded Pataliputra in 455 BC</strong> at confluence of Ganga and Sone rivers. Shifted capital from Rajgir to Pataliputra. This is a KEY exam fact — Pataliputra founded by UDAYIN, not Ajatashatru.</span>
+                </div>
+                <div class="ruler-row">
+                  <span class="ruler-name">Anuruddha, Munda, Nagadasaka</span>
+                  <span class="ruler-dates">Weak rulers</span>
+                  <span class="ruler-note">Weak, parricide-prone rulers who led to a civil revolt. The dynasty ended when the people rose against the bloody dynastic feuding.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dynasty 3: Shishunaga -->
+        <div class="dyn-card">
+          <div class="dyn-header">
+            <div>
+              <div class="dyn-era">412 BC – 344 BC</div>
+              <div class="dyn-name">3. Shishunaga Dynasty</div>
+            </div>
+            <span class="dyn-badge">TRANSITION</span>
+          </div>
+          <div class="dyn-body">
+            <div class="dyn-rulers">
+              <div class="dyn-ruler-list">
+                <div class="ruler-row key">
+                  <span class="ruler-name">Shishunaga</span>
+                  <span class="ruler-dates">412–394 BC</span>
+                  <span class="ruler-note">Founded dynasty; was viceroy at Banaras. Capital at <strong>Vaishali (new) AND Rajgir</strong> — two capitals simultaneously. <strong>Greatest achievement: destroyed Pradyotas of Avanti (Ujjain)</strong> — ended 100-year rivalry between Magadha and Avanti.</span>
+                </div>
+                <div class="ruler-row key">
+                  <span class="ruler-name">Kalasoka (Kakavarna)</span>
+                  <span class="ruler-dates">394–366 BC</span>
+                  <span class="ruler-note">Organized <strong>2nd Buddhist Council (383 BC) at Vaishali</strong> — to settle Vinaya Pitaka disputes. <strong>Shifted capital permanently to Pataliputra.</strong> Killed with a dagger by Mahapadma Nanda (per Harshacharita of Bana).</span>
+                </div>
+                <div class="ruler-row">
+                  <span class="ruler-name">Ten sons of Kalasoka</span>
+                  <span class="ruler-dates">After 366 BC</span>
+                  <span class="ruler-note">Last was Nandivardhan (Mahanandin). Killed by Mahapadmananda who founded the Nanda dynasty.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dynasty 4: Nanda -->
+        <div class="dyn-card">
+          <div class="dyn-header">
+            <div>
+              <div class="dyn-era">344 BC – 321 BC</div>
+              <div class="dyn-name">4. Nanda Dynasty</div>
+            </div>
+            <span class="dyn-badge">LAST PRE-MAURYAN</span>
+          </div>
+          <div class="dyn-body">
+            <div class="dyn-rulers">
+              <div class="dyn-ruler-list">
+                <div class="ruler-row key">
+                  <span class="ruler-name">Mahapadmananda</span>
+                  <span class="ruler-dates">344–334 BC</span>
+                  <span class="ruler-note">Founder. Killed last Shishunaga ruler. <strong>Title: Ekarat</strong> ("sole sovereign"). Also called Ugrasena (Mahabodhivamsa) and Mahapadmapati. Destroyed all other Kshatriya kingdoms. Per Puranas, his mother was a Shudra woman.</span>
+                </div>
+                <div class="ruler-row key">
+                  <span class="ruler-name">Dhana Nanda</span>
+                  <span class="ruler-dates">Last ruler ~321 BC</span>
+                  <span class="ruler-note"><strong>Contemporary of Alexander the Great (327–326 BC).</strong> Greeks called him <em>Agrammes</em> or <em>Xandremes</em>. Despite enormous army (2 lakh infantry, 80,000 cavalry, 6,000 elephants, 8,000 chariots), lost to Chandragupta Maurya + Chanakya's strategy. <strong>Fabulously wealthy but unpopular.</strong></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 9 Nanda Kings mnemonic note -->
+      <div class="trap-alert">
+        <span class="trap-alert-icon">⚠️</span>
+        <p>The 9 Nanda kings (per Mahabodhivamsa): <strong>Mahapadmananda, Panduka, Pandugati, Bhutapala, Rashtrapala, Govishanaka, Dashasiddhaka, Kaivarta, Dhana Nanda.</strong> BPSC sometimes asks "who was the last Nanda ruler?" Answer = <strong>Dhana Nanda</strong>.</p>
+      </div>
+    </div>
+
+    <!-- ③ TIMELINE -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">⏳</span><span class="section-label-text">Master Timeline — All Four Dynasties</span><span class="section-sub">CHRONOLOGICAL</span></div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-period">6th C BC — BRIHADRATHA DYNASTY</div>
+          <div class="tl-title">Magadha Kingdom Established at Rajgir</div>
+          <div class="tl-body">Brihadratha (Rigveda) → Jarasandha (Mahabharata's villain, killed by Bhima) → Ripunjaya (last, killed by minister). Capital: Girivraja/Rajgir.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-period">544 BC — HARYANKA: BIMBISARA ASCENDS</div>
+          <div class="tl-title">Age of Alliances + Conquest Begins</div>
+          <div class="tl-body">Bimbisara: 3 strategic marriages, permanent army, annexes Anga. Contemporary of both Buddha and Mahavira. Sends physician Jivaka to Ujjain. Known as Shrenika (Jain texts).</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-period">492 BC — AJATASHATRU KILLS BIMBISARA</div>
+          <div class="tl-title">Parricide Becomes Policy <span class="tl-badge trap">⚠ Trap Q</span></div>
+          <div class="tl-body">Ajatashatru (Kunika) = Haryanka dynasty. Conquers Kosala and Vaishali. 1st Buddhist Council at Rajgir. Both Buddha (487 BC) and Mahavira (468 BC) attain Nirvana in his reign.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-period">455 BC — PATALIPUTRA FOUNDED <span class="tl-badge trap">⚠ Trap Q</span></div>
+          <div class="tl-title">Udayin Founds Modern Patna</div>
+          <div class="tl-body">Udayin (son of Ajatashatru) moves capital from Rajgir to Pataliputra at confluence of Ganga + Sone. This becomes India's most important city for 600+ years.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-period">412 BC — SHISHUNAGA DYNASTY</div>
+          <div class="tl-title">100-Year Rivalry with Avanti Ends</div>
+          <div class="tl-body">Shishunaga destroys Avanti (Ujjain). 2nd Buddhist Council (383 BC) at Vaishali under Kalasoka. Capital permanently shifted to Pataliputra by Kalasoka.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-period">344 BC — NANDA DYNASTY RISES</div>
+          <div class="tl-title">First "Low-Born" Dynasty — Most Powerful Army</div>
+          <div class="tl-body">Mahapadmananda (Ekarat) kills last Shishunaga. Accumulates legendary wealth. Controls Kalinga (brings Jina image). 9 kings in total.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-period">327–326 BC</div>
+          <div class="tl-title">Alexander Invades India — Dhana Nanda's Fear</div>
+          <div class="tl-body">Alexander reaches Punjab. His generals hear of Dhana Nanda's army — refuse to cross Beas river. Alexander turns back. Dhana Nanda (Agrammes) is contemporary of Alexander.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-period">321 BC — END OF PRE-MAURYAN ERA</div>
+          <div class="tl-title">Chandragupta + Chanakya Overthrow Dhana Nanda</div>
+          <div class="tl-body">Chandragupta Maurya with Chanakya's strategy defeats Dhana Nanda. Maurya dynasty begins. Pre-Mauryan era ends. Empire phase of Bihar history starts.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ④ FLOWCHART -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">🔄</span><span class="section-label-text">Flowchart — Dynasty Succession Chain</span><span class="section-sub">CAUSE → EVENT → RESULT</span></div>
+      <div class="flow">
+        <div class="flow-cols" style="grid-template-columns:repeat(4,1fr);">
+          <div class="flow-box event">
+            <div class="flow-label">Dynasty 1</div>
+            <h4>Brihadratha</h4>
+            <p>Founds Magadha at Rajgir. Jarasandha = peak. Ends with Ripunjaya's assassination.</p>
+          </div>
+          <div class="flow-box event">
+            <div class="flow-label">Dynasty 2</div>
+            <h4>Haryanka</h4>
+            <p>Bimbisara's marriages + Ajatashatru's wars. Udayin founds Pataliputra. Ends in civil revolt.</p>
+          </div>
+          <div class="flow-box event">
+            <div class="flow-label">Dynasty 3</div>
+            <h4>Shishunaga</h4>
+            <p>Defeats Avanti. 2nd Buddhist Council. Capital fixed at Pataliputra. Ends by Nanda coup.</p>
+          </div>
+          <div class="flow-box event">
+            <div class="flow-label">Dynasty 4</div>
+            <h4>Nanda</h4>
+            <p>Wealthiest; largest army. Dhana Nanda = contemporary of Alexander. Falls to Maurya 321 BC.</p>
+          </div>
+        </div>
+        <div class="flow-arrow">↓ Each dynasty inherited and amplified Magadha's power ↓</div>
+        <div style="margin-top:10px;">
+          <div class="flow-box result">
+            <div class="flow-label">Result</div>
+            <h4>Magadha ready for India's First Empire — Maurya Dynasty (321 BC)</h4>
+            <p>200 years of four dynasties created the infrastructure: capital city (Pataliputra), standing army, river trade routes, iron weapons, and diplomatic networks — all of which Chandragupta Maurya inherited and used to build India's first pan-Indian empire.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ⑤ COMPARISON TABLE -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">📊</span><span class="section-label-text">Four Dynasties — Comparison Table</span><span class="section-sub">EXAM-READY</span></div>
+      <div class="trap-alert">
+        <span class="trap-alert-icon">⚠️</span>
+        <p><strong>Most common BPSC trap:</strong> "Ajatashatru's dynasty?" → Answer: <strong>Haryanka</strong> (NOT Maurya, NOT Nanda). Also: "Who founded Pataliputra?" → Answer: <strong>Udayin</strong> (455 BC) (NOT Ajatashatru, NOT Chandragupta Maurya).</p>
+      </div>
+      <table class="comp-table">
+        <thead>
+          <tr><th>Feature</th><th>Haryanka</th><th>Shishunaga</th><th>Nanda</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Period</td><td class="accent">544–412 BC</td><td>412–344 BC</td><td>344–321 BC</td></tr>
+          <tr><td>Founder</td><td><strong>Bimbisara</strong></td><td><strong>Shishunaga</strong> (viceroy of Banaras)</td><td><strong>Mahapadmananda</strong></td></tr>
+          <tr><td>Last Ruler</td><td>Nagadasaka</td><td>Nandivardhan / Mahanandin</td><td><strong>Dhana Nanda</strong></td></tr>
+          <tr><td>Capital</td><td>Rajgir → Pataliputra (Udayin, 455 BC)</td><td>Vaishali + Rajgir → permanently Pataliputra (Kalasoka)</td><td>Pataliputra</td></tr>
+          <tr><td>Key Achievement</td><td>3 marriage alliances; Anga + Vaishali conquered</td><td>Defeated Avanti (ended 100-yr rivalry)</td><td>Largest army; controlled Kalinga</td></tr>
+          <tr><td>Buddhist Council</td><td class="accent">1st Council at Rajgir (Ajatashatru's patronage)</td><td class="accent">2nd Council at Vaishali (Kalasoka's patronage)</td><td>None</td></tr>
+          <tr><td>How it ended</td><td>Civil revolt by people against parricide kings</td><td>Mahapadmananda killed Mahanandin</td><td>Chandragupta + Chanakya 321 BC</td></tr>
+          <tr><td>Key alternate name</td><td>Bimbisara = <strong>Shrenika</strong> (Jain texts); Ajatashatru = <strong>Kunika</strong></td><td>Kalasoka = <strong>Kakavarna</strong> (Puranas)</td><td>Mahapadmananda = <strong>Ekarat, Ugrasena</strong>; Dhana Nanda = <strong>Agrammes</strong> (Greek)</td></tr>
+          <tr><td>Contemporary with</td><td>Buddha, Mahavira, Alexander (Dhana Nanda)</td><td>Continuation</td><td>Alexander the Great</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ⑥ MNEMONIC -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">🧩</span><span class="section-label-text">Mnemonic</span><span class="section-sub">MEMORY TRICKS</span></div>
+
+      <div class="mnemonic-box">
+        <div class="m-label">🧩 Mnemonic — Four Pre-Mauryan Dynasties IN ORDER</div>
+        <div class="mnemonic-word">B · H · S · N</div>
+        <div class="mnemonic-rows">
+          <div class="m-row"><span class="m-letter">B</span><span class="m-text"><strong>Brihadratha</strong> — founded Magadha; Jarasandha the famous king</span></div>
+          <div class="m-row"><span class="m-letter">H</span><span class="m-text"><strong>Haryanka</strong> — Bimbisara (alliances), Ajatashatru (conquests), Udayin (Pataliputra founded)</span></div>
+          <div class="m-row"><span class="m-letter">S</span><span class="m-text"><strong>Shishunaga</strong> — defeated Avanti; 2nd Buddhist Council; capital fixed at Pataliputra</span></div>
+          <div class="m-row"><span class="m-letter">N</span><span class="m-text"><strong>Nanda</strong> — Mahapadmananda (Ekarat); Dhana Nanda (contemporary of Alexander); falls to Maurya</span></div>
+        </div>
+        <div class="m-tip">💡 "Brave Heroes Slay Nandas" = Brihadratha, Haryanka, Shishunaga, Nanda → then Maurya comes and slays the Nandas!</div>
+      </div>
+
+      <div class="mnemonic-box" style="margin-top:16px;">
+        <div class="m-label">🧩 Mnemonic — Bimbisara's Haryanka Dynasty Key Facts</div>
+        <div class="mnemonic-word">BAD · AUP</div>
+        <div class="mnemonic-rows">
+          <div class="m-row"><span class="m-letter">B</span><span class="m-text"><strong>Bimbisara</strong> (544–492 BC) — founder, 3 wives, permanent army, Shrenika</span></div>
+          <div class="m-row"><span class="m-letter">A</span><span class="m-text"><strong>Ajatashatru</strong> (492–460 BC) — killed father, Kunika, 1st Buddhist Council, Vassakara trick</span></div>
+          <div class="m-row"><span class="m-letter">D</span><span class="m-text"><strong>D = 455 BC</strong> — when Udayin <strong>D</strong>id found Pataliputra (NOT Ajatashatru!)</span></div>
+          <div class="m-row"><span class="m-letter">U</span><span class="m-text"><strong>Udayin</strong> (460–444 BC) — founded Pataliputra 455 BC at Ganga+Sone confluence</span></div>
+          <div class="m-row"><span class="m-letter">P</span><span class="m-text"><strong>Parricide</strong> pattern — Ajatashatru kills Bimbisara; Udayin killed by his own son. Dynasty collapsed in civil revolt.</span></div>
+        </div>
+        <div class="m-tip">💡 "BAD = Bimbisara, Ajatashatru, Dhana Nanda's later dynasty — and they were literally BAD (parricides)!" + D=455 BC Pataliputra by Udayin = the most tested BPSC date of this module.</div>
+      </div>
+    </div>
+
+    <!-- ⑦ PYQ -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">📝</span><span class="section-label-text">PYQ Practice</span><span class="section-sub">SOLVED</span></div>
+
+      <div class="pyq-item">
+        <div class="pyq-meta"><span class="pyq-tag prelims">BPSC Prelims</span><span class="pyq-tag year">BPSC 2011</span></div>
+        <div class="pyq-q">What was the name of the dynasty of Ajatashatru?</div>
+        <div class="pyq-options">
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(a) Maurya</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'correct')">(b) Haryanka</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(c) Nanda</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(d) Gupta</div>
+        </div>
+        <div class="pyq-answer" id="ans-pyq1">
+          <strong>✓ CORRECT: (b) Haryanka</strong>
+          <p>Ajatashatru belonged to the <strong>Haryanka dynasty</strong> — founded by his father Bimbisara in 544 BC. This is one of the most frequently wrong-answered BPSC questions. Students confuse Ajatashatru with Maurya (Chandragupta's dynasty) because he was an early powerful Magadha king. Remember: Ajatashatru's childhood name was Kunika; he killed Bimbisara to ascend the throne.</p>
+        </div>
+        <button class="reveal-btn" onclick="revealPYQ('ans-pyq1',this)">Show Explanation</button>
+      </div>
+
+      <div class="pyq-item">
+        <div class="pyq-meta"><span class="pyq-tag prelims">BPSC Prelims</span><span class="pyq-tag year">BPSC 2008</span></div>
+        <div class="pyq-q">Which ruler was the first to establish his capital at Patliputra?</div>
+        <div class="pyq-options">
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(a) Ajatashatru</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(b) Kalasoka</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'correct')">(c) Udayin</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(d) Kanishka</div>
+        </div>
+        <div class="pyq-answer" id="ans-pyq2">
+          <strong>✓ CORRECT: (c) Udayin</strong>
+          <p>⚠️ Major trap — many students answer Ajatashatru or Chandragupta Maurya. The correct answer is <strong>Udayin</strong> (son of Ajatashatru, 460–444 BC) who founded Pataliputra in <strong>455 BC</strong> at the confluence of the Ganga and Sone rivers. Kalasoka later shifted the capital from Rajgir/Vaishali permanently to Pataliputra — but it was Udayin who first established it.</p>
+        </div>
+        <button class="reveal-btn" onclick="revealPYQ('ans-pyq2',this)">Show Explanation</button>
+      </div>
+
+      <div class="pyq-item">
+        <div class="pyq-meta"><span class="pyq-tag prelims">BPSC Prelims</span><span class="pyq-tag year">BPSC 2001</span></div>
+        <div class="pyq-q">Which ruler of Magadha was the contemporary of Alexander the Great?</div>
+        <div class="pyq-options">
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(a) Mahapadmananda</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'correct')">(b) Dhana Nanda</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(c) Chandragupta Maurya</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(d) Kushan</div>
+        </div>
+        <div class="pyq-answer" id="ans-pyq3">
+          <strong>✓ CORRECT: (b) Dhana Nanda</strong>
+          <p>When Alexander invaded India (327–326 BC), <strong>Dhana Nanda</strong> was the ruler of Magadha. Greeks referred to him as "Agrammes" or "Xandremes." Alexander's generals, after hearing about Dhana Nanda's enormous army (2 lakh infantry, 80,000 cavalry, 6,000 war elephants), refused to march further east. Alexander turned back without ever facing Dhana Nanda. Note: Chandragupta Maurya OVERTHREW Dhana Nanda — so Chandragupta's reign started AFTER Alexander left.</p>
+        </div>
+        <button class="reveal-btn" onclick="revealPYQ('ans-pyq3',this)">Show Explanation</button>
+      </div>
+    </div>
+
+    <!-- ⑧ QUICK REVISION -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">⚡</span><span class="section-label-text">Quick Revision Bullets</span><span class="section-sub">7 ONE-LINERS</span></div>
+      <div class="qr-grid">
+        <div class="qr-item"><span class="qr-num">01</span><span class="qr-text">Order: <strong>Brihadratha → Haryanka → Shishunaga → Nanda → Maurya</strong>. Mnemonic: "Brave Heroes Slay Nandas (Maurya finishes the job)."</span></div>
+        <div class="qr-item"><span class="qr-num">02</span><span class="qr-text"><strong>Pataliputra founded 455 BC</strong> by <strong>Udayin</strong> at Ganga+Sone confluence — NOT by Ajatashatru, NOT by Chandragupta. This is BPSC's favourite trap question.</span></div>
+        <div class="qr-item"><span class="qr-num">03</span><span class="qr-text"><strong>Ajatashatru = Haryanka dynasty</strong>; childhood name = Kunika; killed father Bimbisara; hosted 1st Buddhist Council at Rajgir.</span></div>
+        <div class="qr-item"><span class="qr-num">04</span><span class="qr-text"><strong>Bimbisara = Shrenika</strong> (Jain texts); formed 3 marriage alliances; first ruler with permanent army; contemporary of both Buddha and Mahavira.</span></div>
+        <div class="qr-item"><span class="qr-num">05</span><span class="qr-text"><strong>Shishunaga's greatest achievement</strong> = destroyed Avanti (Pradyota dynasty) — ended 100-year old Magadha-Avanti rivalry. Capital then permanently Pataliputra (Kalasoka).</span></div>
+        <div class="qr-item"><span class="qr-num">06</span><span class="qr-text"><strong>Dhana Nanda = Agrammes</strong> (Greek name) — contemporary of Alexander; last Nanda king; overthrown by Chandragupta Maurya + Chanakya in 321 BC.</span></div>
+        <div class="qr-item"><span class="qr-num">07</span><span class="qr-text"><strong>2nd Buddhist Council (383 BC)</strong> at Vaishali under Kalasoka (Shishunaga dynasty); <strong>1st Buddhist Council (483 BC)</strong> at Rajgir under Ajatashatru (Haryanka dynasty).</span></div>
+      </div>
+      <div class="memory-hook">
+        <span class="hook-icon">🧲</span>
+        <span class="hook-text">Memory Hook: "Bihar's pre-Mauryan story = <em>200 years of marriages, murders, and military buildup</em> — four dynasties building the platform that Chandragupta Maurya would turn into India's first empire."</span>
+      </div>
+    </div>
+
+    <!-- ⑨ CONCEPT CHECK -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">✅</span><span class="section-label-text">Concept Check</span><span class="section-sub">TEST YOURSELF</span></div>
+
+      <div class="check-mcq">
+        <div class="check-q">1. Shishunaga dynasty's greatest achievement was defeating which rival kingdom — ending a 100-year rivalry?</div>
+        <div class="check-opts">
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','A')"><span class="opt-letter">A</span>Kosala</button>
+          <button class="check-opt" onclick="checkAnswer(this,'correct','B')"><span class="opt-letter">B</span>Avanti (Ujjain)</button>
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','C')"><span class="opt-letter">C</span>Vajji (Vaishali)</button>
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','D')"><span class="opt-letter">D</span>Gandhara</button>
+        </div>
+        <div class="check-feedback ok" id="fb1-ok">✓ Correct! Shishunaga's greatest achievement was the <strong>destruction of the Pradyotas of Avanti (Ujjain)</strong> — ending the 100-year long rivalry between Magadha and Avanti. Avanti had been Magadha's most serious competitor. After this, Avanti became part of the Magadha empire and remained so till the end of Mauryan rule.</div>
+        <div class="check-feedback no" id="fb1-no">✗ Answer is (B) Avanti (Ujjain). Shishunaga broke the 100-year Magadha-Avanti rivalry by destroying the Pradyota dynasty of Avanti. Note: Ajatashatru (Haryanka dynasty) had conquered Vajji; Bimbisara conquered Kosala through marriage.</div>
+      </div>
+
+      <div class="check-mcq">
+        <div class="check-q">2. Who was the founder of the Nanda dynasty who assumed the title "Ekarat"?</div>
+        <div class="check-opts">
+          <button class="check-opt" onclick="checkAnswer(this,'correct','A')"><span class="opt-letter">A</span>Mahapadmananda</button>
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','B')"><span class="opt-letter">B</span>Dhana Nanda</button>
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','C')"><span class="opt-letter">C</span>Kaivarta</button>
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','D')"><span class="opt-letter">D</span>Nagadasaka</button>
+        </div>
+        <div class="check-feedback ok" id="fb2-ok">✓ Correct! Mahapadmananda founded the Nanda dynasty by killing last Shishunaga ruler Mahanandin. He assumed the title "Ekarat" (sole sovereign) — meaning he claimed to be the only independent ruler who had destroyed all other Kshatriya kingdoms. He was also called Ugrasena (Mahabodhivamsa). Dhana Nanda was the LAST, not first, Nanda king.</div>
+        <div class="check-feedback no" id="fb2-no">✗ Answer is (A) Mahapadmananda. He was the FOUNDER (first) of the Nanda dynasty. Dhana Nanda was the LAST Nanda king — don't confuse them. Ekarat = "sole sovereign" = Mahapadmananda's title.</div>
+      </div>
+
+      <div class="mains-box">
+        <div class="mains-meta"><span class="pyq-tag mains">MAINS GS-I</span><span class="pyq-tag year">150 words</span></div>
+        <div class="mains-q">Trace the rise of Magadha as the dominant power in ancient India through the four pre-Mauryan dynasties. What were the key factors that enabled this rise?</div>
+        <button class="reveal-btn" style="margin-bottom:12px;" onclick="revealMains(this)">▼ Show Model Answer</button>
+        <div class="mains-answer" id="mains-ans1">
+          <div class="answer-section">
+            <h5>Introduction</h5>
+            <p>Magadha's dominance over ancient India did not emerge suddenly with the Mauryas — it was the product of 200 years of strategic accumulation across four dynasties.</p>
+          </div>
+          <div class="answer-section">
+            <h5>Dynasty-wise Progression</h5>
+            <ul>
+              <li><strong>Brihadratha:</strong> Established Magadha as a kingdom at Rajgir. Jarasandha extended it militarily.</li>
+              <li><strong>Haryanka:</strong> Bimbisara's marriage alliances brought Kashi (dowry), Licchavi alliance, and Punjab connection without wars. Ajatashatru conquered Vaishali using espionage.</li>
+              <li><strong>Shishunaga:</strong> Eliminated 100-year rival Avanti; Udayin had already moved capital to strategic Pataliputra (455 BC).</li>
+              <li><strong>Nanda:</strong> Accumulated massive wealth and the largest army in Asia — setting the stage even if they lost to Chandragupta.</li>
+            </ul>
+          </div>
+          <div class="answer-section">
+            <h5>Key Enabling Factors</h5>
+            <ul>
+              <li>Iron mines near Rajgir → superior weapons</li>
+              <li>Fertile Gangetic plains → agricultural surplus → revenue</li>
+              <li>River networks (Ganga, Sone, Gandak) → trade and military mobility</li>
+              <li>Strategic capital: Pataliputra at river confluence</li>
+              <li>Policy innovations: permanent army (Bimbisara), espionage (Ajatashatru)</li>
+            </ul>
+          </div>
+          <div class="answer-section">
+            <h5>Conclusion</h5>
+            <p>When Chandragupta Maurya inherited Magadha in 321 BC, he did not build from scratch — he stood on foundations laid by four dynasties over two centuries. Bihar's geography and these political experiments made India's first empire possible.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<button class="print-btn" onclick="window.print()" title="Print Quick Revision">🖨</button>
+
+<script>
+const KEY='bihar_hist_v1';
+let visited=new Set(JSON.parse(localStorage.getItem(KEY)||'[]'));
+visited.add('modules/m03.html');
+localStorage.setItem(KEY,JSON.stringify([...visited]));
+document.querySelectorAll('.sidebar-item').forEach(item=>{
+  const href=item.getAttribute('href');
+  if(href&&visited.has('modules/'+href))item.classList.add('done');
+});
+function answerPYQ(el,type){
+  const p=el.closest('.pyq-item');
+  p.querySelectorAll('.pyq-opt').forEach(o=>{o.onclick=null;o.style.cursor='default';});
+  el.classList.add(type);
+}
+function revealPYQ(id,btn){
+  document.getElementById(id).classList.toggle('show');
+  btn.textContent=btn.textContent.includes('Show')?'Hide Explanation':'Show Explanation';
+}
+function revealMains(btn){
+  document.getElementById('mains-ans1').classList.toggle('show');
+  btn.textContent=btn.textContent.includes('▼')?'▲ Hide Model Answer':'▼ Show Model Answer';
+}
+function checkAnswer(el,type,letter){
+  const p=el.closest('.check-mcq');
+  p.querySelectorAll('.check-opt').forEach(o=>{o.onclick=null;o.style.cursor='default';});
+  el.classList.add(type);
+  const idx=Array.from(document.querySelectorAll('.check-mcq')).indexOf(p)+1;
+  const ok=document.getElementById('fb'+idx+'-ok');
+  const no=document.getElementById('fb'+idx+'-no');
+  if(type==='correct'&&ok)ok.classList.add('show');
+  if(type==='wrong'&&no)no.classList.add('show');
+}
+</script>
+</body>
+</html>

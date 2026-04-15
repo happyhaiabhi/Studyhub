@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M02 — Mahajanapadas in Bihar | Bihar History</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1a1a2e;--ink2:#2d2d44;--paper:#f5f2eb;--paper2:#ede9df;
+  --gold:#c9973a;--gold2:#e8b45a;--teal:#1e7a6e;--teal2:#2aa195;
+  --coral:#c2522b;--coral2:#e06840;--muted:#7a7465;--border:rgba(26,26,46,0.11);
+  --accent:var(--gold);--accent2:var(--gold2);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);display:flex;min-height:100vh;}
+.sidebar{width:260px;flex-shrink:0;background:var(--ink);display:flex;flex-direction:column;position:sticky;top:0;height:100vh;overflow-y:auto;}
+.sidebar-logo{padding:24px 20px 16px;border-bottom:1px solid rgba(255,255,255,0.07);}
+.sidebar-logo a{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:var(--gold2);text-decoration:none;line-height:1.3;display:block;}
+.sidebar-logo span{display:block;font-size:10px;color:rgba(245,242,235,0.35);letter-spacing:1px;margin-top:3px;font-family:'DM Mono',monospace;}
+.sidebar-part{padding:14px 20px 6px;font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:1.4px;text-transform:uppercase;color:rgba(245,242,235,0.28);}
+.sidebar-item{display:flex;align-items:center;gap:10px;padding:9px 20px;text-decoration:none;font-size:12px;color:rgba(245,242,235,0.55);transition:background 0.15s,color 0.15s;border-left:2px solid transparent;}
+.sidebar-item:hover{background:rgba(255,255,255,0.05);color:rgba(245,242,235,0.9);}
+.sidebar-item.active{background:rgba(201,151,58,0.12);color:var(--gold2);border-left-color:var(--gold);}
+.sidebar-item.done .s-dot{background:var(--teal);}
+.s-num{font-family:'DM Mono',monospace;font-size:9.5px;color:rgba(245,242,235,0.28);width:28px;flex-shrink:0;}
+.s-dot{width:6px;height:6px;border-radius:50%;border:1.5px solid rgba(255,255,255,0.2);flex-shrink:0;}
+.sidebar-item.active .s-dot{background:var(--gold);border-color:var(--gold);}
+.main{flex:1;min-width:0;display:flex;flex-direction:column;}
+.topbar{background:var(--ink2);padding:12px 48px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10;border-bottom:1px solid rgba(255,255,255,0.05);}
+.topbar-left{display:flex;align-items:center;gap:14px;}
+.era-pill{font-size:10px;padding:3px 10px;border-radius:2px;background:rgba(201,151,58,0.2);color:var(--gold2);font-family:'DM Mono',monospace;letter-spacing:0.8px;}
+.topbar-title{font-size:13px;color:rgba(245,242,235,0.7);font-weight:400;}
+.topbar-nav{display:flex;gap:8px;}
+.nav-btn{padding:7px 14px;border-radius:3px;font-size:12px;font-weight:500;text-decoration:none;border:1px solid rgba(255,255,255,0.12);color:rgba(245,242,235,0.6);transition:all 0.18s;cursor:pointer;background:none;}
+.nav-btn:hover{border-color:var(--gold);color:var(--gold2);}
+.nav-btn.primary{background:var(--gold);color:var(--ink);border-color:var(--gold);}
+.nav-btn.primary:hover{background:var(--gold2);}
+.content{flex:1;padding:48px 52px 80px;max-width:900px;}
+.mod-header{margin-bottom:40px;}
+.mod-badge{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--ink);font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:4px 12px;border-radius:2px;margin-bottom:18px;}
+.mod-header h1{font-family:'Playfair Display',serif;font-size:clamp(26px,3.5vw,40px);font-weight:900;line-height:1.15;letter-spacing:-0.5px;margin-bottom:14px;}
+.mod-header h1 em{font-style:italic;color:var(--gold);}
+.mod-header p{font-size:14.5px;color:var(--muted);line-height:1.75;max-width:640px;}
+.mod-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px;padding-top:18px;border-top:1px solid var(--border);}
+.meta-tag{font-size:10.5px;padding:3px 9px;border-radius:2px;font-weight:500;}
+.meta-tag.b{background:#fdf5e6;color:var(--gold);}
+.meta-tag.m{background:#ebf5f3;color:var(--teal);}
+.meta-tag.s{background:#fff0eb;color:var(--coral);}
+.meta-tag.d{background:#f0edf8;color:#5a3ea1;}
+.section{margin-bottom:44px;}
+.section-head{display:flex;align-items:center;gap:12px;margin-bottom:20px;padding-bottom:12px;border-bottom:2px solid var(--accent);}
+.section-icon{font-size:20px;}
+.section-label-text{font-family:'Playfair Display',serif;font-size:19px;font-weight:700;}
+.section-sub{font-size:11px;color:var(--muted);font-family:'DM Mono',monospace;letter-spacing:0.8px;margin-left:auto;}
+.story-box{background:var(--ink);color:var(--paper);border-radius:5px;padding:28px 32px;position:relative;overflow:hidden;}
+.story-box::before{content:'';position:absolute;top:-40px;right:-40px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(201,151,58,0.15) 0%,transparent 70%);}
+.story-box p{font-size:14.5px;line-height:1.85;font-weight:300;position:relative;}
+.story-box p+p{margin-top:12px;}
+.story-box strong{color:var(--gold2);font-weight:600;}
+.story-highlight{display:inline-block;margin-top:18px;padding:10px 16px;background:rgba(201,151,58,0.15);border-left:3px solid var(--gold);border-radius:0 3px 3px 0;font-size:13px;font-style:italic;color:var(--gold2);position:relative;}
+.concept-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.concept-card{background:#fff;border:1px solid var(--border);border-radius:4px;padding:20px;position:relative;overflow:hidden;}
+.concept-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--accent);}
+.concept-card h4{font-size:13px;font-weight:600;margin-bottom:8px;color:var(--ink2);}
+.concept-card p{font-size:12.5px;color:var(--muted);line-height:1.65;}
+.analogy-box{background:linear-gradient(135deg,#fff9f0,#fff);border:1px solid rgba(201,151,58,0.25);border-radius:4px;padding:20px;margin-bottom:20px;}
+.analogy-box .analogy-label{font-size:10px;font-family:'DM Mono',monospace;letter-spacing:1.2px;color:var(--gold);text-transform:uppercase;margin-bottom:8px;}
+.analogy-box p{font-size:13.5px;line-height:1.7;color:var(--ink2);}
+.timeline{position:relative;padding-left:28px;}
+.timeline::before{content:'';position:absolute;left:8px;top:8px;bottom:8px;width:2px;background:linear-gradient(180deg,var(--accent),transparent);}
+.tl-item{position:relative;margin-bottom:20px;}
+.tl-dot{position:absolute;left:-24px;top:4px;width:12px;height:12px;border-radius:50%;background:var(--accent);border:2px solid var(--paper);box-shadow:0 0 0 2px var(--accent);}
+.tl-period{font-family:'DM Mono',monospace;font-size:10.5px;color:var(--accent);letter-spacing:0.5px;margin-bottom:4px;}
+.tl-title{font-size:14px;font-weight:600;margin-bottom:4px;color:var(--ink);}
+.tl-body{font-size:12.5px;color:var(--muted);line-height:1.6;}
+.tl-badge{display:inline-block;font-size:10px;padding:1.5px 7px;border-radius:2px;background:var(--paper2);color:var(--ink2);margin-left:6px;font-weight:500;}
+.flow{display:flex;flex-direction:column;gap:0;}
+.flow-row{display:flex;align-items:stretch;}
+.flow-box{flex:1;background:#fff;border:1px solid var(--border);border-radius:4px;padding:16px 18px;}
+.flow-box.cause{border-top:3px solid var(--coral);}
+.flow-box.event{border-top:3px solid var(--gold);}
+.flow-box.result{border-top:3px solid var(--teal);}
+.flow-label{font-size:9.5px;font-family:'DM Mono',monospace;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:6px;}
+.flow-box.cause .flow-label{color:var(--coral);}
+.flow-box.event .flow-label{color:var(--gold);}
+.flow-box.result .flow-label{color:var(--teal);}
+.flow-box h4{font-size:13px;font-weight:600;margin-bottom:5px;}
+.flow-box p{font-size:12px;color:var(--muted);line-height:1.55;}
+.flow-arrow{display:flex;align-items:center;justify-content:center;padding:6px 0;color:var(--muted);font-size:18px;}
+.flow-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:12px;}
+.comp-table{width:100%;border-collapse:collapse;font-size:13px;}
+.comp-table th{background:var(--ink);color:var(--paper);padding:11px 14px;text-align:left;font-weight:500;font-size:12px;letter-spacing:0.3px;}
+.comp-table th:first-child{border-radius:4px 0 0 0;}
+.comp-table th:last-child{border-radius:0 4px 0 0;}
+.comp-table td{padding:10px 14px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.55;}
+.comp-table tr:last-child td{border-bottom:none;}
+.comp-table tr:nth-child(even) td{background:var(--paper2);}
+.comp-table tr:hover td{background:#fff9f0;}
+.comp-table td:first-child{font-weight:600;color:var(--ink2);}
+.comp-table td.accent{color:var(--gold);font-weight:500;}
+.comp-table td.teal{color:var(--teal);font-weight:500;}
+.mnemonic-box{background:linear-gradient(135deg,var(--ink) 0%,var(--ink2) 100%);border-radius:5px;padding:28px 32px;color:var(--paper);}
+.mnemonic-box .m-label{font-size:10px;font-family:'DM Mono',monospace;letter-spacing:1.5px;color:var(--gold);text-transform:uppercase;margin-bottom:14px;}
+.mnemonic-word{font-family:'Playfair Display',serif;font-size:clamp(22px,3vw,34px);font-weight:900;color:var(--gold2);letter-spacing:4px;margin-bottom:18px;line-height:1.2;}
+.mnemonic-rows{display:flex;flex-direction:column;gap:10px;}
+.m-row{display:flex;align-items:baseline;gap:14px;}
+.m-letter{font-family:'DM Mono',monospace;font-size:20px;font-weight:500;color:var(--gold2);width:24px;flex-shrink:0;}
+.m-text{font-size:13.5px;line-height:1.5;}
+.m-text strong{color:var(--gold2);}
+.m-tip{margin-top:18px;padding:12px 16px;background:rgba(201,151,58,0.12);border-radius:3px;font-size:12.5px;font-style:italic;color:rgba(245,242,235,0.7);}
+.pyq-item{background:#fff;border:1px solid var(--border);border-radius:4px;padding:22px;margin-bottom:14px;}
+.pyq-meta{display:flex;align-items:center;gap:8px;margin-bottom:12px;flex-wrap:wrap;}
+.pyq-tag{font-size:10px;padding:2px 8px;border-radius:2px;font-weight:500;font-family:'DM Mono',monospace;letter-spacing:0.5px;}
+.pyq-tag.prelims{background:#fdf5e6;color:var(--gold);}
+.pyq-tag.mains{background:#ebf5f3;color:var(--teal);}
+.pyq-tag.year{background:var(--paper2);color:var(--muted);}
+.pyq-q{font-size:14px;font-weight:500;line-height:1.6;margin-bottom:14px;}
+.pyq-options{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:14px;}
+.pyq-opt{padding:8px 12px;border-radius:3px;font-size:12.5px;border:1px solid var(--border);background:var(--paper);cursor:pointer;transition:all 0.18s;}
+.pyq-opt:hover{border-color:var(--gold);background:#fff9f0;}
+.pyq-opt.correct{background:#e8f5e9;border-color:#4caf50;color:#2e7d32;font-weight:500;}
+.pyq-opt.wrong{background:#ffebee;border-color:#ef9a9a;color:#c62828;}
+.pyq-answer{display:none;padding:14px 16px;background:#e8f5f3;border-radius:3px;border-left:3px solid var(--teal);}
+.pyq-answer.show{display:block;}
+.pyq-answer strong{color:var(--teal);font-size:12px;letter-spacing:0.5px;}
+.pyq-answer p{font-size:13px;color:var(--ink2);margin-top:5px;line-height:1.6;}
+.reveal-btn{font-size:11.5px;padding:6px 14px;border-radius:3px;background:none;border:1px solid var(--border);cursor:pointer;color:var(--muted);transition:all 0.18s;}
+.reveal-btn:hover{border-color:var(--teal);color:var(--teal);}
+.mains-box{background:#fff;border:1px solid var(--border);border-radius:4px;padding:22px;}
+.mains-q{font-size:14.5px;font-weight:600;line-height:1.6;margin-bottom:14px;color:var(--ink);}
+.mains-meta{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap;}
+.mains-answer{display:none;border-top:1px solid var(--border);padding-top:16px;}
+.mains-answer.show{display:block;}
+.answer-section{margin-bottom:14px;}
+.answer-section h5{font-size:11px;font-family:'DM Mono',monospace;letter-spacing:1px;color:var(--gold);text-transform:uppercase;margin-bottom:7px;}
+.answer-section p{font-size:13px;line-height:1.7;color:var(--ink2);}
+.answer-section ul{padding-left:18px;}
+.answer-section li{font-size:13px;line-height:1.7;color:var(--ink2);margin-bottom:4px;}
+.qr-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.qr-item{display:flex;align-items:flex-start;gap:10px;background:#fff;border:1px solid var(--border);border-radius:4px;padding:14px 16px;}
+.qr-num{font-family:'DM Mono',monospace;font-size:10px;color:var(--accent);font-weight:500;flex-shrink:0;margin-top:2px;}
+.qr-text{font-size:13px;line-height:1.6;color:var(--ink2);}
+.qr-text strong{color:var(--accent);}
+.memory-hook{background:var(--accent);border-radius:4px;padding:16px 22px;display:flex;align-items:center;gap:16px;margin-top:32px;}
+.hook-icon{font-size:22px;}
+.hook-text{font-size:14px;font-weight:600;color:var(--ink);line-height:1.5;}
+.check-mcq{background:#fff;border:1px solid var(--border);border-radius:4px;padding:20px;margin-bottom:12px;}
+.check-q{font-size:14px;font-weight:500;margin-bottom:14px;line-height:1.6;}
+.check-opts{display:flex;flex-direction:column;gap:7px;}
+.check-opt{padding:10px 14px;border-radius:3px;font-size:13px;border:1px solid var(--border);background:var(--paper);cursor:pointer;transition:all 0.18s;text-align:left;display:flex;align-items:center;gap:10px;}
+.check-opt:hover{border-color:var(--accent);background:#fff9f0;}
+.check-opt.correct{background:#e8f5e9;border-color:#4caf50;color:#2e7d32;}
+.check-opt.wrong{background:#ffebee;border-color:#ef9a9a;color:#c62828;}
+.opt-letter{width:22px;height:22px;border-radius:50%;background:var(--paper2);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;flex-shrink:0;transition:all 0.18s;}
+.check-opt.correct .opt-letter{background:#4caf50;color:#fff;}
+.check-opt.wrong   .opt-letter{background:#ef9a9a;color:#fff;}
+.check-feedback{margin-top:10px;padding:10px 14px;border-radius:3px;font-size:12.5px;display:none;line-height:1.6;}
+.check-feedback.show{display:block;}
+.check-feedback.ok{background:#e8f5e9;color:#2e7d32;}
+.check-feedback.no{background:#ffebee;color:#c62828;}
+.bpsc-special{background:linear-gradient(135deg,#fff9f0,#fff);border:1px solid rgba(201,151,58,0.3);border-radius:4px;padding:18px 20px;margin-bottom:20px;display:flex;gap:14px;align-items:flex-start;}
+.bpsc-icon{font-size:22px;flex-shrink:0;}
+.bpsc-content h4{font-size:13px;font-weight:600;color:var(--gold);margin-bottom:5px;}
+.bpsc-content p{font-size:12.5px;color:var(--muted);line-height:1.6;}
+/* Map-like republic diagram */
+.republic-diagram{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:8px;}
+.rep-card{background:#fff;border:1px solid var(--border);border-radius:4px;padding:16px;text-align:center;}
+.rep-card.highlight{background:linear-gradient(135deg,#fff9f0,#fff);border-color:rgba(201,151,58,0.3);}
+.rep-name{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:var(--ink);margin-bottom:5px;}
+.rep-capital{font-size:11px;color:var(--gold);font-family:'DM Mono',monospace;letter-spacing:0.5px;margin-bottom:7px;}
+.rep-desc{font-size:11.5px;color:var(--muted);line-height:1.5;}
+.rep-badge{display:inline-block;font-size:9.5px;padding:2px 7px;border-radius:2px;background:var(--paper2);color:var(--ink2);margin-top:6px;}
+.sidebar::-webkit-scrollbar{width:4px;}
+.sidebar::-webkit-scrollbar-track{background:transparent;}
+.sidebar::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.1);border-radius:2px;}
+.print-btn{position:fixed;bottom:24px;right:24px;background:var(--ink);color:var(--gold2);border:none;border-radius:50%;width:44px;height:44px;font-size:16px;cursor:pointer;box-shadow:0 4px 16px rgba(26,26,46,0.25);transition:transform 0.18s;display:flex;align-items:center;justify-content:center;}
+.print-btn:hover{transform:scale(1.1);}
+@media print{.sidebar,.topbar,.print-btn{display:none;}.main{display:block;}.content{padding:20px;}}
+@media(max-width:768px){.sidebar{display:none;}.content{padding:24px 20px 60px;}.topbar{padding:10px 20px;}.concept-grid,.qr-grid,.flow-cols,.pyq-options,.republic-diagram{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<aside class="sidebar">
+  <div class="sidebar-logo">
+    <a href="../index.html">Bihar History<br>Study System</a>
+    <span>BPSC · UPSC · State PCS</span>
+  </div>
+  <div class="sidebar-part">Part I — Ancient Bihar</div>
+  <a class="sidebar-item done" href="m01.html"><span class="s-num">01</span><span class="s-dot"></span>Sources & Prehistoric Bihar</a>
+  <a class="sidebar-item active" href="m02.html"><span class="s-num">02</span><span class="s-dot"></span>Mahajanapadas in Bihar</a>
+  <a class="sidebar-item" href="m03.html"><span class="s-num">03</span><span class="s-dot"></span>Pre-Mauryan Dynasties</a>
+  <a class="sidebar-item" href="m04.html"><span class="s-num">04</span><span class="s-dot"></span>Buddhism & Jainism</a>
+  <a class="sidebar-item" href="m05.html"><span class="s-num">05</span><span class="s-dot"></span>Mauryan Empire</a>
+  <a class="sidebar-item" href="m06.html"><span class="s-num">06</span><span class="s-dot"></span>Ashoka — Kalinga to Dhamma</a>
+  <a class="sidebar-item" href="m07.html"><span class="s-num">07</span><span class="s-dot"></span>Post-Mauryan to Gupta Era</a>
+  <div class="sidebar-part">Part II — Medieval Bihar</div>
+  <a class="sidebar-item" href="m08.html"><span class="s-num">08</span><span class="s-dot"></span>Pala Dynasty</a>
+  <a class="sidebar-item" href="m09.html"><span class="s-num">09</span><span class="s-dot"></span>Sena & Karnata Dynasties</a>
+  <a class="sidebar-item" href="m10.html"><span class="s-num">10</span><span class="s-dot"></span>Turkish Invasion</a>
+  <a class="sidebar-item" href="m11.html"><span class="s-num">11</span><span class="s-dot"></span>Khilji, Tughlaq & Noohani</a>
+  <a class="sidebar-item" href="m12.html"><span class="s-num">12</span><span class="s-dot"></span>Sher Shah Suri</a>
+  <a class="sidebar-item" href="m13.html"><span class="s-num">13</span><span class="s-dot"></span>Mughal Rule in Bihar</a>
+  <a class="sidebar-item" href="m14.html"><span class="s-num">14</span><span class="s-dot"></span>Sufism, Sikhism & Tribal States</a>
+  <div class="sidebar-part">Part III — Modern Bihar</div>
+  <a class="sidebar-item" href="m15.html"><span class="s-num">15</span><span class="s-dot"></span>European Entry</a>
+  <a class="sidebar-item" href="m16.html"><span class="s-num">16</span><span class="s-dot"></span>Battle of Buxar</a>
+  <a class="sidebar-item" href="m17.html"><span class="s-num">17</span><span class="s-dot"></span>Revolt of 1857</a>
+  <a class="sidebar-item" href="m18.html"><span class="s-num">18</span><span class="s-dot"></span>Tribal Revolts</a>
+  <a class="sidebar-item" href="m19.html"><span class="s-num">19</span><span class="s-dot"></span>Freedom Movements</a>
+  <a class="sidebar-item" href="m20.html"><span class="s-num">20</span><span class="s-dot"></span>Eminent Freedom Fighters</a>
+  <a class="sidebar-item" href="m21.html"><span class="s-num">21</span><span class="s-dot"></span>Formation of Modern Bihar</a>
+</aside>
+
+<div class="main">
+  <div class="topbar">
+    <div class="topbar-left">
+      <span class="era-pill">ANCIENT BIHAR</span>
+      <span class="topbar-title">Module 02 of 21</span>
+    </div>
+    <div class="topbar-nav">
+      <a href="m01.html" class="nav-btn">← Prev</a>
+      <a href="../index.html" class="nav-btn">Index</a>
+      <a href="m03.html" class="nav-btn primary">Next →</a>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <div class="mod-header">
+      <div class="mod-badge"><span>MODULE 02</span><span>·</span><span>Ancient Bihar</span></div>
+      <h1>Mahajanapadas —<br><em>Anga, Vajji & Magadha</em></h1>
+      <p>By 600 BC, power in northern India was consolidating into 16 great kingdoms. Three of them — Anga, Vajji, and Magadha — were in Bihar. One of them would become the world's first republic. Another would become the world's mightiest empire.</p>
+      <div class="mod-meta">
+        <span class="meta-tag b">BPSC Special</span>
+        <span class="meta-tag m">Mains GS-I</span>
+        <span class="meta-tag d">~600 BC – 400 BC</span>
+        <span class="meta-tag s">⚠ Trap: Vajji ≠ Licchavi (Vajji is the confederacy; Licchavi is a clan within it)</span>
+      </div>
+    </div>
+
+    <!-- ① STORY HOOK -->
+    <div class="section">
+      <div class="section-head">
+        <span class="section-icon">🎭</span>
+        <span class="section-label-text">Story Hook</span>
+        <span class="section-sub">START HERE</span>
+      </div>
+      <div class="story-box">
+        <p>The year is <strong>500 BC</strong>. In a magnificent assembly hall on the north bank of the Ganga, <strong>7,707 elected representatives</strong> are debating the fate of their republic. They vote. They decide. No king speaks for them — the people speak for themselves.</p>
+        <p>This is <strong>Vaishali</strong> — a city in what is now Muzaffarpur district of Bihar — and it is making history that most modern democracies don't know about. While Greece was building its Athenian democracy, <strong>Bihar already had one</strong>. The Licchavi republic of Vaishali is considered the <em>world's first republic</em> — 2,500 years before the United Nations existed.</p>
+        <p>A few hundred kilometres south, in the rocky hills around <strong>Rajgir</strong>, another state was quietly building something different — not a republic, but a <em>military machine</em>. <strong>Magadha</strong> was learning to use iron, elephants, and strategic marriages to swallow its neighbours whole. What started as one of 16 Mahajanapadas would, within a century, become the foundation of India's first empire.</p>
+        <div class="story-highlight">💡 Bihar at 600 BC was where both Democracy AND Empire were being invented — simultaneously, just 200 km apart.</div>
+      </div>
+    </div>
+
+    <!-- ② CORE CONCEPT -->
+    <div class="section">
+      <div class="section-head">
+        <span class="section-icon">🧠</span>
+        <span class="section-label-text">Core Concept — The 16 + 3</span>
+        <span class="section-sub">WITH ANALOGY</span>
+      </div>
+      <div class="analogy-box">
+        <div class="analogy-label">🌍 Modern Analogy</div>
+        <p>Think of Mahajanapadas like <strong>16 startup companies</strong> competing in the same market (the Gangetic plains). Some were monarchies (CEOs with full power), some were republics (board-governed). Eventually, four giants dominated: Vatsa, Avanti, Kosala, and Magadha — like four big tech companies absorbing all the others. Bihar had 3 of these 16 startups — and two of them (Vajji and Magadha) became the most influential of all.</p>
+      </div>
+      <div class="republic-diagram">
+        <div class="rep-card highlight">
+          <div class="rep-name">🏛️ Anga</div>
+          <div class="rep-capital">Capital: CHAMPA (Bhagalpur)</div>
+          <div class="rep-desc">NE of Magadha. Comprised present Bhagalpur, Munger, Khagaria. First mentioned in Atharvaveda. Kingdom of Karna (Mahabharata). Conquered by Bimbisara.</div>
+          <span class="rep-badge">Type: Monarchy</span>
+        </div>
+        <div class="rep-card highlight">
+          <div class="rep-name">🏛️ Vajji (Vriji)</div>
+          <div class="rep-capital">Capital: VAISHALI</div>
+          <div class="rep-desc">8-9 confederated clans. Licchavis most powerful. Spread over Champaran, Saran, Muzaffarpur, Darbhanga. World's first republic. Mahavira born here.</div>
+          <span class="rep-badge">Type: Republic (Gana-Sangha)</span>
+        </div>
+        <div class="rep-card highlight">
+          <div class="rep-name">🏛️ Magadha</div>
+          <div class="rep-capital">Capital: RAJGIR → Pataliputra</div>
+          <div class="rep-desc">South of Ganga, Patna-Gaya region. Became superpower under Haryanka, Nanda, Maurya dynasties. Birthplace of Buddhism & Jainism.</div>
+          <span class="rep-badge">Type: Monarchy → Empire</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ③ TIMELINE -->
+    <div class="section">
+      <div class="section-head">
+        <span class="section-icon">⏳</span>
+        <span class="section-label-text">Timeline — Rise & Fall of the Three</span>
+        <span class="section-sub">CHRONOLOGICAL</span>
+      </div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-period">~600 BC</div>
+          <div class="tl-title">16 Mahajanapadas Formed <span class="tl-badge">From Janapadas</span></div>
+          <div class="tl-body">Later Vedic period small kingdoms (Janapadas) combined into 16 larger entities. Three in Bihar: Anga, Vajji, Magadha. Sources: Anguttara Nikaya lists all 16; Jain texts corroborate.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-period">~600 BC — Vajji Republic at PEAK</div>
+          <div class="tl-title">Vaishali — World's First Republic</div>
+          <div class="tl-body">Licchavi Republic with 7,707-member assembly. Capital at Vaishali (modern Basarh village, Muzaffarpur). Aamrapali was royal courtesan (Nagar-Vadhu). Mahavira born at Kundagram in Vaishali. Buddha delivered last sermon here.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-period">~544 BC</div>
+          <div class="tl-title">Bimbisara Founds Haryanka Dynasty <span class="tl-badge">Anga Absorbed</span></div>
+          <div class="tl-body">Bimbisara kills last Anga king Brahmadatta — Anga merged into Magadha permanently. Magadha's rise begins. Champa (Bhagalpur) becomes Magadha province under Ajatashatru as viceroy.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-period">~492–460 BC</div>
+          <div class="tl-title">Ajatashatru Destroys Vajji Republic</div>
+          <div class="tl-body">Ajatashatru used his minister Vassakara to sow dissension among Licchavi leaders, then attacked with new weapons: <strong>Rathamusala</strong> (chariot with mace) and <strong>Mahasilakantaka</strong> (catapult). War lasted 16 years. Vajji finally absorbed into Magadha.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-period">~500–400 BC</div>
+          <div class="tl-title">16 → 4 Mahajanapadas Remain</div>
+          <div class="tl-body">By 400 BC, only 4 major powers left: Vatsa, Avanti, Kosala, Magadha. Magadha had already absorbed Anga and Vajji. The stage was set for the Nanda and then Maurya empires.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ④ FLOWCHART -->
+    <div class="section">
+      <div class="section-head">
+        <span class="section-icon">🔄</span>
+        <span class="section-label-text">Flowchart — How Magadha Became Supreme</span>
+        <span class="section-sub">CAUSE → EVENT → RESULT</span>
+      </div>
+      <div class="flow">
+        <div class="flow-row">
+          <div class="flow-box cause">
+            <div class="flow-label">Causes — Why Magadha Won</div>
+            <h4>Geographic + Resource Advantage</h4>
+            <p>Richest iron deposits near Rajgir. Fertile Gangetic plains. Protected by hills on south. River highways for trade and military movement.</p>
+          </div>
+        </div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-cols">
+          <div class="flow-box event">
+            <div class="flow-label">Tool 1</div>
+            <h4>💍 Marriage Alliances</h4>
+            <p>Bimbisara married: Kosaladevi (got Kashi as dowry), Chellana (Licchavi), Kshema (Madra). Diplomatic expansion without war.</p>
+          </div>
+          <div class="flow-box event">
+            <div class="flow-label">Tool 2</div>
+            <h4>⚔️ Military Innovation</h4>
+            <p>First permanent army. Elephant corps (9,000 under Chandragupta). New weapons: Rathamusala, Mahasilakantaka. Iron weapons from local mines.</p>
+          </div>
+          <div class="flow-box event">
+            <div class="flow-label">Tool 3</div>
+            <h4>🏙️ Strategic Capital Shift</h4>
+            <p>Rajgir → Pataliputra (455 BC) by Udayin. River confluence gave trade control. Later became the greatest city of ancient India.</p>
+          </div>
+        </div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-row">
+          <div class="flow-box result">
+            <div class="flow-label">Result</div>
+            <h4>Magadha Dominates All of India by 321 BC</h4>
+            <p>Foundation for Mauryan Empire. Chandragupta Maurya builds on Magadha's power to create first pan-Indian empire. Magadha's history became India's history.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ⑤ COMPARISON TABLE -->
+    <div class="section">
+      <div class="section-head">
+        <span class="section-icon">📊</span>
+        <span class="section-label-text">Three Mahajanapadas of Bihar — Comparison</span>
+        <span class="section-sub">EXAM-READY</span>
+      </div>
+      <div class="bpsc-special">
+        <span class="bpsc-icon">🗺️</span>
+        <div class="bpsc-content">
+          <h4>BPSC Special — Licchavi/Vajji Questions</h4>
+          <p>BPSC asks about Vaishali, Licchavi, Aamrapali, Chetaka, Mithila/Videha, and the Vajji republic almost every year. Know the distinction: Vajji = confederacy; Licchavi = most powerful clan within it.</p>
+        </div>
+      </div>
+      <table class="comp-table">
+        <thead>
+          <tr><th>Feature</th><th>🏛️ Anga</th><th>🏛️ Vajji/Licchavi</th><th>🏛️ Magadha</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Capital</td><td>Champa (= modern Bhagalpur)</td><td>Vaishali (= modern Basarh, Muzaffarpur)</td><td class="accent">Rajgir → Pataliputra (Patna)</td></tr>
+          <tr><td>Location in Bihar</td><td>NE Bihar (Bhagalpur, Munger, Khagaria)</td><td>N Bihar (Champaran, Saran, Muzaffarpur, Darbhanga)</td><td>S Bihar (Patna, Gaya, Shahabad)</td></tr>
+          <tr><td>First mentioned in</td><td>Atharvaveda</td><td>Yajurveda (Videha); Buddhist texts (Vajji)</td><td class="accent">Atharvaveda</td></tr>
+          <tr><td>Type of governance</td><td>Monarchy</td><td class="teal">Republic (Gana-Sangha) — world's first</td><td>Monarchy → Empire</td></tr>
+          <tr><td>Famous personality</td><td>Karna (Mahabharata)</td><td>Aamrapali (Nagar-Vadhu); Chetaka (leader)</td><td class="accent">Bimbisara, Ajatashatru</td></tr>
+          <tr><td>Religious significance</td><td>—</td><td>Mahavira born at Kundagram; Buddha's last sermon at Vaishali</td><td>Buddhism & Jainism both flourished in Magadha</td></tr>
+          <tr><td>How absorbed into Magadha</td><td>Bimbisara killed king Brahmadatta</td><td>Ajatashatru's 16-year war (used Vassakara's espionage)</td><td class="accent">— (became Magadha/Mauryan Empire)</td></tr>
+          <tr><td>Present-day districts</td><td>Bhagalpur, Munger, Khagaria</td><td>Muzaffarpur, Vaishali, Saran, Champaran, Darbhanga</td><td>Patna, Gaya, Nalanda, Rohtas</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- VIDEHA SPECIAL -->
+    <div class="section">
+      <div class="section-head">
+        <span class="section-icon">👑</span>
+        <span class="section-label-text">Special: Videha (Mithila) — The Forgotten Kingdom</span>
+        <span class="section-sub">BPSC SPECIAL</span>
+      </div>
+      <div class="concept-grid">
+        <div class="concept-card">
+          <h4>📍 Location & Origin</h4>
+          <p>North of Ganga; N Bihar + eastern Terai of Nepal. First mentioned in <strong>Yajurveda</strong> (not Rigveda). Founded by Ikshvaku's son Nimi Videh. His descendant Mithi Janaka founded city of <strong>Mithila</strong>. All later kings called "Janaka."</p>
+        </div>
+        <div class="concept-card">
+          <h4>🌟 Famous Connections</h4>
+          <p><strong>Sita</strong> was princess of Videha — daughter of Raja Janaka. Capital was <strong>Janakpur</strong> (now in Nepal). According to Brihadaranyaka Upanishad, Raja Janaka organised a philosophical debate won by Yajnavalkya. Last king: Karal Janaka.</p>
+        </div>
+        <div class="concept-card">
+          <h4>⚠️ Why Not in 16 Mahajanapadas?</h4>
+          <p>Videha had <em>already declined</em> before the Mahajanapada era consolidated. By 6th century BC, Videha territory merged into the Vajji confederacy. This is why it's not in Anguttara Nikaya's list of 16 — even though it was once a great kingdom.</p>
+        </div>
+        <div class="concept-card">
+          <h4>📜 Sources</h4>
+          <p>Mentioned in Ramayana (Sita), Mahabharata (Janaka), Brihadaranyaka Upanishad (philosopher-king Janaka), and Yajurveda (first mention). Satapatha Brahmana describes Aryan expansion into Videha region.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ⑥ MNEMONIC -->
+    <div class="section">
+      <div class="section-head">
+        <span class="section-icon">🧩</span>
+        <span class="section-label-text">Mnemonic</span>
+        <span class="section-sub">MEMORY TRICKS</span>
+      </div>
+
+      <div class="mnemonic-box">
+        <div class="m-label">🧩 Mnemonic — All 16 Mahajanapadas</div>
+        <div class="mnemonic-word">KAM GAV MKA KAP MAC</div>
+        <div class="mnemonic-rows">
+          <div class="m-row"><span class="m-letter">K</span><span class="m-text"><strong>Kasi</strong>, <strong>Kosala</strong>, <strong>Kuru</strong>, <strong>Kamboja</strong></span></div>
+          <div class="m-row"><span class="m-letter">A</span><span class="m-text"><strong>Anga</strong>, <strong>Avanti</strong>, <strong>Assaka</strong></span></div>
+          <div class="m-row"><span class="m-letter">M</span><span class="m-text"><strong>Magadha</strong>, <strong>Matsya</strong>, <strong>Malla</strong></span></div>
+          <div class="m-row"><span class="m-letter">G</span><span class="m-text"><strong>Gandhara</strong></span></div>
+          <div class="m-row"><span class="m-letter">V</span><span class="m-text"><strong>Vajji (Vriji)</strong>, <strong>Vatsa (Vamsa)</strong></span></div>
+          <div class="m-row"><span class="m-letter">C/P</span><span class="m-text"><strong>Chedi</strong>, <strong>Panchala</strong>, <strong>Surasena</strong></span></div>
+        </div>
+        <div class="m-tip">💡 Bihar had 3: <strong>A</strong>nga, <strong>V</strong>ajji, <strong>M</strong>agadha = "AVM" — like a luxury car brand only Bihar could drive!</div>
+      </div>
+
+      <div class="mnemonic-box" style="margin-top:16px;">
+        <div class="m-label">🧩 Mnemonic — Bimbisara's 3 Wives (marriage alliance policy)</div>
+        <div class="mnemonic-word">K · C · K</div>
+        <div class="mnemonic-rows">
+          <div class="m-row"><span class="m-letter">K</span><span class="m-text"><strong>Kosaladevi</strong> — Kosala princess (sister of Prasenjit) → Kashi came as dowry → Huge territorial gain</span></div>
+          <div class="m-row"><span class="m-letter">C</span><span class="m-text"><strong>Chellana</strong> — Licchavi princess (daughter of Chetaka) → Diplomatic link with Vajji republic</span></div>
+          <div class="m-row"><span class="m-letter">K</span><span class="m-text"><strong>Kshema</strong> — Madra clan princess (Punjab) → Western alliance secured</span></div>
+        </div>
+        <div class="m-tip">💡 "King Bimbisara: Kashi, Chellana, Kshema" = three marriages that built an empire without a war. Three Ks = Three Kingdoms brought under Magadha's influence!</div>
+      </div>
+    </div>
+
+    <!-- ⑦ PYQ -->
+    <div class="section">
+      <div class="section-head">
+        <span class="section-icon">📝</span>
+        <span class="section-label-text">PYQ Practice</span>
+        <span class="section-sub">SOLVED</span>
+      </div>
+
+      <div class="pyq-item">
+        <div class="pyq-meta">
+          <span class="pyq-tag prelims">BPSC Prelims</span>
+          <span class="pyq-tag year">BPSC 2008</span>
+        </div>
+        <div class="pyq-q">Champa was the capital of which Mahajanapada — known today as which district?</div>
+        <div class="pyq-options">
+          <div class="pyq-opt" onclick="answerPYQ(this,'correct')">(a) Bhagalpur</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(b) Khagaria</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(c) Munger</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(d) Patliputra</div>
+        </div>
+        <div class="pyq-answer" id="ans-pyq1">
+          <strong>✓ CORRECT ANSWER: (a) Bhagalpur</strong>
+          <p>Champa was the capital of Anga Mahajanapada, corresponding to present-day Bhagalpur. Earlier name was Malini; renamed Champa after a king. Hiuen Tsang called it "Chenpo." First king of Anga was Titikshu. Karna of Mahabharata was king of Anga. The kingdom included Bhagalpur, Munger, and Khagaria districts.</p>
+        </div>
+        <button class="reveal-btn" onclick="revealPYQ('ans-pyq1',this)">Show Explanation</button>
+      </div>
+
+      <div class="pyq-item">
+        <div class="pyq-meta">
+          <span class="pyq-tag prelims">BPSC Prelims</span>
+          <span class="pyq-tag year">BPSC 2011</span>
+        </div>
+        <div class="pyq-q">'Amrapali' the famous dancer was related to which city?</div>
+        <div class="pyq-options">
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(a) Patliputra</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'correct')">(b) Vaishali</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(c) Mithila</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(d) Munger</div>
+        </div>
+        <div class="pyq-answer" id="ans-pyq2">
+          <strong>✓ CORRECT ANSWER: (b) Vaishali</strong>
+          <p>Aamrapali was the royal courtesan and dancer of Vaishali. She was called "Nagar-Vadhu" (bride of the city) of Vaishali. She later became a devout follower of Buddha. She is mentioned in Buddhist texts and her story represents the cultural richness of the Licchavi republic. She offered her mango grove to Buddha — a famous story in Buddhist literature.</p>
+        </div>
+        <button class="reveal-btn" onclick="revealPYQ('ans-pyq2',this)">Show Explanation</button>
+      </div>
+
+      <div class="pyq-item">
+        <div class="pyq-meta">
+          <span class="pyq-tag prelims">BPSC Prelims</span>
+          <span class="pyq-tag year">BPSC 2011</span>
+        </div>
+        <div class="pyq-q">What was the early capital of Magadha?</div>
+        <div class="pyq-options">
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(a) Patliputra</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(b) Vaishali</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'correct')">(c) Rajgriha (Girivraja)</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(d) Champa</div>
+        </div>
+        <div class="pyq-answer" id="ans-pyq3">
+          <strong>✓ CORRECT ANSWER: (c) Rajgriha (Girivraja)</strong>
+          <p>⚠️ Trap: Many confuse Pataliputra as the original capital — but Pataliputra was founded LATER by Udayin in 455 BC. The EARLY capital of Magadha was Rajgriha (also called Girivraja — "city of five hills"). Rajgir was the capital during Brihadratha, Haryanka (Bimbisara, Ajatashatru), and Shishunaga dynasties. Pataliputra became capital only after Udayin shifted it.</p>
+        </div>
+        <button class="reveal-btn" onclick="revealPYQ('ans-pyq3',this)">Show Explanation</button>
+      </div>
+    </div>
+
+    <!-- ⑧ QUICK REVISION -->
+    <div class="section">
+      <div class="section-head">
+        <span class="section-icon">⚡</span>
+        <span class="section-label-text">Quick Revision Bullets</span>
+        <span class="section-sub">7 ONE-LINERS</span>
+      </div>
+      <div class="qr-grid">
+        <div class="qr-item"><span class="qr-num">01</span><span class="qr-text">Out of 16 Mahajanapadas, <strong>3 were in Bihar</strong>: Anga, Vajji, Magadha.</span></div>
+        <div class="qr-item"><span class="qr-num">02</span><span class="qr-text"><strong>Vaishali (Licchavi)</strong> = world's first republic; 7,707-member assembly at Santhagara; identified with Basarh village, Muzaffarpur.</span></div>
+        <div class="qr-item"><span class="qr-num">03</span><span class="qr-text"><strong>Anga capital = Champa</strong> (modern Bhagalpur); first mentioned Atharvaveda; kingdom of Karna in Mahabharata.</span></div>
+        <div class="qr-item"><span class="qr-num">04</span><span class="qr-text"><strong>Videha (Mithila)</strong> = Sita's kingdom; not in 16 Mahajanapadas as it had merged into Vajji confederacy; first mentioned in Yajurveda.</span></div>
+        <div class="qr-item"><span class="qr-num">05</span><span class="qr-text"><strong>Bimbisara</strong> = founder of Haryanka dynasty; 3 wives (Kosaladevi, Chellana, Kshema) = got Kashi, Licchavi alliance, Punjab alliance.</span></div>
+        <div class="qr-item"><span class="qr-num">06</span><span class="qr-text"><strong>Magadha's success</strong>: iron mines near Rajgir, elephant forests, river highways, policy of marriage alliances, strong military.</span></div>
+        <div class="qr-item"><span class="qr-num">07</span><span class="qr-text"><strong>Aamrapali</strong> = Nagar-Vadhu of Vaishali; royal courtesan; later devoted follower of Buddha; gave her mango grove to him.</span></div>
+      </div>
+      <div class="memory-hook">
+        <span class="hook-icon">🧲</span>
+        <span class="hook-text">Memory Hook: "While Greece had one democracy, <em>Bihar had already democratised Vaishali</em> — and was simultaneously building the iron military that would forge India's first empire at Rajgir."</span>
+      </div>
+    </div>
+
+    <!-- ⑨ CONCEPT CHECK -->
+    <div class="section">
+      <div class="section-head">
+        <span class="section-icon">✅</span>
+        <span class="section-label-text">Concept Check</span>
+        <span class="section-sub">TEST YOURSELF</span>
+      </div>
+
+      <div class="check-mcq">
+        <div class="check-q">1. Vaishali is considered the world's first republic. In which present-day district of Bihar is ancient Vaishali identified?</div>
+        <div class="check-opts">
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','A')"><span class="opt-letter">A</span>Darbhanga district</button>
+          <button class="check-opt" onclick="checkAnswer(this,'correct','B')"><span class="opt-letter">B</span>Muzaffarpur district (Basarh village)</button>
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','C')"><span class="opt-letter">C</span>Vaishali district itself</button>
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','D')"><span class="opt-letter">D</span>Saran district</button>
+        </div>
+        <div class="check-feedback ok" id="fb1-ok">✓ Correct! Archaeologist Cunningham identified present Basarh village in Muzaffarpur district as ancient Vaishali. Note that though there IS a modern "Vaishali" district, the ancient city is specifically associated with Basarh in Muzaffarpur.</div>
+        <div class="check-feedback no" id="fb1-no">✗ The answer is (B). Cunningham and other archaeologists identified the present village of Basarh in Muzaffarpur district as the site of ancient Vaishali. This is a standard BPSC fact.</div>
+      </div>
+
+      <div class="check-mcq">
+        <div class="check-q">2. The Videha Kingdom is mentioned for the FIRST TIME in which text?</div>
+        <div class="check-opts">
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','A')"><span class="opt-letter">A</span>Rigveda</button>
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','B')"><span class="opt-letter">B</span>Atharvaveda</button>
+          <button class="check-opt" onclick="checkAnswer(this,'correct','C')"><span class="opt-letter">C</span>Yajurveda</button>
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','D')"><span class="opt-letter">D</span>Ramayana</button>
+        </div>
+        <div class="check-feedback ok" id="fb2-ok">✓ Correct! Videha is first mentioned in Yajurveda. Don't confuse: Anga and Magadha are first mentioned in Atharvaveda; Kikata (Bihar) is in Rigveda; but Videha/Mithila specifically is Yajurveda.</div>
+        <div class="check-feedback no" id="fb2-no">✗ The answer is (C) Yajurveda. Remember the pattern: Rigveda = Kikata, Atharvaveda = Anga/Magadha, Yajurveda = Videha. This sequence appears in BPSC exams regularly.</div>
+      </div>
+
+      <div class="mains-box">
+        <div class="mains-meta">
+          <span class="pyq-tag mains">MAINS GS-I</span>
+          <span class="pyq-tag year">150 words</span>
+        </div>
+        <div class="mains-q">Vaishali is described as the world's first republic. Discuss the democratic features of the Vajji confederacy and examine why its republican system ultimately failed against Magadha's monarchical aggression.</div>
+        <button class="reveal-btn" style="margin-bottom:12px;" onclick="revealMains(this)">▼ Show Model Answer</button>
+        <div class="mains-answer" id="mains-ans1">
+          <div class="answer-section">
+            <h5>Introduction</h5>
+            <p>Vaishali, capital of the Licchavi clan within the Vajji confederacy, operated as a republic (Gana-Sangha) around 600 BC — predating Greek democracy by over a century.</p>
+          </div>
+          <div class="answer-section">
+            <h5>Democratic Features</h5>
+            <ul>
+              <li><strong>Elected Assembly:</strong> Central legislature of 7,707 members (Rajas), each called a Raja</li>
+              <li><strong>Assembly Hall:</strong> Santhagara — where debates and decisions were held collectively</li>
+              <li><strong>Deliberative System:</strong> Decisions made by consensus, not royal decree</li>
+              <li><strong>Clan-based Governance:</strong> Ugras, Bhogas, Jnatrikas, Licchavis all had representation</li>
+            </ul>
+          </div>
+          <div class="answer-section">
+            <h5>Why it Failed vs. Magadha</h5>
+            <ul>
+              <li><strong>Internal divisions:</strong> Ajatashatru's minister Vassakara sowed dissension among Licchavi leaders over 3 years</li>
+              <li><strong>Military asymmetry:</strong> Magadha had permanent army, new weapons (Rathamusala, Mahasilakantaka); Vajji relied on part-time militia</li>
+              <li><strong>Slow decision-making:</strong> Republican deliberation could not match monarchical speed in military response</li>
+            </ul>
+          </div>
+          <div class="answer-section">
+            <h5>Conclusion</h5>
+            <p>The Vajji Republic demonstrates that democratic governance existed in ancient India. Its fall reveals the paradox that participatory systems, while socially superior, may be militarily vulnerable to focused autocratic power — a lesson that echoes through history.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<button class="print-btn" onclick="window.print()" title="Print Quick Revision">🖨</button>
+
+<script>
+const KEY='bihar_hist_v1';
+let visited=new Set(JSON.parse(localStorage.getItem(KEY)||'[]'));
+visited.add('modules/m02.html');
+localStorage.setItem(KEY,JSON.stringify([...visited]));
+document.querySelectorAll('.sidebar-item').forEach(item=>{
+  const href=item.getAttribute('href');
+  if(href&&visited.has('modules/'+href))item.classList.add('done');
+});
+function answerPYQ(el,type){
+  const p=el.closest('.pyq-item');
+  p.querySelectorAll('.pyq-opt').forEach(o=>{o.onclick=null;o.style.cursor='default';});
+  el.classList.add(type);
+}
+function revealPYQ(id,btn){
+  document.getElementById(id).classList.toggle('show');
+  btn.textContent=btn.textContent.includes('Show')?'Hide Explanation':'Show Explanation';
+}
+function revealMains(btn){
+  document.getElementById('mains-ans1').classList.toggle('show');
+  btn.textContent=btn.textContent.includes('▼')?'▲ Hide Model Answer':'▼ Show Model Answer';
+}
+function checkAnswer(el,type,letter){
+  const p=el.closest('.check-mcq');
+  p.querySelectorAll('.check-opt').forEach(o=>{o.onclick=null;o.style.cursor='default';});
+  el.classList.add(type);
+  const idx=Array.from(document.querySelectorAll('.check-mcq')).indexOf(p)+1;
+  const ok=document.getElementById('fb'+idx+'-ok');
+  const no=document.getElementById('fb'+idx+'-no');
+  if(type==='correct'&&ok)ok.classList.add('show');
+  if(type==='wrong'&&no)no.classList.add('show');
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M20 — Eminent Freedom Fighters of Bihar | Bihar History</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1a1a2e;--ink2:#2d2d44;--paper:#f5f2eb;--paper2:#ede9df;--gold:#c9973a;--teal:#1e7a6e;--teal2:#2aa195;--coral:#c2522b;--coral2:#e06840;--muted:#7a7465;--border:rgba(26,26,46,0.11);}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);display:flex;min-height:100vh;}
+.sidebar{width:260px;flex-shrink:0;background:var(--ink);display:flex;flex-direction:column;position:sticky;top:0;height:100vh;overflow-y:auto;}
+.sidebar-logo{padding:24px 20px 16px;border-bottom:1px solid rgba(255,255,255,0.07);}
+.sidebar-logo a{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:var(--coral2);text-decoration:none;line-height:1.3;display:block;}
+.sidebar-logo span{display:block;font-size:10px;color:rgba(245,242,235,0.35);letter-spacing:1px;margin-top:3px;font-family:'DM Mono',monospace;}
+.sidebar-part{padding:14px 20px 6px;font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:1.4px;text-transform:uppercase;color:rgba(245,242,235,0.28);}
+.sidebar-item{display:flex;align-items:center;gap:10px;padding:9px 20px;text-decoration:none;font-size:12px;color:rgba(245,242,235,0.55);transition:background 0.15s;border-left:2px solid transparent;}
+.sidebar-item:hover{background:rgba(255,255,255,0.05);}
+.sidebar-item.active{background:rgba(194,82,43,0.15);color:var(--coral2);border-left-color:var(--coral);}
+.sidebar-item.done .s-dot{background:var(--teal);}
+.s-num{font-family:'DM Mono',monospace;font-size:9.5px;color:rgba(245,242,235,0.28);width:28px;flex-shrink:0;}
+.s-dot{width:6px;height:6px;border-radius:50%;border:1.5px solid rgba(255,255,255,0.2);flex-shrink:0;}
+.sidebar-item.active .s-dot{background:var(--coral);border-color:var(--coral);}
+.main{flex:1;min-width:0;display:flex;flex-direction:column;}
+.topbar{background:var(--ink2);padding:12px 48px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10;border-bottom:1px solid rgba(255,255,255,0.05);}
+.topbar-left{display:flex;align-items:center;gap:14px;}
+.era-pill{font-size:10px;padding:3px 10px;border-radius:2px;background:rgba(194,82,43,0.2);color:var(--coral2);font-family:'DM Mono',monospace;letter-spacing:0.8px;}
+.topbar-title{font-size:13px;color:rgba(245,242,235,0.7);}
+.topbar-nav{display:flex;gap:8px;}
+.nav-btn{padding:7px 14px;border-radius:3px;font-size:12px;font-weight:500;text-decoration:none;border:1px solid rgba(255,255,255,0.12);color:rgba(245,242,235,0.6);transition:all 0.18s;cursor:pointer;background:none;}
+.nav-btn:hover{border-color:var(--coral);color:var(--coral2);}
+.nav-btn.primary{background:var(--coral);color:#fff;border-color:var(--coral);}
+.content{flex:1;padding:48px 52px 80px;max-width:920px;}
+.mod-header{margin-bottom:40px;}
+.mod-badge{display:inline-flex;align-items:center;gap:8px;background:var(--coral);color:#fff;font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:4px 12px;border-radius:2px;margin-bottom:18px;}
+.mod-header h1{font-family:'Playfair Display',serif;font-size:clamp(26px,3.5vw,40px);font-weight:900;line-height:1.15;margin-bottom:14px;}
+.mod-header h1 em{font-style:italic;color:var(--coral);}
+.mod-header p{font-size:14.5px;color:var(--muted);line-height:1.75;max-width:640px;}
+.mod-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px;padding-top:18px;border-top:1px solid var(--border);}
+.meta-tag{font-size:10.5px;padding:3px 9px;border-radius:2px;font-weight:500;}
+.meta-tag.b{background:#fdf5e6;color:var(--gold);}
+.meta-tag.m{background:#ebf5f3;color:var(--teal);}
+.meta-tag.s{background:#fff0eb;color:var(--coral);}
+.section{margin-bottom:44px;}
+.section-head{display:flex;align-items:center;gap:12px;margin-bottom:20px;padding-bottom:12px;border-bottom:2px solid var(--coral);}
+.section-icon{font-size:20px;}
+.section-label-text{font-family:'Playfair Display',serif;font-size:19px;font-weight:700;}
+.section-sub{font-size:11px;color:var(--muted);font-family:'DM Mono',monospace;letter-spacing:0.8px;margin-left:auto;}
+.story-box{background:var(--ink);color:var(--paper);border-radius:5px;padding:28px 32px;position:relative;overflow:hidden;}
+.story-box::before{content:'';position:absolute;top:-40px;right:-40px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(194,82,43,0.2) 0%,transparent 70%);}
+.story-box p{font-size:14.5px;line-height:1.85;font-weight:300;position:relative;}
+.story-box p+p{margin-top:12px;}
+.story-box strong{color:var(--coral2);}
+.story-highlight{display:inline-block;margin-top:18px;padding:10px 16px;background:rgba(194,82,43,0.15);border-left:3px solid var(--coral);border-radius:0 3px 3px 0;font-size:13px;font-style:italic;color:var(--coral2);}
+/* Fighter cards */
+.fighter-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.fighter-card{background:#fff;border:1px solid var(--border);border-radius:5px;overflow:hidden;}
+.fighter-card.star{border-color:rgba(194,82,43,0.35);}
+.f-header{background:var(--paper2);padding:14px 18px;border-bottom:1px solid var(--border);}
+.f-name{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--ink);margin-bottom:3px;}
+.f-title{font-size:10.5px;color:var(--coral);font-family:'DM Mono',monospace;letter-spacing:0.5px;}
+.f-body{padding:14px 18px;}
+.f-row{display:flex;gap:8px;margin-bottom:6px;font-size:12px;}
+.f-key{color:var(--teal);font-weight:600;min-width:60px;flex-shrink:0;}
+.f-val{color:var(--muted);line-height:1.5;}
+.f-val strong{color:var(--ink2);}
+.comp-table{width:100%;border-collapse:collapse;font-size:12.5px;}
+.comp-table th{background:var(--ink);color:var(--paper);padding:11px 14px;text-align:left;font-weight:500;font-size:12px;}
+.comp-table th:first-child{border-radius:4px 0 0 0;}
+.comp-table th:last-child{border-radius:0 4px 0 0;}
+.comp-table td{padding:9px 14px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.5;}
+.comp-table tr:last-child td{border-bottom:none;}
+.comp-table tr:nth-child(even) td{background:var(--paper2);}
+.comp-table td:first-child{font-weight:600;color:var(--ink2);}
+.comp-table td.accent{color:var(--coral);font-weight:500;}
+.comp-table td.teal{color:var(--teal);font-weight:500;}
+.mnemonic-box{background:linear-gradient(135deg,var(--ink),var(--ink2));border-radius:5px;padding:28px 32px;color:var(--paper);margin-bottom:16px;}
+.m-label{font-size:10px;font-family:'DM Mono',monospace;letter-spacing:1.5px;color:var(--coral2);text-transform:uppercase;margin-bottom:14px;}
+.mnemonic-word{font-family:'Playfair Display',serif;font-size:clamp(20px,3vw,28px);font-weight:900;color:var(--coral2);letter-spacing:3px;margin-bottom:18px;}
+.mnemonic-rows{display:flex;flex-direction:column;gap:9px;}
+.m-row{display:flex;gap:14px;}
+.m-letter{font-family:'DM Mono',monospace;font-size:16px;font-weight:500;color:var(--coral2);width:28px;flex-shrink:0;}
+.m-text{font-size:12.5px;line-height:1.5;color:var(--paper);}
+.m-text strong{color:var(--coral2);}
+.m-tip{margin-top:16px;padding:12px 14px;background:rgba(194,82,43,0.15);border-radius:3px;font-size:12px;font-style:italic;color:rgba(245,242,235,0.7);}
+.pyq-item{background:#fff;border:1px solid var(--border);border-radius:4px;padding:22px;margin-bottom:14px;}
+.pyq-meta{display:flex;gap:8px;margin-bottom:12px;}
+.pyq-tag{font-size:10px;padding:2px 8px;border-radius:2px;font-weight:500;font-family:'DM Mono',monospace;}
+.pyq-tag.prelims{background:#fdf5e6;color:var(--gold);}
+.pyq-tag.year{background:var(--paper2);color:var(--muted);}
+.pyq-q{font-size:14px;font-weight:500;line-height:1.6;margin-bottom:14px;}
+.pyq-options{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:14px;}
+.pyq-opt{padding:8px 12px;border-radius:3px;font-size:12.5px;border:1px solid var(--border);background:var(--paper);cursor:pointer;transition:all 0.18s;}
+.pyq-opt:hover{border-color:var(--coral);}
+.pyq-opt.correct{background:#e8f5e9;border-color:#4caf50;color:#2e7d32;font-weight:500;}
+.pyq-opt.wrong{background:#ffebee;border-color:#ef9a9a;color:#c62828;}
+.pyq-answer{display:none;padding:14px 16px;background:#e8f5f3;border-radius:3px;border-left:3px solid var(--teal);}
+.pyq-answer.show{display:block;}
+.pyq-answer strong{color:var(--teal);font-size:12px;}
+.pyq-answer p{font-size:13px;color:var(--ink2);margin-top:5px;line-height:1.6;}
+.reveal-btn{font-size:11.5px;padding:6px 14px;border-radius:3px;background:none;border:1px solid var(--border);cursor:pointer;color:var(--muted);transition:all 0.18s;}
+.reveal-btn:hover{border-color:var(--teal);color:var(--teal);}
+.mains-box{background:#fff;border:1px solid var(--border);border-radius:4px;padding:22px;}
+.mains-q{font-size:14.5px;font-weight:600;line-height:1.6;margin-bottom:14px;}
+.mains-meta{display:flex;gap:8px;margin-bottom:14px;}
+.mains-tag{font-size:10px;padding:2px 8px;border-radius:2px;font-weight:500;font-family:'DM Mono',monospace;background:#ebf5f3;color:var(--teal);}
+.mains-answer{display:none;border-top:1px solid var(--border);padding-top:16px;}
+.mains-answer.show{display:block;}
+.ans-sec{margin-bottom:14px;}
+.ans-sec h5{font-size:11px;font-family:'DM Mono',monospace;letter-spacing:1px;color:var(--coral);text-transform:uppercase;margin-bottom:6px;}
+.ans-sec p,.ans-sec li{font-size:13px;line-height:1.7;color:var(--ink2);}
+.ans-sec ul{padding-left:18px;}
+.ans-sec li{margin-bottom:4px;}
+.qr-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.qr-item{display:flex;gap:10px;background:#fff;border:1px solid var(--border);border-radius:4px;padding:14px 16px;}
+.qr-num{font-family:'DM Mono',monospace;font-size:10px;color:var(--coral);font-weight:500;flex-shrink:0;margin-top:2px;}
+.qr-text{font-size:13px;line-height:1.6;color:var(--ink2);}
+.qr-text strong{color:var(--coral);}
+.memory-hook{background:var(--coral);border-radius:4px;padding:16px 22px;display:flex;align-items:center;gap:16px;margin-top:32px;}
+.hook-icon{font-size:22px;}
+.hook-text{font-size:14px;font-weight:600;color:#fff;line-height:1.5;}
+.check-mcq{background:#fff;border:1px solid var(--border);border-radius:4px;padding:20px;margin-bottom:12px;}
+.check-q{font-size:14px;font-weight:500;margin-bottom:14px;line-height:1.6;}
+.check-opts{display:flex;flex-direction:column;gap:7px;}
+.check-opt{padding:10px 14px;border-radius:3px;font-size:13px;border:1px solid var(--border);background:var(--paper);cursor:pointer;transition:all 0.18s;text-align:left;display:flex;align-items:center;gap:10px;}
+.check-opt:hover{border-color:var(--coral);}
+.check-opt.correct{background:#e8f5e9;border-color:#4caf50;color:#2e7d32;}
+.check-opt.wrong{background:#ffebee;border-color:#ef9a9a;color:#c62828;}
+.opt-letter{width:22px;height:22px;border-radius:50%;background:var(--paper2);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;flex-shrink:0;}
+.check-opt.correct .opt-letter{background:#4caf50;color:#fff;}
+.check-opt.wrong .opt-letter{background:#ef9a9a;color:#fff;}
+.check-feedback{margin-top:10px;padding:10px 14px;border-radius:3px;font-size:12.5px;display:none;line-height:1.6;}
+.check-feedback.show{display:block;}
+.check-feedback.ok{background:#e8f5e9;color:#2e7d32;}
+.check-feedback.no{background:#ffebee;color:#c62828;}
+.sidebar::-webkit-scrollbar{width:4px;}
+.sidebar::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.1);border-radius:2px;}
+.print-btn{position:fixed;bottom:24px;right:24px;background:var(--ink);color:var(--coral2);border:none;border-radius:50%;width:44px;height:44px;font-size:16px;cursor:pointer;box-shadow:0 4px 16px rgba(26,26,46,0.25);transition:transform 0.18s;display:flex;align-items:center;justify-content:center;}
+.print-btn:hover{transform:scale(1.1);}
+@media print{.sidebar,.topbar,.print-btn{display:none;}.content{padding:20px;}}
+@media(max-width:768px){.sidebar{display:none;}.content{padding:24px 20px 60px;}.topbar{padding:10px 20px;}.fighter-grid,.qr-grid,.pyq-options{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<aside class="sidebar">
+  <div class="sidebar-logo"><a href="../index.html">Bihar History<br>Study System</a><span>BPSC · UPSC · State PCS</span></div>
+  <div class="sidebar-part">Part I — Ancient Bihar</div>
+  <a class="sidebar-item done" href="m01.html"><span class="s-num">01</span><span class="s-dot"></span>Sources & Prehistoric Bihar</a>
+  <a class="sidebar-item done" href="m02.html"><span class="s-num">02</span><span class="s-dot"></span>Mahajanapadas</a>
+  <a class="sidebar-item done" href="m03.html"><span class="s-num">03</span><span class="s-dot"></span>Pre-Mauryan Dynasties</a>
+  <a class="sidebar-item done" href="m04.html"><span class="s-num">04</span><span class="s-dot"></span>Buddhism & Jainism</a>
+  <a class="sidebar-item done" href="m05.html"><span class="s-num">05</span><span class="s-dot"></span>Mauryan Empire</a>
+  <a class="sidebar-item done" href="m06.html"><span class="s-num">06</span><span class="s-dot"></span>Ashoka — Dhamma</a>
+  <a class="sidebar-item done" href="m07.html"><span class="s-num">07</span><span class="s-dot"></span>Post-Mauryan to Gupta</a>
+  <div class="sidebar-part">Part II — Medieval Bihar</div>
+  <a class="sidebar-item done" href="m08.html"><span class="s-num">08</span><span class="s-dot"></span>Pala Dynasty</a>
+  <a class="sidebar-item done" href="m09.html"><span class="s-num">09</span><span class="s-dot"></span>Sena & Karnata</a>
+  <a class="sidebar-item done" href="m10.html"><span class="s-num">10</span><span class="s-dot"></span>Turkish Invasion</a>
+  <a class="sidebar-item done" href="m11.html"><span class="s-num">11</span><span class="s-dot"></span>Khilji, Tughlaq & Noohani</a>
+  <a class="sidebar-item done" href="m12.html"><span class="s-num">12</span><span class="s-dot"></span>Sher Shah Suri</a>
+  <a class="sidebar-item done" href="m13.html"><span class="s-num">13</span><span class="s-dot"></span>Mughal Rule in Bihar</a>
+  <a class="sidebar-item done" href="m14.html"><span class="s-num">14</span><span class="s-dot"></span>Sufism, Sikhism & Tribal States</a>
+  <div class="sidebar-part">Part III — Modern Bihar</div>
+  <a class="sidebar-item done" href="m15.html"><span class="s-num">15</span><span class="s-dot"></span>European Entry</a>
+  <a class="sidebar-item done" href="m16.html"><span class="s-num">16</span><span class="s-dot"></span>Battle of Buxar</a>
+  <a class="sidebar-item done" href="m17.html"><span class="s-num">17</span><span class="s-dot"></span>Revolt of 1857</a>
+  <a class="sidebar-item done" href="m18.html"><span class="s-num">18</span><span class="s-dot"></span>Tribal Revolts</a>
+  <a class="sidebar-item done" href="m19.html"><span class="s-num">19</span><span class="s-dot"></span>Freedom Movements</a>
+  <a class="sidebar-item active" href="m20.html"><span class="s-num">20</span><span class="s-dot"></span>Eminent Freedom Fighters</a>
+  <a class="sidebar-item" href="m21.html"><span class="s-num">21</span><span class="s-dot"></span>Formation of Modern Bihar</a>
+</aside>
+
+<div class="main">
+  <div class="topbar">
+    <div class="topbar-left"><span class="era-pill">MODERN BIHAR</span><span class="topbar-title">Module 20 of 21</span></div>
+    <div class="topbar-nav">
+      <a href="m19.html" class="nav-btn">← Prev</a>
+      <a href="../index.html" class="nav-btn">Index</a>
+      <a href="m21.html" class="nav-btn primary">Last Module →</a>
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="mod-header">
+      <div class="mod-badge"><span>MODULE 20</span><span>·</span><span>Modern Bihar</span></div>
+      <h1>Eminent Freedom Fighters<br><em>of Bihar</em></h1>
+      <p>Bihar produced India's first President, its most enduring Prime Ministers, its first tribal political icon, its greatest Lok Nayak, and a revolutionary who killed a government informer to avenge Bhagat Singh. This is Bihar's hall of fame for the freedom struggle.</p>
+      <div class="mod-meta">
+        <span class="meta-tag b">BPSC Special</span>
+        <span class="meta-tag m">Mains GS-I</span>
+        <span class="meta-tag s">⚠ Key traps: Rajendra Prasad born Ziradei (Siwan). JP born Sitab Diyara (Saran). Shri Krishna Singh born Nawada. Baikuntha Shukla hanged Gaya jail 14 May 1934.</span>
+      </div>
+    </div>
+
+    <!-- STORY HOOK -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">🎭</span><span class="section-label-text">Story Hook</span></div>
+      <div class="story-box">
+        <p>The year is <strong>9 December 1946</strong>. The Constituent Assembly of India meets for its very first session. The man presiding over this historic gathering — the person who will oversee the drafting of the world's longest written constitution — is a 75-year-old man from a small village called <strong>Ziradei in Siwan district, Bihar</strong>.</p>
+        <p>His name: <strong>Dr Rajendra Prasad</strong>. Son of a farmer, a child prodigy who mastered Sanskrit at 12, first-class lawyer, Gandhi's most devoted lieutenant in Bihar, and now — the man who will become India's <strong>first President</strong>.</p>
+        <p>Bihar gave India its first Head of State. Bihar also gave India its most daring revolutionary (Jayaprakash Narayan), its first tribal political martyr (Birsa Munda), its most fearless Dalit leader (Jagjivan Ram), and a young man who avenged Bhagat Singh's hanging by killing the government informer — <strong>Baikuntha Shukla</strong>, hanged in Gaya Jail on 14 May 1934.</p>
+        <div class="story-highlight">💡 Of India's 14 Presidents till 2017, only one has won the Bharat Ratna TWICE — Dr Rajendra Prasad, Bihar's own son. He remains the only person to serve as India's President for two full terms.</div>
+      </div>
+    </div>
+
+    <!-- FIGHTER PROFILES -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">🧠</span><span class="section-label-text">Major Freedom Fighters — Profiles</span></div>
+
+      <!-- TIER 1 — BIG 4 -->
+      <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1.5px;color:var(--coral);text-transform:uppercase;margin-bottom:14px;">⭐ TIER 1 — Most BPSC-Tested</div>
+      <div class="fighter-grid" style="margin-bottom:20px;">
+        <div class="fighter-card star">
+          <div class="f-header">
+            <div class="f-name">Dr Rajendra Prasad</div>
+            <div class="f-title">FIRST PRESIDENT OF INDIA · Bihar Kesari</div>
+          </div>
+          <div class="f-body">
+            <div class="f-row"><span class="f-key">Born:</span><span class="f-val"><strong>3 December 1884</strong>, Ziradei, Siwan district</span></div>
+            <div class="f-row"><span class="f-key">Died:</span><span class="f-val"><strong>28 February 1963</strong>, Patna</span></div>
+            <div class="f-row"><span class="f-key">1st Pres:</span><span class="f-val">First President of Republic of India (1950); Constituent Assembly president (elected 11 Dec 1946)</span></div>
+            <div class="f-row"><span class="f-key">INC:</span><span class="f-val">INC President at Bombay Session, <strong>1934</strong></span></div>
+            <div class="f-row"><span class="f-key">Bihar:</span><span class="f-val">Led Bihar Non-Cooperation (1920); Salt Satyagraha leader; joined Champaran 15 Apr 1917</span></div>
+          </div>
+        </div>
+        <div class="fighter-card star">
+          <div class="f-header">
+            <div class="f-name">Jayaprakash Narayan</div>
+            <div class="f-title">LOK NAYAK · JP · Bharat Ratna 1999 (Posthumous)</div>
+          </div>
+          <div class="f-body">
+            <div class="f-row"><span class="f-key">Born:</span><span class="f-val"><strong>11 October 1902</strong>, Sitab Diyara, Saran district</span></div>
+            <div class="f-row"><span class="f-key">Died:</span><span class="f-val"><strong>8 October 1979</strong></span></div>
+            <div class="f-row"><span class="f-key">Title:</span><span class="f-val">Lok Nayak; Bharat Ratna 1999 (posthumous); Magsaysay Award 1965</span></div>
+            <div class="f-row"><span class="f-key">Key acts:</span><span class="f-val">Led Quit India 1942 (with Lohia + Aruna); organised Azad Dasta 1943; founded Congress Socialist Party 1934</span></div>
+            <div class="f-row"><span class="f-key">Airport:</span><span class="f-val">Patna airport named after him (Jay Prakash Narayan International Airport)</span></div>
+          </div>
+        </div>
+        <div class="fighter-card star">
+          <div class="f-header">
+            <div class="f-name">Shri Krishna Singh</div>
+            <div class="f-title">BIHAR KESARI · FIRST CM OF BIHAR (1946–1961)</div>
+          </div>
+          <div class="f-body">
+            <div class="f-row"><span class="f-key">Born:</span><span class="f-val"><strong>21 October 1887</strong>, Nawada district</span></div>
+            <div class="f-row"><span class="f-key">Died:</span><span class="f-val"><strong>31 January 1961</strong></span></div>
+            <div class="f-row"><span class="f-key">CM:</span><span class="f-val">First Chief Minister of Bihar (1946–1961); longest serving CM of Bihar</span></div>
+            <div class="f-row"><span class="f-key">Zamindari:</span><span class="f-val">First CM in India to abolish Zamindari system</span></div>
+            <div class="f-row"><span class="f-key">1937:</span><span class="f-val">Declined to form government in 1937 → Mohammad Yunus became 1st PM; then Shri Babu formed Congress Cabinet 20 Jul 1937</span></div>
+          </div>
+        </div>
+        <div class="fighter-card star">
+          <div class="f-header">
+            <div class="f-name">Dr Anugrah Narayan Sinha</div>
+            <div class="f-title">FIRST DY CM + FINANCE MINISTER OF BIHAR (1946–57)</div>
+          </div>
+          <div class="f-body">
+            <div class="f-row"><span class="f-key">Born:</span><span class="f-val"><strong>18 June 1887</strong></span></div>
+            <div class="f-row"><span class="f-key">Died:</span><span class="f-val"><strong>5 July 1957</strong></span></div>
+            <div class="f-row"><span class="f-key">First:</span><span class="f-val">First Deputy CM + Finance Minister of Bihar (1946–1957)</span></div>
+            <div class="f-row"><span class="f-key">Architect:</span><span class="f-val">Along with Rajendra Prasad and Shri Krishna Singh = Architect of Modern Bihar</span></div>
+            <div class="f-row"><span class="f-key">Const:</span><span class="f-val">Member of Constituent Assembly; first general election 1952 winner</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TIER 2 -->
+      <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1.5px;color:var(--teal);text-transform:uppercase;margin-bottom:14px;">TIER 2 — Important BPSC Personalities</div>
+      <div class="fighter-grid">
+        <div class="fighter-card">
+          <div class="f-header">
+            <div class="f-name">Maulana Mazharul Haque</div>
+            <div class="f-title">Champaran · Sadaquat Ashram · Home Rule</div>
+          </div>
+          <div class="f-body">
+            <div class="f-row"><span class="f-key">Born:</span><span class="f-val"><strong>22 Dec 1866</strong>, Brahmpur, Maner, Patna</span></div>
+            <div class="f-row"><span class="f-key">Key acts:</span><span class="f-val">Home Rule League Bihar president; participated Champaran Satyagraha; founded Sadaquat Ashram, Patna; started newspaper 'The Motherland'</span></div>
+          </div>
+        </div>
+        <div class="fighter-card">
+          <div class="f-header">
+            <div class="f-name">Syed Hasan Imam</div>
+            <div class="f-title">4th Muslim INC President · The Searchlight founder</div>
+          </div>
+          <div class="f-body">
+            <div class="f-row"><span class="f-key">Born:</span><span class="f-val"><strong>31 August 1871</strong>, Neora, Patna district</span></div>
+            <div class="f-row"><span class="f-key">Key acts:</span><span class="f-val">4th Muslim to become INC President (special Bombay session 1918); first BPCC session president (1908); founded The Searchlight newspaper</span></div>
+          </div>
+        </div>
+        <div class="fighter-card">
+          <div class="f-header">
+            <div class="f-name">Dr Sachchidananda Sinha</div>
+            <div class="f-title">Interim President, Constituent Assembly 9 Dec 1946</div>
+          </div>
+          <div class="f-body">
+            <div class="f-row"><span class="f-key">Born:</span><span class="f-val"><strong>10 November 1871</strong>, Arrah (Bhojpur)</span></div>
+            <div class="f-row"><span class="f-key">Key acts:</span><span class="f-val">First demanded separate Bihar province (1889); Interim President Constituent Assembly (9 Dec 1946); built Sinha Library 1924; Home Rule League</span></div>
+          </div>
+        </div>
+        <div class="fighter-card">
+          <div class="f-header">
+            <div class="f-name">Jagjivan Ram (Babuji)</div>
+            <div class="f-title">Dalit Leader · Defence Minister 1971 · Dy PM 1977</div>
+          </div>
+          <div class="f-body">
+            <div class="f-row"><span class="f-key">Born:</span><span class="f-val"><strong>5 April 1908</strong>, Chandwa, Bhojpur</span></div>
+            <div class="f-row"><span class="f-key">Key acts:</span><span class="f-val">Dalit leader; Defence Minister during 1971 Indo-Pak war; Deputy PM 1977–79; co-founded All-India Depressed Classes League; popularly called "Babuji"</span></div>
+          </div>
+        </div>
+        <div class="fighter-card">
+          <div class="f-header">
+            <div class="f-name">Baikuntha Shukla</div>
+            <div class="f-title">Hanged Gaya Jail · 14 May 1934 · Avenged Bhagat Singh</div>
+          </div>
+          <div class="f-body">
+            <div class="f-row"><span class="f-key">Born:</span><span class="f-val">1907</span></div>
+            <div class="f-row"><span class="f-key">Key acts:</span><span class="f-val">Killed <strong>Phanindra Nath Ghosh</strong> — the government informer whose testimony led to hanging of Bhagat Singh, Sukhdev, Rajguru. Hanged at <strong>Gaya Central Jail, 14 May 1934</strong>. Member: HSRA, Hindustan Seva Dal</span></div>
+          </div>
+        </div>
+        <div class="fighter-card">
+          <div class="f-header">
+            <div class="f-name">Yogendra Shukla</div>
+            <div class="f-title">HSRA co-founder · Kalapani (1932–37) · Bhagat Singh associate</div>
+          </div>
+          <div class="f-body">
+            <div class="f-row"><span class="f-key">Born:</span><span class="f-val">1896; died 1966</span></div>
+            <div class="f-row"><span class="f-key">Key acts:</span><span class="f-val">Co-founder of HSRA (Hindustan Socialist Republican Association); senior associate of Bhagat Singh and Batukeshwar Datta; imprisoned at Kalapani (Andamans) 1932–37; co-founded Congress Socialist Party from Bihar</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MASTER TABLE -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">📊</span><span class="section-label-text">Bihar Freedom Fighters — Quick Reference Master Table</span></div>
+      <table class="comp-table">
+        <thead><tr><th>Name</th><th>Born</th><th>Birthplace</th><th>Key Role / Achievement</th></tr></thead>
+        <tbody>
+          <tr><td>Rajendra Prasad</td><td class="accent">3 Dec 1884</td><td>Ziradei, Siwan</td><td>First President of India; Const. Assembly president</td></tr>
+          <tr><td>Jayaprakash Narayan (JP)</td><td class="accent">11 Oct 1902</td><td>Sitab Diyara, Saran</td><td>Lok Nayak; Bharat Ratna 1999; Azad Dasta; Patna airport</td></tr>
+          <tr><td>Shri Krishna Singh</td><td class="accent">21 Oct 1887</td><td>Nawada</td><td>First CM Bihar (1946–61); first to abolish zamindari</td></tr>
+          <tr><td>Anugrah Narayan Sinha</td><td class="accent">18 Jun 1887</td><td>—</td><td>First Dy CM + Finance Minister of Bihar (1946–57)</td></tr>
+          <tr><td>Maulana Mazharul Haque</td><td class="teal">22 Dec 1866</td><td>Maner, Patna</td><td>Home Rule Bihar president; Champaran; Sadaquat Ashram</td></tr>
+          <tr><td>Syed Hasan Imam</td><td class="teal">31 Aug 1871</td><td>Neora, Patna</td><td>4th Muslim INC President; BPCC 1st session; The Searchlight</td></tr>
+          <tr><td>Sachchidananda Sinha</td><td class="teal">10 Nov 1871</td><td>Arrah, Bhojpur</td><td>Interim Pres. Constituent Assembly (9 Dec 1946); first demanded separate Bihar (1889)</td></tr>
+          <tr><td>Jagjivan Ram</td><td class="teal">5 Apr 1908</td><td>Chandwa, Bhojpur</td><td>Defence Minister 1971; Deputy PM 1977–79; Dalit leader</td></tr>
+          <tr><td>Baikuntha Shukla</td><td class="teal">1907</td><td>—</td><td>Hanged Gaya jail 14 May 1934; killed Phanindra Nath Ghosh (informer vs Bhagat Singh)</td></tr>
+          <tr><td>Yogendra Shukla</td><td class="teal">1896</td><td>—</td><td>HSRA co-founder; Bhagat Singh associate; Kalapani 1932–37</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- MNEMONIC -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">🧩</span><span class="section-label-text">Mnemonic</span></div>
+      <div class="mnemonic-box">
+        <div class="m-label">🧩 Mnemonic — Big 5 Bihar Freedom Fighters' Birthplaces</div>
+        <div class="mnemonic-word">Z · Si · N · A · C</div>
+        <div class="mnemonic-rows">
+          <div class="m-row"><span class="m-letter">Z</span><span class="m-text"><strong>Ziradei (Siwan)</strong> = <strong>Rajendra Prasad</strong> born 3 Dec 1884 → First President of India</span></div>
+          <div class="m-row"><span class="m-letter">Si</span><span class="m-text"><strong>Sitab Diyara (Saran)</strong> = <strong>JP Narayan</strong> born 11 Oct 1902 → Lok Nayak; Bharat Ratna 1999</span></div>
+          <div class="m-row"><span class="m-letter">N</span><span class="m-text"><strong>Nawada</strong> = <strong>Shri Krishna Singh</strong> born 21 Oct 1887 → First CM Bihar; Bihar Kesari</span></div>
+          <div class="m-row"><span class="m-letter">A</span><span class="m-text"><strong>Arrah (Bhojpur)</strong> = <strong>Sachchidananda Sinha</strong> born 10 Nov 1871 → Interim Pres. Constituent Assembly</span></div>
+          <div class="m-row"><span class="m-letter">C</span><span class="m-text"><strong>Chandwa (Bhojpur)</strong> = <strong>Jagjivan Ram</strong> born 5 Apr 1908 → Defence Minister 1971; Dy PM 1977</span></div>
+        </div>
+        <div class="m-tip">💡 "Zebras Sit Near Arrah's Cows" = Ziradei (RP), Sitab Diyara (JP), Nawada (SK Singh), Arrah (Sachchidananda), Chandwa (Jagjivan Ram) — 5 key Bihar leader birthplaces in one sentence!</div>
+      </div>
+    </div>
+
+    <!-- PYQ -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">📝</span><span class="section-label-text">PYQ Practice</span></div>
+      <div class="pyq-item">
+        <div class="pyq-meta"><span class="pyq-tag prelims">BPSC MCQ</span></div>
+        <div class="pyq-q">Jayaprakash Narayan (JP) was posthumously awarded the Bharat Ratna in:</div>
+        <div class="pyq-options">
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(a) 1990</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(b) 1995</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'correct')">(c) 1999</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(d) 2002</div>
+        </div>
+        <div class="pyq-answer" id="ans-pyq1">
+          <strong>✓ CORRECT: (c) 1999</strong>
+          <p>Jayaprakash Narayan (Lok Nayak, JP) was posthumously awarded the <strong>Bharat Ratna in 1999</strong>. He had died on <strong>8 October 1979</strong>. JP was born on 11 October 1902 at Sitab Diyara, Saran district. He also received the Magsaysay Award for Public Service in 1965. The Patna International Airport is named after him.</p>
+        </div>
+        <button class="reveal-btn" onclick="revealPYQ('ans-pyq1',this)">Show Explanation</button>
+      </div>
+      <div class="pyq-item">
+        <div class="pyq-meta"><span class="pyq-tag prelims">BPSC MCQ</span></div>
+        <div class="pyq-q">Baikuntha Shukla was hanged in which jail for killing Phanindra Nath Ghosh?</div>
+        <div class="pyq-options">
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(a) Patna Central Jail</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'correct')">(b) Gaya Central Jail</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(c) Lahore Jail</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(d) Muzaffarpur Jail</div>
+        </div>
+        <div class="pyq-answer" id="ans-pyq2">
+          <strong>✓ CORRECT: (b) Gaya Central Jail</strong>
+          <p>Baikuntha Shukla was hanged at <strong>Gaya Central Jail on 14 May 1934</strong>. He had killed <strong>Phanindra Nath Ghosh</strong>, the government informer whose testimony led to the hanging of Bhagat Singh, Sukhdev, and Rajguru in 1931. Baikuntha Shukla was a member of the HSRA (Hindustan Socialist Republican Association) and had participated in the Salt Satyagraha of 1930.</p>
+        </div>
+        <button class="reveal-btn" onclick="revealPYQ('ans-pyq2',this)">Show Explanation</button>
+      </div>
+      <div class="pyq-item">
+        <div class="pyq-meta"><span class="pyq-tag prelims">BPSC MCQ</span></div>
+        <div class="pyq-q">Dr Rajendra Prasad was born on 3rd December 1884 in which district of Bihar?</div>
+        <div class="pyq-options">
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(a) Saran</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(b) Muzaffarpur</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'correct')">(c) Siwan</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(d) Champaran</div>
+        </div>
+        <div class="pyq-answer" id="ans-pyq3">
+          <strong>✓ CORRECT: (c) Siwan</strong>
+          <p>Rajendra Prasad was born on 3 December 1884 in village <strong>Ziradei, Siwan district</strong>, Bihar. He became India's first President in 1950 and served two full terms. He was elected President of the Constituent Assembly on 11 December 1946. He died on 28 February 1963 in Patna. He received the Bharat Ratna in 1962.</p>
+        </div>
+        <button class="reveal-btn" onclick="revealPYQ('ans-pyq3',this)">Show Explanation</button>
+      </div>
+    </div>
+
+    <!-- QR -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">⚡</span><span class="section-label-text">Quick Revision Bullets</span></div>
+      <div class="qr-grid">
+        <div class="qr-item"><span class="qr-num">01</span><span class="qr-text"><strong>Rajendra Prasad</strong>: Born 3 Dec 1884, Ziradei (Siwan). First President of India (1950). Died 28 Feb 1963. INC President (Bombay, 1934). Constituent Assembly President (elected 11 Dec 1946).</span></div>
+        <div class="qr-item"><span class="qr-num">02</span><span class="qr-text"><strong>JP Narayan</strong>: Born 11 Oct 1902, Sitab Diyara (Saran). Lok Nayak. Died 8 Oct 1979. Bharat Ratna 1999 (posthumous). Patna airport named after him. Led Quit India 1942; Azad Dasta 1943.</span></div>
+        <div class="qr-item"><span class="qr-num">03</span><span class="qr-text"><strong>Shri Krishna Singh</strong> (Bihar Kesari): Born 21 Oct 1887, Nawada. First CM Bihar (1946–61). First CM to abolish zamindari. Died 31 Jan 1961.</span></div>
+        <div class="qr-item"><span class="qr-num">04</span><span class="qr-text"><strong>Anugrah Narayan Sinha</strong>: Born 18 Jun 1887. First Deputy CM + Finance Minister of Bihar (1946–57). Architect of Modern Bihar (with Rajendra Prasad + Shri Krishna Singh). Died 5 Jul 1957.</span></div>
+        <div class="qr-item"><span class="qr-num">05</span><span class="qr-text"><strong>Sachchidananda Sinha</strong>: Born 10 Nov 1871, Arrah (Bhojpur). <strong>Interim President Constituent Assembly, 9 Dec 1946</strong>. First demanded separate Bihar province (1889). Built Sinha Library 1924.</span></div>
+        <div class="qr-item"><span class="qr-num">06</span><span class="qr-text"><strong>Baikuntha Shukla</strong>: Born 1907. Killed informer Phanindra Nath Ghosh (who caused Bhagat Singh's hanging). <strong>Hanged Gaya Central Jail, 14 May 1934</strong>.</span></div>
+        <div class="qr-item"><span class="qr-num">07</span><span class="qr-text"><strong>Jagjivan Ram (Babuji)</strong>: Born 5 Apr 1908, Chandwa (Bhojpur). Defence Minister 1971 (Indo-Pak war). Deputy PM 1977–79. Dalit leader; co-founded All-India Depressed Classes League.</span></div>
+      </div>
+      <div class="memory-hook">
+        <span class="hook-icon">🧲</span>
+        <span class="hook-text">Memory Hook: "Bihar gave India its first President (Rajendra Prasad), its most revered revolutionary (JP Narayan), its boldest Dalit leader (Jagjivan Ram), and a boy who died in Gaya jail having avenged Bhagat Singh — <em>that is Bihar's freedom legacy.</em>"</span>
+      </div>
+    </div>
+
+    <!-- CONCEPT CHECK -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">✅</span><span class="section-label-text">Concept Check</span></div>
+      <div class="check-mcq">
+        <div class="check-q">1. Jayaprakash Narayan was born at which place?</div>
+        <div class="check-opts">
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','A')"><span class="opt-letter">A</span>Ziradei, Siwan</button>
+          <button class="check-opt" onclick="checkAnswer(this,'correct','B')"><span class="opt-letter">B</span>Sitab Diyara, Saran</button>
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','C')"><span class="opt-letter">C</span>Nawada</button>
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','D')"><span class="opt-letter">D</span>Chandwa, Bhojpur</button>
+        </div>
+        <div class="check-feedback ok" id="fb1-ok">✓ Correct! JP Narayan was born at Sitab Diyara, Saran district on 11 October 1902. Don't confuse: Ziradei (Siwan) = Rajendra Prasad; Nawada = Shri Krishna Singh; Chandwa (Bhojpur) = Jagjivan Ram. All four are standard BPSC questions.</div>
+        <div class="check-feedback no" id="fb1-no">✗ Answer is (B) Sitab Diyara, Saran. JP Narayan's birthplace. Ziradei (Siwan) = Rajendra Prasad. Nawada = Shri Krishna Singh. Chandwa (Bhojpur) = Jagjivan Ram.</div>
+      </div>
+      <div class="check-mcq">
+        <div class="check-q">2. Who was the first person to be appointed Interim President of the Constituent Assembly of India (9 December 1946)?</div>
+        <div class="check-opts">
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','A')"><span class="opt-letter">A</span>Rajendra Prasad</button>
+          <button class="check-opt" onclick="checkAnswer(this,'correct','B')"><span class="opt-letter">B</span>Sachchidananda Sinha</button>
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','C')"><span class="opt-letter">C</span>Jawaharlal Nehru</button>
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','D')"><span class="opt-letter">D</span>BR Ambedkar</button>
+        </div>
+        <div class="check-feedback ok" id="fb2-ok">✓ Correct! Sachchidananda Sinha (born Arrah, Bhojpur) was named as the Interim President of the Constituent Assembly on 9 December 1946 — the day of its first meeting. Rajendra Prasad was elected as the permanent President of the Constituent Assembly on 11 December 1946. The distinction between "interim" (Sachchidananda Sinha) and "elected" (Rajendra Prasad) is frequently tested.</div>
+        <div class="check-feedback no" id="fb2-no">✗ Answer is (B) Sachchidananda Sinha. He was the INTERIM (temporary, first day) president of the Constituent Assembly on 9 Dec 1946. Rajendra Prasad was ELECTED as permanent President on 11 Dec 1946. This is the most commonly confused Bihar Constituent Assembly fact.</div>
+      </div>
+      <div class="mains-box">
+        <div class="mains-meta"><span class="mains-tag">MAINS GS-I · 150 WORDS</span></div>
+        <div class="mains-q">Bihar has been called "the cradle of India's freedom movement." Justify this statement by describing the contributions of at least THREE eminent freedom fighters from Bihar.</div>
+        <button class="reveal-btn" style="margin-bottom:12px;" onclick="revealMains(this)">▼ Show Model Answer</button>
+        <div class="mains-answer" id="mains-ans1">
+          <div class="ans-sec"><h5>Introduction</h5><p>Bihar's contribution to India's freedom struggle was disproportionate to its size — producing India's first President, its most daring revolutionary, its most devoted Gandhian, and fighters who went from Bihar's fields to Andaman's Kalapani.</p></div>
+          <div class="ans-sec"><h5>Dr Rajendra Prasad (1884–1963)</h5><ul>
+            <li>Joined Champaran Satyagraha (1917) as Gandhi's lieutenant — became Gandhi's most trusted Bihar associate</li>
+            <li>Led Bihar's Non-Cooperation Movement (1920); imprisoned during Salt Satyagraha (1930) and Quit India (1942)</li>
+            <li>Elected President of Constituent Assembly (11 Dec 1946) — oversaw drafting of India's Constitution</li>
+            <li>Became India's <strong>first President</strong> (1950) — serving two full terms (the only President to do so)</li>
+          </ul></div>
+          <div class="ans-sec"><h5>Jayaprakash Narayan (1902–1979)</h5><ul>
+            <li>Founded Congress Socialist Party (1934) — gave Bihar and India a socialist political tradition</li>
+            <li>Led Quit India in Bihar (1942) when all senior leaders were arrested; organised Azad Dasta (1943)</li>
+            <li>Later led JP Movement (1974) against Emergency — the only political figure to challenge Indira Gandhi successfully</li>
+            <li>Bharat Ratna (1999, posthumous); Patna airport named after him</li>
+          </ul></div>
+          <div class="ans-sec"><h5>Baikuntha Shukla (1907–1934)</h5><p>A young revolutionary who killed Phanindra Nath Ghosh (the informer who caused Bhagat Singh's hanging) and willingly accepted death at Gaya Central Jail (14 May 1934) — a reminder that Bihar's freedom contribution was not only political but also sacrificial.</p></div>
+          <div class="ans-sec"><h5>Conclusion</h5><p>From Champaran's fields (Rajendra Prasad), to Quit India's underground (JP), to Gaya's jail (Baikuntha Shukla) — Bihar's freedom fighters represent every mode of resistance India employed against colonial rule. The state earned its title as India's freedom cradle not through one great leader but through generations of sacrifice.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<button class="print-btn" onclick="window.print()">🖨</button>
+<script>
+const KEY='bihar_hist_v1';
+let visited=new Set(JSON.parse(localStorage.getItem(KEY)||'[]'));
+visited.add('modules/m20.html');
+localStorage.setItem(KEY,JSON.stringify([...visited]));
+document.querySelectorAll('.sidebar-item').forEach(item=>{const href=item.getAttribute('href');if(href&&visited.has('modules/'+href))item.classList.add('done');});
+function answerPYQ(el,type){const p=el.closest('.pyq-item');p.querySelectorAll('.pyq-opt').forEach(o=>{o.onclick=null;o.style.cursor='default';});el.classList.add(type);}
+function revealPYQ(id,btn){document.getElementById(id).classList.toggle('show');btn.textContent=btn.textContent.includes('Show')?'Hide Explanation':'Show Explanation';}
+function revealMains(btn){document.getElementById('mains-ans1').classList.toggle('show');btn.textContent=btn.textContent.includes('▼')?'▲ Hide Model Answer':'▼ Show Model Answer';}
+function checkAnswer(el,type){const p=el.closest('.check-mcq');p.querySelectorAll('.check-opt').forEach(o=>{o.onclick=null;o.style.cursor='default';});el.classList.add(type);const idx=Array.from(document.querySelectorAll('.check-mcq')).indexOf(p)+1;const ok=document.getElementById('fb'+idx+'-ok');const no=document.getElementById('fb'+idx+'-no');if(type==='correct'&&ok)ok.classList.add('show');if(type==='wrong'&&no)no.classList.add('show');}
+</script>
+</body>
+</html>

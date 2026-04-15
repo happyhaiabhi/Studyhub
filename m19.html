@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M19 — Freedom Movements in Bihar | Bihar History</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1a1a2e;--ink2:#2d2d44;--paper:#f5f2eb;--paper2:#ede9df;--gold:#c9973a;--teal:#1e7a6e;--teal2:#2aa195;--coral:#c2522b;--coral2:#e06840;--muted:#7a7465;--border:rgba(26,26,46,0.11);}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);display:flex;min-height:100vh;}
+.sidebar{width:260px;flex-shrink:0;background:var(--ink);display:flex;flex-direction:column;position:sticky;top:0;height:100vh;overflow-y:auto;}
+.sidebar-logo{padding:24px 20px 16px;border-bottom:1px solid rgba(255,255,255,0.07);}
+.sidebar-logo a{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:var(--coral2);text-decoration:none;line-height:1.3;display:block;}
+.sidebar-logo span{display:block;font-size:10px;color:rgba(245,242,235,0.35);letter-spacing:1px;margin-top:3px;font-family:'DM Mono',monospace;}
+.sidebar-part{padding:14px 20px 6px;font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:1.4px;text-transform:uppercase;color:rgba(245,242,235,0.28);}
+.sidebar-item{display:flex;align-items:center;gap:10px;padding:9px 20px;text-decoration:none;font-size:12px;color:rgba(245,242,235,0.55);transition:background 0.15s;border-left:2px solid transparent;}
+.sidebar-item:hover{background:rgba(255,255,255,0.05);}
+.sidebar-item.active{background:rgba(194,82,43,0.15);color:var(--coral2);border-left-color:var(--coral);}
+.sidebar-item.done .s-dot{background:var(--teal);}
+.s-num{font-family:'DM Mono',monospace;font-size:9.5px;color:rgba(245,242,235,0.28);width:28px;flex-shrink:0;}
+.s-dot{width:6px;height:6px;border-radius:50%;border:1.5px solid rgba(255,255,255,0.2);flex-shrink:0;}
+.sidebar-item.active .s-dot{background:var(--coral);border-color:var(--coral);}
+.main{flex:1;min-width:0;display:flex;flex-direction:column;}
+.topbar{background:var(--ink2);padding:12px 48px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10;border-bottom:1px solid rgba(255,255,255,0.05);}
+.topbar-left{display:flex;align-items:center;gap:14px;}
+.era-pill{font-size:10px;padding:3px 10px;border-radius:2px;background:rgba(194,82,43,0.2);color:var(--coral2);font-family:'DM Mono',monospace;letter-spacing:0.8px;}
+.topbar-title{font-size:13px;color:rgba(245,242,235,0.7);}
+.topbar-nav{display:flex;gap:8px;}
+.nav-btn{padding:7px 14px;border-radius:3px;font-size:12px;font-weight:500;text-decoration:none;border:1px solid rgba(255,255,255,0.12);color:rgba(245,242,235,0.6);transition:all 0.18s;cursor:pointer;background:none;}
+.nav-btn:hover{border-color:var(--coral);color:var(--coral2);}
+.nav-btn.primary{background:var(--coral);color:#fff;border-color:var(--coral);}
+.content{flex:1;padding:48px 52px 80px;max-width:920px;}
+.mod-header{margin-bottom:40px;}
+.mod-badge{display:inline-flex;align-items:center;gap:8px;background:var(--coral);color:#fff;font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:4px 12px;border-radius:2px;margin-bottom:18px;}
+.mod-header h1{font-family:'Playfair Display',serif;font-size:clamp(26px,3.5vw,40px);font-weight:900;line-height:1.15;margin-bottom:14px;}
+.mod-header h1 em{font-style:italic;color:var(--coral);}
+.mod-header p{font-size:14.5px;color:var(--muted);line-height:1.75;max-width:640px;}
+.mod-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px;padding-top:18px;border-top:1px solid var(--border);}
+.meta-tag{font-size:10.5px;padding:3px 9px;border-radius:2px;font-weight:500;}
+.meta-tag.b{background:#fdf5e6;color:var(--gold);}
+.meta-tag.m{background:#ebf5f3;color:var(--teal);}
+.meta-tag.s{background:#fff0eb;color:var(--coral);}
+.section{margin-bottom:44px;}
+.section-head{display:flex;align-items:center;gap:12px;margin-bottom:20px;padding-bottom:12px;border-bottom:2px solid var(--coral);}
+.section-icon{font-size:20px;}
+.section-label-text{font-family:'Playfair Display',serif;font-size:19px;font-weight:700;}
+.section-sub{font-size:11px;color:var(--muted);font-family:'DM Mono',monospace;letter-spacing:0.8px;margin-left:auto;}
+.story-box{background:var(--ink);color:var(--paper);border-radius:5px;padding:28px 32px;position:relative;overflow:hidden;}
+.story-box::before{content:'';position:absolute;top:-40px;right:-40px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(194,82,43,0.2) 0%,transparent 70%);}
+.story-box p{font-size:14.5px;line-height:1.85;font-weight:300;position:relative;}
+.story-box p+p{margin-top:12px;}
+.story-box strong{color:var(--coral2);}
+.story-highlight{display:inline-block;margin-top:18px;padding:10px 16px;background:rgba(194,82,43,0.15);border-left:3px solid var(--coral);border-radius:0 3px 3px 0;font-size:13px;font-style:italic;color:var(--coral2);}
+.move-card{background:#fff;border:1px solid var(--border);border-radius:5px;margin-bottom:18px;overflow:hidden;}
+.move-header{background:var(--ink);color:var(--paper);padding:14px 22px;display:flex;align-items:center;justify-content:space-between;}
+.move-header h3{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;}
+.move-year{font-family:'DM Mono',monospace;font-size:11px;color:var(--coral2);}
+.move-body{padding:16px 22px;}
+.move-body p{font-size:13px;color:var(--muted);line-height:1.65;margin-bottom:6px;}
+.move-body p strong{color:var(--ink2);}
+.move-body ul{padding-left:16px;margin-top:4px;}
+.move-body li{font-size:12.5px;color:var(--muted);margin-bottom:4px;line-height:1.55;}
+.move-body li strong{color:var(--ink2);}
+.timeline{position:relative;padding-left:28px;}
+.timeline::before{content:'';position:absolute;left:8px;top:8px;bottom:8px;width:2px;background:linear-gradient(180deg,var(--coral),transparent);}
+.tl-item{position:relative;margin-bottom:20px;}
+.tl-dot{position:absolute;left:-24px;top:4px;width:12px;height:12px;border-radius:50%;background:var(--coral);border:2px solid var(--paper);box-shadow:0 0 0 2px var(--coral);}
+.tl-period{font-family:'DM Mono',monospace;font-size:10.5px;color:var(--coral);margin-bottom:4px;}
+.tl-title{font-size:14px;font-weight:600;margin-bottom:4px;color:var(--ink);}
+.tl-body{font-size:12.5px;color:var(--muted);line-height:1.6;}
+.tl-badge{display:inline-block;font-size:10px;padding:1.5px 7px;border-radius:2px;background:#fff0eb;color:var(--coral);margin-left:6px;font-weight:500;}
+.pyq-item{background:#fff;border:1px solid var(--border);border-radius:4px;padding:22px;margin-bottom:14px;}
+.pyq-meta{display:flex;gap:8px;margin-bottom:12px;}
+.pyq-tag{font-size:10px;padding:2px 8px;border-radius:2px;font-weight:500;font-family:'DM Mono',monospace;}
+.pyq-tag.prelims{background:#fdf5e6;color:var(--gold);}
+.pyq-tag.year{background:var(--paper2);color:var(--muted);}
+.pyq-q{font-size:14px;font-weight:500;line-height:1.6;margin-bottom:14px;}
+.pyq-options{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:14px;}
+.pyq-opt{padding:8px 12px;border-radius:3px;font-size:12.5px;border:1px solid var(--border);background:var(--paper);cursor:pointer;transition:all 0.18s;}
+.pyq-opt:hover{border-color:var(--coral);}
+.pyq-opt.correct{background:#e8f5e9;border-color:#4caf50;color:#2e7d32;font-weight:500;}
+.pyq-opt.wrong{background:#ffebee;border-color:#ef9a9a;color:#c62828;}
+.pyq-answer{display:none;padding:14px 16px;background:#e8f5f3;border-radius:3px;border-left:3px solid var(--teal);}
+.pyq-answer.show{display:block;}
+.pyq-answer strong{color:var(--teal);font-size:12px;}
+.pyq-answer p{font-size:13px;color:var(--ink2);margin-top:5px;line-height:1.6;}
+.reveal-btn{font-size:11.5px;padding:6px 14px;border-radius:3px;background:none;border:1px solid var(--border);cursor:pointer;color:var(--muted);transition:all 0.18s;}
+.reveal-btn:hover{border-color:var(--teal);color:var(--teal);}
+.mains-box{background:#fff;border:1px solid var(--border);border-radius:4px;padding:22px;}
+.mains-q{font-size:14.5px;font-weight:600;line-height:1.6;margin-bottom:14px;}
+.mains-meta{display:flex;gap:8px;margin-bottom:14px;}
+.mains-tag{font-size:10px;padding:2px 8px;border-radius:2px;font-weight:500;font-family:'DM Mono',monospace;background:#ebf5f3;color:var(--teal);}
+.mains-answer{display:none;border-top:1px solid var(--border);padding-top:16px;}
+.mains-answer.show{display:block;}
+.ans-sec{margin-bottom:14px;}
+.ans-sec h5{font-size:11px;font-family:'DM Mono',monospace;letter-spacing:1px;color:var(--coral);text-transform:uppercase;margin-bottom:6px;}
+.ans-sec p,.ans-sec li{font-size:13px;line-height:1.7;color:var(--ink2);}
+.ans-sec ul{padding-left:18px;}
+.ans-sec li{margin-bottom:4px;}
+.mnemonic-box{background:linear-gradient(135deg,var(--ink),var(--ink2));border-radius:5px;padding:28px 32px;color:var(--paper);margin-bottom:16px;}
+.m-label{font-size:10px;font-family:'DM Mono',monospace;letter-spacing:1.5px;color:var(--coral2);text-transform:uppercase;margin-bottom:14px;}
+.mnemonic-word{font-family:'Playfair Display',serif;font-size:clamp(20px,3vw,30px);font-weight:900;color:var(--coral2);letter-spacing:3px;margin-bottom:18px;}
+.mnemonic-rows{display:flex;flex-direction:column;gap:9px;}
+.m-row{display:flex;gap:14px;}
+.m-letter{font-family:'DM Mono',monospace;font-size:16px;font-weight:500;color:var(--coral2);width:28px;flex-shrink:0;}
+.m-text{font-size:12.5px;line-height:1.5;color:var(--paper);}
+.m-text strong{color:var(--coral2);}
+.m-tip{margin-top:16px;padding:12px 14px;background:rgba(194,82,43,0.15);border-radius:3px;font-size:12px;font-style:italic;color:rgba(245,242,235,0.7);}
+.qr-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.qr-item{display:flex;gap:10px;background:#fff;border:1px solid var(--border);border-radius:4px;padding:14px 16px;}
+.qr-num{font-family:'DM Mono',monospace;font-size:10px;color:var(--coral);font-weight:500;flex-shrink:0;margin-top:2px;}
+.qr-text{font-size:13px;line-height:1.6;color:var(--ink2);}
+.qr-text strong{color:var(--coral);}
+.memory-hook{background:var(--coral);border-radius:4px;padding:16px 22px;display:flex;align-items:center;gap:16px;margin-top:32px;}
+.hook-icon{font-size:22px;}
+.hook-text{font-size:14px;font-weight:600;color:#fff;line-height:1.5;}
+.check-mcq{background:#fff;border:1px solid var(--border);border-radius:4px;padding:20px;margin-bottom:12px;}
+.check-q{font-size:14px;font-weight:500;margin-bottom:14px;line-height:1.6;}
+.check-opts{display:flex;flex-direction:column;gap:7px;}
+.check-opt{padding:10px 14px;border-radius:3px;font-size:13px;border:1px solid var(--border);background:var(--paper);cursor:pointer;transition:all 0.18s;text-align:left;display:flex;align-items:center;gap:10px;}
+.check-opt:hover{border-color:var(--coral);}
+.check-opt.correct{background:#e8f5e9;border-color:#4caf50;color:#2e7d32;}
+.check-opt.wrong{background:#ffebee;border-color:#ef9a9a;color:#c62828;}
+.opt-letter{width:22px;height:22px;border-radius:50%;background:var(--paper2);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;flex-shrink:0;}
+.check-opt.correct .opt-letter{background:#4caf50;color:#fff;}
+.check-opt.wrong .opt-letter{background:#ef9a9a;color:#fff;}
+.check-feedback{margin-top:10px;padding:10px 14px;border-radius:3px;font-size:12.5px;display:none;line-height:1.6;}
+.check-feedback.show{display:block;}
+.check-feedback.ok{background:#e8f5e9;color:#2e7d32;}
+.check-feedback.no{background:#ffebee;color:#c62828;}
+.sidebar::-webkit-scrollbar{width:4px;}
+.sidebar::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.1);border-radius:2px;}
+.print-btn{position:fixed;bottom:24px;right:24px;background:var(--ink);color:var(--coral2);border:none;border-radius:50%;width:44px;height:44px;font-size:16px;cursor:pointer;box-shadow:0 4px 16px rgba(26,26,46,0.25);transition:transform 0.18s;display:flex;align-items:center;justify-content:center;}
+.print-btn:hover{transform:scale(1.1);}
+@media print{.sidebar,.topbar,.print-btn{display:none;}.content{padding:20px;}}
+@media(max-width:768px){.sidebar{display:none;}.content{padding:24px 20px 60px;}.topbar{padding:10px 20px;}.qr-grid,.pyq-options{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<aside class="sidebar">
+  <div class="sidebar-logo"><a href="../index.html">Bihar History<br>Study System</a><span>BPSC · UPSC · State PCS</span></div>
+  <div class="sidebar-part">Part I — Ancient Bihar</div>
+  <a class="sidebar-item done" href="m01.html"><span class="s-num">01</span><span class="s-dot"></span>Sources & Prehistoric Bihar</a>
+  <a class="sidebar-item done" href="m02.html"><span class="s-num">02</span><span class="s-dot"></span>Mahajanapadas</a>
+  <a class="sidebar-item done" href="m03.html"><span class="s-num">03</span><span class="s-dot"></span>Pre-Mauryan Dynasties</a>
+  <a class="sidebar-item done" href="m04.html"><span class="s-num">04</span><span class="s-dot"></span>Buddhism & Jainism</a>
+  <a class="sidebar-item done" href="m05.html"><span class="s-num">05</span><span class="s-dot"></span>Mauryan Empire</a>
+  <a class="sidebar-item done" href="m06.html"><span class="s-num">06</span><span class="s-dot"></span>Ashoka — Dhamma</a>
+  <a class="sidebar-item done" href="m07.html"><span class="s-num">07</span><span class="s-dot"></span>Post-Mauryan to Gupta</a>
+  <div class="sidebar-part">Part II — Medieval Bihar</div>
+  <a class="sidebar-item done" href="m08.html"><span class="s-num">08</span><span class="s-dot"></span>Pala Dynasty</a>
+  <a class="sidebar-item done" href="m09.html"><span class="s-num">09</span><span class="s-dot"></span>Sena & Karnata</a>
+  <a class="sidebar-item done" href="m10.html"><span class="s-num">10</span><span class="s-dot"></span>Turkish Invasion</a>
+  <a class="sidebar-item done" href="m11.html"><span class="s-num">11</span><span class="s-dot"></span>Khilji, Tughlaq & Noohani</a>
+  <a class="sidebar-item done" href="m12.html"><span class="s-num">12</span><span class="s-dot"></span>Sher Shah Suri</a>
+  <a class="sidebar-item done" href="m13.html"><span class="s-num">13</span><span class="s-dot"></span>Mughal Rule in Bihar</a>
+  <a class="sidebar-item done" href="m14.html"><span class="s-num">14</span><span class="s-dot"></span>Sufism, Sikhism & Tribal States</a>
+  <div class="sidebar-part">Part III — Modern Bihar</div>
+  <a class="sidebar-item done" href="m15.html"><span class="s-num">15</span><span class="s-dot"></span>European Entry</a>
+  <a class="sidebar-item done" href="m16.html"><span class="s-num">16</span><span class="s-dot"></span>Battle of Buxar</a>
+  <a class="sidebar-item done" href="m17.html"><span class="s-num">17</span><span class="s-dot"></span>Revolt of 1857</a>
+  <a class="sidebar-item done" href="m18.html"><span class="s-num">18</span><span class="s-dot"></span>Tribal Revolts</a>
+  <a class="sidebar-item active" href="m19.html"><span class="s-num">19</span><span class="s-dot"></span>Freedom Movements</a>
+  <a class="sidebar-item" href="m20.html"><span class="s-num">20</span><span class="s-dot"></span>Eminent Freedom Fighters</a>
+  <a class="sidebar-item" href="m21.html"><span class="s-num">21</span><span class="s-dot"></span>Formation of Modern Bihar</a>
+</aside>
+
+<div class="main">
+  <div class="topbar">
+    <div class="topbar-left"><span class="era-pill">MODERN BIHAR</span><span class="topbar-title">Module 19 of 21</span></div>
+    <div class="topbar-nav">
+      <a href="m18.html" class="nav-btn">← Prev</a>
+      <a href="../index.html" class="nav-btn">Index</a>
+      <a href="m20.html" class="nav-btn primary">Next →</a>
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="mod-header">
+      <div class="mod-badge"><span>MODULE 19</span><span>·</span><span>Modern Bihar</span></div>
+      <h1>Freedom Movements<br><em>in Bihar</em></h1>
+      <p>Bihar's freedom movement was a unique blend of peasant resistance, nationalist politics, and Gandhian satyagraha. From the Champaran Satyagraha (1917) — Gandhi's very first experiment in India — to the Quit India students shot at Patna Assembly (1942), Bihar was always at the heart of the struggle.</p>
+      <div class="mod-meta">
+        <span class="meta-tag b">BPSC Special</span>
+        <span class="meta-tag m">Mains GS-I</span>
+        <span class="meta-tag s">⚠ Trap: Gandhi arrived Champaran 10 April 1917 (NOT 15 April). Rajkumar Shukla invited Gandhi. Tinkathia abolished 4 March 1918. First Bihar PM = Mohammad Yunus (NOT Shri Krishna Singh).</span>
+      </div>
+    </div>
+
+    <!-- STORY HOOK -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">🎭</span><span class="section-label-text">Story Hook</span></div>
+      <div class="story-box">
+        <p>The year is <strong>10 April 1917</strong>. A thin man in a dhoti steps off a train at Motihari, Champaran. The local magistrate orders him to leave immediately. The man refuses. This act of civil disobedience — his first in India — will change the course of the independence movement.</p>
+        <p>The man is <strong>Mahatma Gandhi</strong>. The man who brought him there is <strong>Rajkumar Shukla</strong>, a simple peasant from Champaran who had tracked Gandhi all the way to the <strong>1916 Lucknow Congress session</strong> to beg him to come see the indigo farmers' suffering.</p>
+        <p>When Gandhi arrived, he found farmers forced to grow indigo on 3/20 of their land (<strong>Tinkathia system</strong>) and pay extortionate rents. His campaign here created India's first successful civil disobedience outcome: the Champaran Agrarian Committee, and on <strong>4 March 1918</strong>, the Tinkathia system was abolished. <em>Bihar gave Gandhi his first Indian victory.</em></p>
+        <div class="story-highlight">💡 Rajkumar Shukla — a semi-literate peasant from Murli Bhitiharwa village, Champaran — is the man who brought Gandhi to Bihar and thereby changed the course of Indian history.</div>
+      </div>
+    </div>
+
+    <!-- MOVEMENTS -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">🧠</span><span class="section-label-text">All Major Freedom Movements — Bihar-specific</span></div>
+
+      <div class="move-card">
+        <div class="move-header"><h3>Early Nationalism & Congress in Bihar</h3><span class="move-year">1899–1912</span></div>
+        <div class="move-body">
+          <ul>
+            <li><strong>Boys' Association inaugurated 3 March 1899</strong> under chairmanship of <strong>Afak Khan</strong>. Founder: <strong>Suryadev Narayan Sharma</strong>. Centre of political activities till 1920.</li>
+            <li><strong>BPCC (Bihar Provincial Congress Committee) formed 1908</strong> at Sonepur fair. First session: Patna 1908 under presidentship of <strong>Sayed Hasan Imam</strong>.</li>
+            <li><strong>28th Congress session at Bankipur (Patna) — 1912</strong> under RN Mudholkar. Mazharul Haque = Chairman; Sachchidananda Sinha = Secretary. Created new political awakening in Bihar.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="move-card">
+        <div class="move-header"><h3>Home Rule Movement in Bihar</h3><span class="move-year">1916</span></div>
+        <div class="move-body">
+          <ul>
+            <li>All India Home Rule League formed April 1916 (under Tilak + Annie Besant)</li>
+            <li>Bihar Home Rule League established at <strong>Bankipur (Patna) on 16 December 1916</strong></li>
+            <li>President: <strong>Mazhar-ul-Haque</strong>. Vice-Presidents: Sarfaraz Hussain Khan, Purnendu Narain Sinha</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="move-card">
+        <div class="move-header"><h3>⭐ Champaran Satyagraha — Gandhi's First Indian Satyagraha</h3><span class="move-year">1917</span></div>
+        <div class="move-body">
+          <p><strong>Tinkathia System:</strong> European planters forced peasants to grow indigo on 3/20 of their total land. High rents + illegal dues. Massive poverty.</p>
+          <ul>
+            <li><strong>Rajkumar Shukla</strong> (from Murli Bhitiharwa village) invited Gandhi at Lucknow Congress (1916). Shukla urged Gandhi repeatedly to visit Champaran.</li>
+            <li><strong>Gandhi arrived Champaran: 10 April 1917</strong>. Stayed at Sant Raut's house in Amolwa village.</li>
+            <li><strong>11 April 1917:</strong> Met Bihar Planters Association minister in Muzaffarpur.</li>
+            <li><strong>15 April 1917:</strong> Leaders joined Gandhi — Rajendra Prasad, Anugrah Narayan Singh, Mazhar-ul-Haque, Mahadeo Desai, Narhari Parikh, JB Kriplani.</li>
+            <li>British constituted Champaran Agrarian Committee (10 June 1917).</li>
+            <li><strong>4 March 1918:</strong> Tinkathia system abolished; rent reduced; farmers compensated.</li>
+            <li><strong>1 May 1918:</strong> Champaran Agrarian Act passed.</li>
+            <li><strong>13 November 1917:</strong> Gandhi established first ever basic school at Barharwain Lakhansen village.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="move-card">
+        <div class="move-header"><h3>Non-Cooperation Movement in Bihar</h3><span class="move-year">1920–1922</span></div>
+        <div class="move-body">
+          <ul>
+            <li>Bihar Congress provincial meet <strong>August 1920</strong> under presidentship of <strong>Rajendra Prasad</strong> — passed non-cooperation resolution</li>
+            <li>National college established on Patna-Gaya road with Rajendra Prasad as Principal</li>
+            <li>Gandhi inaugurated Bihar National College (5 Jan 1921) and Bihar Vidyapeeth (6 Feb 1921)</li>
+            <li>Mazhar-ul-Haq started <strong>'The Motherland'</strong> newspaper (30 Sep 1921) for Hindu-Muslim unity</li>
+            <li>Movement called off 1922 after Chauri-Chaura incident</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="move-card">
+        <div class="move-header"><h3>Civil Disobedience + Salt Satyagraha in Bihar</h3><span class="move-year">1930</span></div>
+        <div class="move-body">
+          <ul>
+            <li><strong>Salt Satyagraha started 6 April 1930</strong> in Bihar — from Champaran and Saran districts</li>
+            <li><strong>Patna Salt Satyagraha inaugurated: 16 April 1930</strong></li>
+            <li>Nehru toured Bihar 31 Mar – 3 Apr 1930 to prepare</li>
+            <li>Champaran, Bhojpur, Purnea, Saran, Muzaffarpur = key districts</li>
+            <li>Refusal to pay Chaukidari tax = major element</li>
+            <li>Women actively participated — Chandravati Devi, Shailbala Roy</li>
+            <li>Rajendra Prasad led Bihar Salt Satyagraha movement</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="move-card">
+        <div class="move-header"><h3>⭐ Quit India Movement in Bihar</h3><span class="move-year">1942</span></div>
+        <div class="move-body">
+          <ul>
+            <li>Bihar Congress prepared outline under Rajendra Prasad on <strong>31 July 1942</strong></li>
+            <li>Congress banned <strong>9 August 1942</strong>. Newspapers banned. All senior leaders arrested.</li>
+            <li><strong>11 August 1942: 7 students shot dead</strong> at Patna Legislative Assembly when they tried to hoist national flag. Collector WG Archer ordered open fire.</li>
+            <li>Names of martyrs: among them were <strong>Devipad Choudhary</strong> (commemorated by renamed school)</li>
+            <li><strong>JP Narayan, Ram Manohar Lohia, Aruna Asaf Ali</strong> took charge when senior leaders arrested</li>
+            <li><strong>1943:</strong> JP Narayan organised <strong>Azad Dasta</strong> (Free Army)</li>
+            <li>Complete strike in Patna 12 August 1942 following the shootings</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="move-card">
+        <div class="move-header"><h3>Bihar Socialist Party & First Government</h3><span class="move-year">1931–1937</span></div>
+        <div class="move-body">
+          <ul>
+            <li><strong>Bihar Socialist Party founded 1931</strong> by Ganga Sharan Sinha, Rambriksha Benipuri, Ramanand Mishra</li>
+            <li><strong>Congress Socialist Party formally inaugurated 1934</strong> by Jayaprakash Narayan at Anjuman Islamia Hall, Patna. Acharya Narendra Dev = President; JP = General Secretary</li>
+            <li><strong>1937 elections:</strong> Congress won majority (98/107 seats contested). <strong>Shri Krishna Singh declined</strong> to form government (no independent power)</li>
+            <li><strong>Mohammad Yunus = first Prime Minister of Bihar</strong> (1937) as head of second-largest party</li>
+            <li>Yunus government lasted till <strong>20 July 1937</strong></li>
+            <li>Shri Krishna Singh formed Congress Cabinet <strong>20 July 1937</strong> — first Indian-led ministry</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- TIMELINE -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">⏳</span><span class="section-label-text">Key Freedom Movement Dates</span></div>
+      <div class="timeline">
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-period">3 March 1899</div><div class="tl-title">Boys' Association Inaugurated — Early Nationalism</div><div class="tl-body">Under Afak Khan. Founder: Suryadev Narayan Sharma. Bihar's first organised political body.</div></div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-period">1908</div><div class="tl-title">BPCC Formed at Sonepur — First Session Patna under Sayed Hasan Imam</div><div class="tl-body">Bihar Provincial Congress Committee. First session 1908 at Patna under Sayed Hasan Imam.</div></div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-period">16 Dec 1916</div><div class="tl-title">Bihar Home Rule League — Bankipur, Patna</div><div class="tl-body">Mazhar-ul-Haque as President. Patna's response to Tilak + Besant's national Home Rule movement.</div></div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-period">10 April 1917 <span class="tl-badge">⚠ KEY DATE</span></div><div class="tl-title">Gandhi Arrives in Champaran — First Indian Satyagraha</div><div class="tl-body">Invited by Rajkumar Shukla (Murli Bhitiharwa). Stayed at Amolwa village (Sant Raut's house). Leads India's first civil disobedience movement.</div></div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-period">4 March 1918 <span class="tl-badge">⚠</span></div><div class="tl-title">Tinkathia System Abolished — Champaran Victory</div><div class="tl-body">Champaran Agrarian Committee recommendation. Rents reduced. Farmers compensated. Champaran Agrarian Act passed 1 May 1918.</div></div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-period">August 1920</div><div class="tl-title">Bihar Non-Cooperation Resolution — Under Rajendra Prasad</div><div class="tl-body">Bihar provincial meeting passes non-cooperation resolution. National college opened (Rajendra Prasad as Principal).</div></div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-period">6 April 1930</div><div class="tl-title">Salt Satyagraha Begins in Bihar (Champaran + Saran)</div><div class="tl-body">Patna Salt Satyagraha inaugurated 16 April 1930. Refusal to pay Chaukidari tax. Large women's participation.</div></div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-period">1931</div><div class="tl-title">Bihar Socialist Party Founded</div><div class="tl-body">By Ganga Sharan Sinha, Rambriksha Benipuri, Ramanand Mishra. Formally became Congress Socialist Party 1934 under JP Narayan.</div></div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-period">1937 <span class="tl-badge">⚠ TRAP</span></div><div class="tl-title">Mohammad Yunus = First PM of Bihar (NOT Shri Krishna Singh)</div><div class="tl-body">Sri Krishna Singh declined. Yunus (second largest party) formed government. Lasted till 20 Jul 1937. Then Shri Krishna Singh formed Congress Cabinet.</div></div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-period">11 August 1942 <span class="tl-badge">⚠</span></div><div class="tl-title">7 Students Shot at Patna Legislative Assembly</div><div class="tl-body">Trying to hoist national flag. Collector WG Archer ordered open fire. JP, Lohia, Aruna Asaf Ali took charge. Azad Dasta formed 1943.</div></div>
+      </div>
+    </div>
+
+    <!-- MNEMONIC -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">🧩</span><span class="section-label-text">Mnemonic</span></div>
+      <div class="mnemonic-box">
+        <div class="m-label">🧩 Mnemonic — Key Freedom Movement Facts</div>
+        <div class="mnemonic-rows">
+          <div class="m-row"><span class="m-letter">Ch</span><span class="m-text"><strong>Champaran</strong> — Gandhi arrived <strong>10 April 1917</strong>; Rajkumar Shukla invited; Tinkathia abolished <strong>4 March 1918</strong></span></div>
+          <div class="m-row"><span class="m-letter">NC</span><span class="m-text"><strong>Non-Cooperation</strong> — Bihar resolution <strong>August 1920</strong> under Rajendra Prasad; called off 1922 (Chauri-Chaura)</span></div>
+          <div class="m-row"><span class="m-letter">SS</span><span class="m-text"><strong>Salt Satyagraha</strong> — <strong>6 April 1930</strong> (Bihar); Patna inaugurated <strong>16 April 1930</strong>; Rajendra Prasad led</span></div>
+          <div class="m-row"><span class="m-letter">QI</span><span class="m-text"><strong>Quit India</strong> — <strong>11 Aug 1942</strong>: 7 students shot at Patna Assembly; JP + Lohia + Aruna Asaf Ali; Azad Dasta 1943</span></div>
+          <div class="m-row"><span class="m-letter">MY</span><span class="m-text"><strong>Mohammad Yunus</strong> — first PM of Bihar (1937); NOT Shri Krishna Singh (who declined)</span></div>
+        </div>
+        <div class="m-tip">💡 "Champaran Needs Salt, Quit India — Mohammad Yunus" = Champaran (1917), Non-Cooperation (1920), Salt Satyagraha (1930), Quit India (1942), Mohammad Yunus (1937) — 5 major Bihar freedom movement milestones!</div>
+      </div>
+    </div>
+
+    <!-- PYQ -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">📝</span><span class="section-label-text">PYQ Practice</span></div>
+      <div class="pyq-item">
+        <div class="pyq-meta"><span class="pyq-tag prelims">BPSC 2018</span></div>
+        <div class="pyq-q">Who had invited Gandhiji to West Champaran district in Bihar?</div>
+        <div class="pyq-options">
+          <div class="pyq-opt" onclick="answerPYQ(this,'correct')">(a) Rajkumar Shukla</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(b) Mahadeo Desai</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(c) Rajendra Prasad</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(d) Narhari Parikh</div>
+        </div>
+        <div class="pyq-answer" id="ans-pyq1">
+          <strong>✓ CORRECT: (a) Rajkumar Shukla</strong>
+          <p><strong>Rajkumar Shukla</strong>, a resident of Murli Bhitiharwa village, West Champaran, invited Gandhi at the <strong>1916 Lucknow Congress session</strong> and later urged him repeatedly to visit Champaran. Gandhi arrived on <strong>10 April 1917</strong> and stayed at Sant Raut's house in Amolwa village. Option (c) Rajendra Prasad joined Gandhi on 15 April — he didn't invite Gandhi, he came to support him.</p>
+        </div>
+        <button class="reveal-btn" onclick="revealPYQ('ans-pyq1',this)">Show Explanation</button>
+      </div>
+      <div class="pyq-item">
+        <div class="pyq-meta"><span class="pyq-tag prelims">BPSC 2018</span></div>
+        <div class="pyq-q">The first Indian Ministry in Bihar in 1937 came into existence under whose leadership?</div>
+        <div class="pyq-options">
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(a) Shri Krishna Singh</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'correct')">(b) Mohammad Yunus</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(c) GS Lal</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(d) Wahab Ali</div>
+        </div>
+        <div class="pyq-answer" id="ans-pyq2">
+          <strong>✓ CORRECT: (b) Mohammad Yunus</strong>
+          <p>⚠️ Common Trap: Many answer Shri Krishna Singh. But the FIRST ministry in Bihar (1937) was under <strong>Mohammad Yunus</strong> — because Shri Krishna Singh (head of Congress, the majority party) declined to form government as he was not given independent powers. Yunus (head of second-largest party) was then invited. His government lasted till 20 July 1937, after which Shri Krishna Singh formed the Congress Cabinet.</p>
+        </div>
+        <button class="reveal-btn" onclick="revealPYQ('ans-pyq2',this)">Show Explanation</button>
+      </div>
+      <div class="pyq-item">
+        <div class="pyq-meta"><span class="pyq-tag prelims">BPSC MCQ</span></div>
+        <div class="pyq-q">Bihar Socialist Party was formally inaugurated by:</div>
+        <div class="pyq-options">
+          <div class="pyq-opt" onclick="answerPYQ(this,'correct')">(a) Jayaprakash Narayan</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(b) MN Roy</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(c) Subhash Chandra Bose</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(d) Satya Bhagat</div>
+        </div>
+        <div class="pyq-answer" id="ans-pyq3">
+          <strong>✓ CORRECT: (a) Jayaprakash Narayan</strong>
+          <p>The <strong>Bihar Congress Socialist Party was formally inaugurated in 1934</strong> by <strong>Jayaprakash Narayan</strong> at Anjuman Islamia Hall, Patna. JP became its General Secretary; Acharya Narendra Dev became President. Note: Bihar Socialist Party was FOUNDED in 1931 by Ganga Sharan Sinha, Rambriksha Benipuri, Ramanand Mishra — but formally inaugurated as the Congress Socialist Party in 1934 by JP.</p>
+        </div>
+        <button class="reveal-btn" onclick="revealPYQ('ans-pyq3',this)">Show Explanation</button>
+      </div>
+    </div>
+
+    <!-- QR -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">⚡</span><span class="section-label-text">Quick Revision Bullets</span></div>
+      <div class="qr-grid">
+        <div class="qr-item"><span class="qr-num">01</span><span class="qr-text">Boys' Association = <strong>3 March 1899</strong>; Afak Khan (chairman); Suryadev Narayan Sharma (founder). BPCC formed 1908 at Sonepur fair; first session = Sayed Hasan Imam.</span></div>
+        <div class="qr-item"><span class="qr-num">02</span><span class="qr-text"><strong>Champaran 1917</strong>: Gandhi arrived <strong>10 April 1917</strong> (NOT 15 April). Invited by Rajkumar Shukla. Tinkathia abolished <strong>4 March 1918</strong>.</span></div>
+        <div class="qr-item"><span class="qr-num">03</span><span class="qr-text">Bihar Non-Cooperation resolution = <strong>August 1920</strong> under <strong>Rajendra Prasad</strong>. Gandhi inaugurated Bihar Vidyapeeth 6 Feb 1921. Called off 1922 (Chauri-Chaura).</span></div>
+        <div class="qr-item"><span class="qr-num">04</span><span class="qr-text">Salt Satyagraha in Bihar started <strong>6 April 1930</strong>. <strong>Patna inaugurated 16 April 1930</strong>. Large women participation. Refusal to pay Chaukidari tax.</span></div>
+        <div class="qr-item"><span class="qr-num">05</span><span class="qr-text">Bihar Socialist Party (1931): Ganga Sharan Sinha + Benipuri + Ramanand Mishra. Congress Socialist Party (1934) inaugurated by <strong>JP Narayan</strong>; President = Narendra Dev.</span></div>
+        <div class="qr-item"><span class="qr-num">06</span><span class="qr-text"><strong>First PM of Bihar = Mohammad Yunus (1937)</strong> ⚠ NOT Shri Krishna Singh. Yunus led till 20 Jul 1937. Shri Krishna Singh then formed Congress Cabinet.</span></div>
+        <div class="qr-item"><span class="qr-num">07</span><span class="qr-text">Quit India 1942: <strong>7 students shot at Patna Assembly, 11 August 1942</strong>. JP + Lohia + Aruna Asaf Ali led movement. Azad Dasta organised 1943 by JP.</span></div>
+      </div>
+      <div class="memory-hook">
+        <span class="hook-icon">🧲</span>
+        <span class="hook-text">Memory Hook: "A peasant named Rajkumar Shukla changed Indian history by bringing Gandhi to Champaran (1917) — <em>Bihar gave Gandhi his first Indian victory, and Gandhi gave Bihar its greatest chapter in the freedom story.</em>"</span>
+      </div>
+    </div>
+
+    <!-- CONCEPT CHECK -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">✅</span><span class="section-label-text">Concept Check</span></div>
+      <div class="check-mcq">
+        <div class="check-q">1. When was the Tinkathia system abolished in Champaran?</div>
+        <div class="check-opts">
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','A')"><span class="opt-letter">A</span>10 April 1917</button>
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','B')"><span class="opt-letter">B</span>10 June 1917</button>
+          <button class="check-opt" onclick="checkAnswer(this,'correct','C')"><span class="opt-letter">C</span>4 March 1918</button>
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','D')"><span class="opt-letter">D</span>1 May 1918</button>
+        </div>
+        <div class="check-feedback ok" id="fb1-ok">✓ Correct! The Tinkathia system was abolished on <strong>4 March 1918</strong> as per the recommendations of the Champaran Agrarian Committee (constituted 10 June 1917). Option (a) 10 April 1917 = Gandhi's arrival date. Option (d) 1 May 1918 = Champaran Agrarian Act passed. Know all these dates separately.</div>
+        <div class="check-feedback no" id="fb1-no">✗ Answer is (C) 4 March 1918. Tinkathia system abolished per Champaran Agrarian Committee recommendation. Timeline: Gandhi arrived 10 Apr 1917 → Committee formed 10 Jun 1917 → Tinkathia abolished 4 Mar 1918 → Agrarian Act passed 1 May 1918.</div>
+      </div>
+      <div class="check-mcq">
+        <div class="check-q">2. Who was the leader of the first Congress Ministry in Bihar (which came after Mohammad Yunus's government)?</div>
+        <div class="check-opts">
+          <button class="check-opt" onclick="checkAnswer(this,'correct','A')"><span class="opt-letter">A</span>Shri Krishna Singh</button>
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','B')"><span class="opt-letter">B</span>Anugrah Narayan Sinha</button>
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','C')"><span class="opt-letter">C</span>Rajendra Prasad</button>
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','D')"><span class="opt-letter">D</span>Jayaprakash Narayan</button>
+        </div>
+        <div class="check-feedback ok" id="fb2-ok">✓ Correct! Shri Krishna Singh (Bihar Kesari) formed the first Congress Cabinet on 20 July 1937. After Mohammad Yunus's government (first ministry, 1937) fell, Shri Krishna Singh — who had earlier declined to form government — formed the Congress Cabinet. Other cabinet members: Narayan Singh, Dr Syed Mehmood, Jaglal Choudhary, etc.</div>
+        <div class="check-feedback no" id="fb2-no">✗ Answer is (A) Shri Krishna Singh. He led the first Congress Ministry on 20 July 1937. Note the order: (1) Congress wins election → (2) Shri Krishna Singh declines → (3) Mohammad Yunus forms ministry (1st Bihar PM) → (4) Yunus falls 20 Jul 1937 → (5) Shri Krishna Singh forms Congress Cabinet.</div>
+      </div>
+      <div class="mains-box">
+        <div class="mains-meta"><span class="mains-tag">MAINS GS-I · 150 WORDS</span></div>
+        <div class="mains-q">Champaran Satyagraha (1917) is called the first civil disobedience movement in India. Critically analyse its significance for Bihar and the national freedom movement.</div>
+        <button class="reveal-btn" style="margin-bottom:12px;" onclick="revealMains(this)">▼ Show Model Answer</button>
+        <div class="mains-answer" id="mains-ans1">
+          <div class="ans-sec"><h5>Introduction</h5><p>The Champaran Satyagraha (1917) was a watershed moment in Indian history — Gandhi's first experiment with civil disobedience in India, and Bihar's first successful mass movement against colonial economic exploitation.</p></div>
+          <div class="ans-sec"><h5>Background</h5><ul>
+            <li>Tinkathia system: European planters forced peasants to grow indigo on 3/20 (tinkath = 3/20) of their land, with high rents and illegal levies</li>
+            <li>Rajkumar Shukla, a semi-literate Champaran peasant, tracked Gandhi to the 1916 Lucknow Congress session and persuaded him to come</li>
+            <li>Gandhi arrived 10 April 1917 — defied magistrate's expulsion order (first act of Indian civil disobedience)</li>
+          </ul></div>
+          <div class="ans-sec"><h5>Significance</h5><ul>
+            <li><strong>For Bihar:</strong> Tinkathia system abolished 4 March 1918 — direct economic relief to lakhs of peasants; Bihar Tenancy law reformed</li>
+            <li><strong>For Gandhi:</strong> Proved that Satyagraha worked in India (had earlier worked in South Africa); transformed him from South Africa's lawyer to India's leader</li>
+            <li><strong>For national movement:</strong> Bihar leaders (Rajendra Prasad, Anugrah Narayan, Mazharul Haque, JB Kriplani) trained in Champaran became pillars of future national movements</li>
+            <li><strong>For peasants:</strong> First time a national leader engaged directly with agrarian exploitation — established the model of peasant-national movement linkage</li>
+          </ul></div>
+          <div class="ans-sec"><h5>Conclusion</h5><p>Champaran was more than an agrarian reform — it was Bihar's gift to Indian nationalism. The boy from Murli Bhitiharwa (Rajkumar Shukla) who brought Gandhi here triggered a chain of events that led, eventually, to India's independence.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<button class="print-btn" onclick="window.print()">🖨</button>
+<script>
+const KEY='bihar_hist_v1';
+let visited=new Set(JSON.parse(localStorage.getItem(KEY)||'[]'));
+visited.add('modules/m19.html');
+localStorage.setItem(KEY,JSON.stringify([...visited]));
+document.querySelectorAll('.sidebar-item').forEach(item=>{const href=item.getAttribute('href');if(href&&visited.has('modules/'+href))item.classList.add('done');});
+function answerPYQ(el,type){const p=el.closest('.pyq-item');p.querySelectorAll('.pyq-opt').forEach(o=>{o.onclick=null;o.style.cursor='default';});el.classList.add(type);}
+function revealPYQ(id,btn){document.getElementById(id).classList.toggle('show');btn.textContent=btn.textContent.includes('Show')?'Hide Explanation':'Show Explanation';}
+function revealMains(btn){document.getElementById('mains-ans1').classList.toggle('show');btn.textContent=btn.textContent.includes('▼')?'▲ Hide Model Answer':'▼ Show Model Answer';}
+function checkAnswer(el,type){const p=el.closest('.check-mcq');p.querySelectorAll('.check-opt').forEach(o=>{o.onclick=null;o.style.cursor='default';});el.classList.add(type);const idx=Array.from(document.querySelectorAll('.check-mcq')).indexOf(p)+1;const ok=document.getElementById('fb'+idx+'-ok');const no=document.getElementById('fb'+idx+'-no');if(type==='correct'&&ok)ok.classList.add('show');if(type==='wrong'&&no)no.classList.add('show');}
+</script>
+</body>
+</html>

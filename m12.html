@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M12 — Sher Shah Suri | Bihar History</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1a1a2e;--ink2:#2d2d44;--paper:#f5f2eb;--paper2:#ede9df;--gold:#c9973a;--gold2:#e8b45a;--teal:#1e7a6e;--teal2:#2aa195;--coral:#c2522b;--coral2:#e06840;--muted:#7a7465;--border:rgba(26,26,46,0.11);}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);display:flex;min-height:100vh;}
+.sidebar{width:260px;flex-shrink:0;background:var(--ink);display:flex;flex-direction:column;position:sticky;top:0;height:100vh;overflow-y:auto;}
+.sidebar-logo{padding:24px 20px 16px;border-bottom:1px solid rgba(255,255,255,0.07);}
+.sidebar-logo a{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:var(--teal2);text-decoration:none;line-height:1.3;display:block;}
+.sidebar-logo span{display:block;font-size:10px;color:rgba(245,242,235,0.35);letter-spacing:1px;margin-top:3px;font-family:'DM Mono',monospace;}
+.sidebar-part{padding:14px 20px 6px;font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:1.4px;text-transform:uppercase;color:rgba(245,242,235,0.28);}
+.sidebar-item{display:flex;align-items:center;gap:10px;padding:9px 20px;text-decoration:none;font-size:12px;color:rgba(245,242,235,0.55);transition:background 0.15s,color 0.15s;border-left:2px solid transparent;}
+.sidebar-item:hover{background:rgba(255,255,255,0.05);color:rgba(245,242,235,0.9);}
+.sidebar-item.active{background:rgba(201,151,58,0.12);color:var(--gold2);border-left-color:var(--gold);}
+.sidebar-item.done .s-dot{background:var(--teal);}
+.s-num{font-family:'DM Mono',monospace;font-size:9.5px;color:rgba(245,242,235,0.28);width:28px;flex-shrink:0;}
+.s-dot{width:6px;height:6px;border-radius:50%;border:1.5px solid rgba(255,255,255,0.2);flex-shrink:0;}
+.sidebar-item.active .s-dot{background:var(--gold);border-color:var(--gold);}
+.main{flex:1;min-width:0;display:flex;flex-direction:column;}
+.topbar{background:var(--ink2);padding:12px 48px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10;border-bottom:1px solid rgba(255,255,255,0.05);}
+.topbar-left{display:flex;align-items:center;gap:14px;}
+.era-pill{font-size:10px;padding:3px 10px;border-radius:2px;background:rgba(201,151,58,0.18);color:var(--gold2);font-family:'DM Mono',monospace;letter-spacing:0.8px;}
+.topbar-title{font-size:13px;color:rgba(245,242,235,0.7);}
+.topbar-nav{display:flex;gap:8px;}
+.nav-btn{padding:7px 14px;border-radius:3px;font-size:12px;font-weight:500;text-decoration:none;border:1px solid rgba(255,255,255,0.12);color:rgba(245,242,235,0.6);transition:all 0.18s;cursor:pointer;background:none;}
+.nav-btn:hover{border-color:var(--gold);color:var(--gold2);}
+.nav-btn.primary{background:var(--gold);color:var(--ink);border-color:var(--gold);}
+.content{flex:1;padding:48px 52px 80px;max-width:920px;}
+.mod-header{margin-bottom:40px;}
+.mod-badge{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--ink);font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:4px 12px;border-radius:2px;margin-bottom:18px;}
+.mod-header h1{font-family:'Playfair Display',serif;font-size:clamp(26px,3.5vw,42px);font-weight:900;line-height:1.15;letter-spacing:-0.5px;margin-bottom:14px;}
+.mod-header h1 em{font-style:italic;color:var(--gold);}
+.mod-header p{font-size:14.5px;color:var(--muted);line-height:1.75;max-width:640px;}
+.mod-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px;padding-top:18px;border-top:1px solid var(--border);}
+.meta-tag{font-size:10.5px;padding:3px 9px;border-radius:2px;font-weight:500;}
+.meta-tag.b{background:#fdf5e6;color:var(--gold);}
+.meta-tag.m{background:#ebf5f3;color:var(--teal);}
+.meta-tag.s{background:#fff0eb;color:var(--coral);}
+.section{margin-bottom:44px;}
+.section-head{display:flex;align-items:center;gap:12px;margin-bottom:20px;padding-bottom:12px;border-bottom:2px solid var(--gold);}
+.section-icon{font-size:20px;}
+.section-label-text{font-family:'Playfair Display',serif;font-size:19px;font-weight:700;}
+.section-sub{font-size:11px;color:var(--muted);font-family:'DM Mono',monospace;letter-spacing:0.8px;margin-left:auto;}
+.story-box{background:var(--ink);color:var(--paper);border-radius:5px;padding:28px 32px;position:relative;overflow:hidden;}
+.story-box::before{content:'';position:absolute;top:-40px;right:-40px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(201,151,58,0.18) 0%,transparent 70%);}
+.story-box p{font-size:14.5px;line-height:1.85;font-weight:300;position:relative;}
+.story-box p+p{margin-top:12px;}
+.story-box strong{color:var(--gold2);}
+.story-highlight{display:inline-block;margin-top:18px;padding:10px 16px;background:rgba(201,151,58,0.15);border-left:3px solid var(--gold);border-radius:0 3px 3px 0;font-size:13px;font-style:italic;color:var(--gold2);}
+.analogy-box{background:linear-gradient(135deg,#fff9f0,#fff);border:1px solid rgba(201,151,58,0.25);border-radius:4px;padding:20px;margin-bottom:20px;}
+.analogy-label{font-size:10px;font-family:'DM Mono',monospace;letter-spacing:1.2px;color:var(--gold);text-transform:uppercase;margin-bottom:8px;}
+.analogy-box p{font-size:13.5px;line-height:1.7;color:var(--ink2);}
+/* Rise timeline cards */
+.rise-card{background:#fff;border:1px solid var(--border);border-radius:4px;padding:18px 20px;margin-bottom:12px;border-left:3px solid var(--gold);}
+.rise-card.battle{border-left-color:var(--coral);}
+.rise-card .rc-head{display:flex;align-items:center;gap:12px;margin-bottom:8px;}
+.rc-year{font-family:'DM Mono',monospace;font-size:11px;color:var(--gold);font-weight:500;}
+.rc-year.battle{color:var(--coral);}
+.rise-card h4{font-size:14px;font-weight:600;color:var(--ink);}
+.rise-card p{font-size:12.5px;color:var(--muted);line-height:1.6;}
+.rise-card p strong{color:var(--ink2);}
+/* Reform cards */
+.reform-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.reform-card{background:#fff;border:1px solid var(--border);border-radius:4px;padding:18px;position:relative;overflow:hidden;}
+.reform-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--gold);}
+.reform-card h4{font-size:13px;font-weight:700;margin-bottom:6px;color:var(--ink);}
+.reform-card .r-tag{font-size:10px;font-family:'DM Mono',monospace;color:var(--gold);letter-spacing:0.5px;margin-bottom:7px;}
+.reform-card p{font-size:12.5px;color:var(--muted);line-height:1.6;}
+.reform-card p strong{color:var(--ink2);}
+/* Timeline */
+.timeline{position:relative;padding-left:28px;}
+.timeline::before{content:'';position:absolute;left:8px;top:8px;bottom:8px;width:2px;background:linear-gradient(180deg,var(--gold),transparent);}
+.tl-item{position:relative;margin-bottom:20px;}
+.tl-dot{position:absolute;left:-24px;top:4px;width:12px;height:12px;border-radius:50%;background:var(--gold);border:2px solid var(--paper);box-shadow:0 0 0 2px var(--gold);}
+.tl-period{font-family:'DM Mono',monospace;font-size:10.5px;color:var(--gold);margin-bottom:4px;}
+.tl-title{font-size:14px;font-weight:600;margin-bottom:4px;color:var(--ink);}
+.tl-body{font-size:12.5px;color:var(--muted);line-height:1.6;}
+.tl-badge{display:inline-block;font-size:10px;padding:1.5px 7px;border-radius:2px;background:var(--paper2);color:var(--ink2);margin-left:6px;font-weight:500;}
+.tl-badge.trap{background:#fff0eb;color:var(--coral);}
+/* Comp table */
+.comp-table{width:100%;border-collapse:collapse;font-size:12.5px;}
+.comp-table th{background:var(--ink);color:var(--paper);padding:11px 14px;text-align:left;font-weight:500;font-size:12px;}
+.comp-table th:first-child{border-radius:4px 0 0 0;}
+.comp-table th:last-child{border-radius:0 4px 0 0;}
+.comp-table td{padding:9px 14px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.5;}
+.comp-table tr:last-child td{border-bottom:none;}
+.comp-table tr:nth-child(even) td{background:var(--paper2);}
+.comp-table tr:hover td{background:#fff9f0;}
+.comp-table td:first-child{font-weight:600;color:var(--ink2);}
+.comp-table td.accent{color:var(--gold);font-weight:500;}
+/* Mnemonic */
+.mnemonic-box{background:linear-gradient(135deg,var(--ink),var(--ink2));border-radius:5px;padding:28px 32px;color:var(--paper);margin-bottom:16px;}
+.m-label{font-size:10px;font-family:'DM Mono',monospace;letter-spacing:1.5px;color:var(--gold2);text-transform:uppercase;margin-bottom:14px;}
+.mnemonic-word{font-family:'Playfair Display',serif;font-size:clamp(22px,3vw,34px);font-weight:900;color:var(--gold2);letter-spacing:4px;margin-bottom:18px;}
+.mnemonic-rows{display:flex;flex-direction:column;gap:10px;}
+.m-row{display:flex;gap:14px;}
+.m-letter{font-family:'DM Mono',monospace;font-size:18px;font-weight:500;color:var(--gold2);width:28px;flex-shrink:0;}
+.m-text{font-size:13px;line-height:1.5;color:var(--paper);}
+.m-text strong{color:var(--gold2);}
+.m-tip{margin-top:18px;padding:12px 16px;background:rgba(201,151,58,0.12);border-radius:3px;font-size:12.5px;font-style:italic;color:rgba(245,242,235,0.7);}
+/* PYQ */
+.pyq-item{background:#fff;border:1px solid var(--border);border-radius:4px;padding:22px;margin-bottom:14px;}
+.pyq-meta{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap;}
+.pyq-tag{font-size:10px;padding:2px 8px;border-radius:2px;font-weight:500;font-family:'DM Mono',monospace;}
+.pyq-tag.prelims{background:#fdf5e6;color:var(--gold);}
+.pyq-tag.year{background:var(--paper2);color:var(--muted);}
+.pyq-q{font-size:14px;font-weight:500;line-height:1.6;margin-bottom:14px;}
+.pyq-options{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:14px;}
+.pyq-opt{padding:8px 12px;border-radius:3px;font-size:12.5px;border:1px solid var(--border);background:var(--paper);cursor:pointer;transition:all 0.18s;}
+.pyq-opt:hover{border-color:var(--gold);background:#fff9f0;}
+.pyq-opt.correct{background:#e8f5e9;border-color:#4caf50;color:#2e7d32;font-weight:500;}
+.pyq-opt.wrong{background:#ffebee;border-color:#ef9a9a;color:#c62828;}
+.pyq-answer{display:none;padding:14px 16px;background:#e8f5f3;border-radius:3px;border-left:3px solid var(--teal);}
+.pyq-answer.show{display:block;}
+.pyq-answer strong{color:var(--teal);font-size:12px;}
+.pyq-answer p{font-size:13px;color:var(--ink2);margin-top:5px;line-height:1.6;}
+.reveal-btn{font-size:11.5px;padding:6px 14px;border-radius:3px;background:none;border:1px solid var(--border);cursor:pointer;color:var(--muted);transition:all 0.18s;}
+.reveal-btn:hover{border-color:var(--teal);color:var(--teal);}
+.mains-box{background:#fff;border:1px solid var(--border);border-radius:4px;padding:22px;}
+.mains-q{font-size:14.5px;font-weight:600;line-height:1.6;margin-bottom:14px;}
+.mains-meta{display:flex;gap:8px;margin-bottom:14px;}
+.mains-tag{font-size:10px;padding:2px 8px;border-radius:2px;font-weight:500;font-family:'DM Mono',monospace;background:#ebf5f3;color:var(--teal);}
+.mains-answer{display:none;border-top:1px solid var(--border);padding-top:16px;}
+.mains-answer.show{display:block;}
+.ans-sec{margin-bottom:14px;}
+.ans-sec h5{font-size:11px;font-family:'DM Mono',monospace;letter-spacing:1px;color:var(--gold);text-transform:uppercase;margin-bottom:6px;}
+.ans-sec p,.ans-sec li{font-size:13px;line-height:1.7;color:var(--ink2);}
+.ans-sec ul{padding-left:18px;}
+.ans-sec li{margin-bottom:4px;}
+.qr-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.qr-item{display:flex;gap:10px;background:#fff;border:1px solid var(--border);border-radius:4px;padding:14px 16px;}
+.qr-num{font-family:'DM Mono',monospace;font-size:10px;color:var(--gold);font-weight:500;flex-shrink:0;margin-top:2px;}
+.qr-text{font-size:13px;line-height:1.6;color:var(--ink2);}
+.qr-text strong{color:var(--gold);}
+.memory-hook{background:var(--gold);border-radius:4px;padding:16px 22px;display:flex;align-items:center;gap:16px;margin-top:32px;}
+.hook-icon{font-size:22px;}
+.hook-text{font-size:14px;font-weight:600;color:var(--ink);line-height:1.5;}
+.check-mcq{background:#fff;border:1px solid var(--border);border-radius:4px;padding:20px;margin-bottom:12px;}
+.check-q{font-size:14px;font-weight:500;margin-bottom:14px;line-height:1.6;}
+.check-opts{display:flex;flex-direction:column;gap:7px;}
+.check-opt{padding:10px 14px;border-radius:3px;font-size:13px;border:1px solid var(--border);background:var(--paper);cursor:pointer;transition:all 0.18s;text-align:left;display:flex;align-items:center;gap:10px;}
+.check-opt:hover{border-color:var(--gold);background:#fff9f0;}
+.check-opt.correct{background:#e8f5e9;border-color:#4caf50;color:#2e7d32;}
+.check-opt.wrong{background:#ffebee;border-color:#ef9a9a;color:#c62828;}
+.opt-letter{width:22px;height:22px;border-radius:50%;background:var(--paper2);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;flex-shrink:0;}
+.check-opt.correct .opt-letter{background:#4caf50;color:#fff;}
+.check-opt.wrong   .opt-letter{background:#ef9a9a;color:#fff;}
+.check-feedback{margin-top:10px;padding:10px 14px;border-radius:3px;font-size:12.5px;display:none;line-height:1.6;}
+.check-feedback.show{display:block;}
+.check-feedback.ok{background:#e8f5e9;color:#2e7d32;}
+.check-feedback.no{background:#ffebee;color:#c62828;}
+.trap-alert{background:#fff0eb;border:1px solid rgba(194,82,43,0.3);border-radius:4px;padding:14px 18px;margin-bottom:16px;display:flex;gap:10px;}
+.trap-alert p{font-size:13px;color:var(--coral);line-height:1.6;}
+.trap-alert strong{font-weight:600;}
+.sidebar::-webkit-scrollbar{width:4px;}
+.sidebar::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.1);border-radius:2px;}
+.print-btn{position:fixed;bottom:24px;right:24px;background:var(--ink);color:var(--gold2);border:none;border-radius:50%;width:44px;height:44px;font-size:16px;cursor:pointer;box-shadow:0 4px 16px rgba(26,26,46,0.25);transition:transform 0.18s;display:flex;align-items:center;justify-content:center;}
+.print-btn:hover{transform:scale(1.1);}
+@media print{.sidebar,.topbar,.print-btn{display:none;}.content{padding:20px;}}
+@media(max-width:768px){.sidebar{display:none;}.content{padding:24px 20px 60px;}.topbar{padding:10px 20px;}.reform-grid,.qr-grid,.pyq-options{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<aside class="sidebar">
+  <div class="sidebar-logo"><a href="../index.html">Bihar History<br>Study System</a><span>BPSC · UPSC · State PCS</span></div>
+  <div class="sidebar-part">Part I — Ancient Bihar</div>
+  <a class="sidebar-item done" href="m01.html"><span class="s-num">01</span><span class="s-dot"></span>Sources & Prehistoric Bihar</a>
+  <a class="sidebar-item done" href="m02.html"><span class="s-num">02</span><span class="s-dot"></span>Mahajanapadas in Bihar</a>
+  <a class="sidebar-item done" href="m03.html"><span class="s-num">03</span><span class="s-dot"></span>Pre-Mauryan Dynasties</a>
+  <a class="sidebar-item done" href="m04.html"><span class="s-num">04</span><span class="s-dot"></span>Buddhism & Jainism</a>
+  <a class="sidebar-item done" href="m05.html"><span class="s-num">05</span><span class="s-dot"></span>Mauryan Empire</a>
+  <a class="sidebar-item done" href="m06.html"><span class="s-num">06</span><span class="s-dot"></span>Ashoka — Kalinga to Dhamma</a>
+  <a class="sidebar-item done" href="m07.html"><span class="s-num">07</span><span class="s-dot"></span>Post-Mauryan to Gupta Era</a>
+  <div class="sidebar-part">Part II — Medieval Bihar</div>
+  <a class="sidebar-item done" href="m08.html"><span class="s-num">08</span><span class="s-dot"></span>Pala Dynasty</a>
+  <a class="sidebar-item done" href="m09.html"><span class="s-num">09</span><span class="s-dot"></span>Sena & Karnata Dynasties</a>
+  <a class="sidebar-item done" href="m10.html"><span class="s-num">10</span><span class="s-dot"></span>Turkish Invasion</a>
+  <a class="sidebar-item done" href="m11.html"><span class="s-num">11</span><span class="s-dot"></span>Khilji, Tughlaq & Noohani</a>
+  <a class="sidebar-item active" href="m12.html"><span class="s-num">12</span><span class="s-dot"></span>Sher Shah Suri</a>
+  <a class="sidebar-item" href="m13.html"><span class="s-num">13</span><span class="s-dot"></span>Mughal Rule in Bihar</a>
+  <a class="sidebar-item" href="m14.html"><span class="s-num">14</span><span class="s-dot"></span>Sufism, Sikhism & Tribal States</a>
+  <div class="sidebar-part">Part III — Modern Bihar</div>
+  <a class="sidebar-item" href="m15.html"><span class="s-num">15</span><span class="s-dot"></span>European Entry</a>
+  <a class="sidebar-item" href="m16.html"><span class="s-num">16</span><span class="s-dot"></span>Battle of Buxar</a>
+  <a class="sidebar-item" href="m17.html"><span class="s-num">17</span><span class="s-dot"></span>Revolt of 1857</a>
+  <a class="sidebar-item" href="m18.html"><span class="s-num">18</span><span class="s-dot"></span>Tribal Revolts</a>
+  <a class="sidebar-item" href="m19.html"><span class="s-num">19</span><span class="s-dot"></span>Freedom Movements</a>
+  <a class="sidebar-item" href="m20.html"><span class="s-num">20</span><span class="s-dot"></span>Eminent Freedom Fighters</a>
+  <a class="sidebar-item" href="m21.html"><span class="s-num">21</span><span class="s-dot"></span>Formation of Modern Bihar</a>
+</aside>
+
+<div class="main">
+  <div class="topbar">
+    <div class="topbar-left"><span class="era-pill">MEDIEVAL BIHAR</span><span class="topbar-title">Module 12 of 21 · Bihar's Greatest Son</span></div>
+    <div class="topbar-nav">
+      <a href="m11.html" class="nav-btn">← Prev</a>
+      <a href="../index.html" class="nav-btn">Index</a>
+      <a href="m13.html" class="nav-btn primary">Next →</a>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <div class="mod-header">
+      <div class="mod-badge"><span>MODULE 12</span><span>·</span><span>Medieval Bihar</span></div>
+      <h1>Sher Shah Suri —<br><em>From Sasaram to All of India</em></h1>
+      <p>Born near Sasaram, Bihar. Rose from a jagirdar's son to Bihar's master to Emperor of all India in just two decades. Ruled only 5 years — yet built the Grand Trunk Road, created the silver Rupee, reformed land revenue, and laid the administrative blueprint that even the mighty Mughals copied.</p>
+      <div class="mod-meta">
+        <span class="meta-tag b">BPSC Special</span>
+        <span class="meta-tag m">Mains GS-I</span>
+        <span class="meta-tag s">⚠ Trap: Sher Shah belongs to Sasaram (NOT Patna). Died at Kalinjar (NOT Sasaram). Tomb at Sasaram.</span>
+      </div>
+    </div>
+
+    <!-- ① STORY HOOK -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">🎭</span><span class="section-label-text">Story Hook</span><span class="section-sub">START HERE</span></div>
+      <div class="story-box">
+        <p>The year is <strong>1540 AD</strong>. The Mughal Emperor Humayun — son of Babur, heir to the greatest military dynasty in Asia — is running. He has thrown himself into the Ganges at Chausa, Bihar, and was saved only by a water-carrier named Nizam Saqqa. Now, after his defeat at the Battle of Kannauj, he is fleeing to Persia. He will not return to India for 15 years.</p>
+        <p>The man who drove him out? A 54-year-old Afghan from <strong>Sasaram, Bihar</strong> named <strong>Farid Khan</strong> — who earned the title <strong>"Sher Khan"</strong> (Lion King) by killing a tiger with his bare hands. Who rose from a minor jagirdar's assistant to master of Bihar to master of all India in just 15 years.</p>
+        <p>In his 5 short years on the Delhi throne, Sher Shah would build roads the British would still use in the 20th century, introduce a currency system that lasted until 1947, and create an administrative machinery so efficient that even Akbar studied and copied it. He is, perhaps, medieval India's most underrated ruler — and he was Bihar's own.</p>
+        <div class="story-highlight">💡 The word "Rupee" — used by 1.5 billion Indians today — was introduced by Sher Shah Suri of Bihar in 1540 AD. A man from Sasaram created India's most enduring financial institution.</div>
+      </div>
+    </div>
+
+    <!-- ② CORE CONCEPT -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">🧠</span><span class="section-label-text">Rise of Sher Shah — Step by Step</span><span class="section-sub">WITH ANALOGY</span></div>
+      <div class="analogy-box">
+        <div class="analogy-label">🚀 Modern Analogy</div>
+        <p>Sher Shah is like a <strong>startup founder who joined a company as an intern, learned everything, took over the company, then disrupted the entire industry</strong>. He started as a tutor's son in Sasaram → became an administrator under Noohanis → took over Bihar → drove out Humayun → reformed all of India in 5 years. His reforms were so good, Akbar's administration literally copied them (Raja Todarmal's land revenue system is adapted from Sher Shah's Zabt system).</p>
+      </div>
+
+      <div class="rise-card">
+        <div class="rc-head"><span class="rc-year">EARLY LIFE</span><h4>Farid Khan — Son of Hasan Khan Sur, Jagirdar of Sasaram</h4></div>
+        <p>Born ~1486 AD at Narnaul (Hisar-Firoza) according to Dr. Qanungo. Father <strong>Hasan Khan Sur</strong> was jagirdar of Sasaram, Bihar. Farid grew up near Sasaram — <strong>associated with Sasaram, Bihar</strong>. Given title <strong>"Sher Khan"</strong> by Sultan Muhammad (Noohani) for killing a tiger. Appointed jagirdar of Sasaram AND tutor to Jalal Khan (last Noohani).</p>
+      </div>
+
+      <div class="rise-card battle">
+        <div class="rc-head"><span class="rc-year battle">1534 AD</span><h4>Battle of Surajgarh (Munger) — Decisive Victory</h4></div>
+        <p>Nuhani nobles jealous of Sher Shah sought help from Bengal's Nusrat Shah. Forces met at <strong>Surajgarh (in Munger district)</strong>. <strong>Sher Khan won decisively</strong>. Took title <strong>"Hazrat-e-Ala"</strong>. Became virtual master of Bihar. Considered one of the most decisive battles in medieval Indian history.</p>
+      </div>
+
+      <div class="rise-card">
+        <div class="rc-head"><span class="rc-year">STRATEGY</span><h4>Chunar Fort — Obtained by Marriage</h4></div>
+        <p>Obtained strategic <strong>Chunar Fort</strong> by marrying <strong>Lado Malka</strong>, widow of Taj Khan Sarangkhani. This gave him control of the Ganga highway between Bihar and Agra — a military masterstroke. Expanded influence to Gaur (Bengal capital) and beyond Munger.</p>
+      </div>
+
+      <div class="rise-card battle">
+        <div class="rc-head"><span class="rc-year battle">1539 AD — BATTLE OF CHAUSA</span><h4>Humayun Routed — Sher Khan Becomes Sher Shah</h4></div>
+        <p><strong>Chausa</strong> (east of Karmanasa, 4 miles west of Buxar, Bihar). Sher Khan made surprise attack on June 26, 1539. Humayun threw himself into Ganga — saved by water-carrier <strong>Nizam Saqqa</strong>. After this victory: <strong>Sher Khan took the title "Shah" → became Sher Shah</strong>. Occupied Bihar and Bengal.</p>
+      </div>
+
+      <div class="rise-card battle">
+        <div class="rc-head"><span class="rc-year battle">1540 AD — BATTLE OF KANNAUJ (BILGRAM)</span><h4>Humayun Expelled from India</h4></div>
+        <p>Battle at <strong>Bilgram (near Kanauj)</strong>, 1540 AD. <strong>Sher Shah thoroughly defeated Humayun</strong> — forced him to leave India and seek refuge in Persia. Sher Shah became undisputed Emperor of India. Made <strong>Patna capital of Bihar province (1541 AD)</strong>. Shifted capital from Bihar Sharif to Patna.</p>
+      </div>
+
+      <div class="rise-card">
+        <div class="rc-head"><span class="rc-year">MAY 13, 1545</span><h4>Death at Kalinjar Fort — The Tragic End</h4></div>
+        <p>Sher Shah was besieging <strong>Kalinjar Fort</strong> (Bundelkhand). A rocket accidentally exploded near the gunpowder magazine. Sher Shah was mortally wounded. Died May 13, 1545. Ruled for only <strong>5 years (1540–1545)</strong> but achieved more than most rulers do in 50. <strong>Tomb at Sasaram (Rohtas district), Bihar</strong> — one of India's finest Afghan-era architectural monuments.</p>
+      </div>
+    </div>
+
+    <!-- ③ TIMELINE -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">⏳</span><span class="section-label-text">Timeline — Sher Shah's Complete Journey</span><span class="section-sub">CHRONOLOGICAL</span></div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-period">~1486 AD — BIRTH</div>
+          <div class="tl-title">Farid Khan Born — Associated with Sasaram, Bihar</div>
+          <div class="tl-body">Born at Narnaul, Hisar-Firoza (per Dr. Qanungo). Father Hasan Khan Sur = jagirdar of Sasaram. Childhood and career at Sasaram — so Sher Shah BELONGS to Sasaram. ⚠ BPSC asks: "Sher Shah Suri belongs to ___?" Answer: Sasaram (Rohtas district).</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-period">~1522–1528 AD — NOOHANI SERVICE</div>
+          <div class="tl-title">Sultan Mohammad Appoints Farid as Sher Khan</div>
+          <div class="tl-body">Given title "Sher Khan" for killing a tiger. Appointed jagirdar of Sasaram + tutor to Jalal Khan. After Sultan Mohammad's death, protector of Jalal Khan. Learned governance from Noohani administration — his training ground.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-period">1534 AD — BATTLE OF SURAJGARH</div>
+          <div class="tl-title">Master of Bihar — Title "Hazrat-e-Ala"</div>
+          <div class="tl-body">Defeated Nusrat Shah's forces at Surajgarh, Munger. Took title Hazrat-e-Ala. Virtually became master of Bihar. This battle = turning point in Sher Shah's career.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-period">1539 AD — BATTLE OF CHAUSA</div>
+          <div class="tl-title">Humayun Routed — Sher Khan Becomes Sher Shah</div>
+          <div class="tl-body">Chausa (near Buxar, Bihar). Surprise attack June 26, 1539. Humayun nearly drowned. Took title "Shah." Occupied Bihar and Bengal.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-period">1540 AD — BATTLE OF KANNAUJ</div>
+          <div class="tl-title">Emperor of India — Humayun Exiled to Persia</div>
+          <div class="tl-body">Battle of Bilgram (Kannauj). Humayun defeated; fled to Persia for 15 years. Sher Shah = undisputed Emperor of North India.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-period">1541 AD</div>
+          <div class="tl-title">Patna Made Capital of Bihar Province <span class="tl-badge trap">⚠ KEY FACT</span></div>
+          <div class="tl-body">Sher Shah shifted Bihar's capital from Bihar Sharif to Patna. Built fort at Patna. This is when Patna became the definitive capital of Bihar — a status it retains today.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-period">1540–1545 AD — REFORMS ERA</div>
+          <div class="tl-title">5 Years That Changed India's Administration Forever</div>
+          <div class="tl-body">Silver Rupee introduced. Grand Trunk Road extended Kabul to Chittagong. Land revenue Zabt system. Sarkar (district) unit created. Patta system for farmers. Revenue 4x increase. Postal system. SaraIs (rest houses) built every 2 kos.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-period">MAY 13, 1545 — DEATH AT KALINJAR</div>
+          <div class="tl-title">Rocket Explosion — Sher Shah Dies; Tomb at Sasaram</div>
+          <div class="tl-body">Besieging Kalinjar Fort. Accidental gunpowder explosion. Died on spot. Succeeded by son Islam Shah (ruled 8 years, died 1553). Tomb built at Sasaram — masterpiece of Indo-Afghan architecture.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ④ REFORMS — FLOWCHART STYLE -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">🔄</span><span class="section-label-text">Sher Shah's Reforms — Comprehensive</span><span class="section-sub">ALL SECTIONS TESTED</span></div>
+      <div class="reform-grid">
+        <div class="reform-card">
+          <div class="r-tag">ADMINISTRATIVE</div>
+          <h4>🏛️ Sarkar (District) System</h4>
+          <p>Introduced <strong>Sarkar</strong> (district) as administrative unit for first time in India. Under <em>Sikedra-e-Sikderana</em>. Divided empire into provinces → Sarkars → Parganas → Villages. This framework lasted through Mughal and British rule.</p>
+        </div>
+        <div class="reform-card">
+          <div class="r-tag">REVENUE</div>
+          <h4>📊 Zabt Land Revenue System</h4>
+          <p><strong>Revived land measurement</strong> as basis of revenue (after Alauddin Khalji's time). Called <strong>Zabt system</strong> (later perfected by Todarmal under Akbar). Revenue taken in <em>cash</em> based on crop price list "Rai." First king to give farmers <strong>Patta</strong> (right over their land). Additional taxes: Zaribana (measurement duty) + Muhislana (collection duty). Revenue increased 4-fold.</p>
+        </div>
+        <div class="reform-card">
+          <div class="r-tag">CURRENCY</div>
+          <h4>🪙 Silver Rupee — India's Currency</h4>
+          <p>Introduced <strong>silver Rupee (Rupai)</strong> of <em>178 grains</em> — uniform, standard coin replacing the chaotic multi-metal currency. This silver rupee system lasted (with modifications) until India adopted decimal currency in 1957. The word "Rupee" = Sher Shah's legacy to modern India.</p>
+        </div>
+        <div class="reform-card">
+          <div class="r-tag">INFRASTRUCTURE</div>
+          <h4>🛣️ Grand Trunk Road</h4>
+          <p>Extended <strong>Grand Trunk Road from Kabul (Afghanistan) to Chittagong (Bangladesh)</strong> — 2,400 km. Planted shade trees along it. Built <strong>Sarais</strong> (rest houses) every 2 kos (1 kos ≈ 3 km). These sarais doubled as postal relay stations. Called "Sadak-e-Azam" or "Badshahi Sadak." British renamed it "Grand Trunk Road."</p>
+        </div>
+        <div class="reform-card">
+          <div class="r-tag">MILITARY</div>
+          <h4>⚔️ Military Reforms</h4>
+          <p>Revived the <strong>Dagh (branding of horses)</strong> and Huliya (description of soldiers) systems. Prevented fraud in army rolls. Maintained large standing army. Built strategic forts — especially <strong>Rohtasgarh</strong> in Bihar where he transferred Bengal's treasures.</p>
+        </div>
+        <div class="reform-card">
+          <div class="r-tag">PATNA / BIHAR</div>
+          <h4>🏙️ Bihar Connections</h4>
+          <p>Born in Bihar region (Sasaram). Made <strong>Patna capital of Bihar</strong> (1541 AD). Built fort at Patna. Monuments at Sasaram (tomb), Patna, Hilsa, Telhara, Shergarh. <strong>Son Islam Shah</strong> continued his legacy (ruled 1545–1553). <strong>Tarikh-i-Shershahi</strong> by Abbas Sarvani = key source.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ⑤ COMPARISON TABLE: BATTLES -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">📊</span><span class="section-label-text">Sher Shah's Key Battles — Quick Reference</span><span class="section-sub">EXAM-READY</span></div>
+      <div class="trap-alert">
+        <span>⚠️</span>
+        <p><strong>BPSC Trap:</strong> Battle of Surajgarh = Sher Shah vs Nusrat Shah (Bengal) in 1534. Battle of Chausa = Sher Shah vs <strong>Humayun</strong> in 1539. Battle of Kannauj (Bilgram) = Sher Shah vs <strong>Humayun</strong> in 1540. Don't confuse opponents.</p>
+      </div>
+      <table class="comp-table">
+        <thead><tr><th>Battle</th><th>Year</th><th>Location</th><th>Opponent</th><th>Result / Significance</th></tr></thead>
+        <tbody>
+          <tr><td>Battle of Surajgarh</td><td class="accent">1534</td><td>Surajgarh, Munger (Bihar)</td><td>Nusrat Shah's forces (Bengal)</td><td>Sher Khan wins; title Hazrat-e-Ala; master of Bihar</td></tr>
+          <tr><td>Battle of Chausa</td><td class="accent">1539</td><td>Chausa, near Buxar (Bihar)</td><td>Humayun (Mughal Emperor)</td><td>Humayun routed; Sher Khan takes title "Shah" = Sher Shah</td></tr>
+          <tr><td>Battle of Kannauj (Bilgram)</td><td class="accent">1540</td><td>Bilgram, near Kanauj (UP)</td><td>Humayun (Mughal Emperor)</td><td>Humayun expelled from India; Sher Shah = Emperor of India</td></tr>
+          <tr><td>Siege of Kalinjar</td><td class="accent">1545</td><td>Kalinjar Fort (Bundelkhand)</td><td>Kirat Singh (fort defender)</td><td>Sher Shah died from accidental rocket explosion during siege</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ⑥ MNEMONIC -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">🧩</span><span class="section-label-text">Mnemonic</span><span class="section-sub">MEMORY TRICKS</span></div>
+      <div class="mnemonic-box">
+        <div class="m-label">🧩 Mnemonic — Sher Shah's 4 Key Battles (in order)</div>
+        <div class="mnemonic-word">S · C · K · K</div>
+        <div class="mnemonic-rows">
+          <div class="m-row"><span class="m-letter">S</span><span class="m-text"><strong>Surajgarh</strong> (1534) — vs Nusrat Shah (Bengal) → Master of Bihar → title Hazrat-e-Ala</span></div>
+          <div class="m-row"><span class="m-letter">C</span><span class="m-text"><strong>Chausa</strong> (1539) — vs Humayun → Humayun nearly drowns → Sher Khan becomes Sher Shah</span></div>
+          <div class="m-row"><span class="m-letter">K</span><span class="m-text"><strong>Kannauj/Bilgram</strong> (1540) — vs Humayun → Humayun expelled from India → Sher Shah = Emperor</span></div>
+          <div class="m-row"><span class="m-letter">K</span><span class="m-text"><strong>Kalinjar</strong> (1545) — Siege of fort → Rocket explosion → Sher Shah dies</span></div>
+        </div>
+        <div class="m-tip">💡 "Some Clever Kings Kill (themselves)" = Surajgarh, Chausa, Kannauj, Kalinjar — 4 battles in order. The last K = he killed himself accidentally! Perfect irony.</div>
+      </div>
+      <div class="mnemonic-box">
+        <div class="m-label">🧩 Mnemonic — Sher Shah's Key Reforms</div>
+        <div class="mnemonic-rows">
+          <div class="m-row"><span class="m-letter">R</span><span class="m-text"><strong>Rupee</strong> — silver coin of 178 grains; India's currency till 1957</span></div>
+          <div class="m-row"><span class="m-letter">Z</span><span class="m-text"><strong>Zabt system</strong> — land revenue based on measurement; Patta to farmers; 4x revenue</span></div>
+          <div class="m-row"><span class="m-letter">G</span><span class="m-text"><strong>Grand Trunk Road</strong> — Kabul to Chittagong; sarais every 2 kos; shade trees</span></div>
+          <div class="m-row"><span class="m-letter">S</span><span class="m-text"><strong>Sarkar</strong> unit — district system; provinces → Sarkars → Parganas → Villages</span></div>
+        </div>
+        <div class="m-tip">💡 "Really Zealous Generals Serve" = Rupee, Zabt, GT Road, Sarkar — Sher Shah's 4 major reform pillars, all of which the Mughals later adopted!</div>
+      </div>
+    </div>
+
+    <!-- ⑦ PYQ -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">📝</span><span class="section-label-text">PYQ Practice</span><span class="section-sub">SOLVED</span></div>
+      <div class="pyq-item">
+        <div class="pyq-meta"><span class="pyq-tag prelims">BPSC Prelims</span><span class="pyq-tag year">BPSC 2013</span></div>
+        <div class="pyq-q">Sher Shah Suri belongs to which place?</div>
+        <div class="pyq-options">
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(a) Patna</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(b) Gaya</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'correct')">(c) Sasaram</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(d) Arrah</div>
+        </div>
+        <div class="pyq-answer" id="ans-pyq1">
+          <strong>✓ CORRECT: (c) Sasaram</strong>
+          <p>Sher Shah Suri belongs to <strong>Sasaram</strong> (Rohtas district, Bihar). His father Hasan Khan Sur was the jagirdar of Sasaram. Though he was born at Narnaul (Hisar-Firoza per Dr. Qanungo), his formative career and identity are associated with Sasaram. His magnificent tomb is also at Sasaram — the finest example of Afghan-era architecture in India. He shifted Bihar's capital from Bihar Sharif to <strong>Patna</strong> (1541 AD) — so Patna is his administrative capital, but Sasaram is his hometown.</p>
+        </div>
+        <button class="reveal-btn" onclick="revealPYQ('ans-pyq1',this)">Show Explanation</button>
+      </div>
+      <div class="pyq-item">
+        <div class="pyq-meta"><span class="pyq-tag prelims">BPSC Prelims</span><span class="pyq-tag year">BPSC 2014</span></div>
+        <div class="pyq-q">The tomb of Sher Shah is built in:</div>
+        <div class="pyq-options">
+          <div class="pyq-opt" onclick="answerPYQ(this,'correct')">(a) Sasaram</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(b) Kalinjar</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(c) Chausa</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(d) Patna</div>
+        </div>
+        <div class="pyq-answer" id="ans-pyq2">
+          <strong>✓ CORRECT: (a) Sasaram</strong>
+          <p>⚠️ Common trap: Sher Shah <em>died</em> at Kalinjar (during the siege), but his <strong>tomb is at Sasaram</strong> (Rohtas district, Bihar). The tomb, built in the middle of an artificial lake, is considered the finest example of Indo-Afghan architecture in India. Kalinjar = place of death; Sasaram = tomb location. Know this distinction.</p>
+        </div>
+        <button class="reveal-btn" onclick="revealPYQ('ans-pyq2',this)">Show Explanation</button>
+      </div>
+      <div class="pyq-item">
+        <div class="pyq-meta"><span class="pyq-tag prelims">BPSC Prelims</span><span class="pyq-tag year">BPSC 2008</span></div>
+        <div class="pyq-q">In Bihar, where was the headquarters of Sher Shah?</div>
+        <div class="pyq-options">
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(a) Gaya</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(b) Darbhanga</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'correct')">(c) Patna</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(d) Saran</div>
+        </div>
+        <div class="pyq-answer" id="ans-pyq3">
+          <strong>✓ CORRECT: (c) Patna</strong>
+          <p>Sher Shah made <strong>Patna</strong> the capital (headquarters) of Bihar province in <strong>1541 AD</strong>. He built a fort at Patna and shifted from Bihar Sharif (the previous capital under Slave and Tughlaq dynasties) to Patna. This decision was strategically sound — Patna's position at the Ganga-Sone confluence made it the perfect administrative and military hub. This is the origin of Patna as Bihar's undisputed capital.</p>
+        </div>
+        <button class="reveal-btn" onclick="revealPYQ('ans-pyq3',this)">Show Explanation</button>
+      </div>
+    </div>
+
+    <!-- ⑧ QUICK REVISION -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">⚡</span><span class="section-label-text">Quick Revision Bullets</span><span class="section-sub">7 ONE-LINERS</span></div>
+      <div class="qr-grid">
+        <div class="qr-item"><span class="qr-num">01</span><span class="qr-text">Sher Shah born ~1486; father = <strong>Hasan Khan Sur</strong>, jagirdar of Sasaram. Associated with <strong>Sasaram</strong> (Rohtas district). Title "Sher Khan" given by Sultan Mohammad (Noohani) for killing a tiger.</span></div>
+        <div class="qr-item"><span class="qr-num">02</span><span class="qr-text"><strong>Battle sequence: S→C→K→K</strong> — Surajgarh (1534) → Chausa (1539) → Kannauj/Bilgram (1540) → Kalinjar (1545, death). Died at Kalinjar; tomb at <strong>Sasaram</strong>.</span></div>
+        <div class="qr-item"><span class="qr-num">03</span><span class="qr-text">At <strong>Battle of Chausa</strong> (1539): Humayun nearly drowned; saved by water-carrier <strong>Nizam Saqqa</strong>. Sher Khan took title "Shah." Location: near Buxar, Bihar.</span></div>
+        <div class="qr-item"><span class="qr-num">04</span><span class="qr-text"><strong>Patna = capital of Bihar</strong> from 1541 AD — Sher Shah shifted it from Bihar Sharif. Built fort at Patna. Referenced in Abdullah's <em>Tarikh-i-Dawoodi</em>.</span></div>
+        <div class="qr-item"><span class="qr-num">05</span><span class="qr-text"><strong>Silver Rupee (178 grains)</strong> = Sher Shah's currency innovation. Grand Trunk Road = Kabul to Chittagong; sarais every 2 kos. Both lasted centuries.</span></div>
+        <div class="qr-item"><span class="qr-num">06</span><span class="qr-text"><strong>Zabt land revenue system</strong> = measurement-based; Patta to farmers; Zaribana + Muhislana taxes; 4x revenue increase. Todarmal (Akbar's minister) adapted it.</span></div>
+        <div class="qr-item"><span class="qr-num">07</span><span class="qr-text">Ruled only <strong>5 years (1540–1545)</strong>. Empire included Punjab, Malwa, Sind, Multan, Bundelkhand — all of N. India except Assam, Nepal, Kashmir, Gujarat. Key source: <em>Tarikh-i-Shershahi</em> by Abbas Sarvani.</span></div>
+      </div>
+      <div class="memory-hook">
+        <span class="hook-icon">🧲</span>
+        <span class="hook-text">Memory Hook: "A man from Sasaram drove a Mughal Emperor out of India, gave India the Rupee, built the GT Road, and created the district system — all in 5 years. <em>Bihar made India's most efficient medieval ruler.</em>"</span>
+      </div>
+    </div>
+
+    <!-- ⑨ CONCEPT CHECK -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">✅</span><span class="section-label-text">Concept Check</span><span class="section-sub">TEST YOURSELF</span></div>
+      <div class="check-mcq">
+        <div class="check-q">1. The Battle of Chausa (1539) was fought between Sher Shah and Humayun near which Bihar town?</div>
+        <div class="check-opts">
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','A')"><span class="opt-letter">A</span>Patna</button>
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','B')"><span class="opt-letter">B</span>Munger</button>
+          <button class="check-opt" onclick="checkAnswer(this,'correct','C')"><span class="opt-letter">C</span>Buxar</button>
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','D')"><span class="opt-letter">D</span>Sasaram</button>
+        </div>
+        <div class="check-feedback ok" id="fb1-ok">✓ Correct! Chausa is located east of Karmanasa, <strong>4 miles west of Buxar</strong> in Bihar. This is where Sher Khan made his surprise attack on Humayun on June 26, 1539. Humayun escaped by jumping into the Ganga and was saved by Nizam Saqqa (a water-carrier). After this victory, Sher Khan took the title "Shah" and became Sher Shah.</div>
+        <div class="check-feedback no" id="fb1-no">✗ Answer is (C) Buxar. Chausa is about 4 miles west of Buxar in Bihar. The Battle of Chausa (1539) is one of the most famous battles in medieval Indian history — fought on Bihar soil, it changed the course of Mughal history.</div>
+      </div>
+      <div class="check-mcq">
+        <div class="check-q">2. Sher Shah introduced the silver Rupee weighing how many grains?</div>
+        <div class="check-opts">
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','A')"><span class="opt-letter">A</span>140 grains</button>
+          <button class="check-opt" onclick="checkAnswer(this,'correct','B')"><span class="opt-letter">B</span>178 grains</button>
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','C')"><span class="opt-letter">C</span>200 grains</button>
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','D')"><span class="opt-letter">D</span>160 grains</button>
+        </div>
+        <div class="check-feedback ok" id="fb2-ok">✓ Correct! Sher Shah introduced the silver Rupee weighing <strong>178 grains</strong>. It was uniform and standardised — replacing the chaotic variety of coins used across different regions. This silver Rupee system with modifications became the basis of Indian currency until 1957 when India introduced decimal currency. The word "Rupee" itself is Sher Shah's legacy.</div>
+        <div class="check-feedback no" id="fb2-no">✗ Answer is (B) 178 grains. Sher Shah's silver Rupee (Rupai) weighed 178 grains — a specific BPSC fact. This standardised coin was his greatest economic contribution, lasting in India's monetary system for over 400 years.</div>
+      </div>
+      <div class="mains-box">
+        <div class="mains-meta"><span class="mains-tag">MAINS GS-I · 150 WORDS</span></div>
+        <div class="mains-q">Sher Shah Suri ruled for only 5 years yet his administrative reforms became the template for Mughal India. Critically examine his contributions from a Bihar perspective.</div>
+        <button class="reveal-btn" style="margin-bottom:12px;" onclick="revealMains(this)">▼ Show Model Answer</button>
+        <div class="mains-answer" id="mains-ans1">
+          <div class="ans-sec"><h5>Introduction</h5><p>Sher Shah Suri (1540–45 AD), a son of Bihar's Sasaram, achieved in 5 years what most medieval rulers could not in 50 — creating an administrative, revenue, and infrastructural framework that his Mughal successors themselves adopted wholesale.</p></div>
+          <div class="ans-sec"><h5>Bihar-Specific Contributions</h5><ul>
+            <li><strong>Patna as Capital (1541):</strong> Shifted Bihar's capital from Bihar Sharif to Patna — establishing Patna's permanent role as Bihar's administrative heart</li>
+            <li><strong>Battle of Chausa (1539):</strong> Fought on Bihar soil (near Buxar), this battle made a Bihari ruler Emperor of India</li>
+            <li><strong>Tomb at Sasaram:</strong> Greatest architectural monument of medieval Bihar; an enduring symbol of Bihari cultural heritage</li>
+          </ul></div>
+          <div class="ans-sec"><h5>National Contributions</h5><ul>
+            <li><strong>Silver Rupee (178 grains):</strong> India's standardised currency for 400+ years</li>
+            <li><strong>Grand Trunk Road (Kabul–Chittagong):</strong> 2,400 km; still operational as NH-19</li>
+            <li><strong>Zabt Land Revenue System:</strong> Measurement-based revenue with Patta rights for farmers; 4x revenue increase; adopted by Akbar via Todarmal</li>
+            <li><strong>Sarkar (District) System:</strong> Provincial → District → Pargana structure; became permanent administrative template</li>
+          </ul></div>
+          <div class="ans-sec"><h5>Conclusion</h5><p>Sher Shah earned the historian's description as "predecessor of Akbar" — a Bihar-born ruler who gave India its first modern administrative system, its enduring currency, and its greatest pre-colonial road. Five years of governance, five centuries of legacy.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<button class="print-btn" onclick="window.print()" title="Print Quick Revision">🖨</button>
+<script>
+const KEY='bihar_hist_v1';
+let visited=new Set(JSON.parse(localStorage.getItem(KEY)||'[]'));
+visited.add('modules/m12.html');
+localStorage.setItem(KEY,JSON.stringify([...visited]));
+document.querySelectorAll('.sidebar-item').forEach(item=>{
+  const href=item.getAttribute('href');
+  if(href&&visited.has('modules/'+href))item.classList.add('done');
+});
+function answerPYQ(el,type){
+  const p=el.closest('.pyq-item');
+  p.querySelectorAll('.pyq-opt').forEach(o=>{o.onclick=null;o.style.cursor='default';});
+  el.classList.add(type);
+}
+function revealPYQ(id,btn){
+  document.getElementById(id).classList.toggle('show');
+  btn.textContent=btn.textContent.includes('Show')?'Hide Explanation':'Show Explanation';
+}
+function revealMains(btn){
+  document.getElementById('mains-ans1').classList.toggle('show');
+  btn.textContent=btn.textContent.includes('▼')?'▲ Hide Model Answer':'▼ Show Model Answer';
+}
+function checkAnswer(el,type){
+  const p=el.closest('.check-mcq');
+  p.querySelectorAll('.check-opt').forEach(o=>{o.onclick=null;o.style.cursor='default';});
+  el.classList.add(type);
+  const idx=Array.from(document.querySelectorAll('.check-mcq')).indexOf(p)+1;
+  const ok=document.getElementById('fb'+idx+'-ok');
+  const no=document.getElementById('fb'+idx+'-no');
+  if(type==='correct'&&ok)ok.classList.add('show');
+  if(type==='wrong'&&no)no.classList.add('show');
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M06 — Ashoka: Kalinga to Dhamma | Bihar History</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1a1a2e;--ink2:#2d2d44;--paper:#f5f2eb;--paper2:#ede9df;--gold:#c9973a;--gold2:#e8b45a;--teal:#1e7a6e;--teal2:#2aa195;--coral:#c2522b;--muted:#7a7465;--border:rgba(26,26,46,0.11);--accent:var(--gold);}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);display:flex;min-height:100vh;}
+.sidebar{width:260px;flex-shrink:0;background:var(--ink);display:flex;flex-direction:column;position:sticky;top:0;height:100vh;overflow-y:auto;}
+.sidebar-logo{padding:24px 20px 16px;border-bottom:1px solid rgba(255,255,255,0.07);}
+.sidebar-logo a{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:var(--gold2);text-decoration:none;line-height:1.3;display:block;}
+.sidebar-logo span{display:block;font-size:10px;color:rgba(245,242,235,0.35);letter-spacing:1px;margin-top:3px;font-family:'DM Mono',monospace;}
+.sidebar-part{padding:14px 20px 6px;font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:1.4px;text-transform:uppercase;color:rgba(245,242,235,0.28);}
+.sidebar-item{display:flex;align-items:center;gap:10px;padding:9px 20px;text-decoration:none;font-size:12px;color:rgba(245,242,235,0.55);transition:background 0.15s,color 0.15s;border-left:2px solid transparent;}
+.sidebar-item:hover{background:rgba(255,255,255,0.05);color:rgba(245,242,235,0.9);}
+.sidebar-item.active{background:rgba(201,151,58,0.12);color:var(--gold2);border-left-color:var(--gold);}
+.sidebar-item.done .s-dot{background:var(--teal);}
+.s-num{font-family:'DM Mono',monospace;font-size:9.5px;color:rgba(245,242,235,0.28);width:28px;flex-shrink:0;}
+.s-dot{width:6px;height:6px;border-radius:50%;border:1.5px solid rgba(255,255,255,0.2);flex-shrink:0;}
+.sidebar-item.active .s-dot{background:var(--gold);border-color:var(--gold);}
+.main{flex:1;min-width:0;display:flex;flex-direction:column;}
+.topbar{background:var(--ink2);padding:12px 48px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10;border-bottom:1px solid rgba(255,255,255,0.05);}
+.topbar-left{display:flex;align-items:center;gap:14px;}
+.era-pill{font-size:10px;padding:3px 10px;border-radius:2px;background:rgba(201,151,58,0.2);color:var(--gold2);font-family:'DM Mono',monospace;letter-spacing:0.8px;}
+.topbar-title{font-size:13px;color:rgba(245,242,235,0.7);}
+.topbar-nav{display:flex;gap:8px;}
+.nav-btn{padding:7px 14px;border-radius:3px;font-size:12px;font-weight:500;text-decoration:none;border:1px solid rgba(255,255,255,0.12);color:rgba(245,242,235,0.6);transition:all 0.18s;cursor:pointer;background:none;}
+.nav-btn:hover{border-color:var(--gold);color:var(--gold2);}
+.nav-btn.primary{background:var(--gold);color:var(--ink);border-color:var(--gold);}
+.content{flex:1;padding:48px 52px 80px;max-width:920px;}
+.mod-header{margin-bottom:40px;}
+.mod-badge{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--ink);font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:4px 12px;border-radius:2px;margin-bottom:18px;}
+.mod-header h1{font-family:'Playfair Display',serif;font-size:clamp(26px,3.5vw,40px);font-weight:900;line-height:1.15;letter-spacing:-0.5px;margin-bottom:14px;}
+.mod-header h1 em{font-style:italic;color:var(--gold);}
+.mod-header p{font-size:14.5px;color:var(--muted);line-height:1.75;max-width:640px;}
+.mod-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px;padding-top:18px;border-top:1px solid var(--border);}
+.meta-tag{font-size:10.5px;padding:3px 9px;border-radius:2px;font-weight:500;}
+.meta-tag.b{background:#fdf5e6;color:var(--gold);}
+.meta-tag.m{background:#ebf5f3;color:var(--teal);}
+.meta-tag.s{background:#fff0eb;color:var(--coral);}
+.meta-tag.d{background:#f0edf8;color:#5a3ea1;}
+.section{margin-bottom:44px;}
+.section-head{display:flex;align-items:center;gap:12px;margin-bottom:20px;padding-bottom:12px;border-bottom:2px solid var(--accent);}
+.section-icon{font-size:20px;}
+.section-label-text{font-family:'Playfair Display',serif;font-size:19px;font-weight:700;}
+.section-sub{font-size:11px;color:var(--muted);font-family:'DM Mono',monospace;letter-spacing:0.8px;margin-left:auto;}
+.story-box{background:var(--ink);color:var(--paper);border-radius:5px;padding:28px 32px;position:relative;overflow:hidden;}
+.story-box::before{content:'';position:absolute;top:-40px;right:-40px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(201,151,58,0.15) 0%,transparent 70%);}
+.story-box p{font-size:14.5px;line-height:1.85;font-weight:300;position:relative;}
+.story-box p+p{margin-top:12px;}
+.story-box strong{color:var(--gold2);}
+.story-highlight{display:inline-block;margin-top:18px;padding:10px 16px;background:rgba(201,151,58,0.15);border-left:3px solid var(--gold);border-radius:0 3px 3px 0;font-size:13px;font-style:italic;color:var(--gold2);}
+/* Ashoka names box */
+.names-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:20px;}
+.name-card{background:#fff;border:1px solid var(--border);border-radius:4px;padding:14px;text-align:center;}
+.name-val{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:var(--ink);margin-bottom:4px;}
+.name-source{font-size:10.5px;color:var(--muted);font-family:'DM Mono',monospace;}
+/* Flowchart */
+.flow-chain{display:flex;flex-direction:column;gap:0;}
+.flow-box{background:#fff;border:1px solid var(--border);border-radius:4px;padding:16px 20px;}
+.flow-box.cause{border-top:3px solid var(--coral);}
+.flow-box.event{border-top:3px solid var(--gold);}
+.flow-box.result{border-top:3px solid var(--teal);}
+.flow-label{font-size:9.5px;font-family:'DM Mono',monospace;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:6px;}
+.flow-box.cause .flow-label{color:var(--coral);}
+.flow-box.event .flow-label{color:var(--gold);}
+.flow-box.result .flow-label{color:var(--teal);}
+.flow-box h4{font-size:13.5px;font-weight:600;margin-bottom:5px;}
+.flow-box p{font-size:12.5px;color:var(--muted);line-height:1.6;}
+.flow-arrow{display:flex;align-items:center;justify-content:center;padding:8px 0;color:var(--muted);font-size:18px;}
+/* Dhamma pillars */
+.dhamma-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+.dhamma-card{background:#fff;border:1px solid var(--border);border-radius:4px;padding:16px;position:relative;}
+.dhamma-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--accent);}
+.dhamma-title{font-size:13px;font-weight:600;margin-bottom:6px;color:var(--ink);}
+.dhamma-desc{font-size:12px;color:var(--muted);line-height:1.6;}
+/* Timeline */
+.timeline{position:relative;padding-left:28px;}
+.timeline::before{content:'';position:absolute;left:8px;top:8px;bottom:8px;width:2px;background:linear-gradient(180deg,var(--accent),transparent);}
+.tl-item{position:relative;margin-bottom:20px;}
+.tl-dot{position:absolute;left:-24px;top:4px;width:12px;height:12px;border-radius:50%;background:var(--accent);border:2px solid var(--paper);box-shadow:0 0 0 2px var(--accent);}
+.tl-period{font-family:'DM Mono',monospace;font-size:10.5px;color:var(--accent);letter-spacing:0.5px;margin-bottom:4px;}
+.tl-title{font-size:14px;font-weight:600;margin-bottom:4px;}
+.tl-body{font-size:12.5px;color:var(--muted);line-height:1.6;}
+.tl-badge{display:inline-block;font-size:10px;padding:1.5px 7px;border-radius:2px;background:var(--paper2);color:var(--ink2);margin-left:6px;font-weight:500;}
+/* Comparison table */
+.comp-table{width:100%;border-collapse:collapse;font-size:12.5px;}
+.comp-table th{background:var(--ink);color:var(--paper);padding:11px 14px;text-align:left;font-weight:500;font-size:12px;}
+.comp-table th:first-child{border-radius:4px 0 0 0;}
+.comp-table th:last-child{border-radius:0 4px 0 0;}
+.comp-table td{padding:9px 14px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.55;}
+.comp-table tr:last-child td{border-bottom:none;}
+.comp-table tr:nth-child(even) td{background:var(--paper2);}
+.comp-table tr:hover td{background:#fff9f0;}
+.comp-table td:first-child{font-weight:600;color:var(--ink2);}
+.comp-table td.accent{color:var(--gold);font-weight:500;}
+.comp-table td.teal{color:var(--teal);font-weight:500;}
+/* Mnemonic */
+.mnemonic-box{background:linear-gradient(135deg,var(--ink),var(--ink2));border-radius:5px;padding:28px 32px;color:var(--paper);}
+.mnemonic-box+.mnemonic-box{margin-top:14px;}
+.m-label{font-size:10px;font-family:'DM Mono',monospace;letter-spacing:1.5px;color:var(--gold);text-transform:uppercase;margin-bottom:14px;}
+.mnemonic-word{font-family:'Playfair Display',serif;font-size:clamp(18px,2.5vw,28px);font-weight:900;color:var(--gold2);letter-spacing:3px;margin-bottom:18px;}
+.mnemonic-rows{display:flex;flex-direction:column;gap:10px;}
+.m-row{display:flex;align-items:baseline;gap:14px;}
+.m-letter{font-family:'DM Mono',monospace;font-size:16px;font-weight:500;color:var(--gold2);width:28px;flex-shrink:0;}
+.m-text{font-size:13px;line-height:1.5;}
+.m-text strong{color:var(--gold2);}
+.m-tip{margin-top:16px;padding:10px 14px;background:rgba(201,151,58,0.12);border-radius:3px;font-size:12px;font-style:italic;color:rgba(245,242,235,0.7);}
+/* PYQ + MCQ */
+.pyq-item{background:#fff;border:1px solid var(--border);border-radius:4px;padding:22px;margin-bottom:14px;}
+.pyq-meta{display:flex;align-items:center;gap:8px;margin-bottom:12px;flex-wrap:wrap;}
+.pyq-tag{font-size:10px;padding:2px 8px;border-radius:2px;font-weight:500;font-family:'DM Mono',monospace;}
+.pyq-tag.prelims{background:#fdf5e6;color:var(--gold);}
+.pyq-tag.mains{background:#ebf5f3;color:var(--teal);}
+.pyq-tag.year{background:var(--paper2);color:var(--muted);}
+.pyq-q{font-size:14px;font-weight:500;line-height:1.6;margin-bottom:14px;}
+.pyq-options{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:14px;}
+.pyq-opt{padding:8px 12px;border-radius:3px;font-size:12.5px;border:1px solid var(--border);background:var(--paper);cursor:pointer;transition:all 0.18s;}
+.pyq-opt:hover{border-color:var(--gold);background:#fff9f0;}
+.pyq-opt.correct{background:#e8f5e9;border-color:#4caf50;color:#2e7d32;font-weight:500;}
+.pyq-opt.wrong{background:#ffebee;border-color:#ef9a9a;color:#c62828;}
+.pyq-answer{display:none;padding:14px 16px;background:#e8f5f3;border-radius:3px;border-left:3px solid var(--teal);}
+.pyq-answer.show{display:block;}
+.pyq-answer strong{color:var(--teal);font-size:12px;}
+.pyq-answer p{font-size:13px;color:var(--ink2);margin-top:5px;line-height:1.6;}
+.reveal-btn{font-size:11.5px;padding:6px 14px;border-radius:3px;background:none;border:1px solid var(--border);cursor:pointer;color:var(--muted);transition:all 0.18s;}
+.reveal-btn:hover{border-color:var(--teal);color:var(--teal);}
+.mains-box{background:#fff;border:1px solid var(--border);border-radius:4px;padding:22px;}
+.mains-q{font-size:14.5px;font-weight:600;line-height:1.6;margin-bottom:14px;}
+.mains-meta{display:flex;gap:8px;margin-bottom:14px;}
+.mains-answer{display:none;border-top:1px solid var(--border);padding-top:16px;}
+.mains-answer.show{display:block;}
+.answer-section{margin-bottom:14px;}
+.answer-section h5{font-size:11px;font-family:'DM Mono',monospace;letter-spacing:1px;color:var(--gold);text-transform:uppercase;margin-bottom:7px;}
+.answer-section p{font-size:13px;line-height:1.7;color:var(--ink2);}
+.answer-section ul{padding-left:18px;}
+.answer-section li{font-size:13px;line-height:1.7;color:var(--ink2);margin-bottom:4px;}
+.qr-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.qr-item{display:flex;align-items:flex-start;gap:10px;background:#fff;border:1px solid var(--border);border-radius:4px;padding:14px 16px;}
+.qr-num{font-family:'DM Mono',monospace;font-size:10px;color:var(--accent);font-weight:500;flex-shrink:0;margin-top:2px;}
+.qr-text{font-size:13px;line-height:1.6;color:var(--ink2);}
+.qr-text strong{color:var(--accent);}
+.memory-hook{background:var(--accent);border-radius:4px;padding:16px 22px;display:flex;align-items:center;gap:16px;margin-top:32px;}
+.hook-icon{font-size:22px;}
+.hook-text{font-size:14px;font-weight:600;color:var(--ink);line-height:1.5;}
+.check-mcq{background:#fff;border:1px solid var(--border);border-radius:4px;padding:20px;margin-bottom:12px;}
+.check-q{font-size:14px;font-weight:500;margin-bottom:14px;line-height:1.6;}
+.check-opts{display:flex;flex-direction:column;gap:7px;}
+.check-opt{padding:10px 14px;border-radius:3px;font-size:13px;border:1px solid var(--border);background:var(--paper);cursor:pointer;transition:all 0.18s;text-align:left;display:flex;align-items:center;gap:10px;}
+.check-opt:hover{border-color:var(--accent);background:#fff9f0;}
+.check-opt.correct{background:#e8f5e9;border-color:#4caf50;color:#2e7d32;}
+.check-opt.wrong{background:#ffebee;border-color:#ef9a9a;color:#c62828;}
+.opt-letter{width:22px;height:22px;border-radius:50%;background:var(--paper2);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;flex-shrink:0;}
+.check-opt.correct .opt-letter{background:#4caf50;color:#fff;}
+.check-opt.wrong   .opt-letter{background:#ef9a9a;color:#fff;}
+.check-feedback{margin-top:10px;padding:10px 14px;border-radius:3px;font-size:12.5px;display:none;line-height:1.6;}
+.check-feedback.show{display:block;}
+.check-feedback.ok{background:#e8f5e9;color:#2e7d32;}
+.check-feedback.no{background:#ffebee;color:#c62828;}
+.sidebar::-webkit-scrollbar{width:4px;}
+.sidebar::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.1);border-radius:2px;}
+.print-btn{position:fixed;bottom:24px;right:24px;background:var(--ink);color:var(--gold2);border:none;border-radius:50%;width:44px;height:44px;font-size:16px;cursor:pointer;box-shadow:0 4px 16px rgba(26,26,46,0.25);transition:transform 0.18s;display:flex;align-items:center;justify-content:center;}
+.print-btn:hover{transform:scale(1.1);}
+@media print{.sidebar,.topbar,.print-btn{display:none;}.main{display:block;}.content{padding:20px;}}
+@media(max-width:768px){.sidebar{display:none;}.content{padding:24px 20px 60px;}.topbar{padding:10px 20px;}.names-grid,.dhamma-grid,.qr-grid,.pyq-options{grid-template-columns:1fr 1fr;}}
+</style>
+</head>
+<body>
+<aside class="sidebar">
+  <div class="sidebar-logo"><a href="../index.html">Bihar History<br>Study System</a><span>BPSC · UPSC · State PCS</span></div>
+  <div class="sidebar-part">Part I — Ancient Bihar</div>
+  <a class="sidebar-item done" href="m01.html"><span class="s-num">01</span><span class="s-dot"></span>Sources & Prehistoric Bihar</a>
+  <a class="sidebar-item done" href="m02.html"><span class="s-num">02</span><span class="s-dot"></span>Mahajanapadas in Bihar</a>
+  <a class="sidebar-item done" href="m03.html"><span class="s-num">03</span><span class="s-dot"></span>Pre-Mauryan Dynasties</a>
+  <a class="sidebar-item done" href="m04.html"><span class="s-num">04</span><span class="s-dot"></span>Buddhism & Jainism</a>
+  <a class="sidebar-item done" href="m05.html"><span class="s-num">05</span><span class="s-dot"></span>Mauryan Empire</a>
+  <a class="sidebar-item active" href="m06.html"><span class="s-num">06</span><span class="s-dot"></span>Ashoka — Kalinga to Dhamma</a>
+  <a class="sidebar-item" href="m07.html"><span class="s-num">07</span><span class="s-dot"></span>Post-Mauryan to Gupta Era</a>
+  <div class="sidebar-part">Part II — Medieval Bihar</div>
+  <a class="sidebar-item" href="m08.html"><span class="s-num">08</span><span class="s-dot"></span>Pala Dynasty</a>
+  <a class="sidebar-item" href="m09.html"><span class="s-num">09</span><span class="s-dot"></span>Sena & Karnata Dynasties</a>
+  <a class="sidebar-item" href="m10.html"><span class="s-num">10</span><span class="s-dot"></span>Turkish Invasion</a>
+  <a class="sidebar-item" href="m11.html"><span class="s-num">11</span><span class="s-dot"></span>Khilji, Tughlaq & Noohani</a>
+  <a class="sidebar-item" href="m12.html"><span class="s-num">12</span><span class="s-dot"></span>Sher Shah Suri</a>
+  <a class="sidebar-item" href="m13.html"><span class="s-num">13</span><span class="s-dot"></span>Mughal Rule in Bihar</a>
+  <a class="sidebar-item" href="m14.html"><span class="s-num">14</span><span class="s-dot"></span>Sufism, Sikhism & Tribal States</a>
+  <div class="sidebar-part">Part III — Modern Bihar</div>
+  <a class="sidebar-item" href="m15.html"><span class="s-num">15</span><span class="s-dot"></span>European Entry</a>
+  <a class="sidebar-item" href="m16.html"><span class="s-num">16</span><span class="s-dot"></span>Battle of Buxar</a>
+  <a class="sidebar-item" href="m17.html"><span class="s-num">17</span><span class="s-dot"></span>Revolt of 1857</a>
+  <a class="sidebar-item" href="m18.html"><span class="s-num">18</span><span class="s-dot"></span>Tribal Revolts</a>
+  <a class="sidebar-item" href="m19.html"><span class="s-num">19</span><span class="s-dot"></span>Freedom Movements</a>
+  <a class="sidebar-item" href="m20.html"><span class="s-num">20</span><span class="s-dot"></span>Eminent Freedom Fighters</a>
+  <a class="sidebar-item" href="m21.html"><span class="s-num">21</span><span class="s-dot"></span>Formation of Modern Bihar</a>
+</aside>
+
+<div class="main">
+  <div class="topbar">
+    <div class="topbar-left"><span class="era-pill">ANCIENT BIHAR</span><span class="topbar-title">Module 06 of 21</span></div>
+    <div class="topbar-nav">
+      <a href="m05.html" class="nav-btn">← Prev</a>
+      <a href="../index.html" class="nav-btn">Index</a>
+      <a href="m07.html" class="nav-btn primary">Next →</a>
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="mod-header">
+      <div class="mod-badge"><span>MODULE 06</span><span>·</span><span>Ancient Bihar</span></div>
+      <h1>Ashoka —<br><em>From Kalinga to Dhamma</em></h1>
+      <p>One war. 100,000 dead. And a king so shattered by what he saw that he transformed from the most feared warrior-emperor in Asia into the world's first great proponent of non-violence, welfare governance, and religious tolerance.</p>
+      <div class="mod-meta">
+        <span class="meta-tag b">BPSC Special</span>
+        <span class="meta-tag m">Mains GS-I</span>
+        <span class="meta-tag d">273 BC – 232 BC</span>
+        <span class="meta-tag s">⚠ Devanampiya ≠ always Ashoka; Interregnum 273-269 BC; Rock Edict XIII = Kalinga</span>
+      </div>
+    </div>
+
+    <!-- STORY HOOK -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">🎭</span><span class="section-label-text">Story Hook</span><span class="section-sub">START HERE</span></div>
+      <div class="story-box">
+        <p>It is <strong>261 BC</strong>. The Mauryan army has just conquered Kalinga (modern Odisha). The numbers: <strong>100,000 killed in battle. 150,000 deported. Several times more died of disease and starvation.</strong></p>
+        <p>Emperor Ashoka walks through the battlefield. He had conquered before — more fiercely than any Mauryan before him. But something about <em>this</em> battlefield is different. Perhaps it's the sheer scale of death. Perhaps it's a Buddhist monk he meets in the carnage. Perhaps it's the face of someone's grandfather lying in the mud, staring at the sky.</p>
+        <p>Ashoka returns to Pataliputra a changed man. He describes what happened in <strong>Rock Edict XIII</strong> — one of the most remarkable royal confessions in world history: <em>"A hundred thousand were killed, many times that number perished, and many times still that number were taken captive. There, Beloved-of-the-Gods feels remorse."</em></p>
+        <p>He never fights a war of aggression again. He builds hospitals for humans and animals. He plants trees along roads. He sends missionaries across Asia. And on pillars in Bihar's Champaran — at <strong>Lauriya Areraj and Rampurwa</strong> — he writes messages to his people that are still readable today, 2,300 years later.</p>
+        <div class="story-highlight">💡 Ashoka is the only emperor in history who gave up conquest after winning — and built a welfare state instead. His story is as relevant today as in 261 BC.</div>
+      </div>
+    </div>
+
+    <!-- ASHOKA'S NAMES -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">🧠</span><span class="section-label-text">Ashoka's Many Names & Titles</span><span class="section-sub">EXAM TRAP AREA</span></div>
+      <div class="names-grid">
+        <div class="name-card"><div class="name-val">Devanampiya</div><div class="name-source">Most inscriptions ("Beloved of the Gods")</div></div>
+        <div class="name-card"><div class="name-val">Priyadarshee</div><div class="name-source">Most inscriptions ("He who looks with kindness")</div></div>
+        <div class="name-card"><div class="name-val">Dhammasoka</div><div class="name-source">After Kalinga — "Dhamma Ashoka"</div></div>
+        <div class="name-card"><div class="name-val">King of Magadha</div><div class="name-source">Bhabru Inscription — only place "Ashoka" is explicitly named</div></div>
+      </div>
+      <p style="font-size:13px;color:var(--coral);background:#fff0eb;padding:12px 16px;border-radius:4px;border-left:3px solid var(--coral);">⚠️ <strong>Classic Trap:</strong> "Devanampiya" appears on most Ashokan inscriptions — but this title was also used by other kings. BPSC sometimes asks which inscription explicitly mentions the name "Ashoka" — Answer: <strong>Bhabru Inscription</strong> (and Mask). Devanampiya alone ≠ proves it's Ashoka.</p>
+    </div>
+
+    <!-- FLOWCHART: KALINGA TO DHAMMA -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">🔄</span><span class="section-label-text">Flowchart — Kalinga War → Dhamma Transformation</span><span class="section-sub">CAUSE → EVENT → RESULT</span></div>
+      <div class="flow-chain">
+        <div class="flow-box cause">
+          <div class="flow-label">Cause</div>
+          <h4>Ashoka conquers Kalinga (261 BC) — Rock Edict XIII</h4>
+          <p>100,000+ killed; 150,000 deported. Ashoka walks battlefield, sees devastation. Influenced by Buddhist monk Upagupta. His Queen Karuvaki also influenced him.</p>
+        </div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-box event">
+          <div class="flow-label">Transformation</div>
+          <h4>Embraces Buddhism → Becomes Dhammasoka</h4>
+          <p>Joins sangha. Declares Dhamma (righteousness) as state policy. Abandons Digvijaya (conquest by arms) in favour of Dhammavijaya (conquest by Dhamma). 3rd Buddhist Council (250 BC) at Patliputra.</p>
+        </div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-box result">
+          <div class="flow-label">Result — Dhamma State</div>
+          <h4>Welfare governance, tolerance, non-violence as state policy</h4>
+          <p>84,000 stupas built. Pillars and Rock Edicts across India. Hospitals for humans + animals. Trees planted. Buddhist missions to Sri Lanka, SE Asia, W Asia, Mediterranean. 3rd Council spreads Buddhism globally.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- DHAMMA PRINCIPLES -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">☸</span><span class="section-label-text">Ashoka's Dhamma — Key Principles</span><span class="section-sub">WELFARE STATE</span></div>
+      <div class="dhamma-grid">
+        <div class="dhamma-card"><div class="dhamma-title">🕊 Non-Violence (Ahimsa)</div><div class="dhamma-desc">Stopped animal sacrifices. Banned hunting of many animals. Became vegetarian. Built veterinary hospitals alongside human hospitals.</div></div>
+        <div class="dhamma-card"><div class="dhamma-title">🤝 Religious Tolerance</div><div class="dhamma-desc">Respected all religions — Buddhism, Brahmanism, Jainism, Ajivikas. Rock Edict XII says: "All sects deserve reverence for one reason or another."</div></div>
+        <div class="dhamma-card"><div class="dhamma-title">👴 Respect for Elders</div><div class="dhamma-desc">Reverence for parents, teachers, elders. Generosity to brahmanas and monks. Care for servants and slaves — ahead of his time.</div></div>
+        <div class="dhamma-card"><div class="dhamma-title">🌳 Welfare Works</div><div class="dhamma-desc">Planted banyan trees along roads. Built rest houses (Dharmashalas). Dug wells. Built hospitals. His welfare works extended to Sri Lanka and Central Asia.</div></div>
+        <div class="dhamma-card"><div class="dhamma-title">📜 Dhamma Mahamattas</div><div class="dhamma-desc">Appointed special officers called Dhamma Mahamattas to spread Dhamma principles among the people and to monitor compliance.</div></div>
+        <div class="dhamma-card"><div class="dhamma-title">🌏 Global Spread</div><div class="dhamma-desc">3rd Buddhist Council (250 BC, Patliputra) → missionaries sent to Sri Lanka (Mahendra, Sanghamitra), SE Asia, W Asia, Egypt, Macedonia, Mediterranean Europe.</div></div>
+      </div>
+    </div>
+
+    <!-- ASHOKAN INSCRIPTIONS IN BIHAR -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">🏛️</span><span class="section-label-text">Ashokan Inscriptions in Bihar — BPSC Special</span><span class="section-sub">KEY SITES</span></div>
+      <table class="comp-table">
+        <thead><tr><th>Site</th><th>District / Bihar</th><th>Key Details</th></tr></thead>
+        <tbody>
+          <tr><td>Lauriya Areraj</td><td class="accent">East Champaran</td><td>Pillar inscription. Brahmi script, Prakrit language. One of three Bihar pillar sites. Well-preserved.</td></tr>
+          <tr><td>Lauriya Nandangarh</td><td class="accent">West Champaran</td><td>Pillar inscription + burial mounds (Buddhist). Also has famous Ashokan pillar with lion capital — still standing.</td></tr>
+          <tr><td>Rampurwa</td><td class="accent">West Champaran</td><td>Two Ashokan pillars — bull capital and lion capital. Bull capital now in Rashtrapati Bhavan, Delhi.</td></tr>
+          <tr><td>Vaishali (Kolhua)</td><td class="accent">Muzaffarpur dist.</td><td>Ashokan pillar with lion capital + stupa. Marks spot where Buddha delivered his last sermon. Only Bihar pillar outside Champaran.</td></tr>
+          <tr><td>Barabar & Nagarjuni Hills</td><td class="accent">Jehanabad</td><td>Rock-cut caves + inscriptions. Barabar caves: Lomas Rishi, Sudama, Karna Chaupar. Nagarjuni hills: inscription of Dasharatha (Ashoka's grandson). Dedicated to Ajivikas.</td></tr>
+          <tr><td>Sasaram (Rohtas)</td><td class="accent">Rohtas</td><td>Rock inscriptions at Sasaram — one of the less-known but important Ashokan sites in Bihar.</td></tr>
+          <tr><td>Kumhrar, Patna</td><td class="accent">Patna</td><td>Mauryan palace excavation; 80-pillared hall; polished Ashokan pillar fragments found here.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- TIMELINE -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">⏳</span><span class="section-label-text">Ashoka's Reign Timeline</span><span class="section-sub">CHRONOLOGICAL</span></div>
+      <div class="timeline">
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-period">273 BC</div><div class="tl-title">Ashoka Succeeds Bindusara <span class="tl-badge">4-yr interregnum</span></div><div class="tl-body">Bindusara died 273 BC. Ashoka fought succession war against brother Susima. Sworn in (coronated) 4 years later in <strong>269 BC</strong>. Per Dipavamsa/Mahavamsa — killed 99 brothers, spared Vitashoka/Tissa. Was earlier Governor of Ujjain under Bindusara.</div></div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-period">261 BC</div><div class="tl-title">Kalinga War — The Turning Point</div><div class="tl-body">Mentioned in Major Rock Edict XIII. 100,000 killed; 150,000 deported. Ashoka embraces Buddhism. Monk Upagupta influenced him. Becomes Dhammasoka.</div></div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-period">250 BC</div><div class="tl-title">3rd Buddhist Council — Patliputra, Bihar</div><div class="tl-body">Patron: Ashoka. President: Moggaliputta Tissa. Compiled Abhidhamma Pitaka. Buddhist missions sent to Sri Lanka (son Mahendra + daughter Sanghamitra), SE Asia, W Asia, Mediterranean. Most important event in Buddhist world history.</div></div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-period">~250 BC</div><div class="tl-title">84,000 Stupas Built</div><div class="tl-body">Ashoka distributed relics of Buddha and built 84,000 stupas across his empire. Also built stone pillars, dharmashalas (rest houses), hospitals, planted trees on roads. Pillar inscriptions in Bihar (Lauriya Areraj, Rampurwa, Vaishali).</div></div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-period">232 BC</div><div class="tl-title">Ashoka Dies — Empire Begins Declining</div><div class="tl-body">After Ashoka, empire split — Western part (Kunala's descendants) fell to Bactrian invasion. Eastern part (Dasharatha/Samprati) survived briefly at Pataliputra. Last Mauryan Brihadratha killed by Pushyamitra Shunga in 185 BC.</div></div>
+      </div>
+    </div>
+
+    <!-- MNEMONIC -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">🧩</span><span class="section-label-text">Mnemonics</span><span class="section-sub">MEMORY TRICKS</span></div>
+      <div class="mnemonic-box">
+        <div class="m-label">🧩 Ashoka's Key Dates — "261-250-232"</div>
+        <div class="mnemonic-word">261 · 250 · 232</div>
+        <div class="mnemonic-rows">
+          <div class="m-row"><span class="m-letter">261</span><span class="m-text"><strong>Kalinga War</strong> — the turning point; Rock Edict XIII; 100,000 killed</span></div>
+          <div class="m-row"><span class="m-letter">250</span><span class="m-text"><strong>3rd Buddhist Council</strong> at Patliputra; Moggaliputta Tissa; Buddhism spreads globally</span></div>
+          <div class="m-row"><span class="m-letter">232</span><span class="m-text"><strong>Ashoka dies</strong> — empire starts declining; western half falls to Bactrians</span></div>
+        </div>
+        <div class="m-tip">💡 "Kalinga (261) Changed Policies (250 Council) Completely (232 death)" = 261-250-232. Remember: ascended 273 BC, crowned 269 BC, Kalinga 261 BC.</div>
+      </div>
+
+      <div class="mnemonic-box">
+        <div class="m-label">🧩 Bihar's Ashokan Pillar Sites</div>
+        <div class="mnemonic-word">L · L · R · V</div>
+        <div class="mnemonic-rows">
+          <div class="m-row"><span class="m-letter">L</span><span class="m-text"><strong>Lauriya Areraj</strong> — East Champaran, Bihar</span></div>
+          <div class="m-row"><span class="m-letter">L</span><span class="m-text"><strong>Lauriya Nandangarh</strong> — West Champaran, Bihar</span></div>
+          <div class="m-row"><span class="m-letter">R</span><span class="m-text"><strong>Rampurwa</strong> — West Champaran, Bihar (bull + lion capitals)</span></div>
+          <div class="m-row"><span class="m-letter">V</span><span class="m-text"><strong>Vaishali (Kolhua)</strong> — Muzaffarpur district, Bihar</span></div>
+        </div>
+        <div class="m-tip">💡 "Let Lions Roam Vaishali" = Lauriya Areraj, Lauriya Nandangarh, Rampurwa, Vaishali. Three are in Champaran; one (Vaishali) is outside Champaran but still Bihar.</div>
+      </div>
+    </div>
+
+    <!-- PYQ -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">📝</span><span class="section-label-text">PYQ Practice</span><span class="section-sub">SOLVED</span></div>
+      <div class="pyq-item">
+        <div class="pyq-meta"><span class="pyq-tag prelims">Bihar Judicial Services</span><span class="pyq-tag year">2016</span></div>
+        <div class="pyq-q">In which Rock Edict did Ashoka mention about the Kalinga War?</div>
+        <div class="pyq-options">
+          <div class="pyq-opt" onclick="answerPYQ(this,'correct')">(a) Rock Edict XIII</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(b) Rock Edict XII</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(c) Rock Edict XI</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(d) Rock Edict X</div>
+        </div>
+        <div class="pyq-answer" id="a1"><strong>✓ CORRECT: (a) Rock Edict XIII</strong><p>Major Rock Edict XIII is Ashoka's most famous edict — it describes his grief and remorse after the Kalinga War. It mentions 100,000 killed, 150,000 deported, and many more who suffered. It contains Ashoka's vow to pursue conquest by Dhamma rather than by arms. Rock Edict XII is about religious tolerance; Rock Edict XI is about Dhamma. XIII = Kalinga = most emotional, most important.</p></div>
+        <button class="reveal-btn" onclick="revealPYQ('a1',this)">Show Explanation</button>
+      </div>
+
+      <div class="pyq-item">
+        <div class="pyq-meta"><span class="pyq-tag prelims">BPSC Prelims</span><span class="pyq-tag year">BPSC 2011</span></div>
+        <div class="pyq-q">Who had defeated Hunas (first time)?</div>
+        <div class="pyq-options">
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(a) Samudragupta</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(b) Chandragupta II</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'correct')">(c) Skandagupta</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(d) Ramagupta</div>
+        </div>
+        <div class="pyq-answer" id="a2"><strong>✓ CORRECT: (c) Skandagupta</strong><p>Skandagupta (455–467 AD) repulsed the first major Huna invasion in 455 AD. This is mentioned in his Bhitari inscription. Note: The first Huna ATTACK was during Kumargupta I's reign, but Skandagupta is who actually DEFEATED them. Samudragupta fought Shakas and Kushanas (not Hunas). Chandragupta II conquered Shakas (Gujarat). Ramagupta was a weak ruler.</p></div>
+        <button class="reveal-btn" onclick="revealPYQ('a2',this)">Show Explanation</button>
+      </div>
+    </div>
+
+    <!-- QUICK REVISION -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">⚡</span><span class="section-label-text">Quick Revision — Module 06 Bullets</span><span class="section-sub">7 ONE-LINERS</span></div>
+      <div class="qr-grid">
+        <div class="qr-item"><span class="qr-num">01</span><span class="qr-text"><strong>Ashoka's reign:</strong> Ascended 273 BC, crowned 269 BC (4-year interregnum), Kalinga War 261 BC, died 232 BC.</span></div>
+        <div class="qr-item"><span class="qr-num">02</span><span class="qr-text"><strong>Kalinga = Rock Edict XIII.</strong> 100,000 killed. Ashoka converts to Buddhism. Influenced by monk Upagupta.</span></div>
+        <div class="qr-item"><span class="qr-num">03</span><span class="qr-text"><strong>Ashoka's titles:</strong> Devanampiya + Priyadarshee (inscriptions); Dhammasoka (after Kalinga); "Ashoka" explicitly only in Bhabru inscription.</span></div>
+        <div class="qr-item"><span class="qr-num">04</span><span class="qr-text"><strong>Bihar pillar sites:</strong> L-L-R-V = Lauriya Areraj (E.Champaran), Lauriya Nandangarh (W.Champaran), Rampurwa (W.Champaran), Vaishali/Kolhua (Muzaffarpur).</span></div>
+        <div class="qr-item"><span class="qr-num">05</span><span class="qr-text"><strong>3rd Buddhist Council</strong> (250 BC, Patliputra) under Ashoka → global spread of Buddhism. President: Moggaliputta Tissa. Ashoka built 84,000 stupas.</span></div>
+        <div class="qr-item"><span class="qr-num">06</span><span class="qr-text"><strong>Nagarjuni Hills (Jehanabad):</strong> Inscription of Mauryan King <strong>Dasharatha</strong> (Ashoka's grandson) — patronage of Ajivikas. Different from Barabar caves.</span></div>
+        <div class="qr-item"><span class="qr-num">07</span><span class="qr-text"><strong>Rampurwa bull capital</strong> is now at Rashtrapati Bhavan, Delhi. Didarganj Yakshini = Patna Museum. Lauriya Nandangarh lion capital = still standing at site.</span></div>
+      </div>
+      <div class="memory-hook">
+        <span class="hook-icon">🧲</span>
+        <span class="hook-text">Memory Hook: "Ashoka is history's most dramatic pivot — from mass killer at Kalinga (261 BC) to mass builder of hospitals and stupas. Bihar's pillars still carry his message to us today."</span>
+      </div>
+    </div>
+
+    <!-- CONCEPT CHECK -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">✅</span><span class="section-label-text">Concept Check</span><span class="section-sub">TEST YOURSELF</span></div>
+      <div class="check-mcq">
+        <div class="check-q">1. Ashoka is mentioned as "King of Magadha" in which specific inscription — the only place where the name "Ashoka" is explicitly written?</div>
+        <div class="check-opts">
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','A')"><span class="opt-letter">A</span>Rock Edict XIII</button>
+          <button class="check-opt" onclick="checkAnswer(this,'correct','B')"><span class="opt-letter">B</span>Bhabru Inscription</button>
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','C')"><span class="opt-letter">C</span>Lauriya Areraj Pillar</button>
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','D')"><span class="opt-letter">D</span>Hathigumpha Inscription</button>
+        </div>
+        <div class="check-feedback ok" id="fb1-ok">✓ Correct! The Bhabru Inscription (found in Rajasthan) explicitly mentions the name "Ashoka" — other inscriptions use titles like "Devanampiya" and "Priyadarshee." The Hathigumpha is Kharavela's inscription (Odisha), not Ashoka's. Rock Edict XIII describes Kalinga war but doesn't use "Ashoka" by name.</div>
+        <div class="check-feedback no" id="fb1-no">✗ Answer: (B) Bhabru Inscription. This is a classic exam trap — most people think Rock Edict XIII or pillar inscriptions name Ashoka. But "Devanampiya" appears everywhere; "Ashoka" is explicitly named only in the Bhabru Inscription.</div>
+      </div>
+
+      <div class="check-mcq">
+        <div class="check-q">2. The Nagarjuni Hills inscription (near Bodh Gaya, Bihar) belongs to which Mauryan ruler — NOT Ashoka?</div>
+        <div class="check-opts">
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','A')"><span class="opt-letter">A</span>Kunala (Ashoka's son)</button>
+          <button class="check-opt" onclick="checkAnswer(this,'correct','B')"><span class="opt-letter">B</span>Dasharatha (Ashoka's grandson)</button>
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','C')"><span class="opt-letter">C</span>Samprati (Ashoka's grandson)</button>
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','D')"><span class="opt-letter">D</span>Brihadratha (last Mauryan)</button>
+        </div>
+        <div class="check-feedback ok" id="fb2-ok">✓ Correct! The Nagarjuni Hills inscription is of Mauryan King <strong>Dasharatha</strong> — Ashoka's grandson — who dedicated caves to the Ajivikas. Barabar caves were dedicated by Ashoka himself; Nagarjuni Hills (nearby) by Dasharatha. Samprati was a patron of Jainism. This is a favourite BPSC trap.</div>
+        <div class="check-feedback no" id="fb2-no">✗ Answer: (B) Dasharatha. Dasharatha was Ashoka's grandson who ruled the eastern part of the Mauryan Empire after Ashoka's death. The Nagarjuni Hills inscription (near Jehanabad, Bihar) is his — dedicating caves to the Ajivikas, continuing Ashoka's tradition of religious patronage.</div>
+      </div>
+
+      <div class="mains-box">
+        <div class="mains-meta"><span class="pyq-tag mains">MAINS GS-I</span><span class="pyq-tag year">150 words</span></div>
+        <div class="mains-q">"Ashoka's Kalinga War is as significant as the war itself — for what it triggered." Discuss Ashoka's transformation from a conquering emperor to a welfare ruler, and assess his legacy for modern governance.</div>
+        <button class="reveal-btn" style="margin-bottom:12px;" onclick="revealMains(this)">▼ Show Model Answer</button>
+        <div class="mains-answer" id="mains1">
+          <div class="answer-section"><h5>Introduction</h5><p>The Kalinga War (261 BC) is unique in world history — not for its military outcome, but for triggering the most profound personal and political transformation any emperor has documented in his own words.</p></div>
+          <div class="answer-section"><h5>The Transformation</h5><ul><li>Pre-Kalinga Ashoka: Aggressive conqueror; Rock Edict XIII describes him as a ruler who "sent armed expeditions"</li><li>Post-Kalinga: Embraces Buddhism; abandons Digvijaya; appoints Dhamma Mahamattas; sends Buddhist missions globally</li><li>Welfare measures: Hospitals for humans and animals; roadside trees; rest houses; wells; religious tolerance across all sects</li></ul></div>
+          <div class="answer-section"><h5>Legacy for Modern Governance</h5><ul><li><strong>Secularism:</strong> Rock Edict XII — "All sects deserve reverence" — anticipates modern religious pluralism</li><li><strong>Welfare state:</strong> State responsibility for subjects' well-being, not just military security</li><li><strong>Non-violence:</strong> Ahimsa as state policy — still referenced in India's Constitution and Gandhi's movement</li><li><strong>National symbols:</strong> Ashoka Chakra on India's flag; Lion Capital at Sarnath = India's national emblem</li></ul></div>
+          <div class="answer-section"><h5>Conclusion</h5><p>Ashoka's legacy transcends his empire. His pillars in Bihar's Champaran carry messages that resonate today: tolerance, welfare, non-violence, and the dignity of all living beings — principles as urgent in 2025 as in 261 BC.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<button class="print-btn" onclick="window.print()">🖨</button>
+<script>
+const KEY='bihar_hist_v1';
+let visited=new Set(JSON.parse(localStorage.getItem(KEY)||'[]'));
+visited.add('modules/m06.html');
+localStorage.setItem(KEY,JSON.stringify([...visited]));
+document.querySelectorAll('.sidebar-item').forEach(i=>{const h=i.getAttribute('href');if(h&&visited.has('modules/'+h))i.classList.add('done');});
+function answerPYQ(el,t){const p=el.closest('.pyq-item');p.querySelectorAll('.pyq-opt').forEach(o=>{o.onclick=null;o.style.cursor='default';});el.classList.add(t);}
+function revealPYQ(id,btn){document.getElementById(id).classList.toggle('show');btn.textContent=btn.textContent.includes('Show')?'Hide Explanation':'Show Explanation';}
+function revealMains(btn){document.getElementById('mains1').classList.toggle('show');btn.textContent=btn.textContent.includes('▼')?'▲ Hide':'▼ Show Model Answer';}
+function checkAnswer(el,t,l){const p=el.closest('.check-mcq');p.querySelectorAll('.check-opt').forEach(o=>{o.onclick=null;o.style.cursor='default';});el.classList.add(t);const idx=Array.from(document.querySelectorAll('.check-mcq')).indexOf(p)+1;const ok=document.getElementById('fb'+idx+'-ok'),no=document.getElementById('fb'+idx+'-no');if(t==='correct'&&ok)ok.classList.add('show');if(t==='wrong'&&no)no.classList.add('show');}
+</script>
+</body>
+</html>

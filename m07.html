@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M07 — Post-Mauryan to Gupta Era | Bihar History</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1a1a2e;--ink2:#2d2d44;--paper:#f5f2eb;--paper2:#ede9df;--gold:#c9973a;--gold2:#e8b45a;--teal:#1e7a6e;--teal2:#2aa195;--coral:#c2522b;--coral2:#e06840;--muted:#7a7465;--border:rgba(26,26,46,0.11);--accent:var(--gold);--accent2:var(--gold2);}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);display:flex;min-height:100vh;}
+.sidebar{width:260px;flex-shrink:0;background:var(--ink);display:flex;flex-direction:column;position:sticky;top:0;height:100vh;overflow-y:auto;}
+.sidebar-logo{padding:24px 20px 16px;border-bottom:1px solid rgba(255,255,255,0.07);}
+.sidebar-logo a{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:var(--gold2);text-decoration:none;line-height:1.3;display:block;}
+.sidebar-logo span{display:block;font-size:10px;color:rgba(245,242,235,0.35);letter-spacing:1px;margin-top:3px;font-family:'DM Mono',monospace;}
+.sidebar-part{padding:14px 20px 6px;font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:1.4px;text-transform:uppercase;color:rgba(245,242,235,0.28);}
+.sidebar-item{display:flex;align-items:center;gap:10px;padding:9px 20px;text-decoration:none;font-size:12px;color:rgba(245,242,235,0.55);transition:background 0.15s,color 0.15s;border-left:2px solid transparent;}
+.sidebar-item:hover{background:rgba(255,255,255,0.05);color:rgba(245,242,235,0.9);}
+.sidebar-item.active{background:rgba(201,151,58,0.12);color:var(--gold2);border-left-color:var(--gold);}
+.sidebar-item.done .s-dot{background:var(--teal);}
+.s-num{font-family:'DM Mono',monospace;font-size:9.5px;color:rgba(245,242,235,0.28);width:28px;flex-shrink:0;}
+.s-dot{width:6px;height:6px;border-radius:50%;border:1.5px solid rgba(255,255,255,0.2);flex-shrink:0;}
+.sidebar-item.active .s-dot{background:var(--gold);border-color:var(--gold);}
+.main{flex:1;min-width:0;display:flex;flex-direction:column;}
+.topbar{background:var(--ink2);padding:12px 48px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10;border-bottom:1px solid rgba(255,255,255,0.05);}
+.topbar-left{display:flex;align-items:center;gap:14px;}
+.era-pill{font-size:10px;padding:3px 10px;border-radius:2px;background:rgba(201,151,58,0.2);color:var(--gold2);font-family:'DM Mono',monospace;letter-spacing:0.8px;}
+.topbar-title{font-size:13px;color:rgba(245,242,235,0.7);}
+.topbar-nav{display:flex;gap:8px;}
+.nav-btn{padding:7px 14px;border-radius:3px;font-size:12px;font-weight:500;text-decoration:none;border:1px solid rgba(255,255,255,0.12);color:rgba(245,242,235,0.6);transition:all 0.18s;cursor:pointer;background:none;}
+.nav-btn:hover{border-color:var(--gold);color:var(--gold2);}
+.nav-btn.primary{background:var(--gold);color:var(--ink);border-color:var(--gold);}
+.nav-btn.primary:hover{background:var(--gold2);}
+.content{flex:1;padding:48px 52px 80px;max-width:920px;}
+.mod-header{margin-bottom:40px;}
+.mod-badge{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--ink);font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:4px 12px;border-radius:2px;margin-bottom:18px;}
+.mod-header h1{font-family:'Playfair Display',serif;font-size:clamp(26px,3.5vw,40px);font-weight:900;line-height:1.15;letter-spacing:-0.5px;margin-bottom:14px;}
+.mod-header h1 em{font-style:italic;color:var(--gold);}
+.mod-header p{font-size:14.5px;color:var(--muted);line-height:1.75;max-width:640px;}
+.mod-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px;padding-top:18px;border-top:1px solid var(--border);}
+.meta-tag{font-size:10.5px;padding:3px 9px;border-radius:2px;font-weight:500;}
+.meta-tag.b{background:#fdf5e6;color:var(--gold);}
+.meta-tag.m{background:#ebf5f3;color:var(--teal);}
+.meta-tag.s{background:#fff0eb;color:var(--coral);}
+.meta-tag.d{background:#f0edf8;color:#5a3ea1;}
+.section{margin-bottom:44px;}
+.section-head{display:flex;align-items:center;gap:12px;margin-bottom:20px;padding-bottom:12px;border-bottom:2px solid var(--accent);}
+.section-icon{font-size:20px;}
+.section-label-text{font-family:'Playfair Display',serif;font-size:19px;font-weight:700;}
+.section-sub{font-size:11px;color:var(--muted);font-family:'DM Mono',monospace;letter-spacing:0.8px;margin-left:auto;}
+/* Story */
+.story-box{background:var(--ink);color:var(--paper);border-radius:5px;padding:28px 32px;position:relative;overflow:hidden;}
+.story-box::before{content:'';position:absolute;top:-40px;right:-40px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(201,151,58,0.15) 0%,transparent 70%);}
+.story-box p{font-size:14.5px;line-height:1.85;font-weight:300;position:relative;}
+.story-box p+p{margin-top:12px;}
+.story-box strong{color:var(--gold2);}
+.story-highlight{display:inline-block;margin-top:18px;padding:10px 16px;background:rgba(201,151,58,0.15);border-left:3px solid var(--gold);border-radius:0 3px 3px 0;font-size:13px;font-style:italic;color:var(--gold2);}
+/* Dynasty cards */
+.dyn-card{background:#fff;border:1px solid var(--border);border-radius:4px;margin-bottom:16px;overflow:hidden;}
+.dyn-header{display:flex;align-items:center;gap:16px;padding:16px 22px;background:var(--paper2);}
+.dyn-era{font-family:'DM Mono',monospace;font-size:10px;color:var(--accent);letter-spacing:0.8px;}
+.dyn-name{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--ink);}
+.dyn-badge{margin-left:auto;font-size:10px;padding:3px 9px;border-radius:2px;background:var(--accent);color:var(--ink);font-weight:600;}
+.dyn-body{padding:16px 22px;}
+.ruler-row{display:flex;align-items:flex-start;gap:12px;padding:10px 14px;background:var(--paper);border-radius:3px;border:1px solid var(--border);margin-bottom:8px;}
+.ruler-row:last-child{margin-bottom:0;}
+.ruler-name{font-weight:600;font-size:13px;min-width:160px;flex-shrink:0;color:var(--ink2);}
+.ruler-dates{font-family:'DM Mono',monospace;font-size:10.5px;color:var(--accent);min-width:100px;flex-shrink:0;}
+.ruler-note{font-size:12.5px;color:var(--muted);line-height:1.55;}
+.ruler-note strong{color:var(--ink2);}
+.ruler-row.key{background:linear-gradient(135deg,#fff9f0,#fff);border-color:rgba(201,151,58,0.25);}
+/* Analogy */
+.analogy-box{background:linear-gradient(135deg,#fff9f0,#fff);border:1px solid rgba(201,151,58,0.25);border-radius:4px;padding:20px;margin-bottom:20px;}
+.analogy-box .analogy-label{font-size:10px;font-family:'DM Mono',monospace;letter-spacing:1.2px;color:var(--gold);text-transform:uppercase;margin-bottom:8px;}
+.analogy-box p{font-size:13.5px;line-height:1.7;color:var(--ink2);}
+/* Timeline */
+.timeline{position:relative;padding-left:28px;}
+.timeline::before{content:'';position:absolute;left:8px;top:8px;bottom:8px;width:2px;background:linear-gradient(180deg,var(--accent),transparent);}
+.tl-item{position:relative;margin-bottom:20px;}
+.tl-dot{position:absolute;left:-24px;top:4px;width:12px;height:12px;border-radius:50%;background:var(--accent);border:2px solid var(--paper);box-shadow:0 0 0 2px var(--accent);}
+.tl-period{font-family:'DM Mono',monospace;font-size:10.5px;color:var(--accent);letter-spacing:0.5px;margin-bottom:4px;}
+.tl-title{font-size:14px;font-weight:600;margin-bottom:4px;color:var(--ink);}
+.tl-body{font-size:12.5px;color:var(--muted);line-height:1.6;}
+.tl-badge{display:inline-block;font-size:10px;padding:1.5px 7px;border-radius:2px;background:var(--paper2);color:var(--ink2);margin-left:6px;font-weight:500;}
+.tl-badge.trap{background:#fff0eb;color:var(--coral);}
+/* Flow */
+.flow-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+.flow-box{background:#fff;border:1px solid var(--border);border-radius:4px;padding:16px;}
+.flow-box.cause{border-top:3px solid var(--coral);}
+.flow-box.event{border-top:3px solid var(--gold);}
+.flow-box.result{border-top:3px solid var(--teal);}
+.flow-label{font-size:9.5px;font-family:'DM Mono',monospace;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:6px;}
+.flow-box.cause .flow-label{color:var(--coral);}
+.flow-box.event .flow-label{color:var(--gold);}
+.flow-box.result .flow-label{color:var(--teal);}
+.flow-box h4{font-size:13px;font-weight:600;margin-bottom:5px;}
+.flow-box p{font-size:12px;color:var(--muted);line-height:1.55;}
+.flow-arrow{display:flex;align-items:center;justify-content:center;padding:8px 0;color:var(--muted);font-size:18px;}
+/* Comp table */
+.comp-table{width:100%;border-collapse:collapse;font-size:12.5px;}
+.comp-table th{background:var(--ink);color:var(--paper);padding:11px 14px;text-align:left;font-weight:500;font-size:12px;}
+.comp-table th:first-child{border-radius:4px 0 0 0;}
+.comp-table th:last-child{border-radius:0 4px 0 0;}
+.comp-table td{padding:9px 14px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.5;}
+.comp-table tr:last-child td{border-bottom:none;}
+.comp-table tr:nth-child(even) td{background:var(--paper2);}
+.comp-table tr:hover td{background:#fff9f0;}
+.comp-table td:first-child{font-weight:600;color:var(--ink2);}
+.comp-table td.accent{color:var(--gold);font-weight:500;}
+/* Mnemonic */
+.mnemonic-box{background:linear-gradient(135deg,var(--ink) 0%,var(--ink2) 100%);border-radius:5px;padding:28px 32px;color:var(--paper);margin-bottom:16px;}
+.m-label{font-size:10px;font-family:'DM Mono',monospace;letter-spacing:1.5px;color:var(--gold);text-transform:uppercase;margin-bottom:14px;}
+.mnemonic-word{font-family:'Playfair Display',serif;font-size:clamp(22px,3vw,34px);font-weight:900;color:var(--gold2);letter-spacing:4px;margin-bottom:18px;line-height:1.2;}
+.mnemonic-rows{display:flex;flex-direction:column;gap:10px;}
+.m-row{display:flex;align-items:baseline;gap:14px;}
+.m-letter{font-family:'DM Mono',monospace;font-size:20px;font-weight:500;color:var(--gold2);width:28px;flex-shrink:0;}
+.m-text{font-size:13.5px;line-height:1.5;}
+.m-text strong{color:var(--gold2);}
+.m-tip{margin-top:18px;padding:12px 16px;background:rgba(201,151,58,0.12);border-radius:3px;font-size:12.5px;font-style:italic;color:rgba(245,242,235,0.7);}
+/* PYQ */
+.pyq-item{background:#fff;border:1px solid var(--border);border-radius:4px;padding:22px;margin-bottom:14px;}
+.pyq-meta{display:flex;align-items:center;gap:8px;margin-bottom:12px;flex-wrap:wrap;}
+.pyq-tag{font-size:10px;padding:2px 8px;border-radius:2px;font-weight:500;font-family:'DM Mono',monospace;letter-spacing:0.5px;}
+.pyq-tag.prelims{background:#fdf5e6;color:var(--gold);}
+.pyq-tag.mains{background:#ebf5f3;color:var(--teal);}
+.pyq-tag.year{background:var(--paper2);color:var(--muted);}
+.pyq-q{font-size:14px;font-weight:500;line-height:1.6;margin-bottom:14px;}
+.pyq-options{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:14px;}
+.pyq-opt{padding:8px 12px;border-radius:3px;font-size:12.5px;border:1px solid var(--border);background:var(--paper);cursor:pointer;transition:all 0.18s;}
+.pyq-opt:hover{border-color:var(--gold);background:#fff9f0;}
+.pyq-opt.correct{background:#e8f5e9;border-color:#4caf50;color:#2e7d32;font-weight:500;}
+.pyq-opt.wrong{background:#ffebee;border-color:#ef9a9a;color:#c62828;}
+.pyq-answer{display:none;padding:14px 16px;background:#e8f5f3;border-radius:3px;border-left:3px solid var(--teal);}
+.pyq-answer.show{display:block;}
+.pyq-answer strong{color:var(--teal);font-size:12px;}
+.pyq-answer p{font-size:13px;color:var(--ink2);margin-top:5px;line-height:1.6;}
+.reveal-btn{font-size:11.5px;padding:6px 14px;border-radius:3px;background:none;border:1px solid var(--border);cursor:pointer;color:var(--muted);transition:all 0.18s;}
+.reveal-btn:hover{border-color:var(--teal);color:var(--teal);}
+/* Mains */
+.mains-box{background:#fff;border:1px solid var(--border);border-radius:4px;padding:22px;}
+.mains-q{font-size:14.5px;font-weight:600;line-height:1.6;margin-bottom:14px;}
+.mains-meta{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap;}
+.mains-answer{display:none;border-top:1px solid var(--border);padding-top:16px;}
+.mains-answer.show{display:block;}
+.answer-section{margin-bottom:14px;}
+.answer-section h5{font-size:11px;font-family:'DM Mono',monospace;letter-spacing:1px;color:var(--gold);text-transform:uppercase;margin-bottom:7px;}
+.answer-section p{font-size:13px;line-height:1.7;color:var(--ink2);}
+.answer-section ul{padding-left:18px;}
+.answer-section li{font-size:13px;line-height:1.7;color:var(--ink2);margin-bottom:4px;}
+/* QR */
+.qr-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.qr-item{display:flex;align-items:flex-start;gap:10px;background:#fff;border:1px solid var(--border);border-radius:4px;padding:14px 16px;}
+.qr-num{font-family:'DM Mono',monospace;font-size:10px;color:var(--accent);font-weight:500;flex-shrink:0;margin-top:2px;}
+.qr-text{font-size:13px;line-height:1.6;color:var(--ink2);}
+.qr-text strong{color:var(--accent);}
+.memory-hook{background:var(--accent);border-radius:4px;padding:16px 22px;display:flex;align-items:center;gap:16px;margin-top:32px;}
+.hook-icon{font-size:22px;}
+.hook-text{font-size:14px;font-weight:600;color:var(--ink);line-height:1.5;}
+/* Concept check */
+.check-mcq{background:#fff;border:1px solid var(--border);border-radius:4px;padding:20px;margin-bottom:12px;}
+.check-q{font-size:14px;font-weight:500;margin-bottom:14px;line-height:1.6;}
+.check-opts{display:flex;flex-direction:column;gap:7px;}
+.check-opt{padding:10px 14px;border-radius:3px;font-size:13px;border:1px solid var(--border);background:var(--paper);cursor:pointer;transition:all 0.18s;text-align:left;display:flex;align-items:center;gap:10px;}
+.check-opt:hover{border-color:var(--accent);background:#fff9f0;}
+.check-opt.correct{background:#e8f5e9;border-color:#4caf50;color:#2e7d32;}
+.check-opt.wrong{background:#ffebee;border-color:#ef9a9a;color:#c62828;}
+.opt-letter{width:22px;height:22px;border-radius:50%;background:var(--paper2);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;flex-shrink:0;}
+.check-opt.correct .opt-letter{background:#4caf50;color:#fff;}
+.check-opt.wrong   .opt-letter{background:#ef9a9a;color:#fff;}
+.check-feedback{margin-top:10px;padding:10px 14px;border-radius:3px;font-size:12.5px;display:none;line-height:1.6;}
+.check-feedback.show{display:block;}
+.check-feedback.ok{background:#e8f5e9;color:#2e7d32;}
+.check-feedback.no{background:#ffebee;color:#c62828;}
+/* Personality cards */
+.personality-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.p-card{background:#fff;border:1px solid var(--border);border-radius:4px;padding:18px;position:relative;overflow:hidden;}
+.p-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--accent);}
+.p-card h4{font-size:14px;font-weight:700;font-family:'Playfair Display',serif;margin-bottom:4px;color:var(--ink);}
+.p-card .p-tag{font-size:10px;color:var(--accent);font-family:'DM Mono',monospace;letter-spacing:0.5px;margin-bottom:8px;}
+.p-card p{font-size:12.5px;color:var(--muted);line-height:1.6;}
+.trap-alert{background:#fff0eb;border:1px solid rgba(194,82,43,0.3);border-radius:4px;padding:14px 18px;margin-bottom:16px;display:flex;align-items:flex-start;gap:10px;}
+.trap-alert p{font-size:13px;color:var(--coral);line-height:1.6;}
+.trap-alert strong{font-weight:600;}
+.bpsc-special{background:linear-gradient(135deg,#fff9f0,#fff);border:1px solid rgba(201,151,58,0.3);border-radius:4px;padding:18px 20px;margin-bottom:20px;display:flex;gap:14px;align-items:flex-start;}
+.bpsc-icon{font-size:22px;flex-shrink:0;}
+.bpsc-content h4{font-size:13px;font-weight:600;color:var(--gold);margin-bottom:5px;}
+.bpsc-content p{font-size:12.5px;color:var(--muted);line-height:1.6;}
+.sidebar::-webkit-scrollbar{width:4px;}
+.sidebar::-webkit-scrollbar-track{background:transparent;}
+.sidebar::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.1);border-radius:2px;}
+.print-btn{position:fixed;bottom:24px;right:24px;background:var(--ink);color:var(--gold2);border:none;border-radius:50%;width:44px;height:44px;font-size:16px;cursor:pointer;box-shadow:0 4px 16px rgba(26,26,46,0.25);transition:transform 0.18s;display:flex;align-items:center;justify-content:center;}
+.print-btn:hover{transform:scale(1.1);}
+@media print{.sidebar,.topbar,.print-btn{display:none;}.main{display:block;}.content{padding:20px;}}
+@media(max-width:768px){.sidebar{display:none;}.content{padding:24px 20px 60px;}.topbar{padding:10px 20px;}.flow-cols,.qr-grid,.pyq-options,.personality-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<aside class="sidebar">
+  <div class="sidebar-logo"><a href="../index.html">Bihar History<br>Study System</a><span>BPSC · UPSC · State PCS</span></div>
+  <div class="sidebar-part">Part I — Ancient Bihar</div>
+  <a class="sidebar-item done" href="m01.html"><span class="s-num">01</span><span class="s-dot"></span>Sources & Prehistoric Bihar</a>
+  <a class="sidebar-item done" href="m02.html"><span class="s-num">02</span><span class="s-dot"></span>Mahajanapadas in Bihar</a>
+  <a class="sidebar-item done" href="m03.html"><span class="s-num">03</span><span class="s-dot"></span>Pre-Mauryan Dynasties</a>
+  <a class="sidebar-item done" href="m04.html"><span class="s-num">04</span><span class="s-dot"></span>Buddhism & Jainism</a>
+  <a class="sidebar-item done" href="m05.html"><span class="s-num">05</span><span class="s-dot"></span>Mauryan Empire</a>
+  <a class="sidebar-item done" href="m06.html"><span class="s-num">06</span><span class="s-dot"></span>Ashoka — Kalinga to Dhamma</a>
+  <a class="sidebar-item active" href="m07.html"><span class="s-num">07</span><span class="s-dot"></span>Post-Mauryan to Gupta Era</a>
+  <div class="sidebar-part">Part II — Medieval Bihar</div>
+  <a class="sidebar-item" href="m08.html"><span class="s-num">08</span><span class="s-dot"></span>Pala Dynasty</a>
+  <a class="sidebar-item" href="m09.html"><span class="s-num">09</span><span class="s-dot"></span>Sena & Karnata Dynasties</a>
+  <a class="sidebar-item" href="m10.html"><span class="s-num">10</span><span class="s-dot"></span>Turkish Invasion</a>
+  <a class="sidebar-item" href="m11.html"><span class="s-num">11</span><span class="s-dot"></span>Khilji, Tughlaq & Noohani</a>
+  <a class="sidebar-item" href="m12.html"><span class="s-num">12</span><span class="s-dot"></span>Sher Shah Suri</a>
+  <a class="sidebar-item" href="m13.html"><span class="s-num">13</span><span class="s-dot"></span>Mughal Rule in Bihar</a>
+  <a class="sidebar-item" href="m14.html"><span class="s-num">14</span><span class="s-dot"></span>Sufism, Sikhism & Tribal States</a>
+  <div class="sidebar-part">Part III — Modern Bihar</div>
+  <a class="sidebar-item" href="m15.html"><span class="s-num">15</span><span class="s-dot"></span>European Entry</a>
+  <a class="sidebar-item" href="m16.html"><span class="s-num">16</span><span class="s-dot"></span>Battle of Buxar</a>
+  <a class="sidebar-item" href="m17.html"><span class="s-num">17</span><span class="s-dot"></span>Revolt of 1857</a>
+  <a class="sidebar-item" href="m18.html"><span class="s-num">18</span><span class="s-dot"></span>Tribal Revolts</a>
+  <a class="sidebar-item" href="m19.html"><span class="s-num">19</span><span class="s-dot"></span>Freedom Movements</a>
+  <a class="sidebar-item" href="m20.html"><span class="s-num">20</span><span class="s-dot"></span>Eminent Freedom Fighters</a>
+  <a class="sidebar-item" href="m21.html"><span class="s-num">21</span><span class="s-dot"></span>Formation of Modern Bihar</a>
+</aside>
+
+<div class="main">
+  <div class="topbar">
+    <div class="topbar-left">
+      <span class="era-pill">ANCIENT BIHAR</span>
+      <span class="topbar-title">Module 07 of 21 · Final Ancient Module</span>
+    </div>
+    <div class="topbar-nav">
+      <a href="m06.html" class="nav-btn">← Prev</a>
+      <a href="../index.html" class="nav-btn">Index</a>
+      <a href="m08.html" class="nav-btn primary">Next: Medieval →</a>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <!-- HEADER -->
+    <div class="mod-header">
+      <div class="mod-badge"><span>MODULE 07</span><span>·</span><span>Ancient Bihar — Final</span></div>
+      <h1>Post-Mauryan to<br><em>Gupta Era</em></h1>
+      <p>From Pushyamitra Shunga's dramatic coup in 185 BC to the golden age of Gupta emperors — Bihar witnessed India's cultural renaissance, the founding of Nalanda University, and the birth of Aryabhatta's mathematics. This module closes the ancient story of Bihar.</p>
+      <div class="mod-meta">
+        <span class="meta-tag b">BPSC Special</span>
+        <span class="meta-tag m">Mains GS-I</span>
+        <span class="meta-tag d">185 BC – 550 AD</span>
+        <span class="meta-tag s">⚠ Trap: Nalanda founded by Kumargupta I (NOT Chandragupta II); Napoleon of India = Samudragupta</span>
+      </div>
+    </div>
+
+    <!-- ① STORY HOOK -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">🎭</span><span class="section-label-text">Story Hook</span><span class="section-sub">START HERE</span></div>
+      <div class="story-box">
+        <p>The year is <strong>185 BC</strong>. The last Mauryan emperor, old and feeble <strong>Brihadratha</strong>, is reviewing his troops. His commander-in-chief, a brilliant Brahmin general named <strong>Pushyamitra Shunga</strong>, steps forward — and kills him in front of the entire army. No one protests. The soldiers hail Pushyamitra as their new king.</p>
+        <p>With that single act, India's first great empire — the Maurya dynasty — ended. But Bihar did not fade. Over the next 650 years, it would see <strong>five more dynasties</strong>, survive Greek invasions, produce India's greatest mathematician <strong>Aryabhatta</strong>, and give the world the <strong>Nalanda University</strong> — the ancient world's greatest centre of learning, where 10,000 students from 20 countries studied simultaneously.</p>
+        <p>This is the story of Bihar between empires — not a dark age, but a golden one.</p>
+        <div class="story-highlight">💡 Bihar gave the world Nalanda (427–1197 AD) — 770 years of continuous scholarship, longer than any modern university's existence.</div>
+      </div>
+    </div>
+
+    <!-- ② CORE CONCEPT -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">🧠</span><span class="section-label-text">Core Concept — Five Dynasties in Order</span><span class="section-sub">WITH ANALOGY</span></div>
+      <div class="analogy-box">
+        <div class="analogy-label">🏃 Modern Analogy</div>
+        <p>Think of these 650 years as Bihar's "<strong>post-independence era before the next superpower</strong>." After the Maurya "British Raj" ended, smaller governments ran Bihar (Shunga, Kanva, Kushana) — each contributing something — until the <strong>Gupta dynasty arose as independent India's first government</strong>, bringing a true golden age of art, science, and literature. Nalanda was their IIT.</p>
+      </div>
+
+      <!-- Shunga -->
+      <div class="dyn-card">
+        <div class="dyn-header">
+          <div><div class="dyn-era">184 BC – 72 BC</div><div class="dyn-name">1. Shunga Dynasty</div></div>
+          <span class="dyn-badge">BRAHMANICAL REVIVAL</span>
+        </div>
+        <div class="dyn-body">
+          <div class="ruler-row key">
+            <span class="ruler-name">Pushyamitra Shunga</span>
+            <span class="ruler-dates">185–148 BC</span>
+            <span class="ruler-note"><strong>Founder — killed last Mauryan Brihadratha.</strong> Was Commander-in-Chief of Mauryan army. Ruled Magadha, Kosala, Sakala, Malwa, Berar. Staunch Brahmanist. Conducted 2 Ashwamedha Yajnas (confirmed by Ayodhya inscription of Dhandev). <strong>Patanjali</strong> (author of Mahabhashya) was chief priest. Renovated Buddhist monuments at Bharhut and Sanchi — despite being depicted as anti-Buddhist by some texts.</span>
+          </div>
+          <div class="ruler-row">
+            <span class="ruler-name">Agnimitra</span>
+            <span class="ruler-dates">148–140 BC</span>
+            <span class="ruler-note">Son of Pushyamitra. <strong>Hero of Kalidasa's drama Malavikagnimitram.</strong> Ruled from Vidisha.</span>
+          </div>
+          <div class="ruler-row">
+            <span class="ruler-name">Devbhuti</span>
+            <span class="ruler-dates">Last ruler</span>
+            <span class="ruler-note">10th and last ruler of Shunga dynasty. Overthrown by Vasudeva Kanva in 72 BC. Greeks (Bactrians) influenced this period — Heliodorus erected Garuda pillar at Bernagar during Shunga rule.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Kanva -->
+      <div class="dyn-card">
+        <div class="dyn-header">
+          <div><div class="dyn-era">72 BC – 27 BC</div><div class="dyn-name">2. Kanva Dynasty</div></div>
+          <span class="dyn-badge">SHORT-LIVED</span>
+        </div>
+        <div class="dyn-body">
+          <div class="ruler-row key">
+            <span class="ruler-name">Vasudeva</span>
+            <span class="ruler-dates">72–66 BC (Founder)</span>
+            <span class="ruler-note"><strong>Overthrew last Shunga ruler Devbhuti</strong> in 72 BC. Founded Kanva dynasty. Ruled for only 45 years total across 4 rulers.</span>
+          </div>
+          <div class="ruler-row">
+            <span class="ruler-name">Susharman</span>
+            <span class="ruler-dates">Last ruler ~27 BC</span>
+            <span class="ruler-note">Last Kanva ruler. Kanva rule ended when <strong>Satavahanas from Deccan</strong> rose to power. However, no direct Satavahana rule over Bihar — region entered a period of fragmentation.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Kushana -->
+      <div class="dyn-card">
+        <div class="dyn-header">
+          <div><div class="dyn-era">1st–3rd Century AD</div><div class="dyn-name">3. Kushana Dynasty</div></div>
+          <span class="dyn-badge">CENTRAL ASIAN</span>
+        </div>
+        <div class="dyn-body">
+          <div class="ruler-row key">
+            <span class="ruler-name">Kanishka</span>
+            <span class="ruler-dates">78–125 AD</span>
+            <span class="ruler-note"><strong>Attacked Patliputra.</strong> Took Buddhist monk <strong>Asvaghosha</strong> (author of Buddhacharita) from Patliputra to his court. Asvaghosha = Mahayana Buddhism's great philosopher, born at Saket (Ayodhya). Kushana coins found at Chirand (Saran), Buxar, Bodh Gaya, Vaishali, Kumrahar. <strong>4th Buddhist Council</strong> held under Kanishka in Kashmir — Mahayana Buddhism emerged.</span>
+          </div>
+          <div class="ruler-row">
+            <span class="ruler-name">After Kushana decline</span>
+            <span class="ruler-dates">3rd C AD</span>
+            <span class="ruler-note">Licchavis ruled the region after Kushana decline. Period of unrest until Guptas emerged in 3rd century AD. Kushana decline → power vacuum → Gupta opportunity.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gupta -->
+      <div class="dyn-card">
+        <div class="dyn-header">
+          <div><div class="dyn-era">275 AD – 550 AD</div><div class="dyn-name">4. Gupta Empire — The Golden Age</div></div>
+          <span class="dyn-badge">⭐ MOST IMPORTANT</span>
+        </div>
+        <div class="dyn-body">
+          <div class="ruler-row">
+            <span class="ruler-name">Srigupta</span>
+            <span class="ruler-dates">275–280 AD (Founder)</span>
+            <span class="ruler-note">First Gupta king. Ruled small portion of N. Bengal and S. Bihar. Subordinate to later Kushanas. Succeeded by son <strong>Ghatotkacha</strong> (280–319 AD).</span>
+          </div>
+          <div class="ruler-row key">
+            <span class="ruler-name">Chandragupta I</span>
+            <span class="ruler-dates">319–335 AD</span>
+            <span class="ruler-note"><strong>First independent Gupta ruler. First to use title Maharajadhiraj.</strong> Started Gupta Era (319–320 AD). Married Licchavi princess <strong>Kumardevi</strong> — great political coup. Issued gold coins commemorating this marriage. Son Samudragupta called himself <strong>Lichchavi-dauhitra</strong> (son-in-law of Licchavis).</span>
+          </div>
+          <div class="ruler-row key">
+            <span class="ruler-name">Samudragupta</span>
+            <span class="ruler-dates">335–380 AD</span>
+            <span class="ruler-note"><strong>"Napoleon of India"</strong> — title given by Vincent Arthur Smith. Prayag Prashasti (inscription) written by <strong>Harisena</strong>, discovered by Joseph Tiefenthaler — describes his conquests in Brahmi script, Sanskrit. "Exterminator of all kings" (Mathura stone inscription). Patron of arts: title <strong>Kaviraja</strong>. Played Veena (shown on gold coins). Harisena and Vasubandhu adorned his court. Allowed Ceylon king Meghavarman to build monastery at <strong>Bodh Gaya</strong>. Extended from Himalayas to Narmada.</span>
+          </div>
+          <div class="ruler-row key">
+            <span class="ruler-name">Chandragupta II 'Vikramaditya'</span>
+            <span class="ruler-dates">380–415 AD</span>
+            <span class="ruler-note">Killed brother Ramagupta; married his widow Dhruvadevi. Conquered Mathura (from Kushanas), Gujarat (from Shakas). <strong>First Gupta to issue gold coins.</strong> Title: Vikramaditya, Simhavikrama. Ujjain = second capital. <strong>Nine Ratnas</strong> in court: Kalidasa, Varahmihira, Dhanvantari (physician), Varruchi, Amarsimha, Shanku, Vetalbhatta, Kshapanaka, Ghatakarpara. <strong>Fa-Hien</strong> visited during his reign (399–412 AD).</span>
+          </div>
+          <div class="ruler-row key">
+            <span class="ruler-name">Kumargupta I (Mahendraditya)</span>
+            <span class="ruler-dates">415–455 AD</span>
+            <span class="ruler-note"><strong>Founded Nalanda University (427 AD).</strong> This is a KEY trap — not Chandragupta II. Nalanda functioned 427–1197 AD (770 years). Hiuen Tsang studied here. Worshipped Kartikeya — coins show Kartikeya. First Huna attack in his reign.</span>
+          </div>
+          <div class="ruler-row key">
+            <span class="ruler-name">Skandagupta</span>
+            <span class="ruler-dates">455–467 AD</span>
+            <span class="ruler-note"><strong>Last great Gupta ruler. Repulsed Huna attack (455 AD).</strong> Bhitari inscription records this. Junagarh inscription: Governor restored dam on Sudarshana lake (originally built by Chandragupta Maurya). After Skandagupta's death, Gupta empire disintegrated. Last Gupta ruler: <strong>Vishnugupta</strong>.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ③ TIMELINE -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">⏳</span><span class="section-label-text">Master Timeline — 185 BC to 550 AD</span><span class="section-sub">CHRONOLOGICAL</span></div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-period">185 BC</div>
+          <div class="tl-title">Pushyamitra Shunga Kills Last Mauryan — Brahmanical Revival Begins</div>
+          <div class="tl-body">Coup in front of the army. Shunga dynasty begins. Brahminism revives; two Ashwamedha Yajnas conducted. Despite anti-Buddhist portrayal, renovated Bharhut and Sanchi stupas.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-period">72 BC</div>
+          <div class="tl-title">Kanva Dynasty Founded — Brief Interlude (72–27 BC)</div>
+          <div class="tl-body">Vasudeva Kanva overthrows last Shunga ruler Devbhuti. Only 4 rulers in 45 years. Satavahanas rise in south but don't directly rule Bihar.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-period">78–125 AD — KUSHANA KANISHKA</div>
+          <div class="tl-title">Kanishka Attacks Patliputra — Takes Asvaghosha</div>
+          <div class="tl-body">Central Asian Kushanas extend into Bihar. Kanishka attacks Patliputra, takes Buddhist philosopher Asvaghosha. 4th Buddhist Council in Kashmir — Mahayana Buddhism emerges. Coins found at Chirand, Buxar, Bodh Gaya, Vaishali.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-period">275 AD — GUPTA ERA BEGINS</div>
+          <div class="tl-title">Srigupta Founds Gupta Dynasty</div>
+          <div class="tl-body">Small kingdom in N. Bengal/S. Bihar. Subordinate to Kushanas initially. Son Ghatotkacha follows (280–319 AD). Foundation of India's second great empire laid in Bihar.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-period">319–320 AD</div>
+          <div class="tl-title">Chandragupta I — Gupta Era Proclaimed <span class="tl-badge">Maharajadhiraj</span></div>
+          <div class="tl-body">First independent Gupta ruler. Married Licchavi princess Kumardevi — political masterstroke, consolidated power in Bihar. Started Gupta Era (319–320 AD). Title: Maharajadhiraj.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-period">335–380 AD</div>
+          <div class="tl-title">Samudragupta — "Napoleon of India" Conquers All</div>
+          <div class="tl-body">Prayag Prashasti inscription by Harisena describes 20+ kingdoms incorporated. Extended from Himalayas to Narmada, Brahmaputra to Yamuna. Title: Kaviraja (patron of arts). Played Veena.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-period">380–415 AD</div>
+          <div class="tl-title">Chandragupta II Vikramaditya — Peak of Cultural Golden Age</div>
+          <div class="tl-body">Nine Ratnas including Kalidasa. Fa-Hien visits Patliputra. Conquers Gujarat from Shakas. Issues first Gupta gold coins. Ujjain = second capital. Patliputra and Ujjain = centres of learning.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-period">427 AD <span class="tl-badge trap">⚠ TRAP</span></div>
+          <div class="tl-title">Kumargupta I Founds Nalanda University</div>
+          <div class="tl-body">NOT Chandragupta II. Kumargupta I (Mahendraditya) establishes Nalanda. Functions 427–1197 AD (770 years). 10,000 students, 1,500 teachers at its peak. Hiuen Tsang studied here (637–644 AD).</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-period">455 AD</div>
+          <div class="tl-title">Skandagupta Repulses Hunas — Last Great Gupta</div>
+          <div class="tl-body">Bhitari inscription records Huna defeat. Died 467 AD. After him: Purugupta, Buddhagupta, Narasimhagupta, Vishnugupta (last). Hunas continued attacking — empire disintegrated by 550 AD.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ④ FLOWCHART -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">🔄</span><span class="section-label-text">Flowchart — Why the Gupta Age Was Golden</span><span class="section-sub">CAUSE → EVENT → RESULT</span></div>
+      <div class="flow-cols">
+        <div class="flow-box cause">
+          <div class="flow-label">Causes</div>
+          <h4>Conditions That Enabled the Golden Age</h4>
+          <p>Licchavi alliance (Chandragupta I). Decentralised governance (unlike Maurya). Iron trade routes. Peaceful north after Kushana decline.</p>
+        </div>
+        <div class="flow-box event">
+          <div class="flow-label">Events / Achievements</div>
+          <h4>What Made It "Golden"</h4>
+          <p>Samudragupta's conquests. Chandragupta II's Nine Ratnas. Kalidasa's Abhijnanasakuntalam. Aryabhatta's Aryabhattiya. Nalanda University founded. Varahmihira's astronomy.</p>
+        </div>
+        <div class="flow-box result">
+          <div class="flow-label">Results / Legacy</div>
+          <h4>Bihar's Contribution to India</h4>
+          <p>Zero concept (Aryabhatta). Solar system model. Sanskrit classics. Buddhist learning exported worldwide from Nalanda. Art & sculpture renaissance. Gupta temples established Hindu temple architecture.</p>
+        </div>
+      </div>
+      <div class="flow-arrow" style="padding:10px 0;">↓ Decline: Huna invasions + weak successors → Empire fragments by 550 AD ↓</div>
+    </div>
+
+    <!-- ⑤ COMPARISON TABLE — Maurya vs Gupta -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">📊</span><span class="section-label-text">Maurya vs Gupta Empire — Key Comparison</span><span class="section-sub">EXAM-READY</span></div>
+      <div class="bpsc-special">
+        <span class="bpsc-icon">🗺️</span>
+        <div class="bpsc-content">
+          <h4>BPSC Special — Gupta Questions</h4>
+          <p>Three guaranteed traps: (1) Nalanda founder = Kumargupta I, NOT Chandragupta II. (2) Napoleon of India = Samudragupta, NOT Chandragupta I. (3) First to issue gold coins among Guptas = Chandragupta II. Know the Gupta ruler table cold.</p>
+        </div>
+      </div>
+      <table class="comp-table">
+        <thead>
+          <tr><th>Feature</th><th>Mauryan Empire</th><th>Gupta Empire</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Period</td><td class="accent">321–185 BC</td><td class="accent">275–550 AD</td></tr>
+          <tr><td>Founder</td><td>Chandragupta Maurya (with Chanakya)</td><td>Srigupta (nominal); Chandragupta I (real power)</td></tr>
+          <tr><td>Capital</td><td>Pataliputra (Patna)</td><td>Pataliputra; Ujjain (2nd under CG-II)</td></tr>
+          <tr><td>Administration</td><td>Highly centralised (Saptanga Theory)</td><td>Decentralised — provinces had autonomy</td></tr>
+          <tr><td>Greatest ruler</td><td>Ashoka (Dhamma policy)</td><td>Samudragupta (Napoleon of India)</td></tr>
+          <tr><td>Famous work</td><td>Arthashastra (Chanakya)</td><td>Aryabhattiya (Aryabhatta); Abhijnanasakuntalam (Kalidasa)</td></tr>
+          <tr><td>Religion</td><td>Buddhism (under Ashoka)</td><td>Hinduism (Vaishnavism) — but tolerant</td></tr>
+          <tr><td>Foreign traveller</td><td>Megasthenes (Indica)</td><td>Fa-Hien (399–412 AD)</td></tr>
+          <tr><td>Famous university</td><td>—</td><td>Nalanda (founded by Kumargupta I, 427 AD)</td></tr>
+          <tr><td>Decline caused by</td><td>Weak successors + Bactrian invasion</td><td>Huna invasions + weak successors after Skandagupta</td></tr>
+          <tr><td>Bihar connection</td><td>Headquartered at Pataliputra</td><td>Originated in South Bihar; Bihar = heartland</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- EMINENT PERSONALITIES -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">👤</span><span class="section-label-text">Eminent Ancient Personalities from Bihar</span><span class="section-sub">BPSC SPECIAL</span></div>
+      <div class="personality-grid">
+        <div class="p-card">
+          <h4>Aryabhatta</h4>
+          <div class="p-tag">Born: Patliputra (ancient Kusumpur) · Gupta Era</div>
+          <p>Greatest astronomer-mathematician. Stated Earth revolves around Sun and rotates on its axis. <strong>First to conceptualise zero.</strong> Studied solar/lunar eclipses. Masterwork: <em>Aryabhattiya</em> — composed at Kusumapura (near Patliputra). BPSC always asks: "Aryabhatta related to which place?" → <strong>Patliputra.</strong></p>
+        </div>
+        <div class="p-card">
+          <h4>Asvaghosha</h4>
+          <div class="p-tag">Born: Saket (Ayodhya) · Kushana Era (80 CE)</div>
+          <p>Greatest Buddhist philosopher-poet of Kushana era. Followed Mahayana Buddhism. Wrote <em>Buddhacharita</em> (Buddha's biography), <em>Saundarananda</em>. Kanishka attacked Patliputra and took him from Varanasi's king. Associated with Bihar through Patliputra connection.</p>
+        </div>
+        <div class="p-card">
+          <h4>Acharya Chanakya (Kautilya)</h4>
+          <div class="p-tag">Pataliputra · Mauryan Era (321 BC)</div>
+          <p>Chandragupta Maurya's minister and political genius. Also known as Kautilya or Vishnugupta. Wrote <em>Arthashastra</em> (15 sections/adhikarans) — greatest treatise on governance, economics, warfare. Engineered downfall of Nanda dynasty. His untied topknot vow is one of history's most dramatic pledges.</p>
+        </div>
+        <div class="p-card">
+          <h4>Buddhaghosh</h4>
+          <div class="p-tag">Morund Khetak village near Bodh Gaya · 5th C AD</div>
+          <p>Great Buddhist commentator. Famous works: <em>Visuddhimagga</em> (Path of Purification), <em>Sumangal Vilasini</em>, <em>Manorathapurani</em>, <em>Atthasalini</em>. Went to Sri Lanka to spread Buddhism. His work helped preserve Pali Buddhist literature.</p>
+        </div>
+        <div class="p-card">
+          <h4>Sariputta (Shariputra)</h4>
+          <div class="p-tag">Born near Rajgir (Bihar) · 6th C BC</div>
+          <p>One of Buddha's two chief disciples. Brilliant Brahmin, master of Vedas — converted to Buddhism and became its greatest philosophical systematiser. Born near Nalanda (Rajgir area). Died before Buddha at Nalanda. The Nalanda site is named partly in his honour.</p>
+        </div>
+        <div class="p-card">
+          <h4>Panini</h4>
+          <div class="p-tag">Studied at Maner, Patna · 6th C BC</div>
+          <p>Greatest Sanskrit grammarian. Wrote <em>Ashtadhyayi</em> — the foundational text of Sanskrit grammar with 3,959 rules. <strong>Studied grammar at Maner near Patna</strong> — Bihar connection. Born in Shalatula (modern Pakistan). His grammar is the basis of all classical Sanskrit literature.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ⑥ MNEMONIC -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">🧩</span><span class="section-label-text">Mnemonic</span><span class="section-sub">MEMORY TRICKS</span></div>
+
+      <div class="mnemonic-box">
+        <div class="m-label">🧩 Mnemonic — Gupta Rulers in Order</div>
+        <div class="mnemonic-word">SG · C1 · S · C2 · K1 · SK</div>
+        <div class="mnemonic-rows">
+          <div class="m-row"><span class="m-letter">SG</span><span class="m-text"><strong>Srigupta + Ghatotkacha</strong> — founders, small kingdom, subordinate to Kushanas (275–319 AD)</span></div>
+          <div class="m-row"><span class="m-letter">C1</span><span class="m-text"><strong>Chandragupta I</strong> — first independent ruler, Maharajadhiraj, Gupta Era starts 319 AD, Licchavi marriage</span></div>
+          <div class="m-row"><span class="m-letter">S</span><span class="m-text"><strong>Samudragupta</strong> — Napoleon of India; Prayag Prashasti; Kaviraja; Veena player; 335–380 AD</span></div>
+          <div class="m-row"><span class="m-letter">C2</span><span class="m-text"><strong>Chandragupta II Vikramaditya</strong> — Nine Ratnas; Fa-Hien; first gold coins; 380–415 AD</span></div>
+          <div class="m-row"><span class="m-letter">K1</span><span class="m-text"><strong>Kumargupta I</strong> — founded Nalanda (427 AD); first Huna attack; Mahendraditya; 415–455 AD</span></div>
+          <div class="m-row"><span class="m-letter">SK</span><span class="m-text"><strong>Skandagupta</strong> — last great Gupta; defeated Hunas; died 467 AD; then decline begins</span></div>
+        </div>
+        <div class="m-tip">💡 "Some Great Commanders Served Kingdoms Splendidly" = SG, C1, S, C2, K1, SK — the 6 major Gupta rulers in order!</div>
+      </div>
+
+      <div class="mnemonic-box">
+        <div class="m-label">🧩 Mnemonic — Chandragupta II's NINE RATNAS</div>
+        <div class="mnemonic-word">K·V·V·D·V·S·A·K·G</div>
+        <div class="mnemonic-rows">
+          <div class="m-row"><span class="m-letter">K</span><span class="m-text"><strong>Kalidasa</strong> — poet (Abhijnanasakuntalam, Meghaduta, Malavikagnimitram)</span></div>
+          <div class="m-row"><span class="m-letter">V</span><span class="m-text"><strong>Vetalbhatta</strong> — magician/poet</span></div>
+          <div class="m-row"><span class="m-letter">V</span><span class="m-text"><strong>Varahmihira</strong> — astronomer (Brihat Samhita, Panchasiddhantika)</span></div>
+          <div class="m-row"><span class="m-letter">D</span><span class="m-text"><strong>Dhanvantari</strong> — royal physician; Ayurveda</span></div>
+          <div class="m-row"><span class="m-letter">V</span><span class="m-text"><strong>Varruchi</strong> — grammarian</span></div>
+          <div class="m-row"><span class="m-letter">S</span><span class="m-text"><strong>Shanku</strong> — architect/engineer</span></div>
+          <div class="m-row"><span class="m-letter">A</span><span class="m-text"><strong>Amarsimha</strong> — lexicographer (Amarakosha)</span></div>
+          <div class="m-row"><span class="m-letter">K</span><span class="m-text"><strong>Kshapanaka</strong> — astrologer</span></div>
+          <div class="m-row"><span class="m-letter">G</span><span class="m-text"><strong>Ghatakarpara</strong> — poet</span></div>
+        </div>
+        <div class="m-tip">💡 "Kalidas Vetalbhatta Varaha Dhanvantari Varruchi Shanku Amarsimha Kshapanaka Ghatakarpara" — Nine gems of Bihar's Golden Age court!</div>
+      </div>
+    </div>
+
+    <!-- ⑦ PYQ -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">📝</span><span class="section-label-text">PYQ Practice</span><span class="section-sub">SOLVED</span></div>
+
+      <div class="pyq-item">
+        <div class="pyq-meta"><span class="pyq-tag prelims">BPSC Prelims</span><span class="pyq-tag year">BPSC 2015</span></div>
+        <div class="pyq-q">Who was the founder of Nalanda University?</div>
+        <div class="pyq-options">
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(a) Chandragupta Vikramaditya (CG-II)</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'correct')">(b) Kumargupta-I</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(c) Dharampal (Pala king)</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(d) Pushyamitra Shunga</div>
+        </div>
+        <div class="pyq-answer" id="ans-pyq1">
+          <strong>✓ CORRECT: (b) Kumargupta I</strong>
+          <p>⚠️ Classic trap: Many students answer Chandragupta II (Vikramaditya) because he was the "greatest" Gupta. But Nalanda was founded by his son <strong>Kumargupta I (Mahendraditya)</strong> in 427 AD. Nalanda operated from 427 to 1197 AD (770 years) until destroyed by Bakhtiyar Khalji. Hiuen Tsang (637–644 AD) was its most famous student. Option (c) Dharampal founded Vikramshila University — not Nalanda.</p>
+        </div>
+        <button class="reveal-btn" onclick="revealPYQ('ans-pyq1',this)">Show Explanation</button>
+      </div>
+
+      <div class="pyq-item">
+        <div class="pyq-meta"><span class="pyq-tag prelims">BPSC Prelims</span><span class="pyq-tag year">BPSC 2011</span></div>
+        <div class="pyq-q">Who among the following had defeated the Hunas?</div>
+        <div class="pyq-options">
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(a) Samudragupta</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(b) Chandragupta II</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'correct')">(c) Skandagupta</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(d) Ramagupta</div>
+        </div>
+        <div class="pyq-answer" id="ans-pyq2">
+          <strong>✓ CORRECT: (c) Skandagupta</strong>
+          <p><strong>Skandagupta (455–467 AD)</strong> repulsed the Huna attack in 455 AD — recorded in the <em>Bhitari inscription</em>. He is considered the last great Gupta ruler. Hunas were Central Asian nomads who repeatedly attacked from the northwest. After Skandagupta's death (467 AD), Huna invasions resumed and eventually broke up the Gupta empire by ~550 AD.</p>
+        </div>
+        <button class="reveal-btn" onclick="revealPYQ('ans-pyq2',this)">Show Explanation</button>
+      </div>
+
+      <div class="pyq-item">
+        <div class="pyq-meta"><span class="pyq-tag prelims">BPSC Prelims</span><span class="pyq-tag year">BPSC 2015</span></div>
+        <div class="pyq-q">Aryabhatta, the great astronomer, was related to which place?</div>
+        <div class="pyq-options">
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(a) Vaishali</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'correct')">(b) Patliputra</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(c) Odanpuri</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(d) Nalanda</div>
+        </div>
+        <div class="pyq-answer" id="ans-pyq3">
+          <strong>✓ CORRECT: (b) Patliputra</strong>
+          <p>Aryabhatta was born in <strong>Patliputra</strong> (ancient Kusumpur). His famous work <em>Aryabhattiya</em> was composed at Kusumapura, near Patliputra. He was the first to state that Earth revolves around the Sun, rotates on its axis, and studied solar/lunar eclipses. He is credited with conceptualising the value of zero. Bihar is proud to call him its own.</p>
+        </div>
+        <button class="reveal-btn" onclick="revealPYQ('ans-pyq3',this)">Show Explanation</button>
+      </div>
+    </div>
+
+    <!-- ⑧ QUICK REVISION -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">⚡</span><span class="section-label-text">Quick Revision Bullets</span><span class="section-sub">7 ONE-LINERS</span></div>
+      <div class="qr-grid">
+        <div class="qr-item"><span class="qr-num">01</span><span class="qr-text">Post-Mauryan order: <strong>Shunga (185–72 BC) → Kanva (72–27 BC) → Kushana (1st–3rd C AD) → Gupta (275–550 AD)</strong>. Mnemonic: "Some Kings Conquer Grandly."</span></div>
+        <div class="qr-item"><span class="qr-num">02</span><span class="qr-text"><strong>Nalanda University</strong> = founded by <strong>Kumargupta I</strong> (427 AD), NOT Chandragupta II. Functioned 770 years until destroyed by Bakhtiyar Khalji (1197 AD).</span></div>
+        <div class="qr-item"><span class="qr-num">03</span><span class="qr-text"><strong>Napoleon of India = Samudragupta</strong> (title by Vincent Arthur Smith). Prayag Prashasti inscription written by his court poet <strong>Harisena</strong>. Title: Kaviraja. Played Veena.</span></div>
+        <div class="qr-item"><span class="qr-num">04</span><span class="qr-text"><strong>Chandragupta I</strong> = first to use title <strong>Maharajadhiraj</strong>; started Gupta Era (319–320 AD); married Licchavi princess Kumardevi.</span></div>
+        <div class="qr-item"><span class="qr-num">05</span><span class="qr-text"><strong>Chandragupta II Vikramaditya</strong> = Nine Ratnas (Kalidasa, Varahmihira, etc.); Fa-Hien's visit; first Gupta to issue <strong>gold coins</strong>; Ujjain = 2nd capital.</span></div>
+        <div class="qr-item"><span class="qr-num">06</span><span class="qr-text"><strong>Aryabhatta</strong> = born at Patliputra; wrote Aryabhattiya; first to state Earth revolves around Sun; conceptualised zero; studied eclipses.</span></div>
+        <div class="qr-item"><span class="qr-num">07</span><span class="qr-text"><strong>Skandagupta</strong> = last great Gupta; defeated Hunas (455 AD); Bhitari inscription. After his death (467 AD), Gupta empire collapsed under Huna pressure.</span></div>
+      </div>
+      <div class="memory-hook">
+        <span class="hook-icon">🧲</span>
+        <span class="hook-text">Memory Hook: "Bihar's ancient story ends with its most glorious chapter — <em>Aryabhatta's mathematics, Kalidasa's poetry, and Nalanda's 10,000 scholars</em> — the Gupta Golden Age was India's Renaissance, and Bihar was its Florence."</span>
+      </div>
+    </div>
+
+    <!-- ⑨ CONCEPT CHECK -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">✅</span><span class="section-label-text">Concept Check</span><span class="section-sub">TEST YOURSELF</span></div>
+
+      <div class="check-mcq">
+        <div class="check-q">1. Samudragupta was given the title "Napoleon of India" by which historian?</div>
+        <div class="check-opts">
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','A')"><span class="opt-letter">A</span>AL Basham</button>
+          <button class="check-opt" onclick="checkAnswer(this,'correct','B')"><span class="opt-letter">B</span>Vincent Arthur Smith</button>
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','C')"><span class="opt-letter">C</span>Joseph Tiefenthaler</button>
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','D')"><span class="opt-letter">D</span>RC Majumdar</button>
+        </div>
+        <div class="check-feedback ok" id="fb1-ok">✓ Correct! Vincent Arthur Smith gave Samudragupta the title "Napoleon of India" based on his extensive military conquests. Joseph Tiefenthaler was the person who discovered the Prayag Prashasti inscription that described Samudragupta's campaigns. Harisena wrote the inscription.</div>
+        <div class="check-feedback no" id="fb1-no">✗ Answer is (B) Vincent Arthur Smith. He coined the phrase "Napoleon of India" for Samudragupta. The Prayag Prashasti inscription (written by court poet Harisena) described Samudragupta as "exterminator of all kings."</div>
+      </div>
+
+      <div class="check-mcq">
+        <div class="check-q">2. Gupta period coins have been found from which place in Bihar?</div>
+        <div class="check-opts">
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','A')"><span class="opt-letter">A</span>Rajgir</button>
+          <button class="check-opt" onclick="checkAnswer(this,'correct','B')"><span class="opt-letter">B</span>Hajipur</button>
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','C')"><span class="opt-letter">C</span>Sasaram</button>
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','D')"><span class="opt-letter">D</span>Munger</button>
+        </div>
+        <div class="check-feedback ok" id="fb2-ok">✓ Correct! Gupta period coins were found at Hajipur (Vaishali district). This is a standard Bihar archaeology fact. Rajgir has Mauryan remains; Sasaram has Sher Shah's tomb; Munger has Chalcolithic and Buddhist remains.</div>
+        <div class="check-feedback no" id="fb2-no">✗ Answer is (B) Hajipur. Gupta period coins were found at Hajipur in Vaishali district. This fact from Arihant Bihar History is a direct BPSC question (Q2 of Ancient History MCQs). Don't confuse with Kushana coins (Chirand, Buxar) or Mauryan evidence (Kumhrar).</div>
+      </div>
+
+      <div class="mains-box">
+        <div class="mains-meta"><span class="pyq-tag mains">MAINS GS-I</span><span class="pyq-tag year">150 words</span></div>
+        <div class="mains-q">The Gupta period is considered the "Golden Age" of ancient India. Discuss Bihar's central role in this golden age, with special reference to Nalanda University and the contribution of Aryabhatta.</div>
+        <button class="reveal-btn" style="margin-bottom:12px;" onclick="revealMains(this)">▼ Show Model Answer</button>
+        <div class="mains-answer" id="mains-ans1">
+          <div class="answer-section">
+            <h5>Introduction</h5>
+            <p>The Gupta period (275–550 AD), headquartered in Pataliputra (modern Patna), is India's acknowledged "Golden Age" — a time of unparalleled achievements in science, literature, philosophy, and art. Bihar was its epicentre.</p>
+          </div>
+          <div class="answer-section">
+            <h5>Bihar as Gupta Heartland</h5>
+            <p>The Guptas originated in south Bihar. Chandragupta I secured Bihar by marrying into the Licchavi clan (of Vaishali). Samudragupta's campaigns radiated from Pataliputra. The empire's greatest cultural achievements were produced here — including Kalidasa's Sanskrit dramas and Varahmihira's astronomical treatises.</p>
+          </div>
+          <div class="answer-section">
+            <h5>Nalanda — The World's First International University</h5>
+            <ul>
+              <li>Founded by Kumargupta I (427 AD) in Nalanda district, Bihar</li>
+              <li>Functioned for 770 continuous years (427–1197 AD)</li>
+              <li>10,000 students, 1,500 teachers at its peak</li>
+              <li>Students from China, Korea, Japan, Tibet, Mongolia, Sri Lanka</li>
+              <li>Hiuen Tsang's account (637–644 AD) describes its grandeur</li>
+              <li>Destroyed by Bakhtiyar Khalji (1197 AD)</li>
+            </ul>
+          </div>
+          <div class="answer-section">
+            <h5>Aryabhatta — Bihar's Scientific Giant</h5>
+            <ul>
+              <li>Born in Pataliputra (ancient Kusumpur)</li>
+              <li>First to state Earth revolves around Sun and rotates on its axis</li>
+              <li>Calculated accurate value of π (pi)</li>
+              <li>Conceptualised the value of zero</li>
+              <li>Studied solar/lunar eclipses scientifically</li>
+              <li>Masterwork: Aryabhattiya, written at Kusumapura</li>
+            </ul>
+          </div>
+          <div class="answer-section">
+            <h5>Conclusion</h5>
+            <p>Bihar's Gupta-era contributions — Nalanda's international scholarship and Aryabhatta's revolutionary science — represent humanity's highest intellectual achievements of the 1st millennium AD. Modern India's space agency (ISRO) named its first satellite "Aryabhata" in 1975, honouring Bihar's greatest ancient son.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PART I COMPLETION BANNER -->
+    <div style="background:linear-gradient(135deg,var(--ink),var(--ink2));border-radius:5px;padding:28px 32px;text-align:center;margin-top:20px;">
+      <div style="font-size:28px;margin-bottom:12px;">🏛️ 🎉</div>
+      <div style="font-family:'Playfair Display',serif;font-size:22px;font-weight:900;color:var(--gold2);margin-bottom:8px;">Part I — Ancient Bihar Complete!</div>
+      <div style="font-size:14px;color:rgba(245,242,235,0.6);margin-bottom:20px;line-height:1.7;">You've covered 7 modules: Sources → Prehistoric → Mahajanapadas → Pre-Mauryan → Buddhism/Jainism → Mauryan → Post-Mauryan/Gupta.<br>Now continue to <strong style="color:var(--teal2);">Part II — Medieval Bihar</strong> starting with the Pala Dynasty.</div>
+      <a href="m08.html" style="display:inline-block;background:var(--teal);color:#fff;padding:12px 28px;border-radius:3px;font-weight:600;font-size:13px;text-decoration:none;letter-spacing:0.5px;">▶ Begin Medieval Bihar — Module 08 →</a>
+    </div>
+
+  </div>
+</div>
+
+<button class="print-btn" onclick="window.print()" title="Print Quick Revision">🖨</button>
+
+<script>
+const KEY='bihar_hist_v1';
+let visited=new Set(JSON.parse(localStorage.getItem(KEY)||'[]'));
+visited.add('modules/m07.html');
+localStorage.setItem(KEY,JSON.stringify([...visited]));
+document.querySelectorAll('.sidebar-item').forEach(item=>{
+  const href=item.getAttribute('href');
+  if(href&&visited.has('modules/'+href))item.classList.add('done');
+});
+function answerPYQ(el,type){
+  const p=el.closest('.pyq-item');
+  p.querySelectorAll('.pyq-opt').forEach(o=>{o.onclick=null;o.style.cursor='default';});
+  el.classList.add(type);
+}
+function revealPYQ(id,btn){
+  document.getElementById(id).classList.toggle('show');
+  btn.textContent=btn.textContent.includes('Show')?'Hide Explanation':'Show Explanation';
+}
+function revealMains(btn){
+  document.getElementById('mains-ans1').classList.toggle('show');
+  btn.textContent=btn.textContent.includes('▼')?'▲ Hide Model Answer':'▼ Show Model Answer';
+}
+function checkAnswer(el,type,letter){
+  const p=el.closest('.check-mcq');
+  p.querySelectorAll('.check-opt').forEach(o=>{o.onclick=null;o.style.cursor='default';});
+  el.classList.add(type);
+  const idx=Array.from(document.querySelectorAll('.check-mcq')).indexOf(p)+1;
+  const ok=document.getElementById('fb'+idx+'-ok');
+  const no=document.getElementById('fb'+idx+'-no');
+  if(type==='correct'&&ok)ok.classList.add('show');
+  if(type==='wrong'&&no)no.classList.add('show');
+}
+</script>
+</body>
+</html>

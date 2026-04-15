@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M04 — Buddhism & Jainism in Bihar | Bihar History</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1a1a2e;--ink2:#2d2d44;--paper:#f5f2eb;--paper2:#ede9df;--gold:#c9973a;--gold2:#e8b45a;--teal:#1e7a6e;--teal2:#2aa195;--coral:#c2522b;--coral2:#e06840;--muted:#7a7465;--border:rgba(26,26,46,0.11);--accent:var(--gold);}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);display:flex;min-height:100vh;}
+.sidebar{width:260px;flex-shrink:0;background:var(--ink);display:flex;flex-direction:column;position:sticky;top:0;height:100vh;overflow-y:auto;}
+.sidebar-logo{padding:24px 20px 16px;border-bottom:1px solid rgba(255,255,255,0.07);}
+.sidebar-logo a{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:var(--gold2);text-decoration:none;line-height:1.3;display:block;}
+.sidebar-logo span{display:block;font-size:10px;color:rgba(245,242,235,0.35);letter-spacing:1px;margin-top:3px;font-family:'DM Mono',monospace;}
+.sidebar-part{padding:14px 20px 6px;font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:1.4px;text-transform:uppercase;color:rgba(245,242,235,0.28);}
+.sidebar-item{display:flex;align-items:center;gap:10px;padding:9px 20px;text-decoration:none;font-size:12px;color:rgba(245,242,235,0.55);transition:background 0.15s,color 0.15s;border-left:2px solid transparent;}
+.sidebar-item:hover{background:rgba(255,255,255,0.05);color:rgba(245,242,235,0.9);}
+.sidebar-item.active{background:rgba(201,151,58,0.12);color:var(--gold2);border-left-color:var(--gold);}
+.sidebar-item.done .s-dot{background:var(--teal);}
+.s-num{font-family:'DM Mono',monospace;font-size:9.5px;color:rgba(245,242,235,0.28);width:28px;flex-shrink:0;}
+.s-dot{width:6px;height:6px;border-radius:50%;border:1.5px solid rgba(255,255,255,0.2);flex-shrink:0;}
+.sidebar-item.active .s-dot{background:var(--gold);border-color:var(--gold);}
+.main{flex:1;min-width:0;display:flex;flex-direction:column;}
+.topbar{background:var(--ink2);padding:12px 48px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10;border-bottom:1px solid rgba(255,255,255,0.05);}
+.topbar-left{display:flex;align-items:center;gap:14px;}
+.era-pill{font-size:10px;padding:3px 10px;border-radius:2px;background:rgba(201,151,58,0.2);color:var(--gold2);font-family:'DM Mono',monospace;letter-spacing:0.8px;}
+.topbar-title{font-size:13px;color:rgba(245,242,235,0.7);}
+.topbar-nav{display:flex;gap:8px;}
+.nav-btn{padding:7px 14px;border-radius:3px;font-size:12px;font-weight:500;text-decoration:none;border:1px solid rgba(255,255,255,0.12);color:rgba(245,242,235,0.6);transition:all 0.18s;cursor:pointer;background:none;}
+.nav-btn:hover{border-color:var(--gold);color:var(--gold2);}
+.nav-btn.primary{background:var(--gold);color:var(--ink);border-color:var(--gold);}
+.content{flex:1;padding:48px 52px 80px;max-width:900px;}
+.mod-header{margin-bottom:40px;}
+.mod-badge{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--ink);font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:4px 12px;border-radius:2px;margin-bottom:18px;}
+.mod-header h1{font-family:'Playfair Display',serif;font-size:clamp(26px,3.5vw,40px);font-weight:900;line-height:1.15;letter-spacing:-0.5px;margin-bottom:14px;}
+.mod-header h1 em{font-style:italic;color:var(--gold);}
+.mod-header p{font-size:14.5px;color:var(--muted);line-height:1.75;max-width:640px;}
+.mod-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px;padding-top:18px;border-top:1px solid var(--border);}
+.meta-tag{font-size:10.5px;padding:3px 9px;border-radius:2px;font-weight:500;}
+.meta-tag.b{background:#fdf5e6;color:var(--gold);}
+.meta-tag.m{background:#ebf5f3;color:var(--teal);}
+.meta-tag.s{background:#fff0eb;color:var(--coral);}
+.meta-tag.d{background:#f0edf8;color:#5a3ea1;}
+.section{margin-bottom:44px;}
+.section-head{display:flex;align-items:center;gap:12px;margin-bottom:20px;padding-bottom:12px;border-bottom:2px solid var(--accent);}
+.section-icon{font-size:20px;}
+.section-label-text{font-family:'Playfair Display',serif;font-size:19px;font-weight:700;}
+.section-sub{font-size:11px;color:var(--muted);font-family:'DM Mono',monospace;letter-spacing:0.8px;margin-left:auto;}
+.story-box{background:var(--ink);color:var(--paper);border-radius:5px;padding:28px 32px;position:relative;overflow:hidden;}
+.story-box::before{content:'';position:absolute;top:-40px;right:-40px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(201,151,58,0.15) 0%,transparent 70%);}
+.story-box p{font-size:14.5px;line-height:1.85;font-weight:300;position:relative;}
+.story-box p+p{margin-top:12px;}
+.story-box strong{color:var(--gold2);}
+.story-highlight{display:inline-block;margin-top:18px;padding:10px 16px;background:rgba(201,151,58,0.15);border-left:3px solid var(--gold);border-radius:0 3px 3px 0;font-size:13px;font-style:italic;color:var(--gold2);}
+/* Two religion split */
+.religion-split{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px;}
+.rel-card{border-radius:5px;padding:24px;overflow:hidden;position:relative;}
+.rel-card.buddhism{background:linear-gradient(135deg,#1a1a2e,#2d2d44);color:var(--paper);}
+.rel-card.jainism{background:linear-gradient(135deg,#1a3a2e,#2a5a3e);color:var(--paper);}
+.rel-title{font-family:'Playfair Display',serif;font-size:20px;font-weight:900;margin-bottom:4px;}
+.rel-card.buddhism .rel-title{color:var(--gold2);}
+.rel-card.jainism .rel-title{color:#7dcea0;}
+.rel-sub{font-size:11px;opacity:0.5;margin-bottom:16px;font-family:'DM Mono',monospace;letter-spacing:0.8px;}
+.rel-facts{display:flex;flex-direction:column;gap:8px;}
+.rel-fact{font-size:12.5px;line-height:1.6;opacity:0.85;}
+.rel-fact strong{opacity:1;}
+.rel-card.buddhism .rel-fact strong{color:var(--gold2);}
+.rel-card.jainism .rel-fact strong{color:#7dcea0;}
+/* Council table */
+.council-grid{display:grid;grid-template-columns:1fr;gap:12px;}
+.council-card{background:#fff;border:1px solid var(--border);border-radius:4px;padding:18px 20px;display:grid;grid-template-columns:80px 1fr 1fr 1fr;gap:12px;align-items:start;}
+.council-num{font-family:'Playfair Display',serif;font-size:32px;font-weight:900;color:var(--accent);line-height:1;}
+.council-year{font-family:'DM Mono',monospace;font-size:10.5px;color:var(--accent);margin-bottom:4px;}
+.council-title{font-size:13px;font-weight:600;color:var(--ink);}
+.council-label{font-size:10px;color:var(--muted);font-family:'DM Mono',monospace;letter-spacing:0.8px;margin-bottom:4px;text-transform:uppercase;}
+.council-val{font-size:12.5px;color:var(--ink2);}
+.council-card.special{border-left:3px solid var(--coral);}
+.council-card.special .council-num{color:var(--coral);}
+/* Tripitaka */
+.tripitaka-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+.tri-card{background:#fff;border:1px solid var(--border);border-radius:4px;padding:18px;text-align:center;position:relative;overflow:hidden;}
+.tri-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--accent);}
+.tri-name{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;margin-bottom:6px;}
+.tri-meaning{font-size:11px;color:var(--gold);font-family:'DM Mono',monospace;letter-spacing:0.5px;margin-bottom:10px;}
+.tri-desc{font-size:12px;color:var(--muted);line-height:1.6;}
+/* Tirthankar */
+.tirtha-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+.tirtha-card{background:#fff;border:1px solid var(--border);border-radius:4px;padding:14px;text-align:center;}
+.tirtha-num{font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);margin-bottom:4px;}
+.tirtha-name{font-size:13px;font-weight:600;color:var(--ink);}
+.tirtha-note{font-size:11px;color:var(--muted);margin-top:4px;line-height:1.4;}
+.tirtha-card.key{background:linear-gradient(135deg,#fff9f0,#fff);border-color:rgba(201,151,58,0.3);}
+.tirtha-card.key .tirtha-name{color:var(--gold);}
+/* Timeline shared */
+.timeline{position:relative;padding-left:28px;}
+.timeline::before{content:'';position:absolute;left:8px;top:8px;bottom:8px;width:2px;background:linear-gradient(180deg,var(--accent),transparent);}
+.tl-item{position:relative;margin-bottom:20px;}
+.tl-dot{position:absolute;left:-24px;top:4px;width:12px;height:12px;border-radius:50%;background:var(--accent);border:2px solid var(--paper);box-shadow:0 0 0 2px var(--accent);}
+.tl-period{font-family:'DM Mono',monospace;font-size:10.5px;color:var(--accent);letter-spacing:0.5px;margin-bottom:4px;}
+.tl-title{font-size:14px;font-weight:600;margin-bottom:4px;}
+.tl-body{font-size:12.5px;color:var(--muted);line-height:1.6;}
+.tl-badge{display:inline-block;font-size:10px;padding:1.5px 7px;border-radius:2px;background:var(--paper2);color:var(--ink2);margin-left:6px;font-weight:500;}
+.tl-badge.trap{background:#fff0eb;color:var(--coral);}
+/* Comparison table */
+.comp-table{width:100%;border-collapse:collapse;font-size:12.5px;}
+.comp-table th{background:var(--ink);color:var(--paper);padding:11px 14px;text-align:left;font-weight:500;font-size:12px;}
+.comp-table th:first-child{border-radius:4px 0 0 0;}
+.comp-table th:last-child{border-radius:0 4px 0 0;}
+.comp-table td{padding:9px 14px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.55;}
+.comp-table tr:last-child td{border-bottom:none;}
+.comp-table tr:nth-child(even) td{background:var(--paper2);}
+.comp-table tr:hover td{background:#fff9f0;}
+.comp-table td:first-child{font-weight:600;color:var(--ink2);}
+.comp-table td.accent{color:var(--gold);font-weight:500;}
+.comp-table td.teal{color:var(--teal);font-weight:500;}
+/* Mnemonic */
+.mnemonic-box{background:linear-gradient(135deg,var(--ink),var(--ink2));border-radius:5px;padding:28px 32px;color:var(--paper);}
+.mnemonic-box+.mnemonic-box{margin-top:14px;}
+.m-label{font-size:10px;font-family:'DM Mono',monospace;letter-spacing:1.5px;color:var(--gold);text-transform:uppercase;margin-bottom:14px;}
+.mnemonic-word{font-family:'Playfair Display',serif;font-size:clamp(20px,2.5vw,30px);font-weight:900;color:var(--gold2);letter-spacing:3px;margin-bottom:18px;}
+.mnemonic-rows{display:flex;flex-direction:column;gap:10px;}
+.m-row{display:flex;align-items:baseline;gap:14px;}
+.m-letter{font-family:'DM Mono',monospace;font-size:18px;font-weight:500;color:var(--gold2);width:28px;flex-shrink:0;}
+.m-text{font-size:13px;line-height:1.5;}
+.m-text strong{color:var(--gold2);}
+.m-tip{margin-top:16px;padding:10px 14px;background:rgba(201,151,58,0.12);border-radius:3px;font-size:12px;font-style:italic;color:rgba(245,242,235,0.7);}
+/* PYQ */
+.pyq-item{background:#fff;border:1px solid var(--border);border-radius:4px;padding:22px;margin-bottom:14px;}
+.pyq-meta{display:flex;align-items:center;gap:8px;margin-bottom:12px;flex-wrap:wrap;}
+.pyq-tag{font-size:10px;padding:2px 8px;border-radius:2px;font-weight:500;font-family:'DM Mono',monospace;}
+.pyq-tag.prelims{background:#fdf5e6;color:var(--gold);}
+.pyq-tag.mains{background:#ebf5f3;color:var(--teal);}
+.pyq-tag.year{background:var(--paper2);color:var(--muted);}
+.pyq-q{font-size:14px;font-weight:500;line-height:1.6;margin-bottom:14px;}
+.pyq-options{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:14px;}
+.pyq-opt{padding:8px 12px;border-radius:3px;font-size:12.5px;border:1px solid var(--border);background:var(--paper);cursor:pointer;transition:all 0.18s;}
+.pyq-opt:hover{border-color:var(--gold);background:#fff9f0;}
+.pyq-opt.correct{background:#e8f5e9;border-color:#4caf50;color:#2e7d32;font-weight:500;}
+.pyq-opt.wrong{background:#ffebee;border-color:#ef9a9a;color:#c62828;}
+.pyq-answer{display:none;padding:14px 16px;background:#e8f5f3;border-radius:3px;border-left:3px solid var(--teal);}
+.pyq-answer.show{display:block;}
+.pyq-answer strong{color:var(--teal);font-size:12px;}
+.pyq-answer p{font-size:13px;color:var(--ink2);margin-top:5px;line-height:1.6;}
+.reveal-btn{font-size:11.5px;padding:6px 14px;border-radius:3px;background:none;border:1px solid var(--border);cursor:pointer;color:var(--muted);transition:all 0.18s;}
+.reveal-btn:hover{border-color:var(--teal);color:var(--teal);}
+/* Mains */
+.mains-box{background:#fff;border:1px solid var(--border);border-radius:4px;padding:22px;}
+.mains-q{font-size:14.5px;font-weight:600;line-height:1.6;margin-bottom:14px;}
+.mains-meta{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap;}
+.mains-answer{display:none;border-top:1px solid var(--border);padding-top:16px;}
+.mains-answer.show{display:block;}
+.answer-section{margin-bottom:14px;}
+.answer-section h5{font-size:11px;font-family:'DM Mono',monospace;letter-spacing:1px;color:var(--gold);text-transform:uppercase;margin-bottom:7px;}
+.answer-section p{font-size:13px;line-height:1.7;color:var(--ink2);}
+.answer-section ul{padding-left:18px;}
+.answer-section li{font-size:13px;line-height:1.7;color:var(--ink2);margin-bottom:4px;}
+/* Quick revision */
+.qr-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.qr-item{display:flex;align-items:flex-start;gap:10px;background:#fff;border:1px solid var(--border);border-radius:4px;padding:14px 16px;}
+.qr-num{font-family:'DM Mono',monospace;font-size:10px;color:var(--accent);font-weight:500;flex-shrink:0;margin-top:2px;}
+.qr-text{font-size:13px;line-height:1.6;color:var(--ink2);}
+.qr-text strong{color:var(--accent);}
+.memory-hook{background:var(--accent);border-radius:4px;padding:16px 22px;display:flex;align-items:center;gap:16px;margin-top:32px;}
+.hook-icon{font-size:22px;}
+.hook-text{font-size:14px;font-weight:600;color:var(--ink);line-height:1.5;}
+/* MCQ check */
+.check-mcq{background:#fff;border:1px solid var(--border);border-radius:4px;padding:20px;margin-bottom:12px;}
+.check-q{font-size:14px;font-weight:500;margin-bottom:14px;line-height:1.6;}
+.check-opts{display:flex;flex-direction:column;gap:7px;}
+.check-opt{padding:10px 14px;border-radius:3px;font-size:13px;border:1px solid var(--border);background:var(--paper);cursor:pointer;transition:all 0.18s;text-align:left;display:flex;align-items:center;gap:10px;}
+.check-opt:hover{border-color:var(--accent);background:#fff9f0;}
+.check-opt.correct{background:#e8f5e9;border-color:#4caf50;color:#2e7d32;}
+.check-opt.wrong{background:#ffebee;border-color:#ef9a9a;color:#c62828;}
+.opt-letter{width:22px;height:22px;border-radius:50%;background:var(--paper2);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;flex-shrink:0;}
+.check-opt.correct .opt-letter{background:#4caf50;color:#fff;}
+.check-opt.wrong   .opt-letter{background:#ef9a9a;color:#fff;}
+.check-feedback{margin-top:10px;padding:10px 14px;border-radius:3px;font-size:12.5px;display:none;line-height:1.6;}
+.check-feedback.show{display:block;}
+.check-feedback.ok{background:#e8f5e9;color:#2e7d32;}
+.check-feedback.no{background:#ffebee;color:#c62828;}
+.trap-alert{background:#fff0eb;border:1px solid rgba(194,82,43,0.3);border-radius:4px;padding:14px 18px;margin-bottom:16px;display:flex;align-items:flex-start;gap:10px;}
+.trap-icon{font-size:18px;flex-shrink:0;}
+.trap-alert p{font-size:13px;color:var(--coral);line-height:1.6;}
+.trap-alert strong{font-weight:600;}
+.bpsc-box{background:linear-gradient(135deg,#fff9f0,#fff);border:1px solid rgba(201,151,58,0.3);border-radius:4px;padding:18px 20px;margin-bottom:20px;display:flex;gap:14px;}
+.bpsc-icon{font-size:22px;flex-shrink:0;}
+.bpsc-content h4{font-size:13px;font-weight:600;color:var(--gold);margin-bottom:5px;}
+.bpsc-content p{font-size:12.5px;color:var(--muted);line-height:1.6;}
+.sidebar::-webkit-scrollbar{width:4px;}
+.sidebar::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.1);border-radius:2px;}
+.print-btn{position:fixed;bottom:24px;right:24px;background:var(--ink);color:var(--gold2);border:none;border-radius:50%;width:44px;height:44px;font-size:16px;cursor:pointer;box-shadow:0 4px 16px rgba(26,26,46,0.25);transition:transform 0.18s;display:flex;align-items:center;justify-content:center;}
+.print-btn:hover{transform:scale(1.1);}
+@media print{.sidebar,.topbar,.print-btn{display:none;}.main{display:block;}.content{padding:20px;}}
+@media(max-width:768px){.sidebar{display:none;}.content{padding:24px 20px 60px;}.topbar{padding:10px 20px;}.religion-split,.tripitaka-row,.tirtha-row,.council-card,.qr-grid,.pyq-options{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<aside class="sidebar">
+  <div class="sidebar-logo"><a href="../index.html">Bihar History<br>Study System</a><span>BPSC · UPSC · State PCS</span></div>
+  <div class="sidebar-part">Part I — Ancient Bihar</div>
+  <a class="sidebar-item done" href="m01.html"><span class="s-num">01</span><span class="s-dot"></span>Sources & Prehistoric Bihar</a>
+  <a class="sidebar-item done" href="m02.html"><span class="s-num">02</span><span class="s-dot"></span>Mahajanapadas in Bihar</a>
+  <a class="sidebar-item done" href="m03.html"><span class="s-num">03</span><span class="s-dot"></span>Pre-Mauryan Dynasties</a>
+  <a class="sidebar-item active" href="m04.html"><span class="s-num">04</span><span class="s-dot"></span>Buddhism & Jainism</a>
+  <a class="sidebar-item" href="m05.html"><span class="s-num">05</span><span class="s-dot"></span>Mauryan Empire</a>
+  <a class="sidebar-item" href="m06.html"><span class="s-num">06</span><span class="s-dot"></span>Ashoka — Kalinga to Dhamma</a>
+  <a class="sidebar-item" href="m07.html"><span class="s-num">07</span><span class="s-dot"></span>Post-Mauryan to Gupta Era</a>
+  <div class="sidebar-part">Part II — Medieval Bihar</div>
+  <a class="sidebar-item" href="m08.html"><span class="s-num">08</span><span class="s-dot"></span>Pala Dynasty</a>
+  <a class="sidebar-item" href="m09.html"><span class="s-num">09</span><span class="s-dot"></span>Sena & Karnata Dynasties</a>
+  <a class="sidebar-item" href="m10.html"><span class="s-num">10</span><span class="s-dot"></span>Turkish Invasion</a>
+  <a class="sidebar-item" href="m11.html"><span class="s-num">11</span><span class="s-dot"></span>Khilji, Tughlaq & Noohani</a>
+  <a class="sidebar-item" href="m12.html"><span class="s-num">12</span><span class="s-dot"></span>Sher Shah Suri</a>
+  <a class="sidebar-item" href="m13.html"><span class="s-num">13</span><span class="s-dot"></span>Mughal Rule in Bihar</a>
+  <a class="sidebar-item" href="m14.html"><span class="s-num">14</span><span class="s-dot"></span>Sufism, Sikhism & Tribal States</a>
+  <div class="sidebar-part">Part III — Modern Bihar</div>
+  <a class="sidebar-item" href="m15.html"><span class="s-num">15</span><span class="s-dot"></span>European Entry</a>
+  <a class="sidebar-item" href="m16.html"><span class="s-num">16</span><span class="s-dot"></span>Battle of Buxar</a>
+  <a class="sidebar-item" href="m17.html"><span class="s-num">17</span><span class="s-dot"></span>Revolt of 1857</a>
+  <a class="sidebar-item" href="m18.html"><span class="s-num">18</span><span class="s-dot"></span>Tribal Revolts</a>
+  <a class="sidebar-item" href="m19.html"><span class="s-num">19</span><span class="s-dot"></span>Freedom Movements</a>
+  <a class="sidebar-item" href="m20.html"><span class="s-num">20</span><span class="s-dot"></span>Eminent Freedom Fighters</a>
+  <a class="sidebar-item" href="m21.html"><span class="s-num">21</span><span class="s-dot"></span>Formation of Modern Bihar</a>
+</aside>
+
+<div class="main">
+  <div class="topbar">
+    <div class="topbar-left"><span class="era-pill">ANCIENT BIHAR</span><span class="topbar-title">Module 04 of 21</span></div>
+    <div class="topbar-nav">
+      <a href="m03.html" class="nav-btn">← Prev</a>
+      <a href="../index.html" class="nav-btn">Index</a>
+      <a href="m05.html" class="nav-btn primary">Next →</a>
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="mod-header">
+      <div class="mod-badge"><span>MODULE 04</span><span>·</span><span>Ancient Bihar</span></div>
+      <h1>Buddhism & Jainism<br><em>Born in Bihar</em></h1>
+      <p>The 6th century BC Bihar produced the two most world-shaping religious revolutions in Indian history — simultaneously. The same soil, the same rivers, the same cities — but two very different paths to the same question: how does one end suffering?</p>
+      <div class="mod-meta">
+        <span class="meta-tag b">BPSC Special</span>
+        <span class="meta-tag m">Mains GS-I</span>
+        <span class="meta-tag d">6th Century BC</span>
+        <span class="meta-tag s">⚠ Trap: 4 Buddhist Councils — locations, patrons, presidencies</span>
+      </div>
+    </div>
+
+    <!-- STORY HOOK -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">🎭</span><span class="section-label-text">Story Hook</span><span class="section-sub">START HERE</span></div>
+      <div class="story-box">
+        <p>The year is <strong>528 BC</strong>. A 35-year-old man sits beneath a <strong>Peepal tree</strong> on the banks of the Niranjana river in what is now Bodh Gaya, Bihar. He has been meditating for weeks. He has renounced a kingdom, a wife, a child, and every comfort known to royalty. And then — in the stillness of that Bihar night — something shifts.</p>
+        <p>He becomes <strong>the Buddha</strong>. The Awakened One. The man who will teach a philosophy so revolutionary it will spread across Asia and still has 500 million followers today — all because of one tree, one river, one night in <strong>Bihar</strong>.</p>
+        <p>Twelve years earlier and 200 km north in Vaishali, another aristocrat had made the same renunciation. <strong>Vardhamana Mahavira</strong>, aged 30, left his palace in Kundagram (Bihar). He would spend the next 12 years in extreme meditation and austerity, attaining <strong>Kaivalya</strong> at age 42. He became the <em>Jina</em> — the Conqueror. His teachings would become Jainism's final and most complete form.</p>
+        <div class="story-highlight">💡 Dramatic Fact: Both Buddha and Mahavira were Kshatriyas from Bihar, both renounced royal life within decades of each other, both preached non-violence — yet created two distinct religions that survive 2,500 years later.</div>
+      </div>
+    </div>
+
+    <!-- CORE CONCEPT -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">🧠</span><span class="section-label-text">Core Concept — Buddhism & Jainism Side by Side</span><span class="section-sub">PARALLEL FOUNDERS</span></div>
+      <div class="religion-split">
+        <div class="rel-card buddhism">
+          <div class="rel-title">☸ Buddhism</div>
+          <div class="rel-sub">THE MIDDLE PATH</div>
+          <div class="rel-facts">
+            <div class="rel-fact"><strong>Born:</strong> Siddhartha Gautama, 563 BC, Lumbini (Nepal)</div>
+            <div class="rel-fact"><strong>Clan:</strong> Sakya Kshatriya; Father: Suddhodana; Mother: Mahamaya; Wife: Yashodhara</div>
+            <div class="rel-fact"><strong>Renunciation (age 29):</strong> Called Mahabhinishkramana</div>
+            <div class="rel-fact"><strong>Enlightenment (age 35):</strong> 528 BC, Bodh Gaya, under Peepal (Bodhi) tree on Niranjana river bank</div>
+            <div class="rel-fact"><strong>First sermon:</strong> Sarnath (Dharmachakra Pravartana)</div>
+            <div class="rel-fact"><strong>Last sermon:</strong> Vaishali, Bihar</div>
+            <div class="rel-fact"><strong>Mahaparinirvana:</strong> Kushinagar (capital of Mallas), 487 BC</div>
+            <div class="rel-fact"><strong>Core teaching:</strong> 4 Noble Truths, 8-fold Path; Middle Path between extreme luxury and extreme asceticism</div>
+          </div>
+        </div>
+        <div class="rel-card jainism">
+          <div class="rel-title">⚛ Jainism</div>
+          <div class="rel-sub">THE PATH OF CONQUERORS</div>
+          <div class="rel-facts">
+            <div class="rel-fact"><strong>Born:</strong> Vardhamana Mahavira, 540 BC, Kundagrama near Vaishali, Bihar</div>
+            <div class="rel-fact"><strong>Clan:</strong> Jnatrika Kshatriya; Father: Siddhartha; Mother: Trishala (Licchavi princess, sister of King Chetaka)</div>
+            <div class="rel-fact"><strong>Renunciation (age 30):</strong> Left palace; called Nirgranthas</div>
+            <div class="rel-fact"><strong>Kaivalya (age 42):</strong> At banks of Rijupalika river, under a Sal tree</div>
+            <div class="rel-fact"><strong>First sermon:</strong> Vipulgiri, Rajgir; First disciple: Jamali</div>
+            <div class="rel-fact"><strong>Nirvana:</strong> 468 BC, Pavapuri near Rajgir, Bihar</div>
+            <div class="rel-fact"><strong>24th Tirthankar:</strong> Rishabhdeva was 1st; Parshvanatha was 23rd; Mahavira was last (24th)</div>
+            <div class="rel-fact"><strong>Three Gems (Triratna):</strong> Right Faith + Right Knowledge + Right Conduct = Moksha</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TIMELINE -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">⏳</span><span class="section-label-text">Timeline — Key Events in Bihar</span><span class="section-sub">CHRONOLOGICAL</span></div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-period">599/540 BC</div>
+          <div class="tl-title">Mahavira Born at Kundagrama, Vaishali</div>
+          <div class="tl-body">Born to Siddhartha and Trishala (Licchavi princess). Part of the Jnatrika clan — same region where the Licchavi republic flourished. Bihar produced the 24th and final Tirthankar of Jainism.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-period">563 BC</div>
+          <div class="tl-title">Buddha Born at Lumbini (Nepal) <span class="tl-badge">Near Bihar border</span></div>
+          <div class="tl-body">Born Siddhartha Gautama in Sakya Kshatriya clan. His entire spiritual journey — enlightenment, preaching, teaching — took place primarily in Bihar. Lumbini is in Nepal near Bihar's northern border.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-period">528 BC</div>
+          <div class="tl-title">Buddha Attains Enlightenment — Bodh Gaya, Bihar</div>
+          <div class="tl-body">Meditating under Peepal (Bodhi) tree on banks of Niranjana river at Uruvela (now Bodh Gaya). Became the Tathagata ("Thus Come One"). First sermon: Dharmachakra Pravartana at Sarnath.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-period">510 BC (approx)</div>
+          <div class="tl-title">Mahavira Attains Kaivalya (age 42)</div>
+          <div class="tl-body">At banks of Rijupalika river under a Sal tree. Conquered misery and happiness → became Jina (Conqueror) → Mahavira. Gave first sermon at Vipulgiri (Rajgir), Bihar. First disciple was Jamali.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-period">487 BC</div>
+          <div class="tl-title">Buddha's Mahaparinirvana — Kushinagar <span class="tl-badge trap">⚠ NOT Bihar</span></div>
+          <div class="tl-body">Buddha's death (Mahaparinirvana) occurred at Kushinagar — capital of the Mallas (now in UP, not Bihar). Last sermon was given in Vaishali, Bihar. Sariputta (one of Buddha's greatest disciples) was born near Rajgir, Bihar.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-period">483 BC</div>
+          <div class="tl-title">1st Buddhist Council — Rajgir, Bihar</div>
+          <div class="tl-body">Held at Saptaparni Caves, Rajgir. Patron: Ajatashatru. President: Mahakasyapa. Compiled Buddha's teachings (Sutta) and rules (Vinaya).</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-period">468 BC</div>
+          <div class="tl-title">Mahavira Attains Nirvana — Pavapuri, Bihar</div>
+          <div class="tl-body">Mahavira's Nirvana at Pavapuri near Rajgir — this is Bihar. Pavapuri is where Jains from across the world come to pay homage. Still one of the most important Jain pilgrimage sites.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-period">383 BC</div>
+          <div class="tl-title">2nd Buddhist Council — Vaishali, Bihar</div>
+          <div class="tl-body">100 years after Buddha. Patron: Kalasoka. President: Sabakami. Dispute over Vinaya Pitaka (10 points of discipline). Held at Vaishali.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-period">3rd C BC</div>
+          <div class="tl-title">1st Jain Council — Patliputra</div>
+          <div class="tl-body">Led by Sthulabhadra. Jainism splits into Svetambaras and Digambaras at this council. Held at Patliputra (Bihar).</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-period">250 BC</div>
+          <div class="tl-title">3rd Buddhist Council — Patliputra, Bihar</div>
+          <div class="tl-body">Patron: Ashoka. President: Moggaliputta Tissa. Abhidhamma Pitaka established. Buddhism spread to Sri Lanka, Southeast Asia, West Asia. Major milestone in Buddhist history.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-period">78 AD</div>
+          <div class="tl-title">4th Buddhist Council — Kashmir <span class="tl-badge trap">⚠ NOT Bihar</span></div>
+          <div class="tl-body">Held at Kundalavana, Kashmir. Patron: Kanishka (Kushana). Asvaghosha participated. Mahayana Buddhism emerged at this council. This is the only Buddhist council NOT held in Bihar.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-period">5th Century AD</div>
+          <div class="tl-title">2nd Jain Council — Vallabhi</div>
+          <div class="tl-body">Led by Devardhi Gani Kshmasramana. Final compilation of 12 Angas and 12 Upangas. Held at Vallabhi (Gujarat — NOT Bihar). Important to note this council is outside Bihar.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4 BUDDHIST COUNCILS TABLE -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">📊</span><span class="section-label-text">4 Buddhist Councils — Master Table</span><span class="section-sub">MOST TESTED</span></div>
+      <div class="bpsc-box">
+        <span class="bpsc-icon">🗺️</span>
+        <div class="bpsc-content">
+          <h4>BPSC Special — Most Tested Topic</h4>
+          <p>Buddhist Councils appear in BPSC almost every year. The most common trap: "Where was the 1st Council?" Answer = Rajgir (NOT Patliputra). "Where was 3rd Council?" = Patliputra. "Where was 4th?" = Kashmir (NOT Bihar).</p>
+        </div>
+      </div>
+      <div class="trap-alert">
+        <span class="trap-icon">⚠️</span>
+        <p><strong>The Most Common Trap:</strong> First Council = <strong>Rajgir</strong>; Third Council = <strong>Patliputra</strong>. Students often swap these two. Also: 4th Council = Kashmir (Kanishka) — outside Bihar completely.</p>
+      </div>
+      <div class="council-grid">
+        <div class="council-card">
+          <div class="council-num">1</div>
+          <div>
+            <div class="council-year">483 BC</div>
+            <div class="council-title">First Buddhist Council</div>
+          </div>
+          <div>
+            <div class="council-label">Location</div>
+            <div class="council-val"><strong>Rajgir (Saptaparni Caves)</strong>, Bihar</div>
+          </div>
+          <div>
+            <div class="council-label">Patron / President</div>
+            <div class="council-val">Patron: <strong>Ajatashatru</strong><br>President: <strong>Mahakasyapa</strong></div>
+          </div>
+          <div>
+            <div class="council-label">Purpose / Result</div>
+            <div class="council-val">Compiled Buddha's teachings (Sutta) + rules for monks (Vinaya). Preserved oral tradition.</div>
+          </div>
+        </div>
+        <div class="council-card">
+          <div class="council-num">2</div>
+          <div>
+            <div class="council-year">383 BC</div>
+            <div class="council-title">Second Buddhist Council</div>
+          </div>
+          <div>
+            <div class="council-label">Location</div>
+            <div class="council-val"><strong>Vaishali</strong>, Bihar (100 yrs after Buddha)</div>
+          </div>
+          <div>
+            <div class="council-label">Patron / President</div>
+            <div class="council-val">Patron: <strong>Kalasoka</strong> (Shishunaga)<br>President: <strong>Sabakami</strong></div>
+          </div>
+          <div>
+            <div class="council-label">Purpose / Result</div>
+            <div class="council-val">Settled dispute on Vinaya Pitaka (10 relaxations). Led to split between Sthaviravadins and Mahasanghikas.</div>
+          </div>
+        </div>
+        <div class="council-card special">
+          <div class="council-num">3</div>
+          <div>
+            <div class="council-year">250 BC</div>
+            <div class="council-title">Third Buddhist Council ⭐</div>
+          </div>
+          <div>
+            <div class="council-label">Location</div>
+            <div class="council-val"><strong>Patliputra</strong>, Bihar (most important!)</div>
+          </div>
+          <div>
+            <div class="council-label">Patron / President</div>
+            <div class="council-val">Patron: <strong>Ashoka</strong><br>President: <strong>Moggaliputta Tissa</strong></div>
+          </div>
+          <div>
+            <div class="council-label">Purpose / Result</div>
+            <div class="council-val">Compiled <strong>Abhidhamma Pitaka</strong>. Purified sangha. Buddhism sent to Sri Lanka, SE Asia, W Asia, Mediterranean Europe.</div>
+          </div>
+        </div>
+        <div class="council-card">
+          <div class="council-num">4</div>
+          <div>
+            <div class="council-year">78 AD</div>
+            <div class="council-title">Fourth Buddhist Council</div>
+          </div>
+          <div>
+            <div class="council-label">Location</div>
+            <div class="council-val"><strong>Kundalavana, Kashmir</strong> ⚠️ NOT Bihar</div>
+          </div>
+          <div>
+            <div class="council-label">Patron / President</div>
+            <div class="council-val">Patron: <strong>Kanishka</strong> (Kushana)<br>Asvaghosha participated</div>
+          </div>
+          <div>
+            <div class="council-label">Purpose / Result</div>
+            <div class="council-val"><strong>Mahayana Buddhism</strong> emerged. Buddhism split into Hinayana (old) and Mahayana (new) officially.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TRIPITAKA -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">📚</span><span class="section-label-text">Tripitaka — Three Baskets of Buddhist Texts</span><span class="section-sub">CORE TEXTS</span></div>
+      <div class="tripitaka-row">
+        <div class="tri-card">
+          <div class="tri-name">Vinayapitaka</div>
+          <div class="tri-meaning">BASKET OF DISCIPLINE</div>
+          <div class="tri-desc">Rules and regulations of monastic life for Buddhist monks. Compiled at 1st Council. Subject of dispute at 2nd Council.</div>
+        </div>
+        <div class="tri-card">
+          <div class="tri-name">Suttapitaka</div>
+          <div class="tri-meaning">BASKET OF DISCOURSES</div>
+          <div class="tri-desc">Collection of Buddha's sermons and dialogues. Contains Anguttara Nikaya, Digha Nikaya — which mention the 16 Mahajanapadas.</div>
+        </div>
+        <div class="tri-card">
+          <div class="tri-name">Abhidhammapitaka</div>
+          <div class="tri-meaning">BASKET OF PHILOSOPHY</div>
+          <div class="tri-desc">Philosophical and psychological interpretation of Buddhist doctrine. Compiled/established at the <strong>3rd Buddhist Council</strong> (Patliputra, Ashoka's time).</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 24 TIRTHANKARAS SPOTLIGHT -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">⚛</span><span class="section-label-text">24 Tirthankaras — The Three Key Ones</span><span class="section-sub">JAIN EXAM FOCUS</span></div>
+      <div class="tirtha-row">
+        <div class="tirtha-card key">
+          <div class="tirtha-num">1st TIRTHANKAR</div>
+          <div class="tirtha-name">Rishabhdeva</div>
+          <div class="tirtha-note">Also called Adinatha. First Tirthankar. Considered founder of Jain path. Also mentioned in Hindu texts.</div>
+        </div>
+        <div class="tirtha-card">
+          <div class="tirtha-num">23rd TIRTHANKAR</div>
+          <div class="tirtha-name">Parshvanatha</div>
+          <div class="tirtha-note">Lived ~250 years before Mahavira. Taught 4 vows (ahimsa, satya, asteya, aparigraha). Historical figure accepted by scholars.</div>
+        </div>
+        <div class="tirtha-card key">
+          <div class="tirtha-num">24th TIRTHANKAR (LAST)</div>
+          <div class="tirtha-name">Mahavira</div>
+          <div class="tirtha-note">Born Kundagrama (Vaishali, Bihar). Added 5th vow — Brahmacharya. Completed and systematised Jainism. Nirvana at Pavapuri, Bihar.</div>
+        </div>
+      </div>
+
+      <!-- Jain Councils -->
+      <div style="margin-top:18px;">
+        <table class="comp-table">
+          <thead><tr><th>#</th><th>Location</th><th>Leader</th><th>Result</th></tr></thead>
+          <tbody>
+            <tr><td>1st Jain Council</td><td>Patliputra (3rd C BC)</td><td class="accent">Sthulabhadra</td><td>Jainism split into <strong>Svetambaras</strong> (white-clad) and <strong>Digambaras</strong> (sky-clad)</td></tr>
+            <tr><td>2nd Jain Council</td><td>Vallabhi, Gujarat (5th C AD)</td><td class="accent">Devardhi Gani Kshmasramana</td><td>Final compilation of <strong>12 Angas + 12 Upangas</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- COMPARISON: BUDDHA VS MAHAVIRA -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">📊</span><span class="section-label-text">Buddha vs Mahavira — Comparison</span><span class="section-sub">SIDE BY SIDE</span></div>
+      <table class="comp-table">
+        <thead><tr><th>Feature</th><th>☸ Gautama Buddha</th><th>⚛ Vardhamana Mahavira</th></tr></thead>
+        <tbody>
+          <tr><td>Born</td><td class="accent">563 BC, Lumbini (Nepal)</td><td class="teal">540 BC, Kundagrama, Vaishali (Bihar)</td></tr>
+          <tr><td>Clan</td><td>Sakya Kshatriya</td><td>Jnatrika Kshatriya</td></tr>
+          <tr><td>Parents</td><td>Father: Suddhodana; Mother: Mahamaya</td><td>Father: Siddhartha; Mother: Trishala (Licchavi)</td></tr>
+          <tr><td>Age of renunciation</td><td class="accent">29 years (Mahabhinishkramana)</td><td class="teal">30 years</td></tr>
+          <tr><td>Enlightenment</td><td>528 BC, <strong>Bodh Gaya</strong> — under Peepal tree</td><td>42 years old — banks of <strong>Rijupalika river</strong></td></tr>
+          <tr><td>Called</td><td>Tathagata, Shakyamuni, Buddha</td><td>Jina (Conqueror), Mahavira, Nirgranthas</td></tr>
+          <tr><td>First sermon</td><td><strong>Sarnath</strong> (Dharmachakra Pravartana)</td><td><strong>Vipulgiri, Rajgir</strong> — first disciple: Jamali</td></tr>
+          <tr><td>Last sermon</td><td class="accent">Vaishali, Bihar</td><td>—</td></tr>
+          <tr><td>Death / Nirvana</td><td>487 BC, <strong>Kushinagar</strong> (Mahaparinirvana)</td><td class="teal">468 BC, <strong>Pavapuri, Bihar</strong></td></tr>
+          <tr><td>Core teaching</td><td>4 Noble Truths + 8-Fold Path (Middle Way)</td><td>Three Gems + 5 Vows (Ahimsa core)</td></tr>
+          <tr><td>On God</td><td>Silent / Agnostic (No creator God)</td><td>No God — soul's own effort leads to liberation</td></tr>
+          <tr><td>Bihar connection</td><td>Enlightenment (Bodh Gaya), last sermon (Vaishali)</td><td>Born & Nirvana both in Bihar (Vaishali + Pavapuri)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- MNEMONIC -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">🧩</span><span class="section-label-text">Mnemonics</span><span class="section-sub">MEMORY TRICKS</span></div>
+      <div class="mnemonic-box">
+        <div class="m-label">🧩 4 Buddhist Councils — Location Mnemonic</div>
+        <div class="mnemonic-word">R · V · P · K</div>
+        <div class="mnemonic-rows">
+          <div class="m-row"><span class="m-letter">R</span><span class="m-text"><strong>Rajgir</strong> — 1st Council (483 BC); Patron: Ajatashatru; President: Mahakasyapa</span></div>
+          <div class="m-row"><span class="m-letter">V</span><span class="m-text"><strong>Vaishali</strong> — 2nd Council (383 BC); Patron: Kalasoka; President: Sabakami</span></div>
+          <div class="m-row"><span class="m-letter">P</span><span class="m-text"><strong>Patliputra</strong> — 3rd Council (250 BC); Patron: Ashoka; President: Moggaliputta Tissa</span></div>
+          <div class="m-row"><span class="m-letter">K</span><span class="m-text"><strong>Kashmir</strong> (Kundalavana) — 4th Council (78 AD); Patron: Kanishka; Mahayana emerged</span></div>
+        </div>
+        <div class="m-tip">💡 "Rajgir Valley Produces Kashmir's Mahayana" = R-V-P-K. Note: Only K (Kashmir) is outside Bihar. Bihar hosted all 3 of the first councils!</div>
+      </div>
+
+      <div class="mnemonic-box">
+        <div class="m-label">🧩 Tripitaka — 3 Baskets</div>
+        <div class="mnemonic-word">V · S · A</div>
+        <div class="mnemonic-rows">
+          <div class="m-row"><span class="m-letter">V</span><span class="m-text"><strong>Vinayapitaka</strong> = Vows/Rules for monks (Discipline basket)</span></div>
+          <div class="m-row"><span class="m-letter">S</span><span class="m-text"><strong>Suttapitaka</strong> = Sermons of Buddha (Discourse basket)</span></div>
+          <div class="m-row"><span class="m-letter">A</span><span class="m-text"><strong>Abhidhammapitaka</strong> = Abstract Philosophy (compiled at 3rd Council)</span></div>
+        </div>
+        <div class="m-tip">💡 "Very Smart Abhidhamma" = Vinaya, Sutta, Abhidhamma. Remember: Abhidhamma = 3rd Council = Ashoka = Patliputra.</div>
+      </div>
+
+      <div class="mnemonic-box">
+        <div class="m-label">🧩 Buddha's Life Events — Key Ages</div>
+        <div class="mnemonic-word">29 · 35 · 80</div>
+        <div class="mnemonic-rows">
+          <div class="m-row"><span class="m-letter">29</span><span class="m-text">Left home — <strong>Mahabhinishkramana</strong> (Great Renunciation)</span></div>
+          <div class="m-row"><span class="m-letter">35</span><span class="m-text">Attained Enlightenment at <strong>Bodh Gaya, Bihar</strong> (528 BC)</span></div>
+          <div class="m-row"><span class="m-letter">80</span><span class="m-text">Mahaparinirvana at <strong>Kushinagar</strong> (487 BC); last sermon in Vaishali</span></div>
+        </div>
+        <div class="m-tip">💡 Mahavira's key ages: 30 (renounced), 42 (Kaivalya), died at ~72 (468 BC, Pavapuri, Bihar).</div>
+      </div>
+    </div>
+
+    <!-- PYQ -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">📝</span><span class="section-label-text">PYQ Practice</span><span class="section-sub">SOLVED</span></div>
+
+      <div class="pyq-item">
+        <div class="pyq-meta"><span class="pyq-tag prelims">BPSC Prelims</span><span class="pyq-tag year">BPSC 2018</span></div>
+        <div class="pyq-q">After the Mahaparinirvana of Lord Buddha, the first Buddhist Council was held at —</div>
+        <div class="pyq-options">
+          <div class="pyq-opt" onclick="answerPYQ(this,'correct')">(a) Rajgriha</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(b) Gaya</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(c) Patliputra</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(d) Vaishali</div>
+        </div>
+        <div class="pyq-answer" id="a1">
+          <strong>✓ CORRECT: (a) Rajgriha (Rajgir)</strong>
+          <p>1st Buddhist Council (483 BC) was held at Rajgriha (modern Rajgir, Bihar) in the Saptaparni Caves. Patron: Ajatashatru; President: Mahakasyapa. Patliputra = 3rd Council; Vaishali = 2nd Council. This is frequently swapped — remember R-V-P-K!</p>
+        </div>
+        <button class="reveal-btn" onclick="revealPYQ('a1',this)">Show Explanation</button>
+      </div>
+
+      <div class="pyq-item">
+        <div class="pyq-meta"><span class="pyq-tag prelims">BPSC Prelims</span><span class="pyq-tag year">BPSC 2011</span></div>
+        <div class="pyq-q">Where was Mahaveer Swami born?</div>
+        <div class="pyq-options">
+          <div class="pyq-opt" onclick="answerPYQ(this,'correct')">(a) Kundagram (Vaishali)</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(b) Patliputra</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(c) Magadha</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(d) Rajgir</div>
+        </div>
+        <div class="pyq-answer" id="a2">
+          <strong>✓ CORRECT: (a) Kundagram (Vaishali)</strong>
+          <p>Mahavira was born in 540 BC at Kundagrama near Vaishali, Bihar. His mother Trishala was a Licchavi princess (sister of King Chetaka of Vaishali). He attained Kaivalya near the Rijupalika river and attained Nirvana at Pavapuri near Rajgir. So birth = Vaishali; Nirvana = Pavapuri (Bihar).</p>
+        </div>
+        <button class="reveal-btn" onclick="revealPYQ('a2',this)">Show Explanation</button>
+      </div>
+
+      <div class="pyq-item">
+        <div class="pyq-meta"><span class="pyq-tag prelims">BPSC Prelims</span><span class="pyq-tag year">BPSC 2018</span></div>
+        <div class="pyq-q">The salvation place of Mahavirji (Nirvana of Mahavira) is located at —</div>
+        <div class="pyq-options">
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(a) Maner</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(b) Rajgir</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'correct')">(c) Pavapuri</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(d) Jalan Fort</div>
+        </div>
+        <div class="pyq-answer" id="a3">
+          <strong>✓ CORRECT: (c) Pavapuri</strong>
+          <p>Mahavira attained Nirvana (Moksha) in 468 BC at Pavapuri near Rajgriha (Rajgir). Pavapuri is in Nalanda district, Bihar. The Jal Mandir temple is built here — a white marble temple in the middle of a lake, one of Jainism's most sacred pilgrimage sites. Don't confuse: Rajgir = where he gave first sermon (not Nirvana).</p>
+        </div>
+        <button class="reveal-btn" onclick="revealPYQ('a3',this)">Show Explanation</button>
+      </div>
+    </div>
+
+    <!-- QUICK REVISION -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">⚡</span><span class="section-label-text">Quick Revision Bullets</span><span class="section-sub">7 ONE-LINERS</span></div>
+      <div class="qr-grid">
+        <div class="qr-item"><span class="qr-num">01</span><span class="qr-text"><strong>4 Buddhist Councils:</strong> R-V-P-K = Rajgir (483 BC), Vaishali (383 BC), Patliputra (250 BC), Kashmir (78 AD). Only Kashmir is outside Bihar.</span></div>
+        <div class="qr-item"><span class="qr-num">02</span><span class="qr-text"><strong>3rd Buddhist Council</strong> (Patliputra, Ashoka, 250 BC) = most important; established Abhidhamma Pitaka; Buddhism spread globally.</span></div>
+        <div class="qr-item"><span class="qr-num">03</span><span class="qr-text"><strong>Mahavira's Bihar trail:</strong> Born Kundagrama (Vaishali) → First sermon Vipulgiri (Rajgir) → Nirvana Pavapuri (near Rajgir). All Bihar!</span></div>
+        <div class="qr-item"><span class="qr-num">04</span><span class="qr-text"><strong>Buddha's Bihar trail:</strong> Enlightenment Bodh Gaya → Teaching across Bihar → Last sermon Vaishali. Mahaparinirvana = Kushinagar (NOT Bihar).</span></div>
+        <div class="qr-item"><span class="qr-num">05</span><span class="qr-text"><strong>Tripitaka:</strong> Vinaya (discipline) + Sutta (sermons) + Abhidhamma (philosophy). Abhidhamma established at 3rd Council.</span></div>
+        <div class="qr-item"><span class="qr-num">06</span><span class="qr-text"><strong>Jain Councils:</strong> 1st at Patliputra (split into Svetambara/Digambara); 2nd at Vallabhi, Gujarat (12 Angas + 12 Upangas compiled).</span></div>
+        <div class="qr-item"><span class="qr-num">07</span><span class="qr-text"><strong>Sariputta</strong> (great Buddhist monk) was born near Rajgir, Bihar. <strong>Mahavira's mother Trishala</strong> was sister of Licchavi King Chetaka of Vaishali.</span></div>
+      </div>
+      <div class="memory-hook">
+        <span class="hook-icon">🧲</span>
+        <span class="hook-text">Memory Hook: "Bihar gave the world two of its greatest religions — Buddhism (Bodh Gaya) and Jainism (Pavapuri) — within 60 years of each other. The same soil, the same rivers, two different paths to liberation."</span>
+      </div>
+    </div>
+
+    <!-- CONCEPT CHECK -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">✅</span><span class="section-label-text">Concept Check</span><span class="section-sub">TEST YOURSELF</span></div>
+      <div class="check-mcq">
+        <div class="check-q">1. The Third Buddhist Council was convened at — [BPSC 2011]</div>
+        <div class="check-opts">
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','A')"><span class="opt-letter">A</span>Takshashila</button>
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','B')"><span class="opt-letter">B</span>Sarnath</button>
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','C')"><span class="opt-letter">C</span>Bodh Gaya</button>
+          <button class="check-opt" onclick="checkAnswer(this,'correct','D')"><span class="opt-letter">D</span>Patliputra</button>
+        </div>
+        <div class="check-feedback ok" id="fb1-ok">✓ Correct! 3rd Buddhist Council (250 BC) at Patliputra — patronised by Ashoka, presided by Moggaliputta Tissa. Established Abhidhamma Pitaka. Buddhism spread globally after this. Remember: R(ajgir)-V(aishali)-P(atliputra)-K(ashmir).</div>
+        <div class="check-feedback no" id="fb1-no">✗ Answer: (D) Patliputra. 3rd Council (250 BC) = Patliputra = Ashoka's patronage. Rajgir = 1st Council; Vaishali = 2nd Council; Kashmir = 4th Council.</div>
+      </div>
+
+      <div class="check-mcq">
+        <div class="check-q">2. Mahavira's mother Trishala was the sister of which king of Vaishali?</div>
+        <div class="check-opts">
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','A')"><span class="opt-letter">A</span>Bimbisara</button>
+          <button class="check-opt" onclick="checkAnswer(this,'correct','B')"><span class="opt-letter">B</span>Chetaka</button>
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','C')"><span class="opt-letter">C</span>Ajatashatru</button>
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','D')"><span class="opt-letter">D</span>Udayin</button>
+        </div>
+        <div class="check-feedback ok" id="fb2-ok">✓ Correct! Mahavira's mother Trishala was the sister of <strong>Chetaka</strong>, the Licchavi king of Vaishali. This connects Jainism directly to the Licchavi republic of Bihar. Chetaka also married his daughter Chellana to Bimbisara of Magadha — making Ajatashatru a nephew of Mahavira by this link!</div>
+        <div class="check-feedback no" id="fb2-no">✗ Answer: (B) Chetaka. Chetaka was the Licchavi leader of Vaishali, and his sister Trishala married Siddhartha (father of Mahavira). Chetaka's daughter Chellana married Bimbisara — so Ajatashatru was his grandson-in-law.</div>
+      </div>
+
+      <div class="mains-box">
+        <div class="mains-meta"><span class="pyq-tag mains">MAINS GS-I</span><span class="pyq-tag year">150 words</span></div>
+        <div class="mains-q">Bihar is called the birthplace of Buddhism and Jainism. Discuss the contribution of Bihar to the rise and spread of these two religions, citing specific sites, events, and personalities.</div>
+        <button class="reveal-btn" style="margin-bottom:12px;" onclick="revealMains(this)">▼ Show Model Answer</button>
+        <div class="mains-answer" id="mains1">
+          <div class="answer-section"><h5>Introduction</h5><p>The 6th century BC Bihar witnessed the simultaneous emergence of Buddhism and Jainism — two philosophical revolutions that have shaped Asian civilization for 2,500 years.</p></div>
+          <div class="answer-section"><h5>Buddhism — Bihar's Role</h5><ul><li><strong>Bodh Gaya:</strong> Siddhartha attained enlightenment (528 BC) under the Bodhi tree — the sacred centre of Buddhism globally</li><li><strong>Rajgir:</strong> Buddha taught here; 1st Buddhist Council (483 BC) held at Saptaparni Caves</li><li><strong>Vaishali:</strong> Buddha delivered his last sermon; 2nd Buddhist Council (383 BC)</li><li><strong>Nalanda:</strong> Birthplace of Sariputta, one of Buddha's greatest disciples</li><li><strong>Patliputra:</strong> 3rd Council under Ashoka (250 BC) led to global spread of Buddhism</li></ul></div>
+          <div class="answer-section"><h5>Jainism — Bihar's Role</h5><ul><li><strong>Kundagrama (Vaishali):</strong> Birthplace of Mahavira (540 BC), the 24th and final Tirthankar</li><li><strong>Rajgir (Vipulgiri):</strong> Mahavira's first sermon; first disciple Jamali</li><li><strong>Pavapuri:</strong> Mahavira's Nirvana (468 BC) — one of Jainism's holiest sites</li><li><strong>Patliputra:</strong> 1st Jain Council (3rd C BC) where Jainism split into Svetambara and Digambara sects</li></ul></div>
+          <div class="answer-section"><h5>Conclusion</h5><p>Bihar's soil was uniquely fertile for religious revolution — questioning Brahmanical orthodoxy, embracing non-violence, and developing democratic philosophies. The state's rivers, forests, and cities provided the perfect backdrop for two of humanity's most enduring spiritual traditions.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<button class="print-btn" onclick="window.print()">🖨</button>
+<script>
+const KEY='bihar_hist_v1';
+let visited=new Set(JSON.parse(localStorage.getItem(KEY)||'[]'));
+visited.add('modules/m04.html');
+localStorage.setItem(KEY,JSON.stringify([...visited]));
+document.querySelectorAll('.sidebar-item').forEach(i=>{const h=i.getAttribute('href');if(h&&visited.has('modules/'+h))i.classList.add('done');});
+function answerPYQ(el,t){const p=el.closest('.pyq-item');p.querySelectorAll('.pyq-opt').forEach(o=>{o.onclick=null;o.style.cursor='default';});el.classList.add(t);}
+function revealPYQ(id,btn){document.getElementById(id).classList.toggle('show');btn.textContent=btn.textContent.includes('Show')?'Hide Explanation':'Show Explanation';}
+function revealMains(btn){document.getElementById('mains1').classList.toggle('show');btn.textContent=btn.textContent.includes('▼')?'▲ Hide Model Answer':'▼ Show Model Answer';}
+function checkAnswer(el,t,l){const p=el.closest('.check-mcq');p.querySelectorAll('.check-opt').forEach(o=>{o.onclick=null;o.style.cursor='default';});el.classList.add(t);const idx=Array.from(document.querySelectorAll('.check-mcq')).indexOf(p)+1;const ok=document.getElementById('fb'+idx+'-ok'),no=document.getElementById('fb'+idx+'-no');if(t==='correct'&&ok)ok.classList.add('show');if(t==='wrong'&&no)no.classList.add('show');}
+</script>
+</body>
+</html>

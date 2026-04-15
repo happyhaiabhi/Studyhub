@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M11 — Khilji, Tughlaq & Noohani | Bihar History</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1a1a2e;--ink2:#2d2d44;--paper:#f5f2eb;--paper2:#ede9df;--gold:#c9973a;--gold2:#e8b45a;--teal:#1e7a6e;--teal2:#2aa195;--coral:#c2522b;--coral2:#e06840;--muted:#7a7465;--border:rgba(26,26,46,0.11);}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);display:flex;min-height:100vh;}
+.sidebar{width:260px;flex-shrink:0;background:var(--ink);display:flex;flex-direction:column;position:sticky;top:0;height:100vh;overflow-y:auto;}
+.sidebar-logo{padding:24px 20px 16px;border-bottom:1px solid rgba(255,255,255,0.07);}
+.sidebar-logo a{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:var(--teal2);text-decoration:none;line-height:1.3;display:block;}
+.sidebar-logo span{display:block;font-size:10px;color:rgba(245,242,235,0.35);letter-spacing:1px;margin-top:3px;font-family:'DM Mono',monospace;}
+.sidebar-part{padding:14px 20px 6px;font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:1.4px;text-transform:uppercase;color:rgba(245,242,235,0.28);}
+.sidebar-item{display:flex;align-items:center;gap:10px;padding:9px 20px;text-decoration:none;font-size:12px;color:rgba(245,242,235,0.55);transition:background 0.15s,color 0.15s;border-left:2px solid transparent;}
+.sidebar-item:hover{background:rgba(255,255,255,0.05);color:rgba(245,242,235,0.9);}
+.sidebar-item.active{background:rgba(30,122,110,0.15);color:var(--teal2);border-left-color:var(--teal);}
+.sidebar-item.done .s-dot{background:var(--teal);}
+.s-num{font-family:'DM Mono',monospace;font-size:9.5px;color:rgba(245,242,235,0.28);width:28px;flex-shrink:0;}
+.s-dot{width:6px;height:6px;border-radius:50%;border:1.5px solid rgba(255,255,255,0.2);flex-shrink:0;}
+.sidebar-item.active .s-dot{background:var(--teal);border-color:var(--teal);}
+.main{flex:1;min-width:0;display:flex;flex-direction:column;}
+.topbar{background:var(--ink2);padding:12px 48px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10;border-bottom:1px solid rgba(255,255,255,0.05);}
+.topbar-left{display:flex;align-items:center;gap:14px;}
+.era-pill{font-size:10px;padding:3px 10px;border-radius:2px;background:rgba(30,122,110,0.2);color:var(--teal2);font-family:'DM Mono',monospace;letter-spacing:0.8px;}
+.topbar-title{font-size:13px;color:rgba(245,242,235,0.7);}
+.topbar-nav{display:flex;gap:8px;}
+.nav-btn{padding:7px 14px;border-radius:3px;font-size:12px;font-weight:500;text-decoration:none;border:1px solid rgba(255,255,255,0.12);color:rgba(245,242,235,0.6);transition:all 0.18s;cursor:pointer;background:none;}
+.nav-btn:hover{border-color:var(--teal);color:var(--teal2);}
+.nav-btn.primary{background:var(--teal);color:#fff;border-color:var(--teal);}
+.content{flex:1;padding:48px 52px 80px;max-width:920px;}
+.mod-header{margin-bottom:40px;}
+.mod-badge{display:inline-flex;align-items:center;gap:8px;background:var(--teal);color:#fff;font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:4px 12px;border-radius:2px;margin-bottom:18px;}
+.mod-header h1{font-family:'Playfair Display',serif;font-size:clamp(26px,3.5vw,40px);font-weight:900;line-height:1.15;letter-spacing:-0.5px;margin-bottom:14px;}
+.mod-header h1 em{font-style:italic;color:var(--teal);}
+.mod-header p{font-size:14.5px;color:var(--muted);line-height:1.75;max-width:640px;}
+.mod-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px;padding-top:18px;border-top:1px solid var(--border);}
+.meta-tag{font-size:10.5px;padding:3px 9px;border-radius:2px;font-weight:500;}
+.meta-tag.b{background:#fdf5e6;color:var(--gold);}
+.meta-tag.m{background:#ebf5f3;color:var(--teal);}
+.meta-tag.s{background:#fff0eb;color:var(--coral);}
+.section{margin-bottom:44px;}
+.section-head{display:flex;align-items:center;gap:12px;margin-bottom:20px;padding-bottom:12px;border-bottom:2px solid var(--teal);}
+.section-icon{font-size:20px;}
+.section-label-text{font-family:'Playfair Display',serif;font-size:19px;font-weight:700;}
+.section-sub{font-size:11px;color:var(--muted);font-family:'DM Mono',monospace;letter-spacing:0.8px;margin-left:auto;}
+/* Story */
+.story-box{background:var(--ink);color:var(--paper);border-radius:5px;padding:28px 32px;position:relative;overflow:hidden;}
+.story-box::before{content:'';position:absolute;top:-40px;right:-40px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(30,122,110,0.2) 0%,transparent 70%);}
+.story-box p{font-size:14.5px;line-height:1.85;font-weight:300;position:relative;}
+.story-box p+p{margin-top:12px;}
+.story-box strong{color:var(--teal2);}
+.story-highlight{display:inline-block;margin-top:18px;padding:10px 16px;background:rgba(30,122,110,0.18);border-left:3px solid var(--teal);border-radius:0 3px 3px 0;font-size:13px;font-style:italic;color:var(--teal2);}
+/* Dynasty blocks */
+.dynasty-block{background:#fff;border:1px solid var(--border);border-radius:5px;margin-bottom:20px;overflow:hidden;}
+.dynasty-header{background:var(--ink);color:var(--paper);padding:14px 22px;display:flex;align-items:center;justify-content:space-between;}
+.dynasty-header h3{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;}
+.dynasty-header .dh-period{font-family:'DM Mono',monospace;font-size:11px;color:var(--teal2);}
+.dynasty-body{padding:18px 22px;}
+.fact-row{display:flex;gap:12px;padding:9px 0;border-bottom:1px solid var(--border);}
+.fact-row:last-child{border-bottom:none;}
+.fact-label{font-family:'DM Mono',monospace;font-size:10.5px;color:var(--teal);min-width:130px;flex-shrink:0;padding-top:2px;letter-spacing:0.4px;text-transform:uppercase;}
+.fact-val{font-size:13px;color:var(--ink2);line-height:1.6;}
+.fact-val strong{color:var(--ink);font-weight:600;}
+.fact-val em{color:var(--coral);font-style:normal;font-weight:600;}
+/* Timeline */
+.timeline{position:relative;padding-left:28px;}
+.timeline::before{content:'';position:absolute;left:8px;top:8px;bottom:8px;width:2px;background:linear-gradient(180deg,var(--teal),transparent);}
+.tl-item{position:relative;margin-bottom:20px;}
+.tl-dot{position:absolute;left:-24px;top:4px;width:12px;height:12px;border-radius:50%;background:var(--teal);border:2px solid var(--paper);box-shadow:0 0 0 2px var(--teal);}
+.tl-period{font-family:'DM Mono',monospace;font-size:10.5px;color:var(--teal);margin-bottom:4px;}
+.tl-title{font-size:14px;font-weight:600;margin-bottom:4px;color:var(--ink);}
+.tl-body{font-size:12.5px;color:var(--muted);line-height:1.6;}
+.tl-badge{display:inline-block;font-size:10px;padding:1.5px 7px;border-radius:2px;background:var(--paper2);color:var(--ink2);margin-left:6px;font-weight:500;}
+.tl-badge.trap{background:#fff0eb;color:var(--coral);}
+/* Table */
+.comp-table{width:100%;border-collapse:collapse;font-size:12.5px;}
+.comp-table th{background:var(--ink);color:var(--paper);padding:11px 14px;text-align:left;font-weight:500;font-size:12px;}
+.comp-table th:first-child{border-radius:4px 0 0 0;}
+.comp-table th:last-child{border-radius:0 4px 0 0;}
+.comp-table td{padding:9px 14px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.5;}
+.comp-table tr:last-child td{border-bottom:none;}
+.comp-table tr:nth-child(even) td{background:var(--paper2);}
+.comp-table td:first-child{font-weight:600;color:var(--ink2);}
+.comp-table td.accent{color:var(--teal);font-weight:500;}
+.comp-table td.trap{color:var(--coral);font-size:11.5px;font-style:italic;}
+/* Mnemonic */
+.mnemonic-box{background:linear-gradient(135deg,var(--ink),var(--ink2));border-radius:5px;padding:28px 32px;color:var(--paper);margin-bottom:16px;}
+.m-label{font-size:10px;font-family:'DM Mono',monospace;letter-spacing:1.5px;color:var(--teal2);text-transform:uppercase;margin-bottom:14px;}
+.mnemonic-word{font-family:'Playfair Display',serif;font-size:clamp(20px,3vw,32px);font-weight:900;color:var(--teal2);letter-spacing:3px;margin-bottom:18px;}
+.mnemonic-rows{display:flex;flex-direction:column;gap:10px;}
+.m-row{display:flex;gap:14px;}
+.m-letter{font-family:'DM Mono',monospace;font-size:18px;font-weight:500;color:var(--teal2);width:28px;flex-shrink:0;}
+.m-text{font-size:13.5px;line-height:1.5;color:var(--paper);}
+.m-text strong{color:var(--teal2);}
+.m-tip{margin-top:18px;padding:12px 16px;background:rgba(30,122,110,0.15);border-radius:3px;font-size:12.5px;font-style:italic;color:rgba(245,242,235,0.7);}
+/* PYQ */
+.pyq-item{background:#fff;border:1px solid var(--border);border-radius:4px;padding:22px;margin-bottom:14px;}
+.pyq-meta{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap;}
+.pyq-tag{font-size:10px;padding:2px 8px;border-radius:2px;font-weight:500;font-family:'DM Mono',monospace;}
+.pyq-tag.prelims{background:#fdf5e6;color:var(--gold);}
+.pyq-tag.year{background:var(--paper2);color:var(--muted);}
+.pyq-q{font-size:14px;font-weight:500;line-height:1.6;margin-bottom:14px;}
+.pyq-options{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:14px;}
+.pyq-opt{padding:8px 12px;border-radius:3px;font-size:12.5px;border:1px solid var(--border);background:var(--paper);cursor:pointer;transition:all 0.18s;}
+.pyq-opt:hover{border-color:var(--teal);background:#f0faf8;}
+.pyq-opt.correct{background:#e8f5e9;border-color:#4caf50;color:#2e7d32;font-weight:500;}
+.pyq-opt.wrong{background:#ffebee;border-color:#ef9a9a;color:#c62828;}
+.pyq-answer{display:none;padding:14px 16px;background:#e8f5f3;border-radius:3px;border-left:3px solid var(--teal);}
+.pyq-answer.show{display:block;}
+.pyq-answer strong{color:var(--teal);font-size:12px;}
+.pyq-answer p{font-size:13px;color:var(--ink2);margin-top:5px;line-height:1.6;}
+.reveal-btn{font-size:11.5px;padding:6px 14px;border-radius:3px;background:none;border:1px solid var(--border);cursor:pointer;color:var(--muted);transition:all 0.18s;}
+.reveal-btn:hover{border-color:var(--teal);color:var(--teal);}
+/* Mains */
+.mains-box{background:#fff;border:1px solid var(--border);border-radius:4px;padding:22px;}
+.mains-q{font-size:14.5px;font-weight:600;line-height:1.6;margin-bottom:14px;}
+.mains-meta{display:flex;gap:8px;margin-bottom:14px;}
+.mains-tag{font-size:10px;padding:2px 8px;border-radius:2px;font-weight:500;font-family:'DM Mono',monospace;background:#ebf5f3;color:var(--teal);}
+.mains-answer{display:none;border-top:1px solid var(--border);padding-top:16px;}
+.mains-answer.show{display:block;}
+.ans-sec{margin-bottom:14px;}
+.ans-sec h5{font-size:11px;font-family:'DM Mono',monospace;letter-spacing:1px;color:var(--teal);text-transform:uppercase;margin-bottom:6px;}
+.ans-sec p,.ans-sec li{font-size:13px;line-height:1.7;color:var(--ink2);}
+.ans-sec ul{padding-left:18px;}
+.ans-sec li{margin-bottom:4px;}
+/* QR */
+.qr-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.qr-item{display:flex;gap:10px;background:#fff;border:1px solid var(--border);border-radius:4px;padding:14px 16px;}
+.qr-num{font-family:'DM Mono',monospace;font-size:10px;color:var(--teal);font-weight:500;flex-shrink:0;margin-top:2px;}
+.qr-text{font-size:13px;line-height:1.6;color:var(--ink2);}
+.qr-text strong{color:var(--teal);}
+.memory-hook{background:var(--teal);border-radius:4px;padding:16px 22px;display:flex;align-items:center;gap:16px;margin-top:32px;}
+.hook-icon{font-size:22px;}
+.hook-text{font-size:14px;font-weight:600;color:#fff;line-height:1.5;}
+/* Concept check */
+.check-mcq{background:#fff;border:1px solid var(--border);border-radius:4px;padding:20px;margin-bottom:12px;}
+.check-q{font-size:14px;font-weight:500;margin-bottom:14px;line-height:1.6;}
+.check-opts{display:flex;flex-direction:column;gap:7px;}
+.check-opt{padding:10px 14px;border-radius:3px;font-size:13px;border:1px solid var(--border);background:var(--paper);cursor:pointer;transition:all 0.18s;text-align:left;display:flex;align-items:center;gap:10px;}
+.check-opt:hover{border-color:var(--teal);background:#f0faf8;}
+.check-opt.correct{background:#e8f5e9;border-color:#4caf50;color:#2e7d32;}
+.check-opt.wrong{background:#ffebee;border-color:#ef9a9a;color:#c62828;}
+.opt-letter{width:22px;height:22px;border-radius:50%;background:var(--paper2);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;flex-shrink:0;}
+.check-opt.correct .opt-letter{background:#4caf50;color:#fff;}
+.check-opt.wrong   .opt-letter{background:#ef9a9a;color:#fff;}
+.check-feedback{margin-top:10px;padding:10px 14px;border-radius:3px;font-size:12.5px;display:none;line-height:1.6;}
+.check-feedback.show{display:block;}
+.check-feedback.ok{background:#e8f5e9;color:#2e7d32;}
+.check-feedback.no{background:#ffebee;color:#c62828;}
+.trap-alert{background:#fff0eb;border:1px solid rgba(194,82,43,0.3);border-radius:4px;padding:14px 18px;margin-bottom:16px;display:flex;gap:10px;}
+.trap-alert p{font-size:13px;color:var(--coral);line-height:1.6;}
+.trap-alert strong{font-weight:600;}
+.analogy-box{background:linear-gradient(135deg,#f0faf8,#fff);border:1px solid rgba(30,122,110,0.2);border-radius:4px;padding:20px;margin-bottom:20px;}
+.analogy-label{font-size:10px;font-family:'DM Mono',monospace;letter-spacing:1.2px;color:var(--teal);text-transform:uppercase;margin-bottom:8px;}
+.analogy-box p{font-size:13.5px;line-height:1.7;color:var(--ink2);}
+.sidebar::-webkit-scrollbar{width:4px;}
+.sidebar::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.1);border-radius:2px;}
+.print-btn{position:fixed;bottom:24px;right:24px;background:var(--ink);color:var(--teal2);border:none;border-radius:50%;width:44px;height:44px;font-size:16px;cursor:pointer;box-shadow:0 4px 16px rgba(26,26,46,0.25);transition:transform 0.18s;display:flex;align-items:center;justify-content:center;}
+.print-btn:hover{transform:scale(1.1);}
+@media print{.sidebar,.topbar,.print-btn{display:none;}.content{padding:20px;}}
+@media(max-width:768px){.sidebar{display:none;}.content{padding:24px 20px 60px;}.topbar{padding:10px 20px;}.qr-grid,.pyq-options{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<aside class="sidebar">
+  <div class="sidebar-logo"><a href="../index.html">Bihar History<br>Study System</a><span>BPSC · UPSC · State PCS</span></div>
+  <div class="sidebar-part">Part I — Ancient Bihar</div>
+  <a class="sidebar-item done" href="m01.html"><span class="s-num">01</span><span class="s-dot"></span>Sources & Prehistoric Bihar</a>
+  <a class="sidebar-item done" href="m02.html"><span class="s-num">02</span><span class="s-dot"></span>Mahajanapadas in Bihar</a>
+  <a class="sidebar-item done" href="m03.html"><span class="s-num">03</span><span class="s-dot"></span>Pre-Mauryan Dynasties</a>
+  <a class="sidebar-item done" href="m04.html"><span class="s-num">04</span><span class="s-dot"></span>Buddhism & Jainism</a>
+  <a class="sidebar-item done" href="m05.html"><span class="s-num">05</span><span class="s-dot"></span>Mauryan Empire</a>
+  <a class="sidebar-item done" href="m06.html"><span class="s-num">06</span><span class="s-dot"></span>Ashoka — Kalinga to Dhamma</a>
+  <a class="sidebar-item done" href="m07.html"><span class="s-num">07</span><span class="s-dot"></span>Post-Mauryan to Gupta Era</a>
+  <div class="sidebar-part">Part II — Medieval Bihar</div>
+  <a class="sidebar-item done" href="m08.html"><span class="s-num">08</span><span class="s-dot"></span>Pala Dynasty</a>
+  <a class="sidebar-item done" href="m09.html"><span class="s-num">09</span><span class="s-dot"></span>Sena & Karnata Dynasties</a>
+  <a class="sidebar-item done" href="m10.html"><span class="s-num">10</span><span class="s-dot"></span>Turkish Invasion</a>
+  <a class="sidebar-item active" href="m11.html"><span class="s-num">11</span><span class="s-dot"></span>Khilji, Tughlaq & Noohani</a>
+  <a class="sidebar-item" href="m12.html"><span class="s-num">12</span><span class="s-dot"></span>Sher Shah Suri</a>
+  <a class="sidebar-item" href="m13.html"><span class="s-num">13</span><span class="s-dot"></span>Mughal Rule in Bihar</a>
+  <a class="sidebar-item" href="m14.html"><span class="s-num">14</span><span class="s-dot"></span>Sufism, Sikhism & Tribal States</a>
+  <div class="sidebar-part">Part III — Modern Bihar</div>
+  <a class="sidebar-item" href="m15.html"><span class="s-num">15</span><span class="s-dot"></span>European Entry</a>
+  <a class="sidebar-item" href="m16.html"><span class="s-num">16</span><span class="s-dot"></span>Battle of Buxar</a>
+  <a class="sidebar-item" href="m17.html"><span class="s-num">17</span><span class="s-dot"></span>Revolt of 1857</a>
+  <a class="sidebar-item" href="m18.html"><span class="s-num">18</span><span class="s-dot"></span>Tribal Revolts</a>
+  <a class="sidebar-item" href="m19.html"><span class="s-num">19</span><span class="s-dot"></span>Freedom Movements</a>
+  <a class="sidebar-item" href="m20.html"><span class="s-num">20</span><span class="s-dot"></span>Eminent Freedom Fighters</a>
+  <a class="sidebar-item" href="m21.html"><span class="s-num">21</span><span class="s-dot"></span>Formation of Modern Bihar</a>
+</aside>
+
+<div class="main">
+  <div class="topbar">
+    <div class="topbar-left"><span class="era-pill">MEDIEVAL BIHAR</span><span class="topbar-title">Module 11 of 21</span></div>
+    <div class="topbar-nav">
+      <a href="m10.html" class="nav-btn">← Prev</a>
+      <a href="../index.html" class="nav-btn">Index</a>
+      <a href="m12.html" class="nav-btn primary">Next: Sher Shah →</a>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <div class="mod-header">
+      <div class="mod-badge"><span>MODULE 11</span><span>·</span><span>Medieval Bihar</span></div>
+      <h1>Khilji, Tughlaq &<br><em>Noohani Dynasties</em></h1>
+      <p>Three dynasties across 230 years — Bihar passed from Khilji governors to Tughlaq control to Afghan independence under the Noohanis. This module covers Bihar's transition through the Delhi Sultanate, the naming of Bihar as a province, and the rise of the Noohanis whose fall set the stage for Sher Shah Suri.</p>
+      <div class="mod-meta">
+        <span class="meta-tag b">BPSC Prelims</span>
+        <span class="meta-tag m">Mains GS-I</span>
+        <span class="meta-tag s">⚠ Trap: "Bihar" named as province during Tughlaq era · Darbhanga = Tughlaqpur · Noohani dynasty = BPSC Special</span>
+      </div>
+    </div>
+
+    <!-- ① STORY HOOK -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">🎭</span><span class="section-label-text">Story Hook</span><span class="section-sub">START HERE</span></div>
+      <div class="story-box">
+        <p>The year is <strong>1324 AD</strong>. Sultan Ghiyasuddin Tughlaq's army has just routed the last Karnata king of Mithila. As the sultan rides through the newly conquered lands of Tirhut, his scribes are busy — minting new coins, inscribing mosque walls, renaming everything. The ancient town of Darbhanga gets a new identity: <strong>"Tughlaqpur."</strong></p>
+        <p>A 1326 AD Arabic inscription on the wall of Darbhanga's Jama Masjid reads: <em>"Iqlim Tughluqpur urf Tirhut"</em> — the province of Tughlaqpur, also known as Tirhut. This is the moment Bihar formally became a named, administered Sultanate province.</p>
+        <p>Two centuries later, it would be a young boy playing in the lanes near <strong>Sasaram</strong> — the son of a horse-keeper — who would avenge every humiliation Bihar suffered. His name? <strong>Farid Khan</strong>. The world would call him Sher Shah Suri.</p>
+        <div class="story-highlight">💡 Bihar's name origin: "Bihar" province = named after town of Bihar Sharif = named after Buddhist Viharas = ultimately named after Sanskrit "Vihara" (monastery). A Buddhist word became a province's identity under Muslim rule — the perfect irony of history.</div>
+      </div>
+    </div>
+
+    <!-- ② CORE CONCEPT -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">🧠</span><span class="section-label-text">Core Concept — Three Dynasties in Bihar</span><span class="section-sub">WITH ANALOGY</span></div>
+      <div class="analogy-box">
+        <div class="analogy-label">🏛️ Modern Analogy</div>
+        <p>Think of Bihar during 1290–1526 AD as a <strong>contested frontier state in a weak federal system</strong>. Delhi (the centre) kept changing — Khilji, Tughlaq, Lodhi — each weakening further. Bihar's governors were like CMs who sometimes obeyed Delhi, sometimes ignored it. The Noohanis are like a Bihar CM who declared full independence when Delhi was too distracted by its own civil wars. Sher Shah (next module) is the one who finally ran away with the whole country.</p>
+      </div>
+
+      <!-- KHILJI -->
+      <div class="dynasty-block">
+        <div class="dynasty-header">
+          <h3>1. Khilji Dynasty in Bihar (1290–1320 AD)</h3>
+          <div class="dh-period">Limited control · S. Bihar only</div>
+        </div>
+        <div class="dynasty-body">
+          <div class="fact-row">
+            <span class="fact-label">Start</span>
+            <span class="fact-val">1290 AD — <strong>Jalaluddin Khalji</strong> became Sultan. Khalji dynasty begins in Delhi.</span>
+          </div>
+          <div class="fact-row">
+            <span class="fact-label">Alauddin</span>
+            <span class="fact-val">1296 AD — <strong>Alauddin Khalji</strong> ascended. Demanded <strong>half the crops (50%)</strong> on land after measurement as revenue. Sent Sheikh Mohammad Ismail to Darbhanga — <strong>Raja Sakra Singh of Karnata dynasty defeated him</strong>.</span>
+          </div>
+          <div class="fact-row">
+            <span class="fact-label">Control Level</span>
+            <span class="fact-val"><em>Limited</em> — Khalji coins found only at <strong>Bhojpur and Lakhisarai</strong>. North Bihar (Karnata/Tirhut rulers) still semi-independent. Bihar was a contested buffer zone.</span>
+          </div>
+          <div class="fact-row">
+            <span class="fact-label">Bengal Connection</span>
+            <span class="fact-val">1309–1321 AD — Sultan Shamsuddin Firozshah (Bengal) declared himself ruler; appointed son <strong>Hatim Khan</strong> as Governor of Bihar.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- TUGHLAQ -->
+      <div class="dynasty-block">
+        <div class="dynasty-header">
+          <h3>2. Tughlaq Dynasty in Bihar (1324–1398 AD)</h3>
+          <div class="dh-period">⭐ Most BPSC-tested era for Bihar</div>
+        </div>
+        <div class="dynasty-body">
+          <div class="fact-row">
+            <span class="fact-label">Ghiyasuddin</span>
+            <span class="fact-val">1324 AD — <strong>Ghiyasuddin Tughlaq</strong> invaded Bengal and Bihar. <strong>Defeated Harisimhadeva</strong> (last Karnata king of Mithila) — Karnata dynasty ended. Established mint at Tirhut → called <strong>"Tughlaqabad-urf-Tirhut"</strong> (Darbhanga). Tughlaq coins found from Tirhut.</span>
+          </div>
+          <div class="fact-row">
+            <span class="fact-label">Bihar Named ⚠</span>
+            <span class="fact-val"><em>"Bihar" got its official name as a province during the Tughlaq era</em> — <strong>NOT Slave or Khilji era</strong>. 1326 AD Arabic inscription on Jama Masjid wall, Darbhanga reads: <em>"Iqlim Tughluqpur urf Tirhut."</em> Relates to Muhammad bin Tughlaq. Bihar Sharif = capital of Bihar province.</span>
+          </div>
+          <div class="fact-row">
+            <span class="fact-label">Muh. bin Tughlaq</span>
+            <span class="fact-val">Son of Ghiyasuddin. Darbhanga = <strong>Tughlaqpur</strong> in his time. Fort and Jama Masjid built here. Sukunat inscription at Bihar Sharif confirms his control. <strong>Malik Baya (Ibrahim Baya)</strong> appointed — his tomb is at Bihar Sharif (Pir Pahari hill). Sufi Saint <strong>Sharfuddin Yahya Maneri</strong>'s writings illuminate this era.</span>
+          </div>
+          <div class="fact-row">
+            <span class="fact-label">Firoz Tughlaq</span>
+            <span class="fact-val"><strong>Established Bihar as a separate province</strong> detached from Bengal. Reinstated <strong>Kameshwar Thakur</strong> — founder of <strong>Oiniwar dynasty</strong> in Mithila. Oiniwar dynasty governed N. Bihar (Mithila) from 1353–1526 AD. Persian inscription at Bihar Sharif from his reign.</span>
+          </div>
+          <div class="fact-row">
+            <span class="fact-label">End of Tughlaq</span>
+            <span class="fact-val">1398–99 AD — <strong>Taimur's invasion of Delhi</strong> effectively ended Tughlaq power. Bihar passed to <strong>Sharqi (Jaunpur)</strong> rule. Sultan Ibrahim Shah Sharqi built mosque in Darbhanga.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- SHARQI + NOOHANI -->
+      <div class="dynasty-block">
+        <div class="dynasty-header">
+          <h3>3. Sharqi Rule + Noohani Dynasty (1394–1529 AD)</h3>
+          <div class="dh-period">⭐ BPSC Special — Noohani = Bihar's own Afghan dynasty</div>
+        </div>
+        <div class="dynasty-body">
+          <div class="fact-row">
+            <span class="fact-label">Sharqi Period</span>
+            <span class="fact-val">1394 AD — <strong>Malik Sarwar Khwaja Jahan</strong> sent to rule from Kanauj to Bihar. Sharqis of Jaunpur controlled Tirhut and South Bihar. Sultan Ibrahim Shah Sharqi built mosque in Darbhanga. Last Sharqi king fell to Sikandar Lodhi.</span>
+          </div>
+          <div class="fact-row">
+            <span class="fact-label">Dariya Khan</span>
+            <span class="fact-val"><strong>Dariya Khan Noohani</strong> — appointed administrator of Bihar by <strong>Sikandar Lodhi</strong> (after defeating Hussain Shah Sharqi). Administered Bihar till his death in 1523. Son <strong>Bahar Khan Noohani</strong> succeeded him.</span>
+          </div>
+          <div class="fact-row">
+            <span class="fact-label">Sultan Mohammad ⚠</span>
+            <span class="fact-val">Bahar Khan Noohani (1523 AD) <strong>declared independence</strong> and took title <strong>"Sultan Mohammad."</strong> Defeated Ibrahim Lodhi initially. Extended empire from Bihar to Kannauj. <strong>Very important for BPSC</strong> — "first PM of Bihar" Mohd. Yunus was named after this tradition.</span>
+          </div>
+          <div class="fact-row">
+            <span class="fact-label">Battle of Ghaghra</span>
+            <span class="fact-val">1529 AD — Sultan Mohammad defeated by <strong>Babur in Battle of Ghaghra (Gogra)</strong>. Accepted Babur's authority. After Sultan Mohammad's death, son <strong>Jalal Khan</strong> succeeded. <strong>Sher Shah Suri</strong> was appointed advisor/protector of Jalal Khan. After Noohanis fell → Sher Shah emerged as powerful Afghan ruler.</span>
+          </div>
+          <div class="fact-row">
+            <span class="fact-label">Significance</span>
+            <span class="fact-val">Noohani dynasty = last independent pre-Mughal Afghan power in Bihar. Their fall directly enabled Sher Shah Suri's rise. Tuzuk-i-Babari (Babur's memoir) gives account of fall of Noohanis.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ③ TIMELINE -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">⏳</span><span class="section-label-text">Timeline — 1290 to 1529 AD</span><span class="section-sub">CHRONOLOGICAL</span></div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-period">1290 AD</div>
+          <div class="tl-title">Khilji Dynasty Begins — Bihar's Limited Khilji Control</div>
+          <div class="tl-body">Alauddin Khalji's 50% crop revenue demand. Coins only at Bhojpur + Lakhisarai. North Bihar (Karnata rulers) still semi-independent, paying tribute.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-period">1324 AD</div>
+          <div class="tl-title">Ghiyasuddin Tughlaq Conquers Bihar — Karnata Era Ends</div>
+          <div class="tl-body">Defeats Harisimhadeva. Establishes Tughlaqpur (Darbhanga) mint. Bihar enters Tughlaq mainstream. Tughlaq coins found in Tirhut.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-period">1326 AD <span class="tl-badge trap">⚠ KEY BPSC FACT</span></div>
+          <div class="tl-title">Bihar Named as Province — Arabic Inscription, Darbhanga</div>
+          <div class="tl-body">Jama Mosque inscription: "Iqlim Tughluqpur urf Tirhut." Bihar becomes officially named province under Muhammad bin Tughlaq. Bihar Sharif = capital.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-period">~1353 AD</div>
+          <div class="tl-title">Firoz Tughlaq Separates Bihar from Bengal — Oiniwar in Mithila</div>
+          <div class="tl-body">Bihar becomes separate Sultanate province. Kameshwar Thakur (Oiniwar dynasty) reinstated in Mithila. Oiniwar rules N. Bihar till 1526 AD.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-period">1398–1399 AD</div>
+          <div class="tl-title">Taimur's Invasion Ends Tughlaq Era — Sharqi Takes Bihar</div>
+          <div class="tl-body">Taimur's Delhi invasion collapses Tughlaq power. Bihar under Sharqi (Jaunpur) control. Sharqis rule Bihar and Tirhut areas. Last Sharqi fell to Sikandar Lodhi.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-period">~1519 AD</div>
+          <div class="tl-title">Dariya Khan Noohani — Bihar's Afghan Administrator</div>
+          <div class="tl-body">Sikandar Lodhi appoints Dariya Khan Noohani. Noohani dynasty effectively begins. Zamindars of Tirhut and Saran assert independence.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-period">1523 AD</div>
+          <div class="tl-title">Bahar Khan Declares Independence as "Sultan Mohammad"</div>
+          <div class="tl-body">Noohani declares independence. Title: Sultan Mohammad. Extended empire Bihar → Kannauj. Briefly the most powerful Afghan ruler in east India.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-period">1529 AD</div>
+          <div class="tl-title">Babur Defeats Sultan Mohammad — Jalal Khan Succeeds — Sher Shah Rises</div>
+          <div class="tl-body">Battle of Ghaghra. Sultan Mohammad accepts Babur. After death → Jalal Khan → appoints Sher Shah Suri as advisor. Stage set for Sher Shah's total takeover.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ④ COMPARISON TABLE -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">📊</span><span class="section-label-text">Three Dynasties — Comparison Table</span><span class="section-sub">EXAM-READY</span></div>
+      <div class="trap-alert">
+        <span>⚠️</span>
+        <p><strong>Top BPSC Traps here:</strong> (1) Bihar named in <strong>Tughlaq</strong> era (NOT Slave/Khilji). (2) Darbhanga = Tughlaqpur under <strong>Muhammad bin Tughlaq</strong>. (3) Noohani dynasty is "very important" — BPSC asks: who appointed Dariya Khan? Answer = <strong>Sikandar Lodhi</strong> (NOT Ghiyasuddin Tughlaq). (4) Tuzuk-i-Babari = source for fall of Noohanis.</p>
+      </div>
+      <table class="comp-table">
+        <thead><tr><th>Feature</th><th>Khilji</th><th>Tughlaq</th><th>Noohani</th></tr></thead>
+        <tbody>
+          <tr><td>Period in Bihar</td><td class="accent">1290–1320 AD</td><td class="accent">1324–1398 AD</td><td class="accent">1519–1529 AD</td></tr>
+          <tr><td>Key Sultan</td><td>Alauddin Khalji</td><td>Ghiyasuddin + Muhammad bin Tughlaq + Firoz</td><td>Dariya Khan → Sultan Mohammad (Bahar Khan)</td></tr>
+          <tr><td>Control of Bihar</td><td>Limited (coins only Bhojpur + Lakhisarai)</td><td class="accent">Strong — conquered Bihar, gave it a name</td><td>Independent Afghan rule</td></tr>
+          <tr><td>N. Bihar (Mithila)</td><td>Karnata rulers (semi-independent)</td><td class="accent">Karnata ended 1324 → Oiniwar from 1353</td><td>Oiniwar dynasty continues</td></tr>
+          <tr><td>Bihar Capital</td><td>Bihar Sharif</td><td>Bihar Sharif; Darbhanga = Tughlaqpur</td><td>Bihar Sharif area</td></tr>
+          <tr><td>Key Achievement</td><td>50% crop revenue reform</td><td class="accent">Bihar named as province; separated from Bengal</td><td class="accent">First independent Afghan ruler in Bihar</td></tr>
+          <tr><td>How Ended</td><td>Tughlaq invasion 1324</td><td>Taimur invasion 1398–99</td><td>Babur defeated Sultan Mohammad, Battle of Ghaghra 1529</td></tr>
+          <tr><td>Key Source</td><td>Lakhisarai coins</td><td>1326 AD Darbhanga mosque inscription; Sukunat inscription Bihar Sharif</td><td>Tuzuk-i-Babari (Babur's memoir)</td></tr>
+          <tr><td>Bridge to Next</td><td>Tughlaq conquest follows</td><td>Firoz makes Bihar separate province → Sharqi takes over</td><td class="accent">Sher Shah Suri appointed protector of Jalal Khan → rises to power</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ⑥ MNEMONIC -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">🧩</span><span class="section-label-text">Mnemonic</span><span class="section-sub">MEMORY TRICKS</span></div>
+      <div class="mnemonic-box">
+        <div class="m-label">🧩 Mnemonic — Sultanate Bihar in Order: S·K·T·Sh·N</div>
+        <div class="mnemonic-word">S · K · T · Sh · N</div>
+        <div class="mnemonic-rows">
+          <div class="m-row"><span class="m-letter">S</span><span class="m-text"><strong>Slave Dynasty</strong> — Bakhtiyar Khalji conquers (1197); Iltutmish annexes (1225); Bihar Sharif capital</span></div>
+          <div class="m-row"><span class="m-letter">K</span><span class="m-text"><strong>Khilji Dynasty</strong> — Alauddin; limited control; coins only Bhojpur + Lakhisarai; 1290–1320</span></div>
+          <div class="m-row"><span class="m-letter">T</span><span class="m-text"><strong>Tughlaq Dynasty</strong> — Ghiyasuddin conquers Bihar (1324); Bihar named as province; Darbhanga = Tughlaqpur; 1324–1398</span></div>
+          <div class="m-row"><span class="m-letter">Sh</span><span class="m-text"><strong>Sharqi (Jaunpur)</strong> — After Taimur; controlled Tirhut + S. Bihar; 1394–~1510s</span></div>
+          <div class="m-row"><span class="m-letter">N</span><span class="m-text"><strong>Noohani Dynasty</strong> — Dariya Khan (Sikandar Lodhi appointee); Sultan Mohammad; defeated by Babur 1529; Sher Shah rises</span></div>
+        </div>
+        <div class="m-tip">💡 "Some Kings Take Shelter Now" = Slave, Khilji, Tughlaq, Sharqi, Noohani — Bihar's 5 pre-Mughal Sultanate rulers in order! Then Sher Shah and Mughals follow.</div>
+      </div>
+      <div class="mnemonic-box">
+        <div class="m-label">🧩 Mnemonic — Noohani Dynasty Key Facts</div>
+        <div class="mnemonic-rows">
+          <div class="m-row"><span class="m-letter">D</span><span class="m-text"><strong>Dariya Khan Noohani</strong> — appointed by Sikandar Lodhi; Bihar administrator till 1523</span></div>
+          <div class="m-row"><span class="m-letter">B</span><span class="m-text"><strong>Bahar Khan</strong> (Sultan Mohammad) — declared independence 1523; title Sultan Mohammad; Bihar to Kannauj</span></div>
+          <div class="m-row"><span class="m-letter">G</span><span class="m-text"><strong>Ghaghra</strong> — Battle of Ghaghra 1529 — Babur defeats Sultan Mohammad</span></div>
+          <div class="m-row"><span class="m-letter">J</span><span class="m-text"><strong>Jalal Khan</strong> — last Noohani; appointed Sher Shah as advisor/protector → Sher Shah's springboard</span></div>
+        </div>
+        <div class="m-tip">💡 "Daring Bahar Goes to Jail" = Dariya Khan, Bahar Khan (Sultan Mohammad), Ghaghra battle, Jalal Khan — the 4-step Noohani story. "Goes to Jail" = defeated by Babur and Sher Shah!</div>
+      </div>
+    </div>
+
+    <!-- ⑦ PYQ -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">📝</span><span class="section-label-text">PYQ Practice</span><span class="section-sub">SOLVED</span></div>
+      <div class="pyq-item">
+        <div class="pyq-meta"><span class="pyq-tag prelims">BPSC Prelims</span><span class="pyq-tag year">MCQ Bank</span></div>
+        <div class="pyq-q">Bihar name was given to this place in the reign of which kingdom?</div>
+        <div class="pyq-options">
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(a) Slave</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(b) Khilji</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'correct')">(c) Tughlaq</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(d) Noohani</div>
+        </div>
+        <div class="pyq-answer" id="ans-pyq1">
+          <strong>✓ CORRECT: (c) Tughlaq</strong>
+          <p>Bihar got its official name as a province during the <strong>Tughlaq dynasty</strong> era. A 1326 AD Arabic inscription on the Jama Mosque wall in Darbhanga reads: "Iqlim Tughluqpur urf Tirhut" — confirming Tughlaq control and provincial naming. Under Muhammad bin Tughlaq, Bihar Sharif served as the capital of the Bihar province. Before this, the region was known by various geographic names but not formally called "Bihar" as a province.</p>
+        </div>
+        <button class="reveal-btn" onclick="revealPYQ('ans-pyq1',this)">Show Explanation</button>
+      </div>
+
+      <div class="pyq-item">
+        <div class="pyq-meta"><span class="pyq-tag prelims">BPSC Prelims</span><span class="pyq-tag year">Arihant MCQ</span></div>
+        <div class="pyq-q">Ghiyasuddin Tughlaq invaded Bengal and Bihar in:</div>
+        <div class="pyq-options">
+          <div class="pyq-opt" onclick="answerPYQ(this,'correct')">(a) 1324 AD</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(b) 1320 AD</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(c) 1319 AD</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(d) 1318 AD</div>
+        </div>
+        <div class="pyq-answer" id="ans-pyq2">
+          <strong>✓ CORRECT: (a) 1324 AD</strong>
+          <p>Ghiyasuddin Tughlaq invaded Bengal and Bihar in <strong>1324 AD</strong>. He defeated the Lakhnauti king Nasiruddin who surrendered, and defeated Harisimhadeva of the Karnata dynasty in Mithila. After this conquest, Ghiyasuddin established the Tughlaq presence in Bihar and created the mint town "Tughlaqabad-urf-Tirhut" (Darbhanga).</p>
+        </div>
+        <button class="reveal-btn" onclick="revealPYQ('ans-pyq2',this)">Show Explanation</button>
+      </div>
+
+      <div class="pyq-item">
+        <div class="pyq-meta"><span class="pyq-tag prelims">BPSC Prelims</span><span class="pyq-tag year">67th BPSC / MCQ Bank</span></div>
+        <div class="pyq-q">Who was a very important dynasty in the history of Bihar (pre-Mughal Afghan dynasty)?</div>
+        <div class="pyq-options">
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(a) Tughlaq dynasty</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'correct')">(b) Noohani dynasty</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(c) Khilji dynasty</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(d) None of the above</div>
+        </div>
+        <div class="pyq-answer" id="ans-pyq3">
+          <strong>✓ CORRECT: (b) Noohani dynasty</strong>
+          <p>The <strong>Noohani dynasty</strong> is specifically called "a very important dynasty in the history of Bihar" in sources (Arihant Bihar History). Founded effectively by Dariya Khan Noohani (appointed by Sikandar Lodhi), it became independent under Bahar Khan (Sultan Mohammad) in 1523 AD, extending from Bihar to Kannauj. Its fall directly created the power vacuum that allowed Sher Shah Suri to rise. The Tuzuk-i-Babari (Babur's memoir) provides the key account of this dynasty's end.</p>
+        </div>
+        <button class="reveal-btn" onclick="revealPYQ('ans-pyq3',this)">Show Explanation</button>
+      </div>
+    </div>
+
+    <!-- ⑧ QUICK REVISION -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">⚡</span><span class="section-label-text">Quick Revision Bullets</span><span class="section-sub">7 ONE-LINERS</span></div>
+      <div class="qr-grid">
+        <div class="qr-item"><span class="qr-num">01</span><span class="qr-text"><strong>Alauddin Khalji's Bihar</strong> = limited control; demanded 50% crop revenue; coins only at Bhojpur + Lakhisarai; Karnata N. Bihar still semi-independent.</span></div>
+        <div class="qr-item"><span class="qr-num">02</span><span class="qr-text"><strong>Bihar named as province</strong> during <strong>Tughlaq era</strong> (NOT Slave/Khilji). 1326 AD Darbhanga Jama Masjid inscription confirms: "Iqlim Tughluqpur urf Tirhut."</span></div>
+        <div class="qr-item"><span class="qr-num">03</span><span class="qr-text"><strong>Darbhanga = Tughlaqpur</strong> under Muhammad bin Tughlaq. Fort + Jama Masjid built here. Malik Baya (Ibrahim Baya) — governor; tomb at Bihar Sharif (Pir Pahari hill).</span></div>
+        <div class="qr-item"><span class="qr-num">04</span><span class="qr-text"><strong>Firoz Shah Tughlaq</strong> = separated Bihar from Bengal as independent province; reinstated <strong>Kameshwar Thakur</strong> (Oiniwar dynasty) in Mithila. Oiniwar ruled N. Bihar 1353–1526 AD.</span></div>
+        <div class="qr-item"><span class="qr-num">05</span><span class="qr-text"><strong>Sharqi (Jaunpur)</strong> controlled Bihar after Taimur destroyed Tughlaq power (1398). Last Sharqi = Hussain Shah Sharqi defeated by Sikandar Lodhi.</span></div>
+        <div class="qr-item"><span class="qr-num">06</span><span class="qr-text"><strong>Noohani dynasty</strong> = Dariya Khan (Sikandar Lodhi's appointee) → Bahar Khan (Sultan Mohammad, declared independent 1523) → defeated by Babur at <strong>Battle of Ghaghra (1529)</strong>.</span></div>
+        <div class="qr-item"><span class="qr-num">07</span><span class="qr-text"><strong>Sher Shah's springboard</strong> = appointed protector of Jalal Khan (last Noohani). After Noohani collapse, Sher Shah emerged as powerful Afghan ruler of Bihar — setting stage for Module 12.</span></div>
+      </div>
+      <div class="memory-hook">
+        <span class="hook-icon">🧲</span>
+        <span class="hook-text">Memory Hook: "Bihar got its name during Tughlaq rule, was called Tughlaqpur by Darbhanga scribes — but it was a boy from Sasaram who would soon make the whole world remember <em>Bihar</em> as the birthplace of India's best-governed empire."</span>
+      </div>
+    </div>
+
+    <!-- ⑨ CONCEPT CHECK -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">✅</span><span class="section-label-text">Concept Check</span><span class="section-sub">TEST YOURSELF</span></div>
+      <div class="check-mcq">
+        <div class="check-q">1. Who appointed Dariya Khan Noohani as the administrator of Bihar?</div>
+        <div class="check-opts">
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','A')"><span class="opt-letter">A</span>Ghiyasuddin Tughlaq</button>
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','B')"><span class="opt-letter">B</span>Muhammad bin Tughlaq</button>
+          <button class="check-opt" onclick="checkAnswer(this,'correct','C')"><span class="opt-letter">C</span>Sikandar Lodhi</button>
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','D')"><span class="opt-letter">D</span>Babur</button>
+        </div>
+        <div class="check-feedback ok" id="fb1-ok">✓ Correct! Sikandar Lodhi (of the Lodi dynasty) defeated Hussain Shah Sharqi (last Sharqi ruler) and appointed Dariya Khan Noohani as administrator of Bihar. Dariya Khan remained Bihar's administrator till his death in 1523 AD. This is a key BPSC fact — students often confuse it with Tughlaq-era appointments.</div>
+        <div class="check-feedback no" id="fb1-no">✗ Answer is (C) Sikandar Lodhi. He defeated the last Sharqi ruler and appointed Dariya Khan Noohani as Bihar's administrator. The Noohani dynasty came from the Lodi-era political rearrangements — NOT from Tughlaq-era appointments.</div>
+      </div>
+      <div class="check-mcq">
+        <div class="check-q">2. Babur fought Battle of Ghaghra (1529) with whom?</div>
+        <div class="check-opts">
+          <button class="check-opt" onclick="checkAnswer(this,'correct','A')"><span class="opt-letter">A</span>Sultan Mohammad (Bahar Khan Noohani)</button>
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','B')"><span class="opt-letter">B</span>Dariya Khan</button>
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','C')"><span class="opt-letter">C</span>Jalal Khan</button>
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','D')"><span class="opt-letter">D</span>Sher Shah</button>
+        </div>
+        <div class="check-feedback ok" id="fb2-ok">✓ Correct! Babur fought the Battle of Ghaghra (Gogra) in 1529 against Sultan Mohammad (Bahar Khan Noohani). Sultan Mohammad accepted Babur's authority after defeat. After his death, his son Jalal Khan succeeded, and Sher Shah was appointed Jalal Khan's protector — which became Sher Shah's political launchpad.</div>
+        <div class="check-feedback no" id="fb2-no">✗ Answer is (A) Sultan Mohammad (Bahar Khan Noohani). He was the Noohani king who had declared independence as "Sultan Mohammad" in 1523. Babur defeated him at the Battle of Ghaghra (1529). Sher Shah rose to power only after the Noohani decline — he was not yet powerful enough to fight Babur.</div>
+      </div>
+      <div class="mains-box">
+        <div class="mains-meta"><span class="mains-tag">MAINS GS-I · 150 WORDS</span></div>
+        <div class="mains-q">Trace Bihar's political evolution under the Delhi Sultanate (1200–1526 AD), highlighting the role of the Noohani dynasty as a transitional force leading to Sher Shah Suri's rise.</div>
+        <button class="reveal-btn" style="margin-bottom:12px;" onclick="revealMains(this)">▼ Show Model Answer</button>
+        <div class="mains-answer" id="mains-ans1">
+          <div class="ans-sec"><h5>Introduction</h5><p>From Bakhtiyar Khalji's invasion (1197 AD) to Babur's victory (1526 AD), Bihar experienced 330 years of Delhi Sultanate control, marked by shifting loyalties, incomplete annexation, and ultimately, Afghan independence.</p></div>
+          <div class="ans-sec"><h5>Phase-wise Evolution</h5><ul>
+            <li><strong>Slave Dynasty (1225–90):</strong> Iltutmish formally annexed Bihar; Bihar Sharif became provincial capital</li>
+            <li><strong>Khilji Dynasty (1290–1320):</strong> Limited control (coins only in south Bihar); Karnata-ruled Tirhut remained semi-independent</li>
+            <li><strong>Tughlaq Dynasty (1324–98):</strong> Most transformative — Ghiyasuddin conquered Bihar; Bihar officially named as province; Firoz separated it from Bengal; Oiniwar dynasty established in Mithila</li>
+            <li><strong>Sharqi Rule (1394–1510s):</strong> Post-Taimur Jaunpur Sultanate controlled Bihar</li>
+            <li><strong>Noohani Dynasty (1519–29):</strong> Dariya Khan Noohani (Sikandar Lodhi's appointee) → Bahar Khan declared independence as "Sultan Mohammad" → extended to Kannauj → defeated by Babur at Ghaghra (1529)</li>
+          </ul></div>
+          <div class="ans-sec"><h5>Noohani as Transitional Force</h5><p>The Noohanis' collapse created the perfect power vacuum: their last ruler Jalal Khan appointed Sher Shah Suri as his protector. This gave Sher Shah the institutional foothold, military base, and political legitimacy to eventually overthrow the Mughals entirely — making the Noohani dynasty not a footnote but a crucial hinge in Bihar and Indian history.</p></div>
+          <div class="ans-sec"><h5>Conclusion</h5><p>Bihar's 330 years under the Sultanate ended with an Afghan from Sasaram poised to redirect the course of Indian history — a fitting conclusion to a period when the region had absorbed conquest after conquest, yet retained the human capital that would produce India's most efficient pre-Mughal administrator.</p></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<button class="print-btn" onclick="window.print()" title="Print Quick Revision">🖨</button>
+<script>
+const KEY='bihar_hist_v1';
+let visited=new Set(JSON.parse(localStorage.getItem(KEY)||'[]'));
+visited.add('modules/m11.html');
+localStorage.setItem(KEY,JSON.stringify([...visited]));
+document.querySelectorAll('.sidebar-item').forEach(item=>{
+  const href=item.getAttribute('href');
+  if(href&&visited.has('modules/'+href))item.classList.add('done');
+});
+function answerPYQ(el,type){
+  const p=el.closest('.pyq-item');
+  p.querySelectorAll('.pyq-opt').forEach(o=>{o.onclick=null;o.style.cursor='default';});
+  el.classList.add(type);
+}
+function revealPYQ(id,btn){
+  document.getElementById(id).classList.toggle('show');
+  btn.textContent=btn.textContent.includes('Show')?'Hide Explanation':'Show Explanation';
+}
+function revealMains(btn){
+  document.getElementById('mains-ans1').classList.toggle('show');
+  btn.textContent=btn.textContent.includes('▼')?'▲ Hide Model Answer':'▼ Show Model Answer';
+}
+function checkAnswer(el,type){
+  const p=el.closest('.check-mcq');
+  p.querySelectorAll('.check-opt').forEach(o=>{o.onclick=null;o.style.cursor='default';});
+  el.classList.add(type);
+  const idx=Array.from(document.querySelectorAll('.check-mcq')).indexOf(p)+1;
+  const ok=document.getElementById('fb'+idx+'-ok');
+  const no=document.getElementById('fb'+idx+'-no');
+  if(type==='correct'&&ok)ok.classList.add('show');
+  if(type==='wrong'&&no)no.classList.add('show');
+}
+</script>
+</body>
+</html>

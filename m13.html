@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M13 — Mughal Rule in Bihar | Bihar History</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1a1a2e;--ink2:#2d2d44;--paper:#f5f2eb;--paper2:#ede9df;--gold:#c9973a;--gold2:#e8b45a;--teal:#1e7a6e;--teal2:#2aa195;--coral:#c2522b;--coral2:#e06840;--muted:#7a7465;--border:rgba(26,26,46,0.11);}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);display:flex;min-height:100vh;}
+.sidebar{width:260px;flex-shrink:0;background:var(--ink);display:flex;flex-direction:column;position:sticky;top:0;height:100vh;overflow-y:auto;}
+.sidebar-logo{padding:24px 20px 16px;border-bottom:1px solid rgba(255,255,255,0.07);}
+.sidebar-logo a{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:var(--teal2);text-decoration:none;line-height:1.3;display:block;}
+.sidebar-logo span{display:block;font-size:10px;color:rgba(245,242,235,0.35);letter-spacing:1px;margin-top:3px;font-family:'DM Mono',monospace;}
+.sidebar-part{padding:14px 20px 6px;font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:1.4px;text-transform:uppercase;color:rgba(245,242,235,0.28);}
+.sidebar-item{display:flex;align-items:center;gap:10px;padding:9px 20px;text-decoration:none;font-size:12px;color:rgba(245,242,235,0.55);transition:background 0.15s,color 0.15s;border-left:2px solid transparent;}
+.sidebar-item:hover{background:rgba(255,255,255,0.05);color:rgba(245,242,235,0.9);}
+.sidebar-item.active{background:rgba(30,122,110,0.15);color:var(--teal2);border-left-color:var(--teal);}
+.sidebar-item.done .s-dot{background:var(--teal);}
+.s-num{font-family:'DM Mono',monospace;font-size:9.5px;color:rgba(245,242,235,0.28);width:28px;flex-shrink:0;}
+.s-dot{width:6px;height:6px;border-radius:50%;border:1.5px solid rgba(255,255,255,0.2);flex-shrink:0;}
+.sidebar-item.active .s-dot{background:var(--teal);border-color:var(--teal);}
+.main{flex:1;min-width:0;display:flex;flex-direction:column;}
+.topbar{background:var(--ink2);padding:12px 48px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10;border-bottom:1px solid rgba(255,255,255,0.05);}
+.topbar-left{display:flex;align-items:center;gap:14px;}
+.era-pill{font-size:10px;padding:3px 10px;border-radius:2px;background:rgba(30,122,110,0.2);color:var(--teal2);font-family:'DM Mono',monospace;letter-spacing:0.8px;}
+.topbar-title{font-size:13px;color:rgba(245,242,235,0.7);}
+.topbar-nav{display:flex;gap:8px;}
+.nav-btn{padding:7px 14px;border-radius:3px;font-size:12px;font-weight:500;text-decoration:none;border:1px solid rgba(255,255,255,0.12);color:rgba(245,242,235,0.6);transition:all 0.18s;cursor:pointer;background:none;}
+.nav-btn:hover{border-color:var(--teal);color:var(--teal2);}
+.nav-btn.primary{background:var(--teal);color:#fff;border-color:var(--teal);}
+.content{flex:1;padding:48px 52px 80px;max-width:920px;}
+.mod-header{margin-bottom:40px;}
+.mod-badge{display:inline-flex;align-items:center;gap:8px;background:var(--teal);color:#fff;font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:4px 12px;border-radius:2px;margin-bottom:18px;}
+.mod-header h1{font-family:'Playfair Display',serif;font-size:clamp(26px,3.5vw,40px);font-weight:900;line-height:1.15;letter-spacing:-0.5px;margin-bottom:14px;}
+.mod-header h1 em{font-style:italic;color:var(--teal);}
+.mod-header p{font-size:14.5px;color:var(--muted);line-height:1.75;max-width:640px;}
+.mod-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px;padding-top:18px;border-top:1px solid var(--border);}
+.meta-tag{font-size:10.5px;padding:3px 9px;border-radius:2px;font-weight:500;}
+.meta-tag.b{background:#fdf5e6;color:var(--gold);}
+.meta-tag.m{background:#ebf5f3;color:var(--teal);}
+.meta-tag.s{background:#fff0eb;color:var(--coral);}
+.section{margin-bottom:44px;}
+.section-head{display:flex;align-items:center;gap:12px;margin-bottom:20px;padding-bottom:12px;border-bottom:2px solid var(--teal);}
+.section-icon{font-size:20px;}
+.section-label-text{font-family:'Playfair Display',serif;font-size:19px;font-weight:700;}
+.section-sub{font-size:11px;color:var(--muted);font-family:'DM Mono',monospace;letter-spacing:0.8px;margin-left:auto;}
+.story-box{background:var(--ink);color:var(--paper);border-radius:5px;padding:28px 32px;position:relative;overflow:hidden;}
+.story-box::before{content:'';position:absolute;top:-40px;right:-40px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(30,122,110,0.2) 0%,transparent 70%);}
+.story-box p{font-size:14.5px;line-height:1.85;font-weight:300;position:relative;}
+.story-box p+p{margin-top:12px;}
+.story-box strong{color:var(--teal2);}
+.story-highlight{display:inline-block;margin-top:18px;padding:10px 16px;background:rgba(30,122,110,0.18);border-left:3px solid var(--teal);border-radius:0 3px 3px 0;font-size:13px;font-style:italic;color:var(--teal2);}
+.analogy-box{background:linear-gradient(135deg,#f0faf8,#fff);border:1px solid rgba(30,122,110,0.2);border-radius:4px;padding:20px;margin-bottom:20px;}
+.analogy-label{font-size:10px;font-family:'DM Mono',monospace;letter-spacing:1.2px;color:var(--teal);text-transform:uppercase;margin-bottom:8px;}
+.analogy-box p{font-size:13.5px;line-height:1.7;color:var(--ink2);}
+/* Emperor cards */
+.emperor-card{background:#fff;border:1px solid var(--border);border-radius:5px;margin-bottom:18px;overflow:hidden;}
+.emperor-header{background:var(--paper2);padding:14px 22px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);}
+.emperor-name{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--ink);}
+.emperor-period{font-family:'DM Mono',monospace;font-size:11px;color:var(--teal);}
+.emperor-body{padding:16px 22px;}
+.gov-list{display:flex;flex-direction:column;gap:8px;}
+.gov-row{display:flex;align-items:flex-start;gap:12px;padding:8px 12px;border-radius:3px;background:var(--paper);border:1px solid var(--border);}
+.gov-row.key{background:linear-gradient(135deg,#f0faf8,#fff);border-color:rgba(30,122,110,0.2);}
+.gov-name{font-weight:600;font-size:13px;min-width:150px;flex-shrink:0;color:var(--ink2);}
+.gov-note{font-size:12.5px;color:var(--muted);line-height:1.55;}
+.gov-note strong{color:var(--ink2);}
+/* Timeline */
+.timeline{position:relative;padding-left:28px;}
+.timeline::before{content:'';position:absolute;left:8px;top:8px;bottom:8px;width:2px;background:linear-gradient(180deg,var(--teal),transparent);}
+.tl-item{position:relative;margin-bottom:20px;}
+.tl-dot{position:absolute;left:-24px;top:4px;width:12px;height:12px;border-radius:50%;background:var(--teal);border:2px solid var(--paper);box-shadow:0 0 0 2px var(--teal);}
+.tl-period{font-family:'DM Mono',monospace;font-size:10.5px;color:var(--teal);margin-bottom:4px;}
+.tl-title{font-size:14px;font-weight:600;margin-bottom:4px;color:var(--ink);}
+.tl-body{font-size:12.5px;color:var(--muted);line-height:1.6;}
+.tl-badge{display:inline-block;font-size:10px;padding:1.5px 7px;border-radius:2px;background:var(--paper2);color:var(--ink2);margin-left:6px;font-weight:500;}
+.tl-badge.trap{background:#fff0eb;color:var(--coral);}
+/* Table */
+.comp-table{width:100%;border-collapse:collapse;font-size:12.5px;}
+.comp-table th{background:var(--ink);color:var(--paper);padding:11px 14px;text-align:left;font-weight:500;font-size:12px;}
+.comp-table th:first-child{border-radius:4px 0 0 0;}
+.comp-table th:last-child{border-radius:0 4px 0 0;}
+.comp-table td{padding:9px 14px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.5;}
+.comp-table tr:last-child td{border-bottom:none;}
+.comp-table tr:nth-child(even) td{background:var(--paper2);}
+.comp-table td:first-child{font-weight:600;color:var(--ink2);}
+.comp-table td.accent{color:var(--teal);font-weight:500;}
+.comp-table td.trap{color:var(--coral);font-size:11.5px;}
+/* Mnemonic */
+.mnemonic-box{background:linear-gradient(135deg,var(--ink),var(--ink2));border-radius:5px;padding:28px 32px;color:var(--paper);margin-bottom:16px;}
+.m-label{font-size:10px;font-family:'DM Mono',monospace;letter-spacing:1.5px;color:var(--teal2);text-transform:uppercase;margin-bottom:14px;}
+.mnemonic-word{font-family:'Playfair Display',serif;font-size:clamp(18px,2.5vw,28px);font-weight:900;color:var(--teal2);letter-spacing:2px;margin-bottom:18px;}
+.mnemonic-rows{display:flex;flex-direction:column;gap:9px;}
+.m-row{display:flex;gap:12px;}
+.m-letter{font-family:'DM Mono',monospace;font-size:16px;font-weight:500;color:var(--teal2);width:28px;flex-shrink:0;}
+.m-text{font-size:12.5px;line-height:1.5;color:var(--paper);}
+.m-text strong{color:var(--teal2);}
+.m-tip{margin-top:16px;padding:12px 14px;background:rgba(30,122,110,0.15);border-radius:3px;font-size:12px;font-style:italic;color:rgba(245,242,235,0.7);}
+/* PYQ */
+.pyq-item{background:#fff;border:1px solid var(--border);border-radius:4px;padding:22px;margin-bottom:14px;}
+.pyq-meta{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap;}
+.pyq-tag{font-size:10px;padding:2px 8px;border-radius:2px;font-weight:500;font-family:'DM Mono',monospace;}
+.pyq-tag.prelims{background:#fdf5e6;color:var(--gold);}
+.pyq-tag.year{background:var(--paper2);color:var(--muted);}
+.pyq-q{font-size:14px;font-weight:500;line-height:1.6;margin-bottom:14px;}
+.pyq-options{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:14px;}
+.pyq-opt{padding:8px 12px;border-radius:3px;font-size:12.5px;border:1px solid var(--border);background:var(--paper);cursor:pointer;transition:all 0.18s;}
+.pyq-opt:hover{border-color:var(--teal);background:#f0faf8;}
+.pyq-opt.correct{background:#e8f5e9;border-color:#4caf50;color:#2e7d32;font-weight:500;}
+.pyq-opt.wrong{background:#ffebee;border-color:#ef9a9a;color:#c62828;}
+.pyq-answer{display:none;padding:14px 16px;background:#e8f5f3;border-radius:3px;border-left:3px solid var(--teal);}
+.pyq-answer.show{display:block;}
+.pyq-answer strong{color:var(--teal);font-size:12px;}
+.pyq-answer p{font-size:13px;color:var(--ink2);margin-top:5px;line-height:1.6;}
+.reveal-btn{font-size:11.5px;padding:6px 14px;border-radius:3px;background:none;border:1px solid var(--border);cursor:pointer;color:var(--muted);transition:all 0.18s;}
+.reveal-btn:hover{border-color:var(--teal);color:var(--teal);}
+.mains-box{background:#fff;border:1px solid var(--border);border-radius:4px;padding:22px;}
+.mains-q{font-size:14.5px;font-weight:600;line-height:1.6;margin-bottom:14px;}
+.mains-meta{display:flex;gap:8px;margin-bottom:14px;}
+.mains-tag{font-size:10px;padding:2px 8px;border-radius:2px;font-weight:500;font-family:'DM Mono',monospace;background:#ebf5f3;color:var(--teal);}
+.mains-answer{display:none;border-top:1px solid var(--border);padding-top:16px;}
+.mains-answer.show{display:block;}
+.ans-sec{margin-bottom:14px;}
+.ans-sec h5{font-size:11px;font-family:'DM Mono',monospace;letter-spacing:1px;color:var(--teal);text-transform:uppercase;margin-bottom:6px;}
+.ans-sec p,.ans-sec li{font-size:13px;line-height:1.7;color:var(--ink2);}
+.ans-sec ul{padding-left:18px;}
+.ans-sec li{margin-bottom:4px;}
+.qr-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.qr-item{display:flex;gap:10px;background:#fff;border:1px solid var(--border);border-radius:4px;padding:14px 16px;}
+.qr-num{font-family:'DM Mono',monospace;font-size:10px;color:var(--teal);font-weight:500;flex-shrink:0;margin-top:2px;}
+.qr-text{font-size:13px;line-height:1.6;color:var(--ink2);}
+.qr-text strong{color:var(--teal);}
+.memory-hook{background:var(--teal);border-radius:4px;padding:16px 22px;display:flex;align-items:center;gap:16px;margin-top:32px;}
+.hook-icon{font-size:22px;}
+.hook-text{font-size:14px;font-weight:600;color:#fff;line-height:1.5;}
+.check-mcq{background:#fff;border:1px solid var(--border);border-radius:4px;padding:20px;margin-bottom:12px;}
+.check-q{font-size:14px;font-weight:500;margin-bottom:14px;line-height:1.6;}
+.check-opts{display:flex;flex-direction:column;gap:7px;}
+.check-opt{padding:10px 14px;border-radius:3px;font-size:13px;border:1px solid var(--border);background:var(--paper);cursor:pointer;transition:all 0.18s;text-align:left;display:flex;align-items:center;gap:10px;}
+.check-opt:hover{border-color:var(--teal);background:#f0faf8;}
+.check-opt.correct{background:#e8f5e9;border-color:#4caf50;color:#2e7d32;}
+.check-opt.wrong{background:#ffebee;border-color:#ef9a9a;color:#c62828;}
+.opt-letter{width:22px;height:22px;border-radius:50%;background:var(--paper2);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;flex-shrink:0;}
+.check-opt.correct .opt-letter{background:#4caf50;color:#fff;}
+.check-opt.wrong   .opt-letter{background:#ef9a9a;color:#fff;}
+.check-feedback{margin-top:10px;padding:10px 14px;border-radius:3px;font-size:12.5px;display:none;line-height:1.6;}
+.check-feedback.show{display:block;}
+.check-feedback.ok{background:#e8f5e9;color:#2e7d32;}
+.check-feedback.no{background:#ffebee;color:#c62828;}
+.trap-alert{background:#fff0eb;border:1px solid rgba(194,82,43,0.3);border-radius:4px;padding:14px 18px;margin-bottom:16px;display:flex;gap:10px;}
+.trap-alert p{font-size:13px;color:var(--coral);line-height:1.6;}
+.trap-alert strong{font-weight:600;}
+.bpsc-box{background:linear-gradient(135deg,#f0faf8,#fff);border:1px solid rgba(30,122,110,0.25);border-radius:4px;padding:18px 20px;margin-bottom:20px;display:flex;gap:14px;}
+.bpsc-box h4{font-size:13px;font-weight:600;color:var(--teal);margin-bottom:5px;}
+.bpsc-box p{font-size:12.5px;color:var(--muted);line-height:1.6;}
+.sidebar::-webkit-scrollbar{width:4px;}
+.sidebar::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.1);border-radius:2px;}
+.print-btn{position:fixed;bottom:24px;right:24px;background:var(--ink);color:var(--teal2);border:none;border-radius:50%;width:44px;height:44px;font-size:16px;cursor:pointer;box-shadow:0 4px 16px rgba(26,26,46,0.25);transition:transform 0.18s;display:flex;align-items:center;justify-content:center;}
+.print-btn:hover{transform:scale(1.1);}
+@media print{.sidebar,.topbar,.print-btn{display:none;}.content{padding:20px;}}
+@media(max-width:768px){.sidebar{display:none;}.content{padding:24px 20px 60px;}.topbar{padding:10px 20px;}.qr-grid,.pyq-options{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<aside class="sidebar">
+  <div class="sidebar-logo"><a href="../index.html">Bihar History<br>Study System</a><span>BPSC · UPSC · State PCS</span></div>
+  <div class="sidebar-part">Part I — Ancient Bihar</div>
+  <a class="sidebar-item done" href="m01.html"><span class="s-num">01</span><span class="s-dot"></span>Sources & Prehistoric Bihar</a>
+  <a class="sidebar-item done" href="m02.html"><span class="s-num">02</span><span class="s-dot"></span>Mahajanapadas in Bihar</a>
+  <a class="sidebar-item done" href="m03.html"><span class="s-num">03</span><span class="s-dot"></span>Pre-Mauryan Dynasties</a>
+  <a class="sidebar-item done" href="m04.html"><span class="s-num">04</span><span class="s-dot"></span>Buddhism & Jainism</a>
+  <a class="sidebar-item done" href="m05.html"><span class="s-num">05</span><span class="s-dot"></span>Mauryan Empire</a>
+  <a class="sidebar-item done" href="m06.html"><span class="s-num">06</span><span class="s-dot"></span>Ashoka — Kalinga to Dhamma</a>
+  <a class="sidebar-item done" href="m07.html"><span class="s-num">07</span><span class="s-dot"></span>Post-Mauryan to Gupta Era</a>
+  <div class="sidebar-part">Part II — Medieval Bihar</div>
+  <a class="sidebar-item done" href="m08.html"><span class="s-num">08</span><span class="s-dot"></span>Pala Dynasty</a>
+  <a class="sidebar-item done" href="m09.html"><span class="s-num">09</span><span class="s-dot"></span>Sena & Karnata Dynasties</a>
+  <a class="sidebar-item done" href="m10.html"><span class="s-num">10</span><span class="s-dot"></span>Turkish Invasion</a>
+  <a class="sidebar-item done" href="m11.html"><span class="s-num">11</span><span class="s-dot"></span>Khilji, Tughlaq & Noohani</a>
+  <a class="sidebar-item done" href="m12.html"><span class="s-num">12</span><span class="s-dot"></span>Sher Shah Suri</a>
+  <a class="sidebar-item active" href="m13.html"><span class="s-num">13</span><span class="s-dot"></span>Mughal Rule in Bihar</a>
+  <a class="sidebar-item" href="m14.html"><span class="s-num">14</span><span class="s-dot"></span>Sufism, Sikhism & Tribal States</a>
+  <div class="sidebar-part">Part III — Modern Bihar</div>
+  <a class="sidebar-item" href="m15.html"><span class="s-num">15</span><span class="s-dot"></span>European Entry</a>
+  <a class="sidebar-item" href="m16.html"><span class="s-num">16</span><span class="s-dot"></span>Battle of Buxar</a>
+  <a class="sidebar-item" href="m17.html"><span class="s-num">17</span><span class="s-dot"></span>Revolt of 1857</a>
+  <a class="sidebar-item" href="m18.html"><span class="s-num">18</span><span class="s-dot"></span>Tribal Revolts</a>
+  <a class="sidebar-item" href="m19.html"><span class="s-num">19</span><span class="s-dot"></span>Freedom Movements</a>
+  <a class="sidebar-item" href="m20.html"><span class="s-num">20</span><span class="s-dot"></span>Eminent Freedom Fighters</a>
+  <a class="sidebar-item" href="m21.html"><span class="s-num">21</span><span class="s-dot"></span>Formation of Modern Bihar</a>
+</aside>
+
+<div class="main">
+  <div class="topbar">
+    <div class="topbar-left"><span class="era-pill">MEDIEVAL BIHAR</span><span class="topbar-title">Module 13 of 21</span></div>
+    <div class="topbar-nav">
+      <a href="m12.html" class="nav-btn">← Prev</a>
+      <a href="../index.html" class="nav-btn">Index</a>
+      <a href="m14.html" class="nav-btn primary">Next →</a>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <div class="mod-header">
+      <div class="mod-badge"><span>MODULE 13</span><span>·</span><span>Medieval Bihar</span></div>
+      <h1>Mughal Rule in Bihar —<br><em>Province of the Empire</em></h1>
+      <p>From Akbar's formal annexation in 1576 to the last Mughal governor's dismissal in 1733 — Bihar served as a wealthy subah for 157 years. This module covers each Mughal emperor's reign in Bihar, key governors, and crucial facts tested repeatedly in BPSC.</p>
+      <div class="mod-meta">
+        <span class="meta-tag b">BPSC Special</span>
+        <span class="meta-tag m">Mains GS-I</span>
+        <span class="meta-tag s">⚠ Trap: Akbar made Bihar subah 1576 (NOT 1556). First Mughal coronated in Patna = Farrukhsiyar (1713). Patna → Azimabad = Aurangzeb's grandson Azimushan (1704).</span>
+      </div>
+    </div>
+
+    <!-- ① STORY HOOK -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">🎭</span><span class="section-label-text">Story Hook</span><span class="section-sub">START HERE</span></div>
+      <div class="story-box">
+        <p>The year is <strong>1704 AD</strong>. A Mughal prince, grandson of the great Aurangzeb, arrives in the ancient city of Patna. He looks at this city — founded by Udayin in 455 BC, made capital by Chandragupta Maurya, rebuilt by Sher Shah Suri — and does something audacious: he <strong>renames it</strong>.</p>
+        <p>From this day, Patna will be called <strong>"Azimabad"</strong> — named after himself, Prince <strong>Azimushan</strong> (Azim-us-Shan). This name appears on coins, in court records, in farman letters. And yet — Azimabad never stuck. The city remembered its ancient name and would answer to nothing else. Today we still call it Patna.</p>
+        <p>This small act of naming tells the whole story of Mughal Bihar: powerful enough to rename an ancient city, but never powerful enough to actually change it.</p>
+        <div class="story-highlight">💡 Fun Fact: Patna has been renamed twice in history — by Udayin (from various pre-existing names to Pataliputra), and by Azimushan to Azimabad (1704). Both times, the city reverted to Patna. Some names are simply permanent.</div>
+      </div>
+    </div>
+
+    <!-- ② CORE CONCEPT — Emperor by Emperor -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">🧠</span><span class="section-label-text">Mughal Bihar — Emperor by Emperor</span><span class="section-sub">WITH ANALOGY</span></div>
+      <div class="analogy-box">
+        <div class="analogy-label">🏛️ Modern Analogy</div>
+        <p>Think of Mughal Bihar like a <strong>valuable state in a federal government</strong>. The Centre (Delhi) was very interested in Bihar's revenue (saltpetre, opium, cotton, silk were valuable). They kept rotating governors (like bureaucratic transfers). Some governors were excellent (Man Singh, Saif Khan); some were terrible. As the Mughal centre weakened after Aurangzeb, Bihar began slipping toward independence — which became the Nawabs of Bengal in 1733.</p>
+      </div>
+
+      <div class="emperor-card">
+        <div class="emperor-header">
+          <div class="emperor-name">Akbar and Bihar</div>
+          <div class="emperor-period">1556–1605 AD</div>
+        </div>
+        <div class="emperor-body">
+          <div class="gov-list">
+            <div class="gov-row key">
+              <span class="gov-name">1576 — Bihar made Subah ⚠</span>
+              <span class="gov-note">After defeating <strong>Daud Khan Kararani</strong> at Battle of Rajmahal (July 1576), Akbar made Bihar a separate Subah of his empire. <strong>First governor: Munim Khan</strong>. ⚠ Bihar made subah in 1576, NOT 1556 (accession year).</span>
+            </div>
+            <div class="gov-row key">
+              <span class="gov-name">Man Singh (1587–1594)</span>
+              <span class="gov-note">Appointed <strong>17 March 1587</strong>. Made <strong>Rohtas (Rohtasgarh fort)</strong> his capital. Renovated Rohtasgarh Fort. Defeated Bhojpur, Giddhaur, Kharagpur. Per Abul Fazl: "administered excellently and crushed all rebellions." Transferred to Bengal 1594.</span>
+            </div>
+            <div class="gov-row key">
+              <span class="gov-name">Mithila — Mahesh Thakur</span>
+              <span class="gov-note">1577 AD — Akbar appointed <strong>Mahesh Thakur</strong> as administrator of Mithila. Made <strong>Rajnagar (Madhubani)</strong> his capital.</span>
+            </div>
+            <div class="gov-row">
+              <span class="gov-name">Asif Khan</span>
+              <span class="gov-note">Last Governor of Bihar under Akbar. After Akbar's death 1605, replaced by Jahangir's first appointee.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="emperor-card">
+        <div class="emperor-header">
+          <div class="emperor-name">Jahangir and Bihar</div>
+          <div class="emperor-period">1605–1627 AD</div>
+        </div>
+        <div class="emperor-body">
+          <div class="gov-list">
+            <div class="gov-row">
+              <span class="gov-name">Lala Beg (Beg Bahadur)</span>
+              <span class="gov-note">Replaced Asif Khan. Suppressed revolt of Sangram Singh of Kharagpur → given title <strong>Jahangir Quli</strong>. During this period: Nur Jahan (widow of Sher Afghan) passed through <strong>Darbhanga</strong> → built Noor-sarai and mosque there.</span>
+            </div>
+            <div class="gov-row key">
+              <span class="gov-name">Ibrahim Khan</span>
+              <span class="gov-note">Brother of Nur Jahan. <strong>Conquered Kukradesh (Chotanagpur)</strong> and acquired diamond mines. Arrested Durjan Sal; sent to Jahangir's court (imprisoned in Gwalior). Promoted → Governor of Bengal (1617).</span>
+            </div>
+            <div class="gov-row key">
+              <span class="gov-name">Prince Parvez (1621)</span>
+              <span class="gov-note"><strong>First Mughal Prince to become Governor of Bihar</strong>. Jahangir declared him governor 1621. Gave his name to <strong>Parvezabad</strong> (now known as Paleza). His officer Nazar Bahadur built <strong>Pathar-ki-Masjid (Sangi Masjid)</strong> in Patna.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="emperor-card">
+        <div class="emperor-header">
+          <div class="emperor-name">Shah Jahan and Bihar</div>
+          <div class="emperor-period">1627–1658 AD · Peaceful era</div>
+        </div>
+        <div class="emperor-body">
+          <div class="gov-list">
+            <div class="gov-row">
+              <span class="gov-name">Khan-i-Alam</span>
+              <span class="gov-note">First governor; inefficient; recalled within a year.</span>
+            </div>
+            <div class="gov-row key">
+              <span class="gov-name">Saif Khan (Mirza Safi)</span>
+              <span class="gov-note">Best governor of Bihar under Mughals (per Peter Mundy, 1632). Built <strong>Shahi Idgah</strong> in Patna. Built madrasa and mosque. Two intellectuals from Tirhut sent to imperial court — ancestors of Raja of Darbhanga.</span>
+            </div>
+            <div class="gov-row">
+              <span class="gov-name">Jafar Khan (1651)</span>
+              <span class="gov-note">Built famous <strong>Bagh-i-Jafar Khan</strong> at Patna + single-domed <strong>Dundi Bazar mosque</strong>.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="emperor-card">
+        <div class="emperor-header">
+          <div class="emperor-name">Aurangzeb and Bihar</div>
+          <div class="emperor-period">1658–1707 AD</div>
+        </div>
+        <div class="emperor-body">
+          <div class="gov-list">
+            <div class="gov-row">
+              <span class="gov-name">Daud Khan Quraishi</span>
+              <span class="gov-note">First governor under Aurangzeb. Defeated Cheros of Palamu → extended empire to Chotanagpur. Founded <strong>Daudnagar</strong> (Gaya district).</span>
+            </div>
+            <div class="gov-row">
+              <span class="gov-name">Jan Nisar Khan (Lashkar Khan)</span>
+              <span class="gov-note">During his tenure: European travellers <strong>Tavernier and Bernier</strong> visited Patna.</span>
+            </div>
+            <div class="gov-row key">
+              <span class="gov-name">Azimushan (1702–1704) ⚠</span>
+              <span class="gov-note">Aurangzeb's grandson. Made Subedar of Bihar 1702. Came to Patna 1703–04. <strong>Renamed Patna as "Azimabad" in 1704 AD</strong> — after himself. ⚠ KEY BPSC FACT: Patna → Azimabad = Azimushan, 1704.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="emperor-card">
+        <div class="emperor-header">
+          <div class="emperor-name">Post-Aurangzeb Bihar (1707–1733)</div>
+          <div class="emperor-period">Mughal decline · Nawabs of Bengal take over</div>
+        </div>
+        <div class="emperor-body">
+          <div class="gov-list">
+            <div class="gov-row key">
+              <span class="gov-name">Farrukhsiyar (1713) ⚠</span>
+              <span class="gov-note"><strong>First Mughal ruler crowned/coronated in Patna (1713)</strong>. ⚠ KEY BPSC FACT. Under his rule: 4 Subedars — Kairat Khan, Mir Jumla, Buland Khan, Khan Jaman.</span>
+            </div>
+            <div class="gov-row key">
+              <span class="gov-name">Fakr-ud-daula ⚠</span>
+              <span class="gov-note"><strong>Last Mughal Governor of Bihar</strong>. Appointed during reign of Muhammad Shah (1719–1748). Dismissed in 1733 by the Nawab of Bengal. Built "Court of Justice" at Patna during his tenure.</span>
+            </div>
+            <div class="gov-row">
+              <span class="gov-name">After 1733</span>
+              <span class="gov-note">Nawabs of Bengal (Alivardi Khan) established control over Bihar. Mughal era in Bihar effectively ended. Bihar passed to Nawab of Bengal's administration — setting stage for European entry (Module 15).</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ③ TIMELINE -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">⏳</span><span class="section-label-text">Key Dates — Mughal Bihar</span><span class="section-sub">CHRONOLOGICAL</span></div>
+      <div class="timeline">
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-period">1576 AD <span class="tl-badge trap">⚠ NOT 1556</span></div><div class="tl-title">Akbar Makes Bihar Separate Subah — After Battle of Rajmahal</div><div class="tl-body">Defeats Daud Khan Kararani. Bihar → separate Mughal province. First governor: Munim Khan. Bihar Sharif → Patna = capital.</div></div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-period">17 March 1587</div><div class="tl-title">Man Singh Appointed Governor — Rohtas as Capital</div><div class="tl-body">Most celebrated Mughal governor of Bihar. Rohtas as his capital. Renovated Rohtasgarh Fort. Best administrator per Abul Fazl.</div></div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-period">1621 AD</div><div class="tl-title">Prince Parvez — First Mughal Prince as Bihar Governor</div><div class="tl-body">Jahangir's son. Gave name to Parvezabad (now Paleza). His officer built Pathar-ki-Masjid in Patna.</div></div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-period">1702–1704 AD <span class="tl-badge trap">⚠ KEY</span></div><div class="tl-title">Azimushan Renames Patna as "Azimabad"</div><div class="tl-body">Aurangzeb's grandson. Came to Patna 1703–04. Renamed it Azimabad after himself. Name never stuck — city reverted to Patna.</div></div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-period">1713 AD <span class="tl-badge trap">⚠ KEY</span></div><div class="tl-title">Farrukhsiyar — First Mughal Crowned in Patna</div><div class="tl-body">First and only Mughal emperor to be coronated (sworn in) at Patna (1713). Under him: 4 subedars of Bihar.</div></div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-period">1733 AD</div><div class="tl-title">Last Mughal Governor (Fakr-ud-daula) Dismissed — Bihar Passes to Nawabs</div><div class="tl-body">Fakr-ud-daula dismissed by Nawab of Bengal. Mughal era in Bihar ends. Alivardi Khan (Nawab of Bengal) controls Bihar from 1734. Setting stage for European entry.</div></div>
+      </div>
+    </div>
+
+    <!-- ④ KEY FACTS TABLE -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">📊</span><span class="section-label-text">Must-Know BPSC Facts — Mughal Bihar</span><span class="section-sub">EXAM-READY</span></div>
+      <div class="trap-alert">
+        <span>⚠️</span>
+        <p><strong>Top BPSC traps here:</strong> (1) Bihar made subah = <strong>1576</strong> (NOT 1556). (2) Patna → Azimabad = <strong>Azimushan, 1704</strong>. (3) First Mughal coronated in Patna = <strong>Farrukhsiyar, 1713</strong>. (4) Last Mughal governor = <strong>Fakr-ud-daula</strong> (1733). (5) First Mughal Prince as Bihar governor = <strong>Prince Parvez</strong> (1621).</p>
+      </div>
+      <table class="comp-table">
+        <thead><tr><th>Fact / Governor</th><th>Emperor</th><th>Year</th><th>Significance</th></tr></thead>
+        <tbody>
+          <tr><td>Bihar becomes Subah</td><td>Akbar</td><td class="accent">1576</td><td>After Battle of Rajmahal; Munim Khan = first governor</td></tr>
+          <tr><td>Man Singh appointed</td><td>Akbar</td><td class="accent">17 Mar 1587</td><td>Rohtas as capital; finest Mughal governor of Bihar</td></tr>
+          <tr><td>Mahesh Thakur in Mithila</td><td>Akbar</td><td class="accent">1577</td><td>Rajnagar (Madhubani) = capital of Mithila under Mughals</td></tr>
+          <tr><td>Prince Parvez — 1st Mughal Prince as governor</td><td>Jahangir</td><td class="accent">1621</td><td>First Mughal Prince to govern Bihar; Parvezabad named after him</td></tr>
+          <tr><td>Pathar-ki-Masjid, Patna</td><td>Jahangir (Parvez era)</td><td class="accent">~1621</td><td>Built by Nazar Bahadur (Parvez's officer)</td></tr>
+          <tr><td>Saif Khan — best governor</td><td>Shah Jahan</td><td class="accent">1632+</td><td>Built Shahi Idgah Patna; noted by Peter Mundy</td></tr>
+          <tr><td>Tavernier & Bernier visit Patna</td><td>Aurangzeb (Lashkar Khan era)</td><td class="accent">~1660s</td><td>European travellers' accounts of Mughal Patna</td></tr>
+          <tr><td>Patna → Azimabad</td><td>Aurangzeb (grandson)</td><td class="accent">1704</td><td>Prince Azimushan renamed Patna → name never adopted</td></tr>
+          <tr><td>Farrukhsiyar crowned in Patna</td><td>Farrukhsiyar</td><td class="accent">1713</td><td>First and only Mughal emperor coronated at Patna</td></tr>
+          <tr><td>Fakr-ud-daula — last Mughal governor</td><td>Muhammad Shah</td><td class="accent">1733</td><td>Dismissed by Nawab of Bengal; Mughal era ends in Bihar</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ⑥ MNEMONIC -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">🧩</span><span class="section-label-text">Mnemonic</span><span class="section-sub">MEMORY TRICKS</span></div>
+      <div class="mnemonic-box">
+        <div class="m-label">🧩 Mnemonic — Key Mughal Bihar Facts</div>
+        <div class="mnemonic-word">A·M·P·A·F·F</div>
+        <div class="mnemonic-rows">
+          <div class="m-row"><span class="m-letter">A</span><span class="m-text"><strong>Akbar</strong> makes Bihar subah <strong>1576</strong> (Battle of Rajmahal, Daud Khan Kararani defeated)</span></div>
+          <div class="m-row"><span class="m-letter">M</span><span class="m-text"><strong>Man Singh</strong> appointed 1587; Rohtas capital; best governor; per Abul Fazl</span></div>
+          <div class="m-row"><span class="m-letter">P</span><span class="m-text"><strong>Prince Parvez</strong> (1621) = first Mughal Prince as Bihar governor; Parvezabad</span></div>
+          <div class="m-row"><span class="m-letter">A</span><span class="m-text"><strong>Azimushan</strong> (1704) = renamed Patna → Azimabad (Aurangzeb's grandson)</span></div>
+          <div class="m-row"><span class="m-letter">F</span><span class="m-text"><strong>Farrukhsiyar</strong> (1713) = first Mughal coronated in Patna</span></div>
+          <div class="m-row"><span class="m-letter">F</span><span class="m-text"><strong>Fakr-ud-daula</strong> (1733) = last Mughal Governor of Bihar; dismissed by Nawab of Bengal</span></div>
+        </div>
+        <div class="m-tip">💡 "A Man Plans, Azim Fights Frequently" = Akbar, Man Singh, Prince Parvez, Azimushan, Farrukhsiyar, Fakr-ud-daula — 6 key events/people in Mughal Bihar in order!</div>
+      </div>
+    </div>
+
+    <!-- ⑦ PYQ -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">📝</span><span class="section-label-text">PYQ Practice</span><span class="section-sub">SOLVED</span></div>
+      <div class="pyq-item">
+        <div class="pyq-meta"><span class="pyq-tag prelims">BPSC Prelims</span><span class="pyq-tag year">BPSC 2008</span></div>
+        <div class="pyq-q">Akbar merged Bihar and Bengal into the Mughal empire in:</div>
+        <div class="pyq-options">
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(a) 1560</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(b) 1575</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'correct')">(c) 1576</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(d) 1572</div>
+        </div>
+        <div class="pyq-answer" id="ans-pyq1">
+          <strong>✓ CORRECT: (c) 1576</strong>
+          <p>Akbar made Bihar a separate Subah (province) of his empire in <strong>1576 AD</strong>, after defeating Daud Khan Kararani at the Battle of Rajmahal in July 1576. ⚠ Don't confuse with 1556 (Akbar's accession year) or 1575 (Battle of Tukaroi where Daud was captured). The formal province creation was 1576. First governor: Munim Khan.</p>
+        </div>
+        <button class="reveal-btn" onclick="revealPYQ('ans-pyq1',this)">Show Explanation</button>
+      </div>
+      <div class="pyq-item">
+        <div class="pyq-meta"><span class="pyq-tag prelims">BPSC Prelims</span><span class="pyq-tag year">BPSC 2005</span></div>
+        <div class="pyq-q">Who was the last Mughal Governor of Bihar?</div>
+        <div class="pyq-options">
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(a) Kairat Khan</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(b) Mir Jumla</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(c) Buland Khan</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'correct')">(d) Fakr-ud-daula</div>
+        </div>
+        <div class="pyq-answer" id="ans-pyq2">
+          <strong>✓ CORRECT: (d) Fakr-ud-daula</strong>
+          <p><strong>Fakr-ud-daula</strong> was the last Mughal Governor of Bihar. He was appointed during the reign of Muhammad Shah (1719–1748) and dismissed in <strong>1733 AD</strong> by the Nawab of Bengal. Options (a), (b), (c) — Kairat Khan, Mir Jumla, Buland Khan — were the four subedars appointed under Farrukhsiyar, not the last governor. After Fakr-ud-daula, Bihar came under the Nawabs of Bengal.</p>
+        </div>
+        <button class="reveal-btn" onclick="revealPYQ('ans-pyq2',this)">Show Explanation</button>
+      </div>
+      <div class="pyq-item">
+        <div class="pyq-meta"><span class="pyq-tag prelims">BPSC Prelims</span><span class="pyq-tag year">BPSC 2015</span></div>
+        <div class="pyq-q">Which Sikh Guru was born in Patna?</div>
+        <div class="pyq-options">
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(a) Guru Nanak</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(b) Guru Teg Bahadur</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(c) Guru Hargobind</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'correct')">(d) Guru Gobind Singh</div>
+        </div>
+        <div class="pyq-answer" id="ans-pyq3">
+          <strong>✓ CORRECT: (d) Guru Gobind Singh</strong>
+          <p><strong>Guru Gobind Singh</strong>, the 10th and last Sikh Guru, was born at <strong>Patna Sahib, Patna in 1666 AD</strong>. His father Guru Teg Bahadur was on a peace mission to Assam and had left his wife at Patna, where she gave birth. Guru Nanak had visited Patna (1509) but was NOT born there. Guru Teg Bahadur passed through Patna but was NOT born there. Takht Shri Harmandir Saheb (Patna Sahib) = birthplace of Guru Gobind Singh = one of 5 Takhts of Sikhism.</p>
+        </div>
+        <button class="reveal-btn" onclick="revealPYQ('ans-pyq3',this)">Show Explanation</button>
+      </div>
+    </div>
+
+    <!-- ⑧ QUICK REVISION -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">⚡</span><span class="section-label-text">Quick Revision Bullets</span><span class="section-sub">7 ONE-LINERS</span></div>
+      <div class="qr-grid">
+        <div class="qr-item"><span class="qr-num">01</span><span class="qr-text">Bihar made Mughal Subah in <strong>1576 AD</strong> (NOT 1556) by Akbar after Battle of Rajmahal. First Governor: <strong>Munim Khan</strong>.</span></div>
+        <div class="qr-item"><span class="qr-num">02</span><span class="qr-text"><strong>Man Singh</strong> (appointed 17 March 1587) = finest Mughal governor of Bihar; capital at Rohtas; renovated Rohtasgarh Fort.</span></div>
+        <div class="qr-item"><span class="qr-num">03</span><span class="qr-text"><strong>Prince Parvez (1621)</strong> = first Mughal Prince as Bihar governor under Jahangir; gave name to Parvezabad; his officer built Pathar-ki-Masjid, Patna.</span></div>
+        <div class="qr-item"><span class="qr-num">04</span><span class="qr-text"><strong>Patna renamed Azimabad (1704)</strong> by Azimushan (Aurangzeb's grandson) — after himself. Name never adopted. Still called Patna.</span></div>
+        <div class="qr-item"><span class="qr-num">05</span><span class="qr-text"><strong>Farrukhsiyar (1713)</strong> = first and only Mughal emperor coronated (crowned) in Patna. ⚠ Important BPSC fact.</span></div>
+        <div class="qr-item"><span class="qr-num">06</span><span class="qr-text"><strong>Fakr-ud-daula</strong> = last Mughal Governor of Bihar, dismissed 1733. After him: Nawabs of Bengal controlled Bihar (Alivardi Khan from 1734).</span></div>
+        <div class="qr-item"><span class="qr-num">07</span><span class="qr-text"><strong>Guru Gobind Singh</strong> born at Patna Sahib, Patna (1666 AD) — during Aurangzeb's era. Father Guru Teg Bahadur beheaded 1675 by Aurangzeb. Takht Patna Sahib = one of 5 Sikh Takhts.</span></div>
+      </div>
+      <div class="memory-hook">
+        <span class="hook-icon">🧲</span>
+        <span class="hook-text">Memory Hook: "Mughal Bihar began with Akbar's 1576 annexation, peaked under Man Singh's Rohtas administration, and ended in 1733 when the last governor was dismissed — 157 years of being India's most strategic province."</span>
+      </div>
+    </div>
+
+    <!-- ⑨ CONCEPT CHECK -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">✅</span><span class="section-label-text">Concept Check</span><span class="section-sub">TEST YOURSELF</span></div>
+      <div class="check-mcq">
+        <div class="check-q">1. Who was the first Mughal ruler to be sworn in (coronated) at Patna?</div>
+        <div class="check-opts">
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','A')"><span class="opt-letter">A</span>Shah Jahan</button>
+          <button class="check-opt" onclick="checkAnswer(this,'correct','B')"><span class="opt-letter">B</span>Farrukhsiyar (1713)</button>
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','C')"><span class="opt-letter">C</span>Akbar</button>
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','D')"><span class="opt-letter">D</span>Aurangzeb</button>
+        </div>
+        <div class="check-feedback ok" id="fb1-ok">✓ Correct! Farrukhsiyar was the first Mughal emperor to be coronated (sworn in) at Patna in 1713. This is a standard BPSC fact. He was the grandson of Bahadur Shah I (Shah Alam I). During his reign, 4 subedars were appointed in Bihar: Kairat Khan, Mir Jumla, Buland Khan, and Khan Jaman.</div>
+        <div class="check-feedback no" id="fb1-no">✗ Answer is (B) Farrukhsiyar. He was coronated at Patna in 1713 — the only Mughal emperor to be sworn in at Patna (not Delhi). This is a frequently tested BPSC fact that students often miss.</div>
+      </div>
+      <div class="check-mcq">
+        <div class="check-q">2. Aurangzeb had made his grandson Azimushan as Subedar of Bihar in which year?</div>
+        <div class="check-opts">
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','A')"><span class="opt-letter">A</span>1697</button>
+          <button class="check-opt" onclick="checkAnswer(this,'correct','B')"><span class="opt-letter">B</span>1702</button>
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','C')"><span class="opt-letter">C</span>1704</button>
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','D')"><span class="opt-letter">D</span>1707</button>
+        </div>
+        <div class="check-feedback ok" id="fb2-ok">✓ Correct! Aurangzeb appointed his grandson Azimushan (Prince Azim) as Subedar of Bihar in <strong>1702 AD</strong>. Azimushan came to Patna in 1703–04 and renamed it Azimabad in 1704 AD. Note the distinction: appointed = 1702; came to Patna + renamed = 1703–1704.</div>
+        <div class="check-feedback no" id="fb2-no">✗ Answer is (B) 1702. Aurangzeb appointed Azimushan as Bihar Subedar in 1702 AD. He came to Patna in 1703–04 and renamed it Azimabad in 1704. Option (C) 1704 = year he renamed Patna, not year he was appointed.</div>
+      </div>
+      <div class="mains-box">
+        <div class="mains-meta"><span class="mains-tag">MAINS GS-I · 150 WORDS</span></div>
+        <div class="mains-q">Describe Bihar's position as a Mughal province from 1576 to 1733. Which governor made the most significant contribution to its administration?</div>
+        <button class="reveal-btn" style="margin-bottom:12px;" onclick="revealMains(this)">▼ Show Model Answer</button>
+        <div class="mains-answer" id="mains-ans1">
+          <div class="ans-sec"><h5>Introduction</h5><p>Bihar served as a Mughal Subah for 157 years (1576–1733), valued for its agricultural wealth, saltpetre production, and strategic position between Agra/Delhi and Bengal.</p></div>
+          <div class="ans-sec"><h5>Bihar's Strategic Importance</h5><p>Bihar supplied saltpetre (for gunpowder), opium, cotton, and silk to the Mughal empire. Its Ganga waterways made it crucial for troop movement. Control of Bihar meant control of the eastern corridor. British, Dutch, French and Danish traders were all attracted by Bihar's commodities.</p></div>
+          <div class="ans-sec"><h5>Best Governor: Man Singh (1587–1594)</h5><ul>
+            <li>Appointed 17 March 1587 by Akbar; transferred 1594</li>
+            <li>Made Rohtas (Rohtasgarh Fort) his administrative capital; renovated the fort</li>
+            <li>Suppressed rebellions in Bhojpur, Giddhaur, Kharagpur</li>
+            <li>Per Abul Fazl: "administered excellently and crushed all rebellions"</li>
+          </ul></div>
+          <div class="ans-sec"><h5>Key Turning Points</h5><ul>
+            <li>1576: Akbar's annexation after Battle of Rajmahal</li>
+            <li>1704: Azimushan renames Patna as Azimabad (name rejected by history)</li>
+            <li>1713: Farrukhsiyar crowned at Patna — rare honor for the province</li>
+            <li>1733: Fakr-ud-daula dismissed — Mughal era ends</li>
+          </ul></div>
+          <div class="ans-sec"><h5>Conclusion</h5><p>The Mughal era gave Bihar 157 years of relative administrative stability under rotating governors. However, as Mughal power weakened after Aurangzeb, Bihar's governance fell first to the Nawabs of Bengal (1733) and then to the East India Company — a transition that would define Bihar's modern history.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<button class="print-btn" onclick="window.print()" title="Print Quick Revision">🖨</button>
+<script>
+const KEY='bihar_hist_v1';
+let visited=new Set(JSON.parse(localStorage.getItem(KEY)||'[]'));
+visited.add('modules/m13.html');
+localStorage.setItem(KEY,JSON.stringify([...visited]));
+document.querySelectorAll('.sidebar-item').forEach(item=>{
+  const href=item.getAttribute('href');
+  if(href&&visited.has('modules/'+href))item.classList.add('done');
+});
+function answerPYQ(el,type){
+  const p=el.closest('.pyq-item');
+  p.querySelectorAll('.pyq-opt').forEach(o=>{o.onclick=null;o.style.cursor='default';});
+  el.classList.add(type);
+}
+function revealPYQ(id,btn){
+  document.getElementById(id).classList.toggle('show');
+  btn.textContent=btn.textContent.includes('Show')?'Hide Explanation':'Show Explanation';
+}
+function revealMains(btn){
+  document.getElementById('mains-ans1').classList.toggle('show');
+  btn.textContent=btn.textContent.includes('▼')?'▲ Hide Model Answer':'▼ Show Model Answer';
+}
+function checkAnswer(el,type){
+  const p=el.closest('.check-mcq');
+  p.querySelectorAll('.check-opt').forEach(o=>{o.onclick=null;o.style.cursor='default';});
+  el.classList.add(type);
+  const idx=Array.from(document.querySelectorAll('.check-mcq')).indexOf(p)+1;
+  const ok=document.getElementById('fb'+idx+'-ok');
+  const no=document.getElementById('fb'+idx+'-no');
+  if(type==='correct'&&ok)ok.classList.add('show');
+  if(type==='wrong'&&no)no.classList.add('show');
+}
+</script>
+</body>
+</html>

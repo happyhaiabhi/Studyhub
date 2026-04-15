@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M08 — Pala Dynasty | Bihar History</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1a1a2e;--ink2:#2d2d44;--paper:#f5f2eb;--paper2:#ede9df;--gold:#c9973a;--gold2:#e8b45a;--teal:#1e7a6e;--teal2:#2aa195;--coral:#c2522b;--coral2:#e06840;--muted:#7a7465;--border:rgba(26,26,46,0.11);--accent:var(--teal);--accent2:var(--teal2);}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);display:flex;min-height:100vh;}
+.sidebar{width:260px;flex-shrink:0;background:var(--ink);display:flex;flex-direction:column;position:sticky;top:0;height:100vh;overflow-y:auto;}
+.sidebar-logo{padding:24px 20px 16px;border-bottom:1px solid rgba(255,255,255,0.07);}
+.sidebar-logo a{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:var(--teal2);text-decoration:none;line-height:1.3;display:block;}
+.sidebar-logo span{display:block;font-size:10px;color:rgba(245,242,235,0.35);letter-spacing:1px;margin-top:3px;font-family:'DM Mono',monospace;}
+.sidebar-part{padding:14px 20px 6px;font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:1.4px;text-transform:uppercase;color:rgba(245,242,235,0.28);}
+.sidebar-item{display:flex;align-items:center;gap:10px;padding:9px 20px;text-decoration:none;font-size:12px;color:rgba(245,242,235,0.55);transition:background 0.15s,color 0.15s;border-left:2px solid transparent;}
+.sidebar-item:hover{background:rgba(255,255,255,0.05);color:rgba(245,242,235,0.9);}
+.sidebar-item.active{background:rgba(30,122,110,0.15);color:var(--teal2);border-left-color:var(--teal);}
+.sidebar-item.done .s-dot{background:var(--teal);}
+.s-num{font-family:'DM Mono',monospace;font-size:9.5px;color:rgba(245,242,235,0.28);width:28px;flex-shrink:0;}
+.s-dot{width:6px;height:6px;border-radius:50%;border:1.5px solid rgba(255,255,255,0.2);flex-shrink:0;}
+.sidebar-item.active .s-dot{background:var(--teal);border-color:var(--teal);}
+.main{flex:1;min-width:0;display:flex;flex-direction:column;}
+.topbar{background:var(--ink2);padding:12px 48px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10;border-bottom:1px solid rgba(255,255,255,0.05);}
+.topbar-left{display:flex;align-items:center;gap:14px;}
+.era-pill{font-size:10px;padding:3px 10px;border-radius:2px;background:rgba(30,122,110,0.2);color:var(--teal2);font-family:'DM Mono',monospace;letter-spacing:0.8px;}
+.topbar-title{font-size:13px;color:rgba(245,242,235,0.7);}
+.topbar-nav{display:flex;gap:8px;}
+.nav-btn{padding:7px 14px;border-radius:3px;font-size:12px;font-weight:500;text-decoration:none;border:1px solid rgba(255,255,255,0.12);color:rgba(245,242,235,0.6);transition:all 0.18s;cursor:pointer;background:none;}
+.nav-btn:hover{border-color:var(--teal);color:var(--teal2);}
+.nav-btn.primary{background:var(--teal);color:#fff;border-color:var(--teal);}
+.nav-btn.primary:hover{background:var(--teal2);}
+.content{flex:1;padding:48px 52px 80px;max-width:920px;}
+.mod-header{margin-bottom:40px;}
+.mod-badge{display:inline-flex;align-items:center;gap:8px;background:var(--teal);color:#fff;font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:4px 12px;border-radius:2px;margin-bottom:18px;}
+.mod-header h1{font-family:'Playfair Display',serif;font-size:clamp(26px,3.5vw,40px);font-weight:900;line-height:1.15;letter-spacing:-0.5px;margin-bottom:14px;}
+.mod-header h1 em{font-style:italic;color:var(--teal);}
+.mod-header p{font-size:14.5px;color:var(--muted);line-height:1.75;max-width:640px;}
+.mod-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px;padding-top:18px;border-top:1px solid var(--border);}
+.meta-tag{font-size:10.5px;padding:3px 9px;border-radius:2px;font-weight:500;}
+.meta-tag.b{background:#fdf5e6;color:var(--gold);}
+.meta-tag.m{background:#ebf5f3;color:var(--teal);}
+.meta-tag.s{background:#fff0eb;color:var(--coral);}
+.meta-tag.d{background:#f0edf8;color:#5a3ea1;}
+.section{margin-bottom:44px;}
+.section-head{display:flex;align-items:center;gap:12px;margin-bottom:20px;padding-bottom:12px;border-bottom:2px solid var(--accent);}
+.section-icon{font-size:20px;}
+.section-label-text{font-family:'Playfair Display',serif;font-size:19px;font-weight:700;}
+.section-sub{font-size:11px;color:var(--muted);font-family:'DM Mono',monospace;letter-spacing:0.8px;margin-left:auto;}
+.story-box{background:var(--ink);color:var(--paper);border-radius:5px;padding:28px 32px;position:relative;overflow:hidden;}
+.story-box::before{content:'';position:absolute;top:-40px;right:-40px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(30,122,110,0.2) 0%,transparent 70%);}
+.story-box p{font-size:14.5px;line-height:1.85;font-weight:300;position:relative;}
+.story-box p+p{margin-top:12px;}
+.story-box strong{color:var(--teal2);}
+.story-highlight{display:inline-block;margin-top:18px;padding:10px 16px;background:rgba(30,122,110,0.18);border-left:3px solid var(--teal);border-radius:0 3px 3px 0;font-size:13px;font-style:italic;color:var(--teal2);}
+.analogy-box{background:linear-gradient(135deg,#f0faf8,#fff);border:1px solid rgba(30,122,110,0.2);border-radius:4px;padding:20px;margin-bottom:20px;}
+.analogy-box .analogy-label{font-size:10px;font-family:'DM Mono',monospace;letter-spacing:1.2px;color:var(--teal);text-transform:uppercase;margin-bottom:8px;}
+.analogy-box p{font-size:13.5px;line-height:1.7;color:var(--ink2);}
+.ruler-card{background:#fff;border:1px solid var(--border);border-radius:4px;margin-bottom:12px;overflow:hidden;}
+.ruler-header{display:flex;align-items:center;gap:14px;padding:14px 20px;background:var(--paper2);border-bottom:1px solid var(--border);}
+.ruler-name-big{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--ink);}
+.ruler-dates-big{font-family:'DM Mono',monospace;font-size:11px;color:var(--accent);margin-left:auto;}
+.ruler-badge{font-size:10px;padding:2px 8px;border-radius:2px;background:var(--accent);color:#fff;font-weight:600;}
+.ruler-body{padding:14px 20px;font-size:13px;color:var(--muted);line-height:1.7;}
+.ruler-body strong{color:var(--ink2);}
+.ruler-body ul{padding-left:16px;margin-top:6px;}
+.ruler-body li{margin-bottom:4px;}
+.timeline{position:relative;padding-left:28px;}
+.timeline::before{content:'';position:absolute;left:8px;top:8px;bottom:8px;width:2px;background:linear-gradient(180deg,var(--teal),transparent);}
+.tl-item{position:relative;margin-bottom:20px;}
+.tl-dot{position:absolute;left:-24px;top:4px;width:12px;height:12px;border-radius:50%;background:var(--teal);border:2px solid var(--paper);box-shadow:0 0 0 2px var(--teal);}
+.tl-period{font-family:'DM Mono',monospace;font-size:10.5px;color:var(--teal);letter-spacing:0.5px;margin-bottom:4px;}
+.tl-title{font-size:14px;font-weight:600;margin-bottom:4px;color:var(--ink);}
+.tl-body{font-size:12.5px;color:var(--muted);line-height:1.6;}
+.tl-badge{display:inline-block;font-size:10px;padding:1.5px 7px;border-radius:2px;background:var(--paper2);color:var(--ink2);margin-left:6px;font-weight:500;}
+.tl-badge.trap{background:#fff0eb;color:var(--coral);}
+.flow-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;}
+.flow-box{background:#fff;border:1px solid var(--border);border-radius:4px;padding:16px;}
+.flow-box.cause{border-top:3px solid var(--coral);}
+.flow-box.event{border-top:3px solid var(--teal);}
+.flow-box.result{border-top:3px solid var(--gold);}
+.flow-label{font-size:9.5px;font-family:'DM Mono',monospace;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:6px;}
+.flow-box.cause .flow-label{color:var(--coral);}
+.flow-box.event .flow-label{color:var(--teal);}
+.flow-box.result .flow-label{color:var(--gold);}
+.flow-box h4{font-size:13px;font-weight:600;margin-bottom:5px;}
+.flow-box p{font-size:12px;color:var(--muted);line-height:1.55;}
+.comp-table{width:100%;border-collapse:collapse;font-size:12.5px;}
+.comp-table th{background:var(--ink);color:var(--paper);padding:11px 14px;text-align:left;font-weight:500;font-size:12px;}
+.comp-table th:first-child{border-radius:4px 0 0 0;}
+.comp-table th:last-child{border-radius:0 4px 0 0;}
+.comp-table td{padding:9px 14px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.5;}
+.comp-table tr:last-child td{border-bottom:none;}
+.comp-table tr:nth-child(even) td{background:var(--paper2);}
+.comp-table tr:hover td{background:#f0faf8;}
+.comp-table td:first-child{font-weight:600;color:var(--ink2);}
+.comp-table td.accent{color:var(--teal);font-weight:500;}
+.mnemonic-box{background:linear-gradient(135deg,var(--ink) 0%,var(--ink2) 100%);border-radius:5px;padding:28px 32px;color:var(--paper);margin-bottom:16px;}
+.m-label{font-size:10px;font-family:'DM Mono',monospace;letter-spacing:1.5px;color:var(--teal2);text-transform:uppercase;margin-bottom:14px;}
+.mnemonic-word{font-family:'Playfair Display',serif;font-size:clamp(22px,3vw,34px);font-weight:900;color:var(--teal2);letter-spacing:4px;margin-bottom:18px;line-height:1.2;}
+.mnemonic-rows{display:flex;flex-direction:column;gap:10px;}
+.m-row{display:flex;align-items:baseline;gap:14px;}
+.m-letter{font-family:'DM Mono',monospace;font-size:20px;font-weight:500;color:var(--teal2);width:28px;flex-shrink:0;}
+.m-text{font-size:13.5px;line-height:1.5;}
+.m-text strong{color:var(--teal2);}
+.m-tip{margin-top:18px;padding:12px 16px;background:rgba(30,122,110,0.15);border-radius:3px;font-size:12.5px;font-style:italic;color:rgba(245,242,235,0.7);}
+.pyq-item{background:#fff;border:1px solid var(--border);border-radius:4px;padding:22px;margin-bottom:14px;}
+.pyq-meta{display:flex;align-items:center;gap:8px;margin-bottom:12px;flex-wrap:wrap;}
+.pyq-tag{font-size:10px;padding:2px 8px;border-radius:2px;font-weight:500;font-family:'DM Mono',monospace;letter-spacing:0.5px;}
+.pyq-tag.prelims{background:#fdf5e6;color:var(--gold);}
+.pyq-tag.mains{background:#ebf5f3;color:var(--teal);}
+.pyq-tag.year{background:var(--paper2);color:var(--muted);}
+.pyq-q{font-size:14px;font-weight:500;line-height:1.6;margin-bottom:14px;}
+.pyq-options{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:14px;}
+.pyq-opt{padding:8px 12px;border-radius:3px;font-size:12.5px;border:1px solid var(--border);background:var(--paper);cursor:pointer;transition:all 0.18s;}
+.pyq-opt:hover{border-color:var(--teal);background:#f0faf8;}
+.pyq-opt.correct{background:#e8f5e9;border-color:#4caf50;color:#2e7d32;font-weight:500;}
+.pyq-opt.wrong{background:#ffebee;border-color:#ef9a9a;color:#c62828;}
+.pyq-answer{display:none;padding:14px 16px;background:#e8f5f3;border-radius:3px;border-left:3px solid var(--teal);}
+.pyq-answer.show{display:block;}
+.pyq-answer strong{color:var(--teal);font-size:12px;}
+.pyq-answer p{font-size:13px;color:var(--ink2);margin-top:5px;line-height:1.6;}
+.reveal-btn{font-size:11.5px;padding:6px 14px;border-radius:3px;background:none;border:1px solid var(--border);cursor:pointer;color:var(--muted);transition:all 0.18s;}
+.reveal-btn:hover{border-color:var(--teal);color:var(--teal);}
+.mains-box{background:#fff;border:1px solid var(--border);border-radius:4px;padding:22px;}
+.mains-q{font-size:14.5px;font-weight:600;line-height:1.6;margin-bottom:14px;}
+.mains-meta{display:flex;gap:8px;margin-bottom:14px;}
+.mains-answer{display:none;border-top:1px solid var(--border);padding-top:16px;}
+.mains-answer.show{display:block;}
+.ans-sec{margin-bottom:14px;}
+.ans-sec h5{font-size:11px;font-family:'DM Mono',monospace;letter-spacing:1px;color:var(--teal);text-transform:uppercase;margin-bottom:7px;}
+.ans-sec p,.ans-sec li{font-size:13px;line-height:1.7;color:var(--ink2);}
+.ans-sec ul{padding-left:18px;}
+.ans-sec li{margin-bottom:4px;}
+.qr-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.qr-item{display:flex;align-items:flex-start;gap:10px;background:#fff;border:1px solid var(--border);border-radius:4px;padding:14px 16px;}
+.qr-num{font-family:'DM Mono',monospace;font-size:10px;color:var(--teal);font-weight:500;flex-shrink:0;margin-top:2px;}
+.qr-text{font-size:13px;line-height:1.6;color:var(--ink2);}
+.qr-text strong{color:var(--teal);}
+.memory-hook{background:var(--teal);border-radius:4px;padding:16px 22px;display:flex;align-items:center;gap:16px;margin-top:32px;}
+.hook-icon{font-size:22px;}
+.hook-text{font-size:14px;font-weight:600;color:#fff;line-height:1.5;}
+.check-mcq{background:#fff;border:1px solid var(--border);border-radius:4px;padding:20px;margin-bottom:12px;}
+.check-q{font-size:14px;font-weight:500;margin-bottom:14px;line-height:1.6;}
+.check-opts{display:flex;flex-direction:column;gap:7px;}
+.check-opt{padding:10px 14px;border-radius:3px;font-size:13px;border:1px solid var(--border);background:var(--paper);cursor:pointer;transition:all 0.18s;text-align:left;display:flex;align-items:center;gap:10px;}
+.check-opt:hover{border-color:var(--teal);background:#f0faf8;}
+.check-opt.correct{background:#e8f5e9;border-color:#4caf50;color:#2e7d32;}
+.check-opt.wrong{background:#ffebee;border-color:#ef9a9a;color:#c62828;}
+.opt-letter{width:22px;height:22px;border-radius:50%;background:var(--paper2);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;flex-shrink:0;}
+.check-opt.correct .opt-letter{background:#4caf50;color:#fff;}
+.check-opt.wrong   .opt-letter{background:#ef9a9a;color:#fff;}
+.check-feedback{margin-top:10px;padding:10px 14px;border-radius:3px;font-size:12.5px;display:none;line-height:1.6;}
+.check-feedback.show{display:block;}
+.check-feedback.ok{background:#e8f5e9;color:#2e7d32;}
+.check-feedback.no{background:#ffebee;color:#c62828;}
+.trap-alert{background:#fff0eb;border:1px solid rgba(194,82,43,0.3);border-radius:4px;padding:14px 18px;margin-bottom:16px;display:flex;gap:10px;}
+.trap-alert p{font-size:13px;color:var(--coral);line-height:1.6;}
+.trap-alert strong{font-weight:600;}
+.bpsc-special{background:linear-gradient(135deg,#f0faf8,#fff);border:1px solid rgba(30,122,110,0.25);border-radius:4px;padding:18px 20px;margin-bottom:20px;display:flex;gap:14px;}
+.bpsc-icon{font-size:22px;flex-shrink:0;}
+.bpsc-content h4{font-size:13px;font-weight:600;color:var(--teal);margin-bottom:5px;}
+.bpsc-content p{font-size:12.5px;color:var(--muted);line-height:1.6;}
+.sidebar::-webkit-scrollbar{width:4px;}
+.sidebar::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.1);border-radius:2px;}
+.print-btn{position:fixed;bottom:24px;right:24px;background:var(--ink);color:var(--teal2);border:none;border-radius:50%;width:44px;height:44px;font-size:16px;cursor:pointer;box-shadow:0 4px 16px rgba(26,26,46,0.25);transition:transform 0.18s;display:flex;align-items:center;justify-content:center;}
+.print-btn:hover{transform:scale(1.1);}
+@media print{.sidebar,.topbar,.print-btn{display:none;}.main{display:block;}.content{padding:20px;}}
+@media(max-width:768px){.sidebar{display:none;}.content{padding:24px 20px 60px;}.topbar{padding:10px 20px;}.flow-grid,.qr-grid,.pyq-options{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<aside class="sidebar">
+  <div class="sidebar-logo"><a href="../index.html">Bihar History<br>Study System</a><span>BPSC · UPSC · State PCS</span></div>
+  <div class="sidebar-part">Part I — Ancient Bihar</div>
+  <a class="sidebar-item done" href="m01.html"><span class="s-num">01</span><span class="s-dot"></span>Sources & Prehistoric Bihar</a>
+  <a class="sidebar-item done" href="m02.html"><span class="s-num">02</span><span class="s-dot"></span>Mahajanapadas in Bihar</a>
+  <a class="sidebar-item done" href="m03.html"><span class="s-num">03</span><span class="s-dot"></span>Pre-Mauryan Dynasties</a>
+  <a class="sidebar-item done" href="m04.html"><span class="s-num">04</span><span class="s-dot"></span>Buddhism & Jainism</a>
+  <a class="sidebar-item done" href="m05.html"><span class="s-num">05</span><span class="s-dot"></span>Mauryan Empire</a>
+  <a class="sidebar-item done" href="m06.html"><span class="s-num">06</span><span class="s-dot"></span>Ashoka — Kalinga to Dhamma</a>
+  <a class="sidebar-item done" href="m07.html"><span class="s-num">07</span><span class="s-dot"></span>Post-Mauryan to Gupta Era</a>
+  <div class="sidebar-part">Part II — Medieval Bihar</div>
+  <a class="sidebar-item active" href="m08.html"><span class="s-num">08</span><span class="s-dot"></span>Pala Dynasty</a>
+  <a class="sidebar-item" href="m09.html"><span class="s-num">09</span><span class="s-dot"></span>Sena & Karnata Dynasties</a>
+  <a class="sidebar-item" href="m10.html"><span class="s-num">10</span><span class="s-dot"></span>Turkish Invasion</a>
+  <a class="sidebar-item" href="m11.html"><span class="s-num">11</span><span class="s-dot"></span>Khilji, Tughlaq & Noohani</a>
+  <a class="sidebar-item" href="m12.html"><span class="s-num">12</span><span class="s-dot"></span>Sher Shah Suri</a>
+  <a class="sidebar-item" href="m13.html"><span class="s-num">13</span><span class="s-dot"></span>Mughal Rule in Bihar</a>
+  <a class="sidebar-item" href="m14.html"><span class="s-num">14</span><span class="s-dot"></span>Sufism, Sikhism & Tribal States</a>
+  <div class="sidebar-part">Part III — Modern Bihar</div>
+  <a class="sidebar-item" href="m15.html"><span class="s-num">15</span><span class="s-dot"></span>European Entry</a>
+  <a class="sidebar-item" href="m16.html"><span class="s-num">16</span><span class="s-dot"></span>Battle of Buxar</a>
+  <a class="sidebar-item" href="m17.html"><span class="s-num">17</span><span class="s-dot"></span>Revolt of 1857</a>
+  <a class="sidebar-item" href="m18.html"><span class="s-num">18</span><span class="s-dot"></span>Tribal Revolts</a>
+  <a class="sidebar-item" href="m19.html"><span class="s-num">19</span><span class="s-dot"></span>Freedom Movements</a>
+  <a class="sidebar-item" href="m20.html"><span class="s-num">20</span><span class="s-dot"></span>Eminent Freedom Fighters</a>
+  <a class="sidebar-item" href="m21.html"><span class="s-num">21</span><span class="s-dot"></span>Formation of Modern Bihar</a>
+</aside>
+
+<div class="main">
+  <div class="topbar">
+    <div class="topbar-left">
+      <span class="era-pill">MEDIEVAL BIHAR</span>
+      <span class="topbar-title">Module 08 of 21</span>
+    </div>
+    <div class="topbar-nav">
+      <a href="m07.html" class="nav-btn">← Prev</a>
+      <a href="../index.html" class="nav-btn">Index</a>
+      <a href="m09.html" class="nav-btn primary">Next →</a>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <div class="mod-header">
+      <div class="mod-badge"><span>MODULE 08</span><span>·</span><span>Medieval Bihar</span></div>
+      <h1>Pala Dynasty —<br><em>Buddhist Renaissance</em></h1>
+      <p>After 600 years of Gupta glory, Bihar fell into anarchy. Then the people themselves elected a king. The Pala dynasty rose from chaos to create Bihar's last great Buddhist empire — funding Nalanda, building Vikramshila, and dominating north India for 400 years.</p>
+      <div class="mod-meta">
+        <span class="meta-tag b">BPSC Prelims</span>
+        <span class="meta-tag m">Mains GS-I</span>
+        <span class="meta-tag d">750 AD – 1150 AD</span>
+        <span class="meta-tag s">⚠ Trap: Vikramshila = Dharampala (NOT Gopala); Munger capital = Devapala (NOT Dharampala)</span>
+      </div>
+    </div>
+
+    <!-- ① STORY HOOK -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">🎭</span><span class="section-label-text">Story Hook</span><span class="section-sub">START HERE</span></div>
+      <div class="story-box">
+        <p>The year is <strong>750 AD</strong>. Bihar and Bengal are in chaos. The Gupta empire has been gone for 200 years. No king has lasted more than a decade. Rival chiefs fight each other while peasants starve — a condition the Buddhists called <strong>"matsya-nyaya"</strong>, the law of the fish: the big devour the small.</p>
+        <p>Then something extraordinary happens. The people of Magadha and Bengal do something almost unheard of in ancient India: they <strong>vote</strong>. They assemble, deliberate, and elect a man named <strong>Gopala</strong> as their king. The Khalimpur Copper Plate inscription records this democratic election — recognised as one of the first in South Asia since the Licchavi republic of Vaishali.</p>
+        <p>Gopala founds the <strong>Pala dynasty</strong> — and for the next four centuries, Bihar will once again be a centre of Buddhist scholarship, with two of the greatest universities the ancient world has ever seen.</p>
+        <div class="story-highlight">💡 The Pala dynasty is the only Indian dynasty founded by popular democratic election — a fact almost no textbook emphasises enough.</div>
+      </div>
+    </div>
+
+    <!-- ② CORE CONCEPT -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">🧠</span><span class="section-label-text">Core Concept — Key Pala Rulers</span><span class="section-sub">WITH ANALOGY</span></div>
+      <div class="analogy-box">
+        <div class="analogy-label">🏫 Modern Analogy</div>
+        <p>Think of the Pala kings as <strong>university chancellors who also happened to be warlords</strong>. Their greatest legacy wasn't military conquest — it was building Vikramshila University (Dharampala) and maintaining Nalanda. They fought a three-way war (with Pratiharas and Rashtrakutas) for control of Kanauj — like three tech giants fighting over one market. But what made them truly great was patronising the world's greatest libraries and monasteries.</p>
+      </div>
+
+      <div class="ruler-card">
+        <div class="ruler-header">
+          <div class="ruler-name-big">Gopala</div>
+          <div class="ruler-badge">FOUNDER</div>
+          <div class="ruler-dates-big">750–770 AD</div>
+        </div>
+        <div class="ruler-body">
+          <ul>
+            <li><strong>Founded Pala dynasty c.750 AD</strong> by democratic election — people chose him to end matsya-nyaya (anarchy)</li>
+            <li>Khalimpur Copper Plate inscription records this election</li>
+            <li>Extended control over all of Bengal and parts of Bihar (Magadha)</li>
+            <li>Buddhist patron — founded <strong>Odantapura Vihara</strong> at Bihar Sharif (ancient Bihar Sharif = Odantapuri)</li>
+            <li>Also built a monastery near Nalanda</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="ruler-card">
+        <div class="ruler-header">
+          <div class="ruler-name-big">Dharampala</div>
+          <div class="ruler-badge">⭐ EMPIRE BUILDER</div>
+          <div class="ruler-dates-big">770–810 AD</div>
+        </div>
+        <div class="ruler-body">
+          <ul>
+            <li><strong>Greatest Pala ruler</strong> — empire reached its first peak under him</li>
+            <li>Fought <strong>Tripartite Struggle</strong> with Gurjara Pratiharas (Vatsaraja, Nagabhatta II) and Rashtrakutas (Dhruva, Govinda III) for control of Kanauj</li>
+            <li>After Govinda III withdrew to Deccan, <strong>Dharampala captured Kanauj</strong>, installed Chakrayudha, and earned title <strong>"Uttarapathaswami"</strong> (Lord of the North)</li>
+            <li>Organised grand Darbar at Kanauj — attended by kings of Nepal, Bhoja, Matsya, Kuru, Yadu, Gandhara and others</li>
+            <li>First Pala to use full imperial title: <strong>Maharajadhiraja Parameshvara Paramabhattaraka</strong></li>
+            <li><strong>Founded Vikramshila Mahavihara</strong> at Antichak village, Bhagalpur district — great rival to Nalanda</li>
+            <li>Built Sonapura Vihara in North Bengal</li>
+            <li>Gave 200 villages for maintenance of Nalanda University</li>
+            <li>Tolerant of all religions — image of four-faced Mahadeva installed at Bodh Gaya during his reign</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="ruler-card">
+        <div class="ruler-header">
+          <div class="ruler-name-big">Devapala</div>
+          <div class="ruler-badge">PEAK EXPANSION</div>
+          <div class="ruler-dates-big">810–850 AD</div>
+        </div>
+        <div class="ruler-body">
+          <ul>
+            <li>Empire reached further heights — conquered <strong>Utkala (Orissa)</strong> and <strong>Pragjyotisha (Assam/Kamrupa)</strong></li>
+            <li>Capital: <strong>Munger</strong> — his inscriptions found at Ghosrawan, Hilsa, Nalanda, Munger</li>
+            <li>Maintained friendly relations with <strong>Balaputradeva</strong>, king of <strong>Suvarnadvipa</strong> (Sumatra/SE Asia) — who built monastery at Nalanda; Devapala granted 5 villages for its maintenance</li>
+            <li>Munger Copper Plate inscription (of Devapala) states Dharampala left successor a kingdom free from troubles</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="ruler-card">
+        <div class="ruler-header">
+          <div class="ruler-name-big">Mahipala I</div>
+          <div class="ruler-badge">SECOND FOUNDER</div>
+          <div class="ruler-dates-big">988–1038 AD</div>
+        </div>
+        <div class="ruler-body">
+          <ul>
+            <li>Known as <strong>"second founder of Pala dynasty"</strong> — revived Pala power after period of decline</li>
+            <li>Reign (988 AD): Bihar and Bengal invaded by <strong>Rajendra Chola I</strong> of Chola dynasty (south Indian emperor) around 1023 AD</li>
+            <li>Mahipala I fought Rajendra Chola and was defeated. Died same year (1023 AD)</li>
+            <li>After him: Nayapala, Vigrahapala III, Mahipala II (faced Kaivarta revolt by Sandhyakar Nandi's patron), Rampala (last significant ruler — restored Pala fortunes temporarily)</li>
+            <li><strong>Rampala</strong> = last ruler; <em>Ramacharita</em> by Sandhyakara Nandi describes his reign</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ③ TIMELINE -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">⏳</span><span class="section-label-text">Timeline — Pala Dynasty</span><span class="section-sub">CHRONOLOGICAL</span></div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-period">750 AD — DEMOCRATIC FOUNDING</div>
+          <div class="tl-title">Gopala Elected King — Pala Dynasty Begins</div>
+          <div class="tl-body">People elect Gopala to end matsya-nyaya (anarchy). Founds Odantapura Vihara (Bihar Sharif). Expands into Bengal and Bihar (Magadha). First democratic election since Vaishali Licchavi republic.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-period">770–810 AD — DHARAMPALA</div>
+          <div class="tl-title">Tripartite Struggle + Vikramshila University Founded</div>
+          <div class="tl-body">Fights Pratiharas and Rashtrakutas for Kanauj. Captures Kanauj; title Uttarapathaswami. Grand Darbar at Kanauj. <strong>Founds Vikramshila at Antichak, Bhagalpur</strong>. Gives 200 villages to Nalanda.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-period">810–850 AD — DEVAPALA</div>
+          <div class="tl-title">Maximum Expansion — Capital at Munger</div>
+          <div class="tl-body">Conquers Orissa and Assam. Capital at Munger. Balaputradeva of SE Asia builds monastery at Nalanda; Devapala grants 5 villages. Inscriptions at Ghosrawan, Hilsa, Nalanda, Munger.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-period">850–988 AD — LATER PALAS</div>
+          <div class="tl-title">Gradual Decline — Internal Troubles</div>
+          <div class="tl-body">Vigrahapala I, Narayanapala, Rajyapala, Gopala II, Vigrahapala II. Pratihara and Rashtrakuta pressure continues. Territory shrinks. Narayanapala loses ground to Gurjara-Pratiharas.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-period">988–1038 AD — MAHIPALA I</div>
+          <div class="tl-title">"Second Founder" — Brief Revival</div>
+          <div class="tl-body">Revives Pala power. Defeated by Rajendra Chola I (1023 AD). Dies same year. His revival inspired the Pala renaissance that continued under Rampala.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-period">1038–1150 AD — FINAL PALAS</div>
+          <div class="tl-title">Mahipala II, Rampala — End of Pala Rule</div>
+          <div class="tl-body">Mahipala II faces Kaivarta revolt (Sandhyakar). Rampala = last significant ruler; temporarily restored fortunes; Ramacharita describes his reign. After Rampala, Pala empire broke up completely.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ④ FLOWCHART -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">🔄</span><span class="section-label-text">Flowchart — Pala Legacy & Decline</span><span class="section-sub">CAUSE → EVENT → RESULT</span></div>
+      <div class="flow-grid">
+        <div class="flow-box cause">
+          <div class="flow-label">Cause of Rise</div>
+          <h4>Political Anarchy (Matsya-Nyaya)</h4>
+          <p>Post-Gupta power vacuum. No stable dynasty. People elect Gopala democratically to end chaos.</p>
+        </div>
+        <div class="flow-box event">
+          <div class="flow-label">Peak Achievements</div>
+          <h4>Buddhist Scholarship + North India Dominance</h4>
+          <p>Vikramshila (Dharampala), Nalanda patronage, Tripartite Struggle, Uttarapathaswami title, SE Asia Buddhist connections.</p>
+        </div>
+        <div class="flow-box result">
+          <div class="flow-label">Cause of Decline</div>
+          <h4>Three-Way Pressure + Turkish Invasion</h4>
+          <p>Pratihara + Rashtrakuta pressure eroded power. Rajendra Chola attack from south. Finally Bakhtiyar Khalji destroys universities (1197 AD).</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ⑤ COMPARISON TABLE -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">📊</span><span class="section-label-text">Key Pala Rulers — Quick Comparison</span><span class="section-sub">EXAM-READY</span></div>
+      <div class="bpsc-special">
+        <span class="bpsc-icon">🗺️</span>
+        <div class="bpsc-content">
+          <h4>BPSC Special — Pala Questions</h4>
+          <p>Most asked: Who founded Vikramshila? Who organised Darbar at Kanauj? Who was second founder of Pala dynasty? Capital of Devapala? — all answered in this table.</p>
+        </div>
+      </div>
+      <table class="comp-table">
+        <thead><tr><th>Ruler</th><th>Period</th><th>Capital</th><th>Key Achievement</th><th>University / Vihara</th></tr></thead>
+        <tbody>
+          <tr><td>Gopala</td><td>750–770 AD</td><td>—</td><td>Democratic election; ended anarchy; founded Pala dynasty</td><td class="accent">Odantapura Vihara (Bihar Sharif)</td></tr>
+          <tr><td>Dharampala</td><td>770–810 AD</td><td>—</td><td>Uttarapathaswami; Grand Darbar at Kanauj; Tripartite Struggle</td><td class="accent">Vikramshila (Antichak, Bhagalpur)</td></tr>
+          <tr><td>Devapala</td><td>810–850 AD</td><td class="accent">Munger</td><td>Conquered Orissa and Assam; SE Asia Buddhist connections</td><td class="accent">Patronised Nalanda (5 villages to Balaputradeva's monastery)</td></tr>
+          <tr><td>Narayanapala</td><td>~854–908 AD</td><td>—</td><td>Ruled Bengal+Bihar; lost ground to Pratiharas later</td><td>—</td></tr>
+          <tr><td>Mahipala I</td><td>988–1038 AD</td><td>—</td><td>"Second founder of Pala dynasty"; defeated by Rajendra Chola I (1023)</td><td>—</td></tr>
+          <tr><td>Rampala</td><td>~1077–1120 AD</td><td>—</td><td>Last significant ruler; temporarily restored Pala fortunes; Ramacharita</td><td>—</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ⑥ MNEMONIC -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">🧩</span><span class="section-label-text">Mnemonic</span><span class="section-sub">MEMORY TRICKS</span></div>
+      <div class="mnemonic-box">
+        <div class="m-label">🧩 Mnemonic — Pala Dynasty Key Rulers</div>
+        <div class="mnemonic-word">G · D · D · M · R</div>
+        <div class="mnemonic-rows">
+          <div class="m-row"><span class="m-letter">G</span><span class="m-text"><strong>Gopala</strong> — elected by people (750 AD); Odantapura Vihara; ended matsya-nyaya</span></div>
+          <div class="m-row"><span class="m-letter">D</span><span class="m-text"><strong>Dharampala</strong> — Vikramshila University; Kanauj Darbar; Uttarapathaswami; 770–810 AD</span></div>
+          <div class="m-row"><span class="m-letter">D</span><span class="m-text"><strong>Devapala</strong> — capital Munger; Orissa+Assam conquered; SE Asia Buddhist links; 810–850 AD</span></div>
+          <div class="m-row"><span class="m-letter">M</span><span class="m-text"><strong>Mahipala I</strong> — "second founder"; defeated by Rajendra Chola (1023 AD); 988–1038 AD</span></div>
+          <div class="m-row"><span class="m-letter">R</span><span class="m-text"><strong>Rampala</strong> — last significant ruler; Ramacharita written about him; ~1077–1120 AD</span></div>
+        </div>
+        <div class="m-tip">💡 "Good Dharma Deserves Much Respect" = Gopala, Dharampala, Devapala, Mahipala, Rampala — the 5 key Pala rulers in order!</div>
+      </div>
+      <div class="mnemonic-box">
+        <div class="m-label">🧩 Mnemonic — Vikramshila vs Nalanda vs Odantapura</div>
+        <div class="mnemonic-rows">
+          <div class="m-row"><span class="m-letter" style="font-size:14px;">VIK</span><span class="m-text"><strong>Vikramshila</strong> = <strong>D</strong>harampala founded; at <strong>Antichak village, Bhagalpur</strong> district</span></div>
+          <div class="m-row"><span class="m-letter" style="font-size:14px;">NAL</span><span class="m-text"><strong>Nalanda</strong> = <strong>Kumargupta I</strong> founded (Gupta era, 427 AD); Pala kings patronised it; at <strong>Nalanda district</strong></span></div>
+          <div class="m-row"><span class="m-letter" style="font-size:14px;">ODA</span><span class="m-text"><strong>Odantapura</strong> = <strong>Gopala</strong> founded; at <strong>Bihar Sharif (Nalanda district)</strong>; destroyed by Bakhtiyar Khalji</span></div>
+        </div>
+        <div class="m-tip">💡 "VDN" = Vikramshila→Dharampala, [N]alanda→Kumargupta, Odantapura→Gopala. All three destroyed by Bakhtiyar Khalji in 1197–1203 AD!</div>
+      </div>
+    </div>
+
+    <!-- ⑦ PYQ -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">📝</span><span class="section-label-text">PYQ Practice</span><span class="section-sub">SOLVED</span></div>
+
+      <div class="pyq-item">
+        <div class="pyq-meta"><span class="pyq-tag prelims">BPSC Prelims</span><span class="pyq-tag year">BPSC 2009</span></div>
+        <div class="pyq-q">Which Pala ruler organised a grand Darbar in Kanauj?</div>
+        <div class="pyq-options">
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(a) Gopala</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'correct')">(b) Dharmapala</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(c) Devpala</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(d) None of the above</div>
+        </div>
+        <div class="pyq-answer" id="ans-pyq1">
+          <strong>✓ CORRECT: (b) Dharmapala</strong>
+          <p>Dharampala captured Kanauj, installed Chakrayudha as its ruler, and organised a grand Darbar (royal assembly) there. This Darbar was attended by kings of Nepal, Bhoja, Matsya, Kuru, Yadu, Gandhara and others — symbolising Dharampala's supremacy over north India. He earned the title "Uttarapathaswami" (Lord of the Northern Path) for this achievement.</p>
+        </div>
+        <button class="reveal-btn" onclick="revealPYQ('ans-pyq1',this)">Show Explanation</button>
+      </div>
+
+      <div class="pyq-item">
+        <div class="pyq-meta"><span class="pyq-tag prelims">BPSC Prelims</span><span class="pyq-tag year">BPSC 2018</span></div>
+        <div class="pyq-q">The ruler of Suvarnabhumi who founded a Buddhist monastery at Nalanda and requested Devapala through his ambassador to grant five villages for its maintenance was:</div>
+        <div class="pyq-options">
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(a) Dharanindra</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(b) Sangramadhananjaya</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'correct')">(c) Balaputradeva</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(d) Chudamanivarmana</div>
+        </div>
+        <div class="pyq-answer" id="ans-pyq2">
+          <strong>✓ CORRECT: (c) Balaputradeva</strong>
+          <p><strong>Balaputradeva</strong> was the ruler of <strong>Suvarnabhumi</strong> (Sumatra/Southeast Asia) who built a Buddhist monastery at Nalanda during Devapala's reign. He sent an ambassador to request Devapala to grant five villages for the monastery's maintenance — which Devapala approved. This shows the international reach of Pala-era Nalanda as a centre of Buddhist learning far beyond India.</p>
+        </div>
+        <button class="reveal-btn" onclick="revealPYQ('ans-pyq2',this)">Show Explanation</button>
+      </div>
+
+      <div class="pyq-item">
+        <div class="pyq-meta"><span class="pyq-tag prelims">BPSC Prelims</span><span class="pyq-tag year">BPSC (MCQ Bank)</span></div>
+        <div class="pyq-q">Who established Vikramshila University?</div>
+        <div class="pyq-options">
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(a) Adityasena</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(b) Madhavagupta</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'correct')">(c) Dharmapala</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(d) Devapala</div>
+        </div>
+        <div class="pyq-answer" id="ans-pyq3">
+          <strong>✓ CORRECT: (c) Dharmapala</strong>
+          <p>Dharampala founded the <strong>Vikramshila Mahavihara</strong> at <strong>Antichak village</strong> near Kahalgaon in the <strong>Bhagalpur district</strong> of Bihar. This university became Nalanda's rival in importance, specialising in Tantric Buddhism. Excavations at Antichak since 1962 have confirmed its location. It was destroyed by Bakhtiyar Khalji along with Nalanda and Odantapura. Option (d) Devapala ruled from Munger but did NOT found Vikramshila — he patronised Nalanda instead.</p>
+        </div>
+        <button class="reveal-btn" onclick="revealPYQ('ans-pyq3',this)">Show Explanation</button>
+      </div>
+    </div>
+
+    <!-- ⑧ QUICK REVISION -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">⚡</span><span class="section-label-text">Quick Revision Bullets</span><span class="section-sub">7 ONE-LINERS</span></div>
+      <div class="qr-grid">
+        <div class="qr-item"><span class="qr-num">01</span><span class="qr-text"><strong>Pala dynasty founded c.750 AD</strong> by <strong>Gopala</strong> through democratic election — to end matsya-nyaya (big fish eating small fish = anarchy).</span></div>
+        <div class="qr-item"><span class="qr-num">02</span><span class="qr-text"><strong>Vikramshila University</strong> = founded by <strong>Dharampala</strong> at Antichak village, Bhagalpur district. ⚠ NOT Devapala, NOT Gopala.</span></div>
+        <div class="qr-item"><span class="qr-num">03</span><span class="qr-text"><strong>Dharampala</strong> = title Uttarapathaswami; Grand Darbar at Kanauj; first Pala with full imperial title; gave 200 villages to Nalanda.</span></div>
+        <div class="qr-item"><span class="qr-num">04</span><span class="qr-text"><strong>Devapala's capital = Munger</strong>. Conquered Orissa and Assam. Balaputradeva of Suvarnabhumi built Nalanda monastery; Devapala granted 5 villages.</span></div>
+        <div class="qr-item"><span class="qr-num">05</span><span class="qr-text"><strong>Tripartite Struggle</strong>: Pala vs Pratihara vs Rashtrakuta for control of Kanauj. Eventually Dharampala captured Kanauj after Rashtrakuta Govinda III withdrew.</span></div>
+        <div class="qr-item"><span class="qr-num">06</span><span class="qr-text"><strong>Mahipala I = "Second Founder"</strong> of Pala dynasty; defeated by <strong>Rajendra Chola I</strong> (south Indian) in 1023 AD — unique event of southern empire attacking Bihar.</span></div>
+        <div class="qr-item"><span class="qr-num">07</span><span class="qr-text"><strong>Rampala</strong> = last significant Pala ruler; <em>Ramacharita</em> by Sandhyakara Nandi describes his reign. Pala dynasty ended ~1150 AD; then Sena dynasty took over.</span></div>
+      </div>
+      <div class="memory-hook">
+        <span class="hook-icon">🧲</span>
+        <span class="hook-text">Memory Hook: "The Palas were Bihar's last great Buddhist dynasty — born from a democratic vote in 750 AD, peaking with <em>Vikramshila and Nalanda</em>, and ending when Bakhtiyar Khalji's torches consumed 400 years of Buddhist scholarship in 1197 AD."</span>
+      </div>
+    </div>
+
+    <!-- ⑨ CONCEPT CHECK -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">✅</span><span class="section-label-text">Concept Check</span><span class="section-sub">TEST YOURSELF</span></div>
+      <div class="check-mcq">
+        <div class="check-q">1. Munger was the capital of which Pala ruler?</div>
+        <div class="check-opts">
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','A')"><span class="opt-letter">A</span>Gopala</button>
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','B')"><span class="opt-letter">B</span>Dharampala</button>
+          <button class="check-opt" onclick="checkAnswer(this,'correct','C')"><span class="opt-letter">C</span>Devapala</button>
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','D')"><span class="opt-letter">D</span>Mahipala I</button>
+        </div>
+        <div class="check-feedback ok" id="fb1-ok">✓ Correct! Devapala (810–850 AD) made Munger his capital. This is a frequently tested BPSC fact. Don't confuse with Dharampala who preceded him — Dharampala is known for Vikramshila and Kanauj Darbar, not for Munger capital.</div>
+        <div class="check-feedback no" id="fb1-no">✗ Answer is (C) Devapala. He ruled from Munger (810–850 AD). His inscriptions have been found at Ghosrawan, Hilsa, Nalanda, and Munger. Dharampala is associated with Vikramshila and Kanauj; Gopala founded the dynasty without a fixed major capital.</div>
+      </div>
+      <div class="check-mcq">
+        <div class="check-q">2. Who was the last ruler of the Pala dynasty?</div>
+        <div class="check-opts">
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','A')"><span class="opt-letter">A</span>Mahipala I</button>
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','B')"><span class="opt-letter">B</span>Mahipala II</button>
+          <button class="check-opt" onclick="checkAnswer(this,'correct','C')"><span class="opt-letter">C</span>Rampala</button>
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','D')"><span class="opt-letter">D</span>Vigrahapala</button>
+        </div>
+        <div class="check-feedback ok" id="fb2-ok">✓ Correct! Rampala was the last ruler of the Pala dynasty (and last significant one). The Ramacharita composed by Sandhyakara Nandi describes how Rampala suppressed the Kaivarta revolt and temporarily restored Pala power, before the empire finally broke up after him.</div>
+        <div class="check-feedback no" id="fb2-no">✗ Answer is (C) Rampala. He was the last significant Pala ruler. After Rampala, the restored Pala empire broke up completely. The Ramacharita by Sandhyakara Nandi is written about him. Mahipala II was penultimate — he faced the Kaivarta revolt.</div>
+      </div>
+      <div class="mains-box">
+        <div class="mains-meta"><span class="pyq-tag mains">MAINS GS-I</span><span class="pyq-tag year">150 words</span></div>
+        <div class="mains-q">The Pala dynasty played a crucial role in preserving and spreading Buddhism across Asia. Discuss their contributions to education and religion with special reference to Bihar.</div>
+        <button class="reveal-btn" style="margin-bottom:12px;" onclick="revealMains(this)">▼ Show Model Answer</button>
+        <div class="mains-answer" id="mains-ans1">
+          <div class="ans-sec"><h5>Introduction</h5><p>The Pala dynasty (750–1150 AD), founded democratically in Bihar, became Buddhism's last great royal patron in India — preserving and exporting Buddhist knowledge during a critical period when it was declining elsewhere.</p></div>
+          <div class="ans-sec"><h5>Educational Contributions</h5><ul>
+            <li><strong>Vikramshila Mahavihara:</strong> Founded by Dharampala at Antichak, Bhagalpur — specialised in Tantric Buddhism; became Nalanda's equal in prestige</li>
+            <li><strong>Nalanda:</strong> Palas gave 200 villages (Dharampala) and 5 villages (Devapala) for its maintenance — keeping it operational for centuries</li>
+            <li><strong>Odantapura Vihara:</strong> Founded by Gopala at Bihar Sharif — a major centre of learning</li>
+            <li>International students came from China, Tibet, SE Asia to these Bihar institutions</li>
+          </ul></div>
+          <div class="ans-sec"><h5>Religious Contributions</h5><ul>
+            <li>Followers of Mahayana and Tantric Buddhism — patronised Buddhist art (Pala-Sena school of art at Gaya, Nalanda, Nawada)</li>
+            <li>International outreach: Devapala's correspondence with Balaputradeva of Suvarnabhumi (SE Asia) spread Pala-style Buddhism to Indonesia</li>
+            <li>Tibet received many Pala-era Buddhist texts and teachers — Pala Buddhism shaped Tibetan Buddhism permanently</li>
+          </ul></div>
+          <div class="ans-sec"><h5>Conclusion</h5><p>The Pala dynasty's greatest legacy is not military but intellectual. When Bakhtiyar Khalji burned Nalanda and Vikramshila in 1197–1203 AD, he destroyed 400 years of Pala-patronised Buddhist scholarship — but the knowledge had already spread across Asia through Pala-era students and texts.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<button class="print-btn" onclick="window.print()" title="Print Quick Revision">🖨</button>
+<script>
+const KEY='bihar_hist_v1';
+let visited=new Set(JSON.parse(localStorage.getItem(KEY)||'[]'));
+visited.add('modules/m08.html');
+localStorage.setItem(KEY,JSON.stringify([...visited]));
+document.querySelectorAll('.sidebar-item').forEach(item=>{const href=item.getAttribute('href');if(href&&visited.has('modules/'+href))item.classList.add('done');});
+function answerPYQ(el,type){const p=el.closest('.pyq-item');p.querySelectorAll('.pyq-opt').forEach(o=>{o.onclick=null;o.style.cursor='default';});el.classList.add(type);}
+function revealPYQ(id,btn){document.getElementById(id).classList.toggle('show');btn.textContent=btn.textContent.includes('Show')?'Hide Explanation':'Show Explanation';}
+function revealMains(btn){document.getElementById('mains-ans1').classList.toggle('show');btn.textContent=btn.textContent.includes('▼')?'▲ Hide Model Answer':'▼ Show Model Answer';}
+function checkAnswer(el,type,letter){const p=el.closest('.check-mcq');p.querySelectorAll('.check-opt').forEach(o=>{o.onclick=null;o.style.cursor='default';});el.classList.add(type);const idx=Array.from(document.querySelectorAll('.check-mcq')).indexOf(p)+1;const ok=document.getElementById('fb'+idx+'-ok');const no=document.getElementById('fb'+idx+'-no');if(type==='correct'&&ok)ok.classList.add('show');if(type==='wrong'&&no)no.classList.add('show');}
+</script>
+</body>
+</html>

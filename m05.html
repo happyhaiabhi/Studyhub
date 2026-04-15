@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M05 — Mauryan Empire | Bihar History</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1a1a2e;--ink2:#2d2d44;--paper:#f5f2eb;--paper2:#ede9df;--gold:#c9973a;--gold2:#e8b45a;--teal:#1e7a6e;--teal2:#2aa195;--coral:#c2522b;--coral2:#e06840;--muted:#7a7465;--border:rgba(26,26,46,0.11);--accent:var(--gold);}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);display:flex;min-height:100vh;}
+.sidebar{width:260px;flex-shrink:0;background:var(--ink);display:flex;flex-direction:column;position:sticky;top:0;height:100vh;overflow-y:auto;}
+.sidebar-logo{padding:24px 20px 16px;border-bottom:1px solid rgba(255,255,255,0.07);}
+.sidebar-logo a{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:var(--gold2);text-decoration:none;line-height:1.3;display:block;}
+.sidebar-logo span{display:block;font-size:10px;color:rgba(245,242,235,0.35);letter-spacing:1px;margin-top:3px;font-family:'DM Mono',monospace;}
+.sidebar-part{padding:14px 20px 6px;font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:1.4px;text-transform:uppercase;color:rgba(245,242,235,0.28);}
+.sidebar-item{display:flex;align-items:center;gap:10px;padding:9px 20px;text-decoration:none;font-size:12px;color:rgba(245,242,235,0.55);transition:background 0.15s,color 0.15s;border-left:2px solid transparent;}
+.sidebar-item:hover{background:rgba(255,255,255,0.05);color:rgba(245,242,235,0.9);}
+.sidebar-item.active{background:rgba(201,151,58,0.12);color:var(--gold2);border-left-color:var(--gold);}
+.sidebar-item.done .s-dot{background:var(--teal);}
+.s-num{font-family:'DM Mono',monospace;font-size:9.5px;color:rgba(245,242,235,0.28);width:28px;flex-shrink:0;}
+.s-dot{width:6px;height:6px;border-radius:50%;border:1.5px solid rgba(255,255,255,0.2);flex-shrink:0;}
+.sidebar-item.active .s-dot{background:var(--gold);border-color:var(--gold);}
+.main{flex:1;min-width:0;display:flex;flex-direction:column;}
+.topbar{background:var(--ink2);padding:12px 48px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10;border-bottom:1px solid rgba(255,255,255,0.05);}
+.topbar-left{display:flex;align-items:center;gap:14px;}
+.era-pill{font-size:10px;padding:3px 10px;border-radius:2px;background:rgba(201,151,58,0.2);color:var(--gold2);font-family:'DM Mono',monospace;letter-spacing:0.8px;}
+.topbar-title{font-size:13px;color:rgba(245,242,235,0.7);}
+.topbar-nav{display:flex;gap:8px;}
+.nav-btn{padding:7px 14px;border-radius:3px;font-size:12px;font-weight:500;text-decoration:none;border:1px solid rgba(255,255,255,0.12);color:rgba(245,242,235,0.6);transition:all 0.18s;cursor:pointer;background:none;}
+.nav-btn:hover{border-color:var(--gold);color:var(--gold2);}
+.nav-btn.primary{background:var(--gold);color:var(--ink);border-color:var(--gold);}
+.content{flex:1;padding:48px 52px 80px;max-width:920px;}
+.mod-header{margin-bottom:40px;}
+.mod-badge{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--ink);font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:4px 12px;border-radius:2px;margin-bottom:18px;}
+.mod-header h1{font-family:'Playfair Display',serif;font-size:clamp(26px,3.5vw,40px);font-weight:900;line-height:1.15;letter-spacing:-0.5px;margin-bottom:14px;}
+.mod-header h1 em{font-style:italic;color:var(--gold);}
+.mod-header p{font-size:14.5px;color:var(--muted);line-height:1.75;max-width:640px;}
+.mod-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px;padding-top:18px;border-top:1px solid var(--border);}
+.meta-tag{font-size:10.5px;padding:3px 9px;border-radius:2px;font-weight:500;}
+.meta-tag.b{background:#fdf5e6;color:var(--gold);}
+.meta-tag.m{background:#ebf5f3;color:var(--teal);}
+.meta-tag.s{background:#fff0eb;color:var(--coral);}
+.meta-tag.d{background:#f0edf8;color:#5a3ea1;}
+.section{margin-bottom:44px;}
+.section-head{display:flex;align-items:center;gap:12px;margin-bottom:20px;padding-bottom:12px;border-bottom:2px solid var(--accent);}
+.section-icon{font-size:20px;}
+.section-label-text{font-family:'Playfair Display',serif;font-size:19px;font-weight:700;}
+.section-sub{font-size:11px;color:var(--muted);font-family:'DM Mono',monospace;letter-spacing:0.8px;margin-left:auto;}
+.story-box{background:var(--ink);color:var(--paper);border-radius:5px;padding:28px 32px;position:relative;overflow:hidden;}
+.story-box::before{content:'';position:absolute;top:-40px;right:-40px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(201,151,58,0.15) 0%,transparent 70%);}
+.story-box p{font-size:14.5px;line-height:1.85;font-weight:300;position:relative;}
+.story-box p+p{margin-top:12px;}
+.story-box strong{color:var(--gold2);}
+.story-highlight{display:inline-block;margin-top:18px;padding:10px 16px;background:rgba(201,151,58,0.15);border-left:3px solid var(--gold);border-radius:0 3px 3px 0;font-size:13px;font-style:italic;color:var(--gold2);}
+/* Ruler profiles */
+.ruler-profiles{display:flex;flex-direction:column;gap:16px;}
+.ruler-card{background:#fff;border:1px solid var(--border);border-radius:4px;overflow:hidden;}
+.ruler-header{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:16px;padding:18px 22px;background:var(--paper2);}
+.ruler-emoji{font-size:32px;}
+.ruler-name{font-family:'Playfair Display',serif;font-size:20px;font-weight:900;color:var(--ink);}
+.ruler-reign{font-family:'DM Mono',monospace;font-size:11px;color:var(--accent);}
+.ruler-badge{background:var(--accent);color:var(--ink);font-size:10px;font-weight:600;padding:3px 10px;border-radius:2px;white-space:nowrap;}
+.ruler-body{padding:18px 22px;display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.ruler-fact{font-size:13px;line-height:1.65;color:var(--ink2);}
+.ruler-fact strong{color:var(--ink);font-weight:600;}
+/* Admin system */
+.admin-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+.admin-card{background:#fff;border:1px solid var(--border);border-radius:4px;padding:16px;}
+.admin-card::before{display:block;font-size:24px;margin-bottom:8px;}
+.admin-title{font-size:12.5px;font-weight:600;margin-bottom:6px;color:var(--ink);}
+.admin-desc{font-size:12px;color:var(--muted);line-height:1.6;}
+/* Saptanga */
+.saptanga-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;margin-top:12px;}
+.sapta-box{background:var(--ink);color:var(--paper);border-radius:4px;padding:12px 8px;text-align:center;}
+.sapta-num{font-family:'DM Mono',monospace;font-size:10px;color:var(--gold2);margin-bottom:4px;}
+.sapta-name{font-size:11px;font-weight:600;color:var(--gold2);margin-bottom:3px;}
+.sapta-meaning{font-size:10px;color:rgba(245,242,235,0.55);}
+/* Provinces */
+.province-table{width:100%;border-collapse:collapse;font-size:12.5px;}
+.province-table th{background:var(--ink);color:var(--paper);padding:10px 14px;text-align:left;font-weight:500;font-size:12px;}
+.province-table th:first-child{border-radius:4px 0 0 0;}
+.province-table th:last-child{border-radius:0 4px 0 0;}
+.province-table td{padding:9px 14px;border-bottom:1px solid var(--border);line-height:1.5;}
+.province-table tr:last-child td{border-bottom:none;}
+.province-table tr:nth-child(even) td{background:var(--paper2);}
+.province-table td:first-child{font-weight:600;color:var(--accent);}
+/* Timeline */
+.timeline{position:relative;padding-left:28px;}
+.timeline::before{content:'';position:absolute;left:8px;top:8px;bottom:8px;width:2px;background:linear-gradient(180deg,var(--accent),transparent);}
+.tl-item{position:relative;margin-bottom:20px;}
+.tl-dot{position:absolute;left:-24px;top:4px;width:12px;height:12px;border-radius:50%;background:var(--accent);border:2px solid var(--paper);box-shadow:0 0 0 2px var(--accent);}
+.tl-period{font-family:'DM Mono',monospace;font-size:10.5px;color:var(--accent);letter-spacing:0.5px;margin-bottom:4px;}
+.tl-title{font-size:14px;font-weight:600;margin-bottom:4px;}
+.tl-body{font-size:12.5px;color:var(--muted);line-height:1.6;}
+/* Comparison table */
+.comp-table{width:100%;border-collapse:collapse;font-size:12.5px;}
+.comp-table th{background:var(--ink);color:var(--paper);padding:11px 14px;text-align:left;font-weight:500;font-size:12px;}
+.comp-table th:first-child{border-radius:4px 0 0 0;}
+.comp-table th:last-child{border-radius:0 4px 0 0;}
+.comp-table td{padding:9px 14px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.55;}
+.comp-table tr:last-child td{border-bottom:none;}
+.comp-table tr:nth-child(even) td{background:var(--paper2);}
+.comp-table tr:hover td{background:#fff9f0;}
+.comp-table td:first-child{font-weight:600;color:var(--ink2);}
+.comp-table td.accent{color:var(--gold);font-weight:500;}
+/* Mnemonic */
+.mnemonic-box{background:linear-gradient(135deg,var(--ink),var(--ink2));border-radius:5px;padding:28px 32px;color:var(--paper);}
+.mnemonic-box+.mnemonic-box{margin-top:14px;}
+.m-label{font-size:10px;font-family:'DM Mono',monospace;letter-spacing:1.5px;color:var(--gold);text-transform:uppercase;margin-bottom:14px;}
+.mnemonic-word{font-family:'Playfair Display',serif;font-size:clamp(20px,2.5vw,32px);font-weight:900;color:var(--gold2);letter-spacing:3px;margin-bottom:18px;}
+.mnemonic-rows{display:flex;flex-direction:column;gap:10px;}
+.m-row{display:flex;align-items:baseline;gap:14px;}
+.m-letter{font-family:'DM Mono',monospace;font-size:18px;font-weight:500;color:var(--gold2);width:28px;flex-shrink:0;}
+.m-text{font-size:13px;line-height:1.5;}
+.m-text strong{color:var(--gold2);}
+.m-tip{margin-top:16px;padding:10px 14px;background:rgba(201,151,58,0.12);border-radius:3px;font-size:12px;font-style:italic;color:rgba(245,242,235,0.7);}
+/* PYQ */
+.pyq-item{background:#fff;border:1px solid var(--border);border-radius:4px;padding:22px;margin-bottom:14px;}
+.pyq-meta{display:flex;align-items:center;gap:8px;margin-bottom:12px;flex-wrap:wrap;}
+.pyq-tag{font-size:10px;padding:2px 8px;border-radius:2px;font-weight:500;font-family:'DM Mono',monospace;}
+.pyq-tag.prelims{background:#fdf5e6;color:var(--gold);}
+.pyq-tag.mains{background:#ebf5f3;color:var(--teal);}
+.pyq-tag.year{background:var(--paper2);color:var(--muted);}
+.pyq-q{font-size:14px;font-weight:500;line-height:1.6;margin-bottom:14px;}
+.pyq-options{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:14px;}
+.pyq-opt{padding:8px 12px;border-radius:3px;font-size:12.5px;border:1px solid var(--border);background:var(--paper);cursor:pointer;transition:all 0.18s;}
+.pyq-opt:hover{border-color:var(--gold);background:#fff9f0;}
+.pyq-opt.correct{background:#e8f5e9;border-color:#4caf50;color:#2e7d32;font-weight:500;}
+.pyq-opt.wrong{background:#ffebee;border-color:#ef9a9a;color:#c62828;}
+.pyq-answer{display:none;padding:14px 16px;background:#e8f5f3;border-radius:3px;border-left:3px solid var(--teal);}
+.pyq-answer.show{display:block;}
+.pyq-answer strong{color:var(--teal);font-size:12px;}
+.pyq-answer p{font-size:13px;color:var(--ink2);margin-top:5px;line-height:1.6;}
+.reveal-btn{font-size:11.5px;padding:6px 14px;border-radius:3px;background:none;border:1px solid var(--border);cursor:pointer;color:var(--muted);transition:all 0.18s;}
+.reveal-btn:hover{border-color:var(--teal);color:var(--teal);}
+.mains-box{background:#fff;border:1px solid var(--border);border-radius:4px;padding:22px;}
+.mains-q{font-size:14.5px;font-weight:600;line-height:1.6;margin-bottom:14px;}
+.mains-meta{display:flex;gap:8px;margin-bottom:14px;}
+.mains-answer{display:none;border-top:1px solid var(--border);padding-top:16px;}
+.mains-answer.show{display:block;}
+.answer-section{margin-bottom:14px;}
+.answer-section h5{font-size:11px;font-family:'DM Mono',monospace;letter-spacing:1px;color:var(--gold);text-transform:uppercase;margin-bottom:7px;}
+.answer-section p{font-size:13px;line-height:1.7;color:var(--ink2);}
+.answer-section ul{padding-left:18px;}
+.answer-section li{font-size:13px;line-height:1.7;color:var(--ink2);margin-bottom:4px;}
+.qr-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.qr-item{display:flex;align-items:flex-start;gap:10px;background:#fff;border:1px solid var(--border);border-radius:4px;padding:14px 16px;}
+.qr-num{font-family:'DM Mono',monospace;font-size:10px;color:var(--accent);font-weight:500;flex-shrink:0;margin-top:2px;}
+.qr-text{font-size:13px;line-height:1.6;color:var(--ink2);}
+.qr-text strong{color:var(--accent);}
+.memory-hook{background:var(--accent);border-radius:4px;padding:16px 22px;display:flex;align-items:center;gap:16px;margin-top:32px;}
+.hook-icon{font-size:22px;}
+.hook-text{font-size:14px;font-weight:600;color:var(--ink);line-height:1.5;}
+.check-mcq{background:#fff;border:1px solid var(--border);border-radius:4px;padding:20px;margin-bottom:12px;}
+.check-q{font-size:14px;font-weight:500;margin-bottom:14px;line-height:1.6;}
+.check-opts{display:flex;flex-direction:column;gap:7px;}
+.check-opt{padding:10px 14px;border-radius:3px;font-size:13px;border:1px solid var(--border);background:var(--paper);cursor:pointer;transition:all 0.18s;text-align:left;display:flex;align-items:center;gap:10px;}
+.check-opt:hover{border-color:var(--accent);background:#fff9f0;}
+.check-opt.correct{background:#e8f5e9;border-color:#4caf50;color:#2e7d32;}
+.check-opt.wrong{background:#ffebee;border-color:#ef9a9a;color:#c62828;}
+.opt-letter{width:22px;height:22px;border-radius:50%;background:var(--paper2);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;flex-shrink:0;}
+.check-opt.correct .opt-letter{background:#4caf50;color:#fff;}
+.check-opt.wrong   .opt-letter{background:#ef9a9a;color:#fff;}
+.check-feedback{margin-top:10px;padding:10px 14px;border-radius:3px;font-size:12.5px;display:none;line-height:1.6;}
+.check-feedback.show{display:block;}
+.check-feedback.ok{background:#e8f5e9;color:#2e7d32;}
+.check-feedback.no{background:#ffebee;color:#c62828;}
+.analogy-box{background:linear-gradient(135deg,#fff9f0,#fff);border:1px solid rgba(201,151,58,0.25);border-radius:4px;padding:20px;margin-bottom:20px;}
+.analogy-label{font-size:10px;font-family:'DM Mono',monospace;letter-spacing:1.2px;color:var(--gold);text-transform:uppercase;margin-bottom:8px;}
+.analogy-box p{font-size:13.5px;line-height:1.7;color:var(--ink2);}
+.sidebar::-webkit-scrollbar{width:4px;}
+.sidebar::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.1);border-radius:2px;}
+.print-btn{position:fixed;bottom:24px;right:24px;background:var(--ink);color:var(--gold2);border:none;border-radius:50%;width:44px;height:44px;font-size:16px;cursor:pointer;box-shadow:0 4px 16px rgba(26,26,46,0.25);transition:transform 0.18s;display:flex;align-items:center;justify-content:center;}
+.print-btn:hover{transform:scale(1.1);}
+@media print{.sidebar,.topbar,.print-btn{display:none;}.main{display:block;}.content{padding:20px;}}
+@media(max-width:768px){.sidebar{display:none;}.content{padding:24px 20px 60px;}.topbar{padding:10px 20px;}.ruler-body,.admin-grid,.saptanga-grid,.qr-grid,.pyq-options{grid-template-columns:1fr;}.saptanga-grid{grid-template-columns:repeat(3,1fr);}}
+</style>
+</head>
+<body>
+<aside class="sidebar">
+  <div class="sidebar-logo"><a href="../index.html">Bihar History<br>Study System</a><span>BPSC · UPSC · State PCS</span></div>
+  <div class="sidebar-part">Part I — Ancient Bihar</div>
+  <a class="sidebar-item done" href="m01.html"><span class="s-num">01</span><span class="s-dot"></span>Sources & Prehistoric Bihar</a>
+  <a class="sidebar-item done" href="m02.html"><span class="s-num">02</span><span class="s-dot"></span>Mahajanapadas in Bihar</a>
+  <a class="sidebar-item done" href="m03.html"><span class="s-num">03</span><span class="s-dot"></span>Pre-Mauryan Dynasties</a>
+  <a class="sidebar-item done" href="m04.html"><span class="s-num">04</span><span class="s-dot"></span>Buddhism & Jainism</a>
+  <a class="sidebar-item active" href="m05.html"><span class="s-num">05</span><span class="s-dot"></span>Mauryan Empire</a>
+  <a class="sidebar-item" href="m06.html"><span class="s-num">06</span><span class="s-dot"></span>Ashoka — Kalinga to Dhamma</a>
+  <a class="sidebar-item" href="m07.html"><span class="s-num">07</span><span class="s-dot"></span>Post-Mauryan to Gupta Era</a>
+  <div class="sidebar-part">Part II — Medieval Bihar</div>
+  <a class="sidebar-item" href="m08.html"><span class="s-num">08</span><span class="s-dot"></span>Pala Dynasty</a>
+  <a class="sidebar-item" href="m09.html"><span class="s-num">09</span><span class="s-dot"></span>Sena & Karnata Dynasties</a>
+  <a class="sidebar-item" href="m10.html"><span class="s-num">10</span><span class="s-dot"></span>Turkish Invasion</a>
+  <a class="sidebar-item" href="m11.html"><span class="s-num">11</span><span class="s-dot"></span>Khilji, Tughlaq & Noohani</a>
+  <a class="sidebar-item" href="m12.html"><span class="s-num">12</span><span class="s-dot"></span>Sher Shah Suri</a>
+  <a class="sidebar-item" href="m13.html"><span class="s-num">13</span><span class="s-dot"></span>Mughal Rule in Bihar</a>
+  <a class="sidebar-item" href="m14.html"><span class="s-num">14</span><span class="s-dot"></span>Sufism, Sikhism & Tribal States</a>
+  <div class="sidebar-part">Part III — Modern Bihar</div>
+  <a class="sidebar-item" href="m15.html"><span class="s-num">15</span><span class="s-dot"></span>European Entry</a>
+  <a class="sidebar-item" href="m16.html"><span class="s-num">16</span><span class="s-dot"></span>Battle of Buxar</a>
+  <a class="sidebar-item" href="m17.html"><span class="s-num">17</span><span class="s-dot"></span>Revolt of 1857</a>
+  <a class="sidebar-item" href="m18.html"><span class="s-num">18</span><span class="s-dot"></span>Tribal Revolts</a>
+  <a class="sidebar-item" href="m19.html"><span class="s-num">19</span><span class="s-dot"></span>Freedom Movements</a>
+  <a class="sidebar-item" href="m20.html"><span class="s-num">20</span><span class="s-dot"></span>Eminent Freedom Fighters</a>
+  <a class="sidebar-item" href="m21.html"><span class="s-num">21</span><span class="s-dot"></span>Formation of Modern Bihar</a>
+</aside>
+
+<div class="main">
+  <div class="topbar">
+    <div class="topbar-left"><span class="era-pill">ANCIENT BIHAR</span><span class="topbar-title">Module 05 of 21</span></div>
+    <div class="topbar-nav">
+      <a href="m04.html" class="nav-btn">← Prev</a>
+      <a href="../index.html" class="nav-btn">Index</a>
+      <a href="m06.html" class="nav-btn primary">Next →</a>
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="mod-header">
+      <div class="mod-badge"><span>MODULE 05</span><span>·</span><span>Ancient Bihar</span></div>
+      <h1>Mauryan Empire —<br><em>Rise & Administration</em></h1>
+      <p>321 BC. A young man from Pataliputra overthrows the mightiest dynasty in India. With a genius advisor, an iron will, and the world's largest army, Chandragupta Maurya builds what no Indian had built before — a pan-Indian empire, governed from Bihar's capital.</p>
+      <div class="mod-meta">
+        <span class="meta-tag b">BPSC Prelims</span>
+        <span class="meta-tag m">Mains GS-I</span>
+        <span class="meta-tag d">321 BC – 185 BC</span>
+        <span class="meta-tag s">⚠ Bindusara's Greek names; Arthashastra vs Indica distinction</span>
+      </div>
+    </div>
+
+    <!-- STORY HOOK -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">🎭</span><span class="section-label-text">Story Hook</span><span class="section-sub">START HERE</span></div>
+      <div class="story-box">
+        <p>It is <strong>305 BC</strong>. The Greek general <strong>Seleucus Nicator</strong> — one of Alexander the Great's most powerful successors — has invaded India. He expects to reconquer what Alexander had left. Instead, he meets a 20-year-old emperor named <strong>Chandragupta Maurya</strong>.</p>
+        <p>The battle is swift and decisive. Seleucus loses. In the peace treaty that follows, he gives Chandragupta <strong>four entire satrapies</strong> (including Afghanistan) and sends his daughter in marriage. In return, Chandragupta sends him <strong>500 war elephants</strong>. Seleucus uses those elephants to become the most powerful man in the Middle East.</p>
+        <p>As part of the deal, Seleucus sends his ambassador <strong>Megasthenes</strong> to live in Pataliputra. Megasthenes writes <em>Indica</em> — the most detailed foreign account of ancient India's administration. He describes Pataliputra as <strong>"Palibothra"</strong> — a city of magnificent wooden palaces, busy markets, and a 30-member municipal council so efficient that a Greek could only stare in admiration.</p>
+        <div class="story-highlight">💡 Fun Fact: Chandragupta Maurya is the only Indian king who defeated a successor of Alexander the Great in pitched battle — and got paid land for it!</div>
+      </div>
+    </div>
+
+    <!-- THREE RULERS -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">🧠</span><span class="section-label-text">Three Mauryan Emperors</span><span class="section-sub">CORE CONCEPT</span></div>
+      <div class="analogy-box">
+        <div class="analogy-label">🏗️ Modern Analogy</div>
+        <p>The Mauryan Empire is like a <strong>three-generation family business</strong>. <strong>Chandragupta</strong> = the founder who builds it from scratch, takes enormous risks. <strong>Bindusara</strong> = the competent second-generation who maintains and expands slightly. <strong>Ashoka</strong> = the third-generation who transforms the company's entire purpose from profit to purpose — and in doing so, creates its most lasting legacy.</p>
+      </div>
+
+      <div class="ruler-profiles">
+        <!-- Chandragupta -->
+        <div class="ruler-card">
+          <div class="ruler-header">
+            <div class="ruler-emoji">👑</div>
+            <div>
+              <div class="ruler-name">Chandragupta Maurya</div>
+              <div class="ruler-reign">321 BC – 298 BC</div>
+            </div>
+            <span class="ruler-badge">FOUNDER</span>
+          </div>
+          <div class="ruler-body">
+            <div class="ruler-fact"><strong>Origin:</strong> Per Matsya Purana — mother Mura was a Shudra woman in Nanda court. Per Buddhist tradition — belonged to Moriya Kshatriya clan. Called "Vrishala" in Mudrarakshasa.</div>
+            <div class="ruler-fact"><strong>Mentor:</strong> Chanakya (also Kautilya/Vishnugupta) — writer of Arthashastra. Chanakya masterminded the overthrow of Dhana Nanda (321 BC).</div>
+            <div class="ruler-fact"><strong>Greek encounter:</strong> Defeated Seleucus Nicator (305 BC). Peace treaty = got Afghanistan + Balochistan. Seleucus sent Megasthenes as ambassador. Megasthenes wrote Indica — describes Pataliputra as "Palibothra." Army: 6 lakh infantry, 30,000 cavalry, 9,000 elephants.</div>
+            <div class="ruler-fact"><strong>End of reign:</strong> Per Jain sources (Parishishtaparvan) — embraced Jainism, abdicated for son Bindusara, went to Shravanabelagola with Jain monk Bhadrabahu, died by sallekhana (fasting to death).</div>
+          </div>
+        </div>
+
+        <!-- Bindusara -->
+        <div class="ruler-card">
+          <div class="ruler-header">
+            <div class="ruler-emoji">⚔️</div>
+            <div>
+              <div class="ruler-name">Bindusara</div>
+              <div class="ruler-reign">298 BC – 273 BC</div>
+            </div>
+            <span class="ruler-badge">EXPANDER</span>
+          </div>
+          <div class="ruler-body">
+            <div class="ruler-fact"><strong>Greek names:</strong> Called <em>Amitrochates</em> or <em>Amitraghata</em> ("slayer of enemies") by Greek writers. Vayu Purana = Mudrasar. Jain texts = Singhsen/Bindupala. Jain text Rajvalli-Katha = Seemseri.</div>
+            <div class="ruler-fact"><strong>Expansion:</strong> Expanded empire across most of India except extreme south and east. Himalayas in north to Assam in east; Balochistan and Afghanistan in west.</div>
+            <div class="ruler-fact"><strong>Diplomacy:</strong> Syrian King Antiochus I sent Deimachus as ambassador. Ptolemy II Philadelphus of Egypt sent Dionysius to his court. Maintained strong Greek trade relations.</div>
+            <div class="ruler-fact"><strong>Religion:</strong> Supported Ajivikas (religious sect). Appointed his son Ashoka as Governor of Ujjain. His other famous son was Susima (elder, who lost the succession war).</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TIMELINE -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">⏳</span><span class="section-label-text">Mauryan Empire Timeline</span><span class="section-sub">CHRONOLOGICAL</span></div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-period">321 BC</div>
+          <div class="tl-title">Chandragupta + Chanakya Overthrow Dhana Nanda</div>
+          <div class="tl-body">Maurya dynasty founded at Magadha (Pataliputra). First pan-Indian empire begins. Chanakya's Arthashastra becomes the governance manual. Capital: Pataliputra (modern Patna).</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-period">305 BC</div>
+          <div class="tl-title">War with Seleucus Nicator — Chandragupta Wins</div>
+          <div class="tl-body">Seleucus (Alexander's general) invades India, loses to Chandragupta. Peace treaty: Seleucus gives 4 satrapies + daughter. Chandragupta gives 500 elephants. Megasthenes sent as ambassador → writes Indica.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-period">298 BC</div>
+          <div class="tl-title">Chandragupta Abdicates → Bindusara Succeeds</div>
+          <div class="tl-body">Chandragupta embraces Jainism (per Jain sources), abdicates, goes to Shravanabelagola with monk Bhadrabahu, dies by fasting. Bindusara expands empire south. Called Amitrochates by Greeks.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-period">273 BC</div>
+          <div class="tl-title">Ashoka Succeeds Bindusara — After 4-Year War</div>
+          <div class="tl-body">Ashoka fought a succession war after Bindusara's death in 273 BC. He was crowned (sworn in) after 4 years interregnum, in 269 BC. He was governor of Ujjain before becoming emperor. Per Dipavamsa/Mahavamsa — killed 99 brothers, spared Vitashoka/Tissa.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-period">261 BC</div>
+          <div class="tl-title">Kalinga War — Everything Changes</div>
+          <div class="tl-body">Ashoka fights Kalinga (Odisha). Massive casualties. Rock Edict XIII describes his remorse. He converts to Buddhism, becomes Dhammasoka. This is covered in full detail in Module 06.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-period">185 BC</div>
+          <div class="tl-title">Last Mauryan — Brihadratha Assassinated</div>
+          <div class="tl-body">Pushyamitra Shunga (Commander-in-Chief) kills last Mauryan king Brihadratha during military parade. Shunga dynasty begins. After Ashoka, the empire declined rapidly under weak rulers: Kunala, Dasharatha, Samprati, Salisuka, Devavarman, Satadhanvan, Brihadratha.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FLOWCHART: ADMINISTRATION -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">🔄</span><span class="section-label-text">Mauryan Administration — Saptanga Theory</span><span class="section-sub">CHANAKYA'S FRAMEWORK</span></div>
+      <p style="font-size:13.5px;color:var(--muted);margin-bottom:16px;line-height:1.7;">Chanakya propounded the <strong>Saptanga Theory</strong> — the 7 essential elements (Angas) of a successful state. This is from Arthashastra and is one of the most tested BPSC topics.</p>
+      <div class="saptanga-grid">
+        <div class="sapta-box"><div class="sapta-num">1</div><div class="sapta-name">Svamin</div><div class="sapta-meaning">The King</div></div>
+        <div class="sapta-box"><div class="sapta-num">2</div><div class="sapta-name">Amatya</div><div class="sapta-meaning">Ministers</div></div>
+        <div class="sapta-box"><div class="sapta-num">3</div><div class="sapta-name">Janapada</div><div class="sapta-meaning">Territory + People</div></div>
+        <div class="sapta-box"><div class="sapta-num">4</div><div class="sapta-name">Durg</div><div class="sapta-meaning">Fort / Capital</div></div>
+        <div class="sapta-box"><div class="sapta-num">5</div><div class="sapta-name">Kosa</div><div class="sapta-meaning">Treasury</div></div>
+        <div class="sapta-box"><div class="sapta-num">6</div><div class="sapta-name">Bala</div><div class="sapta-meaning">Army</div></div>
+        <div class="sapta-box"><div class="sapta-num">7</div><div class="sapta-name">Mitra</div><div class="sapta-meaning">Ally</div></div>
+      </div>
+    </div>
+
+    <!-- ADMINISTRATION TABLE -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">📊</span><span class="section-label-text">Mauryan Administration — Key Features</span><span class="section-sub">EXAM TABLE</span></div>
+      <div class="admin-grid">
+        <div class="admin-card">
+          <div class="admin-title">👑 Central Administration</div>
+          <div class="admin-desc">18 Tirthas/Mahamatyas (senior officials): ministers, head priest, commander-in-chief, crown prince — paid in silver coins. Empire divided into 5 provinces, each with a Governor.</div>
+        </div>
+        <div class="admin-card">
+          <div class="admin-title">⚖️ Judiciary</div>
+          <div class="admin-desc">Two types: <strong>Dharmasthiyas</strong> (civil courts) and <strong>Kantakasodhanas</strong> (criminal courts). Rajjukas = land measurement + district control officers. Gramani = village head (Sarpanch).</div>
+        </div>
+        <div class="admin-card">
+          <div class="admin-title">🏙️ Municipal (Pataliputra)</div>
+          <div class="admin-desc">Per Megasthenes: 30-member council divided into <strong>6 committees of 5 each</strong>. Committees handled: industries, foreigners, births/deaths, trade, manufacturing, taxes on goods sold.</div>
+        </div>
+        <div class="admin-card">
+          <div class="admin-title">💰 Economy</div>
+          <div class="admin-desc">Managed by <strong>27 Adhyakshas</strong> (superintendents). Coins: silver (Panas), copper (Mashaka), gold (Niskha). <strong>18 Guilds/Srenis</strong> organized labour. Punch-marked coins found in Patna, Purnea.</div>
+        </div>
+        <div class="admin-card">
+          <div class="admin-title">🏘️ Local Administration</div>
+          <div class="admin-desc">Gopas = officers in charge of villages. Gramani = village Sarpanch. District controlled by Rajjukas. Provinces subdivided into districts, then villages as smallest units.</div>
+        </div>
+        <div class="admin-card">
+          <div class="admin-title">🛣️ Trade Routes</div>
+          <div class="admin-desc">Internal: East-West route Taxila→Patliputra; Sravasti→Rajagriha. External via Tamluk (Tamralipta) on east coast; Broach, Sopara on west coast. Megasthenes praised Mauryan roads.</div>
+        </div>
+      </div>
+
+      <!-- 5 Provinces Table -->
+      <div style="margin-top:20px;">
+        <p style="font-size:13px;font-weight:600;margin-bottom:10px;color:var(--ink2);">Five Provinces of Mauryan Empire</p>
+        <table class="province-table">
+          <thead><tr><th>Province</th><th>Location</th><th>Capital</th></tr></thead>
+          <tbody>
+            <tr><td>Northern</td><td>Uttarapatha</td><td>Taxila</td></tr>
+            <tr><td>Western</td><td>Avantipatha</td><td>Ujjain</td></tr>
+            <tr><td>Eastern</td><td>Prachyapatha</td><td>Tosali</td></tr>
+            <tr><td>Southern</td><td>Dakshinapatha</td><td>Suvarnagiri</td></tr>
+            <tr><td>Central</td><td>Magadha</td><td><strong>Patliputra</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ART AND ARCHITECTURE -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">🏛️</span><span class="section-label-text">Mauryan Art & Architecture in Bihar</span><span class="section-sub">BPSC SPECIAL</span></div>
+      <table class="comp-table">
+        <thead><tr><th>Structure / Art</th><th>Location in Bihar</th><th>Key Details</th></tr></thead>
+        <tbody>
+          <tr><td>80-Pillared Hall</td><td class="accent">Kumhrar, Patna</td><td>Excavated by Spooner (1912-13) near Bulandi Bagh. Each pillar = fine sandstone from Chunar. Referred as "Palibothra" palace by Megasthenes.</td></tr>
+          <tr><td>Ashokan Pillars in Bihar</td><td class="accent">Lauriya Areraj (E. Champaran), Lauriya Nandangarh + Rampurwa (W. Champaran)</td><td>Written in Brahmi script, Prakrit language. Polished sandstone. Also found at Vaishali (Kolhua, Muzaffarpur).</td></tr>
+          <tr><td>Barabar & Nagarjuni Caves</td><td class="accent">Near Gaya (Jehanabad)</td><td>Rock-cut caves dedicated to Ajivikas. Lomas Rishi, Sudama, Gopi, Vapiyaka, Vadathika, Sudama caves. Walls mirror-polished. Earliest rock-cut architecture in Eastern India.</td></tr>
+          <tr><td>Yaksha & Yakshini</td><td class="accent">Didarganj, Bihar</td><td>Two Yaksha statues + Chauri-bearer Yakshini found. Among finest specimens of Mauryan art. Now in Patna Museum.</td></tr>
+          <tr><td>Stupa at Vaishali</td><td class="accent">Kolhua, Vaishali</td><td>Ashokan pillar + stupa. Lion capital pillar. This is the only Ashokan pillar outside Champaran in Bihar.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- MNEMONIC -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">🧩</span><span class="section-label-text">Mnemonics</span><span class="section-sub">MEMORY TRICKS</span></div>
+      <div class="mnemonic-box">
+        <div class="m-label">🧩 Saptanga Theory — 7 Elements</div>
+        <div class="mnemonic-word">S · A · J · D · K · B · M</div>
+        <div class="mnemonic-rows">
+          <div class="m-row"><span class="m-letter">S</span><span class="m-text"><strong>Svamin</strong> = King (the sovereign himself)</span></div>
+          <div class="m-row"><span class="m-letter">A</span><span class="m-text"><strong>Amatya</strong> = Ministers (advisors)</span></div>
+          <div class="m-row"><span class="m-letter">J</span><span class="m-text"><strong>Janapada</strong> = Territory and people</span></div>
+          <div class="m-row"><span class="m-letter">D</span><span class="m-text"><strong>Durg</strong> = Fort / fortified capital</span></div>
+          <div class="m-row"><span class="m-letter">K</span><span class="m-text"><strong>Kosa</strong> = Treasury (finances)</span></div>
+          <div class="m-row"><span class="m-letter">B</span><span class="m-text"><strong>Bala</strong> = Army (military power)</span></div>
+          <div class="m-row"><span class="m-letter">M</span><span class="m-text"><strong>Mitra</strong> = Ally (diplomatic relations)</span></div>
+        </div>
+        <div class="m-tip">💡 "Sanjay And Jamali Did Kill Bravely Many" = S-A-J-D-K-B-M. Or simply: "Seven Angry Jaguars Destroyed King Bindusara's Mauryas" — just match the initials!</div>
+      </div>
+
+      <div class="mnemonic-box">
+        <div class="m-label">🧩 Bindusara's Foreign Names</div>
+        <div class="mnemonic-word">A · M · S</div>
+        <div class="mnemonic-rows">
+          <div class="m-row"><span class="m-letter">A</span><span class="m-text"><strong>Amitrochates / Amitraghata</strong> — Greek name ("slayer of enemies")</span></div>
+          <div class="m-row"><span class="m-letter">M</span><span class="m-text"><strong>Mudrasar</strong> — Vayu Purana name</span></div>
+          <div class="m-row"><span class="m-letter">S</span><span class="m-text"><strong>Singhsen / Seemseri / Bindupala</strong> — Jain literature names</span></div>
+        </div>
+        <div class="m-tip">💡 Bindusara = "AMS" = most foreign-named Mauryan. If exam asks "which Mauryan king was called Amitrochates?" → Bindusara (NOT Chandragupta, NOT Ashoka).</div>
+      </div>
+    </div>
+
+    <!-- PYQ -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">📝</span><span class="section-label-text">PYQ Practice</span><span class="section-sub">SOLVED</span></div>
+      <div class="pyq-item">
+        <div class="pyq-meta"><span class="pyq-tag prelims">BPSC Prelims</span><span class="pyq-tag year">BPSC 2003</span></div>
+        <div class="pyq-q">Important evidence of Maurya period have been found at which place in Bihar?</div>
+        <div class="pyq-options">
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(a) Sasaram</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(b) Rajgir</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'correct')">(c) Kumhrar (Patna)</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(d) Champa</div>
+        </div>
+        <div class="pyq-answer" id="a1">
+          <strong>✓ CORRECT: (c) Kumhrar, Patna</strong>
+          <p>The 80-pillared hall of Chandragupta Maurya was excavated at <strong>Kumhrar</strong> near Patna. Excavated by Spooner (1912-13) near Bulandi Bagh. Pillars made of fine sandstone from Chunar quarries. This is the most important Mauryan evidence site in Bihar. Rajgir is pre-Mauryan capital; Sasaram has Sher Shah's tomb; Champa was Anga's capital.</p>
+        </div>
+        <button class="reveal-btn" onclick="revealPYQ('a1',this)">Show Explanation</button>
+      </div>
+
+      <div class="pyq-item">
+        <div class="pyq-meta"><span class="pyq-tag prelims">BPSC Prelims</span><span class="pyq-tag year">BPSC 2004</span></div>
+        <div class="pyq-q">'Mauryan administration in Patliputra was run by 30 citizens divided into 6 committees.' Who made this statement?</div>
+        <div class="pyq-options">
+          <div class="pyq-opt" onclick="answerPYQ(this,'correct')">(a) Megasthenes</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(b) Kautilya</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(c) Nagarjuna</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(d) Vasubandhu</div>
+        </div>
+        <div class="pyq-answer" id="a2">
+          <strong>✓ CORRECT: (a) Megasthenes</strong>
+          <p>Megasthenes (Greek ambassador in Chandragupta's court) described this in his book <em>Indica</em>. He described Pataliputra's 30-member municipal council divided into 6 committees of 5 each — handling industries, foreigners, births/deaths, trade, manufacturing, and tax collection. This is the most famous administrative detail from the Mauryan period.</p>
+        </div>
+        <button class="reveal-btn" onclick="revealPYQ('a2',this)">Show Explanation</button>
+      </div>
+
+      <div class="pyq-item">
+        <div class="pyq-meta"><span class="pyq-tag prelims">BPSC Prelims</span><span class="pyq-tag year">BPSC 2008</span></div>
+        <div class="pyq-q">Who was the last ruler of the Maurya Empire?</div>
+        <div class="pyq-options">
+          <div class="pyq-opt" onclick="answerPYQ(this,'correct')">(a) Brihadratha</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(b) Pushyamitra</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(c) Vasumitra</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(d) Agnimitra</div>
+        </div>
+        <div class="pyq-answer" id="a3">
+          <strong>✓ CORRECT: (a) Brihadratha</strong>
+          <p>Brihadratha was the last Mauryan ruler, assassinated in 185 BC by Pushyamitra Shunga (his own Commander-in-Chief) during a military parade. Pushyamitra then founded the Shunga dynasty. Note: Pushyamitra, Vasumitra, and Agnimitra are all Shunga dynasty rulers — not Mauryan.</p>
+        </div>
+        <button class="reveal-btn" onclick="revealPYQ('a3',this)">Show Explanation</button>
+      </div>
+    </div>
+
+    <!-- QUICK REVISION -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">⚡</span><span class="section-label-text">Quick Revision Bullets</span><span class="section-sub">7 ONE-LINERS</span></div>
+      <div class="qr-grid">
+        <div class="qr-item"><span class="qr-num">01</span><span class="qr-text"><strong>Maurya founded 321 BC</strong> by Chandragupta + Chanakya at Pataliputra. Ended 185 BC when Pushyamitra Shunga killed last ruler Brihadratha.</span></div>
+        <div class="qr-item"><span class="qr-num">02</span><span class="qr-text"><strong>Saptanga = 7 elements:</strong> Svamin, Amatya, Janapada, Durg, Kosa, Bala, Mitra. By Chanakya in Arthashastra — state theory.</span></div>
+        <div class="qr-item"><span class="qr-num">03</span><span class="qr-text"><strong>Megasthenes (Indica)</strong> = 30-member council, 6 committees in Pataliputra. Army: 6 lakh infantry, 30,000 cavalry, 9,000 elephants.</span></div>
+        <div class="qr-item"><span class="qr-num">04</span><span class="qr-text"><strong>Bindusara = Amitrochates</strong> (Greek); maintained Syrian + Egyptian ambassadors. Appointed Ashoka as Governor of Ujjain. Supported Ajivikas.</span></div>
+        <div class="qr-item"><span class="qr-num">05</span><span class="qr-text"><strong>27 Adhyakshas</strong> managed Mauryan economy. <strong>18 Tirthas</strong> = senior officials. <strong>Rajjukas</strong> = land measurement + district control.</span></div>
+        <div class="qr-item"><span class="qr-num">06</span><span class="qr-text"><strong>Kumhrar (Patna)</strong> = Mauryan 80-pillared hall site. <strong>Barabar Caves</strong> (Jehanabad) = rock-cut caves for Ajivikas. <strong>Didarganj</strong> = Yaksha/Yakshini statues.</span></div>
+        <div class="qr-item"><span class="qr-num">07</span><span class="qr-text"><strong>5 Provinces:</strong> Northern (Taxila), Western (Ujjain), Eastern (Tosali), Southern (Suvarnagiri), Central (Patliputra). Viceroys of Tosali/Ujjain = Kumaras.</span></div>
+      </div>
+      <div class="memory-hook">
+        <span class="hook-icon">🧲</span>
+        <span class="hook-text">Memory Hook: "The Mauryan Empire — born in Pataliputra, built on iron and marriages, governed by Chanakya's Arthashastra, and documented by a Greek ambassador who couldn't stop admiring it."</span>
+      </div>
+    </div>
+
+    <!-- CONCEPT CHECK -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">✅</span><span class="section-label-text">Concept Check</span><span class="section-sub">TEST YOURSELF</span></div>
+      <div class="check-mcq">
+        <div class="check-q">1. According to Chanakya's Saptanga Theory, 'Kosa' refers to which element of the state?</div>
+        <div class="check-opts">
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','A')"><span class="opt-letter">A</span>Army</button>
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','B')"><span class="opt-letter">B</span>Fort</button>
+          <button class="check-opt" onclick="checkAnswer(this,'correct','C')"><span class="opt-letter">C</span>Treasury</button>
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','D')"><span class="opt-letter">D</span>Ministers</button>
+        </div>
+        <div class="check-feedback ok" id="fb1-ok">✓ Correct! Kosa = Treasury (finances). Remember the 7 Saptanga elements: Svamin (king), Amatya (ministers), Janapada (people/territory), Durg (fort), Kosa (treasury), Bala (army), Mitra (ally). Bala = army; Durg = fort; Amatya = ministers.</div>
+        <div class="check-feedback no" id="fb1-no">✗ Answer: (C) Treasury. Kosa = treasury/finances. Bala = army; Durg = fort; Amatya = ministers. The mnemonic S-A-J-D-K-B-M: K is 5th = Kosa = treasury.</div>
+      </div>
+
+      <div class="check-mcq">
+        <div class="check-q">2. Chandragupta Maurya embraced Jainism towards the end of his life and according to Jain sources, went to which place to die by fasting (sallekhana)?</div>
+        <div class="check-opts">
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','A')"><span class="opt-letter">A</span>Rajgir</button>
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','B')"><span class="opt-letter">B</span>Bodh Gaya</button>
+          <button class="check-opt" onclick="checkAnswer(this,'correct','C')"><span class="opt-letter">C</span>Shravanabelagola (Karnataka)</button>
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','D')"><span class="opt-letter">D</span>Pavapuri, Bihar</button>
+        </div>
+        <div class="check-feedback ok" id="fb2-ok">✓ Correct! Per Jain sources (Parishishtaparvan), Chandragupta Maurya embraced Jainism, abdicated in favour of Bindusara, and went to Shravanabelagola in Karnataka with Jain monk Bhadrabahu. He died there by sallekhana (fasting to death). This is specifically mentioned in Jain texts — not found in Buddhist or Brahmanical sources.</div>
+        <div class="check-feedback no" id="fb2-no">✗ Answer: (C) Shravanabelagola. This is a famous Jain pilgrimage site in Karnataka. Per Jain sources, Chandragupta went there with monk Bhadrabahu and died by fasting. This is a BPSC favourite — Jain sources specifically mention Shravanabelagola.</div>
+      </div>
+
+      <div class="mains-box">
+        <div class="mains-meta"><span class="pyq-tag mains">MAINS GS-I</span><span class="pyq-tag year">150 words</span></div>
+        <div class="mains-q">Analyse the administrative system of the Mauryan Empire. How did Chanakya's Arthashastra shape the governance of the world's first large-scale empire?</div>
+        <button class="reveal-btn" style="margin-bottom:12px;" onclick="revealMains(this)">▼ Show Model Answer</button>
+        <div class="mains-answer" id="mains1">
+          <div class="answer-section"><h5>Introduction</h5><p>The Mauryan Empire (321–185 BC), based at Pataliputra (modern Patna), created the first systematised administrative framework for a large-scale state in ancient India — guided by Chanakya's Arthashastra.</p></div>
+          <div class="answer-section"><h5>Theoretical Framework — Arthashastra</h5><p>Chanakya's Arthashastra (15 sections) provided the theoretical basis: Saptanga Theory identified 7 essential state elements (Svamin, Amatya, Janapada, Durg, Kosa, Bala, Mitra). This framework influenced Indian statecraft for centuries and is considered one of the world's earliest works of political science.</p></div>
+          <div class="answer-section"><h5>Administrative Structure</h5><ul><li><strong>Central:</strong> Emperor + 18 Tirthas (senior officials); 4-province structure with Governors (Kumaras from royal family)</li><li><strong>Local:</strong> Rajjukas (land measurement/districts); Gopas (village officers); Gramani (village head)</li><li><strong>Economic:</strong> 27 Adhyakshas managed economy; 18 Guilds organized labour; 3-type currency system</li><li><strong>Judicial:</strong> Dharmasthiyas (civil) and Kantakasodhanas (criminal) courts</li><li><strong>Municipal:</strong> Pataliputra had 30-member council in 6 committees (per Megasthenes)</li></ul></div>
+          <div class="answer-section"><h5>Conclusion</h5><p>The Mauryan administrative system was centuries ahead of its time — a blend of theory (Arthashastra) and practice (Megasthenes' eyewitness accounts). Its centralised structure with local flexibility became the model for future Indian empires, including the Guptas, and echoes in modern district administration.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<button class="print-btn" onclick="window.print()">🖨</button>
+<script>
+const KEY='bihar_hist_v1';
+let visited=new Set(JSON.parse(localStorage.getItem(KEY)||'[]'));
+visited.add('modules/m05.html');
+localStorage.setItem(KEY,JSON.stringify([...visited]));
+document.querySelectorAll('.sidebar-item').forEach(i=>{const h=i.getAttribute('href');if(h&&visited.has('modules/'+h))i.classList.add('done');});
+function answerPYQ(el,t){const p=el.closest('.pyq-item');p.querySelectorAll('.pyq-opt').forEach(o=>{o.onclick=null;o.style.cursor='default';});el.classList.add(t);}
+function revealPYQ(id,btn){document.getElementById(id).classList.toggle('show');btn.textContent=btn.textContent.includes('Show')?'Hide Explanation':'Show Explanation';}
+function revealMains(btn){document.getElementById('mains1').classList.toggle('show');btn.textContent=btn.textContent.includes('▼')?'▲ Hide':'▼ Show Model Answer';}
+function checkAnswer(el,t,l){const p=el.closest('.check-mcq');p.querySelectorAll('.check-opt').forEach(o=>{o.onclick=null;o.style.cursor='default';});el.classList.add(t);const idx=Array.from(document.querySelectorAll('.check-mcq')).indexOf(p)+1;const ok=document.getElementById('fb'+idx+'-ok'),no=document.getElementById('fb'+idx+'-no');if(t==='correct'&&ok)ok.classList.add('show');if(t==='wrong'&&no)no.classList.add('show');}
+</script>
+</body>
+</html>

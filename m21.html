@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M21 — Formation of Modern Bihar | Bihar History</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1a1a2e;--ink2:#2d2d44;--paper:#f5f2eb;--paper2:#ede9df;--gold:#c9973a;--teal:#1e7a6e;--teal2:#2aa195;--coral:#c2522b;--coral2:#e06840;--muted:#7a7465;--border:rgba(26,26,46,0.11);}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);display:flex;min-height:100vh;}
+.sidebar{width:260px;flex-shrink:0;background:var(--ink);display:flex;flex-direction:column;position:sticky;top:0;height:100vh;overflow-y:auto;}
+.sidebar-logo{padding:24px 20px 16px;border-bottom:1px solid rgba(255,255,255,0.07);}
+.sidebar-logo a{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:var(--coral2);text-decoration:none;line-height:1.3;display:block;}
+.sidebar-logo span{display:block;font-size:10px;color:rgba(245,242,235,0.35);letter-spacing:1px;margin-top:3px;font-family:'DM Mono',monospace;}
+.sidebar-part{padding:14px 20px 6px;font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:1.4px;text-transform:uppercase;color:rgba(245,242,235,0.28);}
+.sidebar-item{display:flex;align-items:center;gap:10px;padding:9px 20px;text-decoration:none;font-size:12px;color:rgba(245,242,235,0.55);transition:background 0.15s;border-left:2px solid transparent;}
+.sidebar-item:hover{background:rgba(255,255,255,0.05);}
+.sidebar-item.active{background:rgba(194,82,43,0.15);color:var(--coral2);border-left-color:var(--coral);}
+.sidebar-item.done .s-dot{background:var(--teal);}
+.s-num{font-family:'DM Mono',monospace;font-size:9.5px;color:rgba(245,242,235,0.28);width:28px;flex-shrink:0;}
+.s-dot{width:6px;height:6px;border-radius:50%;border:1.5px solid rgba(255,255,255,0.2);flex-shrink:0;}
+.sidebar-item.active .s-dot{background:var(--coral);border-color:var(--coral);}
+.main{flex:1;min-width:0;display:flex;flex-direction:column;}
+.topbar{background:var(--ink2);padding:12px 48px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10;border-bottom:1px solid rgba(255,255,255,0.05);}
+.topbar-left{display:flex;align-items:center;gap:14px;}
+.era-pill{font-size:10px;padding:3px 10px;border-radius:2px;background:rgba(194,82,43,0.2);color:var(--coral2);font-family:'DM Mono',monospace;letter-spacing:0.8px;}
+.topbar-title{font-size:13px;color:rgba(245,242,235,0.7);}
+.topbar-nav{display:flex;gap:8px;}
+.nav-btn{padding:7px 14px;border-radius:3px;font-size:12px;font-weight:500;text-decoration:none;border:1px solid rgba(255,255,255,0.12);color:rgba(245,242,235,0.6);transition:all 0.18s;cursor:pointer;background:none;}
+.nav-btn:hover{border-color:var(--coral);color:var(--coral2);}
+.nav-btn.primary{background:var(--teal);color:#fff;border-color:var(--teal);}
+.content{flex:1;padding:48px 52px 80px;max-width:920px;}
+.mod-header{margin-bottom:40px;}
+.mod-badge{display:inline-flex;align-items:center;gap:8px;background:var(--coral);color:#fff;font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:4px 12px;border-radius:2px;margin-bottom:18px;}
+.mod-header h1{font-family:'Playfair Display',serif;font-size:clamp(26px,3.5vw,40px);font-weight:900;line-height:1.15;margin-bottom:14px;}
+.mod-header h1 em{font-style:italic;color:var(--coral);}
+.mod-header p{font-size:14.5px;color:var(--muted);line-height:1.75;max-width:640px;}
+.mod-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px;padding-top:18px;border-top:1px solid var(--border);}
+.meta-tag{font-size:10.5px;padding:3px 9px;border-radius:2px;font-weight:500;}
+.meta-tag.b{background:#fdf5e6;color:var(--gold);}
+.meta-tag.m{background:#ebf5f3;color:var(--teal);}
+.meta-tag.s{background:#fff0eb;color:var(--coral);}
+.section{margin-bottom:44px;}
+.section-head{display:flex;align-items:center;gap:12px;margin-bottom:20px;padding-bottom:12px;border-bottom:2px solid var(--coral);}
+.section-icon{font-size:20px;}
+.section-label-text{font-family:'Playfair Display',serif;font-size:19px;font-weight:700;}
+.section-sub{font-size:11px;color:var(--muted);font-family:'DM Mono',monospace;letter-spacing:0.8px;margin-left:auto;}
+.story-box{background:var(--ink);color:var(--paper);border-radius:5px;padding:28px 32px;position:relative;overflow:hidden;}
+.story-box::before{content:'';position:absolute;top:-40px;right:-40px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(194,82,43,0.2) 0%,transparent 70%);}
+.story-box p{font-size:14.5px;line-height:1.85;font-weight:300;position:relative;}
+.story-box p+p{margin-top:12px;}
+.story-box strong{color:var(--coral2);}
+.story-highlight{display:inline-block;margin-top:18px;padding:10px 16px;background:rgba(194,82,43,0.15);border-left:3px solid var(--coral);border-radius:0 3px 3px 0;font-size:13px;font-style:italic;color:var(--coral2);}
+/* Milestone cards */
+.milestone{background:#fff;border:1px solid var(--border);border-radius:4px;padding:18px 22px;margin-bottom:14px;border-left:3px solid var(--coral);}
+.milestone.key{background:linear-gradient(135deg,#fff5f2,#fff);}
+.ms-head{display:flex;align-items:center;gap:12px;margin-bottom:8px;}
+.ms-year{font-family:'DM Mono',monospace;font-size:13px;color:var(--coral);font-weight:600;}
+.ms-title{font-size:14px;font-weight:600;color:var(--ink);}
+.ms-body{font-size:12.5px;color:var(--muted);line-height:1.65;}
+.ms-body strong{color:var(--ink2);}
+.ms-body ul{padding-left:16px;margin-top:6px;}
+.ms-body li{margin-bottom:4px;}
+.stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px;}
+.stat-box{background:#fff;border:1px solid var(--border);border-radius:4px;padding:14px;text-align:center;}
+.stat-num{font-family:'Playfair Display',serif;font-size:22px;font-weight:900;color:var(--coral);margin-bottom:4px;}
+.stat-label{font-size:10.5px;color:var(--muted);line-height:1.4;}
+.comp-table{width:100%;border-collapse:collapse;font-size:12.5px;}
+.comp-table th{background:var(--ink);color:var(--paper);padding:11px 14px;text-align:left;font-weight:500;font-size:12px;}
+.comp-table th:first-child{border-radius:4px 0 0 0;}
+.comp-table th:last-child{border-radius:0 4px 0 0;}
+.comp-table td{padding:9px 14px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.5;}
+.comp-table tr:last-child td{border-bottom:none;}
+.comp-table tr:nth-child(even) td{background:var(--paper2);}
+.comp-table td:first-child{font-weight:600;color:var(--ink2);}
+.comp-table td.accent{color:var(--coral);font-weight:500;}
+.comp-table td.teal{color:var(--teal);font-weight:500;}
+.trap-alert{background:#fff0eb;border:1px solid rgba(194,82,43,0.3);border-radius:4px;padding:14px 18px;margin-bottom:16px;display:flex;gap:10px;}
+.trap-alert p{font-size:13px;color:var(--coral);line-height:1.6;}
+.trap-alert strong{font-weight:600;}
+.mnemonic-box{background:linear-gradient(135deg,var(--ink),var(--ink2));border-radius:5px;padding:28px 32px;color:var(--paper);margin-bottom:16px;}
+.m-label{font-size:10px;font-family:'DM Mono',monospace;letter-spacing:1.5px;color:var(--coral2);text-transform:uppercase;margin-bottom:14px;}
+.mnemonic-word{font-family:'Playfair Display',serif;font-size:clamp(20px,3vw,30px);font-weight:900;color:var(--coral2);letter-spacing:3px;margin-bottom:18px;}
+.mnemonic-rows{display:flex;flex-direction:column;gap:9px;}
+.m-row{display:flex;gap:14px;}
+.m-letter{font-family:'DM Mono',monospace;font-size:16px;font-weight:500;color:var(--coral2);width:28px;flex-shrink:0;}
+.m-text{font-size:12.5px;line-height:1.5;color:var(--paper);}
+.m-text strong{color:var(--coral2);}
+.m-tip{margin-top:16px;padding:12px 14px;background:rgba(194,82,43,0.15);border-radius:3px;font-size:12px;font-style:italic;color:rgba(245,242,235,0.7);}
+.pyq-item{background:#fff;border:1px solid var(--border);border-radius:4px;padding:22px;margin-bottom:14px;}
+.pyq-meta{display:flex;gap:8px;margin-bottom:12px;}
+.pyq-tag{font-size:10px;padding:2px 8px;border-radius:2px;font-weight:500;font-family:'DM Mono',monospace;}
+.pyq-tag.prelims{background:#fdf5e6;color:var(--gold);}
+.pyq-tag.year{background:var(--paper2);color:var(--muted);}
+.pyq-q{font-size:14px;font-weight:500;line-height:1.6;margin-bottom:14px;}
+.pyq-options{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:14px;}
+.pyq-opt{padding:8px 12px;border-radius:3px;font-size:12.5px;border:1px solid var(--border);background:var(--paper);cursor:pointer;transition:all 0.18s;}
+.pyq-opt:hover{border-color:var(--coral);}
+.pyq-opt.correct{background:#e8f5e9;border-color:#4caf50;color:#2e7d32;font-weight:500;}
+.pyq-opt.wrong{background:#ffebee;border-color:#ef9a9a;color:#c62828;}
+.pyq-answer{display:none;padding:14px 16px;background:#e8f5f3;border-radius:3px;border-left:3px solid var(--teal);}
+.pyq-answer.show{display:block;}
+.pyq-answer strong{color:var(--teal);font-size:12px;}
+.pyq-answer p{font-size:13px;color:var(--ink2);margin-top:5px;line-height:1.6;}
+.reveal-btn{font-size:11.5px;padding:6px 14px;border-radius:3px;background:none;border:1px solid var(--border);cursor:pointer;color:var(--muted);transition:all 0.18s;}
+.reveal-btn:hover{border-color:var(--teal);color:var(--teal);}
+.mains-box{background:#fff;border:1px solid var(--border);border-radius:4px;padding:22px;}
+.mains-q{font-size:14.5px;font-weight:600;line-height:1.6;margin-bottom:14px;}
+.mains-meta{display:flex;gap:8px;margin-bottom:14px;}
+.mains-tag{font-size:10px;padding:2px 8px;border-radius:2px;font-weight:500;font-family:'DM Mono',monospace;background:#ebf5f3;color:var(--teal);}
+.mains-answer{display:none;border-top:1px solid var(--border);padding-top:16px;}
+.mains-answer.show{display:block;}
+.ans-sec{margin-bottom:14px;}
+.ans-sec h5{font-size:11px;font-family:'DM Mono',monospace;letter-spacing:1px;color:var(--coral);text-transform:uppercase;margin-bottom:6px;}
+.ans-sec p,.ans-sec li{font-size:13px;line-height:1.7;color:var(--ink2);}
+.ans-sec ul{padding-left:18px;}
+.ans-sec li{margin-bottom:4px;}
+.qr-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.qr-item{display:flex;gap:10px;background:#fff;border:1px solid var(--border);border-radius:4px;padding:14px 16px;}
+.qr-num{font-family:'DM Mono',monospace;font-size:10px;color:var(--coral);font-weight:500;flex-shrink:0;margin-top:2px;}
+.qr-text{font-size:13px;line-height:1.6;color:var(--ink2);}
+.qr-text strong{color:var(--coral);}
+.memory-hook{background:var(--coral);border-radius:4px;padding:16px 22px;display:flex;align-items:center;gap:16px;margin-top:32px;}
+.hook-icon{font-size:22px;}
+.hook-text{font-size:14px;font-weight:600;color:#fff;line-height:1.5;}
+.check-mcq{background:#fff;border:1px solid var(--border);border-radius:4px;padding:20px;margin-bottom:12px;}
+.check-q{font-size:14px;font-weight:500;margin-bottom:14px;line-height:1.6;}
+.check-opts{display:flex;flex-direction:column;gap:7px;}
+.check-opt{padding:10px 14px;border-radius:3px;font-size:13px;border:1px solid var(--border);background:var(--paper);cursor:pointer;transition:all 0.18s;text-align:left;display:flex;align-items:center;gap:10px;}
+.check-opt:hover{border-color:var(--coral);}
+.check-opt.correct{background:#e8f5e9;border-color:#4caf50;color:#2e7d32;}
+.check-opt.wrong{background:#ffebee;border-color:#ef9a9a;color:#c62828;}
+.opt-letter{width:22px;height:22px;border-radius:50%;background:var(--paper2);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;flex-shrink:0;}
+.check-opt.correct .opt-letter{background:#4caf50;color:#fff;}
+.check-opt.wrong .opt-letter{background:#ef9a9a;color:#fff;}
+.check-feedback{margin-top:10px;padding:10px 14px;border-radius:3px;font-size:12.5px;display:none;line-height:1.6;}
+.check-feedback.show{display:block;}
+.check-feedback.ok{background:#e8f5e9;color:#2e7d32;}
+.check-feedback.no{background:#ffebee;color:#c62828;}
+/* Complete banner */
+.complete-banner{background:linear-gradient(135deg,var(--ink),var(--ink2));border-radius:5px;padding:36px;text-align:center;margin-top:20px;}
+.sidebar::-webkit-scrollbar{width:4px;}
+.sidebar::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.1);border-radius:2px;}
+.print-btn{position:fixed;bottom:24px;right:24px;background:var(--ink);color:var(--coral2);border:none;border-radius:50%;width:44px;height:44px;font-size:16px;cursor:pointer;box-shadow:0 4px 16px rgba(26,26,46,0.25);transition:transform 0.18s;display:flex;align-items:center;justify-content:center;}
+.print-btn:hover{transform:scale(1.1);}
+@media print{.sidebar,.topbar,.print-btn{display:none;}.content{padding:20px;}}
+@media(max-width:768px){.sidebar{display:none;}.content{padding:24px 20px 60px;}.topbar{padding:10px 20px;}.stat-grid,.qr-grid,.pyq-options{grid-template-columns:1fr 1fr;}}
+</style>
+</head>
+<body>
+<aside class="sidebar">
+  <div class="sidebar-logo"><a href="../index.html">Bihar History<br>Study System</a><span>BPSC · UPSC · State PCS</span></div>
+  <div class="sidebar-part">Part I — Ancient Bihar</div>
+  <a class="sidebar-item done" href="m01.html"><span class="s-num">01</span><span class="s-dot"></span>Sources & Prehistoric Bihar</a>
+  <a class="sidebar-item done" href="m02.html"><span class="s-num">02</span><span class="s-dot"></span>Mahajanapadas</a>
+  <a class="sidebar-item done" href="m03.html"><span class="s-num">03</span><span class="s-dot"></span>Pre-Mauryan Dynasties</a>
+  <a class="sidebar-item done" href="m04.html"><span class="s-num">04</span><span class="s-dot"></span>Buddhism & Jainism</a>
+  <a class="sidebar-item done" href="m05.html"><span class="s-num">05</span><span class="s-dot"></span>Mauryan Empire</a>
+  <a class="sidebar-item done" href="m06.html"><span class="s-num">06</span><span class="s-dot"></span>Ashoka — Dhamma</a>
+  <a class="sidebar-item done" href="m07.html"><span class="s-num">07</span><span class="s-dot"></span>Post-Mauryan to Gupta</a>
+  <div class="sidebar-part">Part II — Medieval Bihar</div>
+  <a class="sidebar-item done" href="m08.html"><span class="s-num">08</span><span class="s-dot"></span>Pala Dynasty</a>
+  <a class="sidebar-item done" href="m09.html"><span class="s-num">09</span><span class="s-dot"></span>Sena & Karnata</a>
+  <a class="sidebar-item done" href="m10.html"><span class="s-num">10</span><span class="s-dot"></span>Turkish Invasion</a>
+  <a class="sidebar-item done" href="m11.html"><span class="s-num">11</span><span class="s-dot"></span>Khilji, Tughlaq & Noohani</a>
+  <a class="sidebar-item done" href="m12.html"><span class="s-num">12</span><span class="s-dot"></span>Sher Shah Suri</a>
+  <a class="sidebar-item done" href="m13.html"><span class="s-num">13</span><span class="s-dot"></span>Mughal Rule in Bihar</a>
+  <a class="sidebar-item done" href="m14.html"><span class="s-num">14</span><span class="s-dot"></span>Sufism, Sikhism & Tribal States</a>
+  <div class="sidebar-part">Part III — Modern Bihar</div>
+  <a class="sidebar-item done" href="m15.html"><span class="s-num">15</span><span class="s-dot"></span>European Entry</a>
+  <a class="sidebar-item done" href="m16.html"><span class="s-num">16</span><span class="s-dot"></span>Battle of Buxar</a>
+  <a class="sidebar-item done" href="m17.html"><span class="s-num">17</span><span class="s-dot"></span>Revolt of 1857</a>
+  <a class="sidebar-item done" href="m18.html"><span class="s-num">18</span><span class="s-dot"></span>Tribal Revolts</a>
+  <a class="sidebar-item done" href="m19.html"><span class="s-num">19</span><span class="s-dot"></span>Freedom Movements</a>
+  <a class="sidebar-item done" href="m20.html"><span class="s-num">20</span><span class="s-dot"></span>Eminent Freedom Fighters</a>
+  <a class="sidebar-item active" href="m21.html"><span class="s-num">21</span><span class="s-dot"></span>Formation of Modern Bihar</a>
+</aside>
+
+<div class="main">
+  <div class="topbar">
+    <div class="topbar-left"><span class="era-pill">MODERN BIHAR · FINAL MODULE</span><span class="topbar-title">Module 21 of 21 🎓</span></div>
+    <div class="topbar-nav">
+      <a href="m20.html" class="nav-btn">← Prev</a>
+      <a href="../index.html" class="nav-btn primary">🏠 Back to Index</a>
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="mod-header">
+      <div class="mod-badge"><span>MODULE 21 · FINAL</span><span>·</span><span>Modern Bihar</span></div>
+      <h1>Formation of<br><em>Modern Bihar</em></h1>
+      <p>From a demand raised in 1889 by one man in Arrah to a province in 1912, to Bihar-Orissa in 1912, to Bihar alone in 1936, to an independent state in 1947, to Jharkhand's separation in 2000 — the territory called Bihar has been shaped, reshaped, and redefined across 111 years.</p>
+      <div class="mod-meta">
+        <span class="meta-tag b">BPSC Special</span>
+        <span class="meta-tag m">Mains GS-I</span>
+        <span class="meta-tag s">⚠ Trap: Bihar Province = 1 April 1912. Bihar separate statehood = 1936. First Council session = 20 Jan 1913 at Bankipore. Jharkhand = 15 Nov 2000 (45.85% of Bihar's land).</span>
+      </div>
+    </div>
+
+    <!-- STORY HOOK -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">🎭</span><span class="section-label-text">Story Hook</span></div>
+      <div class="story-box">
+        <p>The year is <strong>1889</strong>. A young lawyer from Arrah named <strong>Sachchidananda Sinha</strong> stands up at a meeting and says something nobody in power wants to hear: <em>Bihar should be a separate province from Bengal.</em></p>
+        <p>He is ignored. He tries again. He starts a journal — <strong>Bihar Times (1894)</strong>. He petitions. He lobbies. He waits. For <strong>23 years</strong>, he waits. Then, in 1911, the Hardinge Dispatch finally recommends separation. On <strong>1 April 1912</strong>, the province of Bihar and Orissa is formally created.</p>
+        <p>But the story doesn't end there. In 1936, Bihar and Orissa are separated. In 1947, Bihar becomes part of independent India. In 2000, the tribal heartland becomes <strong>Jharkhand</strong>, taking away 45.85% of Bihar's land, 18 districts, and a whole civilisation.</p>
+        <p>Bihar has been reformed three times since 1912. Each time it lost territory — but each time, the Bihar that remained became more defined, more focused, more itself.</p>
+        <div class="story-highlight">💡 Bihar Diwas is celebrated on 22 March each year — but Bihar Province was actually created on 1 April 1912. The March 22 date marks Bihar's contribution to the independence movement; the province formation is April 1.</div>
+      </div>
+    </div>
+
+    <!-- STATS -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">📊</span><span class="section-label-text">Bihar in Numbers — Key Statistics</span></div>
+      <div class="stat-grid">
+        <div class="stat-box"><div class="stat-num">1 Apr</div><div class="stat-label">1912 — Bihar + Orissa Province Created</div></div>
+        <div class="stat-box"><div class="stat-num">43</div><div class="stat-label">Members in first Legislative Council (24 elected + 19 nominated)</div></div>
+        <div class="stat-box"><div class="stat-num">45.85%</div><div class="stat-label">Of Bihar's land transferred to Jharkhand in 2000</div></div>
+        <div class="stat-box"><div class="stat-num">243</div><div class="stat-label">Current Bihar Vidhan Sabha strength (after Jharkhand)</div></div>
+      </div>
+
+      <!-- MILESTONES -->
+      <div class="milestone key">
+        <div class="ms-head"><span class="ms-year">1889</span><span class="ms-title">Sachchidananda Sinha First Demands Separate Bihar</span></div>
+        <div class="ms-body"><strong>Dr Sachchidananda Sinha</strong> (from Arrah, Bhojpur) first raised voice for a separate Bihar province in 1889. In 1894, started <strong>Bihar Times</strong> journal to advocate for separate Bihar. Participated in Home Rule League. He is the father of the idea of Bihar as a separate administrative unit.</div>
+      </div>
+
+      <div class="milestone key">
+        <div class="ms-head"><span class="ms-year">1911</span><span class="ms-title">Hardinge Dispatch — Recommends Separation from Bengal</span></div>
+        <div class="ms-body">The <strong>Hardinge Dispatch of 1911</strong> recommended the separation of Bihar from Bengal on account of <strong>cultural and linguistic differences</strong>. This was the official turning point after decades of advocacy by Bihar's leaders.</div>
+      </div>
+
+      <div class="milestone key">
+        <div class="ms-head"><span class="ms-year">1 April 1912 ⚠</span><span class="ms-title">Bihar and Orissa Province Created</span></div>
+        <div class="ms-body">
+          <strong>Bihar and Orissa Province formally created on 1 April 1912</strong> by the British Government.
+          <ul>
+            <li>Legislative Council formed: <strong>43 members total</strong> — 24 elected + 19 nominated</li>
+            <li>Capital: <strong>Patna</strong></li>
+            <li>First sitting of Council: <strong>20 January 1913</strong> at Bankipore (Patna)</li>
+            <li>Same year (1912): <strong>28th Congress session held at Bankipur</strong> under RN Mudholkar</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="milestone">
+        <div class="ms-head"><span class="ms-year">1920</span><span class="ms-title">First Governor of Bihar and Orissa — Satyendra Prasanna Sinha</span></div>
+        <div class="ms-body"><strong>Satyendra Prasanna Sinha</strong> became the <strong>first Governor of Bihar and Orissa in 1920</strong> under the Montague-Chelmsford Reforms. Also first Indian to be a member of the House of Lords and Privy Council.</div>
+      </div>
+
+      <div class="milestone key">
+        <div class="ms-head"><span class="ms-year">1936 ⚠</span><span class="ms-title">Bihar and Orissa Separated — Bihar Gets Statehood</span></div>
+        <div class="ms-body">The <strong>Government of India Act 1935</strong> introduced reforms. Key outcomes for Bihar:
+          <ul>
+            <li><strong>Bihar and Orissa separated as two provinces in 1936</strong> → Bihar attained statehood</li>
+            <li>General elections held in Bihar — Congress won majority (98/107 seats contested)</li>
+            <li>24 March 1937: Sri Krishna Singh invited by Governor MG Hellet — declined</li>
+            <li>Mohammad Yunus → first PM of Bihar; Shri Krishna Singh cabinet: 20 Jul 1937</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="milestone">
+        <div class="ms-head"><span class="ms-year">15 August 1947</span><span class="ms-title">India's Independence — Bihar Becomes State of India</span></div>
+        <div class="ms-body">Bihar maintained separate existence at Independence. First Governor of Independent Bihar: <strong>Jairamdas Daulatram</strong>. First CM: <strong>Shri Krishna Singh</strong>. First Dy CM: <strong>Anugrah Narayan Sinha</strong>.</div>
+      </div>
+
+      <div class="milestone">
+        <div class="ms-head"><span class="ms-year">1952</span><span class="ms-title">First General Elections — Bihar Gets Bicameral Legislature</span></div>
+        <div class="ms-body">
+          <ul>
+            <li>First general elections held in Bihar in 1952</li>
+            <li>Total Vidhan Sabha strength: <strong>331</strong> (including 1 nominated)</li>
+            <li>Bihar has bicameral legislature: <strong>Vidhan Sabha + Vidhan Parishad</strong></li>
+            <li>First CM: Shri Krishna Singh; Dy CM: Anugrah Narayan Sinha</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="milestone">
+        <div class="ms-head"><span class="ms-year">1 Nov 1956</span><span class="ms-title">State Reorganisation Act — Bihar Loses Territory to West Bengal</span></div>
+        <div class="ms-body">State Reorganisation Commission (1956): <strong>3166 sq miles transferred from Bihar to West Bengal</strong>. Kishanganj remained part of Bihar. Vidhan Sabha reduced from 331 to <strong>318 members</strong>. In 1977, Delimitation Commission enhanced members from 318 to <strong>324</strong>.</div>
+      </div>
+
+      <div class="milestone key">
+        <div class="ms-head"><span class="ms-year">15 November 2000 ⚠</span><span class="ms-title">Jharkhand Carved Out — Bihar's Second Division</span></div>
+        <div class="ms-body">
+          <strong>Bihar Reorganisation Act 2000</strong> created the state of Jharkhand on <strong>15 November 2000</strong>:
+          <ul>
+            <li>Land transferred: <strong>45.85%</strong> of Bihar's area</li>
+            <li>Districts transferred to Jharkhand: <strong>18 districts</strong></li>
+            <li>Districts remaining with Bihar: <strong>37 districts</strong></li>
+            <li>Vidhan Sabha: reduced from 324 to <strong>243 members</strong></li>
+            <li>Lok Sabha seats: reduced from 54 to <strong>40</strong></li>
+            <li>Vidhan Parishad: reduced from 96 to <strong>75 members</strong></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- TIMELINE -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">⏳</span><span class="section-label-text">Bihar's Formation — Complete Timeline</span></div>
+      <div style="position:relative;padding-left:28px;">
+        <div style="position:absolute;left:8px;top:8px;bottom:8px;width:2px;background:linear-gradient(180deg,var(--coral),transparent);"></div>
+        <div style="position:relative;margin-bottom:16px;"><div style="position:absolute;left:-24px;top:4px;width:12px;height:12px;border-radius:50%;background:var(--coral);border:2px solid var(--paper);box-shadow:0 0 0 2px var(--coral);"></div><div style="font-family:'DM Mono',monospace;font-size:10.5px;color:var(--coral);margin-bottom:3px;">1889 → 1894</div><div style="font-size:13.5px;font-weight:600;color:var(--ink);">Sachchidananda Sinha demands separate Bihar; starts Bihar Times</div></div>
+        <div style="position:relative;margin-bottom:16px;"><div style="position:absolute;left:-24px;top:4px;width:12px;height:12px;border-radius:50%;background:var(--coral);border:2px solid var(--paper);box-shadow:0 0 0 2px var(--coral);"></div><div style="font-family:'DM Mono',monospace;font-size:10.5px;color:var(--coral);margin-bottom:3px;">1911</div><div style="font-size:13.5px;font-weight:600;color:var(--ink);">Hardinge Dispatch recommends Bihar-Bengal separation</div></div>
+        <div style="position:relative;margin-bottom:16px;"><div style="position:absolute;left:-24px;top:4px;width:12px;height:12px;border-radius:50%;background:var(--coral);border:2px solid var(--paper);box-shadow:0 0 0 2px var(--coral);"></div><div style="font-family:'DM Mono',monospace;font-size:10.5px;color:var(--coral);margin-bottom:3px;">1 April 1912 ⚠</div><div style="font-size:13.5px;font-weight:600;color:var(--ink);">Bihar + Orissa Province created. 43-member Council. Capital: Patna</div></div>
+        <div style="position:relative;margin-bottom:16px;"><div style="position:absolute;left:-24px;top:4px;width:12px;height:12px;border-radius:50%;background:var(--coral);border:2px solid var(--paper);box-shadow:0 0 0 2px var(--coral);"></div><div style="font-family:'DM Mono',monospace;font-size:10.5px;color:var(--coral);margin-bottom:3px;">20 January 1913</div><div style="font-size:13.5px;font-weight:600;color:var(--ink);">First sitting of Bihar Legislative Council at Bankipore</div></div>
+        <div style="position:relative;margin-bottom:16px;"><div style="position:absolute;left:-24px;top:4px;width:12px;height:12px;border-radius:50%;background:var(--coral);border:2px solid var(--paper);box-shadow:0 0 0 2px var(--coral);"></div><div style="font-family:'DM Mono',monospace;font-size:10.5px;color:var(--coral);margin-bottom:3px;">1920</div><div style="font-size:13.5px;font-weight:600;color:var(--ink);">Satyendra Prasanna Sinha = first Governor of Bihar and Orissa</div></div>
+        <div style="position:relative;margin-bottom:16px;"><div style="position:absolute;left:-24px;top:4px;width:12px;height:12px;border-radius:50%;background:var(--coral);border:2px solid var(--paper);box-shadow:0 0 0 2px var(--coral);"></div><div style="font-family:'DM Mono',monospace;font-size:10.5px;color:var(--coral);margin-bottom:3px;">1936 ⚠</div><div style="font-size:13.5px;font-weight:600;color:var(--ink);">Bihar separated from Orissa — Bihar attains separate statehood (Act of 1935)</div></div>
+        <div style="position:relative;margin-bottom:16px;"><div style="position:absolute;left:-24px;top:4px;width:12px;height:12px;border-radius:50%;background:var(--coral);border:2px solid var(--paper);box-shadow:0 0 0 2px var(--coral);"></div><div style="font-family:'DM Mono',monospace;font-size:10.5px;color:var(--coral);margin-bottom:3px;">15 August 1947</div><div style="font-size:13.5px;font-weight:600;color:var(--ink);">Independence. Bihar = state of India. First Governor: Jairamdas Daulatram</div></div>
+        <div style="position:relative;margin-bottom:16px;"><div style="position:absolute;left:-24px;top:4px;width:12px;height:12px;border-radius:50%;background:var(--coral);border:2px solid var(--paper);box-shadow:0 0 0 2px var(--coral);"></div><div style="font-family:'DM Mono',monospace;font-size:10.5px;color:var(--coral);margin-bottom:3px;">1952</div><div style="font-size:13.5px;font-weight:600;color:var(--ink);">First general elections. Vidhan Sabha = 331 seats. Bicameral legislature</div></div>
+        <div style="position:relative;margin-bottom:16px;"><div style="position:absolute;left:-24px;top:4px;width:12px;height:12px;border-radius:50%;background:var(--coral);border:2px solid var(--paper);box-shadow:0 0 0 2px var(--coral);"></div><div style="font-family:'DM Mono',monospace;font-size:10.5px;color:var(--coral);margin-bottom:3px;">1 Nov 1956</div><div style="font-size:13.5px;font-weight:600;color:var(--ink);">State Reorganisation: 3166 sq miles to W. Bengal. Vidhan Sabha: 331→318</div></div>
+        <div style="position:relative;margin-bottom:16px;"><div style="position:absolute;left:-24px;top:4px;width:12px;height:12px;border-radius:50%;background:var(--coral);border:2px solid var(--paper);box-shadow:0 0 0 2px var(--coral);"></div><div style="font-family:'DM Mono',monospace;font-size:10.5px;color:var(--coral);margin-bottom:3px;">1977</div><div style="font-size:13.5px;font-weight:600;color:var(--ink);">Delimitation Commission: Vidhan Sabha 318→324 members</div></div>
+        <div style="position:relative;margin-bottom:0;"><div style="position:absolute;left:-24px;top:4px;width:12px;height:12px;border-radius:50%;background:var(--coral);border:2px solid var(--paper);box-shadow:0 0 0 2px var(--coral);"></div><div style="font-family:'DM Mono',monospace;font-size:10.5px;color:var(--coral);margin-bottom:3px;">15 November 2000 ⚠</div><div style="font-size:13.5px;font-weight:600;color:var(--ink);">Jharkhand created. 18 districts transferred. 45.85% of Bihar's land. Vidhan Sabha: 324→243</div></div>
+      </div>
+    </div>
+
+    <!-- COMPARISON TABLE -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">📊</span><span class="section-label-text">Bihar Legislature — Changes Over Time</span></div>
+      <div class="trap-alert"><span>⚠️</span><p><strong>BPSC Number Traps:</strong> Bihar Province created = <strong>1 April 1912</strong> (NOT 1911). Bihar separate statehood = <strong>1936</strong> (NOT 1912 or 1947). Jharkhand created = <strong>15 November 2000</strong>. Current Vidhan Sabha = <strong>243</strong>. Lok Sabha after Jharkhand = <strong>40</strong>. Jharkhand land = <strong>45.85%</strong>.</p></div>
+      <table class="comp-table">
+        <thead><tr><th>Year / Event</th><th>Vidhan Sabha</th><th>Lok Sabha</th><th>Vidhan Parishad</th></tr></thead>
+        <tbody>
+          <tr><td>1912 — Province Created</td><td colspan="2" class="accent">43-member Legislative Council (24 elected + 19 nominated)</td><td>—</td></tr>
+          <tr><td>1952 — First Elections</td><td class="accent">331 (incl. 1 nominated)</td><td>—</td><td>Formed (bicameral legislature)</td></tr>
+          <tr><td>1 Nov 1956 — Reorganisation</td><td class="accent">318</td><td>—</td><td>—</td></tr>
+          <tr><td>1977 — Delimitation</td><td class="accent">324</td><td>—</td><td>—</td></tr>
+          <tr><td>15 Nov 2000 — Jharkhand</td><td class="accent">243</td><td class="accent">40</td><td class="accent">75</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- MNEMONIC -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">🧩</span><span class="section-label-text">Mnemonic</span></div>
+      <div class="mnemonic-box">
+        <div class="m-label">🧩 Mnemonic — Bihar Formation Key Dates</div>
+        <div class="mnemonic-word">1889 · 1912 · 1936 · 2000</div>
+        <div class="mnemonic-rows">
+          <div class="m-row"><span class="m-letter">89</span><span class="m-text"><strong>1889</strong> — Sachchidananda Sinha first demands separate Bihar province</span></div>
+          <div class="m-row"><span class="m-letter">12</span><span class="m-text"><strong>1 April 1912</strong> — Bihar + Orissa Province created. 43 members. Capital: Patna. First Council: 20 Jan 1913 at Bankipore</span></div>
+          <div class="m-row"><span class="m-letter">36</span><span class="m-text"><strong>1936</strong> — Bihar separated from Orissa; attains statehood. Act of 1935. Governor: Satyendra Prasanna Sinha (from 1920)</span></div>
+          <div class="m-row"><span class="m-letter">00</span><span class="m-text"><strong>15 November 2000</strong> — Jharkhand created; 18 districts; 45.85% land; Vidhan Sabha 324→243; Lok Sabha 54→40</span></div>
+        </div>
+        <div class="m-tip">💡 "89, 12, 36, 2000 — Bihar's four transformation years!" Remember: Province created 1912 (first digit = April, 1st month of Indian fiscal year!), statehood 1936, Jharkhand 2000.</div>
+      </div>
+    </div>
+
+    <!-- PYQ -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">📝</span><span class="section-label-text">PYQ Practice</span></div>
+      <div class="pyq-item">
+        <div class="pyq-meta"><span class="pyq-tag prelims">BPSC 2001</span></div>
+        <div class="pyq-q">When did the British Government create a new Province of Bihar and Orissa?</div>
+        <div class="pyq-options">
+          <div class="pyq-opt" onclick="answerPYQ(this,'correct')">(a) 1st April, 1912</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(b) 2nd March, 1920</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(c) 3rd April, 1912</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(d) None of these</div>
+        </div>
+        <div class="pyq-answer" id="ans-pyq1">
+          <strong>✓ CORRECT: (a) 1st April, 1912</strong>
+          <p>The British Government created the Province of Bihar and Orissa on <strong>1 April 1912</strong>. The first sitting of the Legislative Council was held on 20 January 1913 at Bankipore (Patna). The Council had 43 members — 24 elected and 19 nominated. The same year, the 28th Congress session was held at Bankipur under RN Mudholkar.</p>
+        </div>
+        <button class="reveal-btn" onclick="revealPYQ('ans-pyq1',this)">Show Explanation</button>
+      </div>
+      <div class="pyq-item">
+        <div class="pyq-meta"><span class="pyq-tag prelims">BPSC 2001</span></div>
+        <div class="pyq-q">The percentage of land area of old Bihar that forms the state of Jharkhand is:</div>
+        <div class="pyq-options">
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(a) 38.40</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'correct')">(b) 45.85</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(c) 42.35</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(d) 51.72</div>
+        </div>
+        <div class="pyq-answer" id="ans-pyq2">
+          <strong>✓ CORRECT: (b) 45.85</strong>
+          <p>According to the Bihar Reorganisation Act 2000, <strong>45.85%</strong> of Bihar's land area was transferred to the newly formed state of Jharkhand (created 15 November 2000). A total of 18 districts were transferred to Jharkhand. After the division, 37 districts remained with Bihar and the Vidhan Sabha strength was reduced from 324 to 243.</p>
+        </div>
+        <button class="reveal-btn" onclick="revealPYQ('ans-pyq2',this)">Show Explanation</button>
+      </div>
+      <div class="pyq-item">
+        <div class="pyq-meta"><span class="pyq-tag prelims">BPSC 2018</span></div>
+        <div class="pyq-q">Bihar as an Indian state was formed in:</div>
+        <div class="pyq-options">
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(a) 1911</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(b) 1912</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'correct')">(c) 1936</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(d) 2000</div>
+        </div>
+        <div class="pyq-answer" id="ans-pyq3">
+          <strong>✓ CORRECT: (c) 1936</strong>
+          <p>⚠️ Critical distinction: Bihar Province was created in <strong>1912</strong> (Bihar + Orissa). Bihar as a <strong>separate, independent state</strong> (statehood) was achieved in <strong>1936</strong> when Bihar and Orissa were separated under the Government of India Act 1935. Option (b) 1912 = province creation (with Orissa). Option (c) 1936 = Bihar alone as state.</p>
+        </div>
+        <button class="reveal-btn" onclick="revealPYQ('ans-pyq3',this)">Show Explanation</button>
+      </div>
+    </div>
+
+    <!-- QR -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">⚡</span><span class="section-label-text">Quick Revision Bullets</span></div>
+      <div class="qr-grid">
+        <div class="qr-item"><span class="qr-num">01</span><span class="qr-text"><strong>Sachchidananda Sinha</strong> (Arrah, Bhojpur) = first demanded separate Bihar in 1889. Started Bihar Times (1894). Never stopped till 1912.</span></div>
+        <div class="qr-item"><span class="qr-num">02</span><span class="qr-text">Bihar + Orissa Province created <strong>1 April 1912</strong>. 43-member Council (24 elected + 19 nominated). Capital = Patna. First Council session: <strong>20 January 1913</strong> at Bankipore.</span></div>
+        <div class="qr-item"><span class="qr-num">03</span><span class="qr-text"><strong>Satyendra Prasanna Sinha</strong> = first Governor of Bihar and Orissa (1920). Under Montague-Chelmsford Reforms. Council strength enhanced to 103 under these reforms.</span></div>
+        <div class="qr-item"><span class="qr-num">04</span><span class="qr-text">Bihar separate statehood = <strong>1936</strong> (NOT 1912). Government of India Act 1935 separated Bihar and Orissa into two independent provinces.</span></div>
+        <div class="qr-item"><span class="qr-num">05</span><span class="qr-text">First general elections 1952. Vidhan Sabha: <strong>331</strong>. 1956 Reorganisation: <strong>318</strong>. 1977 Delimitation: <strong>324</strong>. After Jharkhand 2000: <strong>243</strong>.</span></div>
+        <div class="qr-item"><span class="qr-num">06</span><span class="qr-text">Jharkhand created <strong>15 November 2000</strong> (Bihar Reorganisation Act 2000). <strong>45.85%</strong> of Bihar's land. <strong>18 districts</strong> transferred. <strong>37</strong> remain with Bihar.</span></div>
+        <div class="qr-item"><span class="qr-num">07</span><span class="qr-text">After Jharkhand: Lok Sabha: <strong>54→40</strong>. Vidhan Parishad: <strong>96→75</strong>. Vidhan Sabha: <strong>324→243</strong>. First CM after independence: <strong>Shri Krishna Singh</strong>. First Dy CM: <strong>Anugrah Narayan Sinha</strong>.</span></div>
+      </div>
+      <div class="memory-hook">
+        <span class="hook-icon">🧲</span>
+        <span class="hook-text">Memory Hook: "Bihar's journey: one man's dream in 1889 → a province in 1912 → a state in 1936 → independence in 1947 → divided by Jharkhand in 2000 — <em>Bihar kept reforming itself, and kept surviving.</em>"</span>
+      </div>
+    </div>
+
+    <!-- CONCEPT CHECK -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">✅</span><span class="section-label-text">Concept Check</span></div>
+      <div class="check-mcq">
+        <div class="check-q">1. The first sitting of the Bihar Legislative Council was convened at:</div>
+        <div class="check-opts">
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','A')"><span class="opt-letter">A</span>Purnea</button>
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','B')"><span class="opt-letter">B</span>Nalanda</button>
+          <button class="check-opt" onclick="checkAnswer(this,'correct','C')"><span class="opt-letter">C</span>Bankipore (Patna)</button>
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','D')"><span class="opt-letter">D</span>Gaya</button>
+        </div>
+        <div class="check-feedback ok" id="fb1-ok">✓ Correct! The first sitting of the Bihar Legislative Council was convened on 20 January 1913 at <strong>Bankipore (Patna)</strong>. This was after the Bihar + Orissa Province was created on 1 April 1912. Patna was the capital. The same area also hosted the 28th Congress session (1912) under RN Mudholkar.</div>
+        <div class="check-feedback no" id="fb1-no">✗ Answer is (C) Bankipore (Patna). First sitting = 20 January 1913 at Bankipore. The Bihar + Orissa Province had been created on 1 April 1912 with Patna as capital.</div>
+      </div>
+      <div class="check-mcq">
+        <div class="check-q">2. After the formation of Jharkhand (2000), how many districts were left with Bihar?</div>
+        <div class="check-opts">
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','A')"><span class="opt-letter">A</span>45 districts</button>
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','B')"><span class="opt-letter">B</span>25 districts</button>
+          <button class="check-opt" onclick="checkAnswer(this,'correct','C')"><span class="opt-letter">C</span>37 districts</button>
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','D')"><span class="opt-letter">D</span>30 districts</button>
+        </div>
+        <div class="check-feedback ok" id="fb2-ok">✓ Correct! After Jharkhand was carved out on 15 November 2000, <strong>37 districts</strong> remained with Bihar. 18 districts were transferred to Jharkhand. The total land transferred was 45.85% of Bihar's area. Vidhan Sabha went from 324 to 243; Lok Sabha from 54 to 40; Vidhan Parishad from 96 to 75.</div>
+        <div class="check-feedback no" id="fb2-no">✗ Answer is (C) 37 districts. After Jharkhand took 18 districts, Bihar retained 37. Remember the key numbers: 18 (to Jharkhand) + 37 (Bihar) = 55 total. 45.85% land transferred. Vidhan Sabha 324→243.</div>
+      </div>
+      <div class="mains-box">
+        <div class="mains-meta"><span class="mains-tag">MAINS GS-I · 150 WORDS</span></div>
+        <div class="mains-q">Trace the territorial evolution of Bihar from 1912 to 2000. What were the key milestones in its formation as a modern state?</div>
+        <button class="reveal-btn" style="margin-bottom:12px;" onclick="revealMains(this)">▼ Show Model Answer</button>
+        <div class="mains-answer" id="mains-ans1">
+          <div class="ans-sec"><h5>Introduction</h5><p>Bihar's territorial evolution spans over a century (1889–2000), marked by progressive separation from Bengal, from Orissa, and eventually the formation of Jharkhand — each change reshaping what "Bihar" means as a political and cultural entity.</p></div>
+          <div class="ans-sec"><h5>Key Milestones</h5><ul>
+            <li><strong>1889:</strong> Sachchidananda Sinha first demands separate Bihar; starts Bihar Times (1894)</li>
+            <li><strong>1911:</strong> Hardinge Dispatch recommends Bihar-Bengal separation</li>
+            <li><strong>1 April 1912:</strong> Bihar and Orissa Province created (43-member Council; Patna = capital)</li>
+            <li><strong>1920:</strong> Satyendra Prasanna Sinha = first Governor of Bihar and Orissa</li>
+            <li><strong>1936:</strong> Bihar separated from Orissa under the Government of India Act 1935 — Bihar attains statehood</li>
+            <li><strong>1947:</strong> Bihar becomes state of independent India; first CM = Shri Krishna Singh</li>
+            <li><strong>1952:</strong> First general elections; bicameral legislature (Vidhan Sabha 331 seats)</li>
+            <li><strong>1956:</strong> State Reorganisation — 3166 sq miles to West Bengal; Vidhan Sabha reduced to 318</li>
+            <li><strong>2000:</strong> Jharkhand created (15 Nov); 18 districts, 45.85% land transferred; Vidhan Sabha 324→243</li>
+          </ul></div>
+          <div class="ans-sec"><h5>Conclusion</h5><p>Bihar's formation is a story of patient assertion — from a lone voice in 1889 to full statehood in 1936 to democratic Bihar in 1952. Each territorial change (1912, 1936, 2000) redefined Bihar's boundaries but not its identity. Today's Bihar of 243 constituencies retains the cultural, historical, and civilisational core that has made it India's most historically significant state since the age of the Buddha.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- COURSE COMPLETE BANNER -->
+    <div class="complete-banner">
+      <div style="font-size:36px;margin-bottom:16px;">🎓 🏆 🎉</div>
+      <div style="font-family:'Playfair Display',serif;font-size:26px;font-weight:900;color:var(--coral2);margin-bottom:10px;">ALL 21 MODULES COMPLETE!</div>
+      <div style="font-size:15px;color:rgba(245,242,235,0.7);line-height:1.7;margin-bottom:24px;max-width:500px;margin-left:auto;margin-right:auto;">You have covered Bihar's complete history — from Prehistoric Bihar to Jharkhand's formation in 2000. Ancient, Medieval, Modern — all 21 modules with stories, mnemonics, PYQs, and model answers.</div>
+      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+        <a href="../index.html" style="display:inline-block;background:var(--coral);color:#fff;padding:12px 24px;border-radius:3px;font-weight:600;font-size:13px;text-decoration:none;">📚 Back to Full Index</a>
+        <a href="m01.html" style="display:inline-block;background:rgba(255,255,255,0.1);color:var(--coral2);border:1px solid var(--coral);padding:12px 24px;border-radius:3px;font-weight:600;font-size:13px;text-decoration:none;">🔄 Restart from M01</a>
+      </div>
+      <div style="margin-top:20px;font-size:12px;color:rgba(245,242,235,0.35);font-family:'DM Mono',monospace;">Bihar History Complete Study System · 21 Modules · BPSC/UPSC Ready</div>
+    </div>
+  </div>
+</div>
+<button class="print-btn" onclick="window.print()">🖨</button>
+<script>
+const KEY='bihar_hist_v1';
+let visited=new Set(JSON.parse(localStorage.getItem(KEY)||'[]'));
+visited.add('modules/m21.html');
+localStorage.setItem(KEY,JSON.stringify([...visited]));
+document.querySelectorAll('.sidebar-item').forEach(item=>{const href=item.getAttribute('href');if(href&&visited.has('modules/'+href))item.classList.add('done');});
+function answerPYQ(el,type){const p=el.closest('.pyq-item');p.querySelectorAll('.pyq-opt').forEach(o=>{o.onclick=null;o.style.cursor='default';});el.classList.add(type);}
+function revealPYQ(id,btn){document.getElementById(id).classList.toggle('show');btn.textContent=btn.textContent.includes('Show')?'Hide Explanation':'Show Explanation';}
+function revealMains(btn){document.getElementById('mains-ans1').classList.toggle('show');btn.textContent=btn.textContent.includes('▼')?'▲ Hide Model Answer':'▼ Show Model Answer';}
+function checkAnswer(el,type){const p=el.closest('.check-mcq');p.querySelectorAll('.check-opt').forEach(o=>{o.onclick=null;o.style.cursor='default';});el.classList.add(type);const idx=Array.from(document.querySelectorAll('.check-mcq')).indexOf(p)+1;const ok=document.getElementById('fb'+idx+'-ok');const no=document.getElementById('fb'+idx+'-no');if(type==='correct'&&ok)ok.classList.add('show');if(type==='wrong'&&no)no.classList.add('show');}
+</script>
+</body>
+</html>

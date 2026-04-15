@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M09 — Sena & Karnata Dynasties | Bihar History</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1a1a2e;--ink2:#2d2d44;--paper:#f5f2eb;--paper2:#ede9df;--gold:#c9973a;--gold2:#e8b45a;--teal:#1e7a6e;--teal2:#2aa195;--coral:#c2522b;--coral2:#e06840;--muted:#7a7465;--border:rgba(26,26,46,0.11);--accent:var(--teal);--accent2:var(--teal2);}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);display:flex;min-height:100vh;}
+.sidebar{width:260px;flex-shrink:0;background:var(--ink);display:flex;flex-direction:column;position:sticky;top:0;height:100vh;overflow-y:auto;}
+.sidebar-logo{padding:24px 20px 16px;border-bottom:1px solid rgba(255,255,255,0.07);}
+.sidebar-logo a{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:var(--teal2);text-decoration:none;line-height:1.3;display:block;}
+.sidebar-logo span{display:block;font-size:10px;color:rgba(245,242,235,0.35);letter-spacing:1px;margin-top:3px;font-family:'DM Mono',monospace;}
+.sidebar-part{padding:14px 20px 6px;font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:1.4px;text-transform:uppercase;color:rgba(245,242,235,0.28);}
+.sidebar-item{display:flex;align-items:center;gap:10px;padding:9px 20px;text-decoration:none;font-size:12px;color:rgba(245,242,235,0.55);transition:background 0.15s,color 0.15s;border-left:2px solid transparent;}
+.sidebar-item:hover{background:rgba(255,255,255,0.05);color:rgba(245,242,235,0.9);}
+.sidebar-item.active{background:rgba(30,122,110,0.15);color:var(--teal2);border-left-color:var(--teal);}
+.sidebar-item.done .s-dot{background:var(--teal);}
+.s-num{font-family:'DM Mono',monospace;font-size:9.5px;color:rgba(245,242,235,0.28);width:28px;flex-shrink:0;}
+.s-dot{width:6px;height:6px;border-radius:50%;border:1.5px solid rgba(255,255,255,0.2);flex-shrink:0;}
+.sidebar-item.active .s-dot{background:var(--teal);border-color:var(--teal);}
+.main{flex:1;min-width:0;display:flex;flex-direction:column;}
+.topbar{background:var(--ink2);padding:12px 48px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10;border-bottom:1px solid rgba(255,255,255,0.05);}
+.topbar-left{display:flex;align-items:center;gap:14px;}
+.era-pill{font-size:10px;padding:3px 10px;border-radius:2px;background:rgba(30,122,110,0.2);color:var(--teal2);font-family:'DM Mono',monospace;letter-spacing:0.8px;}
+.topbar-title{font-size:13px;color:rgba(245,242,235,0.7);}
+.topbar-nav{display:flex;gap:8px;}
+.nav-btn{padding:7px 14px;border-radius:3px;font-size:12px;font-weight:500;text-decoration:none;border:1px solid rgba(255,255,255,0.12);color:rgba(245,242,235,0.6);transition:all 0.18s;cursor:pointer;background:none;}
+.nav-btn:hover{border-color:var(--teal);color:var(--teal2);}
+.nav-btn.primary{background:var(--teal);color:#fff;border-color:var(--teal);}
+.nav-btn.primary:hover{background:var(--teal2);}
+.content{flex:1;padding:48px 52px 80px;max-width:920px;}
+.mod-header{margin-bottom:40px;}
+.mod-badge{display:inline-flex;align-items:center;gap:8px;background:var(--teal);color:#fff;font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:4px 12px;border-radius:2px;margin-bottom:18px;}
+.mod-header h1{font-family:'Playfair Display',serif;font-size:clamp(26px,3.5vw,40px);font-weight:900;line-height:1.15;letter-spacing:-0.5px;margin-bottom:14px;}
+.mod-header h1 em{font-style:italic;color:var(--teal);}
+.mod-header p{font-size:14.5px;color:var(--muted);line-height:1.75;max-width:640px;}
+.mod-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px;padding-top:18px;border-top:1px solid var(--border);}
+.meta-tag{font-size:10.5px;padding:3px 9px;border-radius:2px;font-weight:500;}
+.meta-tag.b{background:#fdf5e6;color:var(--gold);}
+.meta-tag.m{background:#ebf5f3;color:var(--teal);}
+.meta-tag.s{background:#fff0eb;color:var(--coral);}
+.meta-tag.d{background:#f0edf8;color:#5a3ea1;}
+.section{margin-bottom:44px;}
+.section-head{display:flex;align-items:center;gap:12px;margin-bottom:20px;padding-bottom:12px;border-bottom:2px solid var(--accent);}
+.section-icon{font-size:20px;}
+.section-label-text{font-family:'Playfair Display',serif;font-size:19px;font-weight:700;}
+.section-sub{font-size:11px;color:var(--muted);font-family:'DM Mono',monospace;letter-spacing:0.8px;margin-left:auto;}
+.story-box{background:var(--ink);color:var(--paper);border-radius:5px;padding:28px 32px;position:relative;overflow:hidden;}
+.story-box::before{content:'';position:absolute;top:-40px;right:-40px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(30,122,110,0.2) 0%,transparent 70%);}
+.story-box p{font-size:14.5px;line-height:1.85;font-weight:300;position:relative;}
+.story-box p+p{margin-top:12px;}
+.story-box strong{color:var(--teal2);}
+.story-highlight{display:inline-block;margin-top:18px;padding:10px 16px;background:rgba(30,122,110,0.18);border-left:3px solid var(--teal);border-radius:0 3px 3px 0;font-size:13px;font-style:italic;color:var(--teal2);}
+.analogy-box{background:linear-gradient(135deg,#f0faf8,#fff);border:1px solid rgba(30,122,110,0.2);border-radius:4px;padding:20px;margin-bottom:20px;}
+.analogy-box .analogy-label{font-size:10px;font-family:'DM Mono',monospace;letter-spacing:1.2px;color:var(--teal);text-transform:uppercase;margin-bottom:8px;}
+.analogy-box p{font-size:13.5px;line-height:1.7;color:var(--ink2);}
+.dynasty-panel{background:#fff;border:1px solid var(--border);border-radius:5px;margin-bottom:20px;overflow:hidden;}
+.dynasty-panel-header{background:var(--ink);color:var(--paper);padding:16px 22px;display:flex;align-items:center;gap:14px;}
+.dynasty-panel-header h3{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;}
+.dynasty-panel-header .dp-period{font-family:'DM Mono',monospace;font-size:11px;color:var(--teal2);margin-left:auto;}
+.dynasty-panel-body{padding:20px 22px;}
+.ruler-row{display:flex;align-items:flex-start;gap:12px;padding:10px 14px;border-radius:3px;border:1px solid var(--border);margin-bottom:8px;background:var(--paper);}
+.ruler-row.key{background:linear-gradient(135deg,#f0faf8,#fff);border-color:rgba(30,122,110,0.2);}
+.ruler-row:last-child{margin-bottom:0;}
+.r-name{font-weight:600;font-size:13px;min-width:150px;flex-shrink:0;color:var(--ink2);}
+.r-dates{font-family:'DM Mono',monospace;font-size:10.5px;color:var(--teal);min-width:100px;flex-shrink:0;}
+.r-note{font-size:12.5px;color:var(--muted);line-height:1.55;}
+.r-note strong{color:var(--ink2);}
+.timeline{position:relative;padding-left:28px;}
+.timeline::before{content:'';position:absolute;left:8px;top:8px;bottom:8px;width:2px;background:linear-gradient(180deg,var(--teal),transparent);}
+.tl-item{position:relative;margin-bottom:20px;}
+.tl-dot{position:absolute;left:-24px;top:4px;width:12px;height:12px;border-radius:50%;background:var(--teal);border:2px solid var(--paper);box-shadow:0 0 0 2px var(--teal);}
+.tl-period{font-family:'DM Mono',monospace;font-size:10.5px;color:var(--teal);letter-spacing:0.5px;margin-bottom:4px;}
+.tl-title{font-size:14px;font-weight:600;margin-bottom:4px;color:var(--ink);}
+.tl-body{font-size:12.5px;color:var(--muted);line-height:1.6;}
+.tl-badge{display:inline-block;font-size:10px;padding:1.5px 7px;border-radius:2px;background:var(--paper2);color:var(--ink2);margin-left:6px;font-weight:500;}
+.comp-table{width:100%;border-collapse:collapse;font-size:12.5px;}
+.comp-table th{background:var(--ink);color:var(--paper);padding:11px 14px;text-align:left;font-weight:500;font-size:12px;}
+.comp-table th:first-child{border-radius:4px 0 0 0;}
+.comp-table th:last-child{border-radius:0 4px 0 0;}
+.comp-table td{padding:9px 14px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.5;}
+.comp-table tr:last-child td{border-bottom:none;}
+.comp-table tr:nth-child(even) td{background:var(--paper2);}
+.comp-table tr:hover td{background:#f0faf8;}
+.comp-table td:first-child{font-weight:600;color:var(--ink2);}
+.comp-table td.accent{color:var(--teal);font-weight:500;}
+.lit-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px;}
+.lit-card{background:#fff;border:1px solid var(--border);border-radius:4px;padding:16px;position:relative;overflow:hidden;}
+.lit-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--teal);}
+.lit-card h4{font-size:13px;font-weight:600;margin-bottom:4px;color:var(--ink);}
+.lit-card .lit-author{font-size:10.5px;color:var(--teal);font-family:'DM Mono',monospace;margin-bottom:6px;}
+.lit-card p{font-size:12.5px;color:var(--muted);line-height:1.55;}
+.mnemonic-box{background:linear-gradient(135deg,var(--ink) 0%,var(--ink2) 100%);border-radius:5px;padding:28px 32px;color:var(--paper);margin-bottom:16px;}
+.m-label{font-size:10px;font-family:'DM Mono',monospace;letter-spacing:1.5px;color:var(--teal2);text-transform:uppercase;margin-bottom:14px;}
+.mnemonic-word{font-family:'Playfair Display',serif;font-size:clamp(22px,3vw,32px);font-weight:900;color:var(--teal2);letter-spacing:3px;margin-bottom:18px;line-height:1.2;}
+.mnemonic-rows{display:flex;flex-direction:column;gap:10px;}
+.m-row{display:flex;align-items:baseline;gap:14px;}
+.m-letter{font-family:'DM Mono',monospace;font-size:18px;font-weight:500;color:var(--teal2);width:28px;flex-shrink:0;}
+.m-text{font-size:13.5px;line-height:1.5;}
+.m-text strong{color:var(--teal2);}
+.m-tip{margin-top:18px;padding:12px 16px;background:rgba(30,122,110,0.15);border-radius:3px;font-size:12.5px;font-style:italic;color:rgba(245,242,235,0.7);}
+.pyq-item{background:#fff;border:1px solid var(--border);border-radius:4px;padding:22px;margin-bottom:14px;}
+.pyq-meta{display:flex;align-items:center;gap:8px;margin-bottom:12px;flex-wrap:wrap;}
+.pyq-tag{font-size:10px;padding:2px 8px;border-radius:2px;font-weight:500;font-family:'DM Mono',monospace;letter-spacing:0.5px;}
+.pyq-tag.prelims{background:#fdf5e6;color:var(--gold);}
+.pyq-tag.mains{background:#ebf5f3;color:var(--teal);}
+.pyq-tag.year{background:var(--paper2);color:var(--muted);}
+.pyq-q{font-size:14px;font-weight:500;line-height:1.6;margin-bottom:14px;}
+.pyq-options{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:14px;}
+.pyq-opt{padding:8px 12px;border-radius:3px;font-size:12.5px;border:1px solid var(--border);background:var(--paper);cursor:pointer;transition:all 0.18s;}
+.pyq-opt:hover{border-color:var(--teal);background:#f0faf8;}
+.pyq-opt.correct{background:#e8f5e9;border-color:#4caf50;color:#2e7d32;font-weight:500;}
+.pyq-opt.wrong{background:#ffebee;border-color:#ef9a9a;color:#c62828;}
+.pyq-answer{display:none;padding:14px 16px;background:#e8f5f3;border-radius:3px;border-left:3px solid var(--teal);}
+.pyq-answer.show{display:block;}
+.pyq-answer strong{color:var(--teal);font-size:12px;}
+.pyq-answer p{font-size:13px;color:var(--ink2);margin-top:5px;line-height:1.6;}
+.reveal-btn{font-size:11.5px;padding:6px 14px;border-radius:3px;background:none;border:1px solid var(--border);cursor:pointer;color:var(--muted);transition:all 0.18s;}
+.reveal-btn:hover{border-color:var(--teal);color:var(--teal);}
+.mains-box{background:#fff;border:1px solid var(--border);border-radius:4px;padding:22px;}
+.mains-q{font-size:14.5px;font-weight:600;line-height:1.6;margin-bottom:14px;}
+.mains-meta{display:flex;gap:8px;margin-bottom:14px;}
+.mains-answer{display:none;border-top:1px solid var(--border);padding-top:16px;}
+.mains-answer.show{display:block;}
+.ans-sec{margin-bottom:14px;}
+.ans-sec h5{font-size:11px;font-family:'DM Mono',monospace;letter-spacing:1px;color:var(--teal);text-transform:uppercase;margin-bottom:7px;}
+.ans-sec p,.ans-sec li{font-size:13px;line-height:1.7;color:var(--ink2);}
+.ans-sec ul{padding-left:18px;}
+.ans-sec li{margin-bottom:4px;}
+.qr-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.qr-item{display:flex;align-items:flex-start;gap:10px;background:#fff;border:1px solid var(--border);border-radius:4px;padding:14px 16px;}
+.qr-num{font-family:'DM Mono',monospace;font-size:10px;color:var(--teal);font-weight:500;flex-shrink:0;margin-top:2px;}
+.qr-text{font-size:13px;line-height:1.6;color:var(--ink2);}
+.qr-text strong{color:var(--teal);}
+.memory-hook{background:var(--teal);border-radius:4px;padding:16px 22px;display:flex;align-items:center;gap:16px;margin-top:32px;}
+.hook-icon{font-size:22px;}
+.hook-text{font-size:14px;font-weight:600;color:#fff;line-height:1.5;}
+.check-mcq{background:#fff;border:1px solid var(--border);border-radius:4px;padding:20px;margin-bottom:12px;}
+.check-q{font-size:14px;font-weight:500;margin-bottom:14px;line-height:1.6;}
+.check-opts{display:flex;flex-direction:column;gap:7px;}
+.check-opt{padding:10px 14px;border-radius:3px;font-size:13px;border:1px solid var(--border);background:var(--paper);cursor:pointer;transition:all 0.18s;text-align:left;display:flex;align-items:center;gap:10px;}
+.check-opt:hover{border-color:var(--teal);background:#f0faf8;}
+.check-opt.correct{background:#e8f5e9;border-color:#4caf50;color:#2e7d32;}
+.check-opt.wrong{background:#ffebee;border-color:#ef9a9a;color:#c62828;}
+.opt-letter{width:22px;height:22px;border-radius:50%;background:var(--paper2);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;flex-shrink:0;}
+.check-opt.correct .opt-letter{background:#4caf50;color:#fff;}
+.check-opt.wrong   .opt-letter{background:#ef9a9a;color:#fff;}
+.check-feedback{margin-top:10px;padding:10px 14px;border-radius:3px;font-size:12.5px;display:none;line-height:1.6;}
+.check-feedback.show{display:block;}
+.check-feedback.ok{background:#e8f5e9;color:#2e7d32;}
+.check-feedback.no{background:#ffebee;color:#c62828;}
+.bpsc-special{background:linear-gradient(135deg,#f0faf8,#fff);border:1px solid rgba(30,122,110,0.25);border-radius:4px;padding:18px 20px;margin-bottom:20px;display:flex;gap:14px;}
+.bpsc-icon{font-size:22px;flex-shrink:0;}
+.bpsc-content h4{font-size:13px;font-weight:600;color:var(--teal);margin-bottom:5px;}
+.bpsc-content p{font-size:12.5px;color:var(--muted);line-height:1.6;}
+.sidebar::-webkit-scrollbar{width:4px;}
+.sidebar::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.1);border-radius:2px;}
+.print-btn{position:fixed;bottom:24px;right:24px;background:var(--ink);color:var(--teal2);border:none;border-radius:50%;width:44px;height:44px;font-size:16px;cursor:pointer;box-shadow:0 4px 16px rgba(26,26,46,0.25);transition:transform 0.18s;display:flex;align-items:center;justify-content:center;}
+.print-btn:hover{transform:scale(1.1);}
+@media print{.sidebar,.topbar,.print-btn{display:none;}.main{display:block;}.content{padding:20px;}}
+@media(max-width:768px){.sidebar{display:none;}.content{padding:24px 20px 60px;}.topbar{padding:10px 20px;}.lit-grid,.qr-grid,.pyq-options{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<aside class="sidebar">
+  <div class="sidebar-logo"><a href="../index.html">Bihar History<br>Study System</a><span>BPSC · UPSC · State PCS</span></div>
+  <div class="sidebar-part">Part I — Ancient Bihar</div>
+  <a class="sidebar-item done" href="m01.html"><span class="s-num">01</span><span class="s-dot"></span>Sources & Prehistoric Bihar</a>
+  <a class="sidebar-item done" href="m02.html"><span class="s-num">02</span><span class="s-dot"></span>Mahajanapadas in Bihar</a>
+  <a class="sidebar-item done" href="m03.html"><span class="s-num">03</span><span class="s-dot"></span>Pre-Mauryan Dynasties</a>
+  <a class="sidebar-item done" href="m04.html"><span class="s-num">04</span><span class="s-dot"></span>Buddhism & Jainism</a>
+  <a class="sidebar-item done" href="m05.html"><span class="s-num">05</span><span class="s-dot"></span>Mauryan Empire</a>
+  <a class="sidebar-item done" href="m06.html"><span class="s-num">06</span><span class="s-dot"></span>Ashoka — Kalinga to Dhamma</a>
+  <a class="sidebar-item done" href="m07.html"><span class="s-num">07</span><span class="s-dot"></span>Post-Mauryan to Gupta Era</a>
+  <div class="sidebar-part">Part II — Medieval Bihar</div>
+  <a class="sidebar-item done" href="m08.html"><span class="s-num">08</span><span class="s-dot"></span>Pala Dynasty</a>
+  <a class="sidebar-item active" href="m09.html"><span class="s-num">09</span><span class="s-dot"></span>Sena & Karnata Dynasties</a>
+  <a class="sidebar-item" href="m10.html"><span class="s-num">10</span><span class="s-dot"></span>Turkish Invasion</a>
+  <a class="sidebar-item" href="m11.html"><span class="s-num">11</span><span class="s-dot"></span>Khilji, Tughlaq & Noohani</a>
+  <a class="sidebar-item" href="m12.html"><span class="s-num">12</span><span class="s-dot"></span>Sher Shah Suri</a>
+  <a class="sidebar-item" href="m13.html"><span class="s-num">13</span><span class="s-dot"></span>Mughal Rule in Bihar</a>
+  <a class="sidebar-item" href="m14.html"><span class="s-num">14</span><span class="s-dot"></span>Sufism, Sikhism & Tribal States</a>
+  <div class="sidebar-part">Part III — Modern Bihar</div>
+  <a class="sidebar-item" href="m15.html"><span class="s-num">15</span><span class="s-dot"></span>European Entry</a>
+  <a class="sidebar-item" href="m16.html"><span class="s-num">16</span><span class="s-dot"></span>Battle of Buxar</a>
+  <a class="sidebar-item" href="m17.html"><span class="s-num">17</span><span class="s-dot"></span>Revolt of 1857</a>
+  <a class="sidebar-item" href="m18.html"><span class="s-num">18</span><span class="s-dot"></span>Tribal Revolts</a>
+  <a class="sidebar-item" href="m19.html"><span class="s-num">19</span><span class="s-dot"></span>Freedom Movements</a>
+  <a class="sidebar-item" href="m20.html"><span class="s-num">20</span><span class="s-dot"></span>Eminent Freedom Fighters</a>
+  <a class="sidebar-item" href="m21.html"><span class="s-num">21</span><span class="s-dot"></span>Formation of Modern Bihar</a>
+</aside>
+
+<div class="main">
+  <div class="topbar">
+    <div class="topbar-left"><span class="era-pill">MEDIEVAL BIHAR</span><span class="topbar-title">Module 09 of 21</span></div>
+    <div class="topbar-nav">
+      <a href="m08.html" class="nav-btn">← Prev</a>
+      <a href="../index.html" class="nav-btn">Index</a>
+      <a href="m10.html" class="nav-btn primary">Next →</a>
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="mod-header">
+      <div class="mod-badge"><span>MODULE 09</span><span>·</span><span>Medieval Bihar</span></div>
+      <h1>Sena & Karnata Dynasties —<br><em>Twilight Before the Storm</em></h1>
+      <p>As the Pala Buddhist empire crumbled, two Hindu dynasties rose to shape Bihar's final pre-Islamic era: the Senas with their Brahmanical revival, and the Karnatas who gave Mithila its Golden Age of literature and culture.</p>
+      <div class="mod-meta">
+        <span class="meta-tag b">BPSC Special</span>
+        <span class="meta-tag m">Mains GS-I</span>
+        <span class="meta-tag d">1097 AD – 1324 AD</span>
+        <span class="meta-tag s">⚠ Trap: Karnata dynasty ≠ Karnataka state. Karnata = dynasty of Mithila (N. Bihar)</span>
+      </div>
+    </div>
+
+    <!-- ① STORY HOOK -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">🎭</span><span class="section-label-text">Story Hook</span><span class="section-sub">START HERE</span></div>
+      <div class="story-box">
+        <p>The year is <strong>1174 AD</strong>. In the Mithila court at <strong>Simraon</strong> (Champaran), a young poet named <strong>Vidyapati</strong> is reciting verses so beautiful they will be sung across Bengal and Bihar for the next 800 years. At the same court, the great Sanskrit composer <strong>Jyotirishwar</strong> writes the <em>Varnaratnakar</em> — a celebrated Maithili text that's still studied today.</p>
+        <p>The Karnata rulers of Mithila had turned their small kingdom into <strong>Bihar's most brilliant cultural moment</strong> — the Golden Age of Mithila. While empires clashed around them, they built a literary civilization that outlasted every sword and conquest.</p>
+        <p>Meanwhile, in the south, the <strong>Sena dynasty</strong> was carrying out its own cultural revolution: reviving Brahmanical Hinduism and creating the "Kulinism" caste system — controversial but powerful, shaping Bengal and Bihar's social structure for centuries.</p>
+        <div class="story-highlight">💡 The Karnata rulers of Mithila introduced the Panji system — a genealogical register of Brahmin families still maintained in Mithila today, over 700 years later.</div>
+      </div>
+    </div>
+
+    <!-- ② CORE CONCEPT -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">🧠</span><span class="section-label-text">Core Concept — Two Dynasties Side by Side</span><span class="section-sub">WITH ANALOGY</span></div>
+      <div class="analogy-box">
+        <div class="analogy-label">🎭 Modern Analogy</div>
+        <p>Think of the Sena and Karnata dynasties like <strong>two regional companies operating in different parts of Bihar simultaneously</strong>. The <strong>Senas</strong> were like a Brahmanical-conservative firm in eastern Bihar, known for strict social order (Kulinism). The <strong>Karnatas</strong> were like a cultural-liberal startup in North Bihar (Mithila), investing heavily in arts, music, and literature. Both were weakened by Turkish invasion — but the Karnatas left a cultural legacy that no army could destroy.</p>
+      </div>
+
+      <!-- SENA DYNASTY -->
+      <div class="dynasty-panel">
+        <div class="dynasty-panel-header">
+          <h3>🏛️ Sena Dynasty</h3>
+          <div class="dp-period">Mid-11th Century – 1200 AD · Eastern Bihar & Bengal</div>
+        </div>
+        <div class="dynasty-panel-body">
+          <div class="ruler-row">
+            <span class="r-name">Samantsena</span>
+            <span class="r-dates">Founder, mid-11th C</span>
+            <span class="r-note">Founder of Sena dynasty. Described as <strong>Brahmakshatriya</strong>. Succeeded by son Hemantsena.</span>
+          </div>
+          <div class="ruler-row">
+            <span class="r-name">Vijayasena</span>
+            <span class="r-dates">~1096–1159 AD</span>
+            <span class="r-note">Son of Hemantsena. <strong>Brought family into limelight</strong> during his long reign of more than 60 years. Expanded Sena power significantly. Deopara inscription of Vijayasena mentions exploitation of Pala vassals by Senas in East Bihar.</span>
+          </div>
+          <div class="ruler-row key">
+            <span class="r-name">Ballalsena</span>
+            <span class="r-dates">~1159–1179 AD</span>
+            <span class="r-note">Vijayasena's son. <strong>Great scholar</strong> — wrote <em>Danasagara</em> and <em>Adbhutsagara</em>. Started social movement called <strong>"Kulinism"</strong> — nobility of birth and purity of blood carefully protected. This created hierarchical sub-castes within Brahmins, Kayasthas, and Vaidyas of Bengal and Bihar. Sanokhar inscription of Ballalsena confirms expansion in East Bihar.</span>
+          </div>
+          <div class="ruler-row key">
+            <span class="r-name">Lakshmansena</span>
+            <span class="r-dates">~1179–1206 AD</span>
+            <span class="r-note"><strong>Last important ruler.</strong> Succeeded at age 60. Sena power weakened by internal rebellions AND invasion of Bakhtiyar Khalji (1203 AD). Fled capital; took refuge in East Bengal's Vikrampur. NOT politically competent BUT great literary patron — court had <strong>Jayadeva</strong> (author of Gita Govinda), Halayudha (linguist), Dhoyi (author of Pavanadutam).</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- KARNATA DYNASTY -->
+      <div class="dynasty-panel">
+        <div class="dynasty-panel-header">
+          <h3>🎨 Karnata Dynasty of Mithila</h3>
+          <div class="dp-period">1097 AD – 1324 AD · North Bihar (Mithila)</div>
+        </div>
+        <div class="dynasty-panel-body">
+          <div class="ruler-row key">
+            <span class="r-name">Nanyadeva</span>
+            <span class="r-dates">1097–1147 AD (Founder)</span>
+            <span class="r-note"><strong>Founded Karnata dynasty in Mithila in 1097 AD.</strong> Hailed from the Deccan (Karnata-Kshatriya clan). Capital: <strong>Simraon, Champaran</strong>. Apart from being a warrior, great patron of music — wrote commentary on Bharata's Natyasastra; known as <strong>Mahasamantadhipati</strong>. Conquered Nepal. Ruled ~50 years.</span>
+          </div>
+          <div class="ruler-row">
+            <span class="r-name">Gangadeva</span>
+            <span class="r-dates">1147–1188 AD</span>
+            <span class="r-note">Son of Nanyadeva. Able administrator.</span>
+          </div>
+          <div class="ruler-row">
+            <span class="r-name">Narsimhadeva</span>
+            <span class="r-dates">1188–1227 AD</span>
+            <span class="r-note">Bakhtiyar Khalji passed through Tirhut (his territory) on way to Lakhnauti in 1202. Narsimhadeva saved himself by agreeing to pay tribute to Khalji. Mithila continued to be raided by Muslims. Tibetan scholar Dharmaswamin visited his court (1234–1236 AD).</span>
+          </div>
+          <div class="ruler-row key">
+            <span class="r-name">Harisimhadeva</span>
+            <span class="r-dates">~1295–1324 AD (Last)</span>
+            <span class="r-note"><strong>Last great king of Karnata dynasty.</strong> Greatest patron of art and literature. Court had <strong>Jyotirishwar</strong> (author of Varnaratnakar — celebrated Maithili text). Period of Karnata rulers = <strong>"Golden Period of Mithila."</strong> <strong>Introduced Panji Vyavastha</strong> (Panji Prabandha) — genealogical register of Brahmin families, still maintained. <strong>Defeated by Ghiyasuddin Tughlaq (1324 AD)</strong> — fled to Nepal, where he introduced worship of goddess Taleju (temple in present-day Kathmandu). After his fall, <strong>Oiniwar dynasty</strong> governed Mithila (1353–1526 AD).</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ③ TIMELINE -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">⏳</span><span class="section-label-text">Timeline — Sena & Karnata Dynasties</span><span class="section-sub">CHRONOLOGICAL</span></div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-period">MID-11th CENTURY — SENA DYNASTY RISES</div>
+          <div class="tl-title">Samantsena Founds Sena Dynasty as Palas Decline</div>
+          <div class="tl-body">Brahmakshatriya clan from south India. Gradually expands in Bengal and eastern Bihar as Pala power weakens. Vijayasena's 60+ year reign is the cornerstone of Sena power.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-period">1097 AD — KARNATA DYNASTY FOUNDED</div>
+          <div class="tl-title">Nanyadeva Founds Karnata Kingdom in Mithila</div>
+          <div class="tl-body">Capital at Simraon, Champaran. From Deccan (Karnataka region). Music patron — wrote commentary on Natyasastra. Conquered Nepal. <strong>Karnata ≠ Karnataka state</strong> — this dynasty ruled North Bihar.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-period">~1159–1179 AD — BALLALSENA</div>
+          <div class="tl-title">Sena Peak + Kulinism + Literary Patronage</div>
+          <div class="tl-body">Ballalsena writes Danasagara and Adbhutsagara. Creates Kulinism caste system. Sena kingdom at cultural peak. Later son Lakshmansena hosts Jayadeva (Gita Govinda) at his court.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-period">1202–1203 AD — BAKHTIYAR KHALJI INVASION</div>
+          <div class="tl-title">Both Dynasties Feel Turkish Pressure</div>
+          <div class="tl-body">Bakhtiyar Khalji passes through Karnata territory (Tirhut) in 1202; Narsimhadeva pays tribute. Same invasion crushes Lakshmansena's Sena kingdom — Lakshmansena flees to Vikrampur. End of Sena dynasty in Bihar.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-period">~1295–1324 AD — HARISIMHADEVA</div>
+          <div class="tl-title">Golden Period of Mithila — Cultural Zenith</div>
+          <div class="tl-body">Jyotirishwar writes Varnaratnakar at his court. Harisimhadeva introduces Panji Vyavastha. Period = "Golden Period of Mithila." Famous for art, music, and Sanskrit/Maithili literature.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-period">1324 AD — GHIYASUDDIN TUGHLAQ ATTACKS</div>
+          <div class="tl-title">End of Karnata Dynasty — Harisimhadeva Flees to Nepal</div>
+          <div class="tl-body">Ghiyasuddin Tughlaq defeats Harisimhadeva. He flees to Nepal; introduces Taleju goddess worship there. Tughlaq gives Tirhut to Ahmad. Oiniwar dynasty governs Mithila (1353–1526 AD).</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ④ LITERARY CONTRIBUTIONS -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">📚</span><span class="section-label-text">Literary Legacy — Works from This Era</span><span class="section-sub">BPSC SPECIAL</span></div>
+      <div class="bpsc-special">
+        <span class="bpsc-icon">🗺️</span>
+        <div class="bpsc-content">
+          <h4>BPSC Special — Literary Questions</h4>
+          <p>Questions on Gita Govinda, Varnaratnakar, Danasagara, Panji Vyavastha, Kulinism are frequently asked. Know which text belongs to which dynasty and ruler.</p>
+        </div>
+      </div>
+      <div class="lit-grid">
+        <div class="lit-card">
+          <h4>Gita Govinda</h4>
+          <div class="lit-author">Jayadeva · Lakshmansena's court (Sena dynasty)</div>
+          <p>Sanskrit lyric poem celebrating love of Radha and Krishna. One of India's greatest devotional texts. Lakshmansena was its patron despite being a politically weak king.</p>
+        </div>
+        <div class="lit-card">
+          <h4>Varnaratnakar</h4>
+          <div class="lit-author">Jyotirishwar · Harisimhadeva's court (Karnata dynasty)</div>
+          <p>Celebrated Maithili text. One of earliest significant works in Maithili language. Royal priest at Harisimhadeva's court. Covers language, literature, music, and social customs.</p>
+        </div>
+        <div class="lit-card">
+          <h4>Danasagara & Adbhutsagara</h4>
+          <div class="lit-author">Ballalsena · Sena dynasty</div>
+          <p>Works by Ballalsena himself — a rare scholar-king. Danasagara covers ritual giving (dana); Adbhutsagara deals with omens and wonders. Confirms Sena rulers' intellectual credentials.</p>
+        </div>
+        <div class="lit-card">
+          <h4>Pavanadutam</h4>
+          <div class="lit-author">Dhoyi · Lakshmansena's court (Sena dynasty)</div>
+          <p>Sanskrit poem by Dhoyi, composed in Lakshmansena's court. Sanskrit messenger poem tradition inspired by Kalidasa's Meghaduta.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ⑤ COMPARISON TABLE -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">📊</span><span class="section-label-text">Sena vs Karnata — Comparison</span><span class="section-sub">EXAM-READY</span></div>
+      <table class="comp-table">
+        <thead><tr><th>Feature</th><th>Sena Dynasty</th><th>Karnata Dynasty</th></tr></thead>
+        <tbody>
+          <tr><td>Period</td><td class="accent">Mid-11th C – ~1200 AD</td><td class="accent">1097 AD – 1324 AD</td></tr>
+          <tr><td>Region</td><td>Eastern Bihar + Bengal</td><td>North Bihar (Mithila)</td></tr>
+          <tr><td>Founder</td><td>Samantsena (Brahmakshatriya)</td><td>Nanyadeva (Karnata-Kshatriya, from Deccan)</td></tr>
+          <tr><td>Capital</td><td>Eastern Bengal area</td><td class="accent">Simraon (Champaran) → Andhrathadi (Madhubani)</td></tr>
+          <tr><td>Religion</td><td>Brahmanical Hinduism revival</td><td>Hindu — patronised Sanskrit and Maithili literature</td></tr>
+          <tr><td>Famous King</td><td>Ballalsena (scholar) + Lakshmansena (literary patron)</td><td class="accent">Harisimhadeva (Golden Period of Mithila)</td></tr>
+          <tr><td>Social Legacy</td><td>Kulinism — hierarchical sub-castes</td><td class="accent">Panji Vyavastha — genealogical register of Brahmins (still used)</td></tr>
+          <tr><td>Key Literary Work</td><td>Gita Govinda (Jayadeva), Danasagara (Ballalsena)</td><td class="accent">Varnaratnakar (Jyotirishwar)</td></tr>
+          <tr><td>How ended</td><td>Bakhtiyar Khalji invasion 1203 AD; Lakshmansena fled</td><td>Ghiyasuddin Tughlaq defeated Harisimhadeva (1324 AD); fled to Nepal</td></tr>
+          <tr><td>Successor</td><td>Turkish/Muslim rule in Bengal-Bihar</td><td>Oiniwar dynasty (1353–1526 AD) governed Mithila</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ⑥ MNEMONIC -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">🧩</span><span class="section-label-text">Mnemonic</span><span class="section-sub">MEMORY TRICKS</span></div>
+      <div class="mnemonic-box">
+        <div class="m-label">🧩 Mnemonic — Sena Dynasty Key Facts</div>
+        <div class="mnemonic-word">S · V · B · L</div>
+        <div class="mnemonic-rows">
+          <div class="m-row"><span class="m-letter">S</span><span class="m-text"><strong>Samantsena</strong> — founder, Brahmakshatriya origin</span></div>
+          <div class="m-row"><span class="m-letter">V</span><span class="m-text"><strong>Vijayasena</strong> — 60+ year reign; brought family to limelight; Deopara inscription</span></div>
+          <div class="m-row"><span class="m-letter">B</span><span class="m-text"><strong>Ballalsena</strong> — wrote Danasagara + Adbhutsagara; created <em>Kulinism</em> caste movement</span></div>
+          <div class="m-row"><span class="m-letter">L</span><span class="m-text"><strong>Lakshmansena</strong> — last ruler; Jayadeva (Gita Govinda) at court; fled from Bakhtiyar Khalji</span></div>
+        </div>
+        <div class="m-tip">💡 "Some Very Bad Losers" = Samantsena, Vijayasena, Ballalsena, Lakshmansena — and yes, they did eventually lose to Bakhtiyar Khalji!</div>
+      </div>
+      <div class="mnemonic-box">
+        <div class="m-label">🧩 Mnemonic — Karnata Dynasty Key Facts</div>
+        <div class="mnemonic-word">N · G · N · H</div>
+        <div class="mnemonic-rows">
+          <div class="m-row"><span class="m-letter">N</span><span class="m-text"><strong>Nanyadeva</strong> — founder 1097 AD; Simraon capital; Natyasastra commentary; conquered Nepal</span></div>
+          <div class="m-row"><span class="m-letter">G</span><span class="m-text"><strong>Gangadeva</strong> — Nanyadeva's son; able administrator</span></div>
+          <div class="m-row"><span class="m-letter">N</span><span class="m-text"><strong>Narsimhadeva</strong> — paid tribute to Bakhtiyar Khalji 1202; protected Mithila temporarily</span></div>
+          <div class="m-row"><span class="m-letter">H</span><span class="m-text"><strong>Harisimhadeva</strong> — last great king; Golden Period of Mithila; Panji Vyavastha; fled to Nepal 1324 AD</span></div>
+        </div>
+        <div class="m-tip">💡 "Never Give Narsimha Hints" = Nanyadeva, Gangadeva, Narsimhadeva, Harisimhadeva — 4 key Karnata rulers! H = Harisimhadeva = Golden Period + Panji + fled Nepal.</div>
+      </div>
+    </div>
+
+    <!-- ⑦ PYQ -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">📝</span><span class="section-label-text">PYQ Practice</span><span class="section-sub">SOLVED</span></div>
+      <div class="pyq-item">
+        <div class="pyq-meta"><span class="pyq-tag prelims">BPSC Prelims</span><span class="pyq-tag year">BPSC 2017</span></div>
+        <div class="pyq-q">Who was the founder of the Karnata dynasty in Mithila?</div>
+        <div class="pyq-options">
+          <div class="pyq-opt" onclick="answerPYQ(this,'correct')">(a) Nanyadeva</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(b) Narsimhadeva</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(c) Vijayadeva</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(d) All of the above</div>
+        </div>
+        <div class="pyq-answer" id="ans-pyq1">
+          <strong>✓ CORRECT: (a) Nanyadeva</strong>
+          <p>Nanyadeva founded the Karnata dynasty in Mithila in 1097 AD with Simraon (Champaran) as his capital. He was a Karnata-Kshatriya from the Deccan. Apart from being a warrior, he was a great patron of music and wrote a commentary on Bharata's Natyasastra. He ruled for about 50 years (1097–1147 AD) and also conquered Nepal.</p>
+        </div>
+        <button class="reveal-btn" onclick="revealPYQ('ans-pyq1',this)">Show Explanation</button>
+      </div>
+      <div class="pyq-item">
+        <div class="pyq-meta"><span class="pyq-tag prelims">BPSC Prelims</span><span class="pyq-tag year">BPSC 2017</span></div>
+        <div class="pyq-q">The author of Rajaniti Ratnakara is:</div>
+        <div class="pyq-options">
+          <div class="pyq-opt" onclick="answerPYQ(this,'correct')">(a) Chandesvara</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(b) Vidyapati</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(c) Jyotiresvara</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(d) Haribrahmendra</div>
+        </div>
+        <div class="pyq-answer" id="ans-pyq2">
+          <strong>✓ CORRECT: (a) Chandesvara</strong>
+          <p>Chandesvara wrote the Rajaniti Ratnakara — an important treatise on statecraft (Rajniti) from the Mithila/Karnata era. Note: Jyotirishwar (Jyotiresvara) wrote the Varnaratnakar — don't confuse these two. Vidyapati wrote devotional Maithili poetry. The Karnata era produced multiple important Mithila texts.</p>
+        </div>
+        <button class="reveal-btn" onclick="revealPYQ('ans-pyq2',this)">Show Explanation</button>
+      </div>
+      <div class="pyq-item">
+        <div class="pyq-meta"><span class="pyq-tag prelims">BPSC Prelims</span><span class="pyq-tag year">BPSC MCQ Bank</span></div>
+        <div class="pyq-q">Harisimhadeva was the king of:</div>
+        <div class="pyq-options">
+          <div class="pyq-opt" onclick="answerPYQ(this,'correct')">(a) Mithila</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(b) Bhojpur</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(c) Arga</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(d) Videha</div>
+        </div>
+        <div class="pyq-answer" id="ans-pyq3">
+          <strong>✓ CORRECT: (a) Mithila</strong>
+          <p>Harisimhadeva was the last great king of the <strong>Karnata dynasty of Mithila</strong> (~1295–1324 AD). He was a great patron of art and literature — Jyotirishwar's Varnaratnakar was written at his court. He introduced Panji Vyavastha (genealogical records). He was defeated by Ghiyasuddin Tughlaq in 1324 AD and fled to Nepal, where he introduced the worship of goddess Taleju.</p>
+        </div>
+        <button class="reveal-btn" onclick="revealPYQ('ans-pyq3',this)">Show Explanation</button>
+      </div>
+    </div>
+
+    <!-- ⑧ QUICK REVISION -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">⚡</span><span class="section-label-text">Quick Revision Bullets</span><span class="section-sub">7 ONE-LINERS</span></div>
+      <div class="qr-grid">
+        <div class="qr-item"><span class="qr-num">01</span><span class="qr-text"><strong>Sena dynasty</strong> = Brahmakshatriya origin; founded by Samantsena; eastern Bihar + Bengal; revived Brahmanical Hinduism.</span></div>
+        <div class="qr-item"><span class="qr-num">02</span><span class="qr-text"><strong>Ballalsena</strong> = wrote Danasagara + Adbhutsagara; created <strong>Kulinism</strong> (hierarchical birth-based caste system). Sanokhar inscription confirms East Bihar expansion.</span></div>
+        <div class="qr-item"><span class="qr-num">03</span><span class="qr-text"><strong>Lakshmansena</strong> = last Sena ruler; hosted <strong>Jayadeva</strong> (Gita Govinda), Halayudha, Dhoyi; fled from Bakhtiyar Khalji's invasion.</span></div>
+        <div class="qr-item"><span class="qr-num">04</span><span class="qr-text"><strong>Karnata dynasty</strong> founded 1097 AD by <strong>Nanyadeva</strong> in Mithila; capital Simraon (Champaran); from Deccan; ⚠ NOT Karnataka state!</span></div>
+        <div class="qr-item"><span class="qr-num">05</span><span class="qr-text"><strong>Harisimhadeva</strong> = last great Karnata king; court had Jyotirishwar (Varnaratnakar); introduced <strong>Panji Vyavastha</strong>; Period = "Golden Period of Mithila."</span></div>
+        <div class="qr-item"><span class="qr-num">06</span><span class="qr-text"><strong>Harisimhadeva fled to Nepal</strong> after Ghiyasuddin Tughlaq's victory (1324 AD) — introduced worship of <strong>Taleju goddess</strong> in Kathmandu (still present today).</span></div>
+        <div class="qr-item"><span class="qr-num">07</span><span class="qr-text">After Karnata dynasty fell, <strong>Oiniwar dynasty</strong> governed Mithila (1353–1526 AD). Later Kameshwar Thakur was reinstated by Firuz Tughlaq.</span></div>
+      </div>
+      <div class="memory-hook">
+        <span class="hook-icon">🧲</span>
+        <span class="hook-text">Memory Hook: "While swords decided borders, <em>Sena and Karnata kings were building Bihar's greatest literary culture</em> — Gita Govinda, Varnaratnakar, and the Panji system outlasted every dynasty that followed."</span>
+      </div>
+    </div>
+
+    <!-- ⑨ CONCEPT CHECK -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">✅</span><span class="section-label-text">Concept Check</span><span class="section-sub">TEST YOURSELF</span></div>
+      <div class="check-mcq">
+        <div class="check-q">1. Which Sena ruler started the "Kulinism" social movement based on purity of birth?</div>
+        <div class="check-opts">
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','A')"><span class="opt-letter">A</span>Samantsena</button>
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','B')"><span class="opt-letter">B</span>Vijayasena</button>
+          <button class="check-opt" onclick="checkAnswer(this,'correct','C')"><span class="opt-letter">C</span>Ballalsena</button>
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','D')"><span class="opt-letter">D</span>Lakshmansena</button>
+        </div>
+        <div class="check-feedback ok" id="fb1-ok">✓ Correct! Ballalsena started the "Kulinism" movement — by which nobility of birth and purity of blood were carefully protected. This created hierarchical sub-castes within Brahmins, Kayasthas, and Vaidyas. He was also a great scholar who wrote Danasagara and Adbhutsagara — a rare scholar-king combination.</div>
+        <div class="check-feedback no" id="fb1-no">✗ Answer is (C) Ballalsena. He started Kulinism. Don't confuse with Vijayasena (military expansion) or Lakshmansena (literary patronage). Ballalsena = scholar + Kulinism creator.</div>
+      </div>
+      <div class="check-mcq">
+        <div class="check-q">2. The Panji Vyavastha (genealogical register of Brahmin families) was introduced by which ruler?</div>
+        <div class="check-opts">
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','A')"><span class="opt-letter">A</span>Nanyadeva</button>
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','B')"><span class="opt-letter">B</span>Narsimhadeva</button>
+          <button class="check-opt" onclick="checkAnswer(this,'correct','C')"><span class="opt-letter">C</span>Harisimhadeva</button>
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','D')"><span class="opt-letter">D</span>Gangadeva</button>
+        </div>
+        <div class="check-feedback ok" id="fb2-ok">✓ Correct! Harisimhadeva (last great Karnata king) introduced the Panji Vyavastha — a detailed genealogical register of Brahmin families in Mithila. This system is remarkable because it has been maintained continuously for 700+ years in Mithila and is still used today for Brahmin genealogy and marriage matching.</div>
+        <div class="check-feedback no" id="fb2-no">✗ Answer is (C) Harisimhadeva. He introduced Panji Vyavastha (genealogical records). His court also had Jyotirishwar (Varnaratnakar). He was the last great king of Karnata dynasty, defeated by Ghiyasuddin Tughlaq (1324 AD).</div>
+      </div>
+      <div class="mains-box">
+        <div class="mains-meta"><span class="pyq-tag mains">MAINS GS-I</span><span class="pyq-tag year">150 words</span></div>
+        <div class="mains-q">Describe the cultural contributions of the Karnata dynasty of Mithila. Why is their period called the "Golden Period of Mithila"?</div>
+        <button class="reveal-btn" style="margin-bottom:12px;" onclick="revealMains(this)">▼ Show Model Answer</button>
+        <div class="mains-answer" id="mains-ans1">
+          <div class="ans-sec"><h5>Introduction</h5><p>The Karnata dynasty (1097–1324 AD), founded by Nanyadeva in Mithila (North Bihar), is remembered not for military conquest but for transforming Mithila into ancient India's greatest centre of Sanskrit and Maithili culture.</p></div>
+          <div class="ans-sec"><h5>Why "Golden Period of Mithila"</h5><ul>
+            <li><strong>Literary Patronage:</strong> Harisimhadeva's court hosted Jyotirishwar (author of Varnaratnakar — early Maithili masterpiece) and Chandesvara (Rajaniti Ratnakara)</li>
+            <li><strong>Music:</strong> Nanyadeva himself wrote a commentary on Bharata's Natyasastra — showing kings as active scholars, not mere patrons</li>
+            <li><strong>Social Institution:</strong> Harisimhadeva introduced Panji Vyavastha — the genealogical register of Brahmin families, still maintained in Mithila today (700+ years later)</li>
+            <li><strong>Religious Influence:</strong> Even in defeat, Harisimhadeva spread Mithila culture — he introduced Taleju goddess worship in Nepal, which became central to Nepalese royal tradition</li>
+          </ul></div>
+          <div class="ans-sec"><h5>Modern Relevance</h5><p>The Maithili language and Mithila art (Madhubani paintings) that define North Bihar's cultural identity today owe their early flowering to Karnata patronage. The Panji system still serves as a living genealogical archive — a 700-year-old institution from a 227-year dynasty.</p></div>
+          <div class="ans-sec"><h5>Conclusion</h5><p>The Karnata period represents Bihar's truth: that cultural legacy often outlasts military power. The Karnata dynasty was militarily weak but culturally transformative — their Golden Period of Mithila lives on in language, art, and social institutions still visible today.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<button class="print-btn" onclick="window.print()" title="Print Quick Revision">🖨</button>
+<script>
+const KEY='bihar_hist_v1';
+let visited=new Set(JSON.parse(localStorage.getItem(KEY)||'[]'));
+visited.add('modules/m09.html');
+localStorage.setItem(KEY,JSON.stringify([...visited]));
+document.querySelectorAll('.sidebar-item').forEach(item=>{const href=item.getAttribute('href');if(href&&visited.has('modules/'+href))item.classList.add('done');});
+function answerPYQ(el,type){const p=el.closest('.pyq-item');p.querySelectorAll('.pyq-opt').forEach(o=>{o.onclick=null;o.style.cursor='default';});el.classList.add(type);}
+function revealPYQ(id,btn){document.getElementById(id).classList.toggle('show');btn.textContent=btn.textContent.includes('Show')?'Hide Explanation':'Show Explanation';}
+function revealMains(btn){document.getElementById('mains-ans1').classList.toggle('show');btn.textContent=btn.textContent.includes('▼')?'▲ Hide Model Answer':'▼ Show Model Answer';}
+function checkAnswer(el,type,letter){const p=el.closest('.check-mcq');p.querySelectorAll('.check-opt').forEach(o=>{o.onclick=null;o.style.cursor='default';});el.classList.add(type);const idx=Array.from(document.querySelectorAll('.check-mcq')).indexOf(p)+1;const ok=document.getElementById('fb'+idx+'-ok');const no=document.getElementById('fb'+idx+'-no');if(type==='correct'&&ok)ok.classList.add('show');if(type==='wrong'&&no)no.classList.add('show');}
+</script>
+</body>
+</html>

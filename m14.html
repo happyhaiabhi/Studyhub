@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M14 — Sufism, Sikhism & Tribal States | Bihar History</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1a1a2e;--ink2:#2d2d44;--paper:#f5f2eb;--paper2:#ede9df;--gold:#c9973a;--gold2:#e8b45a;--teal:#1e7a6e;--teal2:#2aa195;--coral:#c2522b;--coral2:#e06840;--muted:#7a7465;--border:rgba(26,26,46,0.11);}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);display:flex;min-height:100vh;}
+.sidebar{width:260px;flex-shrink:0;background:var(--ink);display:flex;flex-direction:column;position:sticky;top:0;height:100vh;overflow-y:auto;}
+.sidebar-logo{padding:24px 20px 16px;border-bottom:1px solid rgba(255,255,255,0.07);}
+.sidebar-logo a{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:var(--teal2);text-decoration:none;line-height:1.3;display:block;}
+.sidebar-logo span{display:block;font-size:10px;color:rgba(245,242,235,0.35);letter-spacing:1px;margin-top:3px;font-family:'DM Mono',monospace;}
+.sidebar-part{padding:14px 20px 6px;font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:1.4px;text-transform:uppercase;color:rgba(245,242,235,0.28);}
+.sidebar-item{display:flex;align-items:center;gap:10px;padding:9px 20px;text-decoration:none;font-size:12px;color:rgba(245,242,235,0.55);transition:background 0.15s,color 0.15s;border-left:2px solid transparent;}
+.sidebar-item:hover{background:rgba(255,255,255,0.05);color:rgba(245,242,235,0.9);}
+.sidebar-item.active{background:rgba(30,122,110,0.15);color:var(--teal2);border-left-color:var(--teal);}
+.sidebar-item.done .s-dot{background:var(--teal);}
+.s-num{font-family:'DM Mono',monospace;font-size:9.5px;color:rgba(245,242,235,0.28);width:28px;flex-shrink:0;}
+.s-dot{width:6px;height:6px;border-radius:50%;border:1.5px solid rgba(255,255,255,0.2);flex-shrink:0;}
+.sidebar-item.active .s-dot{background:var(--teal);border-color:var(--teal);}
+.main{flex:1;min-width:0;display:flex;flex-direction:column;}
+.topbar{background:var(--ink2);padding:12px 48px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10;border-bottom:1px solid rgba(255,255,255,0.05);}
+.topbar-left{display:flex;align-items:center;gap:14px;}
+.era-pill{font-size:10px;padding:3px 10px;border-radius:2px;background:rgba(30,122,110,0.2);color:var(--teal2);font-family:'DM Mono',monospace;letter-spacing:0.8px;}
+.topbar-title{font-size:13px;color:rgba(245,242,235,0.7);}
+.topbar-nav{display:flex;gap:8px;}
+.nav-btn{padding:7px 14px;border-radius:3px;font-size:12px;font-weight:500;text-decoration:none;border:1px solid rgba(255,255,255,0.12);color:rgba(245,242,235,0.6);transition:all 0.18s;cursor:pointer;background:none;}
+.nav-btn:hover{border-color:var(--teal);color:var(--teal2);}
+.nav-btn.primary{background:var(--teal);color:#fff;border-color:var(--teal);}
+.content{flex:1;padding:48px 52px 80px;max-width:920px;}
+.mod-header{margin-bottom:40px;}
+.mod-badge{display:inline-flex;align-items:center;gap:8px;background:var(--teal);color:#fff;font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:4px 12px;border-radius:2px;margin-bottom:18px;}
+.mod-header h1{font-family:'Playfair Display',serif;font-size:clamp(26px,3.5vw,40px);font-weight:900;line-height:1.15;letter-spacing:-0.5px;margin-bottom:14px;}
+.mod-header h1 em{font-style:italic;color:var(--teal);}
+.mod-header p{font-size:14.5px;color:var(--muted);line-height:1.75;max-width:640px;}
+.mod-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px;padding-top:18px;border-top:1px solid var(--border);}
+.meta-tag{font-size:10.5px;padding:3px 9px;border-radius:2px;font-weight:500;}
+.meta-tag.b{background:#fdf5e6;color:var(--gold);}
+.meta-tag.m{background:#ebf5f3;color:var(--teal);}
+.meta-tag.s{background:#fff0eb;color:var(--coral);}
+.section{margin-bottom:44px;}
+.section-head{display:flex;align-items:center;gap:12px;margin-bottom:20px;padding-bottom:12px;border-bottom:2px solid var(--teal);}
+.section-icon{font-size:20px;}
+.section-label-text{font-family:'Playfair Display',serif;font-size:19px;font-weight:700;}
+.section-sub{font-size:11px;color:var(--muted);font-family:'DM Mono',monospace;letter-spacing:0.8px;margin-left:auto;}
+.story-box{background:var(--ink);color:var(--paper);border-radius:5px;padding:28px 32px;position:relative;overflow:hidden;}
+.story-box::before{content:'';position:absolute;top:-40px;right:-40px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(30,122,110,0.2) 0%,transparent 70%);}
+.story-box p{font-size:14.5px;line-height:1.85;font-weight:300;position:relative;}
+.story-box p+p{margin-top:12px;}
+.story-box strong{color:var(--teal2);}
+.story-highlight{display:inline-block;margin-top:18px;padding:10px 16px;background:rgba(30,122,110,0.18);border-left:3px solid var(--teal);border-radius:0 3px 3px 0;font-size:13px;font-style:italic;color:var(--teal2);}
+/* Topic panels */
+.topic-panel{background:#fff;border:1px solid var(--border);border-radius:5px;margin-bottom:20px;overflow:hidden;}
+.topic-header{padding:16px 22px;display:flex;align-items:center;gap:14px;background:var(--ink);}
+.topic-emoji{font-size:24px;}
+.topic-title{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--paper);}
+.topic-sub{font-size:11px;font-family:'DM Mono',monospace;color:var(--teal2);margin-left:auto;}
+.topic-body{padding:20px 22px;}
+.fact-row{display:flex;gap:12px;padding:9px 0;border-bottom:1px solid var(--border);}
+.fact-row:last-child{border-bottom:none;}
+.fact-label{font-family:'DM Mono',monospace;font-size:10.5px;color:var(--teal);min-width:120px;flex-shrink:0;padding-top:2px;text-transform:uppercase;letter-spacing:0.4px;}
+.fact-val{font-size:13px;color:var(--ink2);line-height:1.6;}
+.fact-val strong{color:var(--ink);font-weight:600;}
+.fact-val em{color:var(--coral);font-style:normal;font-weight:600;}
+/* Timeline */
+.timeline{position:relative;padding-left:28px;}
+.timeline::before{content:'';position:absolute;left:8px;top:8px;bottom:8px;width:2px;background:linear-gradient(180deg,var(--teal),transparent);}
+.tl-item{position:relative;margin-bottom:20px;}
+.tl-dot{position:absolute;left:-24px;top:4px;width:12px;height:12px;border-radius:50%;background:var(--teal);border:2px solid var(--paper);box-shadow:0 0 0 2px var(--teal);}
+.tl-period{font-family:'DM Mono',monospace;font-size:10.5px;color:var(--teal);margin-bottom:4px;}
+.tl-title{font-size:14px;font-weight:600;margin-bottom:4px;color:var(--ink);}
+.tl-body{font-size:12.5px;color:var(--muted);line-height:1.6;}
+.tl-badge{display:inline-block;font-size:10px;padding:1.5px 7px;border-radius:2px;background:var(--paper2);color:var(--ink2);margin-left:6px;font-weight:500;}
+.tl-badge.bpsc{background:#fdf5e6;color:var(--gold);}
+/* Table */
+.comp-table{width:100%;border-collapse:collapse;font-size:12.5px;}
+.comp-table th{background:var(--ink);color:var(--paper);padding:11px 14px;text-align:left;font-weight:500;font-size:12px;}
+.comp-table th:first-child{border-radius:4px 0 0 0;}
+.comp-table th:last-child{border-radius:0 4px 0 0;}
+.comp-table td{padding:9px 14px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.5;}
+.comp-table tr:last-child td{border-bottom:none;}
+.comp-table tr:nth-child(even) td{background:var(--paper2);}
+.comp-table td:first-child{font-weight:600;color:var(--ink2);}
+.comp-table td.accent{color:var(--teal);font-weight:500;}
+/* Mnemonic */
+.mnemonic-box{background:linear-gradient(135deg,var(--ink),var(--ink2));border-radius:5px;padding:28px 32px;color:var(--paper);margin-bottom:16px;}
+.m-label{font-size:10px;font-family:'DM Mono',monospace;letter-spacing:1.5px;color:var(--teal2);text-transform:uppercase;margin-bottom:14px;}
+.mnemonic-word{font-family:'Playfair Display',serif;font-size:clamp(20px,3vw,30px);font-weight:900;color:var(--teal2);letter-spacing:3px;margin-bottom:18px;}
+.mnemonic-rows{display:flex;flex-direction:column;gap:10px;}
+.m-row{display:flex;gap:14px;}
+.m-letter{font-family:'DM Mono',monospace;font-size:16px;font-weight:500;color:var(--teal2);width:28px;flex-shrink:0;}
+.m-text{font-size:13px;line-height:1.5;color:var(--paper);}
+.m-text strong{color:var(--teal2);}
+.m-tip{margin-top:16px;padding:12px 14px;background:rgba(30,122,110,0.15);border-radius:3px;font-size:12px;font-style:italic;color:rgba(245,242,235,0.7);}
+/* PYQ */
+.pyq-item{background:#fff;border:1px solid var(--border);border-radius:4px;padding:22px;margin-bottom:14px;}
+.pyq-meta{display:flex;gap:8px;margin-bottom:12px;}
+.pyq-tag{font-size:10px;padding:2px 8px;border-radius:2px;font-weight:500;font-family:'DM Mono',monospace;}
+.pyq-tag.prelims{background:#fdf5e6;color:var(--gold);}
+.pyq-tag.year{background:var(--paper2);color:var(--muted);}
+.pyq-q{font-size:14px;font-weight:500;line-height:1.6;margin-bottom:14px;}
+.pyq-options{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:14px;}
+.pyq-opt{padding:8px 12px;border-radius:3px;font-size:12.5px;border:1px solid var(--border);background:var(--paper);cursor:pointer;transition:all 0.18s;}
+.pyq-opt:hover{border-color:var(--teal);background:#f0faf8;}
+.pyq-opt.correct{background:#e8f5e9;border-color:#4caf50;color:#2e7d32;font-weight:500;}
+.pyq-opt.wrong{background:#ffebee;border-color:#ef9a9a;color:#c62828;}
+.pyq-answer{display:none;padding:14px 16px;background:#e8f5f3;border-radius:3px;border-left:3px solid var(--teal);}
+.pyq-answer.show{display:block;}
+.pyq-answer strong{color:var(--teal);font-size:12px;}
+.pyq-answer p{font-size:13px;color:var(--ink2);margin-top:5px;line-height:1.6;}
+.reveal-btn{font-size:11.5px;padding:6px 14px;border-radius:3px;background:none;border:1px solid var(--border);cursor:pointer;color:var(--muted);transition:all 0.18s;}
+.reveal-btn:hover{border-color:var(--teal);color:var(--teal);}
+.mains-box{background:#fff;border:1px solid var(--border);border-radius:4px;padding:22px;}
+.mains-q{font-size:14.5px;font-weight:600;line-height:1.6;margin-bottom:14px;}
+.mains-meta{display:flex;gap:8px;margin-bottom:14px;}
+.mains-tag{font-size:10px;padding:2px 8px;border-radius:2px;font-weight:500;font-family:'DM Mono',monospace;background:#ebf5f3;color:var(--teal);}
+.mains-answer{display:none;border-top:1px solid var(--border);padding-top:16px;}
+.mains-answer.show{display:block;}
+.ans-sec{margin-bottom:14px;}
+.ans-sec h5{font-size:11px;font-family:'DM Mono',monospace;letter-spacing:1px;color:var(--teal);text-transform:uppercase;margin-bottom:6px;}
+.ans-sec p,.ans-sec li{font-size:13px;line-height:1.7;color:var(--ink2);}
+.ans-sec ul{padding-left:18px;}
+.ans-sec li{margin-bottom:4px;}
+.qr-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.qr-item{display:flex;gap:10px;background:#fff;border:1px solid var(--border);border-radius:4px;padding:14px 16px;}
+.qr-num{font-family:'DM Mono',monospace;font-size:10px;color:var(--teal);font-weight:500;flex-shrink:0;margin-top:2px;}
+.qr-text{font-size:13px;line-height:1.6;color:var(--ink2);}
+.qr-text strong{color:var(--teal);}
+.memory-hook{background:var(--teal);border-radius:4px;padding:16px 22px;display:flex;align-items:center;gap:16px;margin-top:32px;}
+.hook-icon{font-size:22px;}
+.hook-text{font-size:14px;font-weight:600;color:#fff;line-height:1.5;}
+.check-mcq{background:#fff;border:1px solid var(--border);border-radius:4px;padding:20px;margin-bottom:12px;}
+.check-q{font-size:14px;font-weight:500;margin-bottom:14px;line-height:1.6;}
+.check-opts{display:flex;flex-direction:column;gap:7px;}
+.check-opt{padding:10px 14px;border-radius:3px;font-size:13px;border:1px solid var(--border);background:var(--paper);cursor:pointer;transition:all 0.18s;text-align:left;display:flex;align-items:center;gap:10px;}
+.check-opt:hover{border-color:var(--teal);background:#f0faf8;}
+.check-opt.correct{background:#e8f5e9;border-color:#4caf50;color:#2e7d32;}
+.check-opt.wrong{background:#ffebee;border-color:#ef9a9a;color:#c62828;}
+.opt-letter{width:22px;height:22px;border-radius:50%;background:var(--paper2);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;flex-shrink:0;}
+.check-opt.correct .opt-letter{background:#4caf50;color:#fff;}
+.check-opt.wrong   .opt-letter{background:#ef9a9a;color:#fff;}
+.check-feedback{margin-top:10px;padding:10px 14px;border-radius:3px;font-size:12.5px;display:none;line-height:1.6;}
+.check-feedback.show{display:block;}
+.check-feedback.ok{background:#e8f5e9;color:#2e7d32;}
+.check-feedback.no{background:#ffebee;color:#c62828;}
+/* Medieval complete banner */
+.part-complete{background:linear-gradient(135deg,var(--ink),var(--ink2));border-radius:5px;padding:28px 32px;text-align:center;margin-top:20px;}
+.sidebar::-webkit-scrollbar{width:4px;}
+.sidebar::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.1);border-radius:2px;}
+.print-btn{position:fixed;bottom:24px;right:24px;background:var(--ink);color:var(--teal2);border:none;border-radius:50%;width:44px;height:44px;font-size:16px;cursor:pointer;box-shadow:0 4px 16px rgba(26,26,46,0.25);transition:transform 0.18s;display:flex;align-items:center;justify-content:center;}
+.print-btn:hover{transform:scale(1.1);}
+@media print{.sidebar,.topbar,.print-btn{display:none;}.content{padding:20px;}}
+@media(max-width:768px){.sidebar{display:none;}.content{padding:24px 20px 60px;}.topbar{padding:10px 20px;}.qr-grid,.pyq-options{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<aside class="sidebar">
+  <div class="sidebar-logo"><a href="../index.html">Bihar History<br>Study System</a><span>BPSC · UPSC · State PCS</span></div>
+  <div class="sidebar-part">Part I — Ancient Bihar</div>
+  <a class="sidebar-item done" href="m01.html"><span class="s-num">01</span><span class="s-dot"></span>Sources & Prehistoric Bihar</a>
+  <a class="sidebar-item done" href="m02.html"><span class="s-num">02</span><span class="s-dot"></span>Mahajanapadas in Bihar</a>
+  <a class="sidebar-item done" href="m03.html"><span class="s-num">03</span><span class="s-dot"></span>Pre-Mauryan Dynasties</a>
+  <a class="sidebar-item done" href="m04.html"><span class="s-num">04</span><span class="s-dot"></span>Buddhism & Jainism</a>
+  <a class="sidebar-item done" href="m05.html"><span class="s-num">05</span><span class="s-dot"></span>Mauryan Empire</a>
+  <a class="sidebar-item done" href="m06.html"><span class="s-num">06</span><span class="s-dot"></span>Ashoka — Kalinga to Dhamma</a>
+  <a class="sidebar-item done" href="m07.html"><span class="s-num">07</span><span class="s-dot"></span>Post-Mauryan to Gupta Era</a>
+  <div class="sidebar-part">Part II — Medieval Bihar</div>
+  <a class="sidebar-item done" href="m08.html"><span class="s-num">08</span><span class="s-dot"></span>Pala Dynasty</a>
+  <a class="sidebar-item done" href="m09.html"><span class="s-num">09</span><span class="s-dot"></span>Sena & Karnata Dynasties</a>
+  <a class="sidebar-item done" href="m10.html"><span class="s-num">10</span><span class="s-dot"></span>Turkish Invasion</a>
+  <a class="sidebar-item done" href="m11.html"><span class="s-num">11</span><span class="s-dot"></span>Khilji, Tughlaq & Noohani</a>
+  <a class="sidebar-item done" href="m12.html"><span class="s-num">12</span><span class="s-dot"></span>Sher Shah Suri</a>
+  <a class="sidebar-item done" href="m13.html"><span class="s-num">13</span><span class="s-dot"></span>Mughal Rule in Bihar</a>
+  <a class="sidebar-item active" href="m14.html"><span class="s-num">14</span><span class="s-dot"></span>Sufism, Sikhism & Tribal States</a>
+  <div class="sidebar-part">Part III — Modern Bihar</div>
+  <a class="sidebar-item" href="m15.html"><span class="s-num">15</span><span class="s-dot"></span>European Entry</a>
+  <a class="sidebar-item" href="m16.html"><span class="s-num">16</span><span class="s-dot"></span>Battle of Buxar</a>
+  <a class="sidebar-item" href="m17.html"><span class="s-num">17</span><span class="s-dot"></span>Revolt of 1857</a>
+  <a class="sidebar-item" href="m18.html"><span class="s-num">18</span><span class="s-dot"></span>Tribal Revolts</a>
+  <a class="sidebar-item" href="m19.html"><span class="s-num">19</span><span class="s-dot"></span>Freedom Movements</a>
+  <a class="sidebar-item" href="m20.html"><span class="s-num">20</span><span class="s-dot"></span>Eminent Freedom Fighters</a>
+  <a class="sidebar-item" href="m21.html"><span class="s-num">21</span><span class="s-dot"></span>Formation of Modern Bihar</a>
+</aside>
+
+<div class="main">
+  <div class="topbar">
+    <div class="topbar-left"><span class="era-pill">MEDIEVAL BIHAR</span><span class="topbar-title">Module 14 of 21 · Final Medieval Module</span></div>
+    <div class="topbar-nav">
+      <a href="m13.html" class="nav-btn">← Prev</a>
+      <a href="../index.html" class="nav-btn">Index</a>
+      <a href="m15.html" class="nav-btn primary">Next: Modern Bihar →</a>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <div class="mod-header">
+      <div class="mod-badge"><span>MODULE 14</span><span>·</span><span>Medieval Bihar — Final</span></div>
+      <h1>Sufism, Sikhism &<br><em>Tribal States in Bihar</em></h1>
+      <p>While kings and battles dominated medieval Bihar's political landscape, three other forces shaped its soul: Sufi saints who preached love across communities, Sikh Gurus who chose Patna as their home, and tribal dynasties who governed Bihar's hinterlands for centuries.</p>
+      <div class="mod-meta">
+        <span class="meta-tag b">BPSC Special</span>
+        <span class="meta-tag m">Mains GS-I</span>
+        <span class="meta-tag s">⚠ Trap: Makhdoom Maneri born at Maner (Patna), 1264. Guru Gobind Singh born Patna 1666, NOT born at Patna Sahib — Patna Sahib is where he was born but the Gurdwara is named Patna Sahib.</span>
+      </div>
+    </div>
+
+    <!-- ① STORY HOOK -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">🎭</span><span class="section-label-text">Story Hook</span><span class="section-sub">START HERE</span></div>
+      <div class="story-box">
+        <p>The year is <strong>1666 AD</strong>. Aurangzeb sits on the Mughal throne in Delhi, enforcing a strict version of Islam across India. In the same year, in the same empire, a boy is born in <strong>Patna</strong> whose entire life will be devoted to challenging religious oppression with spiritual courage. His name: <strong>Gobind Rai</strong> — later Guru Gobind Singh.</p>
+        <p>Twenty-four years earlier, in <strong>1264 AD</strong>, another extraordinary man had been born in the village of <strong>Maner, near Patna</strong>. He would become the most revered Sufi saint in Bihar's history — <strong>Makhdoom Sharfuddin Ahmad Yahya Maneri</strong> — whose teachings of love, humility, and mystical devotion drew both Muslims and Hindus to his dargah at Bihar Sharif.</p>
+        <p>These two men — one who preached in Arabic and Persian, one who preached in Punjabi — both chose <strong>Bihar</strong> as their spiritual homeland. Between them, and the tribal kings of Palamu and Bhojpur, they tell the complete human story of medieval Bihar: not just conquest and administration, but <em>faith, song, and resistance.</em></p>
+        <div class="story-highlight">💡 Patna Sahib — where Guru Gobind Singh was born — is today the second most important Sikh pilgrimage site after the Golden Temple, Amritsar. Bihar gave Sikhism its most celebrated birthplace.</div>
+      </div>
+    </div>
+
+    <!-- ② CORE CONCEPT -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">🧠</span><span class="section-label-text">Three Topics — Complete Coverage</span><span class="section-sub">WITH ANALOGY</span></div>
+
+      <!-- SUFISM -->
+      <div class="topic-panel">
+        <div class="topic-header">
+          <span class="topic-emoji">🕌</span>
+          <div class="topic-title">Sufism in Bihar</div>
+          <div class="topic-sub">1264 AD – Medieval Period</div>
+        </div>
+        <div class="topic-body">
+          <div class="fact-row">
+            <span class="fact-label">School</span>
+            <span class="fact-val">Bihar's Sufism belonged to the <strong>Wajudia School</strong>. Reached Bihar even before Turkish conquest. Early orders: <strong>Chisti and Suharawardi</strong>.</span>
+          </div>
+          <div class="fact-row">
+            <span class="fact-label">Orders in Bihar</span>
+            <span class="fact-val">Bihar had multiple Sufi orders: <strong>Emam Taj Fakeeh, Chisti, Kadri, Suharvardi, Firdausi, Nakshbandi</strong>. Bihar Sharif and Saran = notable centres of Chisti Sufism.</span>
+          </div>
+          <div class="fact-row">
+            <span class="fact-label">Makhdoom Maneri ⭐</span>
+            <span class="fact-val"><strong>Makhdoom Sharfuddin Ahmad Yahya Maneri</strong> — most prominent Sufi saint of Bihar. Born: <strong>Maner village, Patna district, July 1264 AD</strong>. Left at age 12 for Arabic, Persian, logic, philosophy studies. Given title <strong>"Firdausi"</strong> by Sheikh Najeebuddin Firdausi. Wrote: <em>Maktubat-i-Sadi</em>, <em>Maktubati-Bist-o-Hasht</em>, <em>Fawaed-i-Rukni</em>. Tomb: <strong>Badi Dargah, Bihar Sharif (Nalanda district)</strong> — still major pilgrimage site.</span>
+          </div>
+          <div class="fact-row">
+            <span class="fact-label">Sufi Literature</span>
+            <span class="fact-val">3 types: <strong>Tajkira</strong> (life of saints) · <strong>Malkujat</strong> (dialogues between saints) · <strong>Maktubaat</strong> (writings of saints). Sharfuddin Yahya Maneri's Malfuzat and Maktubat = key historical sources for Tughlaq-era Bihar.</span>
+          </div>
+          <div class="fact-row">
+            <span class="fact-label">Other Saints</span>
+            <span class="fact-val">Maulana Muzaffar Balkhi, Hazrat Latifuddin, Hazrat Fazaullah prominent Sufi saints. Abul Faiz Qazin Ola of Bania Basarh (Vaishali) = greatest Sufi of Shuttasia order. Maner (Patna) = major Sufi dargah even today.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- SIKHISM -->
+      <div class="topic-panel">
+        <div class="topic-header">
+          <span class="topic-emoji">🙏</span>
+          <div class="topic-title">Sikhism in Bihar</div>
+          <div class="topic-sub">1509 AD – 1666 AD · BPSC Special</div>
+        </div>
+        <div class="topic-body">
+          <div class="fact-row">
+            <span class="fact-label">Guru Nanak</span>
+            <span class="fact-val">Guru Nanak Dev visited <strong>Patna in 1509 AD</strong>. Stayed at Bhagat Jaitmal's house near Gaighat, Patna. Also visited Gaya, Rajgir, Munger, Bhagalpur, Kahalgaon. Propagated Sikhism; made followers in these regions.</span>
+          </div>
+          <div class="fact-row">
+            <span class="fact-label">Guru Teg Bahadur</span>
+            <span class="fact-val">Guru Teg Bahadur came to Patna with family in <strong>1666 AD</strong> on his way to Assam on a peace mission. <strong>Left his wife at Patna</strong> → she gave birth here. Guru Teg Bahadur was executed in Delhi by Aurangzeb in <strong>1675 AD</strong>.</span>
+          </div>
+          <div class="fact-row">
+            <span class="fact-label">Guru Gobind Singh ⭐</span>
+            <span class="fact-val">10th and last Sikh Guru. <strong>Born at Patna Sahib, Patna in 1666 AD</strong>. Installed as Guru at age 9 after father Guru Teg Bahadur was beheaded. Spiritual leader, poet AND warrior. Prepared Sikh warrior class called <strong>Khalsa</strong> (established Baishak 1699). Finalised <strong>Guru Granth Sahib</strong> from Kartarpur Pothi.</span>
+          </div>
+          <div class="fact-row">
+            <span class="fact-label">Patna Sahib ⭐</span>
+            <span class="fact-val"><strong>Takht Shri Harmandir Sahib</strong> (also known as Patna Sahib) = <strong>one of the five Takhts of Sikhism</strong>. Second most important Sikh pilgrimage site after Golden Temple, Amritsar. The house where Guru Gobind Singh was born is a place of pilgrimage.</span>
+          </div>
+          <div class="fact-row">
+            <span class="fact-label">Sikh Gurudwaras</span>
+            <span class="fact-val">Famous Gurudwaras in Patna: <strong>Gurdwara Ghai Ghat, Gurdwara Gobind Ghat, Gurdwara Guru Ka Bagh, Gurdwara Bal Leela, Gurdwara Handi Saheb</strong>. After Partition, many Sikhs came to Patna — most are Nanak Panthi.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- TRIBAL STATES -->
+      <div class="topic-panel">
+        <div class="topic-header">
+          <span class="topic-emoji">🏰</span>
+          <div class="topic-title">Tribal States — Chero & Ujjaini</div>
+          <div class="topic-sub">Medieval Period · Bihar's Independent Kingdoms</div>
+        </div>
+        <div class="topic-body">
+          <div class="fact-row">
+            <span class="fact-label">Chero Dynasty</span>
+            <span class="fact-val">Established strong state in <strong>Shahabad, Saran, Champaran, Muzaffarpur, Palamu</strong>. Ruled for <em>~300 years</em>. Had four estates in Shahabad district. Most famous ruler: <strong>Medini Rai</strong> — territory extended to Gaya, Dawoodnagar, Arwal, Ramgarh. <strong>Jagdishpur fair started by Fulchand</strong> (Chero-era tradition). 1587–1607: Kukumchand Jharap = head of Bhojpur Cheros. Eventually assimilated into Mughal Empire.</span>
+          </div>
+          <div class="fact-row">
+            <span class="fact-label">Chero vs Ujjaini</span>
+            <span class="fact-val">1611 AD — <strong>decisive battle between Ujjainis and Cheros</strong>. Narayan Mal = Ujjaini king. <strong>Ujjainis won</strong>. Three Mughal invasions during Pratap Rai's (Medini Rai's son) rule.</span>
+          </div>
+          <div class="fact-row">
+            <span class="fact-label">Ujjaini Dynasty</span>
+            <span class="fact-val">Parmer Rajputs originally from Ujjain → settled in Bihar → called <strong>Ujjainiya</strong>. Bhojraj (king) fled Alauddin Khalji's conquest of Dhar (Malwa) with son <strong>Devraj</strong>. Took shelter under Chero King Raja Mukund. Devraj killed Chero king Sahasbal (1324) → founded city of <strong>Bhojpur</strong>. Ujjainiyas were powerful in Buxar, Jagdishpur, Dumraon — remained till British era. Gajpat = Ujjaini ruler who allied with <strong>Sher Shah Suri</strong> and defeated Bengal Sultanate together.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ③ TIMELINE -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">⏳</span><span class="section-label-text">Key Dates — Sufism, Sikhism & Tribal States</span><span class="section-sub">CHRONOLOGICAL</span></div>
+      <div class="timeline">
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-period">1264 AD</div><div class="tl-title">Makhdoom Maneri Born at Maner, Patna <span class="tl-badge bpsc">⭐ BPSC</span></div><div class="tl-body">Born July 1264 in Maner village, Patna. Most revered Sufi saint of Bihar. Firdausi order. Tomb at Badi Dargah, Bihar Sharif.</div></div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-period">1324 AD</div><div class="tl-title">Devraj (Ujjaini) Founds Bhojpur City</div><div class="tl-body">Kills Chero king Sahasbal in retaliation. Founds Bhojpur. Ujjaini dynasty established in west Bihar.</div></div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-period">1509 AD</div><div class="tl-title">Guru Nanak Visits Patna</div><div class="tl-body">Stays at Bhagat Jaitmal's house near Gaighat, Patna. Visits Gaya, Rajgir, Munger, Bhagalpur, Kahalgaon — propagates Sikhism.</div></div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-period">1611 AD</div><div class="tl-title">Ujjainis Defeat Cheros — Decisive Battle</div><div class="tl-body">Narayan Mal (Ujjaini king) defeats Chero forces. Ujjainiyas become dominant tribal power in west Bihar with Mughal support.</div></div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-period">1666 AD <span class="tl-badge bpsc">⭐ BPSC</span></div><div class="tl-title">Guru Gobind Singh Born at Patna Sahib</div><div class="tl-body">10th and last Sikh Guru born at Patna during Aurangzeb's reign. Father Guru Teg Bahadur had left family here while on Assam peace mission.</div></div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-period">1675 AD</div><div class="tl-title">Guru Teg Bahadur Executed by Aurangzeb</div><div class="tl-body">Guru Teg Bahadur beheaded in Delhi for refusing to convert to Islam. Guru Gobind Singh, age 9, installed as 10th Guru.</div></div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-period">Baishak 1699</div><div class="tl-title">Guru Gobind Singh Establishes Khalsa</div><div class="tl-body">Created the Khalsa — Sikh warrior community. A Bihari-born Guru gave Sikhism its distinctive martial identity.</div></div>
+      </div>
+    </div>
+
+    <!-- ④ COMPARISON TABLE -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">📊</span><span class="section-label-text">Key Figures — Quick Reference</span><span class="section-sub">EXAM-READY</span></div>
+      <table class="comp-table">
+        <thead><tr><th>Person / Dynasty</th><th>Period</th><th>Key Bihar Connection</th><th>Significance</th></tr></thead>
+        <tbody>
+          <tr><td>Makhdoom Maneri</td><td class="accent">Born 1264 AD</td><td>Born Maner (Patna); tomb Bihar Sharif (Nalanda)</td><td>Most prominent Sufi saint of Bihar; Firdausi order</td></tr>
+          <tr><td>Guru Nanak</td><td class="accent">Visited 1509 AD</td><td>Patna, Gaya, Rajgir, Munger, Bhagalpur</td><td>First Sikh Guru to visit Bihar; spread Sikhism</td></tr>
+          <tr><td>Guru Teg Bahadur</td><td class="accent">1666 AD</td><td>Left family in Patna (peace mission to Assam)</td><td>Father of Guru Gobind Singh; beheaded 1675</td></tr>
+          <tr><td>Guru Gobind Singh</td><td class="accent">Born 1666 AD</td><td>Born at Patna Sahib, Patna</td><td>10th Sikh Guru; established Khalsa; Patna Sahib = 2nd holiest Sikh site</td></tr>
+          <tr><td>Medini Rai (Chero)</td><td>Medieval</td><td>Territory: Gaya, Dawoodnagar, Arwal, Ramgarh</td><td>Most famous Chero ruler; ~300 years of Chero rule</td></tr>
+          <tr><td>Devraj (Ujjaini)</td><td>1324 AD</td><td>Founded Bhojpur city; powerful in Buxar, Jagdishpur, Dumraon</td><td>Founded Ujjaini dynasty in W. Bihar; lasted till British era</td></tr>
+          <tr><td>Gajpat (Ujjaini)</td><td>~16th C</td><td>Bhojpur/Buxar area</td><td>Allied with Sher Shah Suri; defeated Bengal Sultanate together</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ⑥ MNEMONIC -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">🧩</span><span class="section-label-text">Mnemonic</span><span class="section-sub">MEMORY TRICKS</span></div>
+      <div class="mnemonic-box">
+        <div class="m-label">🧩 Mnemonic — Sikhism in Bihar (Guru sequence)</div>
+        <div class="mnemonic-word">Nanak · Teg · Gobind</div>
+        <div class="mnemonic-rows">
+          <div class="m-row"><span class="m-letter">N</span><span class="m-text"><strong>Nanak</strong> — visited Patna 1509; Bhagat Jaitmal's house; also visited Gaya, Rajgir, Munger</span></div>
+          <div class="m-row"><span class="m-letter">T</span><span class="m-text"><strong>Teg Bahadur</strong> — left family in Patna 1666; beheaded by Aurangzeb 1675 in Delhi</span></div>
+          <div class="m-row"><span class="m-letter">G</span><span class="m-text"><strong>Gobind Singh</strong> — born at Patna Sahib 1666; 10th Guru; established Khalsa; Takht Shri Harmandir Sahib</span></div>
+        </div>
+        <div class="m-tip">💡 "Nanak Teg Gobind" — three Sikh Gurus with Bihar connections: Nanak (visited 1509), Teg (family stayed 1666), Gobind (born 1666). Remember: Teg and Gobind = same year 1666!</div>
+      </div>
+      <div class="mnemonic-box">
+        <div class="m-label">🧩 Mnemonic — Makhdoom Maneri Key Facts</div>
+        <div class="mnemonic-rows">
+          <div class="m-row"><span class="m-letter">M</span><span class="m-text"><strong>Maner village, Patna</strong> — birthplace, July 1264 AD</span></div>
+          <div class="m-row"><span class="m-letter">F</span><span class="m-text"><strong>Firdausi</strong> — title given by Sheikh Najeebuddin Firdausi; Firdausi order</span></div>
+          <div class="m-row"><span class="m-letter">B</span><span class="m-text"><strong>Bihar Sharif</strong> (Nalanda district) — Badi Dargah = his tomb</span></div>
+          <div class="m-row"><span class="m-letter">W</span><span class="m-text"><strong>Writings</strong> — Maktubat-i-Sadi, Maktubati-Bist-o-Hasht, Fawaed-i-Rukni</span></div>
+        </div>
+        <div class="m-tip">💡 "Maner Firdausi Bihar Writings" = M·F·B·W — the 4 key facts about Makhdoom Maneri. Born Maner, titled Firdausi, tomb Bihar Sharif, wrote 3 major works.</div>
+      </div>
+    </div>
+
+    <!-- ⑦ PYQ -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">📝</span><span class="section-label-text">PYQ Practice</span><span class="section-sub">SOLVED</span></div>
+      <div class="pyq-item">
+        <div class="pyq-meta"><span class="pyq-tag prelims">BPSC Prelims</span><span class="pyq-tag year">BPSC 2015</span></div>
+        <div class="pyq-q">Which Sikh Guru was born in Patna?</div>
+        <div class="pyq-options">
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(a) Guru Nanak</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(b) Guru Teg Bahadur</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(c) Guru Hargobind</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'correct')">(d) Guru Gobind Singh</div>
+        </div>
+        <div class="pyq-answer" id="ans-pyq1">
+          <strong>✓ CORRECT: (d) Guru Gobind Singh</strong>
+          <p>Guru Gobind Singh, the 10th and last Sikh Guru, was born at <strong>Patna Sahib, Patna in 1666 AD</strong>. His father Guru Teg Bahadur had left his family at Patna while on a peace mission to Assam. Guru Nanak <em>visited</em> Patna (1509) but was not born there. Guru Teg Bahadur passed through Patna but was also not born there. Guru Hargobind (6th Guru) has no specific Bihar connection.</p>
+        </div>
+        <button class="reveal-btn" onclick="revealPYQ('ans-pyq1',this)">Show Explanation</button>
+      </div>
+      <div class="pyq-item">
+        <div class="pyq-meta"><span class="pyq-tag prelims">BPSC Prelims</span><span class="pyq-tag year">MCQ Bank</span></div>
+        <div class="pyq-q">Jagdishpur fair in Bihar was started during which dynasty?</div>
+        <div class="pyq-options">
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(a) Noohani dynasty</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'correct')">(b) Chero dynasty</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(c) Ujjaini dynasty</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(d) Sur dynasty</div>
+        </div>
+        <div class="pyq-answer" id="ans-pyq2">
+          <strong>✓ CORRECT: (b) Chero dynasty</strong>
+          <p>The Jagdishpur fair was started by <strong>Fulchand</strong> during the <strong>Chero dynasty</strong>. The Chero dynasty established their state in Bhojpur, Shahabad, Saran, Champaran, Muzaffarpur and Palamu and ruled for about 300 years. The fair at Jagdishpur became a notable cultural tradition of the region during this period.</p>
+        </div>
+        <button class="reveal-btn" onclick="revealPYQ('ans-pyq2',this)">Show Explanation</button>
+      </div>
+      <div class="pyq-item">
+        <div class="pyq-meta"><span class="pyq-tag prelims">BPSC Prelims</span><span class="pyq-tag year">MCQ Bank</span></div>
+        <div class="pyq-q">Buxar was the capital of which Bihar tribal dynasty?</div>
+        <div class="pyq-options">
+          <div class="pyq-opt" onclick="answerPYQ(this,'correct')">(a) Ujjaini</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(b) Chero</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(c) Noohani</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(d) Sur</div>
+        </div>
+        <div class="pyq-answer" id="ans-pyq3">
+          <strong>✓ CORRECT: (a) Ujjaini</strong>
+          <p>The <strong>Ujjaini (Ujjainiya) dynasty</strong> was powerful in Buxar, Jagdishpur and Dumraon. They were Parmer Rajputs originally from Ujjain who settled in west Bihar (Bhojpur/Shahabad region). They founded Bhojpur city (Devraj, 1324 AD) and remained influential until the British arrived. Chero territory was Muzaffarpur, Saran, Champaran area — not Buxar specifically.</p>
+        </div>
+        <button class="reveal-btn" onclick="revealPYQ('ans-pyq3',this)">Show Explanation</button>
+      </div>
+    </div>
+
+    <!-- ⑧ QUICK REVISION -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">⚡</span><span class="section-label-text">Quick Revision Bullets</span><span class="section-sub">7 ONE-LINERS</span></div>
+      <div class="qr-grid">
+        <div class="qr-item"><span class="qr-num">01</span><span class="qr-text"><strong>Makhdoom Maneri</strong> = born Maner (Patna), July 1264 AD; Firdausi order; most prominent Sufi of Bihar; tomb at Badi Dargah, Bihar Sharif (Nalanda).</span></div>
+        <div class="qr-item"><span class="qr-num">02</span><span class="qr-text">Bihar's Sufism = <strong>Wajudia School</strong>. Sufi literature types: Tajkira (lives), Malkujat (dialogues), Maktubaat (writings). Orders: Chisti, Kadri, Suharvardi, Firdausi, Nakshbandi.</span></div>
+        <div class="qr-item"><span class="qr-num">03</span><span class="qr-text"><strong>Guru Nanak visited Patna (1509 AD)</strong> — stayed at Bhagat Jaitmal's house near Gaighat. Also visited Gaya, Rajgir, Munger. First Sikh Guru's Bihar connection.</span></div>
+        <div class="qr-item"><span class="qr-num">04</span><span class="qr-text"><strong>Guru Gobind Singh born Patna Sahib, Patna — 1666 AD</strong>. 10th and last Sikh Guru. Father = Guru Teg Bahadur (beheaded 1675). Established Khalsa (Baishak 1699).</span></div>
+        <div class="qr-item"><span class="qr-num">05</span><span class="qr-text"><strong>Patna Sahib (Takht Shri Harmandir Sahib)</strong> = one of 5 Sikh Takhts; 2nd most important Sikh pilgrimage site after Golden Temple, Amritsar.</span></div>
+        <div class="qr-item"><span class="qr-num">06</span><span class="qr-text"><strong>Chero dynasty</strong> ruled ~300 years in Muzaffarpur, Saran, Champaran, Palamu, Shahabad. Most famous ruler = <strong>Medini Rai</strong>. Jagdishpur fair started by <strong>Fulchand</strong> (Chero era).</span></div>
+        <div class="qr-item"><span class="qr-num">07</span><span class="qr-text"><strong>Ujjaini dynasty</strong> = Parmer Rajputs from Ujjain; founded <strong>Bhojpur</strong> (Devraj, 1324); powerful at Buxar, Jagdishpur, Dumraon; allied with Sher Shah (Gajpat ruler); lasted till British era.</span></div>
+      </div>
+      <div class="memory-hook">
+        <span class="hook-icon">🧲</span>
+        <span class="hook-text">Memory Hook: "Medieval Bihar's soul was shaped by a Sufi saint from Maner who preached love, a Sikh Guru born in Patna who forged warriors, and tribal kings from Palamu who held the forest — <em>faith, courage, and land are Bihar's three medieval pillars.</em>"</span>
+      </div>
+    </div>
+
+    <!-- ⑨ CONCEPT CHECK -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">✅</span><span class="section-label-text">Concept Check</span><span class="section-sub">TEST YOURSELF</span></div>
+      <div class="check-mcq">
+        <div class="check-q">1. Makhdoom Sharfuddin Ahmad Yahya Maneri was the most prominent Sufi saint of Bihar. His tomb (dargah) is at which place?</div>
+        <div class="check-opts">
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','A')"><span class="opt-letter">A</span>Maner, Patna</button>
+          <button class="check-opt" onclick="checkAnswer(this,'correct','B')"><span class="opt-letter">B</span>Bihar Sharif, Nalanda</button>
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','C')"><span class="opt-letter">C</span>Patna City</button>
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','D')"><span class="opt-letter">D</span>Sasaram, Rohtas</button>
+        </div>
+        <div class="check-feedback ok" id="fb1-ok">✓ Correct! Makhdoom Maneri was born at Maner (Patna) but his tomb — the Badi Dargah — is at <strong>Bihar Sharif, Nalanda district</strong>. He is called "Makhdoom" (one who is served/respected). His dargah at Bihar Sharif is still a major pilgrimage site for both Muslims and Hindus.</div>
+        <div class="check-feedback no" id="fb1-no">✗ Answer is (B) Bihar Sharif, Nalanda. He was BORN at Maner (Patna) but his TOMB is at Badi Dargah, Bihar Sharif (Nalanda district). Birth location ≠ Tomb location. This distinction is a common BPSC trap.</div>
+      </div>
+      <div class="check-mcq">
+        <div class="check-q">2. Takht Shri Harmandir Sahib (Patna Sahib) is one of the five Takhts of Sikhism. It marks the birthplace of which Sikh Guru?</div>
+        <div class="check-opts">
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','A')"><span class="opt-letter">A</span>Guru Nanak Dev</button>
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','B')"><span class="opt-letter">B</span>Guru Teg Bahadur</button>
+          <button class="check-opt" onclick="checkAnswer(this,'correct','C')"><span class="opt-letter">C</span>Guru Gobind Singh</button>
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','D')"><span class="opt-letter">D</span>Guru Arjan Dev</button>
+        </div>
+        <div class="check-feedback ok" id="fb2-ok">✓ Correct! Takht Shri Harmandir Sahib (Patna Sahib) marks the birthplace of <strong>Guru Gobind Singh</strong> — the 10th Sikh Guru — born here in 1666 AD. It is the second most important Sikh pilgrimage site after the Golden Temple, Amritsar, and one of the five Takhts (seats of Sikh temporal authority).</div>
+        <div class="check-feedback no" id="fb2-no">✗ Answer is (C) Guru Gobind Singh. He was born at Patna Sahib in 1666 AD. Guru Nanak visited Patna (1509) but was born elsewhere. Guru Teg Bahadur passed through Patna but was also born elsewhere.</div>
+      </div>
+      <div class="mains-box">
+        <div class="mains-meta"><span class="mains-tag">MAINS GS-I · 150 WORDS</span></div>
+        <div class="mains-q">Bihar has been a significant centre for both Sufi and Sikh traditions. Discuss the contributions of Makhdoom Maneri and Guru Gobind Singh to Bihar's spiritual heritage.</div>
+        <button class="reveal-btn" style="margin-bottom:12px;" onclick="revealMains(this)">▼ Show Model Answer</button>
+        <div class="mains-answer" id="mains-ans1">
+          <div class="ans-sec"><h5>Introduction</h5><p>Medieval Bihar produced two of India's most influential religious figures — the Sufi saint Makhdoom Maneri (1264 AD) and the Sikh Guru Gobind Singh (1666 AD). Both were shaped by Bihar, and both left legacies that transcend medieval times.</p></div>
+          <div class="ans-sec"><h5>Makhdoom Maneri's Contributions</h5><ul>
+            <li>Born at Maner (Patna) in 1264 AD; leader of the Firdausi Sufi order in Bihar</li>
+            <li>Preached love, humility, and mystical devotion — attracting both Muslim and Hindu followers</li>
+            <li>His writings (Maktubat-i-Sadi, Maktubati-Bist-o-Hasht) are invaluable historical sources for Tughlaq-era Bihar</li>
+            <li>His Badi Dargah at Bihar Sharif remains a Hindu-Muslim shared pilgrimage site — a living symbol of composite culture</li>
+          </ul></div>
+          <div class="ans-sec"><h5>Guru Gobind Singh's Bihar Connection</h5><ul>
+            <li>Born at Patna Sahib in 1666 AD — a Bihari birthplace for the Sikh tradition's most celebrated warrior-saint</li>
+            <li>Established the Khalsa (1699) — transforming Sikhism from a devotional to a warrior-spiritual tradition</li>
+            <li>Patna Sahib (Takht Shri Harmandir Sahib) = 2nd holiest Sikh site; brings millions of pilgrims to Bihar annually</li>
+          </ul></div>
+          <div class="ans-sec"><h5>Conclusion</h5><p>Bihar's spiritual diversity — Buddhist, Jain, Hindu, Sufi, Sikh — makes it one of India's most religiously significant regions. Maneri and Gobind Singh represent this pluralism: a Sufi saint and a Sikh Guru, born four centuries apart on the same soil, both preaching the primacy of love and courage over oppression.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PART II COMPLETE BANNER -->
+    <div class="part-complete">
+      <div style="font-size:28px;margin-bottom:12px;">🏰 🎉</div>
+      <div style="font-family:'Playfair Display',serif;font-size:22px;font-weight:900;color:var(--teal2);margin-bottom:8px;">Part II — Medieval Bihar Complete!</div>
+      <div style="font-size:14px;color:rgba(245,242,235,0.6);margin-bottom:20px;line-height:1.7;">You've covered 7 modules: Pala → Sena/Karnata → Turkish Invasion → Khilji/Tughlaq/Noohani → Sher Shah → Mughal Bihar → Sufism/Sikhism/Tribal States.<br>Now continue to <strong style="color:var(--coral2);">Part III — Modern Bihar</strong> starting with European Entry.</div>
+      <a href="m15.html" style="display:inline-block;background:var(--teal);color:#fff;padding:12px 28px;border-radius:3px;font-weight:600;font-size:13px;text-decoration:none;letter-spacing:0.5px;">▶ Begin Modern Bihar — Module 15 →</a>
+    </div>
+
+  </div>
+</div>
+<button class="print-btn" onclick="window.print()" title="Print Quick Revision">🖨</button>
+<script>
+const KEY='bihar_hist_v1';
+let visited=new Set(JSON.parse(localStorage.getItem(KEY)||'[]'));
+visited.add('modules/m14.html');
+localStorage.setItem(KEY,JSON.stringify([...visited]));
+document.querySelectorAll('.sidebar-item').forEach(item=>{
+  const href=item.getAttribute('href');
+  if(href&&visited.has('modules/'+href))item.classList.add('done');
+});
+function answerPYQ(el,type){
+  const p=el.closest('.pyq-item');
+  p.querySelectorAll('.pyq-opt').forEach(o=>{o.onclick=null;o.style.cursor='default';});
+  el.classList.add(type);
+}
+function revealPYQ(id,btn){
+  document.getElementById(id).classList.toggle('show');
+  btn.textContent=btn.textContent.includes('Show')?'Hide Explanation':'Show Explanation';
+}
+function revealMains(btn){
+  document.getElementById('mains-ans1').classList.toggle('show');
+  btn.textContent=btn.textContent.includes('▼')?'▲ Hide Model Answer':'▼ Show Model Answer';
+}
+function checkAnswer(el,type){
+  const p=el.closest('.check-mcq');
+  p.querySelectorAll('.check-opt').forEach(o=>{o.onclick=null;o.style.cursor='default';});
+  el.classList.add(type);
+  const idx=Array.from(document.querySelectorAll('.check-mcq')).indexOf(p)+1;
+  const ok=document.getElementById('fb'+idx+'-ok');
+  const no=document.getElementById('fb'+idx+'-no');
+  if(type==='correct'&&ok)ok.classList.add('show');
+  if(type==='wrong'&&no)no.classList.add('show');
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M01 — Sources & Prehistoric Bihar | Bihar History</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ── SHARED TOKENS ─────────────────────────────────── */
+:root{
+  --ink:#1a1a2e;--ink2:#2d2d44;--paper:#f5f2eb;--paper2:#ede9df;
+  --gold:#c9973a;--gold2:#e8b45a;--teal:#1e7a6e;--teal2:#2aa195;
+  --coral:#c2522b;--coral2:#e06840;--muted:#7a7465;--border:rgba(26,26,46,0.11);
+  --accent:var(--gold);--accent2:var(--gold2);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);display:flex;min-height:100vh;}
+
+/* ── SIDEBAR ───────────────────────────────────────── */
+.sidebar{
+  width:260px;flex-shrink:0;background:var(--ink);
+  display:flex;flex-direction:column;
+  position:sticky;top:0;height:100vh;overflow-y:auto;
+}
+.sidebar-logo{
+  padding:24px 20px 16px;
+  border-bottom:1px solid rgba(255,255,255,0.07);
+}
+.sidebar-logo a{
+  font-family:'Playfair Display',serif;font-size:15px;font-weight:700;
+  color:var(--gold2);text-decoration:none;line-height:1.3;display:block;
+}
+.sidebar-logo span{display:block;font-size:10px;color:rgba(245,242,235,0.35);letter-spacing:1px;margin-top:3px;font-family:'DM Mono',monospace;}
+.sidebar-part{
+  padding:14px 20px 6px;
+  font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:1.4px;
+  text-transform:uppercase;color:rgba(245,242,235,0.28);
+}
+.sidebar-item{
+  display:flex;align-items:center;gap:10px;
+  padding:9px 20px;text-decoration:none;
+  font-size:12px;color:rgba(245,242,235,0.55);
+  transition:background 0.15s,color 0.15s;
+  border-left:2px solid transparent;
+}
+.sidebar-item:hover{background:rgba(255,255,255,0.05);color:rgba(245,242,235,0.9);}
+.sidebar-item.active{
+  background:rgba(201,151,58,0.12);color:var(--gold2);
+  border-left-color:var(--gold);
+}
+.sidebar-item.done .s-dot{background:var(--teal);}
+.s-num{font-family:'DM Mono',monospace;font-size:9.5px;color:rgba(245,242,235,0.28);width:28px;flex-shrink:0;}
+.s-dot{width:6px;height:6px;border-radius:50%;border:1.5px solid rgba(255,255,255,0.2);flex-shrink:0;}
+.sidebar-item.active .s-dot{background:var(--gold);border-color:var(--gold);}
+
+/* ── MAIN ──────────────────────────────────────────── */
+.main{flex:1;min-width:0;display:flex;flex-direction:column;}
+
+/* ── TOP BAR ───────────────────────────────────────── */
+.topbar{
+  background:var(--ink2);padding:12px 48px;
+  display:flex;align-items:center;justify-content:space-between;
+  position:sticky;top:0;z-index:10;
+  border-bottom:1px solid rgba(255,255,255,0.05);
+}
+.topbar-left{display:flex;align-items:center;gap:14px;}
+.era-pill{
+  font-size:10px;padding:3px 10px;border-radius:2px;
+  background:rgba(201,151,58,0.2);color:var(--gold2);
+  font-family:'DM Mono',monospace;letter-spacing:0.8px;
+}
+.topbar-title{font-size:13px;color:rgba(245,242,235,0.7);font-weight:400;}
+.topbar-nav{display:flex;gap:8px;}
+.nav-btn{
+  padding:7px 14px;border-radius:3px;font-size:12px;font-weight:500;
+  text-decoration:none;border:1px solid rgba(255,255,255,0.12);
+  color:rgba(245,242,235,0.6);transition:all 0.18s;cursor:pointer;background:none;
+}
+.nav-btn:hover{border-color:var(--gold);color:var(--gold2);}
+.nav-btn.primary{background:var(--gold);color:var(--ink);border-color:var(--gold);}
+.nav-btn.primary:hover{background:var(--gold2);}
+
+/* ── CONTENT ───────────────────────────────────────── */
+.content{flex:1;padding:48px 52px 80px;max-width:900px;}
+
+/* ── MODULE HEADER ─────────────────────────────────── */
+.mod-header{margin-bottom:40px;}
+.mod-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--gold);color:var(--ink);
+  font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;
+  padding:4px 12px;border-radius:2px;margin-bottom:18px;
+}
+.mod-num-tag{font-family:'DM Mono',monospace;}
+.mod-header h1{
+  font-family:'Playfair Display',serif;font-size:clamp(26px,3.5vw,40px);
+  font-weight:900;line-height:1.15;letter-spacing:-0.5px;margin-bottom:14px;
+}
+.mod-header h1 em{font-style:italic;color:var(--gold);}
+.mod-header p{font-size:14.5px;color:var(--muted);line-height:1.75;max-width:640px;}
+.mod-meta{
+  display:flex;flex-wrap:wrap;gap:8px;margin-top:18px;
+  padding-top:18px;border-top:1px solid var(--border);
+}
+.meta-tag{
+  font-size:10.5px;padding:3px 9px;border-radius:2px;font-weight:500;
+}
+.meta-tag.b{background:#fdf5e6;color:var(--gold);}
+.meta-tag.m{background:#ebf5f3;color:var(--teal);}
+.meta-tag.s{background:#fff0eb;color:var(--coral);}
+.meta-tag.d{background:#f0edf8;color:#5a3ea1;}
+
+/* ── SECTION BLOCKS ────────────────────────────────── */
+.section{margin-bottom:44px;}
+.section-head{
+  display:flex;align-items:center;gap:12px;
+  margin-bottom:20px;padding-bottom:12px;
+  border-bottom:2px solid var(--accent);
+}
+.section-icon{font-size:20px;}
+.section-label-text{
+  font-family:'Playfair Display',serif;font-size:19px;font-weight:700;
+}
+.section-sub{
+  font-size:11px;color:var(--muted);font-family:'DM Mono',monospace;
+  letter-spacing:0.8px;margin-left:auto;
+}
+
+/* ── STORY HOOK ────────────────────────────────────── */
+.story-box{
+  background:var(--ink);color:var(--paper);
+  border-radius:5px;padding:28px 32px;position:relative;overflow:hidden;
+}
+.story-box::before{
+  content:'';position:absolute;top:-40px;right:-40px;
+  width:200px;height:200px;border-radius:50%;
+  background:radial-gradient(circle,rgba(201,151,58,0.15) 0%,transparent 70%);
+}
+.story-box p{font-size:14.5px;line-height:1.85;font-weight:300;position:relative;}
+.story-box p+p{margin-top:12px;}
+.story-box strong{color:var(--gold2);font-weight:600;}
+.story-highlight{
+  display:inline-block;margin-top:18px;padding:10px 16px;
+  background:rgba(201,151,58,0.15);border-left:3px solid var(--gold);
+  border-radius:0 3px 3px 0;font-size:13px;font-style:italic;
+  color:var(--gold2);position:relative;
+}
+
+/* ── CONCEPT BOX ───────────────────────────────────── */
+.concept-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.concept-card{
+  background:#fff;border:1px solid var(--border);border-radius:4px;
+  padding:20px;position:relative;overflow:hidden;
+}
+.concept-card::before{
+  content:'';position:absolute;top:0;left:0;width:3px;height:100%;
+  background:var(--accent);
+}
+.concept-card h4{
+  font-size:13px;font-weight:600;margin-bottom:8px;color:var(--ink2);
+}
+.concept-card p{font-size:12.5px;color:var(--muted);line-height:1.65;}
+.analogy-box{
+  background:linear-gradient(135deg,#fff9f0,#fff);
+  border:1px solid rgba(201,151,58,0.25);border-radius:4px;
+  padding:20px;margin-top:16px;
+}
+.analogy-box .analogy-label{
+  font-size:10px;font-family:'DM Mono',monospace;letter-spacing:1.2px;
+  color:var(--gold);text-transform:uppercase;margin-bottom:8px;
+}
+.analogy-box p{font-size:13.5px;line-height:1.7;color:var(--ink2);}
+
+/* ── TIMELINE ──────────────────────────────────────── */
+.timeline{position:relative;padding-left:28px;}
+.timeline::before{
+  content:'';position:absolute;left:8px;top:8px;bottom:8px;
+  width:2px;background:linear-gradient(180deg,var(--accent),transparent);
+}
+.tl-item{position:relative;margin-bottom:20px;}
+.tl-dot{
+  position:absolute;left:-24px;top:4px;
+  width:12px;height:12px;border-radius:50%;
+  background:var(--accent);border:2px solid var(--paper);
+  box-shadow:0 0 0 2px var(--accent);
+}
+.tl-item:last-child .tl-dot{background:var(--ink2);}
+.tl-period{
+  font-family:'DM Mono',monospace;font-size:10.5px;color:var(--accent);
+  letter-spacing:0.5px;margin-bottom:4px;
+}
+.tl-title{font-size:14px;font-weight:600;margin-bottom:4px;color:var(--ink);}
+.tl-body{font-size:12.5px;color:var(--muted);line-height:1.6;}
+.tl-badge{
+  display:inline-block;font-size:10px;padding:1.5px 7px;border-radius:2px;
+  background:var(--paper2);color:var(--ink2);margin-left:6px;font-weight:500;
+}
+
+/* ── FLOWCHART ─────────────────────────────────────── */
+.flow{display:flex;flex-direction:column;gap:0;}
+.flow-row{display:flex;align-items:stretch;gap:0;}
+.flow-box{
+  flex:1;background:#fff;border:1px solid var(--border);
+  border-radius:4px;padding:16px 18px;
+}
+.flow-box.cause{border-top:3px solid var(--coral);}
+.flow-box.event{border-top:3px solid var(--gold);}
+.flow-box.result{border-top:3px solid var(--teal);}
+.flow-label{
+  font-size:9.5px;font-family:'DM Mono',monospace;letter-spacing:1.2px;
+  text-transform:uppercase;margin-bottom:6px;
+}
+.flow-box.cause  .flow-label{color:var(--coral);}
+.flow-box.event  .flow-label{color:var(--gold);}
+.flow-box.result .flow-label{color:var(--teal);}
+.flow-box h4{font-size:13px;font-weight:600;margin-bottom:5px;}
+.flow-box p{font-size:12px;color:var(--muted);line-height:1.55;}
+.flow-arrow{
+  display:flex;align-items:center;justify-content:center;
+  padding:6px 0;color:var(--muted);font-size:18px;
+}
+.flow-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:12px;}
+
+/* ── COMPARISON TABLE ──────────────────────────────── */
+.comp-table{width:100%;border-collapse:collapse;font-size:13px;}
+.comp-table th{
+  background:var(--ink);color:var(--paper);
+  padding:11px 14px;text-align:left;font-weight:500;font-size:12px;
+  letter-spacing:0.3px;
+}
+.comp-table th:first-child{border-radius:4px 0 0 0;}
+.comp-table th:last-child{border-radius:0 4px 0 0;}
+.comp-table td{
+  padding:10px 14px;border-bottom:1px solid var(--border);
+  vertical-align:top;line-height:1.55;
+}
+.comp-table tr:last-child td{border-bottom:none;}
+.comp-table tr:nth-child(even) td{background:var(--paper2);}
+.comp-table tr:hover td{background:#fff9f0;}
+.comp-table td:first-child{font-weight:600;color:var(--ink2);}
+.comp-table td.accent{color:var(--gold);font-weight:500;}
+
+/* ── MNEMONIC ──────────────────────────────────────── */
+.mnemonic-box{
+  background:linear-gradient(135deg,var(--ink) 0%,var(--ink2) 100%);
+  border-radius:5px;padding:28px 32px;color:var(--paper);
+}
+.mnemonic-box .m-label{
+  font-size:10px;font-family:'DM Mono',monospace;letter-spacing:1.5px;
+  color:var(--gold);text-transform:uppercase;margin-bottom:14px;
+}
+.mnemonic-word{
+  font-family:'Playfair Display',serif;font-size:clamp(22px,3vw,34px);
+  font-weight:900;color:var(--gold2);letter-spacing:4px;margin-bottom:18px;
+  line-height:1.2;
+}
+.mnemonic-rows{display:flex;flex-direction:column;gap:10px;}
+.m-row{display:flex;align-items:baseline;gap:14px;}
+.m-letter{
+  font-family:'DM Mono',monospace;font-size:20px;font-weight:500;
+  color:var(--gold2);width:24px;flex-shrink:0;
+}
+.m-text{font-size:13.5px;line-height:1.5;}
+.m-text strong{color:var(--gold2);}
+.m-tip{
+  margin-top:18px;padding:12px 16px;
+  background:rgba(201,151,58,0.12);border-radius:3px;
+  font-size:12.5px;font-style:italic;color:rgba(245,242,235,0.7);
+}
+
+/* ── PYQ ───────────────────────────────────────────── */
+.pyq-item{
+  background:#fff;border:1px solid var(--border);border-radius:4px;
+  padding:22px;margin-bottom:14px;
+}
+.pyq-meta{
+  display:flex;align-items:center;gap:8px;margin-bottom:12px;flex-wrap:wrap;
+}
+.pyq-tag{
+  font-size:10px;padding:2px 8px;border-radius:2px;font-weight:500;
+  font-family:'DM Mono',monospace;letter-spacing:0.5px;
+}
+.pyq-tag.prelims{background:#fdf5e6;color:var(--gold);}
+.pyq-tag.mains{background:#ebf5f3;color:var(--teal);}
+.pyq-tag.year{background:var(--paper2);color:var(--muted);}
+.pyq-q{font-size:14px;font-weight:500;line-height:1.6;margin-bottom:14px;}
+.pyq-options{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:14px;}
+.pyq-opt{
+  padding:8px 12px;border-radius:3px;font-size:12.5px;
+  border:1px solid var(--border);background:var(--paper);
+  cursor:pointer;transition:all 0.18s;
+}
+.pyq-opt:hover{border-color:var(--gold);background:#fff9f0;}
+.pyq-opt.correct{background:#e8f5e9;border-color:#4caf50;color:#2e7d32;font-weight:500;}
+.pyq-opt.wrong{background:#ffebee;border-color:#ef9a9a;color:#c62828;}
+.pyq-answer{
+  display:none;padding:14px 16px;background:#e8f5f3;
+  border-radius:3px;border-left:3px solid var(--teal);
+}
+.pyq-answer.show{display:block;}
+.pyq-answer strong{color:var(--teal);font-size:12px;letter-spacing:0.5px;}
+.pyq-answer p{font-size:13px;color:var(--ink2);margin-top:5px;line-height:1.6;}
+.reveal-btn{
+  font-size:11.5px;padding:6px 14px;border-radius:3px;
+  background:none;border:1px solid var(--border);cursor:pointer;
+  color:var(--muted);transition:all 0.18s;
+}
+.reveal-btn:hover{border-color:var(--teal);color:var(--teal);}
+
+/* ── MAINS BOX ─────────────────────────────────────── */
+.mains-box{
+  background:#fff;border:1px solid var(--border);border-radius:4px;padding:22px;
+}
+.mains-q{
+  font-size:14.5px;font-weight:600;line-height:1.6;margin-bottom:14px;
+  color:var(--ink);
+}
+.mains-meta{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap;}
+.mains-answer{
+  display:none;border-top:1px solid var(--border);padding-top:16px;
+}
+.mains-answer.show{display:block;}
+.answer-section{margin-bottom:14px;}
+.answer-section h5{
+  font-size:11px;font-family:'DM Mono',monospace;letter-spacing:1px;
+  color:var(--gold);text-transform:uppercase;margin-bottom:7px;
+}
+.answer-section p{font-size:13px;line-height:1.7;color:var(--ink2);}
+.answer-section ul{padding-left:18px;}
+.answer-section li{font-size:13px;line-height:1.7;color:var(--ink2);margin-bottom:4px;}
+
+/* ── QUICK REVISION ────────────────────────────────── */
+.qr-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.qr-item{
+  display:flex;align-items:flex-start;gap:10px;
+  background:#fff;border:1px solid var(--border);border-radius:4px;
+  padding:14px 16px;
+}
+.qr-num{
+  font-family:'DM Mono',monospace;font-size:10px;color:var(--accent);
+  font-weight:500;flex-shrink:0;margin-top:2px;
+}
+.qr-text{font-size:13px;line-height:1.6;color:var(--ink2);}
+.qr-text strong{color:var(--accent);}
+
+/* ── MEMORY HOOK ───────────────────────────────────── */
+.memory-hook{
+  background:var(--accent);border-radius:4px;
+  padding:16px 22px;display:flex;align-items:center;gap:16px;margin-top:32px;
+}
+.hook-icon{font-size:22px;}
+.hook-text{font-size:14px;font-weight:600;color:var(--ink);line-height:1.5;}
+
+/* ── CONCEPT CHECK ─────────────────────────────────── */
+.check-mcq{
+  background:#fff;border:1px solid var(--border);border-radius:4px;
+  padding:20px;margin-bottom:12px;
+}
+.check-q{font-size:14px;font-weight:500;margin-bottom:14px;line-height:1.6;}
+.check-opts{display:flex;flex-direction:column;gap:7px;}
+.check-opt{
+  padding:10px 14px;border-radius:3px;font-size:13px;
+  border:1px solid var(--border);background:var(--paper);
+  cursor:pointer;transition:all 0.18s;text-align:left;
+  display:flex;align-items:center;gap:10px;
+}
+.check-opt:hover{border-color:var(--accent);background:#fff9f0;}
+.check-opt.correct{background:#e8f5e9;border-color:#4caf50;color:#2e7d32;}
+.check-opt.wrong{background:#ffebee;border-color:#ef9a9a;color:#c62828;}
+.opt-letter{
+  width:22px;height:22px;border-radius:50%;
+  background:var(--paper2);display:flex;align-items:center;justify-content:center;
+  font-size:11px;font-weight:600;flex-shrink:0;transition:all 0.18s;
+}
+.check-opt.correct .opt-letter{background:#4caf50;color:#fff;}
+.check-opt.wrong   .opt-letter{background:#ef9a9a;color:#fff;}
+.check-feedback{
+  margin-top:10px;padding:10px 14px;border-radius:3px;font-size:12.5px;
+  display:none;line-height:1.6;
+}
+.check-feedback.show{display:block;}
+.check-feedback.ok{background:#e8f5e9;color:#2e7d32;}
+.check-feedback.no{background:#ffebee;color:#c62828;}
+
+/* ── BPSC SPECIAL BADGE ────────────────────────────── */
+.bpsc-special{
+  background:linear-gradient(135deg,#fff9f0,#fff);
+  border:1px solid rgba(201,151,58,0.3);border-radius:4px;
+  padding:18px 20px;margin-bottom:20px;
+  display:flex;gap:14px;align-items:flex-start;
+}
+.bpsc-icon{font-size:22px;flex-shrink:0;}
+.bpsc-content h4{font-size:13px;font-weight:600;color:var(--gold);margin-bottom:5px;}
+.bpsc-content p{font-size:12.5px;color:var(--muted);line-height:1.6;}
+
+/* ── SCROLLBAR ─────────────────────────────────────── */
+.sidebar::-webkit-scrollbar{width:4px;}
+.sidebar::-webkit-scrollbar-track{background:transparent;}
+.sidebar::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.1);border-radius:2px;}
+
+/* ── PRINT MODE ────────────────────────────────────── */
+.print-btn{
+  position:fixed;bottom:24px;right:24px;
+  background:var(--ink);color:var(--gold2);
+  border:none;border-radius:50%;width:44px;height:44px;
+  font-size:16px;cursor:pointer;box-shadow:0 4px 16px rgba(26,26,46,0.25);
+  transition:transform 0.18s;display:flex;align-items:center;justify-content:center;
+}
+.print-btn:hover{transform:scale(1.1);}
+
+@media print{
+  .sidebar,.topbar,.print-btn{display:none;}
+  .main{display:block;}
+  .content{padding:20px;}
+}
+@media(max-width:768px){
+  .sidebar{display:none;}
+  .content{padding:24px 20px 60px;}
+  .topbar{padding:10px 20px;}
+  .concept-grid,.qr-grid,.flow-cols,.pyq-options{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- ── SIDEBAR ───────────────────────────────────────── -->
+<aside class="sidebar">
+  <div class="sidebar-logo">
+    <a href="../index.html">Bihar History<br>Study System</a>
+    <span>BPSC · UPSC · State PCS</span>
+  </div>
+
+  <div class="sidebar-part">Part I — Ancient Bihar</div>
+  <a class="sidebar-item active" href="m01.html"><span class="s-num">01</span><span class="s-dot"></span>Sources & Prehistoric Bihar</a>
+  <a class="sidebar-item" href="m02.html"><span class="s-num">02</span><span class="s-dot"></span>Mahajanapadas in Bihar</a>
+  <a class="sidebar-item" href="m03.html"><span class="s-num">03</span><span class="s-dot"></span>Pre-Mauryan Dynasties</a>
+  <a class="sidebar-item" href="m04.html"><span class="s-num">04</span><span class="s-dot"></span>Buddhism & Jainism</a>
+  <a class="sidebar-item" href="m05.html"><span class="s-num">05</span><span class="s-dot"></span>Mauryan Empire</a>
+  <a class="sidebar-item" href="m06.html"><span class="s-num">06</span><span class="s-dot"></span>Ashoka — Kalinga to Dhamma</a>
+  <a class="sidebar-item" href="m07.html"><span class="s-num">07</span><span class="s-dot"></span>Post-Mauryan to Gupta Era</a>
+
+  <div class="sidebar-part">Part II — Medieval Bihar</div>
+  <a class="sidebar-item" href="m08.html"><span class="s-num">08</span><span class="s-dot"></span>Pala Dynasty</a>
+  <a class="sidebar-item" href="m09.html"><span class="s-num">09</span><span class="s-dot"></span>Sena & Karnata Dynasties</a>
+  <a class="sidebar-item" href="m10.html"><span class="s-num">10</span><span class="s-dot"></span>Turkish Invasion</a>
+  <a class="sidebar-item" href="m11.html"><span class="s-num">11</span><span class="s-dot"></span>Khilji, Tughlaq & Noohani</a>
+  <a class="sidebar-item" href="m12.html"><span class="s-num">12</span><span class="s-dot"></span>Sher Shah Suri</a>
+  <a class="sidebar-item" href="m13.html"><span class="s-num">13</span><span class="s-dot"></span>Mughal Rule in Bihar</a>
+  <a class="sidebar-item" href="m14.html"><span class="s-num">14</span><span class="s-dot"></span>Sufism, Sikhism & Tribal States</a>
+
+  <div class="sidebar-part">Part III — Modern Bihar</div>
+  <a class="sidebar-item" href="m15.html"><span class="s-num">15</span><span class="s-dot"></span>European Entry</a>
+  <a class="sidebar-item" href="m16.html"><span class="s-num">16</span><span class="s-dot"></span>Battle of Buxar</a>
+  <a class="sidebar-item" href="m17.html"><span class="s-num">17</span><span class="s-dot"></span>Revolt of 1857</a>
+  <a class="sidebar-item" href="m18.html"><span class="s-num">18</span><span class="s-dot"></span>Tribal Revolts</a>
+  <a class="sidebar-item" href="m19.html"><span class="s-num">19</span><span class="s-dot"></span>Freedom Movements</a>
+  <a class="sidebar-item" href="m20.html"><span class="s-num">20</span><span class="s-dot"></span>Eminent Freedom Fighters</a>
+  <a class="sidebar-item" href="m21.html"><span class="s-num">21</span><span class="s-dot"></span>Formation of Modern Bihar</a>
+</aside>
+
+<!-- ── MAIN ──────────────────────────────────────────── -->
+<div class="main">
+
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <div class="topbar-left">
+      <span class="era-pill">ANCIENT BIHAR</span>
+      <span class="topbar-title">Module 01 of 21</span>
+    </div>
+    <div class="topbar-nav">
+      <a href="../index.html" class="nav-btn">← Index</a>
+      <a href="m02.html" class="nav-btn primary">Next Module →</a>
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content">
+
+    <!-- MODULE HEADER -->
+    <div class="mod-header">
+      <div class="mod-badge">
+        <span class="mod-num-tag">MODULE 01</span>
+        <span>·</span>
+        <span>Ancient Bihar</span>
+      </div>
+      <h1>Sources &<br><em>Prehistoric Bihar</em></h1>
+      <p>Before a single word was written, Bihar was already alive — in stone tools, painted cave walls, bone instruments, and ancient river settlements. This module decodes how historians reconstruct Bihar's story from silence.</p>
+      <div class="mod-meta">
+        <span class="meta-tag b">BPSC Prelims</span>
+        <span class="meta-tag m">Mains GS-I</span>
+        <span class="meta-tag d">~2500 BC – 600 BC</span>
+        <span class="meta-tag s">⚠ Trap: No Paleolithic remains found in Bihar</span>
+      </div>
+    </div>
+
+    <!-- ① STORY HOOK -->
+    <div class="section">
+      <div class="section-head">
+        <span class="section-icon">🎭</span>
+        <span class="section-label-text">Story Hook</span>
+        <span class="section-sub">START HERE</span>
+      </div>
+      <div class="story-box">
+        <p>The year is <strong>1912</strong>. A British archaeologist named <strong>David Brainard Spooner</strong> is digging near a crumbling mound called <em>Bulandi Bagh</em> on the outskirts of Patna. His shovel strikes something unusually smooth — not rock, not brick. It is a <strong>polished sandstone pillar</strong>, one of 80, each carved from stone quarried 200 km away at Chunar and transported to form a magnificent columned hall.</p>
+        <p>With that single strike, 2,300 years of silence ended. Spooner had uncovered the <strong>80-pillared assembly hall of Chandragupta Maurya</strong> at Kumhrar — proof that ancient Pataliputra was not legend but <em>real</em>. Bihar's history, it turned out, had been waiting underground all along.</p>
+        <p>But how do historians piece together <em>even older</em> stories — from when there were no pillars, no inscriptions, no coins? The answer lies in four brilliant detective tools: <strong>spades, stones, words, and travellers.</strong></p>
+        <div class="story-highlight">💡 Memory Hook: Bihar's name itself comes from "Vihara" (Buddhist monastery) — named by 12th century Muslim invaders who saw monasteries everywhere.</div>
+      </div>
+    </div>
+
+    <!-- ② CORE CONCEPT -->
+    <div class="section">
+      <div class="section-head">
+        <span class="section-icon">🧠</span>
+        <span class="section-label-text">Core Concept</span>
+        <span class="section-sub">WITH ANALOGY</span>
+      </div>
+
+      <div class="analogy-box" style="margin-bottom:20px;">
+        <div class="analogy-label">📱 Modern Analogy</div>
+        <p>Think of historical sources like <strong>recovering a deleted phone</strong>. Archaeological finds = the hardware (physical evidence). Inscriptions/coins = saved files. Literary sources = screenshots others took. Foreign accounts = friends who visited and wrote reviews. Together they reconstruct the full picture — even what was "deleted."</p>
+      </div>
+
+      <div class="concept-grid">
+        <div class="concept-card">
+          <h4>🏺 Archaeological Sources</h4>
+          <p>Physical remains: ruins, tools, pottery, inscriptions on stone/copper, coins. Key Bihar sites: <strong>Kumhrar</strong> (Mauryan hall), <strong>Chirand</strong> (Neolithic bones), <strong>Paisra/Munger</strong> (Stone Age tools), <strong>Vaishali/Nalanda</strong> (Buddhist remains). Excavations reveal what texts cannot say.</p>
+        </div>
+        <div class="concept-card">
+          <h4>📜 Literary Sources</h4>
+          <p>Vedic texts (Rigveda calls Bihar "Kikata"), Buddhist literature (Anguttara Nikaya, Tripitaka), Jain texts (Bhagwati Sutra), Puranas (Vishnu, Vayu, Matsya), Arthashastra by Chanakya. Each tradition preserves a different angle on the same land.</p>
+        </div>
+        <div class="concept-card">
+          <h4>🪙 Coins & Inscriptions</h4>
+          <p>Punch-marked silver coins from Patna/Purnea show early trade. Ashokan pillars in <strong>Brahmi script, Prakrit language</strong> (Lauriya Areraj, Rampurwa). Gupta copper plates from Nalanda/Gaya. Coins track empire boundaries — Kushana coins at Chirand/Buxar show their reach.</p>
+        </div>
+        <div class="concept-card">
+          <h4>✈️ Foreign Travellers</h4>
+          <p><strong>Megasthenes</strong> (302–288 BC) → Indica → Mauryan Pataliputra. <strong>Fa-Hien</strong> (399–412 AD) → Chandragupta II's Magadha. <strong>Hiuen Tsang</strong> (637–644 AD) → Nalanda University. <strong>I-Tsing</strong> (671–695 AD) → stayed Nalanda 11 years. Each filled gaps no Indian source could.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ③ TIMELINE -->
+    <div class="section">
+      <div class="section-head">
+        <span class="section-icon">⏳</span>
+        <span class="section-label-text">Timeline — Prehistoric Bihar</span>
+        <span class="section-sub">CHRONOLOGICAL</span>
+      </div>
+
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-period">PALEOLITHIC AGE</div>
+          <div class="tl-title">❌ Absent from Bihar <span class="tl-badge">⚠ EXAM TRAP</span></div>
+          <div class="tl-body">No Paleolithic remains found in Bihar. This is a frequent trick question — don't confuse with Mesolithic! The Old Stone Age left no trace in this region.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-period">MESOLITHIC AGE · 12000 BC – 6000 BC</div>
+          <div class="tl-title">First Humans in Bihar — Munger & Nalanda</div>
+          <div class="tl-body">Earliest proof of human activity in Bihar. Stone tools (hand axes, cleavers) found at <strong>Paisra in Munger</strong>. Rock paintings at Nawada, Kaimur, Jamui hills — depicting hunting, dancing, animals, sun and moon. Artefacts also in Hazaribagh, Singhbhum, Santhal Pargana (now Jharkhand).</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-period">NEOLITHIC AGE · 2500 BC – 1345 BC</div>
+          <div class="tl-title">Chirand & Chechar — Bone Tools & Pottery</div>
+          <div class="tl-body"><strong>Chirand (Saran)</strong> — most important Neolithic site in Bihar; famous for bone tools. <strong>Chechar (Vaishali)</strong> — Black and red ware, ochre pottery. Also found at Taradih (Bodh Gaya), Senuwar (Rohtas), Maner (Patna). First settled agricultural communities appear.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-period">CHALCOLITHIC AGE · 2000 BC – 700 BC</div>
+          <div class="tl-title">Copper + Stone = Progress</div>
+          <div class="tl-body">Copper tools alongside stone tools. Major sites: Chirand (Saran), Maner (Patna), Chechar-Kutubpur (Vaishali), Sonpur/Taradih (Gaya), Champa (Bhagalpur). Black and red ware pottery widespread across middle Ganga plains.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-period">VEDIC & LATER VEDIC · 1000 BC – 600 BC</div>
+          <div class="tl-title">Aryans Enter Bihar — Kingdom of Videha</div>
+          <div class="tl-body">Aryans moved east using iron tools to clear forests. <strong>Satapatha Brahmana</strong> records Aryan arrival in North Bihar via the story of Videgha Mathava crossing river Sadanira (Gandak). Kingdom of Videha established with capital at Mithila (modern Janakpur, Nepal). Bihar called "Kikata" in Rigveda; "Magadha people" in Atharvaveda.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ④ FLOWCHART -->
+    <div class="section">
+      <div class="section-head">
+        <span class="section-icon">🔄</span>
+        <span class="section-label-text">Flowchart — How Sources Reconstruct History</span>
+        <span class="section-sub">CAUSE → EVENT → RESULT</span>
+      </div>
+      <div class="flow">
+        <div class="flow-row">
+          <div class="flow-box cause">
+            <div class="flow-label">Cause / Need</div>
+            <h4>No Written Records for Prehistoric Period</h4>
+            <p>Humans existed but left no text — only objects, bones, and marks on rocks.</p>
+          </div>
+        </div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-cols">
+          <div class="flow-box event">
+            <div class="flow-label">Tool 1</div>
+            <h4>🏺 Archaeology</h4>
+            <p>Excavations at Chirand, Paisra, Kumhrar reveal tools, bones, pillars, pottery.</p>
+          </div>
+          <div class="flow-box event">
+            <div class="flow-label">Tool 2</div>
+            <h4>📜 Texts</h4>
+            <p>Vedas, Buddhist/Jain canons, Puranas fill political & religious history.</p>
+          </div>
+          <div class="flow-box event">
+            <div class="flow-label">Tool 3</div>
+            <h4>✈️ Travellers</h4>
+            <p>Megasthenes, Fa-Hien, Hiuen Tsang give first-hand contemporary accounts.</p>
+          </div>
+        </div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-row">
+          <div class="flow-box result">
+            <div class="flow-label">Result</div>
+            <h4>Complete Picture of Bihar's Ancient History</h4>
+            <p>Each source type covers a different era and aspect — together they give us the full story from 12000 BC to 650 AD.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ⑤ COMPARISON TABLE -->
+    <div class="section">
+      <div class="section-head">
+        <span class="section-icon">📊</span>
+        <span class="section-label-text">Key Literary Sources — Comparison Table</span>
+        <span class="section-sub">EXAM-READY</span>
+      </div>
+      <div class="bpsc-special">
+        <span class="bpsc-icon">🗺️</span>
+        <div class="bpsc-content">
+          <h4>BPSC Special Focus</h4>
+          <p>Questions on "which book tells us what" appear almost every year in BPSC Prelims. Memorise the source → topic → author columns below.</p>
+        </div>
+      </div>
+      <table class="comp-table">
+        <thead>
+          <tr><th>Literary Source</th><th>Topic / Information</th><th>Author</th><th>Era</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Arthashastra</td><td>Mauryan administration, economy, foreign affairs</td><td>Chanakya (Kautilya)</td><td class="accent">321–298 BC</td></tr>
+          <tr><td>Indica</td><td>Administration in Patliputra; 30-member municipal council</td><td>Megasthenes</td><td class="accent">302–288 BC</td></tr>
+          <tr><td>Mudrarakshasa</td><td>Conflict of Dhana Nanda and Chandragupta Maurya</td><td>Vishakhadatta</td><td class="accent">Post-Mauryan</td></tr>
+          <tr><td>Anguttara Nikaya</td><td>16 Mahajanapadas; republics of North India</td><td>Buddhist Canon</td><td class="accent">6th C BC</td></tr>
+          <tr><td>Dipavamsa & Mahavamsa</td><td>Chronology of pre-Mauryan kings of Magadha</td><td>Ceylon sources (5th C AD)</td><td class="accent">5th C AD</td></tr>
+          <tr><td>Vishnu Purana</td><td>Mauryan dynasty history</td><td>—</td><td class="accent">Puranic</td></tr>
+          <tr><td>Vayu Purana</td><td>Gupta dynasty history</td><td>—</td><td class="accent">Puranic</td></tr>
+          <tr><td>Matsya Purana</td><td>Shunga dynasty history</td><td>—</td><td class="accent">Puranic</td></tr>
+          <tr><td>Bhagwati Sutra</td><td>Licchavis of Vaishali; Mahavira's life</td><td>Jain Canon</td><td class="accent">6th C BC</td></tr>
+          <tr><td>Si-yu-ki</td><td>Nalanda University; Harsha's Bihar</td><td>Hiuen Tsang (Xuanzang)</td><td class="accent">637–644 AD</td></tr>
+          <tr><td>Gargi Samhita</td><td>Yavan (Greek) attack — on Patliputra in Pushyamitra's reign</td><td>Katyayana</td><td class="accent">Shunga era</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ⑥ MNEMONIC -->
+    <div class="section">
+      <div class="section-head">
+        <span class="section-icon">🧩</span>
+        <span class="section-label-text">Mnemonic</span>
+        <span class="section-sub">MEMORY TRICK</span>
+      </div>
+
+      <div class="mnemonic-box">
+        <div class="m-label">🧩 Mnemonic for 4 Prehistoric Ages (in Bihar)</div>
+        <div class="mnemonic-word">P-M-N-C</div>
+        <div class="mnemonic-rows">
+          <div class="m-row">
+            <span class="m-letter">P</span>
+            <span class="m-text"><strong>Paleolithic</strong> — Absent in Bihar (❌ — remember this negative!)</span>
+          </div>
+          <div class="m-row">
+            <span class="m-letter">M</span>
+            <span class="m-text"><strong>Mesolithic</strong> (12000–6000 BC) — <strong>Munger</strong> is the key site; rock paintings at Nawada/Kaimur</span>
+          </div>
+          <div class="m-row">
+            <span class="m-letter">N</span>
+            <span class="m-text"><strong>Neolithic</strong> (2500–1345 BC) — <strong>Chirand</strong> (Saran) = bone tools; Chechar (Vaishali)</span>
+          </div>
+          <div class="m-row">
+            <span class="m-letter">C</span>
+            <span class="m-text"><strong>Chalcolithic</strong> (2000–700 BC) — Copper + Stone; major sites across middle Ganga plains</span>
+          </div>
+        </div>
+        <div class="m-tip">💡 Say it as: "Please (❌Paleolithic) Make (Mesolithic-Munger) Nice (Neolithic-Chirand) Copper (Chalcolithic)" — the ❌ in P is your trap-stopper!</div>
+      </div>
+
+      <div class="mnemonic-box" style="margin-top:16px;">
+        <div class="m-label">🧩 Mnemonic for Foreign Travellers (order of visit)</div>
+        <div class="mnemonic-word">M · F · H · I</div>
+        <div class="mnemonic-rows">
+          <div class="m-row"><span class="m-letter">M</span><span class="m-text"><strong>Megasthenes</strong> (302–288 BC) → Chandragupta Maurya → wrote <em>Indica</em></span></div>
+          <div class="m-row"><span class="m-letter">F</span><span class="m-text"><strong>Fa-Hien</strong> (399–412 AD) → Chandragupta II → described Magadha & Patliputra palace</span></div>
+          <div class="m-row"><span class="m-letter">H</span><span class="m-text"><strong>Hiuen Tsang</strong> (637–644 AD) → Harsha's reign → Nalanda; wrote <em>Si-yu-ki</em>; stayed 5 years</span></div>
+          <div class="m-row"><span class="m-letter">I</span><span class="m-text"><strong>I-Tsing</strong> (671–695 AD) → Later Gupta → Nalanda; stayed <em>11 years</em></span></div>
+        </div>
+        <div class="m-tip">💡 "My Friend Has Internet" = Megasthenes, Fa-Hien, Hiuen Tsang, I-Tsing — in chronological order!</div>
+      </div>
+    </div>
+
+    <!-- ⑦ PYQ PRACTICE -->
+    <div class="section">
+      <div class="section-head">
+        <span class="section-icon">📝</span>
+        <span class="section-label-text">PYQ Practice</span>
+        <span class="section-sub">SOLVED QUESTIONS</span>
+      </div>
+
+      <!-- PYQ 1 -->
+      <div class="pyq-item">
+        <div class="pyq-meta">
+          <span class="pyq-tag prelims">BPSC Prelims</span>
+          <span class="pyq-tag year">BPSC 2015</span>
+        </div>
+        <div class="pyq-q">Who among the following was a student of Nalanda University?</div>
+        <div class="pyq-options">
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(a) Megasthenes</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'correct')">(b) Hiuen-Tsang</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(c) Ibn Battuta</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(d) Al-Biruni</div>
+        </div>
+        <div class="pyq-answer" id="ans-pyq1">
+          <strong>✓ CORRECT ANSWER: (b) Hiuen-Tsang</strong>
+          <p>Hiuen Tsang (637–644 AD) visited Nalanda University during Harsha's reign and stayed for about 5 years studying Buddhist philosophy. Megasthenes visited Chandragupta Maurya's court; Ibn Battuta and Al-Biruni are medieval period travellers and not connected to Nalanda.</p>
+        </div>
+        <button class="reveal-btn" onclick="revealPYQ('ans-pyq1',this)">Show Explanation</button>
+      </div>
+
+      <!-- PYQ 2 -->
+      <div class="pyq-item">
+        <div class="pyq-meta">
+          <span class="pyq-tag prelims">BPSC Prelims</span>
+          <span class="pyq-tag year">BPSC 2004</span>
+        </div>
+        <div class="pyq-q">Which source has description about administration in Patliputra?</div>
+        <div class="pyq-options">
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(a) Divyavadana</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(b) Arthashastra</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'correct')">(c) Indica</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(d) Inscriptions of Asoka</div>
+        </div>
+        <div class="pyq-answer" id="ans-pyq2">
+          <strong>✓ CORRECT ANSWER: (c) Indica</strong>
+          <p>Megasthenes' <em>Indica</em> is the primary source describing urban administration in Patliputra — including the 30-member municipal council divided into 6 committees of 5 each. The Arthashastra describes the <em>theory</em> of Mauryan governance by Chanakya, while Indica is the eyewitness account by the Greek ambassador.</p>
+        </div>
+        <button class="reveal-btn" onclick="revealPYQ('ans-pyq2',this)">Show Explanation</button>
+      </div>
+
+      <!-- PYQ 3 -->
+      <div class="pyq-item">
+        <div class="pyq-meta">
+          <span class="pyq-tag prelims">BPSC Prelims</span>
+          <span class="pyq-tag year">BPSC 2008 (Trap Q)</span>
+        </div>
+        <div class="pyq-q">Pillar inscriptions in Lauriya Areraj give description in which language?</div>
+        <div class="pyq-options">
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(a) Brahmi (script)</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'correct')">(b) Prakrit (language)</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(c) Pali</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(d) Both (a) and (b)</div>
+        </div>
+        <div class="pyq-answer" id="ans-pyq3">
+          <strong>✓ CORRECT ANSWER: (b) Prakrit</strong>
+          <p>⚠️ Classic trap: Brahmi is the <em>script</em> (writing system), while Prakrit is the <em>language</em>. Ashokan inscriptions at Lauriya Areraj are written IN the Brahmi SCRIPT but the LANGUAGE is Prakrit. The question asks about "language" — so answer is Prakrit. Answer (d) "Both" would be correct if the question asked about script AND language — but since it only asks "language," the answer is (b).</p>
+        </div>
+        <button class="reveal-btn" onclick="revealPYQ('ans-pyq3',this)">Show Explanation</button>
+      </div>
+    </div>
+
+    <!-- ⑧ QUICK REVISION -->
+    <div class="section">
+      <div class="section-head">
+        <span class="section-icon">⚡</span>
+        <span class="section-label-text">Quick Revision Bullets</span>
+        <span class="section-sub">7 ONE-LINERS</span>
+      </div>
+      <div class="qr-grid">
+        <div class="qr-item"><span class="qr-num">01</span><span class="qr-text"><strong>Bihar's name</strong> comes from "Vihara" (Buddhist monastery); named by 12th century Muslim invaders.</span></div>
+        <div class="qr-item"><span class="qr-num">02</span><span class="qr-text"><strong>No Paleolithic</strong> remains in Bihar — earliest evidence is Mesolithic at <strong>Munger (Paisra)</strong>.</span></div>
+        <div class="qr-item"><span class="qr-num">03</span><span class="qr-text"><strong>Chirand (Saran)</strong> = most important Neolithic site; famous for bone tools and Black & Red ware.</span></div>
+        <div class="qr-item"><span class="qr-num">04</span><span class="qr-text"><strong>Ashokan pillars</strong> in Bihar at Lauriya Areraj (East Champaran), Lauriya Nandangarh & Rampurwa (West Champaran) — written in Brahmi script, Prakrit language.</span></div>
+        <div class="qr-item"><span class="qr-num">05</span><span class="qr-text"><strong>Megasthenes (Indica)</strong> = first foreign traveller; described 30-member Patliputra municipal council in 6 committees.</span></div>
+        <div class="qr-item"><span class="qr-num">06</span><span class="qr-text">Rigveda calls Bihar "Kikata" and its people "Vratyas" — considered non-Aryan at that time.</span></div>
+        <div class="qr-item"><span class="qr-num">07</span><span class="qr-text"><strong>Rock paintings</strong> in Bihar found at Nawada, Kaimur, Jamui hills — depicting Mesolithic lifestyle (hunting, animals, nature).</span></div>
+      </div>
+
+      <div class="memory-hook">
+        <span class="hook-icon">🧲</span>
+        <span class="hook-text">Memory Hook: "Bihar's history starts not with writing, but with <em>bone tools at Chirand</em> and <em>rock paintings at Kaimur</em> — silence that still speaks."</span>
+      </div>
+    </div>
+
+    <!-- ⑨ CONCEPT CHECK -->
+    <div class="section">
+      <div class="section-head">
+        <span class="section-icon">✅</span>
+        <span class="section-label-text">Concept Check</span>
+        <span class="section-sub">TEST YOURSELF</span>
+      </div>
+
+      <!-- MCQ 1 -->
+      <div class="check-mcq">
+        <div class="check-q">1. In which of the following books is the region of Bihar called 'Kikata'?</div>
+        <div class="check-opts">
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','A')"><span class="opt-letter">A</span>Atharvaveda</button>
+          <button class="check-opt" onclick="checkAnswer(this,'correct','B')"><span class="opt-letter">B</span>Rigveda</button>
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','C')"><span class="opt-letter">C</span>Shatapatha Brahmana</button>
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','D')"><span class="opt-letter">D</span>Bhagwati Sutra</button>
+        </div>
+        <div class="check-feedback ok" id="fb1-ok">✓ Correct! Rigveda calls Bihar "Kikata" and its people "Vratyas." The Atharvaveda mentions "Magadha" people. Shatapatha Brahmana mentions Aryan arrival in Bihar. These are three separate texts giving different information.</div>
+        <div class="check-feedback no" id="fb1-no">✗ The answer is (B) Rigveda. It calls the Bihar region "Kikata" and people "Vratyas." Don't confuse — Atharvaveda mentions "Magadha" not "Kikata."</div>
+      </div>
+
+      <!-- MCQ 2 -->
+      <div class="check-mcq">
+        <div class="check-q">2. The first neolithic culture in the Ganga Valley was found at which site in Bihar?</div>
+        <div class="check-opts">
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','A')"><span class="opt-letter">A</span>Paisra, Munger</button>
+          <button class="check-opt" onclick="checkAnswer(this,'correct','B')"><span class="opt-letter">B</span>Chirand, Saran</button>
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','C')"><span class="opt-letter">C</span>Chechar, Vaishali</button>
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','D')"><span class="opt-letter">D</span>Kumhrar, Patna</button>
+        </div>
+        <div class="check-feedback ok" id="fb2-ok">✓ Correct! Chirand (Saran district) had the first Neolithic culture in the Ganga valley — famous for polished stone tools and bone tools. Paisra (Munger) is Mesolithic; Kumhrar is Mauryan.</div>
+        <div class="check-feedback no" id="fb2-no">✗ The answer is (B) Chirand, Saran — first Neolithic site in Ganga Valley. Paisra (Munger) is Mesolithic; Kumhrar is Mauryan period. Chirand is the standard answer for BPSC.</div>
+      </div>
+
+      <!-- MAINS Q -->
+      <div class="mains-box">
+        <div class="mains-meta">
+          <span class="pyq-tag mains">MAINS GS-I</span>
+          <span class="pyq-tag year">150 words</span>
+        </div>
+        <div class="mains-q">Discuss the various types of sources used to reconstruct the ancient history of Bihar. How do foreign travellers' accounts supplement domestic literary and archaeological evidence?</div>
+        <button class="reveal-btn" style="margin-bottom:12px;" onclick="revealMains(this)">▼ Show Model Answer</button>
+        <div class="mains-answer" id="mains-ans1">
+          <div class="answer-section">
+            <h5>Introduction</h5>
+            <p>The ancient history of Bihar is reconstructed through three complementary source types: archaeological evidence, literary sources, and foreign accounts — each filling gaps the others cannot.</p>
+          </div>
+          <div class="answer-section">
+            <h5>Archaeological Sources</h5>
+            <p>Physical remains tell Bihar's story before writing existed. Key sites include Chirand (Saran) for Neolithic bone tools, Paisra (Munger) for Mesolithic implements, Kumhrar (Patna) for Mauryan 80-pillared hall, and Vaishali for Gupta seals. Ashokan pillars at Lauriya Areraj and Rampurwa (both in Champaran) remain among Bihar's most significant inscriptions.</p>
+          </div>
+          <div class="answer-section">
+            <h5>Literary Sources</h5>
+            <p>Vedic texts (Rigveda identifies Bihar as "Kikata"), Buddhist canons (Anguttara Nikaya lists 16 Mahajanapadas), Jain literature (Bhagwati Sutra on Licchavis), Arthashastra and Puranas collectively cover political, religious and administrative history from 1000 BC onwards.</p>
+          </div>
+          <div class="answer-section">
+            <h5>Supplement by Foreign Accounts</h5>
+            <ul>
+              <li><strong>Megasthenes (Indica):</strong> Described Pataliputra's 30-member municipal body — no Indian source details this.</li>
+              <li><strong>Fa-Hien:</strong> Described Magadha's social conditions during Gupta period that Indian texts omit.</li>
+              <li><strong>Hiuen Tsang:</strong> Left the only detailed account of Nalanda University's functioning — curriculum, scholars, structure.</li>
+            </ul>
+          </div>
+          <div class="answer-section">
+            <h5>Conclusion</h5>
+            <p>Foreign accounts provide objective, contemporary observations often absent in self-referential Indian sources. Their accounts validate domestic records and add irreplaceable administrative and social detail — making them essential, not supplementary, to Bihar's ancient history reconstruction.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /content -->
+</div><!-- /main -->
+
+<button class="print-btn" onclick="window.print()" title="Print Quick Revision">🖨</button>
+
+<script>
+/* ── Progress tracking ─────────────────────────────── */
+const KEY = 'bihar_hist_v1';
+let visited = new Set(JSON.parse(localStorage.getItem(KEY)||'[]'));
+visited.add('modules/m01.html');
+localStorage.setItem(KEY, JSON.stringify([...visited]));
+
+/* Mark visited in sidebar */
+document.querySelectorAll('.sidebar-item').forEach(item => {
+  const href = item.getAttribute('href');
+  if(href && visited.has('modules/'+href)) item.classList.add('done');
+});
+
+/* ── PYQ interactivity ─────────────────────────────── */
+function answerPYQ(el, type) {
+  const parent = el.closest('.pyq-item');
+  parent.querySelectorAll('.pyq-opt').forEach(o => {
+    o.onclick = null;
+    o.style.cursor = 'default';
+  });
+  el.classList.add(type);
+}
+function revealPYQ(id, btn) {
+  document.getElementById(id).classList.toggle('show');
+  btn.textContent = btn.textContent.includes('Show') ? 'Hide Explanation' : 'Show Explanation';
+}
+function revealMains(btn) {
+  document.getElementById('mains-ans1').classList.toggle('show');
+  btn.textContent = btn.textContent.includes('▼') ? '▲ Hide Model Answer' : '▼ Show Model Answer';
+}
+
+/* ── Concept check ─────────────────────────────────── */
+function checkAnswer(el, type, letter) {
+  const parent = el.closest('.check-mcq');
+  parent.querySelectorAll('.check-opt').forEach(o => {
+    o.onclick = null; o.style.cursor = 'default';
+  });
+  el.classList.add(type);
+  const qIdx = Array.from(document.querySelectorAll('.check-mcq')).indexOf(parent) + 1;
+  const okEl = document.getElementById('fb'+qIdx+'-ok');
+  const noEl = document.getElementById('fb'+qIdx+'-no');
+  if(type === 'correct' && okEl) okEl.classList.add('show');
+  if(type === 'wrong'   && noEl) noEl.classList.add('show');
+}
+</script>
+</body>
+</html>

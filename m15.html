@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M15 — European Entry in Bihar | Bihar History</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1a1a2e;--ink2:#2d2d44;--paper:#f5f2eb;--paper2:#ede9df;--gold:#c9973a;--gold2:#e8b45a;--teal:#1e7a6e;--teal2:#2aa195;--coral:#c2522b;--coral2:#e06840;--muted:#7a7465;--border:rgba(26,26,46,0.11);}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);display:flex;min-height:100vh;}
+.sidebar{width:260px;flex-shrink:0;background:var(--ink);display:flex;flex-direction:column;position:sticky;top:0;height:100vh;overflow-y:auto;}
+.sidebar-logo{padding:24px 20px 16px;border-bottom:1px solid rgba(255,255,255,0.07);}
+.sidebar-logo a{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:var(--coral2);text-decoration:none;line-height:1.3;display:block;}
+.sidebar-logo span{display:block;font-size:10px;color:rgba(245,242,235,0.35);letter-spacing:1px;margin-top:3px;font-family:'DM Mono',monospace;}
+.sidebar-part{padding:14px 20px 6px;font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:1.4px;text-transform:uppercase;color:rgba(245,242,235,0.28);}
+.sidebar-item{display:flex;align-items:center;gap:10px;padding:9px 20px;text-decoration:none;font-size:12px;color:rgba(245,242,235,0.55);transition:background 0.15s,color 0.15s;border-left:2px solid transparent;}
+.sidebar-item:hover{background:rgba(255,255,255,0.05);color:rgba(245,242,235,0.9);}
+.sidebar-item.active{background:rgba(194,82,43,0.15);color:var(--coral2);border-left-color:var(--coral);}
+.sidebar-item.done .s-dot{background:var(--teal);}
+.s-num{font-family:'DM Mono',monospace;font-size:9.5px;color:rgba(245,242,235,0.28);width:28px;flex-shrink:0;}
+.s-dot{width:6px;height:6px;border-radius:50%;border:1.5px solid rgba(255,255,255,0.2);flex-shrink:0;}
+.sidebar-item.active .s-dot{background:var(--coral);border-color:var(--coral);}
+.main{flex:1;min-width:0;display:flex;flex-direction:column;}
+.topbar{background:var(--ink2);padding:12px 48px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10;border-bottom:1px solid rgba(255,255,255,0.05);}
+.topbar-left{display:flex;align-items:center;gap:14px;}
+.era-pill{font-size:10px;padding:3px 10px;border-radius:2px;background:rgba(194,82,43,0.2);color:var(--coral2);font-family:'DM Mono',monospace;letter-spacing:0.8px;}
+.topbar-title{font-size:13px;color:rgba(245,242,235,0.7);}
+.topbar-nav{display:flex;gap:8px;}
+.nav-btn{padding:7px 14px;border-radius:3px;font-size:12px;font-weight:500;text-decoration:none;border:1px solid rgba(255,255,255,0.12);color:rgba(245,242,235,0.6);transition:all 0.18s;cursor:pointer;background:none;}
+.nav-btn:hover{border-color:var(--coral);color:var(--coral2);}
+.nav-btn.primary{background:var(--coral);color:#fff;border-color:var(--coral);}
+.content{flex:1;padding:48px 52px 80px;max-width:920px;}
+.mod-header{margin-bottom:40px;}
+.mod-badge{display:inline-flex;align-items:center;gap:8px;background:var(--coral);color:#fff;font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:4px 12px;border-radius:2px;margin-bottom:18px;}
+.mod-header h1{font-family:'Playfair Display',serif;font-size:clamp(26px,3.5vw,40px);font-weight:900;line-height:1.15;letter-spacing:-0.5px;margin-bottom:14px;}
+.mod-header h1 em{font-style:italic;color:var(--coral);}
+.mod-header p{font-size:14.5px;color:var(--muted);line-height:1.75;max-width:640px;}
+.mod-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px;padding-top:18px;border-top:1px solid var(--border);}
+.meta-tag{font-size:10.5px;padding:3px 9px;border-radius:2px;font-weight:500;}
+.meta-tag.b{background:#fdf5e6;color:var(--gold);}
+.meta-tag.m{background:#ebf5f3;color:var(--teal);}
+.meta-tag.s{background:#fff0eb;color:var(--coral);}
+.section{margin-bottom:44px;}
+.section-head{display:flex;align-items:center;gap:12px;margin-bottom:20px;padding-bottom:12px;border-bottom:2px solid var(--coral);}
+.section-icon{font-size:20px;}
+.section-label-text{font-family:'Playfair Display',serif;font-size:19px;font-weight:700;}
+.section-sub{font-size:11px;color:var(--muted);font-family:'DM Mono',monospace;letter-spacing:0.8px;margin-left:auto;}
+.story-box{background:var(--ink);color:var(--paper);border-radius:5px;padding:28px 32px;position:relative;overflow:hidden;}
+.story-box::before{content:'';position:absolute;top:-40px;right:-40px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(194,82,43,0.2) 0%,transparent 70%);}
+.story-box p{font-size:14.5px;line-height:1.85;font-weight:300;position:relative;}
+.story-box p+p{margin-top:12px;}
+.story-box strong{color:var(--coral2);}
+.story-highlight{display:inline-block;margin-top:18px;padding:10px 16px;background:rgba(194,82,43,0.15);border-left:3px solid var(--coral);border-radius:0 3px 3px 0;font-size:13px;font-style:italic;color:var(--coral2);}
+/* European panels */
+.euro-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.euro-card{background:#fff;border:1px solid var(--border);border-radius:4px;padding:18px;overflow:hidden;position:relative;}
+.euro-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--coral);}
+.euro-card h4{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;margin-bottom:4px;color:var(--ink);}
+.euro-card .e-flag{font-size:10px;font-family:'DM Mono',monospace;color:var(--coral);letter-spacing:0.5px;margin-bottom:10px;}
+.euro-card .e-row{display:flex;gap:8px;margin-bottom:6px;font-size:12.5px;}
+.euro-card .e-key{color:var(--teal);font-weight:600;min-width:80px;flex-shrink:0;}
+.euro-card .e-val{color:var(--muted);line-height:1.5;}
+.euro-card .e-val strong{color:var(--ink2);}
+/* Timeline */
+.timeline{position:relative;padding-left:28px;}
+.timeline::before{content:'';position:absolute;left:8px;top:8px;bottom:8px;width:2px;background:linear-gradient(180deg,var(--coral),transparent);}
+.tl-item{position:relative;margin-bottom:20px;}
+.tl-dot{position:absolute;left:-24px;top:4px;width:12px;height:12px;border-radius:50%;background:var(--coral);border:2px solid var(--paper);box-shadow:0 0 0 2px var(--coral);}
+.tl-period{font-family:'DM Mono',monospace;font-size:10.5px;color:var(--coral);margin-bottom:4px;}
+.tl-title{font-size:14px;font-weight:600;margin-bottom:4px;color:var(--ink);}
+.tl-body{font-size:12.5px;color:var(--muted);line-height:1.6;}
+/* Table */
+.comp-table{width:100%;border-collapse:collapse;font-size:12.5px;}
+.comp-table th{background:var(--ink);color:var(--paper);padding:11px 14px;text-align:left;font-weight:500;font-size:12px;}
+.comp-table th:first-child{border-radius:4px 0 0 0;}
+.comp-table th:last-child{border-radius:0 4px 0 0;}
+.comp-table td{padding:9px 14px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.5;}
+.comp-table tr:last-child td{border-bottom:none;}
+.comp-table tr:nth-child(even) td{background:var(--paper2);}
+.comp-table td:first-child{font-weight:600;color:var(--ink2);}
+.comp-table td.accent{color:var(--coral);font-weight:500;}
+/* Mnemonic */
+.mnemonic-box{background:linear-gradient(135deg,var(--ink),var(--ink2));border-radius:5px;padding:28px 32px;color:var(--paper);margin-bottom:16px;}
+.m-label{font-size:10px;font-family:'DM Mono',monospace;letter-spacing:1.5px;color:var(--coral2);text-transform:uppercase;margin-bottom:14px;}
+.mnemonic-word{font-family:'Playfair Display',serif;font-size:clamp(22px,3vw,34px);font-weight:900;color:var(--coral2);letter-spacing:4px;margin-bottom:18px;}
+.mnemonic-rows{display:flex;flex-direction:column;gap:10px;}
+.m-row{display:flex;gap:14px;}
+.m-letter{font-family:'DM Mono',monospace;font-size:18px;font-weight:500;color:var(--coral2);width:28px;flex-shrink:0;}
+.m-text{font-size:13px;line-height:1.5;color:var(--paper);}
+.m-text strong{color:var(--coral2);}
+.m-tip{margin-top:16px;padding:12px 14px;background:rgba(194,82,43,0.15);border-radius:3px;font-size:12px;font-style:italic;color:rgba(245,242,235,0.7);}
+/* PYQ */
+.pyq-item{background:#fff;border:1px solid var(--border);border-radius:4px;padding:22px;margin-bottom:14px;}
+.pyq-meta{display:flex;gap:8px;margin-bottom:12px;}
+.pyq-tag{font-size:10px;padding:2px 8px;border-radius:2px;font-weight:500;font-family:'DM Mono',monospace;}
+.pyq-tag.prelims{background:#fdf5e6;color:var(--gold);}
+.pyq-tag.year{background:var(--paper2);color:var(--muted);}
+.pyq-q{font-size:14px;font-weight:500;line-height:1.6;margin-bottom:14px;}
+.pyq-options{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:14px;}
+.pyq-opt{padding:8px 12px;border-radius:3px;font-size:12.5px;border:1px solid var(--border);background:var(--paper);cursor:pointer;transition:all 0.18s;}
+.pyq-opt:hover{border-color:var(--coral);background:#fff5f2;}
+.pyq-opt.correct{background:#e8f5e9;border-color:#4caf50;color:#2e7d32;font-weight:500;}
+.pyq-opt.wrong{background:#ffebee;border-color:#ef9a9a;color:#c62828;}
+.pyq-answer{display:none;padding:14px 16px;background:#e8f5f3;border-radius:3px;border-left:3px solid var(--teal);}
+.pyq-answer.show{display:block;}
+.pyq-answer strong{color:var(--teal);font-size:12px;}
+.pyq-answer p{font-size:13px;color:var(--ink2);margin-top:5px;line-height:1.6;}
+.reveal-btn{font-size:11.5px;padding:6px 14px;border-radius:3px;background:none;border:1px solid var(--border);cursor:pointer;color:var(--muted);transition:all 0.18s;}
+.reveal-btn:hover{border-color:var(--teal);color:var(--teal);}
+.mains-box{background:#fff;border:1px solid var(--border);border-radius:4px;padding:22px;}
+.mains-q{font-size:14.5px;font-weight:600;line-height:1.6;margin-bottom:14px;}
+.mains-meta{display:flex;gap:8px;margin-bottom:14px;}
+.mains-tag{font-size:10px;padding:2px 8px;border-radius:2px;font-weight:500;font-family:'DM Mono',monospace;background:#ebf5f3;color:var(--teal);}
+.mains-answer{display:none;border-top:1px solid var(--border);padding-top:16px;}
+.mains-answer.show{display:block;}
+.ans-sec{margin-bottom:14px;}
+.ans-sec h5{font-size:11px;font-family:'DM Mono',monospace;letter-spacing:1px;color:var(--coral);text-transform:uppercase;margin-bottom:6px;}
+.ans-sec p,.ans-sec li{font-size:13px;line-height:1.7;color:var(--ink2);}
+.ans-sec ul{padding-left:18px;}
+.ans-sec li{margin-bottom:4px;}
+.qr-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.qr-item{display:flex;gap:10px;background:#fff;border:1px solid var(--border);border-radius:4px;padding:14px 16px;}
+.qr-num{font-family:'DM Mono',monospace;font-size:10px;color:var(--coral);font-weight:500;flex-shrink:0;margin-top:2px;}
+.qr-text{font-size:13px;line-height:1.6;color:var(--ink2);}
+.qr-text strong{color:var(--coral);}
+.memory-hook{background:var(--coral);border-radius:4px;padding:16px 22px;display:flex;align-items:center;gap:16px;margin-top:32px;}
+.hook-icon{font-size:22px;}
+.hook-text{font-size:14px;font-weight:600;color:#fff;line-height:1.5;}
+.check-mcq{background:#fff;border:1px solid var(--border);border-radius:4px;padding:20px;margin-bottom:12px;}
+.check-q{font-size:14px;font-weight:500;margin-bottom:14px;line-height:1.6;}
+.check-opts{display:flex;flex-direction:column;gap:7px;}
+.check-opt{padding:10px 14px;border-radius:3px;font-size:13px;border:1px solid var(--border);background:var(--paper);cursor:pointer;transition:all 0.18s;text-align:left;display:flex;align-items:center;gap:10px;}
+.check-opt:hover{border-color:var(--coral);background:#fff5f2;}
+.check-opt.correct{background:#e8f5e9;border-color:#4caf50;color:#2e7d32;}
+.check-opt.wrong{background:#ffebee;border-color:#ef9a9a;color:#c62828;}
+.opt-letter{width:22px;height:22px;border-radius:50%;background:var(--paper2);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;flex-shrink:0;}
+.check-opt.correct .opt-letter{background:#4caf50;color:#fff;}
+.check-opt.wrong .opt-letter{background:#ef9a9a;color:#fff;}
+.check-feedback{margin-top:10px;padding:10px 14px;border-radius:3px;font-size:12.5px;display:none;line-height:1.6;}
+.check-feedback.show{display:block;}
+.check-feedback.ok{background:#e8f5e9;color:#2e7d32;}
+.check-feedback.no{background:#ffebee;color:#c62828;}
+.sidebar::-webkit-scrollbar{width:4px;}
+.sidebar::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.1);border-radius:2px;}
+.print-btn{position:fixed;bottom:24px;right:24px;background:var(--ink);color:var(--coral2);border:none;border-radius:50%;width:44px;height:44px;font-size:16px;cursor:pointer;box-shadow:0 4px 16px rgba(26,26,46,0.25);transition:transform 0.18s;display:flex;align-items:center;justify-content:center;}
+.print-btn:hover{transform:scale(1.1);}
+@media print{.sidebar,.topbar,.print-btn{display:none;}.content{padding:20px;}}
+@media(max-width:768px){.sidebar{display:none;}.content{padding:24px 20px 60px;}.topbar{padding:10px 20px;}.euro-grid,.qr-grid,.pyq-options{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<aside class="sidebar">
+  <div class="sidebar-logo"><a href="../index.html">Bihar History<br>Study System</a><span>BPSC · UPSC · State PCS</span></div>
+  <div class="sidebar-part">Part I — Ancient Bihar</div>
+  <a class="sidebar-item done" href="m01.html"><span class="s-num">01</span><span class="s-dot"></span>Sources & Prehistoric Bihar</a>
+  <a class="sidebar-item done" href="m02.html"><span class="s-num">02</span><span class="s-dot"></span>Mahajanapadas in Bihar</a>
+  <a class="sidebar-item done" href="m03.html"><span class="s-num">03</span><span class="s-dot"></span>Pre-Mauryan Dynasties</a>
+  <a class="sidebar-item done" href="m04.html"><span class="s-num">04</span><span class="s-dot"></span>Buddhism & Jainism</a>
+  <a class="sidebar-item done" href="m05.html"><span class="s-num">05</span><span class="s-dot"></span>Mauryan Empire</a>
+  <a class="sidebar-item done" href="m06.html"><span class="s-num">06</span><span class="s-dot"></span>Ashoka — Kalinga to Dhamma</a>
+  <a class="sidebar-item done" href="m07.html"><span class="s-num">07</span><span class="s-dot"></span>Post-Mauryan to Gupta Era</a>
+  <div class="sidebar-part">Part II — Medieval Bihar</div>
+  <a class="sidebar-item done" href="m08.html"><span class="s-num">08</span><span class="s-dot"></span>Pala Dynasty</a>
+  <a class="sidebar-item done" href="m09.html"><span class="s-num">09</span><span class="s-dot"></span>Sena & Karnata Dynasties</a>
+  <a class="sidebar-item done" href="m10.html"><span class="s-num">10</span><span class="s-dot"></span>Turkish Invasion</a>
+  <a class="sidebar-item done" href="m11.html"><span class="s-num">11</span><span class="s-dot"></span>Khilji, Tughlaq & Noohani</a>
+  <a class="sidebar-item done" href="m12.html"><span class="s-num">12</span><span class="s-dot"></span>Sher Shah Suri</a>
+  <a class="sidebar-item done" href="m13.html"><span class="s-num">13</span><span class="s-dot"></span>Mughal Rule in Bihar</a>
+  <a class="sidebar-item done" href="m14.html"><span class="s-num">14</span><span class="s-dot"></span>Sufism, Sikhism & Tribal States</a>
+  <div class="sidebar-part">Part III — Modern Bihar</div>
+  <a class="sidebar-item active" href="m15.html"><span class="s-num">15</span><span class="s-dot"></span>European Entry</a>
+  <a class="sidebar-item" href="m16.html"><span class="s-num">16</span><span class="s-dot"></span>Battle of Buxar</a>
+  <a class="sidebar-item" href="m17.html"><span class="s-num">17</span><span class="s-dot"></span>Revolt of 1857</a>
+  <a class="sidebar-item" href="m18.html"><span class="s-num">18</span><span class="s-dot"></span>Tribal Revolts</a>
+  <a class="sidebar-item" href="m19.html"><span class="s-num">19</span><span class="s-dot"></span>Freedom Movements</a>
+  <a class="sidebar-item" href="m20.html"><span class="s-num">20</span><span class="s-dot"></span>Eminent Freedom Fighters</a>
+  <a class="sidebar-item" href="m21.html"><span class="s-num">21</span><span class="s-dot"></span>Formation of Modern Bihar</a>
+</aside>
+
+<div class="main">
+  <div class="topbar">
+    <div class="topbar-left"><span class="era-pill">MODERN BIHAR</span><span class="topbar-title">Module 15 of 21</span></div>
+    <div class="topbar-nav">
+      <a href="m14.html" class="nav-btn">← Prev</a>
+      <a href="../index.html" class="nav-btn">Index</a>
+      <a href="m16.html" class="nav-btn primary">Next →</a>
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="mod-header">
+      <div class="mod-badge"><span>MODULE 15</span><span>·</span><span>Modern Bihar</span></div>
+      <h1>European Entry in Bihar —<br><em>The Saltpetre Connection</em></h1>
+      <p>Five European powers entered Bihar in the 17th–18th centuries — all chasing the same thing: <strong>saltpetre</strong>. Bihar's soil literally fuelled Europe's wars. This module covers who came, when, where, and how the East India Company eventually dominated all rivals.</p>
+      <div class="mod-meta">
+        <span class="meta-tag b">BPSC Prelims</span>
+        <span class="meta-tag m">Mains GS-I</span>
+        <span class="meta-tag s">⚠ Trap: Portuguese = first Europeans. EIC first factory = Alamganj 1620, NOT 1651. Dutch factory = Patna College northern building.</span>
+      </div>
+    </div>
+
+    <!-- ① STORY HOOK -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">🎭</span><span class="section-label-text">Story Hook</span><span class="section-sub">START HERE</span></div>
+      <div class="story-box">
+        <p>The year is <strong>1620 AD</strong>. A small group of English merchants arrives in a place called <strong>Alamganj</strong> on the banks of the Ganga near Patna. They are not here for trade in silk or spices — they are here for something far less glamorous: <strong>saltpetre</strong>.</p>
+        <p>Saltpetre — potassium nitrate — is the key ingredient in gunpowder. And Bihar produces it in abundance. Its Gangetic soil is literally soaked in it. European armies are fighting wars constantly, and they need gunpowder to fight them. Whoever controls Bihar's saltpetre controls Europe's weapons supply chains.</p>
+        <p>The English establish a factory. Within a year, they close it — the trade is not yet profitable enough. But 31 years later, they're back, and this time they never leave. By 1765, they will control not just Patna's saltpetre but the entire revenue of Bengal, Bihar, and Orissa.</p>
+        <div class="story-highlight">💡 Bihar's soil funded European wars for 150 years. The region that gave the world Nalanda and Ashoka's empire also — inadvertently — fuelled the Age of Gunpowder.</div>
+      </div>
+    </div>
+
+    <!-- ② CORE CONCEPT -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">🧠</span><span class="section-label-text">Five Europeans — Country by Country</span><span class="section-sub">WITH ANALOGY</span></div>
+      <div style="background:linear-gradient(135deg,#fff5f2,#fff);border:1px solid rgba(194,82,43,0.2);border-radius:4px;padding:20px;margin-bottom:20px;">
+        <div style="font-size:10px;font-family:'DM Mono',monospace;letter-spacing:1.2px;color:var(--coral);text-transform:uppercase;margin-bottom:8px;">⚓ Modern Analogy</div>
+        <p style="font-size:13.5px;line-height:1.7;color:var(--ink2);">Think of 17th-century Bihar as a <strong>lithium mine in today's world</strong> — except instead of electric cars, it was gunpowder. Every European power wanted access. They competed, fought, and negotiated, just like modern tech companies over rare-earth minerals. The British East India Company eventually won not by having the best saltpetre, but by having the best military and diplomatic strategy.</p>
+      </div>
+      <div class="euro-grid">
+        <div class="euro-card">
+          <h4>🇵🇹 Portuguese</h4>
+          <div class="e-flag">FIRST EUROPEANS IN BIHAR · 17th Century</div>
+          <div class="e-row"><span class="e-key">Entry:</span><span class="e-val"><strong>First Europeans to enter Bihar</strong> in 17th century</span></div>
+          <div class="e-row"><span class="e-key">Factory:</span><span class="e-val">At Hooghly (Bengal); visited Patna frequently for trade via water channels + roads</span></div>
+          <div class="e-row"><span class="e-key">Goods bought:</span><span class="e-val">Carpets, ambertees, khassa, thin cloths from Bihar</span></div>
+          <div class="e-row"><span class="e-key">Goods brought:</span><span class="e-val">Spices and China clay</span></div>
+        </div>
+        <div class="euro-card">
+          <h4>🇳🇱 Dutch</h4>
+          <div class="e-flag">1632 AD · PATNA COLLEGE NORTH BUILDING</div>
+          <div class="e-row"><span class="e-key">Factory:</span><span class="e-val"><strong>1632</strong> — established at <strong>northern part of present Patna College</strong></span></div>
+          <div class="e-row"><span class="e-key">Rights:</span><span class="e-val">1662 — Aurangzeb granted trade rights to Dutch in Bihar, Bengal, Odisha</span></div>
+          <div class="e-row"><span class="e-key">Traveller:</span><span class="e-val">1665 — Tavernier came to Patna; then Chhapra (major saltpetre centre)</span></div>
+          <div class="e-row"><span class="e-key">Defeat:</span><span class="e-val">November 1759 — British defeated Dutch at <strong>Battle of Bedara</strong></span></div>
+          <div class="e-row"><span class="e-key">End:</span><span class="e-val">1781 — British captured Dutch warehouse. 1784 — returned. Dutch influence ended.</span></div>
+        </div>
+        <div class="euro-card">
+          <h4>🇫🇷 French</h4>
+          <div class="e-flag">1664 · SALTPETRE RIVALRY WITH DUTCH</div>
+          <div class="e-row"><span class="e-key">Company:</span><span class="e-val">French East India Company founded 1664 by <strong>François Marten</strong></span></div>
+          <div class="e-row"><span class="e-key">Factory:</span><span class="e-val">1734 — established trading centre + warehouse at <strong>Patna</strong></span></div>
+          <div class="e-row"><span class="e-key">Rival:</span><span class="e-val">Constant struggle with Dutch over saltpetre trade rights</span></div>
+          <div class="e-row"><span class="e-key">End:</span><span class="e-val">After Battle of Plassey (1757), British captured Chandannagar; then expelled French from Patna + seized all French warehouses</span></div>
+        </div>
+        <div class="euro-card">
+          <h4>🇩🇰 Danish</h4>
+          <div class="e-flag">1774 · NEPALI KOTHI, PATNA</div>
+          <div class="e-row"><span class="e-key">Companies:</span><span class="e-val">Two Danish East India Companies (1616–50 and 1670–1729); Danish Asiatic Company 1730</span></div>
+          <div class="e-row"><span class="e-key">Factory:</span><span class="e-val"><strong>1774</strong> — factory at <strong>Nepali Kothi, Patna</strong> to process saltpetre</span></div>
+          <div class="e-row"><span class="e-key">End:</span><span class="e-val">Denmark sold its remaining Indian settlements in <strong>1845</strong></span></div>
+        </div>
+      </div>
+
+      <!-- EIC panel -->
+      <div style="background:#fff;border:1px solid var(--border);border-radius:5px;margin-top:16px;overflow:hidden;">
+        <div style="background:var(--ink);color:var(--paper);padding:14px 22px;display:flex;justify-content:space-between;align-items:center;">
+          <span style="font-family:'Playfair Display',serif;font-size:17px;font-weight:700;">🇬🇧 East India Company — The Ultimate Winner</span>
+          <span style="font-family:'DM Mono',monospace;font-size:11px;color:var(--coral2);">1620 → Masters of Bihar by 1765</span>
+        </div>
+        <div style="padding:18px 22px;">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+            <div style="padding:10px 12px;background:var(--paper);border-radius:3px;border:1px solid var(--border);font-size:12.5px;color:var(--muted);"><strong style="color:var(--ink2);">1620:</strong> First factory at <strong>Alamganj, Patna</strong> — saltpetre trade. Closed 1621.</div>
+            <div style="padding:10px 12px;background:var(--paper);border-radius:3px;border:1px solid var(--border);font-size:12.5px;color:var(--muted);"><strong style="color:var(--ink2);">1651:</strong> Factory revived at <strong>Gulzar Bagh</strong> (now government printing press)</div>
+            <div style="padding:10px 12px;background:var(--paper);border-radius:3px;border:1px solid var(--border);font-size:12.5px;color:var(--muted);"><strong style="color:var(--ink2);">1664:</strong> <strong>Job Charnock</strong> appointed head of Patna factory</div>
+            <div style="padding:10px 12px;background:var(--paper);border-radius:3px;border:1px solid var(--border);font-size:12.5px;color:var(--muted);"><strong style="color:var(--ink2);">1680:</strong> Subedar Shaista Khan charged <strong>3.5% tax</strong> on EIC trade</div>
+            <div style="padding:10px 12px;background:var(--paper);border-radius:3px;border:1px solid var(--border);font-size:12.5px;color:var(--muted);"><strong style="color:var(--ink2);">1703:</strong> Factory re-established with permission of Azimushan (Aurangzeb's grandson)</div>
+            <div style="padding:10px 12px;background:linear-gradient(135deg,#fff5f2,#fff);border-radius:3px;border:1px solid rgba(194,82,43,0.2);font-size:12.5px;color:var(--muted);"><strong style="color:var(--coral);">1750:</strong> Patna factory closed by pressure of Nawab <strong>Alivardi Khan</strong></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ③ TIMELINE -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">⏳</span><span class="section-label-text">Timeline — European Entry in Bihar</span><span class="section-sub">CHRONOLOGICAL</span></div>
+      <div class="timeline">
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-period">17th CENTURY — PORTUGUESE (1st)</div><div class="tl-title">First Europeans Enter Bihar — Saltpetre Trade Begins</div><div class="tl-body">Portuguese from Hooghly factory visit Patna for carpets, cloth. Bihar enters European trade map. Bihar's Ganga plains = world's premier saltpetre source.</div></div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-period">1620 AD</div><div class="tl-title">EIC Opens First Bihar Factory at Alamganj, Patna</div><div class="tl-body">East India Company establishes factory at Alamganj for saltpetre. Closed 1621 — trade not yet profitable enough. This is the EIC's FIRST entry into Bihar.</div></div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-period">1632 AD</div><div class="tl-title">Dutch Factory at Patna — Present Patna College North Building</div><div class="tl-body">Dutch factory site = northern building of present Patna College. Interested in cotton textiles, saltpetre, opium, foodgrains.</div></div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-period">1651 AD</div><div class="tl-title">EIC Returns — Gulzar Bagh Factory</div><div class="tl-body">Company establishes factory at Gulzar Bagh (now government printing press). This becomes the main EIC base in Bihar for decades.</div></div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-period">1734 AD</div><div class="tl-title">French Establish Patna Warehouse</div><div class="tl-body">French East India Company (founded 1664 by François Marten) sets up trading centre in Patna. Rivals the Dutch for saltpetre.</div></div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-period">1757 AD</div><div class="tl-title">Battle of Plassey — French Expelled from Bihar</div><div class="tl-body">After Plassey, British capture Chandannagar and seize French warehouses in Patna. French commercial presence in Bihar ends permanently.</div></div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-period">1759 AD</div><div class="tl-title">Battle of Bedara — Dutch Expelled</div><div class="tl-body">British defeat Dutch at Battle of Bedara (November 1759). Dutch commercial power in Bihar ends. 1784: Patna warehouse returned but influence gone.</div></div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-period">1774 AD</div><div class="tl-title">Danish Factory at Nepali Kothi, Patna</div><div class="tl-body">Danes establish saltpetre-processing factory at Nepali Kothi. Lasted till Denmark sold all India settlements (1845). Small but persistent presence.</div></div>
+      </div>
+    </div>
+
+    <!-- ④ COMPARISON TABLE -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">📊</span><span class="section-label-text">Five Europeans in Bihar — Master Table</span><span class="section-sub">EXAM-READY</span></div>
+      <table class="comp-table">
+        <thead><tr><th>Country</th><th>Entry Year</th><th>Factory Location</th><th>Main Interest</th><th>How Ended</th></tr></thead>
+        <tbody>
+          <tr><td>🇵🇹 Portuguese</td><td class="accent">17th C (First)</td><td>Hooghly + visited Patna</td><td>Textiles (carpets, khassa, cloth)</td><td>Gradually pushed out by British</td></tr>
+          <tr><td>🇳🇱 Dutch</td><td class="accent">1632</td><td>N. part of present Patna College</td><td>Saltpetre, opium, cotton, foodgrains</td><td>Battle of Bedara 1759; 1781 warehouse seized</td></tr>
+          <tr><td>🇫🇷 French</td><td class="accent">1734 (Patna)</td><td>Patna warehouse</td><td>Saltpetre (rival to Dutch)</td><td>Battle of Plassey 1757 → expelled</td></tr>
+          <tr><td>🇩🇰 Danish</td><td class="accent">1774</td><td>Nepali Kothi, Patna</td><td>Saltpetre processing</td><td>Denmark sold India settlements 1845</td></tr>
+          <tr><td>🇬🇧 British EIC</td><td class="accent">1620 (Alamganj)</td><td>Alamganj → Gulzar Bagh (1651)</td><td>Saltpetre → opium → total trade</td><td>Never ended — became masters of Bihar by 1765</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ⑥ MNEMONIC -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">🧩</span><span class="section-label-text">Mnemonic</span><span class="section-sub">MEMORY TRICKS</span></div>
+      <div class="mnemonic-box">
+        <div class="m-label">🧩 Five Europeans in Order of Entry</div>
+        <div class="mnemonic-word">P · D · F · Da · E</div>
+        <div class="mnemonic-rows">
+          <div class="m-row"><span class="m-letter">P</span><span class="m-text"><strong>Portuguese</strong> — 17th C first; Hooghly factory; visited Patna for carpets/cloth</span></div>
+          <div class="m-row"><span class="m-letter">D</span><span class="m-text"><strong>Dutch</strong> — 1632; Patna College north building; saltpetre + opium; defeated at Bedara 1759</span></div>
+          <div class="m-row"><span class="m-letter">F</span><span class="m-text"><strong>French</strong> — 1734 Patna warehouse; rival to Dutch; expelled after Plassey 1757</span></div>
+          <div class="m-row"><span class="m-letter">Da</span><span class="m-text"><strong>Danish</strong> — 1774 Nepali Kothi Patna; saltpetre; sold India settlements 1845</span></div>
+          <div class="m-row"><span class="m-letter">E</span><span class="m-text"><strong>English (EIC)</strong> — 1620 Alamganj (1st factory); 1651 Gulzar Bagh; masters of Bihar by 1765</span></div>
+        </div>
+        <div class="m-tip">💡 "Pretty Dashing Frenchmen Dance Elegantly" = Portuguese, Dutch, French, Danish, English — 5 Europeans in Bihar in order of arrival! Saltpetre brought them all.</div>
+      </div>
+    </div>
+
+    <!-- ⑦ PYQ -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">📝</span><span class="section-label-text">PYQ Practice</span><span class="section-sub">SOLVED</span></div>
+      <div class="pyq-item">
+        <div class="pyq-meta"><span class="pyq-tag prelims">BPSC Prelims</span><span class="pyq-tag year">MCQ Bank</span></div>
+        <div class="pyq-q">Who were the first Europeans to enter Bihar in the 17th century?</div>
+        <div class="pyq-options">
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(a) British</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(b) Dutch</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'correct')">(c) Portuguese</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(d) Spanish</div>
+        </div>
+        <div class="pyq-answer" id="ans-pyq1">
+          <strong>✓ CORRECT: (c) Portuguese</strong>
+          <p>The <strong>Portuguese</strong> were the first European power to enter Bihar in the 17th century. They had established their main factory at Hooghly in Bengal and frequently visited Patna for trade through water channels and roads. They purchased carpets, ambertees, khassa and thin cloths from Bihar and brought spices and China clay in exchange.</p>
+        </div>
+        <button class="reveal-btn" onclick="revealPYQ('ans-pyq1',this)">Show Explanation</button>
+      </div>
+      <div class="pyq-item">
+        <div class="pyq-meta"><span class="pyq-tag prelims">BPSC Prelims</span><span class="pyq-tag year">MCQ Bank</span></div>
+        <div class="pyq-q">Where did the East India Company establish their FIRST factory in Bihar?</div>
+        <div class="pyq-options">
+          <div class="pyq-opt" onclick="answerPYQ(this,'correct')">(a) Alamganj, Patna (1620)</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(b) Gulzar Bagh, Patna (1651)</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(c) Bhagalpur</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(d) Muzaffarpur</div>
+        </div>
+        <div class="pyq-answer" id="ans-pyq2">
+          <strong>✓ CORRECT: (a) Alamganj, Patna (1620)</strong>
+          <p>⚠️ Trap: Many students answer Gulzar Bagh (1651). But the FIRST EIC factory in Bihar was at <strong>Alamganj, Patna in 1620</strong> — for the saltpetre trade. It was closed in 1621 itself. The company returned in <strong>1651</strong> and established another factory at <strong>Gulzar Bagh</strong> (now government printing press). Know both dates and locations.</p>
+        </div>
+        <button class="reveal-btn" onclick="revealPYQ('ans-pyq2',this)">Show Explanation</button>
+      </div>
+      <div class="pyq-item">
+        <div class="pyq-meta"><span class="pyq-tag prelims">BPSC Prelims</span><span class="pyq-tag year">MCQ Bank</span></div>
+        <div class="pyq-q">The Danish company built a factory in 1774 in Patna for the trading of:</div>
+        <div class="pyq-options">
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(a) Spices</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(b) Cotton cloth</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'correct')">(c) Saltpetre</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(d) Tea</div>
+        </div>
+        <div class="pyq-answer" id="ans-pyq3">
+          <strong>✓ CORRECT: (c) Saltpetre</strong>
+          <p>The Danish company built a factory at <strong>Nepali Kothi, Patna in 1774</strong> specifically for processing <strong>saltpetre</strong>. This confirms saltpetre as Bihar's most economically significant product in the European era — it attracted Portuguese, Dutch, French, and Danish traders before the British monopolised the trade. Saltpetre (potassium nitrate) = key ingredient in gunpowder.</p>
+        </div>
+        <button class="reveal-btn" onclick="revealPYQ('ans-pyq3',this)">Show Explanation</button>
+      </div>
+    </div>
+
+    <!-- ⑧ QUICK REVISION -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">⚡</span><span class="section-label-text">Quick Revision Bullets</span><span class="section-sub">7 ONE-LINERS</span></div>
+      <div class="qr-grid">
+        <div class="qr-item"><span class="qr-num">01</span><span class="qr-text"><strong>Portuguese</strong> = first Europeans in Bihar (17th C). Factory at Hooghly; visited Patna for carpets, cloth. Brought spices + China clay.</span></div>
+        <div class="qr-item"><span class="qr-num">02</span><span class="qr-text"><strong>Dutch factory 1632</strong> at northern part of present <strong>Patna College</strong>. Aurangzeb granted them trade rights 1662. Defeated at <strong>Battle of Bedara, November 1759</strong>.</span></div>
+        <div class="qr-item"><span class="qr-num">03</span><span class="qr-text"><strong>EIC first factory = 1620 at Alamganj, Patna</strong> (closed 1621). Returned 1651 at Gulzar Bagh (now Govt. Printing Press). Job Charnock = head of Patna factory 1664.</span></div>
+        <div class="qr-item"><span class="qr-num">04</span><span class="qr-text"><strong>French</strong> established Patna warehouse 1734. After Battle of Plassey (1757), British expelled French from all Bihar warehouses.</span></div>
+        <div class="qr-item"><span class="qr-num">05</span><span class="qr-text"><strong>Danish factory 1774</strong> at <strong>Nepali Kothi, Patna</strong> for saltpetre processing. Denmark sold all India settlements in 1845.</span></div>
+        <div class="qr-item"><span class="qr-num">06</span><span class="qr-text"><strong>Saltpetre</strong> = common thread. All 5 European powers primarily wanted Bihar's saltpetre (for gunpowder). Bihar was Europe's most valuable Indian trade destination.</span></div>
+        <div class="qr-item"><span class="qr-num">07</span><span class="qr-text">EIC Patna factory closed 1750 due to pressure of Nawab <strong>Alivardi Khan</strong>. After Battle of Buxar (1764), EIC became virtual masters of Bihar's trade and revenue.</span></div>
+      </div>
+      <div class="memory-hook">
+        <span class="hook-icon">🧲</span>
+        <span class="hook-text">Memory Hook: "Five European flags flew over Patna's riverfront for 150 years — all chasing the same invisible treasure in Bihar's soil: <em>the saltpetre that fired Europe's cannons.</em>"</span>
+      </div>
+    </div>
+
+    <!-- ⑨ CONCEPT CHECK -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">✅</span><span class="section-label-text">Concept Check</span><span class="section-sub">TEST YOURSELF</span></div>
+      <div class="check-mcq">
+        <div class="check-q">1. When did the Dutch company establish their factory in Bihar?</div>
+        <div class="check-opts">
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','A')"><span class="opt-letter">A</span>1610</button>
+          <button class="check-opt" onclick="checkAnswer(this,'correct','B')"><span class="opt-letter">B</span>1632</button>
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','C')"><span class="opt-letter">C</span>1640</button>
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','D')"><span class="opt-letter">D</span>1645</button>
+        </div>
+        <div class="check-feedback ok" id="fb1-ok">✓ Correct! The Dutch company established their factory in <strong>1632</strong> at the northern part of the present Patna College building. The Dutch were interested in cotton textiles, saltpetre, opium, and foodgrains. In 1662, Aurangzeb formally granted Dutch trade rights in Bihar, Bengal, and Odisha.</div>
+        <div class="check-feedback no" id="fb1-no">✗ Answer is (B) 1632. Dutch factory established at site of present Patna College north building. This is a standard BPSC exam fact — know the year 1632 for Dutch, 1620/1651 for EIC, 1774 for Danish.</div>
+      </div>
+      <div class="check-mcq">
+        <div class="check-q">2. The French control over the trade of Bihar came to an end after which battle?</div>
+        <div class="check-opts">
+          <button class="check-opt" onclick="checkAnswer(this,'correct','A')"><span class="opt-letter">A</span>Battle of Plassey (1757)</button>
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','B')"><span class="opt-letter">B</span>Battle of Buxar (1764)</button>
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','C')"><span class="opt-letter">C</span>Battle of Bedara (1759)</button>
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','D')"><span class="opt-letter">D</span>Battle of Panipat</button>
+        </div>
+        <div class="check-feedback ok" id="fb2-ok">✓ Correct! After the Battle of Plassey (1757), the East India Company captured Chandannagar (French HQ in Bengal) and expelled the French from Patna, seizing all their warehouses. This ended French commercial presence in Bihar. Battle of Bedara (1759) ended Dutch presence — don't confuse the two.</div>
+        <div class="check-feedback no" id="fb2-no">✗ Answer is (A) Battle of Plassey. French were driven out of Bihar after Plassey (1757). Dutch were defeated at Battle of Bedara (1759). Know which battle ended which European's Bihar presence.</div>
+      </div>
+      <div class="mains-box">
+        <div class="mains-meta"><span class="mains-tag">MAINS GS-I · 150 WORDS</span></div>
+        <div class="mains-q">Analyse the role of saltpetre in attracting European trading companies to Bihar. How did the East India Company eventually emerge as the dominant European power?</div>
+        <button class="reveal-btn" style="margin-bottom:12px;" onclick="revealMains(this)">▼ Show Model Answer</button>
+        <div class="mains-answer" id="mains-ans1">
+          <div class="ans-sec"><h5>Introduction</h5><p>Bihar's Gangetic plains produced the world's finest saltpetre (potassium nitrate), the key ingredient in gunpowder. This made 17th–18th century Bihar strategically vital to every European power engaged in warfare.</p></div>
+          <div class="ans-sec"><h5>Saltpetre as the Magnet</h5><ul>
+            <li>All five European powers — Portuguese, Dutch, French, Danish, British — established factories primarily to access Bihar's saltpetre</li>
+            <li>Chhapra was the major saltpetre refinery centre; Hajipur, Tirhut, Saran, Purnea also produced it in quantity</li>
+            <li>Dutch-French rivalry over saltpetre rights was intense throughout the 17th century</li>
+          </ul></div>
+          <div class="ans-sec"><h5>EIC's Rise to Dominance</h5><ul>
+            <li><strong>1620:</strong> First factory at Alamganj (closed 1621 — premature attempt)</li>
+            <li><strong>1651:</strong> Permanent base at Gulzar Bagh; gradually built trade networks</li>
+            <li><strong>1757 (Plassey):</strong> Expelled French from Bihar</li>
+            <li><strong>1759 (Bedara):</strong> Defeated Dutch commercially</li>
+            <li><strong>1764 (Buxar):</strong> Gained Diwani rights — becoming revenue collectors of Bihar</li>
+          </ul></div>
+          <div class="ans-sec"><h5>Conclusion</h5><p>The EIC succeeded not through superior trade goods but through superior military strategy and diplomatic manipulation — defeating each rival in turn and using revenue rights (Diwani, 1765) to convert a trade post into political control. Bihar's saltpetre literally fuelled both Europe's wars and Britain's Indian empire.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<button class="print-btn" onclick="window.print()">🖨</button>
+<script>
+const KEY='bihar_hist_v1';
+let visited=new Set(JSON.parse(localStorage.getItem(KEY)||'[]'));
+visited.add('modules/m15.html');
+localStorage.setItem(KEY,JSON.stringify([...visited]));
+document.querySelectorAll('.sidebar-item').forEach(item=>{const href=item.getAttribute('href');if(href&&visited.has('modules/'+href))item.classList.add('done');});
+function answerPYQ(el,type){const p=el.closest('.pyq-item');p.querySelectorAll('.pyq-opt').forEach(o=>{o.onclick=null;o.style.cursor='default';});el.classList.add(type);}
+function revealPYQ(id,btn){document.getElementById(id).classList.toggle('show');btn.textContent=btn.textContent.includes('Show')?'Hide Explanation':'Show Explanation';}
+function revealMains(btn){document.getElementById('mains-ans1').classList.toggle('show');btn.textContent=btn.textContent.includes('▼')?'▲ Hide Model Answer':'▼ Show Model Answer';}
+function checkAnswer(el,type){const p=el.closest('.check-mcq');p.querySelectorAll('.check-opt').forEach(o=>{o.onclick=null;o.style.cursor='default';});el.classList.add(type);const idx=Array.from(document.querySelectorAll('.check-mcq')).indexOf(p)+1;const ok=document.getElementById('fb'+idx+'-ok');const no=document.getElementById('fb'+idx+'-no');if(type==='correct'&&ok)ok.classList.add('show');if(type==='wrong'&&no)no.classList.add('show');}
+</script>
+</body>
+</html>

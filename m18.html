@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M18 — Tribal Revolts of Bihar | Bihar History</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1a1a2e;--ink2:#2d2d44;--paper:#f5f2eb;--paper2:#ede9df;--gold:#c9973a;--gold2:#e8b45a;--teal:#1e7a6e;--teal2:#2aa195;--coral:#c2522b;--coral2:#e06840;--muted:#7a7465;--border:rgba(26,26,46,0.11);}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);display:flex;min-height:100vh;}
+.sidebar{width:260px;flex-shrink:0;background:var(--ink);display:flex;flex-direction:column;position:sticky;top:0;height:100vh;overflow-y:auto;}
+.sidebar-logo{padding:24px 20px 16px;border-bottom:1px solid rgba(255,255,255,0.07);}
+.sidebar-logo a{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:var(--coral2);text-decoration:none;line-height:1.3;display:block;}
+.sidebar-logo span{display:block;font-size:10px;color:rgba(245,242,235,0.35);letter-spacing:1px;margin-top:3px;font-family:'DM Mono',monospace;}
+.sidebar-part{padding:14px 20px 6px;font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:1.4px;text-transform:uppercase;color:rgba(245,242,235,0.28);}
+.sidebar-item{display:flex;align-items:center;gap:10px;padding:9px 20px;text-decoration:none;font-size:12px;color:rgba(245,242,235,0.55);transition:background 0.15s,color 0.15s;border-left:2px solid transparent;}
+.sidebar-item:hover{background:rgba(255,255,255,0.05);}
+.sidebar-item.active{background:rgba(194,82,43,0.15);color:var(--coral2);border-left-color:var(--coral);}
+.sidebar-item.done .s-dot{background:var(--teal);}
+.s-num{font-family:'DM Mono',monospace;font-size:9.5px;color:rgba(245,242,235,0.28);width:28px;flex-shrink:0;}
+.s-dot{width:6px;height:6px;border-radius:50%;border:1.5px solid rgba(255,255,255,0.2);flex-shrink:0;}
+.sidebar-item.active .s-dot{background:var(--coral);border-color:var(--coral);}
+.main{flex:1;min-width:0;display:flex;flex-direction:column;}
+.topbar{background:var(--ink2);padding:12px 48px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10;border-bottom:1px solid rgba(255,255,255,0.05);}
+.topbar-left{display:flex;align-items:center;gap:14px;}
+.era-pill{font-size:10px;padding:3px 10px;border-radius:2px;background:rgba(194,82,43,0.2);color:var(--coral2);font-family:'DM Mono',monospace;letter-spacing:0.8px;}
+.topbar-title{font-size:13px;color:rgba(245,242,235,0.7);}
+.topbar-nav{display:flex;gap:8px;}
+.nav-btn{padding:7px 14px;border-radius:3px;font-size:12px;font-weight:500;text-decoration:none;border:1px solid rgba(255,255,255,0.12);color:rgba(245,242,235,0.6);transition:all 0.18s;cursor:pointer;background:none;}
+.nav-btn:hover{border-color:var(--coral);color:var(--coral2);}
+.nav-btn.primary{background:var(--coral);color:#fff;border-color:var(--coral);}
+.content{flex:1;padding:48px 52px 80px;max-width:920px;}
+.mod-header{margin-bottom:40px;}
+.mod-badge{display:inline-flex;align-items:center;gap:8px;background:var(--coral);color:#fff;font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:4px 12px;border-radius:2px;margin-bottom:18px;}
+.mod-header h1{font-family:'Playfair Display',serif;font-size:clamp(26px,3.5vw,40px);font-weight:900;line-height:1.15;margin-bottom:14px;}
+.mod-header h1 em{font-style:italic;color:var(--coral);}
+.mod-header p{font-size:14.5px;color:var(--muted);line-height:1.75;max-width:640px;}
+.mod-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px;padding-top:18px;border-top:1px solid var(--border);}
+.meta-tag{font-size:10.5px;padding:3px 9px;border-radius:2px;font-weight:500;}
+.meta-tag.b{background:#fdf5e6;color:var(--gold);}
+.meta-tag.m{background:#ebf5f3;color:var(--teal);}
+.meta-tag.s{background:#fff0eb;color:var(--coral);}
+.section{margin-bottom:44px;}
+.section-head{display:flex;align-items:center;gap:12px;margin-bottom:20px;padding-bottom:12px;border-bottom:2px solid var(--coral);}
+.section-icon{font-size:20px;}
+.section-label-text{font-family:'Playfair Display',serif;font-size:19px;font-weight:700;}
+.section-sub{font-size:11px;color:var(--muted);font-family:'DM Mono',monospace;letter-spacing:0.8px;margin-left:auto;}
+.story-box{background:var(--ink);color:var(--paper);border-radius:5px;padding:28px 32px;position:relative;overflow:hidden;}
+.story-box::before{content:'';position:absolute;top:-40px;right:-40px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(194,82,43,0.2) 0%,transparent 70%);}
+.story-box p{font-size:14.5px;line-height:1.85;font-weight:300;position:relative;}
+.story-box p+p{margin-top:12px;}
+.story-box strong{color:var(--coral2);}
+.story-highlight{display:inline-block;margin-top:18px;padding:10px 16px;background:rgba(194,82,43,0.15);border-left:3px solid var(--coral);border-radius:0 3px 3px 0;font-size:13px;font-style:italic;color:var(--coral2);}
+.revolt-card{background:#fff;border:1px solid var(--border);border-radius:5px;margin-bottom:16px;overflow:hidden;}
+.revolt-header{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;background:var(--paper2);border-bottom:1px solid var(--border);}
+.revolt-name{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;}
+.revolt-year{font-family:'DM Mono',monospace;font-size:11px;color:var(--coral);}
+.revolt-body{padding:14px 20px;}
+.revolt-body ul{padding-left:16px;}
+.revolt-body li{font-size:12.5px;color:var(--muted);margin-bottom:5px;line-height:1.55;}
+.revolt-body li strong{color:var(--ink2);}
+.revolt-badge{font-size:10px;padding:2px 8px;border-radius:2px;background:var(--coral);color:#fff;font-weight:600;}
+.comp-table{width:100%;border-collapse:collapse;font-size:12.5px;}
+.comp-table th{background:var(--ink);color:var(--paper);padding:11px 14px;text-align:left;font-weight:500;font-size:12px;}
+.comp-table th:first-child{border-radius:4px 0 0 0;}
+.comp-table th:last-child{border-radius:0 4px 0 0;}
+.comp-table td{padding:9px 14px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.5;}
+.comp-table tr:last-child td{border-bottom:none;}
+.comp-table tr:nth-child(even) td{background:var(--paper2);}
+.comp-table td:first-child{font-weight:600;color:var(--ink2);}
+.comp-table td.accent{color:var(--coral);font-weight:500;}
+.mnemonic-box{background:linear-gradient(135deg,var(--ink),var(--ink2));border-radius:5px;padding:28px 32px;color:var(--paper);margin-bottom:16px;}
+.m-label{font-size:10px;font-family:'DM Mono',monospace;letter-spacing:1.5px;color:var(--coral2);text-transform:uppercase;margin-bottom:14px;}
+.mnemonic-word{font-family:'Playfair Display',serif;font-size:clamp(20px,3vw,30px);font-weight:900;color:var(--coral2);letter-spacing:3px;margin-bottom:18px;}
+.mnemonic-rows{display:flex;flex-direction:column;gap:9px;}
+.m-row{display:flex;gap:14px;}
+.m-letter{font-family:'DM Mono',monospace;font-size:16px;font-weight:500;color:var(--coral2);width:28px;flex-shrink:0;}
+.m-text{font-size:12.5px;line-height:1.5;color:var(--paper);}
+.m-text strong{color:var(--coral2);}
+.m-tip{margin-top:16px;padding:12px 14px;background:rgba(194,82,43,0.15);border-radius:3px;font-size:12px;font-style:italic;color:rgba(245,242,235,0.7);}
+.pyq-item{background:#fff;border:1px solid var(--border);border-radius:4px;padding:22px;margin-bottom:14px;}
+.pyq-meta{display:flex;gap:8px;margin-bottom:12px;}
+.pyq-tag{font-size:10px;padding:2px 8px;border-radius:2px;font-weight:500;font-family:'DM Mono',monospace;}
+.pyq-tag.prelims{background:#fdf5e6;color:var(--gold);}
+.pyq-tag.year{background:var(--paper2);color:var(--muted);}
+.pyq-q{font-size:14px;font-weight:500;line-height:1.6;margin-bottom:14px;}
+.pyq-options{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:14px;}
+.pyq-opt{padding:8px 12px;border-radius:3px;font-size:12.5px;border:1px solid var(--border);background:var(--paper);cursor:pointer;transition:all 0.18s;}
+.pyq-opt:hover{border-color:var(--coral);background:#fff5f2;}
+.pyq-opt.correct{background:#e8f5e9;border-color:#4caf50;color:#2e7d32;font-weight:500;}
+.pyq-opt.wrong{background:#ffebee;border-color:#ef9a9a;color:#c62828;}
+.pyq-answer{display:none;padding:14px 16px;background:#e8f5f3;border-radius:3px;border-left:3px solid var(--teal);}
+.pyq-answer.show{display:block;}
+.pyq-answer strong{color:var(--teal);font-size:12px;}
+.pyq-answer p{font-size:13px;color:var(--ink2);margin-top:5px;line-height:1.6;}
+.reveal-btn{font-size:11.5px;padding:6px 14px;border-radius:3px;background:none;border:1px solid var(--border);cursor:pointer;color:var(--muted);transition:all 0.18s;}
+.reveal-btn:hover{border-color:var(--teal);color:var(--teal);}
+.mains-box{background:#fff;border:1px solid var(--border);border-radius:4px;padding:22px;}
+.mains-q{font-size:14.5px;font-weight:600;line-height:1.6;margin-bottom:14px;}
+.mains-meta{display:flex;gap:8px;margin-bottom:14px;}
+.mains-tag{font-size:10px;padding:2px 8px;border-radius:2px;font-weight:500;font-family:'DM Mono',monospace;background:#ebf5f3;color:var(--teal);}
+.mains-answer{display:none;border-top:1px solid var(--border);padding-top:16px;}
+.mains-answer.show{display:block;}
+.ans-sec{margin-bottom:14px;}
+.ans-sec h5{font-size:11px;font-family:'DM Mono',monospace;letter-spacing:1px;color:var(--coral);text-transform:uppercase;margin-bottom:6px;}
+.ans-sec p,.ans-sec li{font-size:13px;line-height:1.7;color:var(--ink2);}
+.ans-sec ul{padding-left:18px;}
+.ans-sec li{margin-bottom:4px;}
+.qr-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.qr-item{display:flex;gap:10px;background:#fff;border:1px solid var(--border);border-radius:4px;padding:14px 16px;}
+.qr-num{font-family:'DM Mono',monospace;font-size:10px;color:var(--coral);font-weight:500;flex-shrink:0;margin-top:2px;}
+.qr-text{font-size:13px;line-height:1.6;color:var(--ink2);}
+.qr-text strong{color:var(--coral);}
+.memory-hook{background:var(--coral);border-radius:4px;padding:16px 22px;display:flex;align-items:center;gap:16px;margin-top:32px;}
+.hook-icon{font-size:22px;}
+.hook-text{font-size:14px;font-weight:600;color:#fff;line-height:1.5;}
+.check-mcq{background:#fff;border:1px solid var(--border);border-radius:4px;padding:20px;margin-bottom:12px;}
+.check-q{font-size:14px;font-weight:500;margin-bottom:14px;line-height:1.6;}
+.check-opts{display:flex;flex-direction:column;gap:7px;}
+.check-opt{padding:10px 14px;border-radius:3px;font-size:13px;border:1px solid var(--border);background:var(--paper);cursor:pointer;transition:all 0.18s;text-align:left;display:flex;align-items:center;gap:10px;}
+.check-opt:hover{border-color:var(--coral);}
+.check-opt.correct{background:#e8f5e9;border-color:#4caf50;color:#2e7d32;}
+.check-opt.wrong{background:#ffebee;border-color:#ef9a9a;color:#c62828;}
+.opt-letter{width:22px;height:22px;border-radius:50%;background:var(--paper2);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;flex-shrink:0;}
+.check-opt.correct .opt-letter{background:#4caf50;color:#fff;}
+.check-opt.wrong .opt-letter{background:#ef9a9a;color:#fff;}
+.check-feedback{margin-top:10px;padding:10px 14px;border-radius:3px;font-size:12.5px;display:none;line-height:1.6;}
+.check-feedback.show{display:block;}
+.check-feedback.ok{background:#e8f5e9;color:#2e7d32;}
+.check-feedback.no{background:#ffebee;color:#c62828;}
+.sidebar::-webkit-scrollbar{width:4px;}
+.sidebar::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.1);border-radius:2px;}
+.print-btn{position:fixed;bottom:24px;right:24px;background:var(--ink);color:var(--coral2);border:none;border-radius:50%;width:44px;height:44px;font-size:16px;cursor:pointer;box-shadow:0 4px 16px rgba(26,26,46,0.25);transition:transform 0.18s;display:flex;align-items:center;justify-content:center;}
+.print-btn:hover{transform:scale(1.1);}
+@media print{.sidebar,.topbar,.print-btn{display:none;}.content{padding:20px;}}
+@media(max-width:768px){.sidebar{display:none;}.content{padding:24px 20px 60px;}.topbar{padding:10px 20px;}.qr-grid,.pyq-options{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<aside class="sidebar">
+  <div class="sidebar-logo"><a href="../index.html">Bihar History<br>Study System</a><span>BPSC · UPSC · State PCS</span></div>
+  <div class="sidebar-part">Part I — Ancient Bihar</div>
+  <a class="sidebar-item done" href="m01.html"><span class="s-num">01</span><span class="s-dot"></span>Sources & Prehistoric Bihar</a>
+  <a class="sidebar-item done" href="m02.html"><span class="s-num">02</span><span class="s-dot"></span>Mahajanapadas</a>
+  <a class="sidebar-item done" href="m03.html"><span class="s-num">03</span><span class="s-dot"></span>Pre-Mauryan Dynasties</a>
+  <a class="sidebar-item done" href="m04.html"><span class="s-num">04</span><span class="s-dot"></span>Buddhism & Jainism</a>
+  <a class="sidebar-item done" href="m05.html"><span class="s-num">05</span><span class="s-dot"></span>Mauryan Empire</a>
+  <a class="sidebar-item done" href="m06.html"><span class="s-num">06</span><span class="s-dot"></span>Ashoka — Dhamma</a>
+  <a class="sidebar-item done" href="m07.html"><span class="s-num">07</span><span class="s-dot"></span>Post-Mauryan to Gupta</a>
+  <div class="sidebar-part">Part II — Medieval Bihar</div>
+  <a class="sidebar-item done" href="m08.html"><span class="s-num">08</span><span class="s-dot"></span>Pala Dynasty</a>
+  <a class="sidebar-item done" href="m09.html"><span class="s-num">09</span><span class="s-dot"></span>Sena & Karnata</a>
+  <a class="sidebar-item done" href="m10.html"><span class="s-num">10</span><span class="s-dot"></span>Turkish Invasion</a>
+  <a class="sidebar-item done" href="m11.html"><span class="s-num">11</span><span class="s-dot"></span>Khilji, Tughlaq & Noohani</a>
+  <a class="sidebar-item done" href="m12.html"><span class="s-num">12</span><span class="s-dot"></span>Sher Shah Suri</a>
+  <a class="sidebar-item done" href="m13.html"><span class="s-num">13</span><span class="s-dot"></span>Mughal Rule in Bihar</a>
+  <a class="sidebar-item done" href="m14.html"><span class="s-num">14</span><span class="s-dot"></span>Sufism, Sikhism & Tribal States</a>
+  <div class="sidebar-part">Part III — Modern Bihar</div>
+  <a class="sidebar-item done" href="m15.html"><span class="s-num">15</span><span class="s-dot"></span>European Entry</a>
+  <a class="sidebar-item done" href="m16.html"><span class="s-num">16</span><span class="s-dot"></span>Battle of Buxar</a>
+  <a class="sidebar-item done" href="m17.html"><span class="s-num">17</span><span class="s-dot"></span>Revolt of 1857</a>
+  <a class="sidebar-item active" href="m18.html"><span class="s-num">18</span><span class="s-dot"></span>Tribal Revolts</a>
+  <a class="sidebar-item" href="m19.html"><span class="s-num">19</span><span class="s-dot"></span>Freedom Movements</a>
+  <a class="sidebar-item" href="m20.html"><span class="s-num">20</span><span class="s-dot"></span>Eminent Freedom Fighters</a>
+  <a class="sidebar-item" href="m21.html"><span class="s-num">21</span><span class="s-dot"></span>Formation of Modern Bihar</a>
+</aside>
+
+<div class="main">
+  <div class="topbar">
+    <div class="topbar-left"><span class="era-pill">MODERN BIHAR</span><span class="topbar-title">Module 18 of 21</span></div>
+    <div class="topbar-nav">
+      <a href="m17.html" class="nav-btn">← Prev</a>
+      <a href="../index.html" class="nav-btn">Index</a>
+      <a href="m19.html" class="nav-btn primary">Next →</a>
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="mod-header">
+      <div class="mod-badge"><span>MODULE 18</span><span>·</span><span>Modern Bihar</span></div>
+      <h1>Tribal Revolts<br><em>of Bihar</em></h1>
+      <p>Before the sepoys mutinied in 1857, Bihar's tribes had been fighting British colonialism for nearly a century. From the Nonia saltpetre workers of 1770 to Birsa Munda's Ulgulan of 1900 — these were India's first organised anti-colonial movements, driven by land, forest, and dignity.</p>
+      <div class="mod-meta">
+        <span class="meta-tag b">BPSC Special</span>
+        <span class="meta-tag m">Mains GS-I</span>
+        <span class="meta-tag s">⚠ Note: Most tribal revolt areas are now in Jharkhand (formed 2000). Still Bihar History syllabus.</span>
+      </div>
+    </div>
+
+    <!-- STORY HOOK -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">🎭</span><span class="section-label-text">Story Hook</span></div>
+      <div class="story-box">
+        <p>The year is <strong>1900</strong>. In Chota Nagpur, a 25-year-old Munda man named <strong>Birsa Munda</strong> has declared himself <strong>"Dharti Abba"</strong> (Father of the Earth). Thousands follow him. His message: the forests belong to the tribes, the land belongs to the tribes, and the rule of the British — and their local agents the zamindars — must end.</p>
+        <p>He is captured on <strong>3 February 1900</strong>. On <strong>9 June 1900</strong>, he dies in jail of cholera, aged just 25. But his revolt forces the British to pass the <strong>Chota Nagpur Tenancy Act (11 November 1908)</strong> — one of the most important pieces of tribal land legislation in Indian history.</p>
+        <p>This is the pattern of every tribal revolt in Bihar: the British suppress it militarily, but the tribes always extract a policy concession. Each revolt left behind a law, a district, or a protected area. <em>The forests may have lost the battles; they won the laws.</em></p>
+        <div class="story-highlight">💡 All six major tribal revolts listed here preceded the 1857 national revolt — making Bihar's tribes India's FIRST anti-colonial fighters. Birsa Munda's face is today on India's ₹10 coin — a tribal freedom fighter's ultimate recognition.</div>
+      </div>
+    </div>
+
+    <!-- REVOLTS -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">🧠</span><span class="section-label-text">All Major Tribal Revolts — Complete Coverage</span></div>
+
+      <div class="revolt-card">
+        <div class="revolt-header"><span class="revolt-name">Nonia Revolt</span><span class="revolt-year">1770–1800 AD</span></div>
+        <div class="revolt-body"><ul>
+          <li><strong>Tribe:</strong> Nonias — caste entrusted with collecting saltpetre soil</li>
+          <li><strong>Area:</strong> Hajipur, Tirhut, Saran, Purnea</li>
+          <li><strong>Cause:</strong> Mediators bought raw saltpetre from Nonias at low prices, sold to factories at high prices. EIC oppressed Nonias when they tried to sell directly to other traders.</li>
+          <li><strong>Significance:</strong> One of Bihar's earliest organised anti-British economic revolts</li>
+        </ul></div>
+      </div>
+
+      <div class="revolt-card">
+        <div class="revolt-header"><span class="revolt-name">Kol Uprising</span><span class="revolt-year">1831–1832 AD</span></div>
+        <div class="revolt-body"><ul>
+          <li><strong>Leader:</strong> <strong>Budhu Bhagat</strong> — most prominent leader</li>
+          <li><strong>Area:</strong> Chota Nagpur (Ranchi, Singhbhum, Hazaribagh, Palamu, W. Manbhum)</li>
+          <li><strong>Cause:</strong> Transfer of tribal lands to outsiders (Sikh and Muslim farmers/thikadars); non-tribal flood into Kol villages; abduction of Kol women; police corruption</li>
+          <li><strong>Immediate cause:</strong> Abduction of wife of Surya Munda of Bardgaon by outsider Jafar Ali Khan</li>
+          <li><strong>Other leaders:</strong> Sindrai, Surga, Bindrai Maniki, Soee Bhadur</li>
+          <li><strong>Outcome:</strong> New South East Frontier Agency created; large-scale military operation</li>
+        </ul></div>
+      </div>
+
+      <div class="revolt-card">
+        <div class="revolt-header"><span class="revolt-name">Bhumij Revolt</span><span class="revolt-year">1832–1833 AD</span></div>
+        <div class="revolt-body"><ul>
+          <li><strong>Leader:</strong> <strong>Ganga Narayan Singh</strong></li>
+          <li><strong>Area:</strong> Singhbhum + Birbhum (mainly)</li>
+          <li><strong>Cause:</strong> British land revenue increase; exploitation by King of Veerbhum, Munsifs, Zamindars</li>
+          <li><strong>Start:</strong> 26 April 1832 — Diwan of Veerbhum murdered</li>
+          <li><strong>End:</strong> Ganga Narayan Singh killed in battle on <strong>7 February 1833</strong> by Thakur Chetan Singh</li>
+        </ul></div>
+      </div>
+
+      <div class="revolt-card">
+        <div class="revolt-header"><span class="revolt-name">Santhal Uprising (Hul)</span><span class="revolt-year">1855–1856 AD</span></div>
+        <div class="revolt-body"><ul>
+          <li><strong>Leaders:</strong> <strong>Sidhu and Kanhu</strong> (brothers)</li>
+          <li><strong>Area:</strong> Rajmahal Hills — spread to Birbhum, Bankura, Hazaribagh</li>
+          <li><strong>Cause:</strong> Rapacious moneylenders, land transfer to outsiders, exploitative zamindars, corrupt police. Impossible to get British court relief. Sidhu and Kanhu first tried constitutional means (petitions, marches) — failed.</li>
+          <li><strong>Declared independence (1854):</strong> Santhals declared end of Company rule and themselves independent</li>
+          <li><strong>Start of armed revolt:</strong> July 1855 at Rajmahal hills</li>
+          <li><strong>End:</strong> Sidhu died/killed 1855; Kanhu arrested <strong>1866</strong></li>
+          <li><strong>Outcome:</strong> <strong>Santhal Pargana created</strong>; <strong>Ashley Aiden</strong> became its first District Collector</li>
+        </ul></div>
+      </div>
+
+      <div class="revolt-card">
+        <div class="revolt-header"><span class="revolt-name">Munda Revolt (Ulgulan)</span><span class="revolt-year">1899–1900 AD</span></div>
+        <div class="revolt-body"><ul>
+          <li><strong>Leader:</strong> <strong>Birsa Munda</strong> — called "Dharti Abba" (Father of the Earth)</li>
+          <li><strong>Area:</strong> Chota Nagpur (mainly Ranchi area)</li>
+          <li><strong>Ulgulan</strong> = "rebellion" or "great tumult" in Munda language</li>
+          <li><strong>Cause:</strong> Forest Rights Act 1865 and Indian Forest Act 1878 took away Munda forest rights; land alienation to thikadars and moneylenders; Sardari movement not enough</li>
+          <li><strong>Nature:</strong> Religious, agrarian AND political — aimed to establish "Munda Raj" by killing thikadars, jagirdars, rajas, hakims</li>
+          <li>Birsa gathered force of 6000 Mundas</li>
+          <li><strong>Birsa captured:</strong> 3 February 1900</li>
+          <li><strong>Birsa died in jail:</strong> 9 June 1900 — cholera; aged ~25</li>
+          <li><strong>Outcome:</strong> <strong>Chota Nagpur Tenancy Act — 11 November 1908</strong>; Mundari Khuntkatti system recognised</li>
+        </ul></div>
+      </div>
+
+      <div class="revolt-card">
+        <div class="revolt-header"><span class="revolt-name">Tana Bhagat Movement</span><span class="revolt-year">1914 AD</span></div>
+        <div class="revolt-body"><ul>
+          <li><strong>Leader:</strong> <strong>Jatra Bhagat</strong> — other leaders: Balram Bhagat, Bhikhu Bhagat, Shibu Bhagat</li>
+          <li><strong>Tribe:</strong> <strong>Oraon tribe</strong> of Chota Nagpur</li>
+          <li><strong>Nature:</strong> Essentially <strong>religious</strong>; considered extension of Birsa Movement</li>
+          <li><strong>Method:</strong> <strong>Non-violence</strong> — followers of Mahatma Gandhi; accepted Ahimsa</li>
+          <li><strong>Objective:</strong> Against landlords, contractors, taxes imposed by British</li>
+          <li>Bhagat = distinct section of Oraon tribe subscribing to Bhakti cult</li>
+          <li>Movement incorporated Hindu practices into tribal ideology</li>
+        </ul></div>
+      </div>
+    </div>
+
+    <!-- MASTER TABLE -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">📊</span><span class="section-label-text">Master Table — All Tribal Revolts</span></div>
+      <table class="comp-table">
+        <thead><tr><th>Revolt</th><th>Year</th><th>Leader</th><th>Tribe/Area</th><th>Outcome</th></tr></thead>
+        <tbody>
+          <tr><td>Nonia Revolt</td><td class="accent">1770–1800</td><td>—</td><td>Nonias; Hajipur, Tirhut, Saran, Purnea</td><td>Suppressed; saltpetre exploitation continued</td></tr>
+          <tr><td>Kol Uprising</td><td class="accent">1831–32</td><td>Budhu Bhagat</td><td>Kols; Chota Nagpur + Singhbhum</td><td>SE Frontier Agency created</td></tr>
+          <tr><td>Bhumij Revolt</td><td class="accent">1832–33</td><td>Ganga Narayan Singh</td><td>Bhumij; Singhbhum + Birbhum</td><td>Leader killed 7 Feb 1833</td></tr>
+          <tr><td>Santhal Uprising</td><td class="accent">1855–56</td><td>Sidhu + Kanhu</td><td>Santhal; Rajmahal Hills</td><td>Santhal Pargana created; Ashley Aiden = 1st DC</td></tr>
+          <tr><td>Munda Revolt (Ulgulan)</td><td class="accent">1899–1900</td><td>Birsa Munda</td><td>Munda; Chota Nagpur</td><td>CNT Act 11 Nov 1908; Mundari Khuntkatti recognised</td></tr>
+          <tr><td>Tana Bhagat</td><td class="accent">1914</td><td>Jatra Bhagat</td><td>Oraon; Chota Nagpur</td><td>Extension of Birsa movement; non-violent</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- MNEMONIC -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">🧩</span><span class="section-label-text">Mnemonic</span></div>
+      <div class="mnemonic-box">
+        <div class="m-label">🧩 Mnemonic — Tribal Revolts in Order</div>
+        <div class="mnemonic-word">N · K · B · S · M · T</div>
+        <div class="mnemonic-rows">
+          <div class="m-row"><span class="m-letter">N</span><span class="m-text"><strong>Nonia</strong> (1770–1800) — saltpetre workers; Hajipur, Tirhut, Saran, Purnea</span></div>
+          <div class="m-row"><span class="m-letter">K</span><span class="m-text"><strong>Kol</strong> (1831–32) — <strong>Budhu Bhagat</strong>; land transfer to outsiders; Chota Nagpur</span></div>
+          <div class="m-row"><span class="m-letter">B</span><span class="m-text"><strong>Bhumij</strong> (1832–33) — <strong>Ganga Narayan Singh</strong>; killed 7 Feb 1833; Singhbhum + Birbhum</span></div>
+          <div class="m-row"><span class="m-letter">S</span><span class="m-text"><strong>Santhal</strong> (1855–56) — <strong>Sidhu + Kanhu</strong>; Rajmahal Hills; Santhal Pargana created</span></div>
+          <div class="m-row"><span class="m-letter">M</span><span class="m-text"><strong>Munda/Ulgulan</strong> (1899–1900) — <strong>Birsa Munda</strong>; captured 3 Feb 1900; died 9 Jun 1900; CNT Act 1908</span></div>
+          <div class="m-row"><span class="m-letter">T</span><span class="m-text"><strong>Tana Bhagat</strong> (1914) — <strong>Jatra Bhagat</strong>; Oraon tribe; non-violent; extension of Birsa</span></div>
+        </div>
+        <div class="m-tip">💡 "Nobody Kills Brave Santhals, Mundas Think!" = Nonia, Kol, Bhumij, Santhal, Munda, Tana Bhagat — 6 revolts in order! Each letter = one tribal revolt, each revolt = one outcome.</div>
+      </div>
+    </div>
+
+    <!-- PYQ -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">📝</span><span class="section-label-text">PYQ Practice</span></div>
+      <div class="pyq-item">
+        <div class="pyq-meta"><span class="pyq-tag prelims">BPSC MCQ</span></div>
+        <div class="pyq-q">The Kol Uprising (1831–32) was led by:</div>
+        <div class="pyq-options">
+          <div class="pyq-opt" onclick="answerPYQ(this,'correct')">(a) Budhu Bhagat</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(b) Sidhu and Kanhu</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(c) Birsa Munda</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(d) Raja Parhat</div>
+        </div>
+        <div class="pyq-answer" id="ans-pyq1">
+          <strong>✓ CORRECT: (a) Budhu Bhagat</strong>
+          <p><strong>Budhu Bhagat</strong> led the Kol Uprising of 1831–32 in Chota Nagpur against the expansion of British rule and transfer of tribal lands to outsiders (Sikh and Muslim farmers). The revolt covered Ranchi, Singhbhum, Hazaribagh, Palamu and western Manbhum. Two other leaders were Sindrai and Surga who continued fighting till 1832.</p>
+        </div>
+        <button class="reveal-btn" onclick="revealPYQ('ans-pyq1',this)">Show Explanation</button>
+      </div>
+      <div class="pyq-item">
+        <div class="pyq-meta"><span class="pyq-tag prelims">BPSC MCQ</span></div>
+        <div class="pyq-q">Birsa Munda was captured on:</div>
+        <div class="pyq-options">
+          <div class="pyq-opt" onclick="answerPYQ(this,'correct')">(a) 3 February 1900</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(b) 9 June 1900</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(c) 11 November 1908</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(d) 15 August 1900</div>
+        </div>
+        <div class="pyq-answer" id="ans-pyq2">
+          <strong>✓ CORRECT: (a) 3 February 1900</strong>
+          <p>Birsa Munda was captured on <strong>3 February 1900</strong>. He died in jail on <strong>9 June 1900</strong> due to cholera. Know both dates: captured = 3 Feb 1900; died = 9 Jun 1900. Option (c) 11 November 1908 = Chota Nagpur Tenancy Act passed as outcome of his revolt. Note: option (b) is his death date, not capture date.</p>
+        </div>
+        <button class="reveal-btn" onclick="revealPYQ('ans-pyq2',this)">Show Explanation</button>
+      </div>
+      <div class="pyq-item">
+        <div class="pyq-meta"><span class="pyq-tag prelims">BPSC MCQ</span></div>
+        <div class="pyq-q">What was created by the British to pacify the Santhal Uprising?</div>
+        <div class="pyq-options">
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(a) Specific reserved area</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'correct')">(b) Santhal Pargana</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(c) Autonomous status</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(d) None of the above</div>
+        </div>
+        <div class="pyq-answer" id="ans-pyq3">
+          <strong>✓ CORRECT: (b) Santhal Pargana</strong>
+          <p>After the Santhal Uprising (1855–56) by Sidhu and Kanhu, the British created the <strong>Santhal Pargana</strong> as a specially administered district. <strong>Ashley Aiden</strong> became its first District Collector. This was a concession to tribal demands for their own administrative area — the classic British pattern of military suppression + policy concession.</p>
+        </div>
+        <button class="reveal-btn" onclick="revealPYQ('ans-pyq3',this)">Show Explanation</button>
+      </div>
+    </div>
+
+    <!-- QR -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">⚡</span><span class="section-label-text">Quick Revision Bullets</span></div>
+      <div class="qr-grid">
+        <div class="qr-item"><span class="qr-num">01</span><span class="qr-text"><strong>Nonia Revolt (1770–1800)</strong>: saltpetre workers of Hajipur, Tirhut, Saran, Purnea. Exploited by mediators → revolted when EIC oppressed their direct trade.</span></div>
+        <div class="qr-item"><span class="qr-num">02</span><span class="qr-text"><strong>Kol Uprising (1831–32)</strong> led by <strong>Budhu Bhagat</strong> in Chota Nagpur. Against land transfer to outsiders. Outcome: SE Frontier Agency created.</span></div>
+        <div class="qr-item"><span class="qr-num">03</span><span class="qr-text"><strong>Bhumij Revolt (1832–33)</strong> led by <strong>Ganga Narayan Singh</strong> in Singhbhum + Birbhum. Started 26 Apr 1832. Leader killed <strong>7 Feb 1833</strong> by Thakur Chetan Singh.</span></div>
+        <div class="qr-item"><span class="qr-num">04</span><span class="qr-text"><strong>Santhal Uprising (1855–56)</strong> led by <strong>Sidhu + Kanhu</strong>. Rajmahal Hills. Declared independence 1854. Outcome: <strong>Santhal Pargana</strong> created; first DC = <strong>Ashley Aiden</strong>.</span></div>
+        <div class="qr-item"><span class="qr-num">05</span><span class="qr-text"><strong>Munda Revolt/Ulgulan (1899–1900)</strong> led by <strong>Birsa Munda</strong> ("Dharti Abba"). Captured 3 Feb 1900; died 9 Jun 1900 (cholera). Outcome: <strong>Chota Nagpur Tenancy Act, 11 Nov 1908</strong>.</span></div>
+        <div class="qr-item"><span class="qr-num">06</span><span class="qr-text"><strong>Tana Bhagat (1914)</strong> led by <strong>Jatra Bhagat</strong>. Oraon tribe. Non-violent (Gandhian). Extension of Birsa Movement. Religious movement against landlords + British taxes.</span></div>
+        <div class="qr-item"><span class="qr-num">07</span><span class="qr-text">Pattern: Every revolt = British suppress militarily, BUT extract policy concession. Kol → SE Agency; Santhal → Santhal Pargana; Munda → CNT Act 1908.</span></div>
+      </div>
+      <div class="memory-hook">
+        <span class="hook-icon">🧲</span>
+        <span class="hook-text">Memory Hook: "Bihar's tribes were India's first anti-colonial freedom fighters — <em>Birsa Munda's Ulgulan (1900) forced an Act; Sidhu-Kanhu's Santhal Hul (1855) created a district; every revolt left behind a law.</em>"</span>
+      </div>
+    </div>
+
+    <!-- CONCEPT CHECK -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">✅</span><span class="section-label-text">Concept Check</span></div>
+      <div class="check-mcq">
+        <div class="check-q">1. "Ulgulan" is associated with which tribal revolt?</div>
+        <div class="check-opts">
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','A')"><span class="opt-letter">A</span>Santhal Uprising</button>
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','B')"><span class="opt-letter">B</span>Kol Uprising</button>
+          <button class="check-opt" onclick="checkAnswer(this,'correct','C')"><span class="opt-letter">C</span>Munda Revolt</button>
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','D')"><span class="opt-letter">D</span>Tana Bhagat Movement</button>
+        </div>
+        <div class="check-feedback ok" id="fb1-ok">✓ Correct! "Ulgulan" means "rebellion" or "great tumult" in the Munda language and specifically refers to the Munda Revolt (1899–1900) led by Birsa Munda. It was a religious, agrarian and political movement aimed at establishing "Munda Raj" by ending the rule of thikadars, jagirdars, rajas, hakims and the British.</div>
+        <div class="check-feedback no" id="fb1-no">✗ Answer is (C) Munda Revolt. "Ulgulan" = rebellion in Munda language = Birsa Munda's 1899–1900 revolt. The result was the Chota Nagpur Tenancy Act (11 November 1908) — one of the most important tribal land laws in India.</div>
+      </div>
+      <div class="check-mcq">
+        <div class="check-q">2. The Tana Bhagat Movement (1914) was started by which tribe?</div>
+        <div class="check-opts">
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','A')"><span class="opt-letter">A</span>Santhal</button>
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','B')"><span class="opt-letter">B</span>Munda</button>
+          <button class="check-opt" onclick="checkAnswer(this,'correct','C')"><span class="opt-letter">C</span>Oraon</button>
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','D')"><span class="opt-letter">D</span>Ho</button>
+        </div>
+        <div class="check-feedback ok" id="fb2-ok">✓ Correct! The Tana Bhagat Movement (1914) was started by the <strong>Oraon tribe</strong> of Chota Nagpur, led by Jatra Bhagat. It is considered an extension of the Birsa Movement. It was essentially religious in nature, non-violent (Gandhian/Ahimsa), and directed against landlords, contractors, and British taxes.</div>
+        <div class="check-feedback no" id="fb2-no">✗ Answer is (C) Oraon tribe. Tana Bhagat Movement (1914) = Oraon tribe + Jatra Bhagat leader. Know the tribe-revolt mapping: Santhal → Sidhu-Kanhu; Munda → Birsa; Oraon → Jatra Bhagat.</div>
+      </div>
+      <div class="mains-box">
+        <div class="mains-meta"><span class="mains-tag">MAINS GS-I · 150 WORDS</span></div>
+        <div class="mains-q">Analyse the causes and consequences of the Santhal Uprising (1855–56) and the Munda Revolt (1899–1900). How did these revolts contribute to tribal rights legislation?</div>
+        <button class="reveal-btn" style="margin-bottom:12px;" onclick="revealMains(this)">▼ Show Model Answer</button>
+        <div class="mains-answer" id="mains-ans1">
+          <div class="ans-sec"><h5>Introduction</h5><p>The Santhal Uprising (1855–56) and Munda Revolt (1899–1900) stand as the two most significant tribal revolts in Bihar's colonial history — both rooted in land alienation, and both ultimately producing crucial legislative protections for tribal communities.</p></div>
+          <div class="ans-sec"><h5>Common Causes</h5><ul>
+            <li>Land alienation to non-tribal outsiders (dikus, thikadars, moneylenders)</li>
+            <li>Exploitative British forest laws (Indian Forest Act 1878 for Mundas)</li>
+            <li>Rapacious moneylenders whose debt traps dispossessed tribals</li>
+            <li>Failure of British courts to provide justice to tribal complainants</li>
+          </ul></div>
+          <div class="ans-sec"><h5>Santhal Uprising (1855–56)</h5><ul>
+            <li>Led by Sidhu and Kanhu from Rajmahal Hills; spread to Birbhum, Bankura, Hazaribagh</li>
+            <li>Tribals declared end of Company rule (1854) — explicitly anti-colonial</li>
+            <li>Tried constitutional means first (petitions, marches) — failed; then armed revolt</li>
+            <li><strong>Outcome:</strong> Santhal Pargana created as separate district; Ashley Aiden = first DC</li>
+          </ul></div>
+          <div class="ans-sec"><h5>Munda Revolt/Ulgulan (1899–1900)</h5><ul>
+            <li>Led by Birsa Munda ("Dharti Abba") — religious, agrarian, political combined</li>
+            <li>Birsa captured 3 Feb 1900; died in jail 9 Jun 1900 (cholera, age ~25)</li>
+            <li><strong>Outcome:</strong> Chota Nagpur Tenancy Act (11 Nov 1908) — most significant tribal rights law; Mundari Khuntkatti system recognised</li>
+          </ul></div>
+          <div class="ans-sec"><h5>Conclusion</h5><p>Both revolts demonstrate that colonial courts ignored tribal petitions but responded to armed revolts with legislation. The pattern — military suppression followed by policy concession — repeated across Bihar's tribal revolts. Today, the Fifth Schedule of the Constitution and PESA Act continue the legislative tradition these revolts pioneered.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<button class="print-btn" onclick="window.print()">🖨</button>
+<script>
+const KEY='bihar_hist_v1';
+let visited=new Set(JSON.parse(localStorage.getItem(KEY)||'[]'));
+visited.add('modules/m18.html');
+localStorage.setItem(KEY,JSON.stringify([...visited]));
+document.querySelectorAll('.sidebar-item').forEach(item=>{const href=item.getAttribute('href');if(href&&visited.has('modules/'+href))item.classList.add('done');});
+function answerPYQ(el,type){const p=el.closest('.pyq-item');p.querySelectorAll('.pyq-opt').forEach(o=>{o.onclick=null;o.style.cursor='default';});el.classList.add(type);}
+function revealPYQ(id,btn){document.getElementById(id).classList.toggle('show');btn.textContent=btn.textContent.includes('Show')?'Hide Explanation':'Show Explanation';}
+function revealMains(btn){document.getElementById('mains-ans1').classList.toggle('show');btn.textContent=btn.textContent.includes('▼')?'▲ Hide Model Answer':'▼ Show Model Answer';}
+function checkAnswer(el,type){const p=el.closest('.check-mcq');p.querySelectorAll('.check-opt').forEach(o=>{o.onclick=null;o.style.cursor='default';});el.classList.add(type);const idx=Array.from(document.querySelectorAll('.check-mcq')).indexOf(p)+1;const ok=document.getElementById('fb'+idx+'-ok');const no=document.getElementById('fb'+idx+'-no');if(type==='correct'&&ok)ok.classList.add('show');if(type==='wrong'&&no)no.classList.add('show');}
+</script>
+</body>
+</html>

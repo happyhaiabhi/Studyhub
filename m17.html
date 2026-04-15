@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M17 — Revolt of 1857 in Bihar | Bihar History</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1a1a2e;--ink2:#2d2d44;--paper:#f5f2eb;--paper2:#ede9df;--gold:#c9973a;--gold2:#e8b45a;--teal:#1e7a6e;--teal2:#2aa195;--coral:#c2522b;--coral2:#e06840;--muted:#7a7465;--border:rgba(26,26,46,0.11);}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);display:flex;min-height:100vh;}
+.sidebar{width:260px;flex-shrink:0;background:var(--ink);display:flex;flex-direction:column;position:sticky;top:0;height:100vh;overflow-y:auto;}
+.sidebar-logo{padding:24px 20px 16px;border-bottom:1px solid rgba(255,255,255,0.07);}
+.sidebar-logo a{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:var(--coral2);text-decoration:none;line-height:1.3;display:block;}
+.sidebar-logo span{display:block;font-size:10px;color:rgba(245,242,235,0.35);letter-spacing:1px;margin-top:3px;font-family:'DM Mono',monospace;}
+.sidebar-part{padding:14px 20px 6px;font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:1.4px;text-transform:uppercase;color:rgba(245,242,235,0.28);}
+.sidebar-item{display:flex;align-items:center;gap:10px;padding:9px 20px;text-decoration:none;font-size:12px;color:rgba(245,242,235,0.55);transition:background 0.15s,color 0.15s;border-left:2px solid transparent;}
+.sidebar-item:hover{background:rgba(255,255,255,0.05);color:rgba(245,242,235,0.9);}
+.sidebar-item.active{background:rgba(194,82,43,0.15);color:var(--coral2);border-left-color:var(--coral);}
+.sidebar-item.done .s-dot{background:var(--teal);}
+.s-num{font-family:'DM Mono',monospace;font-size:9.5px;color:rgba(245,242,235,0.28);width:28px;flex-shrink:0;}
+.s-dot{width:6px;height:6px;border-radius:50%;border:1.5px solid rgba(255,255,255,0.2);flex-shrink:0;}
+.sidebar-item.active .s-dot{background:var(--coral);border-color:var(--coral);}
+.main{flex:1;min-width:0;display:flex;flex-direction:column;}
+.topbar{background:var(--ink2);padding:12px 48px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10;border-bottom:1px solid rgba(255,255,255,0.05);}
+.topbar-left{display:flex;align-items:center;gap:14px;}
+.era-pill{font-size:10px;padding:3px 10px;border-radius:2px;background:rgba(194,82,43,0.2);color:var(--coral2);font-family:'DM Mono',monospace;letter-spacing:0.8px;}
+.topbar-title{font-size:13px;color:rgba(245,242,235,0.7);}
+.topbar-nav{display:flex;gap:8px;}
+.nav-btn{padding:7px 14px;border-radius:3px;font-size:12px;font-weight:500;text-decoration:none;border:1px solid rgba(255,255,255,0.12);color:rgba(245,242,235,0.6);transition:all 0.18s;cursor:pointer;background:none;}
+.nav-btn:hover{border-color:var(--coral);color:var(--coral2);}
+.nav-btn.primary{background:var(--coral);color:#fff;border-color:var(--coral);}
+.content{flex:1;padding:48px 52px 80px;max-width:920px;}
+.mod-header{margin-bottom:40px;}
+.mod-badge{display:inline-flex;align-items:center;gap:8px;background:var(--coral);color:#fff;font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:4px 12px;border-radius:2px;margin-bottom:18px;}
+.mod-header h1{font-family:'Playfair Display',serif;font-size:clamp(26px,3.5vw,40px);font-weight:900;line-height:1.15;margin-bottom:14px;}
+.mod-header h1 em{font-style:italic;color:var(--coral);}
+.mod-header p{font-size:14.5px;color:var(--muted);line-height:1.75;max-width:640px;}
+.mod-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px;padding-top:18px;border-top:1px solid var(--border);}
+.meta-tag{font-size:10.5px;padding:3px 9px;border-radius:2px;font-weight:500;}
+.meta-tag.b{background:#fdf5e6;color:var(--gold);}
+.meta-tag.m{background:#ebf5f3;color:var(--teal);}
+.meta-tag.s{background:#fff0eb;color:var(--coral);}
+.section{margin-bottom:44px;}
+.section-head{display:flex;align-items:center;gap:12px;margin-bottom:20px;padding-bottom:12px;border-bottom:2px solid var(--coral);}
+.section-icon{font-size:20px;}
+.section-label-text{font-family:'Playfair Display',serif;font-size:19px;font-weight:700;}
+.section-sub{font-size:11px;color:var(--muted);font-family:'DM Mono',monospace;letter-spacing:0.8px;margin-left:auto;}
+.story-box{background:var(--ink);color:var(--paper);border-radius:5px;padding:28px 32px;position:relative;overflow:hidden;}
+.story-box::before{content:'';position:absolute;top:-40px;right:-40px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(194,82,43,0.2) 0%,transparent 70%);}
+.story-box p{font-size:14.5px;line-height:1.85;font-weight:300;position:relative;}
+.story-box p+p{margin-top:12px;}
+.story-box strong{color:var(--coral2);}
+.story-highlight{display:inline-block;margin-top:18px;padding:10px 16px;background:rgba(194,82,43,0.15);border-left:3px solid var(--coral);border-radius:0 3px 3px 0;font-size:13px;font-style:italic;color:var(--coral2);}
+.hero-box{background:#fff;border:1px solid var(--border);border-radius:5px;overflow:hidden;margin-bottom:20px;}
+.hero-header{background:var(--ink);color:var(--paper);padding:16px 22px;display:flex;justify-content:space-between;align-items:center;}
+.hero-header h3{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;}
+.hero-header .h-dates{font-family:'DM Mono',monospace;font-size:11px;color:var(--coral2);}
+.hero-body{padding:18px 22px;}
+.hero-body p{font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:8px;}
+.hero-body p strong{color:var(--ink2);}
+.hero-body ul{padding-left:18px;}
+.hero-body li{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:5px;}
+.hero-body li strong{color:var(--ink2);}
+.region-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.region-card{background:#fff;border:1px solid var(--border);border-radius:4px;padding:14px 16px;}
+.region-card h5{font-size:12px;font-weight:700;color:var(--coral);margin-bottom:6px;font-family:'DM Mono',monospace;letter-spacing:0.5px;text-transform:uppercase;}
+.region-card p{font-size:12px;color:var(--muted);line-height:1.6;}
+.region-card p strong{color:var(--ink2);}
+.comp-table{width:100%;border-collapse:collapse;font-size:12.5px;}
+.comp-table th{background:var(--ink);color:var(--paper);padding:11px 14px;text-align:left;font-weight:500;font-size:12px;}
+.comp-table th:first-child{border-radius:4px 0 0 0;}
+.comp-table th:last-child{border-radius:0 4px 0 0;}
+.comp-table td{padding:9px 14px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.5;}
+.comp-table tr:last-child td{border-bottom:none;}
+.comp-table tr:nth-child(even) td{background:var(--paper2);}
+.comp-table td:first-child{font-weight:600;color:var(--ink2);}
+.comp-table td.accent{color:var(--coral);font-weight:500;}
+.timeline{position:relative;padding-left:28px;}
+.timeline::before{content:'';position:absolute;left:8px;top:8px;bottom:8px;width:2px;background:linear-gradient(180deg,var(--coral),transparent);}
+.tl-item{position:relative;margin-bottom:20px;}
+.tl-dot{position:absolute;left:-24px;top:4px;width:12px;height:12px;border-radius:50%;background:var(--coral);border:2px solid var(--paper);box-shadow:0 0 0 2px var(--coral);}
+.tl-period{font-family:'DM Mono',monospace;font-size:10.5px;color:var(--coral);margin-bottom:4px;}
+.tl-title{font-size:14px;font-weight:600;margin-bottom:4px;color:var(--ink);}
+.tl-body{font-size:12.5px;color:var(--muted);line-height:1.6;}
+.tl-badge{display:inline-block;font-size:10px;padding:1.5px 7px;border-radius:2px;background:#fff0eb;color:var(--coral);margin-left:6px;font-weight:500;}
+.mnemonic-box{background:linear-gradient(135deg,var(--ink),var(--ink2));border-radius:5px;padding:28px 32px;color:var(--paper);margin-bottom:16px;}
+.m-label{font-size:10px;font-family:'DM Mono',monospace;letter-spacing:1.5px;color:var(--coral2);text-transform:uppercase;margin-bottom:14px;}
+.mnemonic-word{font-family:'Playfair Display',serif;font-size:clamp(22px,3vw,32px);font-weight:900;color:var(--coral2);letter-spacing:3px;margin-bottom:18px;}
+.mnemonic-rows{display:flex;flex-direction:column;gap:10px;}
+.m-row{display:flex;gap:14px;}
+.m-letter{font-family:'DM Mono',monospace;font-size:18px;font-weight:500;color:var(--coral2);width:28px;flex-shrink:0;}
+.m-text{font-size:13px;line-height:1.5;color:var(--paper);}
+.m-text strong{color:var(--coral2);}
+.m-tip{margin-top:16px;padding:12px 14px;background:rgba(194,82,43,0.15);border-radius:3px;font-size:12px;font-style:italic;color:rgba(245,242,235,0.7);}
+.pyq-item{background:#fff;border:1px solid var(--border);border-radius:4px;padding:22px;margin-bottom:14px;}
+.pyq-meta{display:flex;gap:8px;margin-bottom:12px;}
+.pyq-tag{font-size:10px;padding:2px 8px;border-radius:2px;font-weight:500;font-family:'DM Mono',monospace;}
+.pyq-tag.prelims{background:#fdf5e6;color:var(--gold);}
+.pyq-tag.year{background:var(--paper2);color:var(--muted);}
+.pyq-q{font-size:14px;font-weight:500;line-height:1.6;margin-bottom:14px;}
+.pyq-options{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:14px;}
+.pyq-opt{padding:8px 12px;border-radius:3px;font-size:12.5px;border:1px solid var(--border);background:var(--paper);cursor:pointer;transition:all 0.18s;}
+.pyq-opt:hover{border-color:var(--coral);background:#fff5f2;}
+.pyq-opt.correct{background:#e8f5e9;border-color:#4caf50;color:#2e7d32;font-weight:500;}
+.pyq-opt.wrong{background:#ffebee;border-color:#ef9a9a;color:#c62828;}
+.pyq-answer{display:none;padding:14px 16px;background:#e8f5f3;border-radius:3px;border-left:3px solid var(--teal);}
+.pyq-answer.show{display:block;}
+.pyq-answer strong{color:var(--teal);font-size:12px;}
+.pyq-answer p{font-size:13px;color:var(--ink2);margin-top:5px;line-height:1.6;}
+.reveal-btn{font-size:11.5px;padding:6px 14px;border-radius:3px;background:none;border:1px solid var(--border);cursor:pointer;color:var(--muted);transition:all 0.18s;}
+.reveal-btn:hover{border-color:var(--teal);color:var(--teal);}
+.mains-box{background:#fff;border:1px solid var(--border);border-radius:4px;padding:22px;}
+.mains-q{font-size:14.5px;font-weight:600;line-height:1.6;margin-bottom:14px;}
+.mains-meta{display:flex;gap:8px;margin-bottom:14px;}
+.mains-tag{font-size:10px;padding:2px 8px;border-radius:2px;font-weight:500;font-family:'DM Mono',monospace;background:#ebf5f3;color:var(--teal);}
+.mains-answer{display:none;border-top:1px solid var(--border);padding-top:16px;}
+.mains-answer.show{display:block;}
+.ans-sec{margin-bottom:14px;}
+.ans-sec h5{font-size:11px;font-family:'DM Mono',monospace;letter-spacing:1px;color:var(--coral);text-transform:uppercase;margin-bottom:6px;}
+.ans-sec p,.ans-sec li{font-size:13px;line-height:1.7;color:var(--ink2);}
+.ans-sec ul{padding-left:18px;}
+.ans-sec li{margin-bottom:4px;}
+.qr-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.qr-item{display:flex;gap:10px;background:#fff;border:1px solid var(--border);border-radius:4px;padding:14px 16px;}
+.qr-num{font-family:'DM Mono',monospace;font-size:10px;color:var(--coral);font-weight:500;flex-shrink:0;margin-top:2px;}
+.qr-text{font-size:13px;line-height:1.6;color:var(--ink2);}
+.qr-text strong{color:var(--coral);}
+.memory-hook{background:var(--coral);border-radius:4px;padding:16px 22px;display:flex;align-items:center;gap:16px;margin-top:32px;}
+.hook-icon{font-size:22px;}
+.hook-text{font-size:14px;font-weight:600;color:#fff;line-height:1.5;}
+.check-mcq{background:#fff;border:1px solid var(--border);border-radius:4px;padding:20px;margin-bottom:12px;}
+.check-q{font-size:14px;font-weight:500;margin-bottom:14px;line-height:1.6;}
+.check-opts{display:flex;flex-direction:column;gap:7px;}
+.check-opt{padding:10px 14px;border-radius:3px;font-size:13px;border:1px solid var(--border);background:var(--paper);cursor:pointer;transition:all 0.18s;text-align:left;display:flex;align-items:center;gap:10px;}
+.check-opt:hover{border-color:var(--coral);background:#fff5f2;}
+.check-opt.correct{background:#e8f5e9;border-color:#4caf50;color:#2e7d32;}
+.check-opt.wrong{background:#ffebee;border-color:#ef9a9a;color:#c62828;}
+.opt-letter{width:22px;height:22px;border-radius:50%;background:var(--paper2);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;flex-shrink:0;}
+.check-opt.correct .opt-letter{background:#4caf50;color:#fff;}
+.check-opt.wrong .opt-letter{background:#ef9a9a;color:#fff;}
+.check-feedback{margin-top:10px;padding:10px 14px;border-radius:3px;font-size:12.5px;display:none;line-height:1.6;}
+.check-feedback.show{display:block;}
+.check-feedback.ok{background:#e8f5e9;color:#2e7d32;}
+.check-feedback.no{background:#ffebee;color:#c62828;}
+.sidebar::-webkit-scrollbar{width:4px;}
+.sidebar::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.1);border-radius:2px;}
+.print-btn{position:fixed;bottom:24px;right:24px;background:var(--ink);color:var(--coral2);border:none;border-radius:50%;width:44px;height:44px;font-size:16px;cursor:pointer;box-shadow:0 4px 16px rgba(26,26,46,0.25);transition:transform 0.18s;display:flex;align-items:center;justify-content:center;}
+.print-btn:hover{transform:scale(1.1);}
+@media print{.sidebar,.topbar,.print-btn{display:none;}.content{padding:20px;}}
+@media(max-width:768px){.sidebar{display:none;}.content{padding:24px 20px 60px;}.topbar{padding:10px 20px;}.region-grid,.qr-grid,.pyq-options{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<aside class="sidebar">
+  <div class="sidebar-logo"><a href="../index.html">Bihar History<br>Study System</a><span>BPSC · UPSC · State PCS</span></div>
+  <div class="sidebar-part">Part I — Ancient Bihar</div>
+  <a class="sidebar-item done" href="m01.html"><span class="s-num">01</span><span class="s-dot"></span>Sources & Prehistoric Bihar</a>
+  <a class="sidebar-item done" href="m02.html"><span class="s-num">02</span><span class="s-dot"></span>Mahajanapadas</a>
+  <a class="sidebar-item done" href="m03.html"><span class="s-num">03</span><span class="s-dot"></span>Pre-Mauryan Dynasties</a>
+  <a class="sidebar-item done" href="m04.html"><span class="s-num">04</span><span class="s-dot"></span>Buddhism & Jainism</a>
+  <a class="sidebar-item done" href="m05.html"><span class="s-num">05</span><span class="s-dot"></span>Mauryan Empire</a>
+  <a class="sidebar-item done" href="m06.html"><span class="s-num">06</span><span class="s-dot"></span>Ashoka — Dhamma</a>
+  <a class="sidebar-item done" href="m07.html"><span class="s-num">07</span><span class="s-dot"></span>Post-Mauryan to Gupta</a>
+  <div class="sidebar-part">Part II — Medieval Bihar</div>
+  <a class="sidebar-item done" href="m08.html"><span class="s-num">08</span><span class="s-dot"></span>Pala Dynasty</a>
+  <a class="sidebar-item done" href="m09.html"><span class="s-num">09</span><span class="s-dot"></span>Sena & Karnata</a>
+  <a class="sidebar-item done" href="m10.html"><span class="s-num">10</span><span class="s-dot"></span>Turkish Invasion</a>
+  <a class="sidebar-item done" href="m11.html"><span class="s-num">11</span><span class="s-dot"></span>Khilji, Tughlaq & Noohani</a>
+  <a class="sidebar-item done" href="m12.html"><span class="s-num">12</span><span class="s-dot"></span>Sher Shah Suri</a>
+  <a class="sidebar-item done" href="m13.html"><span class="s-num">13</span><span class="s-dot"></span>Mughal Rule in Bihar</a>
+  <a class="sidebar-item done" href="m14.html"><span class="s-num">14</span><span class="s-dot"></span>Sufism, Sikhism & Tribal States</a>
+  <div class="sidebar-part">Part III — Modern Bihar</div>
+  <a class="sidebar-item done" href="m15.html"><span class="s-num">15</span><span class="s-dot"></span>European Entry</a>
+  <a class="sidebar-item done" href="m16.html"><span class="s-num">16</span><span class="s-dot"></span>Battle of Buxar</a>
+  <a class="sidebar-item active" href="m17.html"><span class="s-num">17</span><span class="s-dot"></span>Revolt of 1857</a>
+  <a class="sidebar-item" href="m18.html"><span class="s-num">18</span><span class="s-dot"></span>Tribal Revolts</a>
+  <a class="sidebar-item" href="m19.html"><span class="s-num">19</span><span class="s-dot"></span>Freedom Movements</a>
+  <a class="sidebar-item" href="m20.html"><span class="s-num">20</span><span class="s-dot"></span>Eminent Freedom Fighters</a>
+  <a class="sidebar-item" href="m21.html"><span class="s-num">21</span><span class="s-dot"></span>Formation of Modern Bihar</a>
+</aside>
+
+<div class="main">
+  <div class="topbar">
+    <div class="topbar-left"><span class="era-pill">MODERN BIHAR</span><span class="topbar-title">Module 17 of 21</span></div>
+    <div class="topbar-nav">
+      <a href="m16.html" class="nav-btn">← Prev</a>
+      <a href="../index.html" class="nav-btn">Index</a>
+      <a href="m18.html" class="nav-btn primary">Next →</a>
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="mod-header">
+      <div class="mod-badge"><span>MODULE 17</span><span>·</span><span>Modern Bihar</span></div>
+      <h1>Revolt of 1857<br><em>in Bihar</em></h1>
+      <p>Bihar's 1857 revolt was among the most intense in India. An 80-year-old Rajput king from Jagdishpur, Babu Kunwar Singh, became its greatest hero — fighting British forces across Bihar, UP, and back again, winning battles even as he lay dying from a battle wound.</p>
+      <div class="mod-meta">
+        <span class="meta-tag b">BPSC Special</span>
+        <span class="meta-tag m">Mains GS-I</span>
+        <span class="meta-tag s">⚠ Trap: Bihar revolt started 12 June 1857 at Rohini (Deoghar). Patna revolt = 3 July 1857 under Pir Ali. Kunwar Singh died 26 April 1858. Munger remained UNAFFECTED.</span>
+      </div>
+    </div>
+
+    <!-- STORY HOOK -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">🎭</span><span class="section-label-text">Story Hook</span><span class="section-sub">START HERE</span></div>
+      <div class="story-box">
+        <p>The year is <strong>23 April 1858</strong>. On the banks of the Ganga near Shivpur Ghat, an 80-year-old man is leading his soldiers across the river. A British soldier shoots him in the wrist. The arm is nearly severed. What does <strong>Babu Kunwar Singh</strong> do?</p>
+        <p>He draws his sword with his other hand, <strong>cuts off his own wounded arm</strong>, and throws it into the Ganges as an offering to the river. Then he continues leading his troops. Three days later, on <strong>26 April 1858</strong>, he returns victorious to his homeland of Jagdishpur — and then, finally, allows himself to die of his wounds.</p>
+        <p>This is the spirit of Bihar's 1857 revolt. It began on <strong>12 June 1857</strong> at Rohini (Deoghar) — not at Meerut — and it burned through Arrah, Patna, Tirhut, Saran, Gaya, and Hazaribagh. Old men, young soldiers, booksellers, and kings — all of Bihar rose against the Company.</p>
+        <div class="story-highlight">💡 Babu Kunwar Singh, born 1777 — was 80 years old when he led one of India's most audacious revolts. Age was no barrier when the cause was freedom.</div>
+      </div>
+    </div>
+
+    <!-- CORE CONCEPT -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">🧠</span><span class="section-label-text">Core Concept — Bihar's 1857 Revolt</span></div>
+
+      <!-- KEY DATES -->
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:20px;">
+        <div style="background:#fff;border:1px solid var(--border);border-radius:4px;padding:16px;border-top:3px solid var(--coral);">
+          <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--coral);margin-bottom:6px;">BIHAR STARTS</div>
+          <div style="font-size:18px;font-weight:700;color:var(--ink);margin-bottom:4px;">12 June 1857</div>
+          <div style="font-size:12px;color:var(--muted);">Rohini (Deoghar, now Jharkhand) — 32nd Infantry Regiment. Lt Norman Leslie, Major MacDonald, Dr Grant killed.</div>
+        </div>
+        <div style="background:#fff;border:1px solid var(--border);border-radius:4px;padding:16px;border-top:3px solid var(--teal);">
+          <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--teal);margin-bottom:6px;">PATNA REVOLT</div>
+          <div style="font-size:18px;font-weight:700;color:var(--ink);margin-bottom:4px;">3 July 1857</div>
+          <div style="font-size:12px;color:var(--muted);">Led by Pir Ali Khan (bookseller). Dr Lyell (Deputy Opium Agent) killed. Pir Ali hanged.</div>
+        </div>
+        <div style="background:#fff;border:1px solid var(--border);border-radius:4px;padding:16px;border-top:3px solid var(--gold);">
+          <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--gold);margin-bottom:6px;">KUNWAR SINGH DIES</div>
+          <div style="font-size:18px;font-weight:700;color:var(--ink);margin-bottom:4px;">26 April 1858</div>
+          <div style="font-size:12px;color:var(--muted);">At Jagdishpur after defeating British 3 days earlier (23 Apr). Revolt fully suppressed Dec 1859.</div>
+        </div>
+      </div>
+
+      <!-- KUNWAR SINGH -->
+      <div class="hero-box">
+        <div class="hero-header">
+          <h3>⭐ Babu Kunwar Singh — Bihar's Greatest 1857 Hero</h3>
+          <div class="h-dates">Born 1777 · Died 26 April 1858 · Age 80 at revolt</div>
+        </div>
+        <div class="hero-body">
+          <p>Born <strong>1777</strong> at <strong>Jagdishpur, Bhojpur district</strong> (then Shahabad). Belonged to Ujjaini Rajput royal family.</p>
+          <ul>
+            <li><strong>27 July 1857:</strong> Occupied Arrah (Shahabad district). Defeated British forces alongside Nana Saheb at Azamgarh.</li>
+            <li>Rebels from Danapur, Chota Nagpur, Manbhum, Singhbhum and Palamu joined his leadership.</li>
+            <li>Had manufacturing unit of arms at Jagdishpur. Fort stocked to feed 20,000 men for 6 months.</li>
+            <li>Supporters: brother <strong>Amar Singh</strong>, nephew Rathbhanjan Singh, Hari Kishan Singh. King of Dumrao = ally.</li>
+            <li><strong>August 1857:</strong> Vincent Eyer captured Jagdishpur, destroyed fort. Kunwar Singh continued fighting across Bihar and UP.</li>
+            <li><strong>23 April 1858:</strong> Defeated British force under Captain Le Grand. Shot in wrist; cut off own arm; offered it to Ganga.</li>
+            <li><strong>26 April 1858:</strong> Returned victorious to Jagdishpur. Died of wounds.</li>
+            <li>Fight continued by brother <strong>Amar Singh</strong> and nephew Hari Kishan Singh till revolt suppressed (December 1859).</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- REGIONAL SPREAD -->
+      <div class="region-grid">
+        <div class="region-card"><h5>Patna Division</h5><p><strong>Deeply affected.</strong> Commissioner = <strong>William Tayler</strong>. Pir Ali led Patna revolt (3 July). Dr Lyell killed. Wahabi leaders also active. Gaya — villagers formed rebel groups.</p></div>
+        <div class="region-card"><h5>Shahabad (Arrah)</h5><p><strong>Kunwar Singh</strong> occupied Arrah 27 July 1857. Jeodhar Singh and Haider Ali Khan = rebel leaders. Most intense region outside Patna.</p></div>
+        <div class="region-card"><h5>Muzaffarpur & Tirhut</h5><p>25 July 1857 — army revolted, killed Englishmen. Revolt in Champaran and Saran due to 12th Irregular Cavalry mutiny at Sugauli.</p></div>
+        <div class="region-card"><h5>Hazaribagh</h5><p>Infantry revolted July 1857. Leader: Madhav Singh. Vishwanath Shahdeo, Pandey Ganpat Rai = other leaders; captured and sentenced to death.</p></div>
+        <div class="region-card"><h5>Singhbhum & Palamu</h5><p>Raja Arjun Singh of Porhat revolted. Nilamber and Pitamber = Palamu leaders. Tribal people joined alongside soldiers.</p></div>
+        <div class="region-card"><h5>Danapur Cantt</h5><p>25 July 1857 — Danapur Cantt revolted. <strong>Starting point of widespread Bihar revolt.</strong> Soldiers plundered treasury; proclaimed Kunwar Singh as leader.</p></div>
+        <div class="region-card"><h5>Maharajas Who Helped British</h5><p>Maharajas of <strong>Darbhanga, Dumraon, Hatwa</strong> helped the British. <strong>Munger remained unaffected</strong> by the revolt.</p></div>
+        <div class="region-card"><h5>Outcome</h5><p>Bengal Tenancy Act <strong>1885</strong> — defined rights of tenants in Bihar and Bengal. Direct result of 1857 discontent against zamindars.</p></div>
+      </div>
+    </div>
+
+    <!-- TIMELINE -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">⏳</span><span class="section-label-text">Timeline — Revolt of 1857 in Bihar</span></div>
+      <div class="timeline">
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-period">10 May 1857</div><div class="tl-title">National Revolt Begins at Meerut</div><div class="tl-body">Greased cartridge issue sparks revolt at Meerut. Lord Canning = British Viceroy. Spreads rapidly to north India.</div></div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-period">12 June 1857 <span class="tl-badge">⚠ KEY DATE — BIHAR STARTS</span></div><div class="tl-title">Bihar Revolt Begins at Rohini, Deoghar — 32nd Infantry</div><div class="tl-body">32nd Infantry Regiment at Rohini (Deoghar, now Jharkhand). Three British officers killed: Lt Norman Leslie, Major MacDonald, Dr Grant. FIRST Bihar revolt.</div></div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-period">3 July 1857 <span class="tl-badge">⚠ PATNA</span></div><div class="tl-title">Patna Revolt — Pir Ali Khan (Bookseller) Leads</div><div class="tl-body">Pir Ali Khan (bookseller) leads Patna revolt. Dr Lyell (Deputy Opium Agent) killed by mob. Pir Ali, Luft Ali Khan, Shaikh Ghasila + Mahabat Ali hanged.</div></div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-period">25 July 1857</div><div class="tl-title">Danapur Cantt + Muzaffarpur Revolt</div><div class="tl-body">Danapur Cantt mutinied — soldiers join revolt en masse. Muzaffarpur army killed Englishmen. Revolt spreads to Bihar's heartland.</div></div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-period">27 July 1857</div><div class="tl-title">Kunwar Singh Occupies Arrah</div><div class="tl-body">Babu Kunwar Singh captures Arrah (Shahabad). Defeats British at Azamgarh with Nana Saheb. Rebels from all Bihar districts join him.</div></div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-period">August 1857</div><div class="tl-title">Vincent Eyer Captures Jagdishpur — Destroys Kunwar Singh's Fort</div><div class="tl-body">British capture Jagdishpur, destroy mud fort. Kunwar Singh escapes and continues guerrilla war across Bihar-UP. Amar Singh continues fighting.</div></div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-period">23 April 1858</div><div class="tl-title">Kunwar Singh's Last Victory — Wrist Shot, Arm Offered to Ganga</div><div class="tl-body">Defeats Captain Le Grand's forces. Shot in wrist by British. Cuts off own arm and offers it to Ganga at Shivpur Ghat. Crosses river to Jagdishpur.</div></div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-period">26 April 1858</div><div class="tl-title">Babu Kunwar Singh Dies at Jagdishpur — Victory Day</div><div class="tl-body">Returns victorious to Jagdishpur. Dies of wounds aged ~80. Brother Amar Singh + nephew Hari Kishan Singh continue fight till December 1859.</div></div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-period">1885</div><div class="tl-title">Bengal Tenancy Act — Outcome of 1857</div><div class="tl-body">Defined tenants' rights in Bihar and Bengal. Direct result of widespread discontent that fuelled 1857 revolt. Most significant Bihar-specific outcome.</div></div>
+      </div>
+    </div>
+
+    <!-- LEADERS TABLE -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">📊</span><span class="section-label-text">Region-wise Leaders of 1857 in Bihar</span></div>
+      <table class="comp-table">
+        <thead><tr><th>Region</th><th>Key Leaders</th><th>Notable Event</th></tr></thead>
+        <tbody>
+          <tr><td>Rohini (Deoghar)</td><td class="accent">32nd Infantry — collective</td><td>First Bihar revolt (12 June 1857); 3 British officers killed</td></tr>
+          <tr><td>Patna</td><td class="accent">Pir Ali Khan</td><td>Patna revolt 3 July; Dr Lyell killed; Pir Ali hanged</td></tr>
+          <tr><td>Jagdishpur (Bhojpur)</td><td class="accent">Babu Kunwar Singh, Amar Singh</td><td>Arrah occupied 27 July; last battle 23 Apr 1858; died 26 Apr 1858</td></tr>
+          <tr><td>Nawada</td><td>Nana Singh, Haider Ali Khan</td><td>—</td></tr>
+          <tr><td>Rajgir</td><td>Mehdi Ali Khan, Hukoo Singh, Munku Singh</td><td>—</td></tr>
+          <tr><td>Hazaribagh</td><td>Madhav Singh, Vishwanath Shahdeo, Pandey Ganpat Rai</td><td>Infantry revolted July 1857; Shahdeo + Ganpat Rai executed</td></tr>
+          <tr><td>Palamu</td><td>Nilamber, Pitamber</td><td>Palamu became centre of serious agitation</td></tr>
+          <tr><td>Singhbhum</td><td>Raja Arjun Singh of Porhat</td><td>Revolted 1857; arrested 1859</td></tr>
+          <tr><td>Chhapra</td><td>Muhammad Hussain Khan</td><td>—</td></tr>
+          <tr><td>Munger</td><td colspan="2" style="color:var(--teal);font-style:italic;">⚠ REMAINED UNAFFECTED by the revolt</td></tr>
+          <tr><td>Pro-British</td><td>Maharajas of Darbhanga, Dumraon, Hatwa</td><td>Actively helped British suppress the revolt</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- MNEMONIC -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">🧩</span><span class="section-label-text">Mnemonic</span></div>
+      <div class="mnemonic-box">
+        <div class="m-label">🧩 Mnemonic — Key 1857 Bihar Dates</div>
+        <div class="mnemonic-word">R · P · D · A · K</div>
+        <div class="mnemonic-rows">
+          <div class="m-row"><span class="m-letter">R</span><span class="m-text"><strong>Rohini (Deoghar)</strong> — 12 June 1857 — FIRST Bihar revolt; 32nd Infantry</span></div>
+          <div class="m-row"><span class="m-letter">P</span><span class="m-text"><strong>Patna revolt</strong> — 3 July 1857 — Pir Ali Khan (bookseller); Dr Lyell killed</span></div>
+          <div class="m-row"><span class="m-letter">D</span><span class="m-text"><strong>Danapur revolt</strong> — 25 July 1857 — widespread Bihar revolt begins; soldiers join Kunwar Singh</span></div>
+          <div class="m-row"><span class="m-letter">A</span><span class="m-text"><strong>Arrah occupied</strong> — 27 July 1857 — Kunwar Singh's greatest military achievement in Bihar</span></div>
+          <div class="m-row"><span class="m-letter">K</span><span class="m-text"><strong>Kunwar Singh dies</strong> — 26 April 1858 — at Jagdishpur; arm cut off 3 days earlier</span></div>
+        </div>
+        <div class="m-tip">💡 "Rarely Prudent Danapur Allows Kunwar" = Rohini (12 Jun), Patna (3 Jul), Danapur (25 Jul), Arrah (27 Jul), Kunwar dies (26 Apr 1858) — the 5 key dates in Bihar's 1857 revolt!</div>
+      </div>
+    </div>
+
+    <!-- PYQ -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">📝</span><span class="section-label-text">PYQ Practice</span></div>
+      <div class="pyq-item">
+        <div class="pyq-meta"><span class="pyq-tag prelims">BPSC 2005</span></div>
+        <div class="pyq-q">The most notable figure of Bihar revolt was Babu Kunwar Singh of:</div>
+        <div class="pyq-options">
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(a) Gaya</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'correct')">(b) Jagdishpur</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(c) Patna</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(d) Bhagalpur</div>
+        </div>
+        <div class="pyq-answer" id="ans-pyq1">
+          <strong>✓ CORRECT: (b) Jagdishpur</strong>
+          <p>Babu Kunwar Singh belonged to the royal Rajput family of <strong>Jagdishpur</strong>, which is currently part of <strong>Bhojpur district</strong> of Bihar. Born 1777, he was about 80 years old when he led the revolt. Jagdishpur was also where he returned and died on 26 April 1858 after his last victorious battle.</p>
+        </div>
+        <button class="reveal-btn" onclick="revealPYQ('ans-pyq1',this)">Show Explanation</button>
+      </div>
+      <div class="pyq-item">
+        <div class="pyq-meta"><span class="pyq-tag prelims">BPSC 2005</span></div>
+        <div class="pyq-q">Kunwar Singh, the revolutionary to initiate the Revolt of 1857 from Bihar, died on:</div>
+        <div class="pyq-options">
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(a) 10th April, 1858</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(b) 17th June, 1858</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'correct')">(c) 26th April, 1858</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(d) 20th June, 1858</div>
+        </div>
+        <div class="pyq-answer" id="ans-pyq2">
+          <strong>✓ CORRECT: (c) 26th April, 1858</strong>
+          <p>Babu Kunwar Singh died on <strong>26 April 1858</strong> at Jagdishpur. Three days earlier (23 April), he had defeated British forces led by Captain Le Grand, but was shot in the wrist. He famously cut off his own wounded arm and offered it to the Ganga. He returned to Jagdishpur on 26 April and died of his wounds — a warrior's death after a warrior's life.</p>
+        </div>
+        <button class="reveal-btn" onclick="revealPYQ('ans-pyq2',this)">Show Explanation</button>
+      </div>
+      <div class="pyq-item">
+        <div class="pyq-meta"><span class="pyq-tag prelims">BPSC MCQ</span></div>
+        <div class="pyq-q">In Bihar, the Revolt of 1857 started on:</div>
+        <div class="pyq-options">
+          <div class="pyq-opt" onclick="answerPYQ(this,'correct')">(a) 12th June, 1857</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(b) 3rd July, 1857</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(c) 25th July, 1857</div>
+          <div class="pyq-opt" onclick="answerPYQ(this,'wrong')">(d) 30th July, 1857</div>
+        </div>
+        <div class="pyq-answer" id="ans-pyq3">
+          <strong>✓ CORRECT: (a) 12th June, 1857</strong>
+          <p>The Revolt of 1857 started in Bihar on <strong>12 June 1857</strong> at Rohini (Deoghar, now in Jharkhand) at the headquarters of the 32nd Infantry Regiment. ⚠️ Option (b) 3 July = Patna revolt under Pir Ali. Option (c) 25 July = Danapur Cantt + Muzaffarpur. The FIRST Bihar revolt was 12 June at Rohini.</p>
+        </div>
+        <button class="reveal-btn" onclick="revealPYQ('ans-pyq3',this)">Show Explanation</button>
+      </div>
+    </div>
+
+    <!-- QR -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">⚡</span><span class="section-label-text">Quick Revision Bullets</span></div>
+      <div class="qr-grid">
+        <div class="qr-item"><span class="qr-num">01</span><span class="qr-text">Bihar revolt started <strong>12 June 1857</strong> at Rohini (Deoghar) — 32nd Infantry Regiment. Three British officers killed. Lord Canning = Viceroy.</span></div>
+        <div class="qr-item"><span class="qr-num">02</span><span class="qr-text">Patna revolt = <strong>3 July 1857</strong> under <strong>Pir Ali Khan</strong> (bookseller). Dr Lyell (Deputy Opium Agent) killed. Pir Ali hanged.</span></div>
+        <div class="qr-item"><span class="qr-num">03</span><span class="qr-text">Danapur Cantt revolted <strong>25 July 1857</strong> — starting point of widespread revolt in Bihar. Soldiers proclaimed Kunwar Singh as leader.</span></div>
+        <div class="qr-item"><span class="qr-num">04</span><span class="qr-text"><strong>Kunwar Singh (1777–1858)</strong> of Jagdishpur (Bhojpur). Occupied Arrah 27 July 1857. Aged ~80. Cut off own arm 23 April 1858. Died 26 April 1858.</span></div>
+        <div class="qr-item"><span class="qr-num">05</span><span class="qr-text">Darbhanga, Dumraon, Hatwa Maharajas <strong>helped the British</strong>. <strong>Munger remained UNAFFECTED</strong> by revolt. William Tayler = Commissioner of Patna division during revolt.</span></div>
+        <div class="qr-item"><span class="qr-num">06</span><span class="qr-text">After Kunwar Singh: brother <strong>Amar Singh</strong> + nephew Hari Kishan Singh continued till revolt completely suppressed <strong>December 1859</strong>.</span></div>
+        <div class="qr-item"><span class="qr-num">07</span><span class="qr-text"><strong>Outcome = Bengal Tenancy Act 1885</strong> — defined tenants' rights in Bihar and Bengal. Direct result of 1857 widespread peasant discontent against zamindars.</span></div>
+      </div>
+      <div class="memory-hook">
+        <span class="hook-icon">🧲</span>
+        <span class="hook-text">Memory Hook: "An 80-year-old king cut off his own arm and offered it to the Ganga — <em>that is Babu Kunwar Singh, that is Bihar's 1857.</em>"</span>
+      </div>
+    </div>
+
+    <!-- CONCEPT CHECK -->
+    <div class="section">
+      <div class="section-head"><span class="section-icon">✅</span><span class="section-label-text">Concept Check</span></div>
+      <div class="check-mcq">
+        <div class="check-q">1. Who led the Revolt of 1857 in Patna on 3 July 1857?</div>
+        <div class="check-opts">
+          <button class="check-opt" onclick="checkAnswer(this,'correct','A')"><span class="opt-letter">A</span>Pir Ali Khan</button>
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','B')"><span class="opt-letter">B</span>Kunwar Singh</button>
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','C')"><span class="opt-letter">C</span>Amar Singh</button>
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','D')"><span class="opt-letter">D</span>Nilamber</button>
+        </div>
+        <div class="check-feedback ok" id="fb1-ok">✓ Correct! Pir Ali Khan, a bookseller, led the Patna revolt on 3 July 1857. The Deputy Opium Agent Dr Lyell was killed by the mob. Pir Ali, Luft Ali Khan, Shaikh Ghasila, rebel sepoy Mahabat Ali, and a police Jamadar named Ali were all hanged. Kunwar Singh led the Jagdishpur/Arrah revolt, not the Patna city revolt.</div>
+        <div class="check-feedback no" id="fb1-no">✗ Answer is (A) Pir Ali Khan. He was a bookseller (NOT a king or soldier) who led the Patna revolt on 3 July 1857. This is a BPSC-tested fact — the combination of his profession (bookseller) and leadership role makes him distinctive.</div>
+      </div>
+      <div class="check-mcq">
+        <div class="check-q">2. Which part of Bihar remained UNAFFECTED by the Revolt of 1857?</div>
+        <div class="check-opts">
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','A')"><span class="opt-letter">A</span>Arrah</button>
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','B')"><span class="opt-letter">B</span>Danapur</button>
+          <button class="check-opt" onclick="checkAnswer(this,'wrong','C')"><span class="opt-letter">C</span>Muzaffarpur</button>
+          <button class="check-opt" onclick="checkAnswer(this,'correct','D')"><span class="opt-letter">D</span>Munger</button>
+        </div>
+        <div class="check-feedback ok" id="fb2-ok">✓ Correct! Munger remained UNAFFECTED by the Revolt of 1857. This is a standard BPSC trap question — while Patna, Arrah, Danapur, Muzaffarpur, Tirhut, Hazaribagh all saw intense revolts, Munger was peaceful. Also remember: Maharajas of Darbhanga, Dumraon, and Hatwa actually helped the British.</div>
+        <div class="check-feedback no" id="fb2-no">✗ Answer is (D) Munger. It was the only major Bihar region that remained unaffected. Arrah (Kunwar Singh), Danapur (sepoy mutiny 25 July), and Muzaffarpur (25 July army revolt) were all significantly affected.</div>
+      </div>
+      <div class="mains-box">
+        <div class="mains-meta"><span class="mains-tag">MAINS GS-I · 150 WORDS</span></div>
+        <div class="mains-q">Discuss the role of Babu Kunwar Singh in the Revolt of 1857 in Bihar. Why is he considered the greatest hero of Bihar's 1857 revolt?</div>
+        <button class="reveal-btn" style="margin-bottom:12px;" onclick="revealMains(this)">▼ Show Model Answer</button>
+        <div class="mains-answer" id="mains-ans1">
+          <div class="ans-sec"><h5>Introduction</h5><p>Babu Kunwar Singh (1777–1858) of Jagdishpur, Bhojpur, stands as the most iconic figure of Bihar's 1857 revolt — an 80-year-old Rajput king who turned military reverses into moral victories and refused to surrender until his dying breath.</p></div>
+          <div class="ans-sec"><h5>Military Leadership</h5><ul>
+            <li><strong>27 July 1857:</strong> Occupied Arrah (Shahabad district) — the most significant early military victory of Bihar's revolt</li>
+            <li>Led forces from Bihar to Awadh, fighting alongside Nana Saheb at Azamgarh</li>
+            <li>Built a remarkably broad coalition — rebels from Danapur, Chota Nagpur, Manbhum, Singhbhum, Palamu</li>
+            <li>Maintained fighting capability even after Vincent Eyer destroyed his Jagdishpur fort (August 1857)</li>
+          </ul></div>
+          <div class="ans-sec"><h5>The Legendary Final Battle</h5><p>On 23 April 1858, at Shivpur Ghat, Kunwar Singh defeated Captain Le Grand's forces. When shot in the wrist, he cut off his own arm and offered it to the Ganga — a gesture that has become legendary. He returned to Jagdishpur victoriously on 26 April 1858, and died the same day of his wounds.</p></div>
+          <div class="ans-sec"><h5>Conclusion</h5><p>Kunwar Singh's greatest contribution was transforming a military revolt into a symbol of Bihar's resistance. At 80, defying physical limitations, leading diverse forces — he demonstrated that freedom's call knows no age. His legacy is celebrated every year on Bihar Diwas, and Jagdishpur proudly bears his memory.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<button class="print-btn" onclick="window.print()">🖨</button>
+<script>
+const KEY='bihar_hist_v1';
+let visited=new Set(JSON.parse(localStorage.getItem(KEY)||'[]'));
+visited.add('modules/m17.html');
+localStorage.setItem(KEY,JSON.stringify([...visited]));
+document.querySelectorAll('.sidebar-item').forEach(item=>{const href=item.getAttribute('href');if(href&&visited.has('modules/'+href))item.classList.add('done');});
+function answerPYQ(el,type){const p=el.closest('.pyq-item');p.querySelectorAll('.pyq-opt').forEach(o=>{o.onclick=null;o.style.cursor='default';});el.classList.add(type);}
+function revealPYQ(id,btn){document.getElementById(id).classList.toggle('show');btn.textContent=btn.textContent.includes('Show')?'Hide Explanation':'Show Explanation';}
+function revealMains(btn){document.getElementById('mains-ans1').classList.toggle('show');btn.textContent=btn.textContent.includes('▼')?'▲ Hide Model Answer':'▼ Show Model Answer';}
+function checkAnswer(el,type){const p=el.closest('.check-mcq');p.querySelectorAll('.check-opt').forEach(o=>{o.onclick=null;o.style.cursor='default';});el.classList.add(type);const idx=Array.from(document.querySelectorAll('.check-mcq')).indexOf(p)+1;const ok=document.getElementById('fb'+idx+'-ok');const no=document.getElementById('fb'+idx+'-no');if(type==='correct'&&ok)ok.classList.add('show');if(type==='wrong'&&no)no.classList.add('show');}
+</script>
+</body>
+</html>
